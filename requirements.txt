@@ -1,0 +1,16 @@
+# Bible3D — Python ETL + Export dependencies
+# Pinned for reproducibility. Tested on Python 3.11+.
+
+# ── Core Data ──────────────────────────────────────────────────
+pandas==2.2.2
+numpy==1.26.4
+requests==2.32.3
+
+# ── Geospatial & DB ────────────────────────────────────────────
+geopandas==0.14.4
+shapely==2.0.4
+SQLAlchemy==2.0.30
+psycopg2-binary==2.9.9
+
+# ── GeoArrow / Parquet Export ──────────────────────────────────
+pyarrow==16.1.0

@@ -1,0 +1,20 @@
+services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    container_name: bible3d_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bible3d
+      POSTGRES_USER: bible3d
+      # Never hardcode passwords. Set POSTGRES_PASSWORD in your shell or a
+      # .env file (gitignored). Falls back to a safe local-only default.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bible3d_local}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+volumes:
+  pgdata:
+    driver: local
