@@ -5,7 +5,7 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Play, Pause, X, Search, BookOpen, Map as MapIcon } from "lucide-react";
+import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu } from "lucide-react";
 import { tableFromIPC } from "apache-arrow";
 import DeckGL from "@deck.gl/react";
 import { type PickingInfo } from "@deck.gl/core";
@@ -154,6 +154,7 @@ export default function DataLoader() {
   const [journeyQuery,  setJourneyQuery]  = useState("");
   const [selectedEvent, setSelectedEvent] = useState<BibleEvent | null>(null);
   const [showVerseModal, setShowVerseModal] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -308,8 +309,15 @@ export default function DataLoader() {
 
       <Tooltip info={hoverInfo} />
 
+      <button
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        className="md:hidden fixed top-4 left-4 z-[100] bg-slate-900/90 border border-slate-700 p-3 rounded-full shadow-lg text-amber-500"
+      >
+        {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+
       {/* TOP LEFT SIDEBAR - Command Center */}
-      <div className="absolute top-4 left-4 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col gap-4">
+      <div className={`fixed md:absolute top-4 left-4 z-50 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl flex flex-col gap-4 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-[calc(100%+2rem)] md:translate-x-0'}`}>
         <div className="flex items-center gap-2 border-b border-slate-700 pb-3">
           <MapIcon className="w-5 h-5 text-amber-500" />
           <h1 className="text-lg font-bold text-slate-100 tracking-wide">Bible3D Matrix</h1>
@@ -382,6 +390,7 @@ export default function DataLoader() {
               onClick={() => {
                 stopAnim();
                 setActiveEpochId(ep.id);
+                setIsSidebarOpen(false);
                 const bookSuffix = selectedBook !== "All" ? `&book=${selectedBook}` : "";
                 window.history.replaceState(null, "", `${ep.hash}${bookSuffix}`);
                 const subset = filteredEvents.filter((ev) => ev.epoch_id === ep.id);
