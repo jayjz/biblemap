@@ -74,7 +74,7 @@ async function fetchAndUnpackEvents(url: string): Promise<BibleEvent[]> {
     n: table.getChild("name"), y: table.getChild("ussher_year"), e: table.getChild("epoch_id"),
     t: table.getChild("event_type"), d: table.getChild("description"),
     lo: table.getChild("lon"), la: table.getChild("lat"), v: table.getChild("verse_text_snippet"),
-    pb: table.getChild("primary_book"),
+    pb: table.getChild("primary_book"), vr: table.getChild("verse_reference"),
   };
 
   for (let i = 0; i < table.numRows; i++) {
@@ -83,7 +83,7 @@ async function fetchAndUnpackEvents(url: string): Promise<BibleEvent[]> {
       epoch_id: Number(cols.e?.get(i) ?? 0), event_type: String(cols.t?.get(i) ?? ""),
       description: String(cols.d?.get(i) ?? ""), lon: Number(cols.lo?.get(i) ?? 0),
       lat: Number(cols.la?.get(i) ?? 0), verse_text_snippet: String(cols.v?.get(i) ?? ""),
-      primary_book: String(cols.pb?.get(i) ?? ""),
+      primary_book: String(cols.pb?.get(i) ?? ""), verse_reference: String(cols.vr?.get(i) ?? ""),
     });
   }
   return events;
