@@ -8,7 +8,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { tableFromIPC } from "apache-arrow";
 import DeckGL from "@deck.gl/react";
 import { type PickingInfo } from "@deck.gl/core";
-import { ScatterplotLayer } from "@deck.gl/layers";
+import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
+import { TripsLayer } from "@deck.gl/geo-layers";
 import { DataFilterExtension } from "@deck.gl/extensions";
 import Map from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -87,6 +88,34 @@ async function fetchAndUnpackEvents(url: string): Promise<BibleEvent[]> {
   return events;
 }
 
+async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
+  const parquet = await import("parquet-wasm/esm");
+  await (parquet as any).default?.();
+  const resp = await fetch(url);
+  if (!resp.ok) return [];
+  const buffer = await resp.arrayBuffer();
+  const wasmTbl = (parquet as any).readParquet(new Uint8Array(buffer));
+  const table = tableFromIPC(wasmTbl.intoIPCStream());
+
+  const journeys = [];
+  for (let i = 0; i < table.numRows; i++) {
+    // THE FIX: Deep-unpack the Arrow Vectors into standard JS Arrays
+    const rawPath = table.getChild("path")?.get(i)?.toJSON() ?? [];
+    const formattedPath = rawPath.map((pt: any) => Array.isArray(pt) ? pt : Array.from(pt));
+    
+    const rawTimes = table.getChild("timestamps")?.get(i)?.toJSON() ?? [];
+    const formattedTimes = Array.isArray(rawTimes) ? rawTimes : Array.from(rawTimes);
+
+    journeys.push({
+      name: String(table.getChild("name")?.get(i) ?? ""),
+      epoch_id: Number(table.getChild("epoch_id")?.get(i) ?? 0),
+      primary_book: String(table.getChild("primary_book")?.get(i) ?? ""),
+      path: formattedPath,
+      timestamps: formattedTimes,
+    });
+  }
+  return journeys;
+}
 // ── Tooltip ───────────────────────────────────────────────────────────────────
 function Tooltip({ info }: { info: PickingInfo | null }) {
   if (!info?.object) return null;
@@ -120,6 +149,8 @@ export default function DataLoader() {
   const [currentYear,   setCurrentYear]   = useState(0);
   const [hoverInfo,     setHoverInfo]     = useState<PickingInfo | null>(null);
   const [selectedBook,  setSelectedBook]  = useState<string>("All");
+  const [journeys,      setJourneys]      = useState<any[]>([]);
+  const [journeyQuery,  setJourneyQuery]  = useState("");
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -152,6 +183,7 @@ export default function DataLoader() {
 
   // Data fetch + mount-time URL sync
   useEffect(() => {
+    fetchAndUnpackJourneys("/bible-journeys.parquet?v=" + Date.now()).then(setJourneys);
     fetchAndUnpackEvents(POINTS_URL).then((data) => {
       setEvents(data);
       setLoading(false);
@@ -198,7 +230,43 @@ export default function DataLoader() {
     window.history.replaceState(null, "", `${baseHash}&book=${book}`);
   }, []);
 
+  const activeJourneys = useMemo(() => {
+  // THE FIX: Show all journeys by default, only filter if the user types something
+  if (!journeyQuery.trim()) return journeys;
+  
+  const q = journeyQuery.toLowerCase();
+  return journeys.filter((j) => 
+    j.name.toLowerCase().includes(q) || j.primary_book.toLowerCase().includes(q)
+  );
+}, [journeys, journeyQuery]);
+
   const layers = [
+    new PathLayer({
+      id: "journey-path",
+      data: activeJourneys,
+      getPath: (d) => d.path,
+      getColor: [253, 128, 93, 80],
+      widthMinPixels: 2,
+      extensions: [new DataFilterExtension({ filterSize: 2 })],
+      getFilterValue: (d) => [d.epoch_id, d.epoch_id],
+      filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
+      updateTriggers: { getFilterValue: [activeEpochId] }
+    } as any),
+    new TripsLayer({
+      id: "journey-animation",
+      data: activeJourneys,
+      getPath: (d) => d.path,
+      getTimestamps: (d) => d.timestamps,
+      getColor: [253, 128, 93, 255],
+      opacity: 1,
+      widthMinPixels: 4,
+      trailLength: 2,
+      currentTime: currentYear,
+      extensions: [new DataFilterExtension({ filterSize: 2 })],
+      getFilterValue: (d) => [d.epoch_id, d.epoch_id],
+      filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
+      updateTriggers: { getFilterValue: [activeEpochId] }
+    } as any),
     new ScatterplotLayer<BibleEvent>({
       id: "bible-points",
       data: filteredEvents,
@@ -235,6 +303,13 @@ export default function DataLoader() {
       <Tooltip info={hoverInfo} />
 
       <div style={css.panel}>
+        <input
+          type="text"
+          placeholder="Search journeys (e.g. red sea)"
+          value={journeyQuery}
+          onChange={e => setJourneyQuery(e.target.value)}
+          style={{ ...css.bookSelect, marginBottom: '8px' }}
+        />
         <select
           aria-label="Filter by book"
           value={selectedBook}

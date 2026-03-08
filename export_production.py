@@ -53,9 +53,23 @@ def main():
     pq.write_table(table, "public/bible-points.parquet")
     print(f"  Written: bible-points.parquet ({len(df)} rows with Book Filtering)")
 
-    # Write dummy journeys to prevent 404s
-    empty_table = pa.Table.from_pydict({"ussher_year": pa.array([], type=pa.float64())})
-    pq.write_table(empty_table, "public/bible-journeys.parquet")
+    # RED SEA CROSSING TRAJECTORY
+    redsea_path = [
+        [31.83, 30.80], [32.09, 30.63], [32.55, 29.95],
+        [33.97, 28.53], [34.48, 30.65], [35.40, 30.31]
+    ]
+    redsea_times = [-1491.0, -1490.9, -1490.8, -1490.5, -1490.0, -1489.5]
+    journeys_data = {
+        "name": ["Red Sea Crossing"],
+        "epoch_id": [1],
+        "primary_book": ["EXO"],
+        "path": [redsea_path],
+        "timestamps": [redsea_times]
+    }
+    print("  Compiling Journey Arrow Table...")
+    journeys_table = pa.table(journeys_data)
+    pq.write_table(journeys_table, "public/bible-journeys.parquet")
+    print("  Written: bible-journeys.parquet (1 route)")
 
 if __name__ == "__main__":
     main()

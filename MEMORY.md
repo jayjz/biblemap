@@ -31,6 +31,6 @@
 ### [ ] PHASE 5: Post-Launch Moat (v2.0)
 * **Status:** PENDING
 * **Tasks:**
-  * Implement `TripsLayer` / `PathLayer` for dynamic journeys.
+  * **Feature 1 - Dynamic Journeys:** Animated `TripsLayer` (Red Sea as first query-triggered route) — In Progress
   * Implement Split-Screen Reading Room (Text + Map sync).
   * True GPU-level clustering (`CollisionFilterExtension`).
