@@ -16,6 +16,7 @@ def main():
     print("=== export_production.py (Command Center Pipeline) ===")
     engine = create_engine(DB_DSN)
 
+    # ── ENHANCED: Export full verse reference for interactivity ─────────────────
     query = """
         SELECT
             e.name,
@@ -33,6 +34,7 @@ def main():
             ST_X(e.geometry)::float AS lon,
             ST_Y(e.geometry)::float AS lat,
             (SELECT text FROM verses v WHERE v.reference = e.verse_refs[1] LIMIT 1) AS verse_text_snippet,
+            e.verse_refs[1] AS verse_reference,
             SUBSTRING(e.verse_refs[1] FROM '^([A-Za-z]+)') AS primary_book
         FROM events e
         WHERE e.geometry IS NOT NULL AND e.ussher_year IS NOT NULL
@@ -45,6 +47,7 @@ def main():
     df['name'] = df['name'].fillna('').astype(str)
     df['description'] = df['description'].fillna('').astype(str)
     df['verse_text_snippet'] = df['verse_text_snippet'].fillna('').astype(str)
+    df['verse_reference'] = df['verse_reference'].fillna('').astype(str)
     df['primary_book'] = df['primary_book'].fillna('Unknown').astype(str)
     df['epoch_id'] = df['epoch_id'].astype(int) 
 
@@ -53,7 +56,7 @@ def main():
     pq.write_table(table, "public/bible-points.parquet")
     print(f"  Written: bible-points.parquet ({len(df)} rows with Book Filtering)")
 
-        # ── JOURNEYS (dynamic paths that sync to timeline + search) ─────────────────
+    # ── JOURNEYS (dynamic paths that sync to timeline + search) ─────────────────
     # All paths are [lng, lat] arrays. Timestamps are float years (negative = BC).
     # Frontend search + epoch filter will automatically surface these.
 

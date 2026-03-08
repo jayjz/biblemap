@@ -56,7 +56,7 @@ const INITIAL_VIEW = { longitude: 35.2, latitude: 31.8, zoom: 4.5, pitch: 35, be
 interface BibleEvent {
   name: string; ussher_year: number; epoch_id: number; event_type: string;
   description: string; lon: number; lat: number; verse_text_snippet: string;
-  primary_book: string;
+  primary_book: string; verse_reference: string;
 }
 
 // ── Parquet loader ────────────────────────────────────────────────────────────
@@ -153,6 +153,7 @@ export default function DataLoader() {
   const [journeys,      setJourneys]      = useState<any[]>([]);
   const [journeyQuery,  setJourneyQuery]  = useState("");
   const [selectedEvent, setSelectedEvent] = useState<BibleEvent | null>(null);
+  const [showVerseModal, setShowVerseModal] = useState(false);
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -248,7 +249,7 @@ export default function DataLoader() {
       data: activeJourneys,
       getPath: (d) => d.path,
       getColor: [253, 128, 93, 80],
-      widthMinPixels: 2,
+      widthMinPixels: 4,
       extensions: [new DataFilterExtension({ filterSize: 2 })],
       getFilterValue: (d) => [d.epoch_id, d.epoch_id],
       filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
@@ -261,8 +262,8 @@ export default function DataLoader() {
       getTimestamps: (d) => d.timestamps,
       getColor: [253, 128, 93, 255],
       opacity: 1,
-      widthMinPixels: 4,
-      trailLength: 2,
+      widthMinPixels: 8,
+      trailLength: 5,
       currentTime: currentYear,
       extensions: [new DataFilterExtension({ filterSize: 2 })],
       getFilterValue: (d) => [d.epoch_id, d.epoch_id],
@@ -323,22 +324,26 @@ export default function DataLoader() {
             onChange={(e) => setJourneyQuery(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && activeJourneys.length > 0) {
-                // Auto-jump to the epoch of the first matching journey
                 const firstMatch = activeJourneys[0];
+                stopAnim();
+
+                // 1. Change epoch if necessary to ensure the layer renders
                 if (firstMatch.epoch_id !== activeEpochId) {
-                  stopAnim();
                   setActiveEpochId(firstMatch.epoch_id);
-
-                  // Jump timeline to the start of that epoch
-                  const subset = filteredEvents.filter((ev) => ev.epoch_id === firstMatch.epoch_id);
-                  if (subset.length) setCurrentYear(Math.min(...subset.map((ev) => ev.ussher_year)));
-
-                  // Update URL Hash safely
                   const targetEpoch = EPOCHS.find(ep => ep.id === firstMatch.epoch_id);
                   if (targetEpoch) {
                     const bookSuffix = selectedBook !== "All" ? `&book=${selectedBook}` : "";
                     window.history.replaceState(null, "", `${targetEpoch.hash}${bookSuffix}`);
                   }
+                }
+
+                // 2. Jump the WebGL timeline directly to the START of the glowing journey
+                if (firstMatch.timestamps && firstMatch.timestamps.length > 0) {
+                  setCurrentYear(firstMatch.timestamps[0]);
+                } else {
+                  // Fallback to epoch start if no timestamps exist
+                  const subset = filteredEvents.filter((ev) => ev.epoch_id === firstMatch.epoch_id);
+                  if (subset.length) setCurrentYear(Math.min(...subset.map((ev) => ev.ussher_year)));
                 }
               }
             }}
@@ -435,11 +440,19 @@ export default function DataLoader() {
           </div>
           <div className="p-4 flex flex-col gap-4 text-sm text-slate-300 leading-relaxed">
             <p>{selectedEvent.description}</p>
-            {selectedEvent.verse_text_snippet && (
-              <div className="bg-slate-950 p-4 rounded-lg border border-slate-800 relative">
+            {selectedEvent.verse_text_snippet && selectedEvent.verse_reference && (
+              <div
+                className="bg-slate-950 p-4 rounded-lg border border-slate-800 relative cursor-pointer hover:border-amber-500/50 transition-colors group"
+                onClick={() => setShowVerseModal(true)}
+              >
                 <BookOpen className="absolute top-4 left-4 w-4 h-4 text-amber-600/50" />
-                <p className="italic text-slate-400 pl-6">&ldquo;{selectedEvent.verse_text_snippet}&rdquo;</p>
-                <div className="mt-3 text-right text-xs font-semibold text-amber-500">{selectedEvent.primary_book} Reference</div>
+                <p className="italic text-slate-400 pl-6 group-hover:text-amber-300 transition-colors">
+                  &ldquo;{selectedEvent.verse_text_snippet}&rdquo;
+                </p>
+                <div className="mt-3 text-right text-xs font-semibold text-amber-500 flex items-center justify-end gap-1">
+                  {selectedEvent.verse_reference}
+                  <span className="text-[10px] opacity-50">→ full chapter</span>
+                </div>
               </div>
             )}
           </div>
@@ -450,6 +463,33 @@ export default function DataLoader() {
       {filteredEvents.length === 0 && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 border border-slate-700 rounded-xl px-6 py-4 text-slate-400 text-center shadow-2xl pointer-events-none">
           No events found for <strong className="text-amber-500">{selectedBook}</strong> in {EPOCHS[activeEpochId]?.name}
+        </div>
+      )}
+
+      {showVerseModal && selectedEvent?.verse_reference && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowVerseModal(false)}>
+          <div className="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full mx-4 overflow-hidden" onClick={e => e.stopPropagation()}>
+            <div className="p-6 border-b border-slate-700 flex justify-between items-center">
+              <h3 className="text-lg font-bold text-amber-500">{selectedEvent.verse_reference}</h3>
+              <button onClick={() => setShowVerseModal(false)} className="text-slate-400 hover:text-white transition-colors">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-8 text-slate-300 leading-relaxed max-h-[70vh] overflow-y-auto">
+              <p className="italic mb-8 text-lg">&ldquo;{selectedEvent.verse_text_snippet}&rdquo;</p>
+              <a
+                href={`https://www.biblegateway.com/passage/?search=${encodeURIComponent(selectedEvent.verse_reference)}&version=KJV`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-lg transition-colors"
+              >
+                Read Full Chapter on BibleGateway →
+              </a>
+              <div className="text-xs text-slate-500 mt-4 text-center">
+                Context: {EPOCHS[activeEpochId]?.name} • {selectedEvent.event_type}
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
