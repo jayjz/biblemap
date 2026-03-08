@@ -53,23 +53,66 @@ def main():
     pq.write_table(table, "public/bible-points.parquet")
     print(f"  Written: bible-points.parquet ({len(df)} rows with Book Filtering)")
 
-    # RED SEA CROSSING TRAJECTORY
-    redsea_path = [
-        [31.83, 30.80], [32.09, 30.63], [32.55, 29.95],
-        [33.97, 28.53], [34.48, 30.65], [35.40, 30.31]
+        # ── JOURNEYS (dynamic paths that sync to timeline + search) ─────────────────
+    # All paths are [lng, lat] arrays. Timestamps are float years (negative = BC).
+    # Frontend search + epoch filter will automatically surface these.
+
+    journeys = [
+        # 1. Original Red Sea Crossing (Exodus & Conquest, ~1491 BC)
+        {
+            "name": "Red Sea Crossing",
+            "epoch_id": 1,
+            "primary_book": "EXO",
+            "path": [
+                [31.83, 30.80], [32.09, 30.63], [32.55, 29.95],
+                [33.97, 28.53], [34.48, 30.65], [35.40, 30.31]
+            ],
+            "timestamps": [-1491.0, -1490.9, -1490.8, -1490.5, -1490.0, -1489.5]
+        },
+        # 2. Paul's First Missionary Journey (46–48 AD)
+        # Antioch (Syria) → Seleucia → Salamis → Paphos → Perga → Pisidian Antioch → Iconium → Lystra → Derbe → return route
+        {
+            "name": "Paul's First Missionary Journey",
+            "epoch_id": 5,
+            "primary_book": "ACT",
+            "path": [
+                [36.16, 36.20],   # Antioch Syria
+                [35.92, 36.15],   # Seleucia
+                [33.90, 35.18],   # Salamis Cyprus
+                [32.42, 34.77],   # Paphos
+                [30.85, 36.95],   # Perga
+                [30.53, 38.35],   # Pisidian Antioch
+                [32.48, 37.87],   # Iconium
+                [32.30, 37.58],   # Lystra
+                [33.35, 37.35],   # Derbe
+                # return leg (simplified)
+                [32.30, 37.58], [32.48, 37.87], [30.53, 38.35], [30.85, 36.95],
+                [32.42, 34.77], [35.92, 36.15], [36.16, 36.20]
+            ],
+            "timestamps": [46.0, 46.2, 46.4, 46.6, 46.8, 47.0, 47.3, 47.6, 47.9,
+                           48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6]
+        },
+        # 3. Jesus' Final Journey to Jerusalem (30 AD)
+        # Capernaum → Jericho → Bethany/Mt of Olives → Golgotha (Jerusalem)
+        {
+            "name": "Jesus' Final Journey to Jerusalem",
+            "epoch_id": 5,
+            "primary_book": "LUK",
+            "path": [
+                [35.58, 32.88],   # Capernaum (Galilee)
+                [35.50, 32.70],   # through Galilee
+                [35.44, 31.87],   # Jericho
+                [35.25, 31.77],   # Mount of Olives / Bethany
+                [35.23, 31.78]    # Golgotha (Jerusalem)
+            ],
+            "timestamps": [30.0, 30.1, 30.2, 30.3, 30.4]
+        }
     ]
-    redsea_times = [-1491.0, -1490.9, -1490.8, -1490.5, -1490.0, -1489.5]
-    journeys_data = {
-        "name": ["Red Sea Crossing"],
-        "epoch_id": [1],
-        "primary_book": ["EXO"],
-        "path": [redsea_path],
-        "timestamps": [redsea_times]
-    }
-    print("  Compiling Journey Arrow Table...")
-    journeys_table = pa.table(journeys_data)
+
+    # Build Arrow table from list of dicts
+    journeys_table = pa.Table.from_pylist(journeys)
     pq.write_table(journeys_table, "public/bible-journeys.parquet")
-    print("  Written: bible-journeys.parquet (1 route)")
+    print(f"  Written: bible-journeys.parquet ({len(journeys)} routes — Red Sea + Paul + Jesus)")
 
 if __name__ == "__main__":
     main()

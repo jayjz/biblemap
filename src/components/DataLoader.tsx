@@ -5,6 +5,7 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Play, Pause, X, Search, BookOpen, Map as MapIcon } from "lucide-react";
 import { tableFromIPC } from "apache-arrow";
 import DeckGL from "@deck.gl/react";
 import { type PickingInfo } from "@deck.gl/core";
@@ -126,7 +127,7 @@ function Tooltip({ info }: { info: PickingInfo | null }) {
     : `${Math.round(data.ussher_year)} AD`;
 
   return (
-    <div style={css.tooltip}>
+    <div style={{ position: "fixed", pointerEvents: "none", background: "rgba(0,43,54,0.93)", color: "#839496", border: "1px solid #073642", borderRadius: 8, padding: "10px 14px", fontSize: 13, lineHeight: 1.5, zIndex: 1000, maxWidth: 300 }}>
       <strong style={{ color: "#eee8d5" }}>{data.name}</strong>
       <div style={{ color: "#586e75", fontSize: 11, marginBottom: 4 }}>
         {yearLabel} · {data.event_type}
@@ -151,6 +152,7 @@ export default function DataLoader() {
   const [selectedBook,  setSelectedBook]  = useState<string>("All");
   const [journeys,      setJourneys]      = useState<any[]>([]);
   const [journeyQuery,  setJourneyQuery]  = useState("");
+  const [selectedEvent, setSelectedEvent] = useState<BibleEvent | null>(null);
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -278,6 +280,9 @@ export default function DataLoader() {
       radiusMaxPixels: 12,
       pickable:        true,
       onHover:         setHoverInfo,
+      onClick: (info: any) => {
+        if (info.object) setSelectedEvent(info.object as BibleEvent);
+      },
       extensions:      [new DataFilterExtension({ filterSize: 2 })],
       getFilterValue:  (d) => [d.ussher_year, d.epoch_id],
       filterRange:     [[minYear - 1, currentYear], [activeEpochId, activeEpochId]],
@@ -286,42 +291,86 @@ export default function DataLoader() {
     } as any),
   ];
 
-  if (loading) return <div style={css.splash}>Loading Biblical Matrix...</div>;
+  if (loading) return <div className="absolute inset-0 flex items-center justify-center bg-slate-950 text-slate-400 font-mono">Loading Biblical Matrix...</div>;
 
   return (
-    <div style={css.root}>
-      <DeckGL initialViewState={INITIAL_VIEW} controller layers={layers} style={{ width: "100%", height: "100%" }}>
+    <div className="relative w-screen h-screen bg-slate-950 overflow-hidden font-sans text-slate-200">
+      <DeckGL
+        initialViewState={INITIAL_VIEW}
+        controller
+        layers={layers}
+        style={{ width: "100%", height: "100%" }}
+        onClick={(info) => { if (!info.object) setSelectedEvent(null); }}
+      >
         <Map mapStyle={MAP_STYLE} />
       </DeckGL>
 
-      {filteredEvents.length === 0 && (
-        <div style={css.emptyState}>
-          No events found for <strong>{selectedBook}</strong> in {EPOCHS[activeEpochId]?.name}
-        </div>
-      )}
-
       <Tooltip info={hoverInfo} />
 
-      <div style={css.panel}>
-        <input
-          type="text"
-          placeholder="Search journeys (e.g. red sea)"
-          value={journeyQuery}
-          onChange={e => setJourneyQuery(e.target.value)}
-          style={{ ...css.bookSelect, marginBottom: '8px' }}
-        />
-        <select
-          aria-label="Filter by book"
-          value={selectedBook}
-          onChange={(ev) => handleBookChange(ev.target.value)}
-          style={css.bookSelect}
-        >
-          {uniqueBooks.map((book) => (
-            <option key={book} value={book}>{book}</option>
-          ))}
-        </select>
+      {/* TOP LEFT SIDEBAR - Command Center */}
+      <div className="absolute top-4 left-4 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col gap-4">
+        <div className="flex items-center gap-2 border-b border-slate-700 pb-3">
+          <MapIcon className="w-5 h-5 text-amber-500" />
+          <h1 className="text-lg font-bold text-slate-100 tracking-wide">Bible3D Matrix</h1>
+        </div>
 
-        <div style={css.tabRow}>
+        <div className="relative flex items-center">
+          <Search className={`absolute left-3 w-4 h-4 transition-colors ${journeyQuery.trim() ? 'text-amber-500' : 'text-slate-400'}`} />
+          <input
+            type="text"
+            placeholder="Search journeys (e.g. paul, red sea)"
+            value={journeyQuery}
+            onChange={(e) => setJourneyQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && activeJourneys.length > 0) {
+                // Auto-jump to the epoch of the first matching journey
+                const firstMatch = activeJourneys[0];
+                if (firstMatch.epoch_id !== activeEpochId) {
+                  stopAnim();
+                  setActiveEpochId(firstMatch.epoch_id);
+
+                  // Jump timeline to the start of that epoch
+                  const subset = filteredEvents.filter((ev) => ev.epoch_id === firstMatch.epoch_id);
+                  if (subset.length) setCurrentYear(Math.min(...subset.map((ev) => ev.ussher_year)));
+
+                  // Update URL Hash safely
+                  const targetEpoch = EPOCHS.find(ep => ep.id === firstMatch.epoch_id);
+                  if (targetEpoch) {
+                    const bookSuffix = selectedBook !== "All" ? `&book=${selectedBook}` : "";
+                    window.history.replaceState(null, "", `${targetEpoch.hash}${bookSuffix}`);
+                  }
+                }
+              }
+            }}
+            className={`w-full bg-slate-800 border rounded-lg pl-9 pr-10 py-2 text-sm text-slate-200 focus:outline-none transition-colors ${journeyQuery.trim() ? 'border-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.1)]' : 'border-slate-600 focus:border-amber-500'}`}
+          />
+          {journeyQuery && (
+            <button
+              onClick={() => setJourneyQuery("")}
+              className="absolute right-3 text-slate-400 hover:text-white transition-colors p-1"
+              aria-label="Clear search"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+
+        <div className="relative">
+          <BookOpen className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <select
+            aria-label="Filter by book"
+            value={selectedBook}
+            onChange={(ev) => handleBookChange(ev.target.value)}
+            className="w-full bg-slate-800 border border-slate-600 rounded-lg pl-9 pr-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-amber-500 appearance-none transition-colors"
+          >
+            {uniqueBooks.map((book) => (
+              <option key={book} value={book}>{book}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="flex flex-col gap-2 mt-2">
+          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Historical Epochs</h2>
           {EPOCHS.map((ep) => (
             <button
               key={ep.id}
@@ -333,55 +382,76 @@ export default function DataLoader() {
                 const subset = filteredEvents.filter((ev) => ev.epoch_id === ep.id);
                 if (subset.length) setCurrentYear(Math.min(...subset.map((ev) => ev.ussher_year)));
               }}
-              style={{ ...css.tab, ...(ep.id === activeEpochId ? css.tabActive : {}) }}
+              className={`text-left px-3 py-2 rounded-lg text-sm transition-all ${ep.id === activeEpochId ? 'bg-amber-600/20 text-amber-400 border border-amber-500/50' : 'bg-slate-800 text-slate-300 border border-transparent hover:bg-slate-700'}`}
             >
               {ep.name}
             </button>
           ))}
         </div>
+      </div>
 
-        <div style={css.epochDesc}>{EPOCHS[activeEpochId]?.description}</div>
-        <div style={css.yearLabel}>
-          {currentYear < 0 ? `${Math.abs(Math.round(currentYear))} BC` : `${Math.round(currentYear)} AD`}
+      {/* BOTTOM BAR - Narrative Scrubber */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[600px] bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col items-center gap-3">
+        <div className="flex justify-between items-end w-full px-2">
+          <div className="text-slate-400 text-xs">{EPOCHS[activeEpochId]?.description}</div>
+          <div className="text-2xl font-bold text-amber-500 tabular-nums">
+            {currentYear < 0 ? `${Math.abs(Math.round(currentYear))} BC` : `${Math.round(currentYear)} AD`}
+          </div>
         </div>
+
         <input
           type="range"
           min={minYear}
           max={maxYear}
           value={currentYear}
           onChange={(ev) => { stopAnim(); setCurrentYear(Number(ev.target.value)); }}
-          style={css.slider}
+          className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-700 rounded-lg appearance-none"
           aria-label="Timeline year"
         />
-        <div style={{ display: "flex", gap: 8 }}>
-          <button onClick={startAnim} style={css.btn}>▶ Play Era</button>
-          <button onClick={stopAnim}  style={css.btn}>⏸ Pause</button>
+
+        <div className="flex gap-4 w-full justify-center">
+          <button onClick={startAnim} className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-slate-200">
+            <Play className="w-4 h-4 text-amber-500" /> Play Era
+          </button>
+          <button onClick={stopAnim} className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-slate-200">
+            <Pause className="w-4 h-4 text-amber-500" /> Pause
+          </button>
         </div>
       </div>
+
+      {/* RIGHT SIDEBAR - Reading Panel */}
+      {selectedEvent && (
+        <div className="absolute top-4 right-4 w-96 max-h-[calc(100vh-2rem)] overflow-y-auto bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-xl shadow-2xl z-20 flex flex-col">
+          <div className="sticky top-0 bg-slate-900 border-b border-slate-700 p-4 flex justify-between items-start">
+            <div>
+              <h2 className="text-lg font-bold text-amber-500 leading-tight pr-4">{selectedEvent.name}</h2>
+              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">
+                {selectedEvent.ussher_year < 0 ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` : `${Math.round(selectedEvent.ussher_year)} AD`} • {selectedEvent.event_type}
+              </div>
+            </div>
+            <button onClick={() => setSelectedEvent(null)} className="text-slate-400 hover:text-white transition-colors p-1">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="p-4 flex flex-col gap-4 text-sm text-slate-300 leading-relaxed">
+            <p>{selectedEvent.description}</p>
+            {selectedEvent.verse_text_snippet && (
+              <div className="bg-slate-950 p-4 rounded-lg border border-slate-800 relative">
+                <BookOpen className="absolute top-4 left-4 w-4 h-4 text-amber-600/50" />
+                <p className="italic text-slate-400 pl-6">&ldquo;{selectedEvent.verse_text_snippet}&rdquo;</p>
+                <div className="mt-3 text-right text-xs font-semibold text-amber-500">{selectedEvent.primary_book} Reference</div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* EMPTY STATE */}
+      {filteredEvents.length === 0 && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 border border-slate-700 rounded-xl px-6 py-4 text-slate-400 text-center shadow-2xl pointer-events-none">
+          No events found for <strong className="text-amber-500">{selectedBook}</strong> in {EPOCHS[activeEpochId]?.name}
+        </div>
+      )}
     </div>
   );
 }
-
-const css: Record<string, React.CSSProperties> = {
-  root:       { position: "relative", width: "100vw", height: "100vh", background: "#002b36", overflow: "hidden" },
-  splash:     { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "#839496", background: "#002b36" },
-  emptyState: { position: "absolute", top: "40%", left: "50%", transform: "translate(-50%, -50%)", color: "#839496", fontSize: "1rem", background: "rgba(0,43,54,0.88)", border: "1px solid #073642", borderRadius: 8, padding: "16px 28px", pointerEvents: "none", zIndex: 20, textAlign: "center" },
-  panel:      { position: "absolute", bottom: 24, left: "50%", transform: "translateX(-50%)", background: "rgba(0,43,54,0.92)", border: "1px solid #073642", borderRadius: 8, padding: "12px 24px", minWidth: 540, display: "flex", flexDirection: "column", alignItems: "center", gap: 8, backdropFilter: "blur(8px)", zIndex: 10 },
-  tabRow:     { display: "flex", gap: 4, overflowX: "auto", width: "100%", paddingBottom: 4 },
-  tab: {
-    background: "#073642", color: "#839496",
-    borderStyle: "solid", borderWidth: "1px", borderColor: "#586e75",
-    borderRadius: 4, padding: "4px 10px", cursor: "pointer", fontSize: "0.78rem", whiteSpace: "nowrap",
-  },
-  tabActive:  { background: "#268bd2", color: "#fdf6e3", borderColor: "#268bd2" },
-  epochDesc:  { color: "#586e75", fontSize: 11, textAlign: "center" },
-  yearLabel:  { color: "#eee8d5", fontSize: "1.5rem", fontWeight: 700 },
-  slider:     { width: "100%", accentColor: "#268bd2", cursor: "pointer" },
-  btn:        { background: "#073642", color: "#839496", border: "1px solid #586e75", borderRadius: 4, padding: "4px 14px", cursor: "pointer" },
-  bookSelect: { width: "100%", background: "#073642", color: "#eee8d5", border: "1px solid #586e75", borderRadius: 4, padding: "5px 8px", cursor: "pointer", fontSize: "0.82rem", outline: "none" },
-  tooltip: {
-    position: "fixed", pointerEvents: "none", background: "rgba(0,43,54,0.93)",
-    color: "#839496", border: "1px solid #073642", borderRadius: 8,
-    padding: "10px 14px", fontSize: 13, lineHeight: 1.5, zIndex: 1000, maxWidth: 300,
-  },
-};
