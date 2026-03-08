@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 """
-Phase 3: Export to GPU-ready Parquet (Epoch Edition).
-Adds native SQL categorization for the Narrative Scrubber.
+Phase 3: Export to GPU-ready Parquet (Command Center Edition).
+Adds native SQL categorization for Epochs AND primary Book filtering.
 """
+import os
 import pandas as pd
 from sqlalchemy import create_engine
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-DB_DSN = "postgresql://bible3d:bible3d_local@localhost:5432/bible3d"
+# Secured DB connection
+DB_DSN = os.environ.get("DATABASE_URL", "postgresql://bible3d:bible3d_local@localhost:5432/bible3d")
 
 def main():
-    print("=== export_production.py (Narrative Pipeline) ===")
+    print("=== export_production.py (Command Center Pipeline) ===")
     engine = create_engine(DB_DSN)
 
-    # We categorize the ussher_year into the 6 Narrative Epochs directly in SQL.
-    # This prevents the need for hard-coded dates in the frontend rendering logic.
     query = """
         SELECT
             e.name,
@@ -32,11 +32,12 @@ def main():
             e.description,
             ST_X(e.geometry)::float AS lon,
             ST_Y(e.geometry)::float AS lat,
-            (SELECT text FROM verses v WHERE v.reference = e.verse_refs[1] LIMIT 1) AS verse_text_snippet
+            (SELECT text FROM verses v WHERE v.reference = e.verse_refs[1] LIMIT 1) AS verse_text_snippet,
+            SUBSTRING(e.verse_refs[1] FROM '^([A-Za-z]+)') AS primary_book
         FROM events e
         WHERE e.geometry IS NOT NULL AND e.ussher_year IS NOT NULL
     """
-    print("  Querying PostGIS and Categorising Eras...")
+    print("  Querying PostGIS and Compiling Command Center Schema...")
     df = pd.read_sql(query, engine)
 
     # Sanitize data types for strict Arrow conversion
@@ -44,20 +45,17 @@ def main():
     df['name'] = df['name'].fillna('').astype(str)
     df['description'] = df['description'].fillna('').astype(str)
     df['verse_text_snippet'] = df['verse_text_snippet'].fillna('').astype(str)
+    df['primary_book'] = df['primary_book'].fillna('Unknown').astype(str)
     df['epoch_id'] = df['epoch_id'].astype(int) 
 
-    counts = df['epoch_id'].value_counts().sort_index().to_dict()
-    
     print("  Compiling Arrow Table...")
     table = pa.Table.from_pandas(df)
     pq.write_table(table, "public/bible-points.parquet")
-    print(f"  Written: bible-points.parquet ({len(df)} rows)")
-    print(f"  Rows per Epoch (0-5): {counts}")
+    print(f"  Written: bible-points.parquet ({len(df)} rows with Book Filtering)")
 
     # Write dummy journeys to prevent 404s
     empty_table = pa.Table.from_pydict({"ussher_year": pa.array([], type=pa.float64())})
     pq.write_table(empty_table, "public/bible-journeys.parquet")
-    print("  Written: bible-journeys.parquet (Empty/Placeholder)")
 
 if __name__ == "__main__":
     main()
