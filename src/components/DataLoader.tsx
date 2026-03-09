@@ -113,6 +113,7 @@ async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
       primary_book: String(table.getChild("primary_book")?.get(i) ?? ""),
       path: formattedPath,
       timestamps: formattedTimes,
+      color: table.getChild("color")?.get(i) ? Array.from(table.getChild("color").get(i)).map(Number) : [253, 128, 93],
     });
   }
   return journeys;
@@ -236,7 +237,7 @@ export default function DataLoader() {
 
   const activeJourneys = useMemo(() => {
   // THE FIX: Show all journeys by default, only filter if the user types something
-  if (!journeyQuery.trim()) return journeys;
+  if (!journeyQuery.trim()) return [];
   
   const q = journeyQuery.toLowerCase();
   return journeys.filter((j) => 
@@ -249,7 +250,7 @@ export default function DataLoader() {
       id: "journey-path",
       data: activeJourneys,
       getPath: (d) => d.path,
-      getColor: [253, 128, 93, 80],
+      getColor: (d) => d.color ? [...d.color, 150] : [253, 128, 93, 150],
       widthMinPixels: 4,
       extensions: [new DataFilterExtension({ filterSize: 2 })],
       getFilterValue: (d) => [d.epoch_id, d.epoch_id],
@@ -261,7 +262,7 @@ export default function DataLoader() {
       data: activeJourneys,
       getPath: (d) => d.path,
       getTimestamps: (d) => d.timestamps,
-      getColor: [253, 128, 93, 255],
+      getColor: (d) => d.color || [253, 128, 93],
       opacity: 1,
       widthMinPixels: 8,
       trailLength: 5,
@@ -318,9 +319,14 @@ export default function DataLoader() {
 
       {/* TOP LEFT SIDEBAR - Command Center */}
       <div className={`fixed md:absolute top-4 left-4 z-50 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl flex flex-col gap-4 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-[calc(100%+2rem)] md:translate-x-0'}`}>
-        <div className="flex items-center gap-2 border-b border-slate-700 pb-3">
-          <MapIcon className="w-5 h-5 text-amber-500" />
-          <h1 className="text-lg font-bold text-slate-100 tracking-wide">Bible3D Matrix</h1>
+        <div className="flex flex-col border-b border-slate-700 pb-3">
+          <div className="flex items-center gap-2">
+            <MapIcon className="w-5 h-5 text-amber-500" />
+            <h2 className="text-xl font-bold text-slate-200 tracking-tight">BibleExplorer</h2>
+          </div>
+          <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider font-semibold">
+            Explore the stories of the Bible in a way you never have.
+          </p>
         </div>
 
         <div className="relative flex items-center">

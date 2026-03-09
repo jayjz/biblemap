@@ -60,62 +60,111 @@ def main():
     # All paths are [lng, lat] arrays. Timestamps are float years (negative = BC).
     # Frontend search + epoch filter will automatically surface these.
 
+    # ── JOURNEYS (dynamic paths that sync to timeline + search) ─────────────────
     journeys = [
-        # 1. Original Red Sea Crossing (Exodus & Conquest, ~1491 BC)
+        # 1. Red Sea Crossing (Moses) - RED
         {
             "name": "Red Sea Crossing",
             "epoch_id": 1,
             "primary_book": "EXO",
+            "color": [220, 50, 47], 
             "path": [
                 [31.83, 30.80], [32.09, 30.63], [32.55, 29.95],
                 [33.97, 28.53], [34.48, 30.65], [35.40, 30.31]
             ],
             "timestamps": [-1491.0, -1490.9, -1490.8, -1490.5, -1490.0, -1489.5]
         },
-        # 2. Paul's First Missionary Journey (46–48 AD)
-        # Antioch (Syria) → Seleucia → Salamis → Paphos → Perga → Pisidian Antioch → Iconium → Lystra → Derbe → return route
+        # 2. Paul's First Missionary Journey - ORANGE
         {
             "name": "Paul's First Missionary Journey",
             "epoch_id": 5,
             "primary_book": "ACT",
+            "color": [253, 128, 93],
             "path": [
-                [36.16, 36.20],   # Antioch Syria
-                [35.92, 36.15],   # Seleucia
-                [33.90, 35.18],   # Salamis Cyprus
-                [32.42, 34.77],   # Paphos
-                [30.85, 36.95],   # Perga
-                [30.53, 38.35],   # Pisidian Antioch
-                [32.48, 37.87],   # Iconium
-                [32.30, 37.58],   # Lystra
-                [33.35, 37.35],   # Derbe
-                # return leg (simplified)
-                [32.30, 37.58], [32.48, 37.87], [30.53, 38.35], [30.85, 36.95],
-                [32.42, 34.77], [35.92, 36.15], [36.16, 36.20]
+                [36.16, 36.20], [35.92, 36.15], [33.90, 35.18], [32.42, 34.77],
+                [30.85, 36.95], [30.53, 38.35], [32.48, 37.87], [32.30, 37.58],
+                [33.35, 37.35], [32.30, 37.58], [32.48, 37.87], [30.53, 38.35],
+                [30.85, 36.95], [32.42, 34.77], [35.92, 36.15], [36.16, 36.20]
             ],
-            "timestamps": [46.0, 46.2, 46.4, 46.6, 46.8, 47.0, 47.3, 47.6, 47.9,
-                           48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6]
+            "timestamps": [46.0, 46.2, 46.4, 46.6, 46.8, 47.0, 47.3, 47.6, 47.9, 48.0, 48.1, 48.2, 48.3, 48.4, 48.5, 48.6]
         },
-        # 3. Jesus' Final Journey to Jerusalem (30 AD)
-        # Capernaum → Jericho → Bethany/Mt of Olives → Golgotha (Jerusalem)
+        # 3. Jesus' Final Journey to Jerusalem - GOLD
         {
             "name": "Jesus' Final Journey to Jerusalem",
             "epoch_id": 5,
             "primary_book": "LUK",
+            "color": [255, 215, 0],
             "path": [
-                [35.58, 32.88],   # Capernaum (Galilee)
-                [35.50, 32.70],   # through Galilee
-                [35.44, 31.87],   # Jericho
-                [35.25, 31.77],   # Mount of Olives / Bethany
-                [35.23, 31.78]    # Golgotha (Jerusalem)
+                [35.58, 32.88], [35.50, 32.70], [35.44, 31.87], [35.25, 31.77], [35.23, 31.78]
             ],
             "timestamps": [30.0, 30.1, 30.2, 30.3, 30.4]
+        },
+        # 4. Abraham's Migration - PURPLE
+        {
+            "name": "Abraham's Migration to Canaan",
+            "epoch_id": 0,
+            "primary_book": "GEN",
+            "color": [108, 113, 196],
+            "path": [
+                [46.10, 30.96], [39.03, 36.86], [35.28, 32.21], [35.23, 31.93],
+                [31.23, 30.04], [35.23, 31.93], [35.10, 31.53]
+            ],
+            "timestamps": [-1921.0, -1915.0, -1910.0, -1909.0, -1908.0, -1907.0, -1900.0]
+        },
+        # 5. Paul's Second Missionary Journey - ORANGE
+        {
+            "name": "Paul's Second Missionary Journey",
+            "epoch_id": 5,
+            "primary_book": "ACT",
+            "color": [253, 128, 93],
+            "path": [
+                [36.16, 36.20], [34.89, 36.91], [33.35, 37.35], [32.30, 37.58], [32.48, 37.87],
+                [30.53, 38.35], [26.16, 39.75], [24.28, 41.01], [22.94, 40.64], [22.20, 40.52],
+                [23.72, 37.98], [22.89, 37.93], [27.34, 37.94], [34.89, 32.50], [35.23, 31.77], [36.16, 36.20]
+            ],
+            "timestamps": [49.0, 49.2, 49.4, 49.6, 49.8, 50.0, 50.3, 50.6, 50.8, 51.0, 51.2, 51.4, 51.6, 51.8, 51.9, 52.0]
+        },
+        # 6. Paul's Third Missionary Journey - ORANGE
+        {
+            "name": "Paul's Third Missionary Journey",
+            "epoch_id": 5,
+            "primary_book": "ACT",
+            "color": [253, 128, 93],
+            "path": [
+                [36.16, 36.20], [30.53, 38.35], [27.34, 37.94], [26.16, 39.75], [24.28, 41.01],
+                [22.89, 37.93], [24.28, 41.01], [26.16, 39.75], [26.33, 39.48], [26.55, 39.10],
+                [27.27, 37.53], [29.31, 36.26], [35.19, 33.27], [35.08, 32.92], [34.89, 32.50], [35.23, 31.77]
+            ],
+            "timestamps": [53.0, 53.5, 54.0, 55.5, 55.8, 56.0, 56.2, 56.4, 56.5, 56.6, 56.7, 56.8, 56.85, 56.9, 56.95, 57.0]
+        },
+        # 7. Peter's Missionary Journey (Acts 9-10) - BLUE
+        {
+            "name": "Peter's Coastal Journey",
+            "epoch_id": 5,
+            "primary_book": "ACT",
+            "color": [38, 139, 210],
+            "path": [
+                [35.23, 31.77], [34.89, 31.95], [34.75, 32.05], [34.89, 32.50]
+            ],
+            "timestamps": [37.0, 37.3, 37.6, 38.0]
+        },
+        # 8. Philip the Evangelist (Acts 8) - TEAL
+        {
+            "name": "Philip's Evangelistic Journey",
+            "epoch_id": 5,
+            "primary_book": "ACT",
+            "color": [42, 161, 152],
+            "path": [
+                [35.23, 31.77], [35.19, 32.27], [34.48, 31.50], [34.65, 31.80], [34.89, 32.50]
+            ],
+            "timestamps": [34.0, 34.2, 34.5, 34.7, 35.0]
         }
     ]
 
     # Build Arrow table from list of dicts
     journeys_table = pa.Table.from_pylist(journeys)
     pq.write_table(journeys_table, "public/bible-journeys.parquet")
-    print(f"  Written: bible-journeys.parquet ({len(journeys)} routes — Red Sea + Paul + Jesus)")
+    print(f"  Written: bible-journeys.parquet ({len(journeys)} routes — Color Coded + Apostles added)")
 
 if __name__ == "__main__":
     main()
