@@ -311,7 +311,7 @@ export default function DataLoader() {
 
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        className="md:hidden fixed top-4 left-4 z-[100] bg-slate-900/90 border border-slate-700 p-3 rounded-full shadow-lg text-amber-500"
+        className="md:hidden fixed top-4 left-4 z-[200] bg-slate-900/90 border border-slate-700 p-3 rounded-full shadow-lg text-amber-500"
       >
         {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
@@ -405,10 +405,10 @@ export default function DataLoader() {
       </div>
 
       {/* BOTTOM BAR - Narrative Scrubber */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[600px] bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col items-center gap-3">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[95%] md:w-[600px] bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col items-center gap-3">
         <div className="flex justify-between items-end w-full px-2">
-          <div className="text-slate-400 text-xs">{EPOCHS[activeEpochId]?.description}</div>
-          <div className="text-2xl font-bold text-amber-500 tabular-nums">
+          <div className="hidden md:block text-slate-400 text-xs">{EPOCHS[activeEpochId]?.description}</div>
+          <div className="text-2xl font-bold text-amber-500 tabular-nums w-full md:w-auto text-center md:text-right">
             {currentYear < 0 ? `${Math.abs(Math.round(currentYear))} BC` : `${Math.round(currentYear)} AD`}
           </div>
         </div>
@@ -424,10 +424,10 @@ export default function DataLoader() {
         />
 
         <div className="flex gap-4 w-full justify-center">
-          <button onClick={startAnim} className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-slate-200">
+          <button onClick={startAnim} className="flex items-center justify-center gap-2 flex-1 md:flex-none bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-slate-200">
             <Play className="w-4 h-4 text-amber-500" /> Play Era
           </button>
-          <button onClick={stopAnim} className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-slate-200">
+          <button onClick={stopAnim} className="flex items-center justify-center gap-2 flex-1 md:flex-none bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors text-slate-200">
             <Pause className="w-4 h-4 text-amber-500" /> Pause
           </button>
         </div>
@@ -476,15 +476,15 @@ export default function DataLoader() {
       )}
 
       {showVerseModal && selectedEvent?.verse_reference && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowVerseModal(false)}>
-          <div className="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full mx-4 overflow-hidden" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/80 backdrop-blur-sm" onClick={() => setShowVerseModal(false)}>
+          <div className="bg-slate-900 border border-slate-700 w-full rounded-t-3xl fixed bottom-0 max-h-[90vh] md:relative md:bottom-auto md:rounded-2xl md:max-w-2xl md:w-full md:mx-4 overflow-hidden" onClick={e => e.stopPropagation()}>
             <div className="p-6 border-b border-slate-700 flex justify-between items-center">
               <h3 className="text-lg font-bold text-amber-500">{selectedEvent.verse_reference}</h3>
               <button onClick={() => setShowVerseModal(false)} className="text-slate-400 hover:text-white transition-colors">
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-8 text-slate-300 leading-relaxed max-h-[70vh] overflow-y-auto">
+            <div className="p-8 pb-[calc(2rem+env(safe-area-inset-bottom))] text-slate-300 leading-relaxed max-h-[70vh] overflow-y-auto">
               <p className="italic mb-8 text-lg">&ldquo;{selectedEvent.verse_text_snippet}&rdquo;</p>
               <a
                 href={`https://www.biblegateway.com/passage/?search=${encodeURIComponent(selectedEvent.verse_reference)}&version=KJV`}
