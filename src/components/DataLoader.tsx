@@ -180,6 +180,7 @@ export default function DataLoader() {
   const [selectedBook,  setSelectedBook]  = useState<string>("All");
   const [journeys,      setJourneys]      = useState<any[]>([]);
   const [journeyQuery,  setJourneyQuery]  = useState("");
+  const [eventSearchQuery, setEventSearchQuery] = useState("");
   const [selectedEvent, setSelectedEvent] = useState<BibleEvent | null>(null);
   const [showVerseModal, setShowVerseModal] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -196,10 +197,21 @@ export default function DataLoader() {
     return ["All", ...CANONICAL_BOOK_ORDER.filter((b) => inData.has(b))];
   }, [events]);
 
-  const filteredEvents = useMemo(
-    () => selectedBook === "All" ? events : events.filter((ev) => ev.primary_book === selectedBook),
-    [events, selectedBook],
-  );
+  const filteredEvents = useMemo(() => {
+    let filtered = selectedBook === "All" ? events : events.filter((ev) => ev.primary_book === selectedBook);
+    
+    // Apply text search if query is at least 2 characters
+    if (eventSearchQuery && eventSearchQuery.length >= 2) {
+      const q = eventSearchQuery.toLowerCase();
+      filtered = filtered.filter((ev) => 
+        ev.name.toLowerCase().includes(q) ||
+        ev.description.toLowerCase().includes(q) ||
+        ev.verse_text_snippet.toLowerCase().includes(q)
+      );
+    }
+    
+    return filtered;
+  }, [events, selectedBook, eventSearchQuery]);
 
   const { minYear, maxYear } = useMemo(() => {
     const subset = filteredEvents.filter((ev) => ev.epoch_id === activeEpochId);
@@ -466,6 +478,40 @@ export default function DataLoader() {
               <option key={book} value={book}>{book}</option>
             ))}
           </select>
+        </div>
+
+        <div className="relative flex items-center">
+          <Search className={`absolute left-3 w-4 h-4 transition-colors ${eventSearchQuery.trim() ? 'text-amber-500' : 'text-slate-400'}`} />
+          <input
+            type="text"
+            placeholder="Search events (min 2 chars)"
+            value={eventSearchQuery}
+            onChange={(e) => setEventSearchQuery(e.target.value)}
+            className={`w-full bg-slate-800 border rounded-lg pl-9 pr-10 py-2 text-sm text-slate-200 focus:outline-none transition-colors ${eventSearchQuery.trim() ? 'border-amber-500/50' : 'border-slate-600 focus:border-amber-500'}`}
+          />
+          {eventSearchQuery && (
+            <button
+              onClick={() => setEventSearchQuery("")}
+              className="absolute right-3 text-slate-400 hover:text-white transition-colors p-1"
+              aria-label="Clear search"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+
+        <div className="flex items-center justify-between text-[10px] text-slate-500 uppercase tracking-wider px-1">
+          <span>
+            {filteredEvents.length} events visible
+            {eventSearchQuery.length >= 2 && (
+              <span className="text-amber-500/70"> • {events.length - filteredEvents.length} filtered</span>
+            )}
+          </span>
+          {eventSearchQuery.length >= 2 && (
+            <span className="text-amber-500">
+              {filteredEvents.length} results
+            </span>
+          )}
         </div>
 
         <div className="flex flex-col gap-2 mt-2">

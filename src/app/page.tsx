@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 // Next.js 16 requires dynamic imports with ssr:false to be executed 
 // inside a Client Component (which we declared at line 1).
@@ -31,7 +32,9 @@ const DataLoader = dynamic(
 export default function Home() {
   return (
     <main style={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
-      <DataLoader />
+      <ErrorBoundary>
+        <DataLoader />
+      </ErrorBoundary>
     </main>
   );
 }

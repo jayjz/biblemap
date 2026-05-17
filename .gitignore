@@ -126,3 +126,15 @@ Thumbs.db
 .cache/
 temp/
 tmp/
+
+# ── Docker ───────────────────────────────────────────────────────────────────
+docker-compose.override.yml
+.dockerignore
+
+# ── Docker Volumes ───────────────────────────────────────────────────────────
+/postgres-data/
+/pgdata/
+
+# ── Docker Compose ───────────────────────────────────────────────────────────
+.env.docker
+

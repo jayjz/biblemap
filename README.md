@@ -90,6 +90,30 @@ Static export with zero runtime dependencies. Loads in <3s on 3G.
 - Docker + Docker Compose
 - 4GB free disk space (for node_modules + DB)
 
+### Docker Compose Setup
+
+The project includes a PostgreSQL + PostGIS database for the ETL pipeline:
+
+```bash
+# Start PostgreSQL with PostGIS
+docker-compose up -d
+
+# Database will be available at:
+# Host: localhost:5432
+# Database: bible3d
+# User: postgres
+# Password: postgres
+
+# View logs
+docker-compose logs -f postgres
+
+# Stop and remove containers
+docker-compose down
+
+# Stop and remove volumes (deletes data)
+docker-compose down -v
+```
+
 ### 1. Clone & Install
 
 ```bash
