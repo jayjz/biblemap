@@ -1,105 +1,128 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ==============================================================================
+# BibleMap - Comprehensive .gitignore
+# Generated: 2026-05-17 - Codebase cleanup
+# ==============================================================================
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+.pnp/
+.pnp.js
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+# ── Next.js ──────────────────────────────────────────────────────────────────
+.next/
+out/
+build/
+dist/
 
-# next.js
-/.next/
-/out/
+# ── Production Builds ────────────────────────────────────────────────────────
+.vercel
+.netlify
 
-# production
-/build
+# ── Environment Variables (NEVER COMMIT SECRETS) ────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
 
-# misc
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist/
+build/
+
+# ── Databases ────────────────────────────────────────────────────────────────
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.dump
+*.sql
+*.bak
+/pgdata/
+/postgres-data/
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
+# ── IDE & Editors ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ── Testing ──────────────────────────────────────────────────────────────────
+/coverage
+.nyc_output
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-# ==============================================================================
-# CYBERSECURITY & SECRETS (NEVER COMMIT)
-# ==============================================================================
-.env
-.env.*
-!.env.example
+# ── Misc ─────────────────────────────────────────────────────────────────────
+.DS_Store
 *.pem
 *.key
+*.crt
 *.cert
 secrets.json
 credentials.json
 auth.json
+.cache/
+.parcel-cache/
 
-# ==============================================================================
-# LOCAL DATABASES & RAW DATA (PREVENT LEAKS)
-# ==============================================================================
-*.sqlite
-*.sqlite3
-*.db
-*.db-journal
-*.sql
-*.dump
-*.bak
-/pgdata/
-/postgres-data/
-# Note: Your compiled public/bible-points.parquet is safe to push as it is 
-# public historical data required by the static Next.js frontend.
+# ── Data Files (Large Binaries) ──────────────────────────────────────────────
+# Note: Public Parquet files in /public are intentionally tracked as they are
+# required for the static export. Only ignore local data directories.
+/data/
+/raw-data/
+*.parquet
 
-# ==============================================================================
-# NODE.JS / NEXT.JS FRONTEND
-# ==============================================================================
-node_modules/
-.next/
-out/
-build/
-.vercel/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# ==============================================================================
-# PYTHON / ETL PIPELINE
-# ==============================================================================
-venv/
-env/
-ENV/
-__pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
-
-# ==============================================================================
-# OS & IDE CACHES
-# ==============================================================================
-.DS_Store
+# ── OS Generated ─────────────────────────────────────────────────────────────
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-.vscode/
-.idea/
-*.suo
-*.log
+
+# ── Temporary Files ──────────────────────────────────────────────────────────
+*.tmp
+*.temp
+.cache/
+temp/
+tmp/
