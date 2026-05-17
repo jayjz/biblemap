@@ -237,8 +237,6 @@ This is a solo project currently, but contributions welcome:
 3. **Feature requests:** Check ROADMAP.md first
 4. **Code:** Fork, create feature branch, submit PR
 
-Please read [CLAUDE.md](CLAUDE.md) for architectural constraints before contributing code.
-
 ### Development Workflow
 
 ```bash

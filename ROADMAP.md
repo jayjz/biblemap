@@ -175,10 +175,9 @@ Or remove query param and rely on proper Cache-Control headers.
    - No `yarn.lock` or `pnpm-lock.yaml`
    - But README doesn't specify which to use
 
-5. **Documentation Fragmentation**
-   - README.md, README_phase2.md, README_phase3.md, README_phase4.md
-   - CLAUDE.md, BIBLEMAP_STATE.md, MEMORY.md, lessons.md
-   - Which one is canonical? Pick one and delete the rest.
+5. **Documentation Fragmentation** ✓ RESOLVED
+   - Consolidated to README.md and ROADMAP.md only
+   - Deleted duplicate phase documents and temporary files
 
 ### Security Issues
 
