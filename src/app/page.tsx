@@ -29,11 +29,11 @@ const DataLoader = dynamic(
   }
 );
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   return (
     <main style={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
       <ErrorBoundary>
-        <DataLoader />
+        <DataLoader initialParams={searchParams} />
       </ErrorBoundary>
     </main>
   );

@@ -1,23 +1,33 @@
 "use client";
 /**
  * components/DataLoader.tsx
- * Production deck.gl viewer for Bible3D — Narrative Scrubber Edition.
+ * Production deck.gl viewer for Bible3D — Narrative Scrubber Edition v2.
+ * Cinematic evolution with shareable URLs, related events, keyboard nav, GPU instancing.
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu } from "lucide-react";
+import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu, Share2, Sparkles, Navigation } from "lucide-react";
 import { tableFromIPC, Table } from "apache-arrow";
 import DeckGL from "@deck.gl/react";
-import { type PickingInfo } from "@deck.gl/core";
+import { type PickingInfo, LightingEffect, AmbientLight, DirectionalLight } from "@deck.gl/core";
 import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
-import { DataFilterExtension } from "@deck.gl/extensions";
+import { DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
 import Map from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const POINTS_URL = "/bible-points.parquet?v=" + Date.now();
 const MAP_STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
 const SPEED = 80;
+
+const BIBLICAL_QUOTES = [
+  "In the beginning God created the heavens and the earth. - Genesis 1:1",
+  "Be still, and know that I am God. - Psalm 46:10",
+  "For God so loved the world, that he gave his only Son. - John 3:16",
+  "The Lord is my shepherd; I shall not want. - Psalm 23:1",
+  "I can do all things through him who strengthens me. - Philippians 4:13",
+  "Your word is a lamp to my feet and a light to my path. - Psalm 119:105",
+];
 
 const EPOCHS = [
   { id: 0, name: "Creation & Patriarchs", description: "From Eden to the descent into Egypt", hash: "#genesis" },
@@ -57,6 +67,117 @@ interface BibleEvent {
   name: string; ussher_year: number; epoch_id: number; event_type: string;
   description: string; lon: number; lat: number; verse_text_snippet: string;
   primary_book: string; verse_reference: string;
+}
+
+// Calculate related events using Arrow table (no new data fetch)
+function calculateRelatedEvents(
+  table: Table,
+  selectedEvent: BibleEvent,
+  selectedIdx: number
+): { before: BibleEvent[], after: BibleEvent[], nearby: BibleEvent[] } {
+  const before: BibleEvent[] = [];
+  const after: BibleEvent[] = [];
+  const nearby: BibleEvent[] = [];
+  
+  const cols = {
+    n: table.getChild("name"),
+    y: table.getChild("ussher_year"),
+    e: table.getChild("epoch_id"),
+    t: table.getChild("event_type"),
+    d: table.getChild("description"),
+    lo: table.getChild("lon"),
+    la: table.getChild("lat"),
+    v: table.getChild("verse_text_snippet"),
+    pb: table.getChild("primary_book"),
+    vr: table.getChild("verse_reference"),
+  };
+
+  // Get all events with their indices, sorted by year
+  const eventsWithIdx: Array<{idx: number, year: number}> = [];
+  for (let i = 0; i < table.numRows; i++) {
+    eventsWithIdx.push({ idx: i, year: Number(cols.y?.get(i) ?? 0) });
+  }
+  eventsWithIdx.sort((a, b) => a.year - b.year);
+  
+  const selectedPos = eventsWithIdx.findIndex(e => e.idx === selectedIdx);
+  
+  // Get 3 before and 3 after
+  for (let i = Math.max(0, selectedPos - 3); i < selectedPos; i++) {
+    const idx = eventsWithIdx[i].idx;
+    before.push({
+      name: String(cols.n?.get(idx) ?? ""),
+      ussher_year: Number(cols.y?.get(idx) ?? 0),
+      epoch_id: Number(cols.e?.get(idx) ?? 0),
+      event_type: String(cols.t?.get(idx) ?? ""),
+      description: String(cols.d?.get(idx) ?? ""),
+      lon: Number(cols.lo?.get(idx) ?? 0),
+      lat: Number(cols.la?.get(idx) ?? 0),
+      verse_text_snippet: String(cols.v?.get(idx) ?? ""),
+      primary_book: String(cols.pb?.get(idx) ?? ""),
+      verse_reference: String(cols.vr?.get(idx) ?? ""),
+    });
+  }
+  
+  for (let i = selectedPos + 1; i <= Math.min(eventsWithIdx.length - 1, selectedPos + 3); i++) {
+    const idx = eventsWithIdx[i].idx;
+    after.push({
+      name: String(cols.n?.get(idx) ?? ""),
+      ussher_year: Number(cols.y?.get(idx) ?? 0),
+      epoch_id: Number(cols.e?.get(idx) ?? 0),
+      event_type: String(cols.t?.get(idx) ?? ""),
+      description: String(cols.d?.get(idx) ?? ""),
+      lon: Number(cols.lo?.get(idx) ?? 0),
+      lat: Number(cols.la?.get(idx) ?? 0),
+      verse_text_snippet: String(cols.v?.get(idx) ?? ""),
+      primary_book: String(cols.pb?.get(idx) ?? ""),
+      verse_reference: String(cols.vr?.get(idx) ?? ""),
+    });
+  }
+
+  // Find nearby events (within 50km and ±100 years)
+  const selectedLat = selectedEvent.lat;
+  const selectedLon = selectedEvent.lon;
+  const selectedYear = selectedEvent.ussher_year;
+  
+  for (let i = 0; i < table.numRows && nearby.length < 5; i++) {
+    if (i === selectedIdx) continue;
+    
+    const lat = Number(cols.la?.get(i) ?? 0);
+    const lon = Number(cols.lo?.get(i) ?? 0);
+    const year = Number(cols.y?.get(i) ?? 0);
+    
+    // Simple distance check (approx 50km ~ 0.45 degrees)
+    const latDiff = Math.abs(lat - selectedLat);
+    const lonDiff = Math.abs(lon - selectedLon);
+    const yearDiff = Math.abs(year - selectedYear);
+    
+    if (latDiff < 0.45 && lonDiff < 0.45 && yearDiff <= 100) {
+      nearby.push({
+        name: String(cols.n?.get(i) ?? ""),
+        ussher_year: year,
+        epoch_id: Number(cols.e?.get(i) ?? 0),
+        event_type: String(cols.t?.get(i) ?? ""),
+        description: String(cols.d?.get(i) ?? ""),
+        lon, lat,
+        verse_text_snippet: String(cols.v?.get(i) ?? ""),
+        primary_book: String(cols.pb?.get(i) ?? ""),
+        verse_reference: String(cols.vr?.get(i) ?? ""),
+      });
+    }
+  }
+
+  return { before: before.reverse(), after, nearby };
+}
+
+// Haversine distance in km
+function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
 // ── Parquet loader ────────────────────────────────────────────────────────────
@@ -154,7 +275,7 @@ function Tooltip({ info }: { info: PickingInfo | null }) {
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
-export default function DataLoader() {
+export default function DataLoader({ initialParams }: { initialParams?: { [key: string]: string | string[] | undefined } }) {
   const [arrowTable,    setArrowTable]    = useState<Table | null>(null);
   const [loading,       setLoading]       = useState(true);
   const [loadProgress,  setLoadProgress]  = useState({ stage: "Initializing...", percent: 0, loaded: 0, total: 0 });
@@ -168,12 +289,19 @@ export default function DataLoader() {
   const [selectedEvent, setSelectedEvent] = useState<BibleEvent | null>(null);
   const [showVerseModal, setShowVerseModal] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [relatedEvents, setRelatedEvents] = useState<{ before: BibleEvent[], after: BibleEvent[], nearby: BibleEvent[] }>({ before: [], after: [], nearby: [] });
+  const [viewState, setViewState] = useState(INITIAL_VIEW);
+  const [highlightedEventIndex, setHighlightedEventIndex] = useState(-1);
+  const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
+  const [parchmentMode, setParchmentMode] = useState(false);
+  const [showJourneyPaths, setShowJourneyPaths] = useState(true);
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
   const rafRef     = useRef<number | null>(null);
   const mapRef     = useRef<any>(null);
   const maxYearRef = useRef<number>(0);
+  const randomQuote = useRef(BIBLICAL_QUOTES[Math.floor(Math.random() * BIBLICAL_QUOTES.length)]);
 
   // Canonical book order: only books present in data
   const uniqueBooks = useMemo(() => {
@@ -304,6 +432,187 @@ export default function DataLoader() {
     });
   }, []);
 
+  // Parse initial URL params and restore state
+  useEffect(() => {
+    if (!initialParams || !arrowTable) return;
+    
+    const eventParam = initialParams.event as string;
+    const latParam = initialParams.lat as string;
+    const lngParam = initialParams.lng as string;
+    const zoomParam = initialParams.zoom as string;
+    
+    if (eventParam && arrowTable) {
+      // Find event by name or index
+      const nameCol = arrowTable.getChild("name");
+      for (let i = 0; i < arrowTable.numRows; i++) {
+        const name = String(nameCol?.get(i) ?? "");
+        if (name.toLowerCase().replace(/\s+/g, '-') === eventParam || 
+            name.toLowerCase() === eventParam.toLowerCase() ||
+            i.toString() === eventParam) {
+          // Found the event, simulate click
+          const cols = {
+            n: arrowTable.getChild("name"),
+            y: arrowTable.getChild("ussher_year"),
+            e: arrowTable.getChild("epoch_id"),
+            t: arrowTable.getChild("event_type"),
+            d: arrowTable.getChild("description"),
+            lo: arrowTable.getChild("lon"),
+            la: arrowTable.getChild("lat"),
+            v: arrowTable.getChild("verse_text_snippet"),
+            pb: arrowTable.getChild("primary_book"),
+            vr: arrowTable.getChild("verse_reference"),
+          };
+          const eventData: BibleEvent = {
+            name: String(cols.n?.get(i) ?? ""),
+            ussher_year: Number(cols.y?.get(i) ?? 0),
+            epoch_id: Number(cols.e?.get(i) ?? 0),
+            event_type: String(cols.t?.get(i) ?? ""),
+            description: String(cols.d?.get(i) ?? ""),
+            lon: Number(cols.lo?.get(i) ?? 0),
+            lat: Number(cols.la?.get(i) ?? 0),
+            verse_text_snippet: String(cols.v?.get(i) ?? ""),
+            primary_book: String(cols.pb?.get(i) ?? ""),
+            verse_reference: String(cols.vr?.get(i) ?? ""),
+          };
+          setSelectedEvent(eventData);
+          setActiveEpochId(eventData.epoch_id);
+          setCurrentYear(eventData.ussher_year);
+          break;
+        }
+      }
+    }
+    
+    if (latParam && lngParam && zoomParam && mapRef.current) {
+      setTimeout(() => {
+        mapRef.current?.flyTo({
+          center: [parseFloat(lngParam), parseFloat(latParam)],
+          zoom: parseFloat(zoomParam),
+          duration: 1000
+        });
+      }, 1000);
+    }
+  }, [initialParams, arrowTable]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't interfere with input fields
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
+      
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          stopAnim();
+          setCurrentYear(prev => Math.max(minYear, prev - 10));
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          stopAnim();
+          setCurrentYear(prev => Math.min(maxYear, prev + 10));
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          if (filteredIndices.length > 0) {
+            const nextIdx = (highlightedEventIndex + 1) % filteredIndices.length;
+            setHighlightedEventIndex(nextIdx);
+            // Could fly to event here
+          }
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          if (filteredIndices.length > 0) {
+            const nextIdx = highlightedEventIndex <= 0 
+              ? filteredIndices.length - 1 
+              : highlightedEventIndex - 1;
+            setHighlightedEventIndex(nextIdx);
+          }
+          break;
+        case 'Enter':
+          e.preventDefault();
+          if (highlightedEventIndex >= 0 && highlightedEventIndex < filteredIndices.length && arrowTable) {
+            const idx = filteredIndices[highlightedEventIndex];
+            // Trigger click on highlighted event
+            const cols = {
+              n: arrowTable.getChild("name"),
+              y: arrowTable.getChild("ussher_year"),
+              e: arrowTable.getChild("epoch_id"),
+              t: arrowTable.getChild("event_type"),
+              d: arrowTable.getChild("description"),
+              lo: arrowTable.getChild("lon"),
+              la: arrowTable.getChild("lat"),
+              v: arrowTable.getChild("verse_text_snippet"),
+              pb: arrowTable.getChild("primary_book"),
+              vr: arrowTable.getChild("verse_reference"),
+            };
+            const eventData: BibleEvent = {
+              name: String(cols.n?.get(idx) ?? ""),
+              ussher_year: Number(cols.y?.get(idx) ?? 0),
+              epoch_id: Number(cols.e?.get(idx) ?? 0),
+              event_type: String(cols.t?.get(idx) ?? ""),
+              description: String(cols.d?.get(idx) ?? ""),
+              lon: Number(cols.lo?.get(idx) ?? 0),
+              lat: Number(cols.la?.get(idx) ?? 0),
+              verse_text_snippet: String(cols.v?.get(idx) ?? ""),
+              primary_book: String(cols.pb?.get(idx) ?? ""),
+              verse_reference: String(cols.vr?.get(idx) ?? ""),
+            };
+            setSelectedEvent(eventData);
+          }
+          break;
+        case 'Escape':
+          e.preventDefault();
+          setSelectedEvent(null);
+          setShowVerseModal(false);
+          setIsSidebarOpen(false);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [minYear, maxYear, filteredIndices, highlightedEventIndex, arrowTable, stopAnim]);
+
+  // Update URL when event is selected
+  useEffect(() => {
+    if (!selectedEvent || !mapRef.current) return;
+    
+    const eventSlug = selectedEvent.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const view = mapRef.current.getCenter();
+    const zoom = mapRef.current.getZoom();
+    
+    const params = new URLSearchParams();
+    params.set('event', eventSlug);
+    params.set('lat', view.lat.toFixed(4));
+    params.set('lng', view.lng.toFixed(4));
+    params.set('zoom', zoom.toFixed(2));
+    
+    const newUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    window.history.replaceState(null, '', newUrl);
+  }, [selectedEvent]);
+
+  // Calculate related events when selection changes
+  useEffect(() => {
+    if (!selectedEvent || !arrowTable) {
+      setRelatedEvents({ before: [], after: [], nearby: [] });
+      return;
+    }
+    
+    // Find selected event index
+    const nameCol = arrowTable.getChild("name");
+    let selectedIdx = -1;
+    for (let i = 0; i < arrowTable.numRows; i++) {
+      if (String(nameCol?.get(i) ?? "") === selectedEvent.name) {
+        selectedIdx = i;
+        break;
+      }
+    }
+    
+    if (selectedIdx >= 0) {
+      const related = calculateRelatedEvents(arrowTable, selectedEvent, selectedIdx);
+      setRelatedEvents(related);
+    }
+  }, [selectedEvent, arrowTable]);
+
   const stopAnim = useCallback(() => {
     isPlaying.current = false;
     lastTsRef.current = null;
@@ -343,32 +652,104 @@ export default function DataLoader() {
   );
 }, [journeys, journeyQuery]);
 
+  // Cinematic lighting effect
+  const lightingEffect = useMemo(() => new LightingEffect({
+    ambientLight: new AmbientLight({
+      color: [255, 255, 255],
+      intensity: 0.4
+    }),
+    directionalLights: [
+      new DirectionalLight({
+        color: [255, 240, 220],
+        intensity: 1.2,
+        direction: [-1, -2, -3]
+      }),
+      new DirectionalLight({
+        color: [200, 220, 255],
+        intensity: 0.3,
+        direction: [1, 1, -2]
+      })
+    ]
+  }), []);
+
   const layers = [
-    new PathLayer({
-      id: "journey-path",
-      data: activeJourneys,
-      getPath: (d) => d.path,
-      getColor: (d) => d.color ? [...d.color, 150] : [253, 128, 93, 150],
-      widthMinPixels: 4,
+    // Glowing journey paths with animated trails
+    ...(showJourneyPaths ? [
+      new PathLayer({
+        id: "journey-path-glow",
+        data: activeJourneys,
+        getPath: (d) => d.path,
+        getColor: (d) => d.color ? [...d.color.slice(0, 3), 40] : [253, 128, 93, 40],
+        getWidth: 12,
+        widthMinPixels: 8,
+        widthMaxPixels: 20,
+        extensions: [new DataFilterExtension({ filterSize: 2 })],
+        getFilterValue: (d) => [d.epoch_id, d.epoch_id],
+        filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
+        updateTriggers: { getFilterValue: [activeEpochId] }
+      } as any),
+      new PathLayer({
+        id: "journey-path",
+        data: activeJourneys,
+        getPath: (d) => d.path,
+        getColor: (d) => d.color ? [...d.color, 200] : [253, 200, 100, 200],
+        getWidth: 3,
+        widthMinPixels: 3,
+        widthMaxPixels: 6,
+        extensions: [new DataFilterExtension({ filterSize: 2 })],
+        getFilterValue: (d) => [d.epoch_id, d.epoch_id],
+        filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
+        updateTriggers: { getFilterValue: [activeEpochId] }
+      } as any),
+      new TripsLayer({
+        id: "journey-animation",
+        data: activeJourneys,
+        getPath: (d) => d.path,
+        getTimestamps: (d) => d.timestamps,
+        getColor: (d) => d.color ? [...d.color, 255] : [255, 220, 120, 255],
+        opacity: 0.9,
+        widthMinPixels: 6,
+        trailLength: 500,
+        currentTime: currentYear,
+        extensions: [new DataFilterExtension({ filterSize: 2 })],
+        getFilterValue: (d) => [d.epoch_id, d.epoch_id],
+        filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
+        updateTriggers: { getFilterValue: [activeEpochId] }
+      } as any),
+    ] : []),
+    // Particle effects layer for major events (Exodus, Crucifixion, etc.)
+    new ScatterplotLayer({
+      id: "major-events-glow",
+      data: filteredIndices.filter(idx => {
+        if (!arrowTable) return false;
+        const typeCol = arrowTable.getChild("event_type");
+        const nameCol = arrowTable.getChild("name");
+        const type = String(typeCol?.get(idx) ?? "");
+        const name = String(nameCol?.get(idx) ?? "").toLowerCase();
+        return type === "miracle" || type === "covenant" || 
+               name.includes("exodus") || name.includes("crucifixion") || 
+               name.includes("resurrection") || name.includes("creation");
+      }),
+      getPosition: (idx: number) => {
+        if (!arrowTable) return [0, 0];
+        const lonCol = arrowTable.getChild("lon");
+        const latCol = arrowTable.getChild("lat");
+        return [Number(lonCol?.get(idx) ?? 0), Number(latCol?.get(idx) ?? 0)];
+      },
+      getFillColor: [255, 200, 100, 25],
+      getRadius: 40,
+      radiusUnits: "pixels",
+      stroked: false,
+      filled: true,
       extensions: [new DataFilterExtension({ filterSize: 2 })],
-      getFilterValue: (d) => [d.epoch_id, d.epoch_id],
-      filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
-      updateTriggers: { getFilterValue: [activeEpochId] }
-    } as any),
-    new TripsLayer({
-      id: "journey-animation",
-      data: activeJourneys,
-      getPath: (d) => d.path,
-      getTimestamps: (d) => d.timestamps,
-      getColor: (d) => d.color || [253, 128, 93],
-      opacity: 1,
-      widthMinPixels: 8,
-      trailLength: 5,
-      currentTime: currentYear,
-      extensions: [new DataFilterExtension({ filterSize: 2 })],
-      getFilterValue: (d) => [d.epoch_id, d.epoch_id],
-      filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
-      updateTriggers: { getFilterValue: [activeEpochId] }
+      getFilterValue: (idx: number) => {
+        if (!arrowTable) return [0, 0];
+        const yearCol = arrowTable.getChild("ussher_year");
+        const epochCol = arrowTable.getChild("epoch_id");
+        return [Number(yearCol?.get(idx) ?? 0), Number(epochCol?.get(idx) ?? 0)];
+      },
+      filterRange: [[minYear - 1, currentYear], [activeEpochId, activeEpochId]],
+      updateTriggers: { getFilterValue: [currentYear, activeEpochId] },
     } as any),
     new ScatterplotLayer({
       id: "bible-points",
@@ -454,7 +835,18 @@ export default function DataLoader() {
           setSelectedEvent(eventData);
         }
       },
-      extensions:      [new DataFilterExtension({ filterSize: 2 })],
+      extensions:      [new DataFilterExtension({ filterSize: 2 }), new CollisionFilterExtension()],
+      getCollisionPriority: (idx: number) => {
+        if (!arrowTable) return 0;
+        const typeCol = arrowTable.getChild("event_type");
+        const type = String(typeCol?.get(idx) ?? "");
+        // Higher priority for important events (battles, miracles, etc.)
+        const priorities: Record<string, number> = {
+          battle: 10, miracle: 9, covenant: 8, prophecy: 7, 
+          birth: 6, death: 6, building: 5, journey: 4, general: 1
+        };
+        return priorities[type] ?? 1;
+      },
       getFilterValue: (idx: number) => {
         if (!arrowTable) return [0, 0];
         const yearCol = arrowTable.getChild("ussher_year");
@@ -477,33 +869,61 @@ export default function DataLoader() {
 
   if (loading) return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 text-slate-400 font-mono">
-      <div className="text-amber-500 text-xl mb-4">BibleMap Phi</div>
-      <div className="text-slate-300 mb-2">{loadProgress.stage}</div>
+      <div className="text-amber-500 text-2xl mb-6 font-bold tracking-wider">BibleMap</div>
+      <div className="text-slate-300 mb-3 text-sm">{loadProgress.stage}</div>
       {loadProgress.total > 0 && (
         <>
           <div className="w-80 h-2 bg-slate-800 rounded-full overflow-hidden mb-2">
             <div 
-              className="h-full bg-amber-500 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-300"
               style={{ width: `${loadProgress.percent}%` }}
             />
           </div>
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-slate-500 mb-8">
             {loadProgress.loaded}KB / {loadProgress.total}KB ({loadProgress.percent}%)
           </div>
         </>
       )}
-      <div className="mt-8 text-xs text-slate-600">
-        Loading 2,900+ biblical events...
+      <div className="mt-4 max-w-md text-center px-8">
+        <div className="text-[11px] text-slate-600 uppercase tracking-widest mb-3">Scripture</div>
+        <div className="text-sm text-slate-500 italic leading-relaxed">
+          "{randomQuote.current}"
+        </div>
+      </div>
+      <div className="mt-8 text-[10px] text-slate-700 uppercase tracking-wider">
+        Loading sacred geography...
       </div>
     </div>
   );
 
   return (
-    <div className="relative w-screen h-screen bg-slate-950 overflow-hidden font-sans text-slate-200">
+    <div className={`relative w-screen h-screen bg-slate-950 overflow-hidden font-sans text-slate-200 ${filmGrainEnabled ? 'film-grain' : ''} ${parchmentMode ? 'parchment-mode' : ''}`}>
+      <style jsx global>{`
+        .film-grain::after {
+          content: '';
+          position: fixed;
+          inset: 0;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+          opacity: 0.6;
+          mix-blend-mode: multiply;
+          pointer-events: none;
+          z-index: 9999;
+        }
+        .parchment-mode {
+          filter: sepia(0.15) saturate(0.9) brightness(0.95) contrast(1.05);
+        }
+        .parchment-mode .bg-slate-900,
+        .parchment-mode .bg-slate-950 {
+          background-color: rgb(20, 16, 12) !important;
+        }
+      `}</style>
       <DeckGL
         initialViewState={INITIAL_VIEW}
+        viewState={viewState}
+        onViewStateChange={({ viewState }) => setViewState(viewState)}
         controller
         layers={layers}
+        effects={[lightingEffect]}
         style={{ width: "100%", height: "100%" }}
         onClick={(info) => { if (!info.object) setSelectedEvent(null); }}
       >
@@ -669,6 +1089,46 @@ export default function DataLoader() {
             </button>
           ))}
         </div>
+
+        {/* Cinematic Controls */}
+        <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-slate-700/50">
+          <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1 flex items-center gap-1">
+            <Sparkles className="w-3 h-3" /> Visual FX
+          </h2>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setFilmGrainEnabled(!filmGrainEnabled)}
+              className={`px-2 py-1.5 rounded text-[10px] font-medium transition-all border ${
+                filmGrainEnabled 
+                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
+                  : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600'
+              }`}
+            >
+              Film Grain
+            </button>
+            <button
+              onClick={() => setParchmentMode(!parchmentMode)}
+              className={`px-2 py-1.5 rounded text-[10px] font-medium transition-all border ${
+                parchmentMode 
+                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
+                  : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600'
+              }`}
+            >
+              Parchment
+            </button>
+            <button
+              onClick={() => setShowJourneyPaths(!showJourneyPaths)}
+              className={`px-2 py-1.5 rounded text-[10px] font-medium transition-all border col-span-2 ${
+                showJourneyPaths 
+                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
+                  : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600'
+              }`}
+            >
+              <Navigation className="w-3 h-3 inline mr-1" />
+              Journey Trails
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* BOTTOM BAR - Narrative Scrubber */}
@@ -731,6 +1191,102 @@ export default function DataLoader() {
                 </div>
               </div>
             )}
+            
+            {/* Related Events */}
+            {(relatedEvents.before.length > 0 || relatedEvents.after.length > 0 || relatedEvents.nearby.length > 0) && (
+              <div className="border-t border-slate-800 pt-4 mt-2">
+                <h3 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-3">Related Events</h3>
+                
+                {relatedEvents.before.length > 0 && (
+                  <div className="mb-3">
+                    <div className="text-[9px] text-slate-600 uppercase tracking-wider mb-1.5">Earlier</div>
+                    <div className="space-y-1.5">
+                      {relatedEvents.before.slice(0, 3).map((ev, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            setSelectedEvent(ev);
+                            if (mapRef.current) {
+                              mapRef.current.flyTo({ center: [ev.lon, ev.lat], zoom: 8, duration: 800 });
+                            }
+                          }}
+                          className="w-full text-left p-2 rounded bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-amber-500/30 transition-all group"
+                        >
+                          <div className="text-[11px] text-slate-300 group-hover:text-amber-400 truncate">{ev.name}</div>
+                          <div className="text-[9px] text-slate-600 mt-0.5">
+                            {ev.ussher_year < 0 ? `${Math.abs(ev.ussher_year)} BC` : `${ev.ussher_year} AD`}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {relatedEvents.after.length > 0 && (
+                  <div className="mb-3">
+                    <div className="text-[9px] text-slate-600 uppercase tracking-wider mb-1.5">Later</div>
+                    <div className="space-y-1.5">
+                      {relatedEvents.after.slice(0, 3).map((ev, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            setSelectedEvent(ev);
+                            if (mapRef.current) {
+                              mapRef.current.flyTo({ center: [ev.lon, ev.lat], zoom: 8, duration: 800 });
+                            }
+                          }}
+                          className="w-full text-left p-2 rounded bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-amber-500/30 transition-all group"
+                        >
+                          <div className="text-[11px] text-slate-300 group-hover:text-amber-400 truncate">{ev.name}</div>
+                          <div className="text-[9px] text-slate-600 mt-0.5">
+                            {ev.ussher_year < 0 ? `${Math.abs(ev.ussher_year)} BC` : `${ev.ussher_year} AD`}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {relatedEvents.nearby.length > 0 && (
+                  <div>
+                    <div className="text-[9px] text-slate-600 uppercase tracking-wider mb-1.5">Nearby (±100 yrs, 50km)</div>
+                    <div className="space-y-1.5">
+                      {relatedEvents.nearby.slice(0, 3).map((ev, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            setSelectedEvent(ev);
+                            if (mapRef.current) {
+                              mapRef.current.flyTo({ center: [ev.lon, ev.lat], zoom: 9, duration: 800 });
+                            }
+                          }}
+                          className="w-full text-left p-2 rounded bg-slate-800/30 hover:bg-slate-800 border border-slate-700/30 hover:border-amber-500/30 transition-all group"
+                        >
+                          <div className="text-[11px] text-slate-400 group-hover:text-amber-400 truncate">{ev.name}</div>
+                          <div className="text-[9px] text-slate-600 mt-0.5">
+                            {Math.round(haversineDistance(selectedEvent.lat, selectedEvent.lon, ev.lat, ev.lon))}km away
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+            
+            {/* Share Button */}
+            <button
+              onClick={() => {
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                  // Could show toast here
+                });
+              }}
+              className="flex items-center justify-center gap-2 w-full mt-2 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-400 hover:text-amber-400 transition-colors"
+            >
+              <Share2 className="w-3 h-3" />
+              Copy Shareable Link
+            </button>
           </div>
         </div>
       )}
