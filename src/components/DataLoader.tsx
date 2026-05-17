@@ -61,6 +61,182 @@ const TYPE_COLORS: Record<string, [number, number, number, number]> = {
 };
 const DEFAULT_COLOR: [number, number, number, number] = [147, 161, 161, 160];
 
+// Enhanced curated content structure for emotional engagement
+interface CuratedEvent {
+  id: string;
+  summary: string; // 2-3 compelling sentences
+  keyVerse: {
+    text: string;
+    reference: string;
+  };
+  whyItMatters: string; // 1 sentence devotional reflection
+  tags: string[]; // Thematic tags
+  audioUrl?: string; // Path to narration MP3
+}
+
+const CURATED_CONTENT: Record<string, CuratedEvent> = {
+  'creation': {
+    id: 'creation',
+    summary: "Out of formless void and darkness, God speaks light, sky, seas, and land into being. Over six days, the cosmos takes shape—stars above, creatures below, and humanity crowned as image-bearers. On the seventh day, God rests, establishing a rhythm of work and worship.",
+    keyVerse: {
+      text: "In the beginning God created the heavens and the earth.",
+      reference: "Genesis 1:1"
+    },
+    whyItMatters: "Creation reveals God as intentional designer who brings order from chaos and invites humanity into partnership.",
+    tags: ["creation", "beginnings", "image-of-god", "sabbath"]
+  },
+  'noahs-flood': {
+    id: 'noahs-flood',
+    summary: "God judges a corrupt world with a catastrophic flood, yet preserves Noah's family and animal pairs in the ark. After 40 days of rain and 150 days of flooding, God establishes a covenant marked by the rainbow—a promise never to destroy the earth by flood again.",
+    keyVerse: {
+      text: "I have set my rainbow in the clouds, and it will be the sign of the covenant between me and the earth.",
+      reference: "Genesis 9:13"
+    },
+    whyItMatters: "The flood narrative reveals both God's justice against sin and His mercy in preserving a remnant—foreshadowing the ultimate salvation through Christ.",
+    tags: ["judgment", "mercy", "covenant", "noah"]
+  },
+  'abrahamic-covenant': {
+    id: 'abrahamic-covenant',
+    summary: "At 75, Abram leaves his homeland trusting God's promise of descendants as numerous as stars. God establishes an everlasting covenant—land, offspring, and blessing to all nations through his line. This wandering Aramean becomes father of faith.",
+    keyVerse: {
+      text: "I will make you into a great nation, and I will bless you; I will make your name great, and you will be a blessing.",
+      reference: "Genesis 12:2"
+    },
+    whyItMatters: "Abraham's call launches God's redemptive plan to bless all peoples, finding ultimate fulfillment in Christ.",
+    tags: ["faith", "covenant", "promise", "blessing"]
+  },
+  'joseph-egypt': {
+    id: 'joseph-egypt',
+    summary: "Betrayed by jealous brothers and sold into slavery, Joseph endures prison before rising to power in Egypt. His God-given wisdom saves nations from famine, including the very brothers who wronged him. What they meant for evil, God intended for good.",
+    keyVerse: {
+      text: "You intended to harm me, but God intended it for good to accomplish what is now being done, the saving of many lives.",
+      reference: "Genesis 50:20"
+    },
+    whyItMatters: "Joseph's story reveals God's sovereignty in suffering and His power to transform betrayal into redemption.",
+    tags: ["providence", "forgiveness", "suffering", "sovereignty"]
+  },
+  'exodus-red-sea': {
+    id: 'exodus-red-sea',
+    summary: "Trapped between Pharaoh's chariots and the sea, Israel cries out in terror. God parts the waters with a strong east wind, creating dry ground through the deep. The Egyptians pursue but are drowned when the waters return—Yahweh fights for His people.",
+    keyVerse: {
+      text: "The Lord will fight for you; you need only to be still.",
+      reference: "Exodus 14:14"
+    },
+    whyItMatters: "The Red Sea deliverance becomes Israel's defining salvation story, foreshadowing Christ's victory over sin and death.",
+    tags: ["deliverance", "faith", "miracle", "salvation"]
+  },
+  'sinai-covenant': {
+    id: 'sinai-covenant',
+    summary: "At Mount Sinai, God descends in fire, smoke, and thunder to give Israel the Ten Commandments. Moses mediates between the holy God and sinful people, receiving the Law that will shape a nation. The covenant establishes Israel as God's treasured possession.",
+    keyVerse: {
+      text: "Now if you obey me fully and keep my covenant, then out of all nations you will be my treasured possession.",
+      reference: "Exodus 19:5"
+    },
+    whyItMatters: "Sinai reveals God's holiness and humanity's need for mediation—pointing to Christ as the perfect mediator of a better covenant.",
+    tags: ["law", "covenant", "holiness", "mediation"]
+  },
+  'jericho': {
+    id: 'jericho',
+    summary: "For seven days, Israel marches silently around Jericho's massive walls. On the seventh day, seven priests blow trumpets and the people shout—then the walls collapse. Faith, not military might, conquers the fortified city.",
+    keyVerse: {
+      text: "By faith the walls of Jericho fell, after the army had marched around them for seven days.",
+      reference: "Hebrews 11:30"
+    },
+    whyItMatters: "Jericho demonstrates that God's power works through obedient faith, not human strength or strategy.",
+    tags: ["faith", "obedience", "victory", "conquest"]
+  },
+  'david-goliath': {
+    id: 'david-goliath',
+    summary: "A shepherd boy faces a nine-foot Philistine champion with a sling and five stones. David's confidence rests not in armor but in the living God. One stone finds its mark—Goliath falls, and Israel's future king emerges.",
+    keyVerse: {
+      text: "The Lord who rescued me from the paw of the lion and the paw of the bear will rescue me from the hand of this Philistine.",
+      reference: "1 Samuel 17:37"
+    },
+    whyItMatters: "David's victory shows that God uses the unlikely and unqualified to accomplish His purposes through faith.",
+    tags: ["faith", "courage", "underdog", "providence"]
+  },
+  'solomon-temple': {
+    id: 'solomon-temple',
+    summary: "Solomon builds a magnificent temple in Jerusalem—cedar from Lebanon, gold overlay, and the Ark placed in the Most Holy Place. At its dedication, God's glory fills the house in a cloud. Israel reaches its golden age zenith.",
+    keyVerse: {
+      text: "I have built a magnificent temple for you, a place for you to dwell forever.",
+      reference: "1 Kings 8:13"
+    },
+    whyItMatters: "The temple foreshadows Christ as the true dwelling place of God among humanity, and the church as God's living temple.",
+    tags: ["worship", "presence", "glory", "temple"]
+  },
+  'babylonian-exile': {
+    id: 'babylonian-exile',
+    summary: "Nebuchadnezzar's armies breach Jerusalem's walls, burn the temple, and carry Judah into exile. By Babylon's rivers, the people hang their harps and weep for Zion. Yet even in judgment, God preserves a remnant and promises restoration.",
+    keyVerse: {
+      text: "By the rivers of Babylon we sat and wept when we remembered Zion.",
+      reference: "Psalm 137:1"
+    },
+    whyItMatters: "Exile reveals the seriousness of sin and God's faithfulness to discipline and restore His covenant people.",
+    tags: ["judgment", "exile", "lament", "hope"]
+  },
+  'birth-of-jesus': {
+    id: 'birth-of-jesus',
+    summary: "In Bethlehem's humblest stable, Mary gives birth to the promised Messiah. Angels announce His arrival to shepherds; wise men follow a star bearing gifts. The Word becomes flesh and dwells among us.",
+    keyVerse: {
+      text: "Today in the town of David a Savior has been born to you; he is the Messiah, the Lord.",
+      reference: "Luke 2:11"
+    },
+    whyItMatters: "The incarnation—God becoming human—lies at the heart of Christianity, making salvation possible through Christ's identification with us.",
+    tags: ["incarnation", "messiah", "hope", "fulfillment"]
+  },
+  'baptism-of-jesus': {
+    id: 'baptism-of-jesus',
+    summary: "Jesus enters the Jordan to be baptized by John. As He emerges, the heavens tear open—the Spirit descends like a dove, and the Father declares, 'This is my beloved Son.' The Trinity is revealed at the start of Jesus' public ministry.",
+    keyVerse: {
+      text: "This is my Son, whom I love; with him I am well pleased.",
+      reference: "Matthew 3:17"
+    },
+    whyItMatters: "Jesus' baptism identifies Him with sinners He came to save and inaugurates His messianic mission.",
+    tags: ["trinity", "identity", "mission", "anointing"]
+  },
+  'crucifixion': {
+    id: 'crucifixion',
+    summary: "At Golgotha, Jesus is nailed to a Roman cross between two criminals. Darkness covers the land from noon until three. With His final breath—'It is finished'—the temple veil tears from top to bottom, and the centurion confesses, 'Surely this was the Son of God.'",
+    keyVerse: {
+      text: "Father, into your hands I commit my spirit.",
+      reference: "Luke 23:46"
+    },
+    whyItMatters: "The cross is the pivotal moment where God's justice and mercy meet—Christ bears sin's penalty to reconcile sinners to God.",
+    tags: ["atonement", "sacrifice", "love", "victory"]
+  },
+  'resurrection': {
+    id: 'resurrection',
+    summary: "On the third day, women arrive at the tomb to find the stone rolled away and the body gone. Angels announce, 'He is not here; he has risen!' The resurrected Jesus appears to Mary, the disciples, and over 500 witnesses—death is defeated.",
+    keyVerse: {
+      text: "He is not here; he has risen, just as he said.",
+      reference: "Matthew 28:6"
+    },
+    whyItMatters: "The resurrection validates Jesus' claims, defeats death, and guarantees believers' future resurrection and eternal life.",
+    tags: ["victory", "hope", "new-creation", "witness"]
+  },
+  'pentecost': {
+    id: 'pentecost',
+    summary: "Fifty days after Passover, 120 disciples wait in Jerusalem as Jesus commanded. Suddenly a rushing wind fills the house, tongues of fire rest on each person, and they speak in other languages. Peter preaches; 3,000 are baptized—the church is born.",
+    keyVerse: {
+      text: "But you will receive power when the Holy Spirit comes on you; and you will be my witnesses...",
+      reference: "Acts 1:8"
+    },
+    whyItMatters: "Pentecost fulfills Joel's prophecy and empowers the church for its global mission through the indwelling Spirit.",
+    tags: ["spirit", "church", "mission", "power"]
+  },
+  'pauls-conversion': {
+    id: 'pauls-conversion',
+    summary: "Breathing murderous threats, Saul travels to Damascus to arrest Christians. A blinding light from heaven strikes him down, and Jesus asks, 'Why do you persecute me?' Blinded for three days, Saul emerges as Paul—apostle to the Gentiles who will write half the New Testament.",
+    keyVerse: {
+      text: "This man is my chosen instrument to proclaim my name to the Gentiles and their kings and to the people of Israel.",
+      reference: "Acts 9:15"
+    },
+    whyItMatters: "Paul's transformation demonstrates God's power to redeem even the worst persecutor and use him for kingdom purposes.",
+    tags: ["transformation", "grace", "calling", "mission"]
+  }
+};
+
 // Curated narrative summaries - concise 2-3 sentence stories that capture the emotional core
 const CURATED_SUMMARIES: Record<string, string> = {
   "Red Sea": "God parts the Red Sea, allowing Israel to escape Egypt. Pharaoh's army is destroyed in the waters. A defining moment of divine deliverance that shapes Israel's identity.",
