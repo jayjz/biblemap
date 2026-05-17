@@ -82,8 +82,28 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "In the beginning God created the heavens and the earth.",
       reference: "Genesis 1:1"
     },
-    whyItMatters: "Creation reveals God as intentional designer who brings order from chaos and invites humanity into partnership.",
+    whyItMatters: "When life feels meaningless, remember you're intentionally crafted by God, not random—you bear His image and purpose.",
     tags: ["creation", "beginnings", "image-of-god", "sabbath"]
+  },
+  'the-fall': {
+    id: 'the-fall',
+    summary: "In Eden's perfection, Adam and Eve choose rebellion over relationship, eating the forbidden fruit. Shame enters the world as they hide from God. Yet even in judgment, God promises a descendant who will crush the serpent and restore what was lost.",
+    keyVerse: {
+      text: "I will put enmity between you and the woman, and between your offspring and hers; he will crush your head.",
+      reference: "Genesis 3:15"
+    },
+    whyItMatters: "Your shame and hiding can't separate you from God—He pursues you even in your failure with a rescue plan.",
+    tags: ["fall", "sin", "promise", "redemption"]
+  },
+  'cain-abel': {
+    id: 'cain-abel',
+    summary: "Cain's jealousy over Abel's accepted offering curdles into murder in the field. God confronts Cain but marks him for protection even as he wanders east of Eden. The first family fracture reveals how sin spreads like a virus through generations.",
+    keyVerse: {
+      text: "Am I my brother's keeper?",
+      reference: "Genesis 4:9"
+    },
+    whyItMatters: "Your resentment toward others reveals your heart condition—God sees both the wound and the way back to restoration.",
+    tags: ["jealousy", "murder", "consequence", "mercy"]
   },
   'noahs-flood': {
     id: 'noahs-flood',
@@ -92,8 +112,18 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "I have set my rainbow in the clouds, and it will be the sign of the covenant between me and the earth.",
       reference: "Genesis 9:13"
     },
-    whyItMatters: "The flood narrative reveals both God's justice against sin and His mercy in preserving a remnant—foreshadowing the ultimate salvation through Christ.",
+    whyItMatters: "When the world feels chaotic and evil seems to win, remember God preserves a remnant and keeps His promises—even when judgment is necessary.",
     tags: ["judgment", "mercy", "covenant", "noah"]
+  },
+  'tower-babel': {
+    id: 'tower-babel',
+    summary: "Humanity unites to build a tower to the heavens, making a name for themselves apart from God. God confuses their language and scatters them across the earth. What they intended for unity becomes the origin of nations and cultures.",
+    keyVerse: {
+      text: "Come, let us build ourselves a city, with a tower that reaches to the heavens, so that we may make a name for ourselves.",
+      reference: "Genesis 11:4"
+    },
+    whyItMatters: "Your drive to prove yourself and build your own kingdom ultimately isolates you—true significance comes from God, not self-promotion.",
+    tags: ["pride", "judgment", "nations", "humility"]
   },
   'abrahamic-covenant': {
     id: 'abrahamic-covenant',
@@ -102,8 +132,28 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "I will make you into a great nation, and I will bless you; I will make your name great, and you will be a blessing.",
       reference: "Genesis 12:2"
     },
-    whyItMatters: "Abraham's call launches God's redemptive plan to bless all peoples, finding ultimate fulfillment in Christ.",
+    whyItMatters: "God calls you to leave comfort zones and trust His promises even when you can't see how they'll happen.",
     tags: ["faith", "covenant", "promise", "blessing"]
+  },
+  'isaac-birth': {
+    id: 'isaac-birth',
+    summary: "After decades of waiting and a detour through Hagar, Sarah laughs in disbelief at the promise of a son. At 90 years old, she gives birth to Isaac—'he laughs'—the child of promise. God's timeline rarely matches human urgency, but His faithfulness never fails.",
+    keyVerse: {
+      text: "Is anything too hard for the Lord?",
+      reference: "Genesis 18:14"
+    },
+    whyItMatters: "Your impossible situations are God's specialty—what seems dead or too late is exactly where He loves to work miracles.",
+    tags: ["promise", "miracle", "waiting", "faithfulness"]
+  },
+  'jacobs-ladder': {
+    id: 'jacobs-ladder',
+    summary: "Fleeing his brother's wrath, Jacob sleeps with a stone for a pillow and dreams of angels ascending and descending a ladder to heaven. God renews the Abrahamic covenant, promising presence and blessing. Jacob awakens to declare Bethel—the house of God.",
+    keyVerse: {
+      text: "Surely the Lord is in this place, and I was not aware of it.",
+      reference: "Genesis 28:16"
+    },
+    whyItMatters: "God meets you in your loneliest, most desperate moments—even when you're running, He's building a ladder to reach you.",
+    tags: ["dream", "presence", "covenant", "encounter"]
   },
   'joseph-egypt': {
     id: 'joseph-egypt',
@@ -112,8 +162,38 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "You intended to harm me, but God intended it for good to accomplish what is now being done, the saving of many lives.",
       reference: "Genesis 50:20"
     },
-    whyItMatters: "Joseph's story reveals God's sovereignty in suffering and His power to transform betrayal into redemption.",
+    whyItMatters: "Your betrayals and setbacks aren't wasted—God is weaving even your pain into a story of redemption for others.",
     tags: ["providence", "forgiveness", "suffering", "sovereignty"]
+  },
+  'moses-birth': {
+    id: 'moses-birth',
+    summary: "Pharaoh orders Hebrew baby boys drowned in the Nile, but Moses' mother hides him in a basket among the reeds. Pharaoh's daughter discovers him and raises him as Egyptian royalty. The deliverer of Israel grows up in the house of his enemy.",
+    keyVerse: {
+      text: "She named him Moses, saying, 'I drew him out of the water.'",
+      reference: "Exodus 2:10"
+    },
+    whyItMatters: "God often positions your deliverance in unexpected places—what looks like danger may be His protection in disguise.",
+    tags: ["deliverance", "providence", "protection", "identity"]
+  },
+  'burning-bush': {
+    id: 'burning-bush',
+    summary: "At 80, Moses tends sheep in Midian when he encounters a bush that burns but isn't consumed. God calls from the flames: 'I AM WHO I AM.' The reluctant shepherd receives an impossible assignment—to confront Pharaoh and lead Israel to freedom.",
+    keyVerse: {
+      text: "I have indeed seen the misery of my people in Egypt. I have heard them crying out...",
+      reference: "Exodus 3:7"
+    },
+    whyItMatters: "Your inadequacies don't disqualify you—God specializes in calling the unlikely and equipping them for impossible tasks.",
+    tags: ["calling", "holiness", "mission", "identity"]
+  },
+  'ten-plagues': {
+    id: 'ten-plagues',
+    summary: "Moses demands 'Let my people go' but Pharaoh's heart hardens. God unleashes ten plagues—water to blood, frogs, darkness—each demonstrating Yahweh's power over Egyptian gods. The final plague strikes Egypt's firstborn but passes over Israelite homes marked by blood.",
+    keyVerse: {
+      text: "When I see the blood, I will pass over you.",
+      reference: "Exodus 12:13"
+    },
+    whyItMatters: "Your false gods—control, approval, security—crumble under God's power, but His protection covers you when you trust His provision.",
+    tags: ["judgment", "deliverance", "passover", "power"]
   },
   'exodus-red-sea': {
     id: 'exodus-red-sea',
@@ -122,7 +202,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "The Lord will fight for you; you need only to be still.",
       reference: "Exodus 14:14"
     },
-    whyItMatters: "The Red Sea deliverance becomes Israel's defining salvation story, foreshadowing Christ's victory over sin and death.",
+    whyItMatters: "When you're trapped with no way forward, God makes a way through—your dead ends are His opportunities for deliverance.",
     tags: ["deliverance", "faith", "miracle", "salvation"]
   },
   'sinai-covenant': {
@@ -132,7 +212,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "Now if you obey me fully and keep my covenant, then out of all nations you will be my treasured possession.",
       reference: "Exodus 19:5"
     },
-    whyItMatters: "Sinai reveals God's holiness and humanity's need for mediation—pointing to Christ as the perfect mediator of a better covenant.",
+    whyItMatters: "God's standards reveal your need for grace—you can't earn His love, but you're invited into relationship as His treasured child.",
     tags: ["law", "covenant", "holiness", "mediation"]
   },
   'jericho': {
@@ -142,7 +222,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "By faith the walls of Jericho fell, after the army had marched around them for seven days.",
       reference: "Hebrews 11:30"
     },
-    whyItMatters: "Jericho demonstrates that God's power works through obedient faith, not human strength or strategy.",
+    whyItMatters: "Your impossible walls fall not through striving but through obedient trust—God fights battles you can't win alone.",
     tags: ["faith", "obedience", "victory", "conquest"]
   },
   'david-goliath': {
@@ -152,8 +232,18 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "The Lord who rescued me from the paw of the lion and the paw of the bear will rescue me from the hand of this Philistine.",
       reference: "1 Samuel 17:37"
     },
-    whyItMatters: "David's victory shows that God uses the unlikely and unqualified to accomplish His purposes through faith.",
+    whyItMatters: "Your giants—fear, addiction, impossible situations—fall not by your strength but by trusting the God who has been faithful before.",
     tags: ["faith", "courage", "underdog", "providence"]
+  },
+  'david-bathsheba': {
+    id: 'david-bathsheba',
+    summary: "King David stays home from war and spots Bathsheba bathing. Their adultery leads to pregnancy, then murder as David arranges her husband's death. Confronted by Nathan the prophet, David confesses—experiencing both devastating consequences and profound forgiveness.",
+    keyVerse: {
+      text: "Create in me a pure heart, O God, and renew a steadfast spirit within me.",
+      reference: "Psalm 51:10"
+    },
+    whyItMatters: "Your secret sins have consequences, but God's mercy is deeper than your failure—confession opens the door to restoration.",
+    tags: ["sin", "repentance", "consequence", "forgiveness"]
   },
   'solomon-temple': {
     id: 'solomon-temple',
@@ -162,8 +252,18 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "I have built a magnificent temple for you, a place for you to dwell forever.",
       reference: "1 Kings 8:13"
     },
-    whyItMatters: "The temple foreshadows Christ as the true dwelling place of God among humanity, and the church as God's living temple.",
+    whyItMatters: "God desires to dwell with you—not in buildings, but in your heart—making you His temple through Christ.",
     tags: ["worship", "presence", "glory", "temple"]
+  },
+  'elijah-carmel': {
+    id: 'elijah-carmel',
+    summary: "On Mount Carmel, Elijah confronts 450 prophets of Baal in a showdown. Two altars, one challenge—'The god who answers by fire is God.' Baal remains silent, but Yahweh sends fire that consumes sacrifice, wood, stones, and water. The people fall prostrate: 'The Lord, He is God.'",
+    keyVerse: {
+      text: "Answer me, Lord, answer me, so these people will know that you, Lord, are God.",
+      reference: "1 Kings 18:37"
+    },
+    whyItMatters: "When you're outnumbered and the odds seem impossible, remember God's power isn't limited by your circumstances or opposition.",
+    tags: ["faith", "power", "idolatry", "victory"]
   },
   'babylonian-exile': {
     id: 'babylonian-exile',
@@ -172,8 +272,18 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "By the rivers of Babylon we sat and wept when we remembered Zion.",
       reference: "Psalm 137:1"
     },
-    whyItMatters: "Exile reveals the seriousness of sin and God's faithfulness to discipline and restore His covenant people.",
+    whyItMatters: "Even in your Babylon—seasons of loss and displacement—God hasn't abandoned you; He's preparing your return and restoration.",
     tags: ["judgment", "exile", "lament", "hope"]
+  },
+  'return-exile': {
+    id: 'return-exile',
+    summary: "After 70 years, Cyrus of Persia decrees the Jews may return and rebuild Jerusalem's temple. Zerubbabel leads the first wave, facing opposition and discouragement. Despite setbacks, the temple is completed—smaller than Solomon's, but God's glory returns.",
+    keyVerse: {
+      text: "Who dares despise the day of small things?",
+      reference: "Zechariah 4:10"
+    },
+    whyItMatters: "Your rebuilding season may feel small and disappointing, but God is at work in humble beginnings—don't despise them.",
+    tags: ["restoration", "rebuilding", "hope", "perseverance"]
   },
   'birth-of-jesus': {
     id: 'birth-of-jesus',
@@ -182,7 +292,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "Today in the town of David a Savior has been born to you; he is the Messiah, the Lord.",
       reference: "Luke 2:11"
     },
-    whyItMatters: "The incarnation—God becoming human—lies at the heart of Christianity, making salvation possible through Christ's identification with us.",
+    whyItMatters: "God entered your mess and humanity—not as a distant deity but as Emmanuel—to be with you in your lowest moments.",
     tags: ["incarnation", "messiah", "hope", "fulfillment"]
   },
   'baptism-of-jesus': {
@@ -192,8 +302,68 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "This is my Son, whom I love; with him I am well pleased.",
       reference: "Matthew 3:17"
     },
-    whyItMatters: "Jesus' baptism identifies Him with sinners He came to save and inaugurates His messianic mission.",
+    whyItMatters: "Before you do anything for God, hear His voice over you: You are beloved—your identity isn't earned, it's given.",
     tags: ["trinity", "identity", "mission", "anointing"]
+  },
+  'temptation-jesus': {
+    id: 'temptation-jesus',
+    summary: "Fresh from baptism, the Spirit drives Jesus into the wilderness for 40 days. Satan tempts Him with bread, protection, and power—attacking identity, provision, and purpose. Jesus counters each temptation with Scripture: 'It is written.'",
+    keyVerse: {
+      text: "Man shall not live on bread alone, but on every word that comes from the mouth of God.",
+      reference: "Matthew 4:4"
+    },
+    whyItMatters: "Your temptations target the same areas—identity, provision, power—but God's Word is your weapon and anchor in the wilderness.",
+    tags: ["temptation", "scripture", "obedience", "victory"]
+  },
+  'sermon-mount': {
+    id: 'sermon-mount',
+    summary: "On a Galilean hillside, Jesus delivers His kingdom manifesto. 'Blessed are the poor in spirit... Love your enemies... Do not worry.' He redefines greatness, righteousness, and the good life—upending religious expectations and inviting followers into a counter-cultural way.",
+    keyVerse: {
+      text: "Blessed are the poor in spirit, for theirs is the kingdom of heaven.",
+      reference: "Matthew 5:3"
+    },
+    whyItMatters: "Your kingdom values are upside-down from the world's—blessing comes through humility, mercy, and dependence on God, not power.",
+    tags: ["kingdom", "beatitudes", "ethics", "discipleship"]
+  },
+  'feeding-5000': {
+    id: 'feeding-5000',
+    summary: "Following Jesus to a remote place, 5,000 men (plus women and children) grow hungry. A boy offers five loaves and two fish. Jesus gives thanks, breaks the bread, and feeds the multitude—with twelve baskets left over. The crowd wants to make Him king by force.",
+    keyVerse: {
+      text: "They all ate and were satisfied.",
+      reference: "Matthew 14:20"
+    },
+    whyItMatters: "Your small, inadequate offering in Jesus' hands becomes more than enough—He multiplies what you surrender to feed others.",
+    tags: ["miracle", "provision", "compassion", "abundance"]
+  },
+  'transfiguration': {
+    id: 'transfiguration',
+    summary: "Jesus leads Peter, James, and John up a high mountain where He is transfigured—face shining like the sun, clothes white as light. Moses and Elijah appear, talking with Him. The Father's voice declares from the cloud: 'Listen to Him.' The disciples fall facedown in terror.",
+    keyVerse: {
+      text: "This is my Son, whom I love; with him I am well pleased. Listen to him!",
+      reference: "Matthew 17:5"
+    },
+    whyItMatters: "In your fog of confusion, Jesus offers glimpses of glory—moments that sustain you when the mountain gives way to the valley.",
+    tags: ["glory", "revelation", "identity", "transformation"]
+  },
+  'triumphal-entry': {
+    id: 'triumphal-entry',
+    summary: "Jesus enters Jerusalem on a donkey as crowds spread cloaks and palm branches, shouting 'Hosanna!' The city stirs—'Who is this?' They expect a political Messiah to overthrow Rome. Instead, He weeps over Jerusalem and heads to the temple to cleanse it.",
+    keyVerse: {
+      text: "Blessed is he who comes in the name of the Lord!",
+      reference: "Matthew 21:9"
+    },
+    whyItMatters: "Your expectations of how God should work often miss His actual mission—He comes as humble king, not conquering warlord.",
+    tags: ["kingship", "humility", "prophecy", "expectation"]
+  },
+  'last-supper': {
+    id: 'last-supper',
+    summary: "On Passover night, Jesus shares a final meal with His disciples. He washes their feet, predicts betrayal, and institutes Communion—bread as His body, wine as His blood. 'Do this in remembrance of me.' He gives a new command: 'Love one another as I have loved you.'",
+    keyVerse: {
+      text: "This is my body given for you; do this in remembrance of me.",
+      reference: "Luke 22:19"
+    },
+    whyItMatters: "Your relationships are transformed when you remember Jesus' sacrificial love—serving others flows from being served by Him.",
+    tags: ["communion", "sacrifice", "love", "remembrance"]
   },
   'crucifixion': {
     id: 'crucifixion',
@@ -202,7 +372,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "Father, into your hands I commit my spirit.",
       reference: "Luke 23:46"
     },
-    whyItMatters: "The cross is the pivotal moment where God's justice and mercy meet—Christ bears sin's penalty to reconcile sinners to God.",
+    whyItMatters: "The worst evil in history became the source of greatest good, proving God can redeem even your darkest moments.",
     tags: ["atonement", "sacrifice", "love", "victory"]
   },
   'resurrection': {
@@ -212,8 +382,18 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "He is not here; he has risen, just as he said.",
       reference: "Matthew 28:6"
     },
-    whyItMatters: "The resurrection validates Jesus' claims, defeats death, and guarantees believers' future resurrection and eternal life.",
+    whyItMatters: "Your dead ends and hopeless situations aren't final—resurrection power means God specializes in bringing life from death.",
     tags: ["victory", "hope", "new-creation", "witness"]
+  },
+  'ascension': {
+    id: 'ascension',
+    summary: "Forty days after resurrection, Jesus leads disciples to the Mount of Olives. He commissions them to be witnesses 'to the ends of the earth,' then ascends into heaven as they watch. Two angels promise He will return the same way. They return to Jerusalem with great joy.",
+    keyVerse: {
+      text: "Surely I am with you always, to the very end of the age.",
+      reference: "Matthew 28:20"
+    },
+    whyItMatters: "Jesus left physically so He could be with you spiritually everywhere—you're never alone in your mission or your pain.",
+    tags: ["commission", "presence", "hope", "mission"]
   },
   'pentecost': {
     id: 'pentecost',
@@ -222,7 +402,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "But you will receive power when the Holy Spirit comes on you; and you will be my witnesses...",
       reference: "Acts 1:8"
     },
-    whyItMatters: "Pentecost fulfills Joel's prophecy and empowers the church for its global mission through the indwelling Spirit.",
+    whyItMatters: "You don't face life alone—the same Spirit who empowered the early church lives in you, giving power for your witness.",
     tags: ["spirit", "church", "mission", "power"]
   },
   'pauls-conversion': {
@@ -232,8 +412,18 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
       text: "This man is my chosen instrument to proclaim my name to the Gentiles and their kings and to the people of Israel.",
       reference: "Acts 9:15"
     },
-    whyItMatters: "Paul's transformation demonstrates God's power to redeem even the worst persecutor and use him for kingdom purposes.",
+    whyItMatters: "No one is beyond God's reach—if He can transform Christianity's greatest enemy, He can transform you and your enemies too.",
     tags: ["transformation", "grace", "calling", "mission"]
+  },
+  'pauls-journeys': {
+    id: 'pauls-journeys',
+    summary: "Paul embarks on three missionary journeys across the Roman Empire, planting churches in Asia Minor and Greece. He faces beatings, stonings, shipwrecks, and imprisonment—yet writes letters of joy from prison cells. The gospel spreads from Jerusalem to Rome through his suffering.",
+    keyVerse: {
+      text: "I have fought the good fight, I have finished the race, I have kept the faith.",
+      reference: "2 Timothy 4:7"
+    },
+    whyItMatters: "Your suffering has purpose—God uses your hardest seasons to spread hope to people you'll never meet this side of heaven.",
+    tags: ["mission", "suffering", "perseverance", "gospel"]
   }
 };
 
@@ -2028,6 +2218,50 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                     </details>
                   )}
                 </div>
+                
+                {/* Why This Matters - Curated Devotional Insight */}
+                {(() => {
+                  const eventKey = selectedEvent.name.toLowerCase()
+                    .replace(/[^a-z0-9\s]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+                  
+                  // Try multiple matching strategies
+                  let curatedEvent = CURATED_CONTENT[eventKey];
+                  
+                  if (!curatedEvent) {
+                    // Try partial matches
+                    for (const [key, value] of Object.entries(CURATED_CONTENT)) {
+                      if (eventKey.includes(key) || key.includes(eventKey.split('-')[0])) {
+                        curatedEvent = value;
+                        break;
+                      }
+                    }
+                  }
+                  
+                  if (curatedEvent?.whyItMatters) {
+                    return (
+                      <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:175ms] -mx-5 md:-mx-7 my-1">
+                        <div className="bg-gradient-to-r from-amber-50/80 to-orange-50/60 border-l-[3px] border-amber-500/70 px-5 md:px-7 py-4 backdrop-blur-sm">
+                          <div className="flex items-start gap-2.5">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-500/15 flex items-center justify-center mt-0.5">
+                              <span className="text-[10px]">✦</span>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-[9px] font-bold uppercase tracking-[0.12em] text-amber-700/80 mb-2 [font-family:'Geist_Sans',system-ui,sans-serif]">
+                                Why This Matters
+                              </div>
+                              <p className="text-[13.5px] leading-[1.6] text-stone-700 italic [font-family:'Geist_Sans',system-ui,sans-serif]">
+                                {curatedEvent.whyItMatters}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })()}
                 
                 {/* Tags */}
                 <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:200ms] flex flex-wrap gap-1.5">

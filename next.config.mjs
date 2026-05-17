@@ -3,13 +3,10 @@
 // Targets: Cloudflare Pages / R2, or any static host.
 
 /** @type {import('next').NextConfig} */
-// Force cache invalidation for TDZ fix deployment - build ID changes on every build
-const BUILD_ID = Date.now().toString();
-
 const nextConfig = {
   // Generate unique build ID to force Cloudflare Pages cache invalidation
   generateBuildId: async () => {
-    return BUILD_ID;
+    return Date.now().toString();
   },
   // THE FIX: Disable StrictMode to prevent Luma.gl WebGL context destruction 
   // during React 18 development double-mounts.
