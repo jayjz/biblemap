@@ -1330,8 +1330,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                     {selectedEvent.name}
                   </h1>
                   
-                  {/* Date/Location - Geist Sans, 11px, uppercase, letter-spacing 0.08em */}
-                  <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.08em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
+                  {/* Date/Location - Geist Sans, 11px, uppercase, letter-spacing 0.05em */}
+                  <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.05em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
                     <span>
                       {selectedEvent.ussher_year < 0 
                         ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` 
@@ -1346,7 +1346,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 {selectedEvent.verse_text_snippet && (
                   <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:100ms] -mx-5 md:-mx-7">
                     <div className="bg-[#fef3c7] border-l-[3px] border-[#d97706] px-5 md:px-7 py-4">
-                      <p className="text-[16px] leading-[1.65] text-[#44403c] italic [font-family:'Playfair_Display',Georgia,serif]">
+                      <p className="text-[17px] leading-[1.65] text-[#44403c] italic [font-family:'Playfair_Display',Georgia,serif]">
                         "{selectedEvent.verse_text_snippet}"
                       </p>
                       {selectedEvent.verse_reference && (
@@ -1403,7 +1403,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                               });
                             }
                           }}
-                          className="group flex-shrink-0 w-[128px] text-left p-3 rounded-[12px] bg-white border border-stone-200 hover:border-stone-300 hover:shadow-sm transition-all duration-200 active:scale-[0.98]"
+                          className="group flex-shrink-0 w-[140px] text-left p-3 rounded-[12px] bg-white border border-stone-200 hover:border-stone-300 hover:shadow-sm transition-all duration-200 active:scale-[0.98]"
                         >
                           <div className="text-[13px] leading-[1.35] text-stone-800 font-medium line-clamp-2 mb-1.5 [font-family:'Geist_Sans',system-ui,sans-serif] group-hover:text-stone-900">
                             {ev.name}
