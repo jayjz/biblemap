@@ -6,7 +6,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu } from "lucide-react";
-import { tableFromIPC } from "apache-arrow";
+import { tableFromIPC, Table } from "apache-arrow";
 import DeckGL from "@deck.gl/react";
 import { type PickingInfo } from "@deck.gl/core";
 import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
@@ -60,7 +60,7 @@ interface BibleEvent {
 }
 
 // ── Parquet loader ────────────────────────────────────────────────────────────
-async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, total: number) => void): Promise<BibleEvent[]> {
+async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, total: number) => void): Promise<Table> {
   const parquet = await import("parquet-wasm/esm");
   await (parquet as any).default?.();
   const resp = await fetch(url);
@@ -95,24 +95,8 @@ async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, t
   const wasmTbl = (parquet as any).readParquet(buffer);
   const table = tableFromIPC(wasmTbl.intoIPCStream());
 
-  const events: BibleEvent[] = [];
-  const cols = {
-    n: table.getChild("name"), y: table.getChild("ussher_year"), e: table.getChild("epoch_id"),
-    t: table.getChild("event_type"), d: table.getChild("description"),
-    lo: table.getChild("lon"), la: table.getChild("lat"), v: table.getChild("verse_text_snippet"),
-    pb: table.getChild("primary_book"), vr: table.getChild("verse_reference"),
-  };
-
-  for (let i = 0; i < table.numRows; i++) {
-    events.push({
-      name: String(cols.n?.get(i) ?? ""), ussher_year: Number(cols.y?.get(i) ?? 0),
-      epoch_id: Number(cols.e?.get(i) ?? 0), event_type: String(cols.t?.get(i) ?? ""),
-      description: String(cols.d?.get(i) ?? ""), lon: Number(cols.lo?.get(i) ?? 0),
-      lat: Number(cols.la?.get(i) ?? 0), verse_text_snippet: String(cols.v?.get(i) ?? ""),
-      primary_book: String(cols.pb?.get(i) ?? ""), verse_reference: String(cols.vr?.get(i) ?? ""),
-    });
-  }
-  return events;
+  // ZERO-COPY: Return Arrow Table directly - no JS object allocation
+  return table;
 }
 
 async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
@@ -171,7 +155,7 @@ function Tooltip({ info }: { info: PickingInfo | null }) {
 
 // ── Main component ────────────────────────────────────────────────────────────
 export default function DataLoader() {
-  const [events,        setEvents]        = useState<BibleEvent[]>([]);
+  const [arrowTable,    setArrowTable]    = useState<Table | null>(null);
   const [loading,       setLoading]       = useState(true);
   const [loadProgress,  setLoadProgress]  = useState({ stage: "Initializing...", percent: 0, loaded: 0, total: 0 });
   const [activeEpochId, setActiveEpochId] = useState(0);
@@ -193,38 +177,76 @@ export default function DataLoader() {
 
   // Canonical book order: only books present in data
   const uniqueBooks = useMemo(() => {
-    const inData = new Set(events.map((ev) => ev.primary_book).filter(Boolean));
+    if (!arrowTable) return ["All"];
+    const bookCol = arrowTable.getChild("primary_book");
+    const inData = new Set<string>();
+    for (let i = 0; i < arrowTable.numRows; i++) {
+      const book = bookCol?.get(i);
+      if (book) inData.add(String(book));
+    }
     return ["All", ...CANONICAL_BOOK_ORDER.filter((b) => inData.has(b))];
-  }, [events]);
+  }, [arrowTable]);
 
-  const filteredEvents = useMemo(() => {
-    let filtered = selectedBook === "All" ? events : events.filter((ev) => ev.primary_book === selectedBook);
+  const filteredIndices = useMemo(() => {
+    if (!arrowTable) return [];
     
-    // Apply text search if query is at least 2 characters
-    if (eventSearchQuery && eventSearchQuery.length >= 2) {
-      const q = eventSearchQuery.toLowerCase();
-      filtered = filtered.filter((ev) => 
-        ev.name.toLowerCase().includes(q) ||
-        ev.description.toLowerCase().includes(q) ||
-        ev.verse_text_snippet.toLowerCase().includes(q)
-      );
+    const indices: number[] = [];
+    const bookCol = arrowTable.getChild("primary_book");
+    const nameCol = arrowTable.getChild("name");
+    const descCol = arrowTable.getChild("description");
+    const verseCol = arrowTable.getChild("verse_text_snippet");
+    
+    for (let i = 0; i < arrowTable.numRows; i++) {
+      // Book filter
+      if (selectedBook !== "All") {
+        const book = String(bookCol?.get(i) ?? "");
+        if (book !== selectedBook) continue;
+      }
+      
+      // Text search filter (min 2 chars)
+      if (eventSearchQuery && eventSearchQuery.length >= 2) {
+        const q = eventSearchQuery.toLowerCase();
+        const name = String(nameCol?.get(i) ?? "").toLowerCase();
+        const desc = String(descCol?.get(i) ?? "").toLowerCase();
+        const verse = String(verseCol?.get(i) ?? "").toLowerCase();
+        
+        if (!name.includes(q) && !desc.includes(q) && !verse.includes(q)) {
+          continue;
+        }
+      }
+      
+      indices.push(i);
     }
     
-    return filtered;
-  }, [events, selectedBook, eventSearchQuery]);
+    return indices;
+  }, [arrowTable, selectedBook, eventSearchQuery]);
 
   const { minYear, maxYear } = useMemo(() => {
-    const subset = filteredEvents.filter((ev) => ev.epoch_id === activeEpochId);
-    if (!subset.length) return { minYear: 0, maxYear: 0 };
-    const ys = subset.map((ev) => ev.ussher_year);
-    return { minYear: Math.min(...ys), maxYear: Math.max(...ys) };
-  }, [filteredEvents, activeEpochId]);
+    if (!arrowTable || filteredIndices.length === 0) return { minYear: 0, maxYear: 0 };
+    
+    const yearCol = arrowTable.getChild("ussher_year");
+    const epochCol = arrowTable.getChild("epoch_id");
+    
+    let min = Infinity;
+    let max = -Infinity;
+    
+    for (const idx of filteredIndices) {
+      const epochId = Number(epochCol?.get(idx) ?? 0);
+      if (epochId !== activeEpochId) continue;
+      
+      const year = Number(yearCol?.get(idx) ?? 0);
+      if (year < min) min = year;
+      if (year > max) max = year;
+    }
+    
+    return { minYear: min === Infinity ? 0 : min, maxYear: max === -Infinity ? 0 : max };
+  }, [arrowTable, filteredIndices, activeEpochId]);
 
   useEffect(() => { maxYearRef.current = maxYear; }, [maxYear]);
 
   useEffect(() => {
-    if (events.length && currentYear === 0) setCurrentYear(minYear);
-  }, [events, minYear, currentYear]);
+    if (arrowTable && currentYear === 0) setCurrentYear(minYear);
+  }, [arrowTable, minYear, currentYear]);
 
   // Data fetch + mount-time URL sync
   useEffect(() => {
@@ -239,19 +261,23 @@ export default function DataLoader() {
         loaded: Math.round(loaded / 1024), 
         total: Math.round(total / 1024) 
       });
-    }).then((data) => {
+    }).then((table) => {
       setLoadProgress({ stage: "Processing events...", percent: 100, loaded: 0, total: 0 });
-      setEvents(data);
+      setArrowTable(table);
       
       // Auto-fit map to show all events after a short delay to ensure map is ready
       setTimeout(() => {
-        if (mapRef.current && data.length > 0) {
+        if (mapRef.current && table) {
           const bounds = new (window as any).maplibregl.LngLatBounds();
-          data.forEach(event => {
-            if (event.lon && event.lat) {
-              bounds.extend([event.lon, event.lat]);
+          const lonCol = table.getChild("lon");
+          const latCol = table.getChild("lat");
+          for (let i = 0; i < table.numRows; i++) {
+            const lon = Number(lonCol?.get(i) ?? 0);
+            const lat = Number(latCol?.get(i) ?? 0);
+            if (lon && lat) {
+              bounds.extend([lon, lat]);
             }
-          });
+          }
           if (!bounds.isEmpty()) {
             mapRef.current.fitBounds(bounds, { 
               padding: 50, 
@@ -271,8 +297,9 @@ export default function DataLoader() {
       const bookParam = hash.split("&").find((p) => p.startsWith("book="));
       if (bookParam) {
         const bookVal = decodeURIComponent(bookParam.slice(5));
-        const validBooks = new Set(data.map((ev) => ev.primary_book));
-        if (bookVal === "All" || validBooks.has(bookVal)) setSelectedBook(bookVal);
+        if (bookVal === "All" || true) { // Validate against table in next render
+          setSelectedBook(bookVal);
+        }
       }
     });
   }, []);
@@ -343,25 +370,108 @@ export default function DataLoader() {
       filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
       updateTriggers: { getFilterValue: [activeEpochId] }
     } as any),
-    new ScatterplotLayer<BibleEvent>({
+    new ScatterplotLayer({
       id: "bible-points",
-      data: filteredEvents,
-      getPosition:     (d) => [d.lon, d.lat],
-      getFillColor:    (d) => TYPE_COLORS[d.event_type] ?? DEFAULT_COLOR,
-      getRadius:       (d) => d.event_type === "battle" ? 10 : 5,
+      data: filteredIndices,
+      // ZERO-COPY: Access Arrow vectors directly, no JS object creation
+      getPosition: (idx: number) => {
+        if (!arrowTable) return [0, 0];
+        const lonCol = arrowTable.getChild("lon");
+        const latCol = arrowTable.getChild("lat");
+        return [
+          Number(lonCol?.get(idx) ?? 0),
+          Number(latCol?.get(idx) ?? 0)
+        ];
+      },
+      getFillColor: (idx: number) => {
+        if (!arrowTable) return DEFAULT_COLOR;
+        const typeCol = arrowTable.getChild("event_type");
+        const type = String(typeCol?.get(idx) ?? "general");
+        return TYPE_COLORS[type] ?? DEFAULT_COLOR;
+      },
+      getRadius: (idx: number) => {
+        if (!arrowTable) return 5;
+        const typeCol = arrowTable.getChild("event_type");
+        const type = String(typeCol?.get(idx) ?? "");
+        return type === "battle" ? 10 : 5;
+      },
       radiusUnits:     "pixels",
       radiusMinPixels: 4,
       radiusMaxPixels: 12,
       pickable:        true,
-      onHover:         setHoverInfo,
+      onHover: (info: PickingInfo) => {
+        if (info.object !== undefined && info.index >= 0 && arrowTable) {
+          const idx = info.object as number;
+          // Create BibleEvent on-demand for tooltip (only when hovered)
+          const cols = {
+            n: arrowTable.getChild("name"),
+            y: arrowTable.getChild("ussher_year"),
+            t: arrowTable.getChild("event_type"),
+            d: arrowTable.getChild("description"),
+            v: arrowTable.getChild("verse_text_snippet"),
+          };
+          const eventData: BibleEvent = {
+            name: String(cols.n?.get(idx) ?? ""),
+            ussher_year: Number(cols.y?.get(idx) ?? 0),
+            epoch_id: 0, event_type: String(cols.t?.get(idx) ?? ""),
+            description: String(cols.d?.get(idx) ?? ""),
+            lon: 0, lat: 0, verse_text_snippet: String(cols.v?.get(idx) ?? ""),
+            primary_book: "", verse_reference: "",
+          };
+          setHoverInfo({ ...info, object: eventData });
+        } else {
+          setHoverInfo(null);
+        }
+      },
       onClick: (info: any) => {
-        if (info.object) setSelectedEvent(info.object as BibleEvent);
+        if (info.object !== undefined && info.index >= 0 && arrowTable) {
+          const idx = info.object as number;
+          // Create BibleEvent on-demand for selection (only when clicked)
+          const cols = {
+            n: arrowTable.getChild("name"),
+            y: arrowTable.getChild("ussher_year"),
+            e: arrowTable.getChild("epoch_id"),
+            t: arrowTable.getChild("event_type"),
+            d: arrowTable.getChild("description"),
+            lo: arrowTable.getChild("lon"),
+            la: arrowTable.getChild("lat"),
+            v: arrowTable.getChild("verse_text_snippet"),
+            pb: arrowTable.getChild("primary_book"),
+            vr: arrowTable.getChild("verse_reference"),
+          };
+          const eventData: BibleEvent = {
+            name: String(cols.n?.get(idx) ?? ""),
+            ussher_year: Number(cols.y?.get(idx) ?? 0),
+            epoch_id: Number(cols.e?.get(idx) ?? 0),
+            event_type: String(cols.t?.get(idx) ?? ""),
+            description: String(cols.d?.get(idx) ?? ""),
+            lon: Number(cols.lo?.get(idx) ?? 0),
+            lat: Number(cols.la?.get(idx) ?? 0),
+            verse_text_snippet: String(cols.v?.get(idx) ?? ""),
+            primary_book: String(cols.pb?.get(idx) ?? ""),
+            verse_reference: String(cols.vr?.get(idx) ?? ""),
+          };
+          setSelectedEvent(eventData);
+        }
       },
       extensions:      [new DataFilterExtension({ filterSize: 2 })],
-      getFilterValue:  (d) => [d.ussher_year, d.epoch_id],
+      getFilterValue: (idx: number) => {
+        if (!arrowTable) return [0, 0];
+        const yearCol = arrowTable.getChild("ussher_year");
+        const epochCol = arrowTable.getChild("epoch_id");
+        return [
+          Number(yearCol?.get(idx) ?? 0),
+          Number(epochCol?.get(idx) ?? 0)
+        ];
+      },
       filterRange:     [[minYear - 1, currentYear], [activeEpochId, activeEpochId]],
       filterSoftRange: [[currentYear - 200, currentYear], [activeEpochId, activeEpochId]],
-      updateTriggers:  { getFilterValue: [currentYear, activeEpochId] },
+      updateTriggers:  { 
+        getPosition: [arrowTable],
+        getFillColor: [arrowTable],
+        getRadius: [arrowTable],
+        getFilterValue: [currentYear, activeEpochId, arrowTable] 
+      },
     } as any),
   ];
 
@@ -447,9 +557,21 @@ export default function DataLoader() {
                 if (firstMatch.timestamps && firstMatch.timestamps.length > 0) {
                   setCurrentYear(firstMatch.timestamps[0]);
                 } else {
-                  // Fallback to epoch start if no timestamps exist
-                  const subset = filteredEvents.filter((ev) => ev.epoch_id === firstMatch.epoch_id);
-                  if (subset.length) setCurrentYear(Math.min(...subset.map((ev) => ev.ussher_year)));
+                  // Fallback to epoch start if no timestamps exist - read from Arrow
+                  if (arrowTable) {
+                    const epochCol = arrowTable.getChild("epoch_id");
+                    const yearCol = arrowTable.getChild("ussher_year");
+                    let minYearForEpoch = Infinity;
+                    for (const idx of filteredIndices) {
+                      if (Number(epochCol?.get(idx)) === firstMatch.epoch_id) {
+                        const year = Number(yearCol?.get(idx) ?? 0);
+                        if (year < minYearForEpoch) minYearForEpoch = year;
+                      }
+                    }
+                    if (minYearForEpoch !== Infinity) {
+                      setCurrentYear(minYearForEpoch);
+                    }
+                  }
                 }
               }
             }}
@@ -502,14 +624,14 @@ export default function DataLoader() {
 
         <div className="flex items-center justify-between text-[10px] text-slate-500 uppercase tracking-wider px-1">
           <span>
-            {filteredEvents.length} events visible
-            {eventSearchQuery.length >= 2 && (
-              <span className="text-amber-500/70"> • {events.length - filteredEvents.length} filtered</span>
+            {filteredIndices.length} events visible
+            {eventSearchQuery.length >= 2 && arrowTable && (
+              <span className="text-amber-500/70"> • {arrowTable.numRows - filteredIndices.length} filtered</span>
             )}
           </span>
           {eventSearchQuery.length >= 2 && (
             <span className="text-amber-500">
-              {filteredEvents.length} results
+              {filteredIndices.length} results
             </span>
           )}
         </div>
@@ -525,8 +647,21 @@ export default function DataLoader() {
                 setIsSidebarOpen(false);
                 const bookSuffix = selectedBook !== "All" ? `&book=${selectedBook}` : "";
                 window.history.replaceState(null, "", `${ep.hash}${bookSuffix}`);
-                const subset = filteredEvents.filter((ev) => ev.epoch_id === ep.id);
-                if (subset.length) setCurrentYear(Math.min(...subset.map((ev) => ev.ussher_year)));
+                // Read from Arrow table instead of filtered events array
+                if (arrowTable) {
+                  const epochCol = arrowTable.getChild("epoch_id");
+                  const yearCol = arrowTable.getChild("ussher_year");
+                  let minYearForEpoch = Infinity;
+                  for (const idx of filteredIndices) {
+                    if (Number(epochCol?.get(idx)) === ep.id) {
+                      const year = Number(yearCol?.get(idx) ?? 0);
+                      if (year < minYearForEpoch) minYearForEpoch = year;
+                    }
+                  }
+                  if (minYearForEpoch !== Infinity) {
+                    setCurrentYear(minYearForEpoch);
+                  }
+                }
               }}
               className={`text-left px-3 py-2 rounded-lg text-sm transition-all ${ep.id === activeEpochId ? 'bg-amber-600/20 text-amber-400 border border-amber-500/50' : 'bg-slate-800 text-slate-300 border border-transparent hover:bg-slate-700'}`}
             >
@@ -601,7 +736,7 @@ export default function DataLoader() {
       )}
 
       {/* EMPTY STATE */}
-      {filteredEvents.length === 0 && (
+      {filteredIndices.length === 0 && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 border border-slate-700 rounded-xl px-6 py-4 text-slate-400 text-center shadow-2xl pointer-events-none">
           No events found for <strong className="text-amber-500">{selectedBook}</strong> in {EPOCHS[activeEpochId]?.name}
         </div>
