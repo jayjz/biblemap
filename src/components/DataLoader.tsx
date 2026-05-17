@@ -1224,148 +1224,172 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         </div>
       </div>
 
-      {/* Event Detail Panel v3 - User-Friendly Cinematic Design */}
+      {/* Event Detail Panel v4 - Premium Cinematic Redesign */}
       {selectedEvent && (
         <>
-          {/* Backdrop - Desktop: click outside to close | Mobile: dim background */}
+          {/* Backdrop with blur */}
           <div 
-            className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[2px] md:backdrop-blur-none md:bg-transparent transition-opacity duration-300"
+            className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:backdrop-blur-[2px] md:bg-black/20 transition-opacity duration-300"
             onClick={() => setSelectedEvent(null)}
             aria-hidden="true"
           />
           
-          {/* Panel Container */}
+          {/* Panel v4 - Fixed position, no layout shift */}
           <div 
             className={`
               fixed z-40 flex flex-col
-              md:top-0 md:right-0 md:h-full md:w-[400px] md:max-w-[420px] md:min-w-[380px]
-              bottom-0 left-0 right-0 h-[68vh] md:rounded-none rounded-t-[20px]
-              bg-[#faf8f3]/95 md:bg-[#fefcfa]/98 backdrop-blur-xl
-              border-t md:border-t-0 md:border-l border-[#e8e0d5]
-              shadow-[0_-8px_40px_rgba(139,115,85,0.15)] md:shadow-[-8px_0_40px_rgba(139,115,85,0.12)]
-              transition-all duration-300 ease-out
+              md:top-0 md:right-0 md:h-screen md:w-[400px] md:max-w-[400px]
+              bottom-0 left-0 right-0 h-[65vh] min-h-[400px] max-h-[85vh]
+              md:rounded-none rounded-t-[24px]
+              bg-[#fefcf8]/[0.98] backdrop-blur-xl
+              md:border-l border-t md:border-t-0 border-black/[0.06]
+              md:shadow-[-4px_0_24px_rgba(0,0,0,0.08)] shadow-[0_-4px_24px_rgba(0,0,0,0.12)]
+              transition-transform duration-[300ms] ease-[cubic-bezier(0.2,0,0,1)]
               will-change-transform
               ${selectedEvent 
-                ? 'translate-y-0 md:translate-x-0 opacity-100' 
-                : 'translate-y-full md:translate-x-full md:translate-y-0 opacity-0'
+                ? 'translate-y-0 md:translate-x-0' 
+                : 'translate-y-full md:translate-x-full md:translate-y-0'
               }
             `}
-            style={{
-              fontFamily: 'var(--font-geist-sans)',
-            }}
             role="dialog"
             aria-modal="true"
             aria-label="Event details"
+            style={{
+              paddingBottom: 'env(safe-area-inset-bottom)',
+            }}
+            onTouchStart={(e) => {
+              const touch = e.touches[0];
+              (e.currentTarget as any)._touchStartY = touch.clientY;
+              (e.currentTarget as any)._touchStartTime = Date.now();
+            }}
+            onTouchMove={(e) => {
+              const touch = e.touches[0];
+              const startY = (e.currentTarget as any)._touchStartY || 0;
+              const deltaY = touch.clientY - startY;
+              
+              // Only allow downward swipe on mobile, and only if at top of scroll
+              if (window.innerWidth < 768 && deltaY > 0) {
+                const scrollContainer = e.currentTarget.querySelector('[data-scroll-container]');
+                if (scrollContainer && scrollContainer.scrollTop === 0) {
+                  e.currentTarget.style.transform = `translateY(${Math.min(deltaY, 200)}px)`;
+                }
+              }
+            }}
+            onTouchEnd={(e) => {
+              const touch = e.changedTouches[0];
+              const startY = (e.currentTarget as any)._touchStartY || 0;
+              const startTime = (e.currentTarget as any)._touchStartTime || 0;
+              const deltaY = touch.clientY - startY;
+              const deltaTime = Date.now() - startTime;
+              const velocity = deltaY / deltaTime;
+              
+              // Reset transform
+              e.currentTarget.style.transform = '';
+              
+              // Dismiss if swiped down enough or with velocity
+              if (window.innerWidth < 768 && (deltaY > 100 || velocity > 0.5)) {
+                setSelectedEvent(null);
+              }
+            }}
           >
-            {/* Subtle Parchment Texture - opacity 0.02-0.03 */}
+            {/* Film Grain Texture - 0.02 opacity */}
             <div 
-              className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-multiply"
+              className="pointer-events-none absolute inset-0 opacity-[0.02] mix-blend-multiply"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
               }}
             />
             
-            {/* Mobile Drag Handle - 44px touch target */}
-            <div className="md:hidden flex justify-center items-center h-11 -mb-2">
-              <button
-                onClick={() => setSelectedEvent(null)}
-                className="flex items-center justify-center w-full h-full"
-                aria-label="Drag to dismiss"
-              >
-                <div className="w-10 h-1 rounded-full bg-[#d4c4a8] opacity-60" />
-              </button>
+            {/* Mobile Drag Handle - 36px wide, 4px height, 8px margin */}
+            <div className="md:hidden flex justify-center pt-2 pb-1">
+              <div className="w-9 h-1 rounded-full bg-stone-300" />
             </div>
             
-            {/* Close Button - Desktop */}
+            {/* Close Button - Desktop only */}
             <button
               onClick={() => setSelectedEvent(null)}
-              className="hidden md:flex absolute top-6 right-6 w-8 h-8 items-center justify-center rounded-full text-[#8b7355] hover:text-[#5d4e37] hover:bg-[#f0e9df] transition-colors z-10"
+              className="hidden md:flex absolute top-6 right-6 w-8 h-8 items-center justify-center rounded-full text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors z-10"
               aria-label="Close panel"
             >
               <X className="w-4 h-4" />
             </button>
             
-            {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto overscroll-contain">
-              <div className="px-6 md:px-8 pt-2 md:pt-10 pb-8">
+            {/* Scrollable Content with staggered animations */}
+            <div 
+              data-scroll-container
+              className="flex-1 overflow-y-auto overscroll-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <div className="px-5 md:px-7 pt-4 md:pt-10 pb-8 space-y-6">
                 
-                {/* 1. Large Title - Playfair Display, 24-28px, weight 600 */}
-                <h1 
-                  className="text-[26px] md:text-[28px] leading-[1.2] tracking-[-0.01em] text-[#2d2419] mb-6"
-                  style={{ 
-                    fontFamily: 'var(--font-playfair)',
-                    fontWeight: 600,
-                  }}
-                >
-                  {selectedEvent.name}
-                </h1>
-                
-                {/* 2. Date + Location - small, uppercase, letter-spacing 0.05em, muted */}
-                <div className="flex items-center gap-2.5 text-[11px] tracking-[0.05em] text-[#8b7355] uppercase font-medium mb-8">
-                  <span className="tabular-nums">
-                    {selectedEvent.ussher_year < 0 
-                      ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` 
-                      : `${Math.round(selectedEvent.ussher_year)} AD`}
-                  </span>
-                  <span className="opacity-40">•</span>
-                  <span>{selectedEvent.primary_book || 'Biblical Lands'}</span>
+                {/* Header Group */}
+                <div className="space-y-2 animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:50ms]">
+                  {/* Title - Playfair Display, clamp(24px, 4vw, 32px), weight 600 */}
+                  <h1 
+                    className="text-[clamp(24px,4vw,32px)] font-semibold leading-[1.15] tracking-[-0.02em] text-[#1c1917] [font-family:'Playfair_Display',Georgia,serif]"
+                  >
+                    {selectedEvent.name}
+                  </h1>
+                  
+                  {/* Date/Location - Geist Sans, 11px, uppercase, letter-spacing 0.08em */}
+                  <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.08em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
+                    <span>
+                      {selectedEvent.ussher_year < 0 
+                        ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` 
+                        : `${Math.round(selectedEvent.ussher_year)} AD`}
+                    </span>
+                    <span className="text-stone-300">•</span>
+                    <span>{selectedEvent.primary_book || 'Biblical Lands'}</span>
+                  </div>
                 </div>
                 
-                {/* 3. Key Verse - Playfair italic, 16-18px, line-height 1.6, distinct background */}
+                {/* Key Verse Block - Full bleed, Playfair italic */}
                 {selectedEvent.verse_text_snippet && (
-                  <div className="mb-8 -mx-1">
-                    <div className="relative bg-gradient-to-r from-[#f9f6f0] to-[#fcf9f3] border-l-[3px] border-[#d4a574] rounded-r-lg px-5 py-4">
-                      <p 
-                        className="text-[16px] md:text-[17px] leading-[1.6] text-[#4a3f2f] italic"
-                        style={{ fontFamily: 'var(--font-playfair)' }}
-                      >
+                  <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:100ms] -mx-5 md:-mx-7">
+                    <div className="bg-[#fef3c7] border-l-[3px] border-[#d97706] px-5 md:px-7 py-4">
+                      <p className="text-[16px] leading-[1.65] text-[#44403c] italic [font-family:'Playfair_Display',Georgia,serif]">
                         "{selectedEvent.verse_text_snippet}"
                       </p>
                       {selectedEvent.verse_reference && (
-                        <div className="mt-3 text-[10px] tracking-[0.08em] text-[#a68b6a] uppercase font-medium">
-                          {selectedEvent.verse_reference}
+                        <div className="mt-3 text-[10px] font-medium uppercase tracking-[0.08em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
+                          — {selectedEvent.verse_reference}
                         </div>
                       )}
                     </div>
                   </div>
                 )}
                 
-                {/* 4. Short Summary - 2-3 sentences, clean sans-serif, 14-15px, line-height 1.6 */}
-                <div className="mb-8">
-                  <p className="text-[14.5px] md:text-[15px] leading-[1.6] text-[#5d4e37]">
+                {/* Summary - Geist Sans, 14.5px, line-height 1.7 */}
+                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:150ms]">
+                  <p className="text-[14.5px] leading-[1.7] text-[#44403c] [font-family:'Geist_Sans',system-ui,sans-serif]">
                     {selectedEvent.description}
                   </p>
                 </div>
                 
-                {/* 5. Thematic Tags - small pills, 11-12px uppercase */}
-                <div className="flex flex-wrap gap-2 mb-8">
+                {/* Tags */}
+                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:200ms] flex flex-wrap gap-1.5">
                   {[selectedEvent.event_type, selectedEvent.primary_book]
                     .filter(Boolean)
-                    .slice(0, 4)
                     .map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#f0e9df] text-[11px] tracking-wide text-[#7a6a51] uppercase font-medium"
+                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-stone-100 text-[10px] font-medium uppercase tracking-wide text-stone-600 [font-family:'Geist_Sans',system-ui,sans-serif]"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-[#e8e0d5] to-transparent mb-8" />
-                
-                {/* 6. Related Events - horizontal scrollable cards, compact */}
+                {/* Related Events Section */}
                 {(relatedEvents.before.length > 0 || relatedEvents.after.length > 0 || relatedEvents.nearby.length > 0) && (
-                  <div>
-                    <h3 className="text-[10px] tracking-[0.12em] text-[#a68b6a] uppercase font-semibold mb-4">
+                  <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:250ms] pt-2 border-t border-stone-200">
+                    <h3 className="text-[10px] font-semibold uppercase tracking-[0.1em] text-stone-500 mb-3 [font-family:'Geist_Sans',system-ui,sans-serif]">
                       Related Events
                     </h3>
                     
-                    <div className="flex gap-3 overflow-x-auto scrollbar-hide -mx-1 px-1 pb-2 snap-x snap-mandatory">
-                      {[...relatedEvents.before.slice(-2).reverse(), ...relatedEvents.after.slice(0, 3), ...relatedEvents.nearby.slice(0, 2)]
+                    <div className="flex gap-2.5 overflow-x-auto -mx-1 px-1 pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                      {[...relatedEvents.before.slice(-2).reverse(), ...relatedEvents.after.slice(0, 3)]
                         .filter((ev, idx, arr) => ev && arr.findIndex(e => e.name === ev.name) === idx)
-                        .slice(0, 6)
+                        .slice(0, 5)
                         .map((ev) => (
                         <button
                           key={ev.name}
@@ -1375,22 +1399,17 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                               mapRef.current.flyTo({ 
                                 center: [ev.lon, ev.lat], 
                                 zoom: 7, 
-                                duration: 800 
+                                duration: 600 
                               });
                             }
                           }}
-                          className="group flex-shrink-0 w-[140px] snap-start text-left p-3 rounded-xl bg-white/60 border border-[#ede5d8] hover:border-[#d4c4a8] hover:bg-white transition-all duration-200 hover:shadow-sm active:scale-[0.98] min-h-[44px]"
+                          className="group flex-shrink-0 w-[128px] text-left p-3 rounded-[12px] bg-white border border-stone-200 hover:border-stone-300 hover:shadow-sm transition-all duration-200 active:scale-[0.98]"
                         >
-                          <div className="text-[12.5px] leading-[1.3] text-[#2d2419] font-medium line-clamp-2 mb-2 group-hover:text-[#5d4e37] transition-colors">
+                          <div className="text-[13px] leading-[1.35] text-stone-800 font-medium line-clamp-2 mb-1.5 [font-family:'Geist_Sans',system-ui,sans-serif] group-hover:text-stone-900">
                             {ev.name}
                           </div>
-                          <div className="flex items-center gap-1.5 text-[10px] text-[#8b7355]">
-                            <span className="tabular-nums">
-                              {Math.abs(ev.ussher_year)}
-                            </span>
-                            <span className="text-[9px]">
-                              {ev.ussher_year < 0 ? 'BC' : 'AD'}
-                            </span>
+                          <div className="text-[10px] text-stone-500 [font-family:'Geist_Sans',system-ui,sans-serif]">
+                            {Math.abs(ev.ussher_year)} {ev.ussher_year < 0 ? 'BC' : 'AD'}
                           </div>
                         </button>
                       ))}
