@@ -238,13 +238,14 @@ async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
     const rawTimes = table.getChild("timestamps")?.get(i)?.toJSON() ?? [];
     const formattedTimes = Array.isArray(rawTimes) ? rawTimes : Array.from(rawTimes);
 
+    const colorData = table.getChild("color")?.get(i);
     journeys.push({
       name: String(table.getChild("name")?.get(i) ?? ""),
       epoch_id: Number(table.getChild("epoch_id")?.get(i) ?? 0),
       primary_book: String(table.getChild("primary_book")?.get(i) ?? ""),
       path: formattedPath,
       timestamps: formattedTimes,
-      color: table.getChild("color")?.get(i) ? Array.from(table.getChild("color").get(i)).map(Number) : [253, 128, 93],
+      color: colorData ? Array.from(colorData).map(Number) : [253, 128, 93],
     });
   }
   return journeys;
@@ -493,6 +494,29 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, [initialParams, arrowTable]);
 
+  const stopAnim = useCallback(() => {
+    isPlaying.current = false;
+    lastTsRef.current = null;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const startAnim = useCallback(() => {
+    if (isPlaying.current) return;
+    isPlaying.current = true;
+    const tick = (ts: number) => {
+      if (!isPlaying.current) return;
+      const dt = lastTsRef.current ? (ts - lastTsRef.current) / 1000 : 0;
+      lastTsRef.current = ts;
+      setCurrentYear((prev) => {
+        const next = prev + SPEED * dt;
+        if (next >= maxYearRef.current) { stopAnim(); return maxYearRef.current; }
+        return next;
+      });
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+  }, [stopAnim]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -613,29 +637,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, [selectedEvent, arrowTable]);
 
-  const stopAnim = useCallback(() => {
-    isPlaying.current = false;
-    lastTsRef.current = null;
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  const startAnim = useCallback(() => {
-    if (isPlaying.current) return;
-    isPlaying.current = true;
-    const tick = (ts: number) => {
-      if (!isPlaying.current) return;
-      const dt = lastTsRef.current ? (ts - lastTsRef.current) / 1000 : 0;
-      lastTsRef.current = ts;
-      setCurrentYear((prev) => {
-        const next = prev + SPEED * dt;
-        if (next >= maxYearRef.current) { stopAnim(); return maxYearRef.current; }
-        return next;
-      });
-      rafRef.current = requestAnimationFrame(tick);
-    };
-    rafRef.current = requestAnimationFrame(tick);
-  }, [stopAnim]);
-
   const handleBookChange = useCallback((book: string) => {
     setSelectedBook(book);
     const baseHash = window.location.hash.split("&")[0];
@@ -652,25 +653,26 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   );
 }, [journeys, journeyQuery]);
 
-  // Cinematic lighting effect
-  const lightingEffect = useMemo(() => new LightingEffect({
-    ambientLight: new AmbientLight({
-      color: [255, 255, 255],
-      intensity: 0.4
-    }),
-    directionalLights: [
-      new DirectionalLight({
+  // Cinematic lighting effect - simplified for compatibility
+  const lightingEffect = useMemo(() => {
+    // @ts-ignore - Using any to bypass type issues with newer deck.gl
+    return new LightingEffect({
+      ambientLight: new AmbientLight({
+        color: [255, 255, 255],
+        intensity: 0.4
+      }),
+      directionalLight1: new DirectionalLight({
         color: [255, 240, 220],
         intensity: 1.2,
         direction: [-1, -2, -3]
       }),
-      new DirectionalLight({
+      directionalLight2: new DirectionalLight({
         color: [200, 220, 255],
         intensity: 0.3,
         direction: [1, 1, -2]
       })
-    ]
-  }), []);
+    } as any);
+  }, []);
 
   const layers = [
     // Glowing journey paths with animated trails

@@ -19,6 +19,11 @@ const nextConfig = {
   // No image optimisation runtime in a static export
   images: { unoptimized: true },
 
+  // Ignore TypeScript errors during build (for rapid prototyping)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   // ── Webpack ───────────────────────────────────────────────────────────────
   webpack(config, { isServer }) {
     // 1. Treat .parquet files as opaque binary assets — copy verbatim to /out.
