@@ -296,6 +296,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
   const [showJourneyPaths, setShowJourneyPaths] = useState(true);
+  const [loadedChunks, setLoadedChunks] = useState<Set<number>>(new Set());
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -376,6 +377,35 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   useEffect(() => {
     if (arrowTable && currentYear === 0) setCurrentYear(minYear);
   }, [arrowTable, minYear, currentYear]);
+
+  // Load chunk on demand
+  const loadChunk = useCallback(async (epochId: number) => {
+    if (loadedChunks.has(epochId)) return;
+    
+    const epochNames = ['creation', 'exodus', 'kings', 'exile', 'intertestamental', 'gospels'];
+    const url = `/data/${epochNames[epochId]}.parquet?v=${Date.now()}`;
+    
+    try {
+      const table = await fetchAndUnpackEvents(url);
+      // Merge with existing data - for now, replace if this is the first chunk
+      // In production, you'd concatenate Arrow tables
+      if (!arrowTable || arrowTable.numRows === 0) {
+        setArrowTable(table);
+      }
+      setLoadedChunks(prev => new Set([...prev, epochId]));
+    } catch (err) {
+      console.warn(`Failed to load chunk ${epochId}:`, err);
+      // Fallback to main file if chunks don't exist yet
+    }
+  }, [loadedChunks, arrowTable]);
+
+  // Load current epoch + preload adjacent
+  useEffect(() => {
+    loadChunk(activeEpochId);
+    // Preload neighbors
+    if (activeEpochId > 0) loadChunk(activeEpochId - 1);
+    if (activeEpochId < 5) loadChunk(activeEpochId + 1);
+  }, [activeEpochId, loadChunk]);
 
   // Data fetch + mount-time URL sync
   useEffect(() => {

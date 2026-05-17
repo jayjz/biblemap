@@ -1,140 +1,47 @@
-# ==============================================================================
-# BibleMap - Comprehensive .gitignore
-# Generated: 2026-05-17 - Codebase cleanup
-# ==============================================================================
+# OpenClaw - Prevent workspace leakage
+.openclaw/
+*.openclaw.*
 
-# ── Dependencies ─────────────────────────────────────────────────────────────
-node_modules/
-.pnp/
-.pnp.js
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# ── Next.js ──────────────────────────────────────────────────────────────────
-.next/
-out/
-build/
-dist/
-
-# ── Production Builds ────────────────────────────────────────────────────────
-.vercel
-.netlify
-
-# ── Environment Variables (NEVER COMMIT SECRETS) ────────────────────────────
+# Environment & Secrets
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env*.local
+.env.*.local
+.env.production
+*.pem
+*.key
+credentials.json
+secrets.json
 
-# ── Python ───────────────────────────────────────────────────────────────────
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-env/
 venv/
-ENV/
-env.bak/
-venv.bak/
 .pytest_cache/
-.coverage
-htmlcov/
-.tox/
-.nox/
-pip-log.txt
-pip-delete-this-directory.txt
-*.egg-info/
-dist/
-build/
 
-# ── Databases ────────────────────────────────────────────────────────────────
-*.db
-*.db-journal
-*.sqlite
-*.sqlite3
-*.dump
-*.sql
-*.bak
-/pgdata/
-/postgres-data/
-.DS_Store
-Thumbs.db
-
-# ── IDE & Editors ────────────────────────────────────────────────────────────
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 .DS_Store
-.AppleDouble
-.LSOverride
-Icon
-Thumbs.db
-ehthumbs.db
-Desktop.ini
 
-# ── Logs ─────────────────────────────────────────────────────────────────────
-logs/
+# Logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-# ── Testing ──────────────────────────────────────────────────────────────────
-/coverage
-.nyc_output
-
-# ── Misc ─────────────────────────────────────────────────────────────────────
-.DS_Store
-*.pem
-*.key
-*.crt
-*.cert
-secrets.json
-credentials.json
-auth.json
-.cache/
-.parcel-cache/
-
-# ── Data Files (Large Binaries) ──────────────────────────────────────────────
-# Note: Public Parquet files in /public are intentionally tracked as they are
-# required for the static export. Only ignore local data directories.
-/data/
-/raw-data/
+# Data (large files)
 *.parquet
-
-# ── OS Generated ─────────────────────────────────────────────────────────────
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# ── Temporary Files ──────────────────────────────────────────────────────────
-*.tmp
-*.temp
-.cache/
-temp/
-tmp/
-
-# ── Docker ───────────────────────────────────────────────────────────────────
-docker-compose.override.yml
-.dockerignore
-
-# ── Docker Volumes ───────────────────────────────────────────────────────────
+*.db
+*.sqlite
 /postgres-data/
-/pgdata/
-
-# ── Docker Compose ───────────────────────────────────────────────────────────
-.env.docker
-
