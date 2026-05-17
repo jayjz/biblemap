@@ -60,13 +60,39 @@ interface BibleEvent {
 }
 
 // ── Parquet loader ────────────────────────────────────────────────────────────
-async function fetchAndUnpackEvents(url: string): Promise<BibleEvent[]> {
+async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, total: number) => void): Promise<BibleEvent[]> {
   const parquet = await import("parquet-wasm/esm");
   await (parquet as any).default?.();
   const resp = await fetch(url);
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-  const buffer = await resp.arrayBuffer();
-  const wasmTbl = (parquet as any).readParquet(new Uint8Array(buffer));
+  
+  // Track download progress
+  const contentLength = resp.headers.get('content-length');
+  const total = contentLength ? parseInt(contentLength, 10) : 0;
+  const reader = resp.body?.getReader();
+  const chunks = [];
+  let loaded = 0;
+  
+  if (reader) {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      loaded += value.length;
+      if (onProgress && total) {
+        onProgress(loaded, total);
+      }
+    }
+  }
+  
+  const buffer = new Uint8Array(loaded);
+  let offset = 0;
+  for (const chunk of chunks) {
+    buffer.set(chunk, offset);
+    offset += chunk.length;
+  }
+  
+  const wasmTbl = (parquet as any).readParquet(buffer);
   const table = tableFromIPC(wasmTbl.intoIPCStream());
 
   const events: BibleEvent[] = [];
@@ -147,6 +173,7 @@ function Tooltip({ info }: { info: PickingInfo | null }) {
 export default function DataLoader() {
   const [events,        setEvents]        = useState<BibleEvent[]>([]);
   const [loading,       setLoading]       = useState(true);
+  const [loadProgress,  setLoadProgress]  = useState({ stage: "Initializing...", percent: 0, loaded: 0, total: 0 });
   const [activeEpochId, setActiveEpochId] = useState(0);
   const [currentYear,   setCurrentYear]   = useState(0);
   const [hoverInfo,     setHoverInfo]     = useState<PickingInfo | null>(null);
@@ -160,6 +187,7 @@ export default function DataLoader() {
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
   const rafRef     = useRef<number | null>(null);
+  const mapRef     = useRef<any>(null);
   const maxYearRef = useRef<number>(0);
 
   // Canonical book order: only books present in data
@@ -189,8 +217,39 @@ export default function DataLoader() {
   // Data fetch + mount-time URL sync
   useEffect(() => {
     fetchAndUnpackJourneys("/bible-journeys.parquet?v=" + Date.now()).then(setJourneys);
-    fetchAndUnpackEvents(POINTS_URL).then((data) => {
+    
+    setLoadProgress({ stage: "Downloading data...", percent: 0, loaded: 0, total: 0 });
+    fetchAndUnpackEvents(POINTS_URL, (loaded, total) => {
+      const percent = Math.round((loaded / total) * 100);
+      setLoadProgress({ 
+        stage: "Downloading data...", 
+        percent, 
+        loaded: Math.round(loaded / 1024), 
+        total: Math.round(total / 1024) 
+      });
+    }).then((data) => {
+      setLoadProgress({ stage: "Processing events...", percent: 100, loaded: 0, total: 0 });
       setEvents(data);
+      
+      // Auto-fit map to show all events after a short delay to ensure map is ready
+      setTimeout(() => {
+        if (mapRef.current && data.length > 0) {
+          const bounds = new (window as any).maplibregl.LngLatBounds();
+          data.forEach(event => {
+            if (event.lon && event.lat) {
+              bounds.extend([event.lon, event.lat]);
+            }
+          });
+          if (!bounds.isEmpty()) {
+            mapRef.current.fitBounds(bounds, { 
+              padding: 50, 
+              duration: 1000,
+              maxZoom: 10
+            });
+          }
+        }
+      }, 500);
+      
       setLoading(false);
 
       const hash = window.location.hash;
@@ -294,7 +353,28 @@ export default function DataLoader() {
     } as any),
   ];
 
-  if (loading) return <div className="absolute inset-0 flex items-center justify-center bg-slate-950 text-slate-400 font-mono">Loading Biblical Matrix...</div>;
+  if (loading) return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 text-slate-400 font-mono">
+      <div className="text-amber-500 text-xl mb-4">BibleMap Phi</div>
+      <div className="text-slate-300 mb-2">{loadProgress.stage}</div>
+      {loadProgress.total > 0 && (
+        <>
+          <div className="w-80 h-2 bg-slate-800 rounded-full overflow-hidden mb-2">
+            <div 
+              className="h-full bg-amber-500 transition-all duration-300"
+              style={{ width: `${loadProgress.percent}%` }}
+            />
+          </div>
+          <div className="text-xs text-slate-500">
+            {loadProgress.loaded}KB / {loadProgress.total}KB ({loadProgress.percent}%)
+          </div>
+        </>
+      )}
+      <div className="mt-8 text-xs text-slate-600">
+        Loading 2,900+ biblical events...
+      </div>
+    </div>
+  );
 
   return (
     <div className="relative w-screen h-screen bg-slate-950 overflow-hidden font-sans text-slate-200">
@@ -305,7 +385,7 @@ export default function DataLoader() {
         style={{ width: "100%", height: "100%" }}
         onClick={(info) => { if (!info.object) setSelectedEvent(null); }}
       >
-        <Map mapStyle={MAP_STYLE} />
+        <Map ref={mapRef} mapStyle={MAP_STYLE} />
       </DeckGL>
 
       <Tooltip info={hoverInfo} />
