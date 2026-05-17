@@ -1224,200 +1224,180 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         </div>
       </div>
 
-      {/* CINEMATIC EVENT DETAIL PANEL - Sacred Manuscript Design */}
+      {/* Event Detail Panel v3 - User-Friendly Cinematic Design */}
       {selectedEvent && (
         <>
-          {/* Mobile Backdrop */}
+          {/* Backdrop - Desktop: click outside to close | Mobile: dim background */}
           <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 md:hidden transition-opacity duration-300"
+            className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[2px] md:backdrop-blur-none md:bg-transparent transition-opacity duration-300"
             onClick={() => setSelectedEvent(null)}
-            style={{ opacity: selectedEvent ? 1 : 0 }}
+            aria-hidden="true"
           />
           
           {/* Panel Container */}
           <div 
             className={`
               fixed z-40 flex flex-col
-              md:top-0 md:right-0 md:h-full md:w-[420px]
-              bottom-0 left-0 right-0 h-[65vh] md:rounded-none rounded-t-[28px]
-              bg-[#0f0e0c] md:bg-[#141210]/98
-              border-t md:border-t-0 md:border-l border-[#2a241d]/80
-              shadow-[0_-20px_60px_rgba(0,0,0,0.8)] md:shadow-[-20px_0_60px_rgba(0,0,0,0.9)]
-              transition-transform duration-[320ms] ease-[cubic-bezier(0.2,0,0,1)]
+              md:top-0 md:right-0 md:h-full md:w-[400px] md:max-w-[420px] md:min-w-[380px]
+              bottom-0 left-0 right-0 h-[68vh] md:rounded-none rounded-t-[20px]
+              bg-[#faf8f3]/95 md:bg-[#fefcfa]/98 backdrop-blur-xl
+              border-t md:border-t-0 md:border-l border-[#e8e0d5]
+              shadow-[0_-8px_40px_rgba(139,115,85,0.15)] md:shadow-[-8px_0_40px_rgba(139,115,85,0.12)]
+              transition-all duration-300 ease-out
               will-change-transform
               ${selectedEvent 
-                ? 'translate-x-0 translate-y-0' 
-                : 'translate-x-full md:translate-x-full translate-y-full md:translate-y-0'
+                ? 'translate-y-0 md:translate-x-0 opacity-100' 
+                : 'translate-y-full md:translate-x-full md:translate-y-0 opacity-0'
               }
             `}
             style={{
               fontFamily: 'var(--font-geist-sans)',
             }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Event details"
           >
-            {/* Film Grain Texture Overlay */}
+            {/* Subtle Parchment Texture - opacity 0.02-0.03 */}
             <div 
               className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-multiply"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns=N/A%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
               }}
             />
             
-            {/* Mobile Drag Handle */}
-            <div className="md:hidden flex justify-center pt-3 pb-2">
-              <div className="w-10 h-[3px] rounded-full bg-[#3a332a]/60" />
-            </div>
-            
-            {/* Header */}
-            <div className="relative px-7 md:px-9 pt-2 md:pt-8 pb-6">
+            {/* Mobile Drag Handle - 44px touch target */}
+            <div className="md:hidden flex justify-center items-center h-11 -mb-2">
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-6 md:top-8 md:right-8 p-2 -mr-2 text-[#6b5d4f] hover:text-[#c4a373] transition-colors"
-                aria-label="Close"
+                className="flex items-center justify-center w-full h-full"
+                aria-label="Drag to dismiss"
               >
-                <X className="w-[18px] h-[18px] stroke-[1.5]" />
+                <div className="w-10 h-1 rounded-full bg-[#d4c4a8] opacity-60" />
               </button>
-              
-              {/* Title with Playfair Display */}
-              <h1 
-                className="text-[28px] md:text-[32px] leading-[1.15] tracking-[-0.02em] text-[#f5f1e8] pr-8"
-                style={{ 
-                  fontFamily: 'var(--font-playfair)',
-                  fontWeight: 600,
-                  animation: 'fadeInUp 400ms cubic-bezier(0.2, 0, 0, 1) 50ms both'
-                }}
-              >
-                {selectedEvent.name.toUpperCase()}
-              </h1>
-              
-              {/* Meta Line */}
-              <div 
-                className="mt-4 flex items-center gap-3 text-[11px] tracking-[0.12em] text-[#8b7d6b] uppercase"
-                style={{ animation: 'fadeInUp 400ms cubic-bezier(0.2, 0, 0, 1) 100ms both' }}
-              >
-                <span className="tabular-nums">
-                  {selectedEvent.ussher_year < 0 
-                    ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` 
-                    : `${Math.round(selectedEvent.ussher_year)} AD`}
-                </span>
-                <span className="w-[2px] h-[2px] rounded-full bg-[#5a4f42]" />
-                <span>Unknown Location</span>
-              </div>
-              
-              {/* Divider */}
-              <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-[#2a241d] to-transparent" />
             </div>
+            
+            {/* Close Button - Desktop */}
+            <button
+              onClick={() => setSelectedEvent(null)}
+              className="hidden md:flex absolute top-6 right-6 w-8 h-8 items-center justify-center rounded-full text-[#8b7355] hover:text-[#5d4e37] hover:bg-[#f0e9df] transition-colors z-10"
+              aria-label="Close panel"
+            >
+              <X className="w-4 h-4" />
+            </button>
             
             {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto px-7 md:px-9 pb-8 md:pb-10 [scrollbar-width:thin] [scrollbar-color:#2a241d_transparent]">
-              {/* Verse Block */}
-              {selectedEvent.verse_text_snippet && (
-                <div 
-                  className="mb-8"
-                  style={{ animation: 'fadeInUp 400ms cubic-bezier(0.2, 0, 0, 1) 150ms both' }}
+            <div className="flex-1 overflow-y-auto overscroll-contain">
+              <div className="px-6 md:px-8 pt-2 md:pt-10 pb-8">
+                
+                {/* 1. Large Title - Playfair Display, 24-28px, weight 600 */}
+                <h1 
+                  className="text-[26px] md:text-[28px] leading-[1.2] tracking-[-0.01em] text-[#2d2419] mb-6"
+                  style={{ 
+                    fontFamily: 'var(--font-playfair)',
+                    fontWeight: 600,
+                  }}
                 >
-                  <blockquote className="relative pl-5 border-l-[1.5px] border-[#c4a373]/30">
-                    <p className="text-[15px] leading-[1.7] text-[#d4c4a8] italic tracking-[0.01em]">
-                      "{selectedEvent.verse_text_snippet}"
-                    </p>
-                    {selectedEvent.verse_reference && (
-                      <footer className="mt-3 text-[10.5px] tracking-[0.08em] text-[#8b7d6b] uppercase">
-                        — {selectedEvent.verse_reference}
-                      </footer>
-                    )}
-                  </blockquote>
-                </div>
-              )}
-              
-              {/* Description */}
-              <div 
-                className="mb-8"
-                style={{ animation: 'fadeInUp 400ms cubic-bezier(0.2, 0, 0, 1) 200ms both' }}
-              >
-                <p className="text-[14.5px] leading-[1.75] text-[#b8a992] tracking-[0.01em]">
-                  {selectedEvent.description}
-                </p>
-              </div>
-              
-              {/* Tags */}
-              <div 
-                className="mb-10 flex flex-wrap gap-2"
-                style={{ animation: 'fadeInUp 400ms cubic-bezier(0.2, 0, 0, 1) 250ms both' }}
-              >
-                {[
-                  selectedEvent.event_type,
-                  selectedEvent.primary_book,
-                  'Ancient Near East'
-                ].filter(Boolean).map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-[3px] rounded-[4px] bg-[#1c1915] border border-[#2a241d] text-[10px] tracking-[0.06em] text-[#8b7d6b] uppercase"
-                  >
-                    {tag}
+                  {selectedEvent.name}
+                </h1>
+                
+                {/* 2. Date + Location - small, uppercase, letter-spacing 0.05em, muted */}
+                <div className="flex items-center gap-2.5 text-[11px] tracking-[0.05em] text-[#8b7355] uppercase font-medium mb-8">
+                  <span className="tabular-nums">
+                    {selectedEvent.ussher_year < 0 
+                      ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` 
+                      : `${Math.round(selectedEvent.ussher_year)} AD`}
                   </span>
-                ))}
-              </div>
-              
-              {/* Divider */}
-              <div className="mb-8 h-px w-full bg-gradient-to-r from-transparent via-[#2a241d] to-transparent" />
-              
-              {/* Related Events */}
-              {(relatedEvents.before.length > 0 || relatedEvents.after.length > 0) && (
-                <div style={{ animation: 'fadeInUp 400ms cubic-bezier(0.2, 0, 0, 1) 300ms both' }}>
-                  <h3 className="mb-5 text-[10px] tracking-[0.14em] text-[#5a4f42] uppercase font-medium">
-                    Related Events
-                  </h3>
-                  
-                  <div className="grid grid-cols-3 gap-2.5">
-                    {[...relatedEvents.before.slice(0, 1), ...relatedEvents.after.slice(0, 2)]
-                      .filter(Boolean)
-                      .slice(0, 3)
-                      .map((ev, i) => (
-                      <button
-                        key={i}
-                        onClick={() => {
-                          setSelectedEvent(ev);
-                          if (mapRef.current) {
-                            mapRef.current.flyTo({ 
-                              center: [ev.lon, ev.lat], 
-                              zoom: 8, 
-                              duration: 900 
-                            });
-                          }
-                        }}
-                        className="group relative aspect-[4/3] overflow-hidden rounded-[10px] bg-[#1a1612] border border-[#2a241d] p-3 text-left transition-all hover:border-[#3a332a] hover:bg-[#1f1a14]"
+                  <span className="opacity-40">•</span>
+                  <span>{selectedEvent.primary_book || 'Biblical Lands'}</span>
+                </div>
+                
+                {/* 3. Key Verse - Playfair italic, 16-18px, line-height 1.6, distinct background */}
+                {selectedEvent.verse_text_snippet && (
+                  <div className="mb-8 -mx-1">
+                    <div className="relative bg-gradient-to-r from-[#f9f6f0] to-[#fcf9f3] border-l-[3px] border-[#d4a574] rounded-r-lg px-5 py-4">
+                      <p 
+                        className="text-[16px] md:text-[17px] leading-[1.6] text-[#4a3f2f] italic"
+                        style={{ fontFamily: 'var(--font-playfair)' }}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
-                        <div className="relative h-full flex flex-col justify-end">
-                          <div className="text-[10.5px] leading-[1.3] text-[#d4c4a8] group-hover:text-[#f5f1e8] transition-colors line-clamp-2 font-medium">
+                        "{selectedEvent.verse_text_snippet}"
+                      </p>
+                      {selectedEvent.verse_reference && (
+                        <div className="mt-3 text-[10px] tracking-[0.08em] text-[#a68b6a] uppercase font-medium">
+                          {selectedEvent.verse_reference}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
+                {/* 4. Short Summary - 2-3 sentences, clean sans-serif, 14-15px, line-height 1.6 */}
+                <div className="mb-8">
+                  <p className="text-[14.5px] md:text-[15px] leading-[1.6] text-[#5d4e37]">
+                    {selectedEvent.description}
+                  </p>
+                </div>
+                
+                {/* 5. Thematic Tags - small pills, 11-12px uppercase */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {[selectedEvent.event_type, selectedEvent.primary_book]
+                    .filter(Boolean)
+                    .slice(0, 4)
+                    .map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#f0e9df] text-[11px] tracking-wide text-[#7a6a51] uppercase font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-transparent via-[#e8e0d5] to-transparent mb-8" />
+                
+                {/* 6. Related Events - horizontal scrollable cards, compact */}
+                {(relatedEvents.before.length > 0 || relatedEvents.after.length > 0 || relatedEvents.nearby.length > 0) && (
+                  <div>
+                    <h3 className="text-[10px] tracking-[0.12em] text-[#a68b6a] uppercase font-semibold mb-4">
+                      Related Events
+                    </h3>
+                    
+                    <div className="flex gap-3 overflow-x-auto scrollbar-hide -mx-1 px-1 pb-2 snap-x snap-mandatory">
+                      {[...relatedEvents.before.slice(-2).reverse(), ...relatedEvents.after.slice(0, 3), ...relatedEvents.nearby.slice(0, 2)]
+                        .filter((ev, idx, arr) => ev && arr.findIndex(e => e.name === ev.name) === idx)
+                        .slice(0, 6)
+                        .map((ev) => (
+                        <button
+                          key={ev.name}
+                          onClick={() => {
+                            setSelectedEvent(ev);
+                            if (mapRef.current) {
+                              mapRef.current.flyTo({ 
+                                center: [ev.lon, ev.lat], 
+                                zoom: 7, 
+                                duration: 800 
+                              });
+                            }
+                          }}
+                          className="group flex-shrink-0 w-[140px] snap-start text-left p-3 rounded-xl bg-white/60 border border-[#ede5d8] hover:border-[#d4c4a8] hover:bg-white transition-all duration-200 hover:shadow-sm active:scale-[0.98] min-h-[44px]"
+                        >
+                          <div className="text-[12.5px] leading-[1.3] text-[#2d2419] font-medium line-clamp-2 mb-2 group-hover:text-[#5d4e37] transition-colors">
                             {ev.name}
                           </div>
-                          <div className="mt-1.5 text-[9px] text-[#6b5d4f] tabular-nums">
-                            {Math.abs(ev.ussher_year)} {ev.ussher_year < 0 ? 'BC' : 'AD'}
+                          <div className="flex items-center gap-1.5 text-[10px] text-[#8b7355]">
+                            <span className="tabular-nums">
+                              {Math.abs(ev.ussher_year)}
+                            </span>
+                            <span className="text-[9px]">
+                              {ev.ussher_year < 0 ? 'BC' : 'AD'}
+                            </span>
                           </div>
-                        </div>
-                      </button>
-                    ))}
-                    
-                    {/* Fill empty slots */}
-                    {Array.from({ length: Math.max(0, 3 - [...relatedEvents.before.slice(0, 1), ...relatedEvents.after.slice(0, 2)].length) }).map((_, i) => (
-                      <div key={`empty-${i}`} className="aspect-[4/3] rounded-[10px] border border-dashed border-[#2a241d]/50" />
-                    ))}
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-            
-            {/* Bottom Actions - Desktop Only */}
-            <div className="hidden md:block px-9 pb-7 pt-4 border-t border-[#1c1915]">
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
-                }}
-                className="flex items-center gap-2 text-[10.5px] tracking-[0.06em] text-[#6b5d4f] hover:text-[#a3916f] transition-colors uppercase"
-              >
-                <Share2 className="w-[11px] h-[11px]" />
-                Share Location
-              </button>
+                )}
+              </div>
             </div>
           </div>
         </>
