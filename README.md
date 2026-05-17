@@ -63,7 +63,7 @@ python export_production.py
 
 ## Live Demo
 
-**https://biblemap.pages.dev**
+**https://biblemap-phi.vercel.app**
 
 ## License
 
