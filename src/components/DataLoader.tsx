@@ -637,6 +637,21 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, [selectedEvent, arrowTable]);
 
+  // Prevent body scroll when modals/panels are open
+  useEffect(() => {
+    if (selectedEvent || showVerseModal) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [selectedEvent, showVerseModal]);
+
   const handleBookChange = useCallback((book: string) => {
     setSelectedBook(book);
     const baseHash = window.location.hash.split("&")[0];
@@ -918,6 +933,23 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         .parchment-mode .bg-slate-950 {
           background-color: rgb(20, 16, 12) !important;
         }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
       `}</style>
       <DeckGL
         initialViewState={INITIAL_VIEW}
@@ -1085,7 +1117,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   }
                 }
               }}
-              className={`text-left px-3 py-2 rounded-lg text-sm transition-all ${ep.id === activeEpochId ? 'bg-amber-600/20 text-amber-400 border border-amber-500/50' : 'bg-slate-800 text-slate-300 border border-transparent hover:bg-slate-700'}`}
+              className={`text-left px-3 py-2 rounded-lg text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${ep.id === activeEpochId ? 'bg-amber-600/20 text-amber-400 border border-amber-500/50' : 'bg-slate-800 text-slate-300 border border-transparent hover:bg-slate-700'}`}
             >
               {ep.name}
             </button>
@@ -1358,19 +1390,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               </button>
             </div>
           </div>
-          
-          <style jsx>{`
-            @keyframes fadeInUp {
-              from {
-                opacity: 0;
-                transform: translateY(8px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-          `}</style>
         </>
       )}
 
