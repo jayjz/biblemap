@@ -296,7 +296,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
   const [showJourneyPaths, setShowJourneyPaths] = useState(true);
-  const [loadedChunks, setLoadedChunks] = useState<Set<number>>(new Set());
+  const [loadedChunks, setLoadedChunks] = useState<Map<number, Table>>(new Map());
+  const [loadingChunks, setLoadingChunks] = useState<Set<number>>(new Set());
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -380,24 +381,36 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
   // Load chunk on demand
   const loadChunk = useCallback(async (epochId: number) => {
-    if (loadedChunks.has(epochId)) return;
+    if (loadedChunks.has(epochId) || loadingChunks.has(epochId)) return;
     
-    const epochNames = ['creation', 'exodus', 'kings', 'exile', 'intertestamental', 'gospels'];
-    const url = `/data/${epochNames[epochId]}.parquet?v=${Date.now()}`;
+    setLoadingChunks(prev => new Set(prev).add(epochId));
     
     try {
-      const table = await fetchAndUnpackEvents(url);
-      // Merge with existing data - for now, replace if this is the first chunk
-      // In production, you'd concatenate Arrow tables
-      if (!arrowTable || arrowTable.numRows === 0) {
-        setArrowTable(table);
-      }
-      setLoadedChunks(prev => new Set([...prev, epochId]));
+      const epochNames = ['creation', 'patriarchs', 'exodus', 'kings', 'exile', 'intertestamental', 'gospels'];
+      const url = `/data/epoch-${epochId}-${epochNames[epochId]}.parquet`;
+      
+      const response = await fetch(url);
+      const buffer = await response.arrayBuffer();
+      const parquet = await import("parquet-wasm/esm");
+      await (parquet as any).default?.();
+      const wasmTable = (parquet as any).readParquet(new Uint8Array(buffer));
+      const table = tableFromIPC(wasmTable.intoIPCStream());
+      
+      setLoadedChunks(prev => {
+        const next = new Map(prev);
+        next.set(epochId, table);
+        return next;
+      });
     } catch (err) {
       console.warn(`Failed to load chunk ${epochId}:`, err);
-      // Fallback to main file if chunks don't exist yet
+    } finally {
+      setLoadingChunks(prev => {
+        const next = new Set(prev);
+        next.delete(epochId);
+        return next;
+      });
     }
-  }, [loadedChunks, arrowTable]);
+  }, [loadedChunks, loadingChunks]);
 
   // Load current epoch + preload adjacent
   useEffect(() => {
@@ -407,60 +420,41 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     if (activeEpochId < 5) loadChunk(activeEpochId + 1);
   }, [activeEpochId, loadChunk]);
 
+  // Merge loaded chunks for rendering
+  const activeTable = useMemo(() => {
+    const tables = Array.from(loadedChunks.values());
+    if (tables.length === 0) return null;
+    if (tables.length === 1) return tables[0];
+    return tables[0].concat(...tables.slice(1));
+  }, [loadedChunks]);
+
+  // Sync activeTable to arrowTable for backward compatibility
+  useEffect(() => {
+    if (activeTable) {
+      setArrowTable(activeTable);
+      setLoading(false);
+    }
+  }, [activeTable]);
+
   // Data fetch + mount-time URL sync
   useEffect(() => {
     fetchAndUnpackJourneys("/bible-journeys.parquet?v=" + Date.now()).then(setJourneys);
     
-    setLoadProgress({ stage: "Downloading data...", percent: 0, loaded: 0, total: 0 });
-    fetchAndUnpackEvents(POINTS_URL, (loaded, total) => {
-      const percent = Math.round((loaded / total) * 100);
-      setLoadProgress({ 
-        stage: "Downloading data...", 
-        percent, 
-        loaded: Math.round(loaded / 1024), 
-        total: Math.round(total / 1024) 
-      });
-    }).then((table) => {
-      setLoadProgress({ stage: "Processing events...", percent: 100, loaded: 0, total: 0 });
-      setArrowTable(table);
-      
-      // Auto-fit map to show all events after a short delay to ensure map is ready
-      setTimeout(() => {
-        if (mapRef.current && table) {
-          const bounds = new (window as any).maplibregl.LngLatBounds();
-          const lonCol = table.getChild("lon");
-          const latCol = table.getChild("lat");
-          for (let i = 0; i < table.numRows; i++) {
-            const lon = Number(lonCol?.get(i) ?? 0);
-            const lat = Number(latCol?.get(i) ?? 0);
-            if (lon && lat) {
-              bounds.extend([lon, lat]);
-            }
-          }
-          if (!bounds.isEmpty()) {
-            mapRef.current.fitBounds(bounds, { 
-              padding: 50, 
-              duration: 1000,
-              maxZoom: 10
-            });
-          }
-        }
-      }, 500);
-      
-      setLoading(false);
+    // Load initial chunk instead of full file
+    setLoadProgress({ stage: "Loading Creation era...", percent: 0, loaded: 0, total: 0 });
+    loadChunk(0);
 
-      const hash = window.location.hash;
-      const epochFound = EPOCHS.find((ep) => hash.startsWith(ep.hash));
-      if (epochFound) setActiveEpochId(epochFound.id);
+    const hash = window.location.hash;
+    const epochFound = EPOCHS.find((ep) => hash.startsWith(ep.hash));
+    if (epochFound) setActiveEpochId(epochFound.id);
 
-      const bookParam = hash.split("&").find((p) => p.startsWith("book="));
-      if (bookParam) {
-        const bookVal = decodeURIComponent(bookParam.slice(5));
-        if (bookVal === "All" || true) { // Validate against table in next render
-          setSelectedBook(bookVal);
-        }
+    const bookParam = hash.split("&").find((p) => p.startsWith("book="));
+    if (bookParam) {
+      const bookVal = decodeURIComponent(bookParam.slice(5));
+      if (bookVal === "All" || true) {
+        setSelectedBook(bookVal);
       }
-    });
+    }
   }, []);
 
   // Parse initial URL params and restore state
@@ -926,11 +920,27 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               style={{ width: `${loadProgress.percent}%` }}
             />
           </div>
-          <div className="text-xs text-slate-500 mb-8">
+          <div className="text-xs text-slate-500 mb-4">
             {loadProgress.loaded}KB / {loadProgress.total}KB ({loadProgress.percent}%)
           </div>
         </>
       )}
+      {/* Chunk loading status */}
+      <div className="flex gap-2 mb-6">
+        {['creation', 'patriarchs', 'exodus', 'kings', 'exile', 'intertestamental'].map((name, idx) => (
+          <div
+            key={name}
+            className={`w-2 h-2 rounded-full transition-all ${
+              loadedChunks.has(idx)
+                ? 'bg-amber-500'
+                : loadingChunks.has(idx)
+                ? 'bg-amber-500/50 animate-pulse'
+                : 'bg-slate-700'
+            }`}
+            title={name}
+          />
+        ))}
+      </div>
       <div className="mt-4 max-w-md text-center px-8">
         <div className="text-[11px] text-slate-600 uppercase tracking-widest mb-3">Scripture</div>
         <div className="text-sm text-slate-500 italic leading-relaxed">
