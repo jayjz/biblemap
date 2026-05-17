@@ -61,6 +61,29 @@ const TYPE_COLORS: Record<string, [number, number, number, number]> = {
 };
 const DEFAULT_COLOR: [number, number, number, number] = [147, 161, 161, 160];
 
+// Curated narrative summaries - concise 2-3 sentence stories that capture the emotional core
+const CURATED_SUMMARIES: Record<string, string> = {
+  "Red Sea": "God parts the Red Sea, allowing Israel to escape Egypt. Pharaoh's army is destroyed in the waters. A defining moment of divine deliverance that shapes Israel's identity.",
+  "Moses at Mount Sinai": "God descends in fire and smoke to give the Ten Commandments. Moses receives the law that will define a nation. The covenant that shapes Western civilization is forged.",
+  "David and Goliath": "A shepherd boy faces a giant with nothing but faith and a sling. David's stone finds its mark, toppling the Philistine champion. Courage triumphs over might.",
+  "Solomon's Temple": "Israel's golden age reaches its peak with a temple for God. Solomon's wisdom builds a house of cedar and gold. The dwelling place of the Divine among men.",
+  "Babylonian Exile": "Jerusalem falls. The temple burns. God's people are carried away to Babylon, their songs silenced by the rivers of a foreign land.",
+  "Birth of Jesus": "In Bethlehem's humblest stable, the Word becomes flesh. Shepherds and wise men worship a child wrapped in swaddling clothes. Hope enters the world in silence.",
+  "Baptism of Jesus": "The heavens tear open as Jesus emerges from the Jordan. The Spirit descends like a dove, and a voice declares divine sonship. The ministry begins.",
+  "Crucifixion": "Darkness covers the land as the Son of God breathes his last. The temple veil tears. Love pours out blood and water from a pierced side.",
+  "Resurrection": "The stone rolls away. Death is undone. Mary Magdalene meets the risen Christ in a garden, and everything changes forever.",
+  "Pentecost": "Wind rushes through the upper room. Tongues of fire rest on each disciple. The Spirit empowers ordinary people to change the world.",
+  "Paul's Conversion": "A zealous persecutor is blinded by light on the Damascus road. Saul the Pharisee becomes Paul the apostle. An enemy becomes God's chosen vessel.",
+  "Creation": "Out of chaos, God speaks light into being. Heaven and earth take form. The first day dawns on a world waiting to be filled.",
+  "Noah's Ark": "Forty days and nights of rain cover the earth. Only Noah's family and the animals survive. A rainbow promises never again.",
+  "Abraham's Call": "Leave your home and go, God tells Abram. At 75, he steps into the unknown, trusting a promise of descendants as numerous as the stars.",
+  "Jacob's Ladder": "Exiled and alone, Jacob dreams of angels ascending and descending. God renews the covenant in the wilderness. Bethel becomes the house of God.",
+  "Joseph in Egypt": "Sold into slavery by his brothers, Joseph rises to save nations from famine. What was meant for evil, God uses for good. Forgiveness triumphs.",
+  "Passover": "Blood on doorposts. Death passes over. Israel eats hurriedly, sandals on feet, staff in hand. Freedom comes at midnight.",
+  "Walls of Jericho": "Seven days of marching. Seven priests with trumpets. On the seventh day, the walls come tumbling down. Faith makes the impossible possible.",
+  "Daniel in Lions": "Faithful in exile, Daniel survives the lions' den. The king decrees that all must fear Daniel's God. Integrity outlasts empires.",
+};
+
 const INITIAL_VIEW = { longitude: 35.2, latitude: 31.8, zoom: 4.5, pitch: 35, bearing: 0 };
 
 interface BibleEvent {
@@ -68,6 +91,40 @@ interface BibleEvent {
   description: string; lon: number; lat: number; verse_text_snippet: string;
   primary_book: string; verse_reference: string;
 }
+
+// Journey mode definitions with curated waypoints
+const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Array<{ name: string; lat: number; lon: number; year: number; description: string }> }> = {
+  exodus: {
+    name: "The Exodus Journey",
+    waypoints: [
+      { name: "Israel in Egypt", lat: 30.0444, lon: 31.2357, year: -1446, description: "400 years of slavery in Egypt" },
+      { name: "Red Sea Crossing", lat: 29.5, lon: 32.8, year: -1446, description: "God parts the waters" },
+      { name: "Mount Sinai", lat: 28.5, lon: 33.9, year: -1446, description: "The Law is given" },
+      { name: "Kadesh Barnea", lat: 30.7, lon: 34.5, year: -1445, description: "40 years of wandering begin" },
+      { name: "Plains of Moab", lat: 31.7, lon: 35.7, year: -1406, description: "Moses' final address" },
+    ]
+  },
+  paul1: {
+    name: "Paul's First Missionary Journey",
+    waypoints: [
+      { name: "Antioch", lat: 36.2, lon: 36.1, year: 46, description: "Sent out by the Spirit" },
+      { name: "Cyprus", lat: 35.0, lon: 33.0, year: 46, description: "Proconsul believes" },
+      { name: "Pisidian Antioch", lat: 38.3, lon: 31.2, year: 47, description: "Gentiles rejoice at the Word" },
+      { name: "Iconium", lat: 37.9, lon: 32.5, year: 47, description: "Signs and wonders" },
+      { name: "Lystra & Derbe", lat: 37.5, lon: 33.0, year: 47, description: "Stoned and left for dead" },
+    ]
+  },
+  jesus_ministry: {
+    name: "Jesus' Galilean Ministry",
+    waypoints: [
+      { name: "Nazareth", lat: 32.7, lon: 35.3, year: 27, description: "No prophet is accepted in hometown" },
+      { name: "Capernaum", lat: 32.9, lon: 35.6, year: 27, description: "His ministry headquarters" },
+      { name: "Sea of Galilee", lat: 32.8, lon: 35.6, year: 28, description: "Calming storms, walking on water" },
+      { name: "Caesarea Philippi", lat: 33.2, lon: 35.7, year: 29, description: "You are the Christ" },
+      { name: "Mount of Transfiguration", lat: 32.7, lon: 35.4, year: 29, description: "Glory revealed" },
+    ]
+  }
+};
 
 // Calculate related events using Arrow table (no new data fetch)
 function calculateRelatedEvents(
@@ -300,6 +357,15 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [loadingChunks, setLoadingChunks] = useState<Set<number>>(new Set());
   const [chunkErrors, setChunkErrors] = useState<Map<number, string>>(new Map());
   const [retryCount, setRetryCount] = useState<Map<number, number>>(new Map());
+  // Engagement features
+  const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [audioVolume, setAudioVolume] = useState(0.7);
+  const [ambientEnabled, setAmbientEnabled] = useState(false);
+  const [ambientAudio, setAmbientAudio] = useState<HTMLAudioElement | null>(null);
+  const [journeyMode, setJourneyMode] = useState<string | null>(null);
+  const [journeyProgress, setJourneyProgress] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -597,6 +663,152 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     rafRef.current = requestAnimationFrame(tick);
   }, [stopAnim]);
 
+  // Audio narration functions
+  const playNarration = useCallback((eventId: string, eventName: string) => {
+    // Stop any existing audio
+    if (audioElement) {
+      audioElement.pause();
+      audioElement.currentTime = 0;
+    }
+
+    // Try to load pre-generated audio (from storyteller project or public/audio)
+    const sanitizedId = eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const audioUrl = `/audio/${sanitizedId}.mp3`;
+    
+    const audio = new Audio(audioUrl);
+    audio.volume = audioVolume;
+    audio.preload = 'metadata';
+    
+    audio.oncanplaythrough = () => {
+      audio.play().then(() => {
+        setIsPlayingAudio(true);
+      }).catch(() => {
+        // Fallback: use Web Speech API for TTS if audio file not found
+        if ('speechSynthesis' in window && selectedEvent?.verse_text_snippet) {
+          const utterance = new SpeechSynthesisUtterance(
+            selectedEvent.verse_text_snippet.slice(0, 200)
+          );
+          utterance.rate = 0.9;
+          utterance.pitch = 1;
+          utterance.volume = audioVolume;
+          utterance.onend = () => setIsPlayingAudio(false);
+          speechSynthesis.speak(utterance);
+          setIsPlayingAudio(true);
+        } else {
+          setIsPlayingAudio(false);
+        }
+      });
+    };
+
+    audio.onerror = () => {
+      // Try Web Speech API fallback
+      if ('speechSynthesis' in window && selectedEvent?.verse_text_snippet) {
+        speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(
+          selectedEvent.name + ". " + selectedEvent.verse_text_snippet.slice(0, 150)
+        );
+        utterance.rate = 0.9;
+        utterance.onend = () => setIsPlayingAudio(false);
+        speechSynthesis.speak(utterance);
+        setIsPlayingAudio(true);
+      }
+    };
+
+    audio.onended = () => {
+      setIsPlayingAudio(false);
+      setAudioElement(null);
+    };
+
+    setAudioElement(audio);
+  }, [audioElement, audioVolume, selectedEvent]);
+
+  const stopNarration = useCallback(() => {
+    if (audioElement) {
+      audioElement.pause();
+      audioElement.currentTime = 0;
+      setAudioElement(null);
+    }
+    if ('speechSynthesis' in window) {
+      speechSynthesis.cancel();
+    }
+    setIsPlayingAudio(false);
+  }, [audioElement]);
+
+  // Ambient soundscape management
+  useEffect(() => {
+    if (ambientEnabled && !ambientAudio) {
+      // Create ambient audio element (user must interact first due to autoplay policies)
+      const ambient = new Audio();
+      ambient.loop = true;
+      ambient.volume = 0.15;
+      // Could load different ambient tracks based on region/epoch
+      // For now, we'll set it up but not auto-play (requires user interaction)
+      setAmbientAudio(ambient);
+    } else if (!ambientEnabled && ambientAudio) {
+      ambientAudio.pause();
+    }
+  }, [ambientEnabled, ambientAudio]);
+
+  // Journey mode animation
+  useEffect(() => {
+    if (!journeyMode || !JOURNEY_DEFINITIONS[journeyMode]) return;
+
+    const journey = JOURNEY_DEFINITIONS[journeyMode];
+    const waypoints = journey.waypoints;
+    let currentIndex = 0;
+    let progressInterval: NodeJS.Timeout;
+
+    const advanceWaypoint = () => {
+      if (currentIndex >= waypoints.length) {
+        currentIndex = 0; // Loop back to start
+      }
+
+      const waypoint = waypoints[currentIndex];
+      if (mapRef.current) {
+        mapRef.current.flyTo({
+          center: [waypoint.lon, waypoint.lat],
+          zoom: 7,
+          duration: 2000,
+          essential: true
+        });
+      }
+
+      // Update progress
+      setJourneyProgress((currentIndex + 1) / waypoints.length);
+      
+      // Try to find and select the event at this waypoint
+      if (arrowTable) {
+        const nameCol = arrowTable.getChild("name");
+        for (let i = 0; i < Math.min(100, arrowTable.numRows); i++) {
+          const name = String(nameCol?.get(i) ?? "");
+          if (name.toLowerCase().includes(waypoint.name.toLowerCase().split(' ')[0])) {
+            // Found a matching event - could auto-select it
+            break;
+          }
+        }
+      }
+
+      currentIndex++;
+    };
+
+    // Start immediately, then every 4 seconds
+    advanceWaypoint();
+    progressInterval = setInterval(advanceWaypoint, 4000);
+
+    return () => {
+      if (progressInterval) clearInterval(progressInterval);
+    };
+  }, [journeyMode, arrowTable]);
+
+  // Track mouse for reactive particles
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -814,6 +1026,33 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         updateTriggers: { getFilterValue: [activeEpochId] }
       } as any),
     ] : []),
+    // Journey Mode animated waypoint marker
+    ...(journeyMode && JOURNEY_DEFINITIONS[journeyMode] ? [
+      new ScatterplotLayer({
+        id: "journey-mode-marker",
+        data: [JOURNEY_DEFINITIONS[journeyMode].waypoints[Math.floor(journeyProgress * JOURNEY_DEFINITIONS[journeyMode].waypoints.length)] || JOURNEY_DEFINITIONS[journeyMode].waypoints[0]].filter(Boolean),
+        getPosition: (d: any) => [d.lon, d.lat],
+        getFillColor: [255, 180, 50, 220],
+        getLineColor: [255, 220, 150, 255],
+        getRadius: 18 + Math.sin(Date.now() / 300) * 4,
+        radiusUnits: "pixels",
+        stroked: true,
+        filled: true,
+        lineWidthMinPixels: 3,
+        pickable: false,
+      } as any),
+      new ScatterplotLayer({
+        id: "journey-mode-pulse",
+        data: [JOURNEY_DEFINITIONS[journeyMode].waypoints[Math.floor(journeyProgress * JOURNEY_DEFINITIONS[journeyMode].waypoints.length)] || JOURNEY_DEFINITIONS[journeyMode].waypoints[0]].filter(Boolean),
+        getPosition: (d: any) => [d.lon, d.lat],
+        getFillColor: [255, 160, 0, 40],
+        getRadius: 45 + Math.sin(Date.now() / 500) * 10,
+        radiusUnits: "pixels",
+        stroked: false,
+        filled: true,
+        pickable: false,
+      } as any),
+    ] : []),
     // Particle effects layer for major events (Exodus, Crucifixion, etc.)
     new ScatterplotLayer({
       id: "major-events-glow",
@@ -834,7 +1073,15 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         return [Number(lonCol?.get(idx) ?? 0), Number(latCol?.get(idx) ?? 0)];
       },
       getFillColor: [255, 200, 100, 25],
-      getRadius: 40,
+      getRadius: (idx: number) => {
+        // Pulsing effect with mouse proximity boost
+        const baseRadius = 40;
+        const pulse = Math.sin(Date.now() / 800 + idx * 0.1) * 8;
+        // Add subtle mouse reactivity (if we had screen coords, we'd calculate distance)
+        // For now, just use a time-based variation that feels alive
+        const mouseInfluence = Math.sin(Date.now() / 2000) * 5;
+        return baseRadius + pulse + mouseInfluence;
+      },
       radiusUnits: "pixels",
       stroked: false,
       filled: true,
@@ -846,7 +1093,10 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         return [Number(yearCol?.get(idx) ?? 0), Number(epochCol?.get(idx) ?? 0)];
       },
       filterRange: [[minYear - 1, currentYear], [activeEpochId, activeEpochId]],
-      updateTriggers: { getFilterValue: [currentYear, activeEpochId] },
+      updateTriggers: { 
+        getFilterValue: [currentYear, activeEpochId],
+        getRadius: [mousePosition.x, mousePosition.y] // Re-render on mouse move
+      },
     } as any),
     new ScatterplotLayer({
       id: "bible-points",
@@ -1274,6 +1524,63 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               <Navigation className="w-3 h-3 inline mr-1" />
               Journey Trails
             </button>
+            <button
+              onClick={() => setAmbientEnabled(!ambientEnabled)}
+              className={`px-2 py-1.5 rounded text-[10px] font-medium transition-all border col-span-2 ${
+                ambientEnabled 
+                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/50' 
+                  : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600'
+              }`}
+            >
+              <Sparkles className="w-3 h-3 inline mr-1" />
+              Ambient Soundscape
+            </button>
+          </div>
+          
+          {/* Journey Mode Selector */}
+          <div className="mt-3 pt-3 border-t border-slate-700/30">
+            <h3 className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+              Journey Mode
+            </h3>
+            <select
+              value={journeyMode || ''}
+              onChange={(e) => {
+                const mode = e.target.value || null;
+                setJourneyMode(mode);
+                if (mode && JOURNEY_DEFINITIONS[mode]) {
+                  const journey = JOURNEY_DEFINITIONS[mode];
+                  // Fly to first waypoint
+                  if (mapRef.current && journey.waypoints[0]) {
+                    mapRef.current.flyTo({
+                      center: [journey.waypoints[0].lon, journey.waypoints[0].lat],
+                      zoom: 6,
+                      duration: 1200
+                    });
+                  }
+                  setJourneyProgress(0);
+                }
+              }}
+              className="w-full px-2 py-1.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300 focus:outline-none focus:border-amber-500/50"
+            >
+              <option value="">Select a journey...</option>
+              {Object.entries(JOURNEY_DEFINITIONS).map(([key, journey]) => (
+                <option key={key} value={key}>{journey.name}</option>
+              ))}
+            </select>
+            {journeyMode && (
+              <div className="mt-2">
+                <div className="flex justify-between text-[9px] text-slate-500 mb-1">
+                  <span>Progress</span>
+                  <span>{Math.round(journeyProgress * 100)}%</span>
+                </div>
+                <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-500 ease-out"
+                    style={{ width: `${journeyProgress * 100}%` }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -1465,6 +1772,40 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   </div>
                 </div>
                 
+                {/* Audio Narration Controls */}
+                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:75ms] flex items-center gap-2">
+                  <button
+                    onClick={() => isPlayingAudio ? stopNarration() : playNarration(selectedEvent.name, selectedEvent.name)}
+                    className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#d97706]/10 hover:bg-[#d97706]/20 border border-[#d97706]/20 transition-all duration-200"
+                    aria-label={isPlayingAudio ? "Pause narration" : "Play narration"}
+                  >
+                    {isPlayingAudio ? (
+                      <Pause className="w-3.5 h-3.5 text-[#d97706] group-hover:scale-110 transition-transform" />
+                    ) : (
+                      <Play className="w-3.5 h-3.5 text-[#d97706] group-hover:scale-110 transition-transform fill-current" />
+                    )}
+                    <span className="text-[10.5px] font-medium uppercase tracking-wider text-[#92400e] [font-family:'Geist_Sans',system-ui,sans-serif]">
+                      {isPlayingAudio ? 'Pause' : 'Listen'}
+                    </span>
+                  </button>
+                  <div className="flex items-center gap-1.5 ml-1">
+                    <input
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.1"
+                      value={audioVolume}
+                      onChange={(e) => {
+                        const vol = parseFloat(e.target.value);
+                        setAudioVolume(vol);
+                        if (audioElement) audioElement.volume = vol;
+                      }}
+                      className="w-16 h-1 bg-stone-200 rounded-full appearance-none cursor-pointer accent-[#d97706]"
+                      aria-label="Volume"
+                    />
+                  </div>
+                </div>
+                
                 {/* Key Verse Block - Full bleed, Playfair italic */}
                 {selectedEvent.verse_text_snippet && (
                   <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:100ms] -mx-5 md:-mx-7">
@@ -1482,10 +1823,34 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 )}
                 
                 {/* Summary - Geist Sans, 14.5px, line-height 1.7 */}
-                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:150ms]">
+                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:150ms] space-y-3">
                   <p className="text-[14.5px] leading-[1.7] text-[#44403c] [font-family:'Geist_Sans',system-ui,sans-serif]">
-                    {selectedEvent.description}
+                    {(() => {
+                      // Try to find curated summary by matching event name
+                      const eventNameLower = selectedEvent.name.toLowerCase();
+                      for (const [key, summary] of Object.entries(CURATED_SUMMARIES)) {
+                        if (eventNameLower.includes(key.toLowerCase()) || key.toLowerCase().includes(eventNameLower.split(' ')[0])) {
+                          return summary;
+                        }
+                      }
+                      // Fallback: truncate long description to first 2 sentences
+                      const desc = selectedEvent.description || '';
+                      const sentences = desc.match(/[^.!?]+[.!?]+/g) || [desc];
+                      return sentences.slice(0, 2).join(' ').trim() || desc.slice(0, 200) + '...';
+                    })()}
                   </p>
+                  {/* Expand to full description */}
+                  {selectedEvent.description && selectedEvent.description.length > 200 && (
+                    <details className="group">
+                      <summary className="cursor-pointer text-[11px] font-medium uppercase tracking-wider text-[#78716c] hover:text-[#57534e] transition-colors list-none flex items-center gap-1">
+                        <span>Read full account</span>
+                        <span className="transition-transform group-open:rotate-90">›</span>
+                      </summary>
+                      <p className="mt-3 text-[13px] leading-[1.65] text-[#57534e] [font-family:'Geist_Sans',system-ui,sans-serif] border-l-2 border-stone-200 pl-3">
+                        {selectedEvent.description}
+                      </p>
+                    </details>
+                  )}
                 </div>
                 
                 {/* Tags */}
