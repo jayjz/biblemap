@@ -353,10 +353,10 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
   const [showJourneyPaths, setShowJourneyPaths] = useState(true);
-  const [loadedChunks, setLoadedChunks] = useState<Map<number, Table>>(new Map());
-  const [loadingChunks, setLoadingChunks] = useState<Set<number>>(new Set());
-  const [chunkErrors, setChunkErrors] = useState<Map<number, string>>(new Map());
-  const [retryCount, setRetryCount] = useState<Map<number, number>>(new Map());
+  const [loadedChunks, setLoadedChunks] = useState<Map<number, Table>>(() => new Map());
+  const [loadingChunks, setLoadingChunks] = useState<Set<number>>(() => new Set());
+  const [chunkErrors, setChunkErrors] = useState<Map<number, string>>(() => new Map());
+  const [retryCount, setRetryCount] = useState<Map<number, number>>(() => new Map());
   // Engagement features
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
