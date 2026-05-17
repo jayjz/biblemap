@@ -298,6 +298,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [showJourneyPaths, setShowJourneyPaths] = useState(true);
   const [loadedChunks, setLoadedChunks] = useState<Map<number, Table>>(new Map());
   const [loadingChunks, setLoadingChunks] = useState<Set<number>>(new Set());
+  const [chunkErrors, setChunkErrors] = useState<Map<number, string>>(new Map());
+  const [retryCount, setRetryCount] = useState<Map<number, number>>(new Map());
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -379,17 +381,51 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     if (arrowTable && currentYear === 0) setCurrentYear(minYear);
   }, [arrowTable, minYear, currentYear]);
 
+  // LRU eviction to prevent memory leaks
+  const MAX_CHUNKS_IN_MEMORY = 3; // Current + 1 before + 1 after
+  
+  const evictOldChunks = useCallback((newEpochId: number) => {
+    setLoadedChunks(prev => {
+      const next = new Map(prev);
+      
+      // Keep only chunks within 1 of current epoch
+      for (const [epochId] of next) {
+        if (Math.abs(epochId - newEpochId) > 1) {
+          next.delete(epochId);
+        }
+      }
+      
+      // If still over limit, remove oldest
+      if (next.size > MAX_CHUNKS_IN_MEMORY) {
+        const toDelete = Array.from(next.keys())
+          .sort((a, b) => Math.abs(a - newEpochId) - Math.abs(b - newEpochId))
+          .slice(MAX_CHUNKS_IN_MEMORY);
+        toDelete.forEach(id => next.delete(id));
+      }
+      
+      return next;
+    });
+  }, []);
+
   // Load chunk on demand
-  const loadChunk = useCallback(async (epochId: number) => {
+  const loadChunk = useCallback(async (epochId: number, retry = 0) => {
     if (loadedChunks.has(epochId) || loadingChunks.has(epochId)) return;
     
     setLoadingChunks(prev => new Set(prev).add(epochId));
+    // Clear previous error for this chunk
+    setChunkErrors(prev => {
+      const next = new Map(prev);
+      next.delete(epochId);
+      return next;
+    });
     
     try {
       const epochNames = ['creation', 'patriarchs', 'exodus', 'kings', 'exile', 'intertestamental', 'gospels'];
       const url = `/data/epoch-${epochId}-${epochNames[epochId]}.parquet`;
       
       const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      
       const buffer = await response.arrayBuffer();
       const parquet = await import("parquet-wasm/esm");
       await (parquet as any).default?.();
@@ -401,8 +437,23 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         next.set(epochId, table);
         return next;
       });
-    } catch (err) {
+      // Clear retry count on success
+      setRetryCount(prev => {
+        const next = new Map(prev);
+        next.delete(epochId);
+        return next;
+      });
+    } catch (err: any) {
+      const errorMsg = err?.message || 'Failed to load';
       console.warn(`Failed to load chunk ${epochId}:`, err);
+      setChunkErrors(prev => new Map(prev).set(epochId, errorMsg));
+      
+      // Retry logic (max 3 attempts with exponential backoff)
+      if (retry < 3) {
+        const delay = Math.pow(2, retry) * 1000;
+        setTimeout(() => loadChunk(epochId, retry + 1), delay);
+        setRetryCount(prev => new Map(prev).set(epochId, retry + 1));
+      }
     } finally {
       setLoadingChunks(prev => {
         const next = new Set(prev);
@@ -419,6 +470,11 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     if (activeEpochId > 0) loadChunk(activeEpochId - 1);
     if (activeEpochId < 5) loadChunk(activeEpochId + 1);
   }, [activeEpochId, loadChunk]);
+
+  // Evict old chunks on epoch change
+  useEffect(() => {
+    evictOldChunks(activeEpochId);
+  }, [activeEpochId, evictOldChunks]);
 
   // Merge loaded chunks for rendering
   const activeTable = useMemo(() => {
@@ -1006,6 +1062,23 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
       <Tooltip info={hoverInfo} />
 
+      {/* Error banner for failed chunk loads */}
+      {chunkErrors.has(activeEpochId) && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] bg-red-950/95 border border-red-800 rounded-lg px-4 py-3 shadow-2xl backdrop-blur-md">
+          <div className="flex items-center gap-3">
+            <div className="text-red-400 text-sm">
+              Failed to load {EPOCHS[activeEpochId]?.name}. {chunkErrors.get(activeEpochId)}
+            </div>
+            <button 
+              onClick={() => loadChunk(activeEpochId, 0)}
+              className="px-3 py-1 bg-red-900 hover:bg-red-800 text-red-100 text-xs rounded transition-colors"
+            >
+              Retry {retryCount.get(activeEpochId) ? `(${retryCount.get(activeEpochId)}/3)` : ''}
+            </button>
+          </div>
+        </div>
+      )}
+
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         className="md:hidden fixed top-4 left-4 z-[200] bg-slate-900/90 border border-slate-700 p-3 rounded-full shadow-lg text-amber-500"
@@ -1201,6 +1274,46 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               <Navigation className="w-3 h-3 inline mr-1" />
               Journey Trails
             </button>
+          </div>
+        </div>
+
+        {/* Chunk Loading Indicator */}
+        <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-slate-700/50">
+          <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+            Data Chunks
+          </h2>
+          <div className="flex flex-col gap-1.5">
+            {EPOCHS.map((epoch, i) => (
+              <div 
+                key={i} 
+                className={`flex items-center gap-2 text-[10px] px-2 py-1 rounded transition-all ${
+                  loadedChunks.has(i) 
+                    ? 'text-amber-400 bg-amber-500/10' 
+                    : loadingChunks.has(i)
+                    ? 'text-amber-500/70 bg-amber-500/5'
+                    : chunkErrors.has(i)
+                    ? 'text-red-400 bg-red-500/10'
+                    : 'text-slate-600'
+                }`}
+              >
+                <div className={`w-1.5 h-1.5 rounded-full ${
+                  loadedChunks.has(i)
+                    ? 'bg-amber-500'
+                    : loadingChunks.has(i)
+                    ? 'bg-amber-500 animate-pulse'
+                    : chunkErrors.has(i)
+                    ? 'bg-red-500'
+                    : 'bg-slate-700'
+                }`} />
+                <span className="flex-1 truncate">{epoch.name}</span>
+                {loadingChunks.has(i) && (
+                  <span className="text-[9px] text-slate-500">...</span>
+                )}
+                {chunkErrors.has(i) && (
+                  <span className="text-[9px]">✕</span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
