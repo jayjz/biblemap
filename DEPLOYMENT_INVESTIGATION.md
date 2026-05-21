@@ -106,6 +106,50 @@ For Vercel/Cloudflare Pages:
 - [ ] Monitor ErrorBoundary logs for constructor errors
 - [ ] Verify static export completes: `out/` directory generated
 
+## PyArrow Build Fix (2026-05-21)
+
+### Issue
+Vercel build failing with Python/pyarrow dependency error during prebuild step:
+```
+"prebuild": "python3 scripts/split_parquet.py"
+```
+Vercel Node.js runtime does not install Python dependencies, causing build to fail before deployment.
+
+### Solution
+1. **Pre-commit split parquet files** to repository (1.6MB total)
+   - Updated `.gitignore` to allow `public/data/*.parquet`
+   - Files generated locally via Python script, committed to repo
+   - Eliminates need for runtime parquet splitting
+
+2. **Replaced Python prebuild with Node.js verification**
+   - New script: `scripts/split_parquet.js`
+   - Verifies pre-split files exist instead of generating them
+   - Zero dependencies, runs in any Node.js environment
+
+3. **Updated package.json**
+   ```json
+   "prebuild": "node scripts/split_parquet.js"
+   ```
+
+### Files Changed
+- `.gitignore`: Added exception for `!public/data/*.parquet`
+- `package.json`: Changed prebuild from Python to Node
+- `scripts/split_parquet.js`: New verification script (replaces Python version)
+- `public/data/*.parquet`: 6 split files committed (1.6MB)
+
+### Verification
+✅ Local build successful: `npm run build` completes without Python errors
+✅ Prebuild verification: Checks for 6/7 expected files (epoch-6 has 0 rows, skipped)
+✅ Vercel compatibility: Pure Node.js, no external dependencies
+
+### Future Maintenance
+To regenerate split files locally:
+```bash
+python3 scripts/split_parquet.py
+git add public/data/*.parquet
+git commit -m "Update split parquet files"
+```
+
 ## References
 - Next.js Issue: https://github.com/vercel/next.js/issues/55891
 - Webpack concatenateModules: https://webpack.js.org/configuration/optimization/#optimizationconcatenatemodules

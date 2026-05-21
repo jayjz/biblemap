@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "prebuild": "python3 scripts/split_parquet.py",
+    "prebuild": "node scripts/split_parquet.js",
     "build": "next build --webpack",
     "postbuild": "echo 'Build complete with chunked data'",
     "start": "next start",

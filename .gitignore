@@ -42,6 +42,7 @@ npm-debug.log*
 
 # Data (large files)
 *.parquet
+!public/data/*.parquet
 *.db
 *.sqlite
 /postgres-data/
