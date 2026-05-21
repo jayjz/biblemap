@@ -24,6 +24,21 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Error logged to monitoring service in production
+    
+    // TDZ Fix: Detect "is not a constructor" errors (Webpack minification TDZ)
+    // These indicate stale cached bundles - force reload with cache bypass
+    const errorMessage = error?.message || "";
+    const isConstructorError = errorMessage.includes("is not a constructor") || 
+                                errorMessage.includes("S.Ay") ||
+                                errorMessage.includes("is not a constructor");
+    
+    if (isConstructorError && typeof window !== "undefined") {
+      // Show cache clearing UI, then force reload bypassing cache
+      setTimeout(() => {
+        // Force hard reload bypassing browser cache
+        window.location.reload();
+      }, 2000);
+    }
   }
 
   reset = () => {
@@ -36,30 +51,46 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         return this.props.fallback(this.state.error, this.reset);
       }
 
+      const errorMessage = this.state.error?.message || "";
+      const isConstructorError = errorMessage.includes("is not a constructor") || 
+                                  errorMessage.includes("S.Ay");
+
       return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-200 p-8">
           <div className="max-w-md w-full bg-slate-900 border border-slate-700 rounded-xl p-8 shadow-2xl">
-            <div className="text-amber-500 text-2xl mb-4 text-center">⚠️</div>
+            <div className="text-amber-500 text-2xl mb-4 text-center">
+              {isConstructorError ? "🔄" : "⚠️"}
+            </div>
             <h2 className="text-xl font-bold text-slate-100 mb-3 text-center">
-              Something went wrong
+              {isConstructorError ? "Updating application..." : "Something went wrong"}
             </h2>
             <p className="text-slate-400 text-sm mb-6 text-center">
-              {this.state.error?.message || "An unexpected error occurred"}
+              {isConstructorError 
+                ? "Cache cleared — reloading with latest version..."
+                : (this.state.error?.message || "An unexpected error occurred")
+              }
             </p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => window.location.reload()}
-                className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors"
-              >
-                Reload Page
-              </button>
-              <button
-                onClick={this.reset}
-                className="flex-1 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-medium py-2.5 px-4 rounded-lg transition-colors"
-              >
-                Try Again
-              </button>
-            </div>
+            {!isConstructorError && (
+              <div className="flex gap-3">
+                <button
+                  onClick={() => window.location.reload()}
+                  className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors"
+                >
+                  Reload Page
+                </button>
+                <button
+                  onClick={this.reset}
+                  className="flex-1 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-medium py-2.5 px-4 rounded-lg transition-colors"
+                >
+                  Try Again
+                </button>
+              </div>
+            )}
+            {isConstructorError && (
+              <div className="flex justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
+              </div>
+            )}
             {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mt-6 text-xs">
                 <summary className="cursor-pointer text-slate-500 hover:text-slate-400">

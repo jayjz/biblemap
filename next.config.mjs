@@ -4,9 +4,16 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Generate unique build ID to force Cloudflare Pages cache invalidation
+  // Generate unique build ID with git SHA to force Cloudflare Pages/Vercel cache invalidation
+  // Enhanced for TDZ fix: git SHA + timestamp ensures unbreakable edge cache busting
   generateBuildId: async () => {
-    return Date.now().toString();
+    const { execSync } = await import('child_process');
+    try {
+      const sha = execSync('git rev-parse --short HEAD').toString().trim();
+      return `${sha}-${Date.now()}`;
+    } catch {
+      return Date.now().toString();
+    }
   },
   // THE FIX: Disable StrictMode to prevent Luma.gl WebGL context destruction 
   // during React 18 development double-mounts.
@@ -57,6 +64,14 @@ const nextConfig = {
         stream: false,
       };
     }
+
+    // 4. TDZ FIX: Disable concatenateModules to prevent aggressive inlining
+    //    that can cause "is not a constructor" errors with minified globals like Map/Set.
+    //    See: https://github.com/vercel/next.js/issues/55891
+    config.optimization = {
+      ...config.optimization,
+      concatenateModules: false,
+    };
 
     return config;
   },

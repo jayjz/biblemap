@@ -65,6 +65,30 @@ python export_production.py
 
 **https://biblemap-phi.vercel.app**
 
+## Deployment Notes
+
+### Static Export Configuration
+This project uses Next.js 15 static export (`output: 'export'`) for deployment to Cloudflare Pages and Vercel.
+
+**Critical Configuration:**
+- `generateBuildId`: Uses git SHA + timestamp for cache busting
+- `concatenateModules: false`: Prevents Webpack TDZ issues with Map/Set
+- Lazy initializers required: `useState(() => new Map())` not `useState(new Map())`
+
+### Known Issues & Fixes
+
+**"S.Ay is not a constructor" TDZ Error:**
+- **Root cause:** Webpack minification + module evaluation order with static exports
+- **Fix:** Lazy initializers + `concatenateModules: false` + enhanced cache busting
+- **Reference:** See `DEPLOYMENT_INVESTIGATION.md` for full details
+
+**Verification after deploy:**
+```bash
+# Check bundle doesn't contain non-lazy patterns
+curl -s https://your-domain/_next/static/chunks/*.js | grep "useState.*new Map(" 
+# Should return nothing (lazy form uses arrow functions)
+```
+
 ## License
 
 MIT

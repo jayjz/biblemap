@@ -719,6 +719,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
   const [showJourneyPaths, setShowJourneyPaths] = useState(true);
+  // Lazy initializers prevent Webpack TDZ: https://github.com/vercel/next.js/issues/55891
+  // useState(() => new Map()) ensures Map constructor is evaluated lazily, not during module init
   const [loadedChunks, setLoadedChunks] = useState<Map<number, Table>>(() => new Map());
   const [loadingChunks, setLoadingChunks] = useState<Set<number>>(() => new Set());
   const [chunkErrors, setChunkErrors] = useState<Map<number, string>>(() => new Map());
