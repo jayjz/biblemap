@@ -17,7 +17,7 @@ const nextConfig = {
   typescript: { ignoreBuildErrors: true },
 
   webpack(config, { isServer, dev }) {
-    // Parquet
+    // Parquet support
     config.module.rules.push({
       test: /\.parquet$/i,
       type: "asset/resource",
@@ -47,7 +47,7 @@ const nextConfig = {
       minimize: !dev,
     };
 
-    // Prevent class name mangling (this is the key for _.Ay)
+    // Prevent class name mangling (this is the key to stopping the _.Ay error)
     if (!dev && config.optimization?.minimizer) {
       config.optimization.minimizer.forEach((minimizer) => {
         if (minimizer?.options?.terserOptions) {
@@ -56,6 +56,7 @@ const nextConfig = {
             keep_classnames: true,
             keep_fnames: true,
             mangle: {
+              ...(minimizer.options.terserOptions.mangle || {}),
               keep_classnames: true,
               keep_fnames: true,
             },
