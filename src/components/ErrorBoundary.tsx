@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 
 interface ErrorBoundaryState {
@@ -23,27 +22,39 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Error logged to monitoring service in production
-    
-    // TDZ Fix: Detect "is not a constructor" errors (Webpack minification TDZ)
-    // These indicate stale cached bundles - force reload with cache bypass
+    console.error("ErrorBoundary caught error:", error, errorInfo);
+
     const errorMessage = error?.message || "";
-    const isConstructorError = errorMessage.includes("is not a constructor") || 
-                                errorMessage.includes("S.Ay") ||
-                                errorMessage.includes("is not a constructor");
-    
+    const isConstructorError = errorMessage.includes("is not a constructor") ||
+                              errorMessage.includes("S.Ay");
+
     if (isConstructorError && typeof window !== "undefined") {
-      // Show cache clearing UI, then force reload bypassing cache
+      const reloadCount = parseInt(sessionStorage.getItem('eb_reloadCount') || '0');
+
+      if (reloadCount >= 3) {
+        console.warn("ErrorBoundary: Max reload attempts reached. Stopping auto-reload.");
+        return; // Stop the loop, show error UI
+      }
+
+      sessionStorage.setItem('eb_reloadCount', String(reloadCount + 1));
+
       setTimeout(() => {
-        // Force hard reload bypassing browser cache
         window.location.reload();
-      }, 2000);
+      }, 1500);
     }
   }
 
   reset = () => {
+    sessionStorage.removeItem('eb_reloadCount'); // Reset counter on manual retry
     this.setState({ hasError: false, error: null });
   };
+
+  // Reset counter when component mounts successfully
+  componentDidMount() {
+    if (!this.state.hasError) {
+      sessionStorage.removeItem('eb_reloadCount');
+    }
+  }
 
   render() {
     if (this.state.hasError) {
@@ -52,8 +63,8 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
       }
 
       const errorMessage = this.state.error?.message || "";
-      const isConstructorError = errorMessage.includes("is not a constructor") || 
-                                  errorMessage.includes("S.Ay");
+      const isConstructorError = errorMessage.includes("is not a constructor") ||
+                                 errorMessage.includes("S.Ay");
 
       return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-200 p-8">
@@ -61,42 +72,45 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             <div className="text-amber-500 text-2xl mb-4 text-center">
               {isConstructorError ? "🔄" : "⚠️"}
             </div>
+            
             <h2 className="text-xl font-bold text-slate-100 mb-3 text-center">
               {isConstructorError ? "Updating application..." : "Something went wrong"}
             </h2>
+            
             <p className="text-slate-400 text-sm mb-6 text-center">
-              {isConstructorError 
+              {isConstructorError
                 ? "Cache cleared — reloading with latest version..."
                 : (this.state.error?.message || "An unexpected error occurred")
               }
             </p>
+
             {!isConstructorError && (
               <div className="flex gap-3">
-                <button
-                  onClick={() => window.location.reload()}
-                  className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors"
-                >
+                <button onClick={() => window.location.reload()} className="flex-1 bg-amber-600 hover:bg-amber-700 ...">
                   Reload Page
                 </button>
-                <button
-                  onClick={this.reset}
-                  className="flex-1 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-medium py-2.5 px-4 rounded-lg transition-colors"
-                >
+                <button onClick={this.reset} className="flex-1 bg-slate-800 hover:bg-slate-700 ...">
                   Try Again
                 </button>
               </div>
             )}
+
+            {isConstructorError && reloadCount >= 3 && (
+              <div className="text-center text-red-400 text-sm mt-4">
+                Still failing? Try <strong>Ctrl + Shift + R</strong> (hard refresh) or clear site data.
+              </div>
+            )}
+
             {isConstructorError && (
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-4">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
               </div>
             )}
+
             {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mt-6 text-xs">
-                <summary className="cursor-pointer text-slate-500 hover:text-slate-400">
-                  Error details
-                </summary>
-                <pre className="mt-2 p-3 bg-slate-950 rounded border border-slate-800 overflow-auto text-[10px] text-slate-500">
+                <summary className="cursor-pointer text-slate-500">Error details</summary>
+                <pre className="mt-2 p-3 bg-slate-950 rounded border border-slate-800 overflow-auto text-[10px]">
                   {this.state.error.stack}
                 </pre>
               </details>
