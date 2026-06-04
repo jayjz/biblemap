@@ -5,38 +5,25 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useSearchParams } from "next/navigation";
 import { useMemo, Suspense } from "react";
 
-// Next.js 16 requires dynamic imports with ssr:false to be executed 
-// inside a Client Component.
+// Dynamic import with aggressive isolation for the WebGL-heavy component
 const DataLoader = dynamic(
   () => import("@/components/DataLoader"),
   {
     ssr: false,
     loading: () => (
-      <div
-        style={{
-          width:          "100vw",
-          height:         "100vh",
-          display:        "flex",
-          alignItems:     "center",
-          justifyContent: "center",
-          background:     "#002b36",
-          color:          "#586e75",
-          fontFamily:     "system-ui, sans-serif",
-          fontSize:       "1.1rem",
-        }}
-      >
+      <div className="flex items-center justify-center w-screen h-screen bg-[#002b36] text-[#586e75] font-mono text-lg">
         Initializing Bible3D WebGL Context...
       </div>
     ),
   }
 );
 
-function HomeContent() {
+export default function Home() {
   const searchParams = useSearchParams();
-  
-  // Convert URLSearchParams to plain object for DataLoader
-  const params = useMemo(() => {
-    const obj: { [key: string]: string | string[] | undefined } = {};
+
+  // Convert URLSearchParams to plain object (memoized)
+  const initialParams = useMemo(() => {
+    const obj: Record<string, string | string[] | undefined> = {};
     searchParams.forEach((value, key) => {
       obj[key] = value;
     });
@@ -44,30 +31,18 @@ function HomeContent() {
   }, [searchParams]);
 
   return (
-    <main style={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
-      <ErrorBoundary>
-        <DataLoader initialParams={params} />
-      </ErrorBoundary>
-    </main>
-  );
-}
-
-export default function Home() {
-  return (
-    <Suspense fallback={
-      <div style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#002b36",
-        color: "#586e75"
-      }}>
-        Loading...
-      </div>
-    }>
-      <HomeContent />
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center w-screen h-screen bg-[#002b36] text-[#586e75]">
+          Loading Bible Map...
+        </div>
+      }
+    >
+      <main className="w-screen h-screen overflow-hidden">
+        <ErrorBoundary>
+          <DataLoader initialParams={initialParams} />
+        </ErrorBoundary>
+      </main>
     </Suspense>
   );
 }

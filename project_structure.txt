@@ -1,0 +1,54 @@
+.
+├── build_events.py
+├── DEPLOYMENT_INVESTIGATION.md
+├── docker-compose.yml
+├── ENGAGEMENT_FEATURES.md
+├── eslint.config.mjs
+├── export_production.py
+├── .gitignore
+├── IMPLEMENTATION_SUMMARY.md
+├── ingest_bible_text.py
+├── ingest_places.py
+├── init_db.py
+├── next.config.mjs
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── project_structure.txt
+├── public
+│   ├── audio
+│   │   └── README.md
+│   ├── bible-journeys.parquet
+│   ├── bible-points.parquet
+│   ├── data
+│   │   ├── epoch-0-creation.parquet
+│   │   ├── epoch-1-patriarchs.parquet
+│   │   ├── epoch-2-exodus.parquet
+│   │   ├── epoch-3-kings.parquet
+│   │   ├── epoch-4-exile.parquet
+│   │   └── epoch-5-intertestamental.parquet
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── README.md
+├── requirements.txt
+├── ROADMAP.md
+├── scripts
+│   ├── split_parquet.js
+│   └── split_parquet.py
+├── src
+│   ├── app
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   └── components
+│       ├── DataLoader.tsx
+│       └── ErrorBoundary.tsx
+├── tsconfig.json
+└── validate_data.py
+
+8 directories, 44 files

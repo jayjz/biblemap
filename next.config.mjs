@@ -1,8 +1,6 @@
-// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   generateBuildId: async () => {
-    // Stable per commit — only changes when code actually changes
     const { execSync } = await import('child_process');
     try {
       const sha = execSync('git rev-parse --short HEAD').toString().trim();
@@ -16,10 +14,10 @@ const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-
   typescript: { ignoreBuildErrors: true },
 
-  webpack(config, { isServer }) {
+  webpack(config, { isServer, dev }) {
+    // Parquet
     config.module.rules.push({
       test: /\.parquet$/i,
       type: "asset/resource",
@@ -42,10 +40,29 @@ const nextConfig = {
       };
     }
 
+    // AGGRESSIVE FIXES FOR DECK.GL
     config.optimization = {
       ...config.optimization,
       concatenateModules: false,
+      minimize: !dev,
     };
+
+    // Prevent class name mangling (this is the key for _.Ay)
+    if (!dev && config.optimization?.minimizer) {
+      config.optimization.minimizer.forEach((minimizer) => {
+        if (minimizer?.options?.terserOptions) {
+          minimizer.options.terserOptions = {
+            ...minimizer.options.terserOptions,
+            keep_classnames: true,
+            keep_fnames: true,
+            mangle: {
+              keep_classnames: true,
+              keep_fnames: true,
+            },
+          };
+        }
+      });
+    }
 
     return config;
   },

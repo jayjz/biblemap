@@ -45,12 +45,14 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   }
 
   reset = () => {
-    sessionStorage.removeItem('eb_reloadCount');
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem('eb_reloadCount');
+    }
     this.setState({ hasError: false, error: null });
   };
 
   componentDidMount() {
-    if (!this.state.hasError) {
+    if (!this.state.hasError && typeof window !== "undefined") {
       sessionStorage.removeItem('eb_reloadCount');
     }
   }
@@ -65,7 +67,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
       const isConstructorError = errorMessage.includes("is not a constructor") ||
                                  errorMessage.includes("S.Ay");
 
-      const reloadCount = parseInt(sessionStorage.getItem('eb_reloadCount') || '0'); // ← Fixed scope
+      // FIX: Prevent Server-Side Rendering crash
+      let reloadCount = 0;
+      if (typeof window !== "undefined") {
+        reloadCount = parseInt(sessionStorage.getItem('eb_reloadCount') || '0');
+      }
 
       return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-200 p-8">
@@ -117,7 +123,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="mt-6 text-xs">
                 <summary className="cursor-pointer text-slate-500 hover:text-slate-400">Error details</summary>
-                <pre className="mt-2 p-3 bg-slate-950 rounded border border-slate-800 overflow-auto text-[10px] text-slate-500">
+                <pre className="mt-2 p-3 bg-slate-950 rounded border border-slate-800 overflow-auto text-[10px] text-slate-500 whitespace-pre-wrap break-all">
                   {this.state.error.stack}
                 </pre>
               </details>
