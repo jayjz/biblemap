@@ -5,16 +5,18 @@
  * Cinematic evolution with shareable URLs, related events, keyboard nav, GPU instancing.
  */
 
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu, Share2, Sparkles, Navigation } from "lucide-react";
 import { tableFromIPC, Table } from "apache-arrow";
-import DeckGL from "@deck.gl/react";
 import { type PickingInfo, LightingEffect, AmbientLight, DirectionalLight } from "@deck.gl/core";
 import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
-import Map from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
+
+// Dynamic imports for heavy WebGL rendering to bypass minification constructor errors
+const DeckGL = React.lazy(() => import("@deck.gl/react").then(mod => ({ default: mod.default })));
+const Map = React.lazy(() => import("react-map-gl/maplibre"));
 
 const POINTS_URL = "/bible-points.parquet?v=" + Date.now();
 const MAP_STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
@@ -61,17 +63,16 @@ const TYPE_COLORS: Record<string, [number, number, number, number]> = {
 };
 const DEFAULT_COLOR: [number, number, number, number] = [147, 161, 161, 160];
 
-// Enhanced curated content structure for emotional engagement
 interface CuratedEvent {
   id: string;
-  summary: string; // 2-3 compelling sentences
+  summary: string;
   keyVerse: {
     text: string;
     reference: string;
   };
-  whyItMatters: string; // 1 sentence devotional reflection
-  tags: string[]; // Thematic tags
-  audioUrl?: string; // Path to narration MP3
+  whyItMatters: string;
+  tags: string[];
+  audioUrl?: string;
 }
 
 const CURATED_CONTENT: Record<string, CuratedEvent> = {
@@ -427,11 +428,10 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
   }
 };
 
-// Curated narrative summaries - concise 2-3 sentence stories that capture the emotional core
 const CURATED_SUMMARIES: Record<string, string> = {
   "Red Sea": "God parts the Red Sea, allowing Israel to escape Egypt. Pharaoh's army is destroyed in the waters. A defining moment of divine deliverance that shapes Israel's identity.",
   "Moses at Mount Sinai": "God descends in fire and smoke to give the Ten Commandments. Moses receives the law that will define a nation. The covenant that shapes Western civilization is forged.",
-  "David and Goliath": "A shepherd boy faces a giant with nothing but faith and a sling. David's stone finds its mark, toppling the Philistine champion. Courage triumphs over might.",
+  "David and Goliath": "A shepherd boy faces a giant with nothing but faith and a sling. David's stone finds mark, toppling the Philistine champion. Courage triumphs over might.",
   "Solomon's Temple": "Israel's golden age reaches its peak with a temple for God. Solomon's wisdom builds a house of cedar and gold. The dwelling place of the Divine among men.",
   "Babylonian Exile": "Jerusalem falls. The temple burns. God's people are carried away to Babylon, their songs silenced by the rivers of a foreign land.",
   "Birth of Jesus": "In Bethlehem's humblest stable, the Word becomes flesh. Shepherds and wise men worship a child wrapped in swaddling clothes. Hope enters the world in silence.",
@@ -458,7 +458,6 @@ interface BibleEvent {
   primary_book: string; verse_reference: string;
 }
 
-// Journey mode definitions with curated waypoints
 const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Array<{ name: string; lat: number; lon: number; year: number; description: string }> }> = {
   exodus: {
     name: "The Exodus Journey",
@@ -492,7 +491,6 @@ const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Array<{ nam
   }
 };
 
-// Calculate related events using Arrow table (no new data fetch)
 function calculateRelatedEvents(
   table: Table,
   selectedEvent: BibleEvent,
@@ -515,7 +513,6 @@ function calculateRelatedEvents(
     vr: table.getChild("verse_reference"),
   };
 
-  // Get all events with their indices, sorted by year
   const eventsWithIdx: Array<{idx: number, year: number}> = [];
   for (let i = 0; i < table.numRows; i++) {
     eventsWithIdx.push({ idx: i, year: Number(cols.y?.get(i) ?? 0) });
@@ -524,7 +521,6 @@ function calculateRelatedEvents(
   
   const selectedPos = eventsWithIdx.findIndex(e => e.idx === selectedIdx);
   
-  // Get 3 before and 3 after
   for (let i = Math.max(0, selectedPos - 3); i < selectedPos; i++) {
     const idx = eventsWithIdx[i].idx;
     before.push({
@@ -557,7 +553,6 @@ function calculateRelatedEvents(
     });
   }
 
-  // Find nearby events (within 50km and ±100 years)
   const selectedLat = selectedEvent.lat;
   const selectedLon = selectedEvent.lon;
   const selectedYear = selectedEvent.ussher_year;
@@ -569,7 +564,6 @@ function calculateRelatedEvents(
     const lon = Number(cols.lo?.get(i) ?? 0);
     const year = Number(cols.y?.get(i) ?? 0);
     
-    // Simple distance check (approx 50km ~ 0.45 degrees)
     const latDiff = Math.abs(lat - selectedLat);
     const lonDiff = Math.abs(lon - selectedLon);
     const yearDiff = Math.abs(year - selectedYear);
@@ -592,7 +586,6 @@ function calculateRelatedEvents(
   return { before: before.reverse(), after, nearby };
 }
 
-// Haversine distance in km
 function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371;
   const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -603,14 +596,12 @@ function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: numbe
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
-// ── Parquet loader ────────────────────────────────────────────────────────────
 async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, total: number) => void): Promise<Table> {
   const parquet = await import("parquet-wasm/esm");
   await (parquet as any).default?.();
   const resp = await fetch(url);
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   
-  // Track download progress
   const contentLength = resp.headers.get('content-length');
   const total = contentLength ? parseInt(contentLength, 10) : 0;
   const reader = resp.body?.getReader();
@@ -639,7 +630,6 @@ async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, t
   const wasmTbl = (parquet as any).readParquet(buffer);
   const table = tableFromIPC(wasmTbl.intoIPCStream());
 
-  // ZERO-COPY: Return Arrow Table directly - no JS object allocation
   return table;
 }
 
@@ -654,7 +644,6 @@ async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
 
   const journeys = [];
   for (let i = 0; i < table.numRows; i++) {
-    // THE FIX: Deep-unpack the Arrow Vectors into standard JS Arrays
     const rawPath = table.getChild("path")?.get(i)?.toJSON() ?? [];
     const formattedPath = rawPath.map((pt: any) => Array.isArray(pt) ? pt : Array.from(pt));
     
@@ -673,7 +662,7 @@ async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
   }
   return journeys;
 }
-// ── Tooltip ───────────────────────────────────────────────────────────────────
+
 function Tooltip({ info }: { info: PickingInfo | null }) {
   if (!info?.object) return null;
   const data = info.object as BibleEvent;
@@ -719,13 +708,10 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
   const [showJourneyPaths, setShowJourneyPaths] = useState(true);
-  // Lazy initializers prevent Webpack TDZ: https://github.com/vercel/next.js/issues/55891
-  // useState(() => new Map()) ensures Map constructor is evaluated lazily, not during module init
   const [loadedChunks, setLoadedChunks] = useState<Map<number, Table>>(() => new Map());
   const [loadingChunks, setLoadingChunks] = useState<Set<number>>(() => new Set());
   const [chunkErrors, setChunkErrors] = useState<Map<number, string>>(() => new Map());
   const [retryCount, setRetryCount] = useState<Map<number, number>>(() => new Map());
-  // Engagement features
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [audioVolume, setAudioVolume] = useState(0.7);
@@ -742,7 +728,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const maxYearRef = useRef<number>(0);
   const randomQuote = useRef(BIBLICAL_QUOTES[Math.floor(Math.random() * BIBLICAL_QUOTES.length)]);
 
-  // Canonical book order: only books present in data
   const uniqueBooks = useMemo(() => {
     if (!arrowTable) return ["All"];
     const bookCol = arrowTable.getChild("primary_book");
@@ -764,13 +749,11 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     const verseCol = arrowTable.getChild("verse_text_snippet");
     
     for (let i = 0; i < arrowTable.numRows; i++) {
-      // Book filter
       if (selectedBook !== "All") {
         const book = String(bookCol?.get(i) ?? "");
         if (book !== selectedBook) continue;
       }
       
-      // Text search filter (min 2 chars)
       if (eventSearchQuery && eventSearchQuery.length >= 2) {
         const q = eventSearchQuery.toLowerCase();
         const name = String(nameCol?.get(i) ?? "").toLowerCase();
@@ -815,38 +798,30 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     if (arrowTable && currentYear === 0) setCurrentYear(minYear);
   }, [arrowTable, minYear, currentYear]);
 
-  // LRU eviction to prevent memory leaks
-  const MAX_CHUNKS_IN_MEMORY = 3; // Current + 1 before + 1 after
+  const MAX_CHUNKS_IN_MEMORY = 3; 
   
   const evictOldChunks = useCallback((newEpochId: number) => {
     setLoadedChunks(prev => {
       const next = new Map(prev);
-      
-      // Keep only chunks within 1 of current epoch
       for (const [epochId] of next) {
         if (Math.abs(epochId - newEpochId) > 1) {
           next.delete(epochId);
         }
       }
-      
-      // If still over limit, remove oldest
       if (next.size > MAX_CHUNKS_IN_MEMORY) {
         const toDelete = Array.from(next.keys())
           .sort((a, b) => Math.abs(a - newEpochId) - Math.abs(b - newEpochId))
           .slice(MAX_CHUNKS_IN_MEMORY);
         toDelete.forEach(id => next.delete(id));
       }
-      
       return next;
     });
   }, []);
 
-  // Load chunk on demand
   const loadChunk = useCallback(async (epochId: number, retry = 0) => {
     if (loadedChunks.has(epochId) || loadingChunks.has(epochId)) return;
     
     setLoadingChunks(prev => new Set(prev).add(epochId));
-    // Clear previous error for this chunk
     setChunkErrors(prev => {
       const next = new Map(prev);
       next.delete(epochId);
@@ -871,7 +846,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         next.set(epochId, table);
         return next;
       });
-      // Clear retry count on success
       setRetryCount(prev => {
         const next = new Map(prev);
         next.delete(epochId);
@@ -882,7 +856,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       console.warn(`Failed to load chunk ${epochId}:`, err);
       setChunkErrors(prev => new Map(prev).set(epochId, errorMsg));
       
-      // Retry logic (max 3 attempts with exponential backoff)
       if (retry < 3) {
         const delay = Math.pow(2, retry) * 1000;
         setTimeout(() => loadChunk(epochId, retry + 1), delay);
@@ -897,20 +870,16 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, [loadedChunks, loadingChunks]);
 
-  // Load current epoch + preload adjacent
   useEffect(() => {
     loadChunk(activeEpochId);
-    // Preload neighbors
     if (activeEpochId > 0) loadChunk(activeEpochId - 1);
     if (activeEpochId < 5) loadChunk(activeEpochId + 1);
   }, [activeEpochId, loadChunk]);
 
-  // Evict old chunks on epoch change
   useEffect(() => {
     evictOldChunks(activeEpochId);
   }, [activeEpochId, evictOldChunks]);
 
-  // Merge loaded chunks for rendering
   const activeTable = useMemo(() => {
     const tables = Array.from(loadedChunks.values());
     if (tables.length === 0) return null;
@@ -918,7 +887,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     return tables[0].concat(...tables.slice(1));
   }, [loadedChunks]);
 
-  // Sync activeTable to arrowTable for backward compatibility
   useEffect(() => {
     if (activeTable) {
       setArrowTable(activeTable);
@@ -926,11 +894,9 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, [activeTable]);
 
-  // Data fetch + mount-time URL sync
   useEffect(() => {
     fetchAndUnpackJourneys("/bible-journeys.parquet?v=" + Date.now()).then(setJourneys);
     
-    // Load initial chunk instead of full file
     setLoadProgress({ stage: "Loading Creation era...", percent: 0, loaded: 0, total: 0 });
     loadChunk(0);
 
@@ -947,7 +913,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, []);
 
-  // Parse initial URL params and restore state
   useEffect(() => {
     if (!initialParams || !arrowTable) return;
     
@@ -957,14 +922,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     const zoomParam = initialParams.zoom as string;
     
     if (eventParam && arrowTable) {
-      // Find event by name or index
       const nameCol = arrowTable.getChild("name");
       for (let i = 0; i < arrowTable.numRows; i++) {
         const name = String(nameCol?.get(i) ?? "");
         if (name.toLowerCase().replace(/\s+/g, '-') === eventParam || 
             name.toLowerCase() === eventParam.toLowerCase() ||
             i.toString() === eventParam) {
-          // Found the event, simulate click
           const cols = {
             n: arrowTable.getChild("name"),
             y: arrowTable.getChild("ussher_year"),
@@ -1031,15 +994,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     rafRef.current = requestAnimationFrame(tick);
   }, [stopAnim]);
 
-  // Audio narration functions
   const playNarration = useCallback((eventId: string, eventName: string) => {
-    // Stop any existing audio
     if (audioElement) {
       audioElement.pause();
       audioElement.currentTime = 0;
     }
 
-    // Try to load pre-generated audio (from storyteller project or public/audio)
     const sanitizedId = eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const audioUrl = `/audio/${sanitizedId}.mp3`;
     
@@ -1051,7 +1011,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       audio.play().then(() => {
         setIsPlayingAudio(true);
       }).catch(() => {
-        // Fallback: use Web Speech API for TTS if audio file not found
         if ('speechSynthesis' in window && selectedEvent?.verse_text_snippet) {
           const utterance = new SpeechSynthesisUtterance(
             selectedEvent.verse_text_snippet.slice(0, 200)
@@ -1069,7 +1028,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     };
 
     audio.onerror = () => {
-      // Try Web Speech API fallback
       if ('speechSynthesis' in window && selectedEvent?.verse_text_snippet) {
         speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(
@@ -1102,22 +1060,17 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     setIsPlayingAudio(false);
   }, [audioElement]);
 
-  // Ambient soundscape management
   useEffect(() => {
     if (ambientEnabled && !ambientAudio) {
-      // Create ambient audio element (user must interact first due to autoplay policies)
       const ambient = new Audio();
       ambient.loop = true;
       ambient.volume = 0.15;
-      // Could load different ambient tracks based on region/epoch
-      // For now, we'll set it up but not auto-play (requires user interaction)
       setAmbientAudio(ambient);
     } else if (!ambientEnabled && ambientAudio) {
       ambientAudio.pause();
     }
   }, [ambientEnabled, ambientAudio]);
 
-  // Journey mode animation
   useEffect(() => {
     if (!journeyMode || !JOURNEY_DEFINITIONS[journeyMode]) return;
 
@@ -1128,7 +1081,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
     const advanceWaypoint = () => {
       if (currentIndex >= waypoints.length) {
-        currentIndex = 0; // Loop back to start
+        currentIndex = 0;
       }
 
       const waypoint = waypoints[currentIndex];
@@ -1141,16 +1094,13 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         });
       }
 
-      // Update progress
       setJourneyProgress((currentIndex + 1) / waypoints.length);
       
-      // Try to find and select the event at this waypoint
       if (arrowTable) {
         const nameCol = arrowTable.getChild("name");
         for (let i = 0; i < Math.min(100, arrowTable.numRows); i++) {
           const name = String(nameCol?.get(i) ?? "");
           if (name.toLowerCase().includes(waypoint.name.toLowerCase().split(' ')[0])) {
-            // Found a matching event - could auto-select it
             break;
           }
         }
@@ -1159,7 +1109,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       currentIndex++;
     };
 
-    // Start immediately, then every 4 seconds
     advanceWaypoint();
     progressInterval = setInterval(advanceWaypoint, 4000);
 
@@ -1168,7 +1117,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     };
   }, [journeyMode, arrowTable]);
 
-  // Track mouse for reactive particles
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -1177,10 +1125,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't interfere with input fields
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
       
       switch (e.key) {
@@ -1199,7 +1145,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           if (filteredIndices.length > 0) {
             const nextIdx = (highlightedEventIndex + 1) % filteredIndices.length;
             setHighlightedEventIndex(nextIdx);
-            // Could fly to event here
           }
           break;
         case 'ArrowDown':
@@ -1215,7 +1160,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           e.preventDefault();
           if (highlightedEventIndex >= 0 && highlightedEventIndex < filteredIndices.length && arrowTable) {
             const idx = filteredIndices[highlightedEventIndex];
-            // Trigger click on highlighted event
             const cols = {
               n: arrowTable.getChild("name"),
               y: arrowTable.getChild("ussher_year"),
@@ -1256,7 +1200,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [minYear, maxYear, filteredIndices, highlightedEventIndex, arrowTable, stopAnim]);
 
-  // Update URL when event is selected
   useEffect(() => {
     if (!selectedEvent || !mapRef.current) return;
     
@@ -1274,14 +1217,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     window.history.replaceState(null, '', newUrl);
   }, [selectedEvent]);
 
-  // Calculate related events when selection changes
   useEffect(() => {
     if (!selectedEvent || !arrowTable) {
       setRelatedEvents({ before: [], after: [], nearby: [] });
       return;
     }
     
-    // Find selected event index
     const nameCol = arrowTable.getChild("name");
     let selectedIdx = -1;
     for (let i = 0; i < arrowTable.numRows; i++) {
@@ -1297,7 +1238,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }
   }, [selectedEvent, arrowTable]);
 
-  // Prevent body scroll when modals/panels are open
   useEffect(() => {
     if (selectedEvent || showVerseModal) {
       document.body.style.overflow = 'hidden';
@@ -1319,7 +1259,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   }, []);
 
   const activeJourneys = useMemo(() => {
-  // THE FIX: Show all journeys by default, only filter if the user types something
   if (!journeyQuery.trim()) return [];
   
   const q = journeyQuery.toLowerCase();
@@ -1328,7 +1267,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   );
 }, [journeys, journeyQuery]);
 
-  // Cinematic lighting effect - simplified for compatibility
   const lightingEffect = useMemo(() => {
     // @ts-ignore - Using any to bypass type issues with newer deck.gl
     return new LightingEffect({
@@ -1350,7 +1288,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   }, []);
 
   const layers = [
-    // Glowing journey paths with animated trails
     ...(showJourneyPaths ? [
       new PathLayer({
         id: "journey-path-glow",
@@ -1394,7 +1331,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         updateTriggers: { getFilterValue: [activeEpochId] }
       } as any),
     ] : []),
-    // Journey Mode animated waypoint marker
     ...(journeyMode && JOURNEY_DEFINITIONS[journeyMode] ? [
       new ScatterplotLayer({
         id: "journey-mode-marker",
@@ -1421,7 +1357,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         pickable: false,
       } as any),
     ] : []),
-    // Particle effects layer for major events (Exodus, Crucifixion, etc.)
     new ScatterplotLayer({
       id: "major-events-glow",
       data: filteredIndices.filter(idx => {
@@ -1442,11 +1377,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       },
       getFillColor: [255, 200, 100, 25],
       getRadius: (idx: number) => {
-        // Pulsing effect with mouse proximity boost
         const baseRadius = 40;
         const pulse = Math.sin(Date.now() / 800 + idx * 0.1) * 8;
-        // Add subtle mouse reactivity (if we had screen coords, we'd calculate distance)
-        // For now, just use a time-based variation that feels alive
         const mouseInfluence = Math.sin(Date.now() / 2000) * 5;
         return baseRadius + pulse + mouseInfluence;
       },
@@ -1463,13 +1395,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       filterRange: [[minYear - 1, currentYear], [activeEpochId, activeEpochId]],
       updateTriggers: { 
         getFilterValue: [currentYear, activeEpochId],
-        getRadius: [mousePosition.x, mousePosition.y] // Re-render on mouse move
+        getRadius: [mousePosition.x, mousePosition.y] 
       },
     } as any),
     new ScatterplotLayer({
       id: "bible-points",
       data: filteredIndices,
-      // ZERO-COPY: Access Arrow vectors directly, no JS object creation
       getPosition: (idx: number) => {
         if (!arrowTable) return [0, 0];
         const lonCol = arrowTable.getChild("lon");
@@ -1498,7 +1429,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       onHover: (info: PickingInfo) => {
         if (info.object !== undefined && info.index >= 0 && arrowTable) {
           const idx = info.object as number;
-          // Create BibleEvent on-demand for tooltip (only when hovered)
           const cols = {
             n: arrowTable.getChild("name"),
             y: arrowTable.getChild("ussher_year"),
@@ -1522,7 +1452,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       onClick: (info: any) => {
         if (info.object !== undefined && info.index >= 0 && arrowTable) {
           const idx = info.object as number;
-          // Create BibleEvent on-demand for selection (only when clicked)
           const cols = {
             n: arrowTable.getChild("name"),
             y: arrowTable.getChild("ussher_year"),
@@ -1555,7 +1484,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         if (!arrowTable) return 0;
         const typeCol = arrowTable.getChild("event_type");
         const type = String(typeCol?.get(idx) ?? "");
-        // Higher priority for important events (battles, miracles, etc.)
         const priorities: Record<string, number> = {
           battle: 10, miracle: 9, covenant: 8, prophecy: 7, 
           birth: 6, death: 6, building: 5, journey: 4, general: 1
@@ -1599,7 +1527,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           </div>
         </>
       )}
-      {/* Chunk loading status */}
       <div className="flex gap-2 mb-6">
         {['creation', 'patriarchs', 'exodus', 'kings', 'exile', 'intertestamental'].map((name, idx) => (
           <div
@@ -1665,22 +1592,27 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           }
         }
       `}</style>
-      <DeckGL
-        initialViewState={INITIAL_VIEW}
-        viewState={viewState}
-        onViewStateChange={({ viewState }) => setViewState(viewState)}
-        controller
-        layers={layers}
-        effects={[lightingEffect]}
-        style={{ width: "100%", height: "100%" }}
-        onClick={(info) => { if (!info.object) setSelectedEvent(null); }}
-      >
-        <Map ref={mapRef} mapStyle={MAP_STYLE} />
-      </DeckGL>
+      
+      {/* This Suspense boundary + React.lazy imports strictly isolate 
+        the Deck.gl render cycle from the static compiler module graph. 
+      */}
+      <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center bg-slate-950 text-amber-500 font-mono z-50">Initializing 3D Engine...</div>}>
+        <DeckGL
+          initialViewState={INITIAL_VIEW}
+          viewState={viewState}
+          onViewStateChange={({ viewState }) => setViewState(viewState)}
+          controller
+          layers={layers}
+          effects={[lightingEffect]}
+          style={{ width: "100%", height: "100%" }}
+          onClick={(info: any) => { if (!info.object) setSelectedEvent(null); }}
+        >
+          <Map ref={mapRef} mapStyle={MAP_STYLE} />
+        </DeckGL>
+      </Suspense>
 
       <Tooltip info={hoverInfo} />
 
-      {/* Error banner for failed chunk loads */}
       {chunkErrors.has(activeEpochId) && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] bg-red-950/95 border border-red-800 rounded-lg px-4 py-3 shadow-2xl backdrop-blur-md">
           <div className="flex items-center gap-3">
@@ -1704,7 +1636,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
-      {/* TOP LEFT SIDEBAR - Command Center */}
       <div className={`fixed md:absolute top-4 left-4 z-50 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl flex flex-col gap-4 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-[calc(100%+2rem)] md:translate-x-0'}`}>
         <div className="flex flex-col border-b border-slate-700 pb-3">
           <div className="flex items-center gap-2">
@@ -1728,7 +1659,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 const firstMatch = activeJourneys[0];
                 stopAnim();
 
-                // 1. Change epoch if necessary to ensure the layer renders
                 if (firstMatch.epoch_id !== activeEpochId) {
                   setActiveEpochId(firstMatch.epoch_id);
                   const targetEpoch = EPOCHS.find(ep => ep.id === firstMatch.epoch_id);
@@ -1738,11 +1668,9 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   }
                 }
 
-                // 2. Jump the WebGL timeline directly to the START of the glowing journey
                 if (firstMatch.timestamps && firstMatch.timestamps.length > 0) {
                   setCurrentYear(firstMatch.timestamps[0]);
                 } else {
-                  // Fallback to epoch start if no timestamps exist - read from Arrow
                   if (arrowTable) {
                     const epochCol = arrowTable.getChild("epoch_id");
                     const yearCol = arrowTable.getChild("ussher_year");
@@ -1832,7 +1760,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 setIsSidebarOpen(false);
                 const bookSuffix = selectedBook !== "All" ? `&book=${selectedBook}` : "";
                 window.history.replaceState(null, "", `${ep.hash}${bookSuffix}`);
-                // Read from Arrow table instead of filtered events array
                 if (arrowTable) {
                   const epochCol = arrowTable.getChild("epoch_id");
                   const yearCol = arrowTable.getChild("ussher_year");
@@ -1855,7 +1782,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           ))}
         </div>
 
-        {/* Cinematic Controls */}
         <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-slate-700/50">
           <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1 flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> Visual FX
@@ -1905,7 +1831,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             </button>
           </div>
           
-          {/* Journey Mode Selector */}
           <div className="mt-3 pt-3 border-t border-slate-700/30">
             <h3 className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
               Journey Mode
@@ -1917,7 +1842,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 setJourneyMode(mode);
                 if (mode && JOURNEY_DEFINITIONS[mode]) {
                   const journey = JOURNEY_DEFINITIONS[mode];
-                  // Fly to first waypoint
                   if (mapRef.current && journey.waypoints[0]) {
                     mapRef.current.flyTo({
                       center: [journey.waypoints[0].lon, journey.waypoints[0].lat],
@@ -1952,7 +1876,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           </div>
         </div>
 
-        {/* Chunk Loading Indicator */}
         <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-slate-700/50">
           <h2 className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
             Data Chunks
@@ -1993,7 +1916,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         </div>
       </div>
 
-      {/* BOTTOM BAR - Narrative Scrubber */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[95%] md:w-[600px] bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col items-center gap-3">
         <div className="flex justify-between items-end w-full px-2">
           <div className="hidden md:block text-slate-400 text-xs">{EPOCHS[activeEpochId]?.description}</div>
@@ -2022,17 +1944,14 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         </div>
       </div>
 
-      {/* Event Detail Panel v4 - Premium Cinematic Redesign */}
       {selectedEvent && (
         <>
-          {/* Backdrop with blur */}
           <div 
             className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:backdrop-blur-[2px] md:bg-black/20 transition-opacity duration-300"
             onClick={() => setSelectedEvent(null)}
             aria-hidden="true"
           />
           
-          {/* Panel v4 - Fixed position, no layout shift */}
           <div 
             className={`
               fixed z-40 flex flex-col
@@ -2065,7 +1984,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               const startY = (e.currentTarget as any)._touchStartY || 0;
               const deltaY = touch.clientY - startY;
               
-              // Only allow downward swipe on mobile, and only if at top of scroll
               if (window.innerWidth < 768 && deltaY > 0) {
                 const scrollContainer = e.currentTarget.querySelector('[data-scroll-container]');
                 if (scrollContainer && scrollContainer.scrollTop === 0) {
@@ -2081,16 +1999,13 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               const deltaTime = Date.now() - startTime;
               const velocity = deltaY / deltaTime;
               
-              // Reset transform
               e.currentTarget.style.transform = '';
               
-              // Dismiss if swiped down enough or with velocity
               if (window.innerWidth < 768 && (deltaY > 100 || velocity > 0.5)) {
                 setSelectedEvent(null);
               }
             }}
           >
-            {/* Film Grain Texture - 0.02 opacity */}
             <div 
               className="pointer-events-none absolute inset-0 opacity-[0.02] mix-blend-multiply"
               style={{
@@ -2098,12 +2013,10 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               }}
             />
             
-            {/* Mobile Drag Handle - 36px wide, 4px height, 8px margin */}
             <div className="md:hidden flex justify-center pt-2 pb-1">
               <div className="w-9 h-1 rounded-full bg-stone-300" />
             </div>
             
-            {/* Close Button - Desktop only */}
             <button
               onClick={() => setSelectedEvent(null)}
               className="hidden md:flex absolute top-6 right-6 w-8 h-8 items-center justify-center rounded-full text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors z-10"
@@ -2112,23 +2025,19 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               <X className="w-4 h-4" />
             </button>
             
-            {/* Scrollable Content with staggered animations */}
             <div 
               data-scroll-container
               className="flex-1 overflow-y-auto overscroll-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               <div className="px-5 md:px-7 pt-4 md:pt-10 pb-8 space-y-6">
                 
-                {/* Header Group */}
                 <div className="space-y-2 animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:50ms]">
-                  {/* Title - Playfair Display, clamp(24px, 4vw, 32px), weight 600 */}
                   <h1 
                     className="text-[clamp(24px,4vw,32px)] font-semibold leading-[1.15] tracking-[-0.02em] text-[#1c1917] [font-family:'Playfair_Display',Georgia,serif]"
                   >
                     {selectedEvent.name}
                   </h1>
                   
-                  {/* Date/Location - Geist Sans, 11px, uppercase, letter-spacing 0.05em */}
                   <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.05em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
                     <span>
                       {selectedEvent.ussher_year < 0 
@@ -2140,7 +2049,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   </div>
                 </div>
                 
-                {/* Audio Narration Controls */}
                 <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:75ms] flex items-center gap-2">
                   <button
                     onClick={() => isPlayingAudio ? stopNarration() : playNarration(selectedEvent.name, selectedEvent.name)}
@@ -2174,7 +2082,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   </div>
                 </div>
                 
-                {/* Key Verse Block - Full bleed, Playfair italic */}
                 {selectedEvent.verse_text_snippet && (
                   <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:100ms] -mx-5 md:-mx-7">
                     <div className="bg-[#fef3c7] border-l-[3px] border-[#d97706] px-5 md:px-7 py-4">
@@ -2190,24 +2097,20 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   </div>
                 )}
                 
-                {/* Summary - Geist Sans, 14.5px, line-height 1.7 */}
                 <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:150ms] space-y-3">
                   <p className="text-[14.5px] leading-[1.7] text-[#44403c] [font-family:'Geist_Sans',system-ui,sans-serif]">
                     {(() => {
-                      // Try to find curated summary by matching event name
                       const eventNameLower = selectedEvent.name.toLowerCase();
                       for (const [key, summary] of Object.entries(CURATED_SUMMARIES)) {
                         if (eventNameLower.includes(key.toLowerCase()) || key.toLowerCase().includes(eventNameLower.split(' ')[0])) {
                           return summary;
                         }
                       }
-                      // Fallback: truncate long description to first 2 sentences
                       const desc = selectedEvent.description || '';
                       const sentences = desc.match(/[^.!?]+[.!?]+/g) || [desc];
                       return sentences.slice(0, 2).join(' ').trim() || desc.slice(0, 200) + '...';
                     })()}
                   </p>
-                  {/* Expand to full description */}
                   {selectedEvent.description && selectedEvent.description.length > 200 && (
                     <details className="group">
                       <summary className="cursor-pointer text-[11px] font-medium uppercase tracking-wider text-[#78716c] hover:text-[#57534e] transition-colors list-none flex items-center gap-1">
@@ -2221,18 +2124,15 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   )}
                 </div>
                 
-                {/* Why This Matters - Curated Devotional Insight */}
                 {(() => {
                   const eventKey = selectedEvent.name.toLowerCase()
                     .replace(/[^a-z0-9\s]/g, '')
                     .replace(/\s+/g, '-')
                     .replace(/^-+|-+$/g, '');
                   
-                  // Try multiple matching strategies
                   let curatedEvent = CURATED_CONTENT[eventKey];
                   
                   if (!curatedEvent) {
-                    // Try partial matches
                     for (const [key, value] of Object.entries(CURATED_CONTENT)) {
                       if (eventKey.includes(key) || key.includes(eventKey.split('-')[0])) {
                         curatedEvent = value;
@@ -2265,7 +2165,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   return null;
                 })()}
                 
-                {/* Tags */}
                 <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:200ms] flex flex-wrap gap-1.5">
                   {[selectedEvent.event_type, selectedEvent.primary_book]
                     .filter(Boolean)
@@ -2279,7 +2178,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   ))}
                 </div>
                 
-                {/* Related Events Section */}
                 {(relatedEvents.before.length > 0 || relatedEvents.after.length > 0 || relatedEvents.nearby.length > 0) && (
                   <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:250ms] pt-2 border-t border-stone-200">
                     <h3 className="text-[10px] font-semibold uppercase tracking-[0.1em] text-stone-500 mb-3 [font-family:'Geist_Sans',system-ui,sans-serif]">
@@ -2322,7 +2220,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         </>
       )}
 
-      {/* EMPTY STATE */}
       {filteredIndices.length === 0 && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 border border-slate-700 rounded-xl px-6 py-4 text-slate-400 text-center shadow-2xl pointer-events-none">
           No events found for <strong className="text-amber-500">{selectedBook}</strong> in {EPOCHS[activeEpochId]?.name}
