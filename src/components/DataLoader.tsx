@@ -15,6 +15,10 @@ import { type DataFilterExtensionProps, type CollisionFilterExtensionProps, Data
 import epochManifest from "@/domain/epochs.json";
 import { slugifyName, type CuratedMediaAsset } from "@/domain/media";
 import { mediaForEvent, mediaForJourney } from "@/domain/media-catalog";
+import { CinematicCanvas, pickPrimaryMedia } from "@/features/media/CinematicCanvas";
+import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
+import { usePrefersReducedMotion } from "@/features/media/usePrefersReducedMotion";
+import { type FocusPhase, motionTokens } from "@/scenes/motion";
 import type { MapRef } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -87,6 +91,18 @@ function hydrateCuratedEvents(
       { ...event, media: mediaForEvent(event.id) },
     ])
   );
+}
+
+function resolveCuratedEvent(eventName: string): CuratedEvent | undefined {
+  const eventKey = slugifyName(eventName);
+  if (CURATED_CONTENT[eventKey]) return CURATED_CONTENT[eventKey];
+
+  for (const [key, value] of Object.entries(CURATED_CONTENT)) {
+    if (eventKey.includes(key) || key.includes(eventKey.split("-")[0] ?? eventKey)) {
+      return value;
+    }
+  }
+  return undefined;
 }
 
 const CURATED_CONTENT: Record<string, CuratedEvent> = hydrateCuratedEvents({
@@ -771,6 +787,9 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [journeyMode, setJourneyMode] = useState<string | null>(null);
   const [journeyProgress, setJourneyProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [focusPhase, setFocusPhase] = useState<FocusPhase>("idle");
+
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
@@ -1303,6 +1322,34 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       document.body.style.touchAction = '';
     };
   }, [selectedEvent, showVerseModal]);
+
+  const curatedForSelection = selectedEvent ? resolveCuratedEvent(selectedEvent.name) : undefined;
+  const focusMedia = pickPrimaryMedia(curatedForSelection?.media);
+
+  useEffect(() => {
+    if (!selectedEvent) {
+      setFocusPhase("idle");
+      return;
+    }
+
+    const tokens = motionTokens(prefersReducedMotion);
+    if (tokens.dimMs === 0) {
+      setFocusPhase("focused");
+      return;
+    }
+
+    setFocusPhase("dimming");
+    const revealTimer = window.setTimeout(() => setFocusPhase("revealing"), tokens.dimMs);
+    const focusedTimer = window.setTimeout(
+      () => setFocusPhase("focused"),
+      tokens.dimMs + tokens.revealMs
+    );
+
+    return () => {
+      window.clearTimeout(revealTimer);
+      window.clearTimeout(focusedTimer);
+    };
+  }, [selectedEvent, prefersReducedMotion]);
 
   const handleBookChange = useCallback((book: string) => {
     setSelectedBook(book);
@@ -2000,10 +2047,21 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
       {selectedEvent && (
         <>
-          <div 
-            className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:backdrop-blur-[2px] md:bg-black/20 transition-opacity duration-300"
-            onClick={() => setSelectedEvent(null)}
-            aria-hidden="true"
+          <CinematicCanvas
+            open={Boolean(selectedEvent)}
+            phase={focusPhase}
+            media={focusMedia}
+            eventName={selectedEvent.name}
+            eventPlace={selectedEvent.primary_book}
+            scripture={
+              curatedForSelection?.keyVerse ??
+              (selectedEvent.verse_text_snippet
+                ? { text: selectedEvent.verse_text_snippet, reference: selectedEvent.verse_reference }
+                : undefined)
+            }
+            filmGrain={filmGrainEnabled}
+            parchmentMode={parchmentMode}
+            onClose={() => setSelectedEvent(null)}
           />
           
           <div 
@@ -2179,21 +2237,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 </div>
                 
                 {(() => {
-                  const eventKey = selectedEvent.name.toLowerCase()
-                    .replace(/[^a-z0-9\s]/g, '')
-                    .replace(/\s+/g, '-')
-                    .replace(/^-+|-+$/g, '');
-                  
-                  let curatedEvent = CURATED_CONTENT[eventKey];
-                  
-                  if (!curatedEvent) {
-                    for (const [key, value] of Object.entries(CURATED_CONTENT)) {
-                      if (eventKey.includes(key) || key.includes(eventKey.split('-')[0])) {
-                        curatedEvent = value;
-                        break;
-                      }
-                    }
-                  }
+                  const curatedEvent = curatedForSelection;
                   
                   if (curatedEvent?.whyItMatters) {
                     return (
@@ -2218,6 +2262,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   }
                   return null;
                 })()}
+
+                {focusMedia && (
+                  <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:190ms]">
+                    <MediaProvenancePlate asset={focusMedia} />
+                  </div>
+                )}
                 
                 <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:200ms] flex flex-wrap gap-1.5">
                   {[selectedEvent.event_type, selectedEvent.primary_book]
