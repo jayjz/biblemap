@@ -46,3 +46,4 @@ npm-debug.log*
 *.db
 *.sqlite
 /postgres-data/
+repomix-output.xml

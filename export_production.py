@@ -3,6 +3,7 @@
 Phase 3: Export to GPU-ready Parquet (Command Center Edition).
 Adds native SQL categorization for Epochs AND primary Book filtering.
 """
+from scripts.epochs import epoch_case_sql, epoch_for_year
 import os
 import pandas as pd
 from sqlalchemy import create_engine
@@ -17,18 +18,11 @@ def main():
     engine = create_engine(DB_DSN)
 
     # ── ENHANCED: Export full verse reference for interactivity ─────────────────
-    query = """
+    query = f"""
         SELECT
             e.name,
             e.ussher_year::float AS ussher_year,
-            CASE
-                WHEN e.ussher_year <= -1700 THEN 0
-                WHEN e.ussher_year <= -1300 THEN 1
-                WHEN e.ussher_year <= -930  THEN 2
-                WHEN e.ussher_year <= -539  THEN 3
-                WHEN e.ussher_year <= -4    THEN 4
-                ELSE 5
-            END::int AS epoch_id,
+            {epoch_case_sql()}::int AS epoch_id,
             e.event_type,
             e.description,
             ST_X(e.geometry)::float AS lon,
@@ -65,7 +59,6 @@ def main():
         # 1. Red Sea Crossing (Moses) - RED
         {
             "name": "Red Sea Crossing",
-            "epoch_id": 1,
             "primary_book": "EXO",
             "color": [220, 50, 47], 
             "path": [
@@ -77,7 +70,6 @@ def main():
         # 2. Paul's First Missionary Journey - ORANGE
         {
             "name": "Paul's First Missionary Journey",
-            "epoch_id": 5,
             "primary_book": "ACT",
             "color": [253, 128, 93],
             "path": [
@@ -91,7 +83,6 @@ def main():
         # 3. Jesus' Final Journey to Jerusalem - GOLD
         {
             "name": "Jesus' Final Journey to Jerusalem",
-            "epoch_id": 5,
             "primary_book": "LUK",
             "color": [255, 215, 0],
             "path": [
@@ -102,7 +93,6 @@ def main():
         # 4. Abraham's Migration - PURPLE
         {
             "name": "Abraham's Migration to Canaan",
-            "epoch_id": 0,
             "primary_book": "GEN",
             "color": [108, 113, 196],
             "path": [
@@ -114,7 +104,6 @@ def main():
         # 5. Paul's Second Missionary Journey - ORANGE
         {
             "name": "Paul's Second Missionary Journey",
-            "epoch_id": 5,
             "primary_book": "ACT",
             "color": [253, 128, 93],
             "path": [
@@ -127,7 +116,6 @@ def main():
         # 6. Paul's Third Missionary Journey - ORANGE
         {
             "name": "Paul's Third Missionary Journey",
-            "epoch_id": 5,
             "primary_book": "ACT",
             "color": [253, 128, 93],
             "path": [
@@ -140,7 +128,6 @@ def main():
         # 7. Peter's Missionary Journey (Acts 9-10) - BLUE
         {
             "name": "Peter's Coastal Journey",
-            "epoch_id": 5,
             "primary_book": "ACT",
             "color": [38, 139, 210],
             "path": [
@@ -151,7 +138,6 @@ def main():
         # 8. Philip the Evangelist (Acts 8) - TEAL
         {
             "name": "Philip's Evangelistic Journey",
-            "epoch_id": 5,
             "primary_book": "ACT",
             "color": [42, 161, 152],
             "path": [
@@ -160,6 +146,9 @@ def main():
             "timestamps": [34.0, 34.2, 34.5, 34.7, 35.0]
         }
     ]
+
+    for journey in journeys:
+        journey["epoch_id"] = epoch_for_year(journey["timestamps"][0])
 
     # Build Arrow table from list of dicts
     journeys_table = pa.Table.from_pylist(journeys)

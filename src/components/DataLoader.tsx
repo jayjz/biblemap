@@ -6,17 +6,19 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState, Suspense } from "react";
-import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu, Share2, Sparkles, Navigation } from "lucide-react";
+import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu, Sparkles, Navigation } from "lucide-react";
 import { tableFromIPC, Table } from "apache-arrow";
-import { type PickingInfo, LightingEffect, AmbientLight, DirectionalLight } from "@deck.gl/core";
+import { type MapViewState, type PickingInfo, LightingEffect, AmbientLight, DirectionalLight } from "@deck.gl/core";
 import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
-import { DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
+import { type DataFilterExtensionProps, type CollisionFilterExtensionProps, DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
+import epochManifest from "@/domain/epochs.json";
+import type { MapRef } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-// Dynamic imports for heavy WebGL rendering to bypass minification constructor errors
+// Load the WebGL components on demand inside the client-only viewer.
 const DeckGL = React.lazy(() => import("@deck.gl/react").then(mod => ({ default: mod.default })));
-const Map = React.lazy(() => import("react-map-gl/maplibre"));
+const BibleMapView = React.lazy(() => import("react-map-gl/maplibre"));
 
 const POINTS_URL = "/bible-points.parquet?v=" + Date.now();
 const MAP_STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";
@@ -31,14 +33,7 @@ const BIBLICAL_QUOTES = [
   "Your word is a lamp to my feet and a light to my path. - Psalm 119:105",
 ];
 
-const EPOCHS = [
-  { id: 0, name: "Creation & Patriarchs", description: "From Eden to the descent into Egypt", hash: "#genesis" },
-  { id: 1, name: "Exodus & Conquest",     description: "Moses, Sinai, and the Promised Land", hash: "#exodus"  },
-  { id: 2, name: "Judges & Kings",        description: "From Joshua to the divided kingdom",  hash: "#kings"   },
-  { id: 3, name: "Exile & Return",        description: "Babylon to the Second Temple",        hash: "#exile"   },
-  { id: 4, name: "Intertestamental",      description: "Silence between the Testaments",      hash: "#inter"   },
-  { id: 5, name: "Jesus & Early Church",  description: "Gospels to the end of Acts",          hash: "#gospels" },
-];
+const EPOCHS = epochManifest.epochs;
 
 const CANONICAL_BOOK_ORDER = [
   "GEN","EXO","LEV","NUM","DEU","JOS","JDG","RUT","1SA","2SA",
@@ -458,7 +453,18 @@ interface BibleEvent {
   primary_book: string; verse_reference: string;
 }
 
-const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Array<{ name: string; lat: number; lon: number; year: number; description: string }> }> = {
+interface Journey {
+  name: string;
+  epoch_id: number;
+  primary_book: string;
+  path: [number, number][];
+  timestamps: number[];
+  color: [number, number, number];
+}
+
+type Waypoint = { name: string; lat: number; lon: number; year: number; description: string };
+
+const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Waypoint[] }> = {
   exodus: {
     name: "The Exodus Journey",
     waypoints: [
@@ -598,7 +604,7 @@ function haversineDistance(lat1: number, lon1: number, lat2: number, lon2: numbe
 
 async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, total: number) => void): Promise<Table> {
   const parquet = await import("parquet-wasm/esm");
-  await (parquet as any).default?.();
+  await parquet.default();
   const resp = await fetch(url);
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   
@@ -627,37 +633,47 @@ async function fetchAndUnpackEvents(url: string, onProgress?: (loaded: number, t
     offset += chunk.length;
   }
   
-  const wasmTbl = (parquet as any).readParquet(buffer);
+  const wasmTbl = parquet.readParquet(buffer);
   const table = tableFromIPC(wasmTbl.intoIPCStream());
 
   return table;
 }
 
-async function fetchAndUnpackJourneys(url: string): Promise<any[]> {
+async function fetchAndUnpackJourneys(url: string): Promise<Journey[]> {
   const parquet = await import("parquet-wasm/esm");
-  await (parquet as any).default?.();
+  await parquet.default();
   const resp = await fetch(url);
   if (!resp.ok) return [];
   const buffer = await resp.arrayBuffer();
-  const wasmTbl = (parquet as any).readParquet(new Uint8Array(buffer));
+  const wasmTbl = parquet.readParquet(new Uint8Array(buffer));
   const table = tableFromIPC(wasmTbl.intoIPCStream());
 
-  const journeys = [];
+  const journeys: Journey[] = [];
   for (let i = 0; i < table.numRows; i++) {
-    const rawPath = table.getChild("path")?.get(i)?.toJSON() ?? [];
-    const formattedPath = rawPath.map((pt: any) => Array.isArray(pt) ? pt : Array.from(pt));
+    const rawPath: Iterable<Iterable<number>> = table.getChild("path")?.get(i) ?? [];
+    const formattedPath: [number, number][] = Array.from(rawPath, pt => {
+      const coordinates = Array.from(pt);
+      if (coordinates.length !== 2 || !coordinates.every(Number.isFinite)) {
+        throw new Error(`Invalid journey coordinate at row ${i}`);
+      }
+      return [coordinates[0], coordinates[1]];
+    });
     
     const rawTimes = table.getChild("timestamps")?.get(i)?.toJSON() ?? [];
-    const formattedTimes = Array.isArray(rawTimes) ? rawTimes : Array.from(rawTimes);
+    const formattedTimes = Array.from<number>(rawTimes);
 
     const colorData = table.getChild("color")?.get(i);
+    const color = colorData ? Array.from(colorData).map(Number) : [253, 128, 93];
+    if (color.length !== 3 || !color.every(Number.isFinite)) {
+      throw new Error(`Invalid journey color at row ${i}`);
+    }
     journeys.push({
       name: String(table.getChild("name")?.get(i) ?? ""),
       epoch_id: Number(table.getChild("epoch_id")?.get(i) ?? 0),
       primary_book: String(table.getChild("primary_book")?.get(i) ?? ""),
       path: formattedPath,
       timestamps: formattedTimes,
-      color: colorData ? Array.from(colorData).map(Number) : [253, 128, 93],
+      color: [color[0], color[1], color[2]],
     });
   }
   return journeys;
@@ -696,14 +712,14 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [currentYear,   setCurrentYear]   = useState(0);
   const [hoverInfo,     setHoverInfo]     = useState<PickingInfo | null>(null);
   const [selectedBook,  setSelectedBook]  = useState<string>("All");
-  const [journeys,      setJourneys]      = useState<any[]>([]);
+  const [journeys,      setJourneys]      = useState<Journey[]>([]);
   const [journeyQuery,  setJourneyQuery]  = useState("");
   const [eventSearchQuery, setEventSearchQuery] = useState("");
   const [selectedEvent, setSelectedEvent] = useState<BibleEvent | null>(null);
   const [showVerseModal, setShowVerseModal] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [relatedEvents, setRelatedEvents] = useState<{ before: BibleEvent[], after: BibleEvent[], nearby: BibleEvent[] }>({ before: [], after: [], nearby: [] });
-  const [viewState, setViewState] = useState(INITIAL_VIEW);
+  const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW);
   const [highlightedEventIndex, setHighlightedEventIndex] = useState(-1);
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
@@ -724,7 +740,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
   const rafRef     = useRef<number | null>(null);
-  const mapRef     = useRef<any>(null);
+  const touchStart = useRef({ y: 0, time: 0 });
+  const mapRef     = useRef<MapRef>(null);
   const maxYearRef = useRef<number>(0);
   const randomQuote = useRef(BIBLICAL_QUOTES[Math.floor(Math.random() * BIBLICAL_QUOTES.length)]);
 
@@ -829,16 +846,17 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     });
     
     try {
-      const epochNames = ['creation', 'patriarchs', 'exodus', 'kings', 'exile', 'intertestamental', 'gospels'];
-      const url = `/data/epoch-${epochId}-${epochNames[epochId]}.parquet`;
+      const epoch = EPOCHS.find(ep => ep.id === epochId);
+      if (!epoch) throw new Error(`Unknown epoch ID: ${epochId}`);
+      const url = `/data/${epoch.filename}`;
       
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       
       const buffer = await response.arrayBuffer();
       const parquet = await import("parquet-wasm/esm");
-      await (parquet as any).default?.();
-      const wasmTable = (parquet as any).readParquet(new Uint8Array(buffer));
+      await parquet.default();
+      const wasmTable = parquet.readParquet(new Uint8Array(buffer));
       const table = tableFromIPC(wasmTable.intoIPCStream());
       
       setLoadedChunks(prev => {
@@ -851,8 +869,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         next.delete(epochId);
         return next;
       });
-    } catch (err: any) {
-      const errorMsg = err?.message || 'Failed to load';
+    } catch (err: unknown) {
+      const errorMsg = err instanceof Error ? err.message : 'Failed to load';
       console.warn(`Failed to load chunk ${epochId}:`, err);
       setChunkErrors(prev => new Map(prev).set(epochId, errorMsg));
       
@@ -872,8 +890,9 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
   useEffect(() => {
     loadChunk(activeEpochId);
-    if (activeEpochId > 0) loadChunk(activeEpochId - 1);
-    if (activeEpochId < 5) loadChunk(activeEpochId + 1);
+    for (const epoch of EPOCHS) {
+      if (Math.abs(epoch.id - activeEpochId) === 1) loadChunk(epoch.id);
+    }
   }, [activeEpochId, loadChunk]);
 
   useEffect(() => {
@@ -898,7 +917,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     fetchAndUnpackJourneys("/bible-journeys.parquet?v=" + Date.now()).then(setJourneys);
     
     setLoadProgress({ stage: "Loading Creation era...", percent: 0, loaded: 0, total: 0 });
-    loadChunk(0);
 
     const hash = window.location.hash;
     const epochFound = EPOCHS.find((ep) => hash.startsWith(ep.hash));
@@ -907,7 +925,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     const bookParam = hash.split("&").find((p) => p.startsWith("book="));
     if (bookParam) {
       const bookVal = decodeURIComponent(bookParam.slice(5));
-      if (bookVal === "All" || true) {
+      if (bookVal === "All" || CANONICAL_BOOK_ORDER.includes(bookVal)) {
         setSelectedBook(bookVal);
       }
     }
@@ -1077,7 +1095,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     const journey = JOURNEY_DEFINITIONS[journeyMode];
     const waypoints = journey.waypoints;
     let currentIndex = 0;
-    let progressInterval: NodeJS.Timeout;
 
     const advanceWaypoint = () => {
       if (currentIndex >= waypoints.length) {
@@ -1110,7 +1127,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     };
 
     advanceWaypoint();
-    progressInterval = setInterval(advanceWaypoint, 4000);
+    const progressInterval = setInterval(advanceWaypoint, 4000);
 
     return () => {
       if (progressInterval) clearInterval(progressInterval);
@@ -1268,7 +1285,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 }, [journeys, journeyQuery]);
 
   const lightingEffect = useMemo(() => {
-    // @ts-ignore - Using any to bypass type issues with newer deck.gl
     return new LightingEffect({
       ambientLight: new AmbientLight({
         color: [255, 255, 255],
@@ -1284,16 +1300,16 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         intensity: 0.3,
         direction: [1, 1, -2]
       })
-    } as any);
+    });
   }, []);
 
   const layers = [
     ...(showJourneyPaths ? [
-      new PathLayer({
+      new PathLayer<Journey, DataFilterExtensionProps<Journey>>({
         id: "journey-path-glow",
         data: activeJourneys,
         getPath: (d) => d.path,
-        getColor: (d) => d.color ? [...d.color.slice(0, 3), 40] : [253, 128, 93, 40],
+        getColor: (d) => d.color ? [...d.color, 40] : [253, 128, 93, 40],
         getWidth: 12,
         widthMinPixels: 8,
         widthMaxPixels: 20,
@@ -1301,8 +1317,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         getFilterValue: (d) => [d.epoch_id, d.epoch_id],
         filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
         updateTriggers: { getFilterValue: [activeEpochId] }
-      } as any),
-      new PathLayer({
+      }),
+      new PathLayer<Journey, DataFilterExtensionProps<Journey>>({
         id: "journey-path",
         data: activeJourneys,
         getPath: (d) => d.path,
@@ -1314,8 +1330,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         getFilterValue: (d) => [d.epoch_id, d.epoch_id],
         filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
         updateTriggers: { getFilterValue: [activeEpochId] }
-      } as any),
-      new TripsLayer({
+      }),
+      new TripsLayer<Journey, DataFilterExtensionProps<Journey>>({
         id: "journey-animation",
         data: activeJourneys,
         getPath: (d) => d.path,
@@ -1329,13 +1345,13 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         getFilterValue: (d) => [d.epoch_id, d.epoch_id],
         filterRange: [[activeEpochId, activeEpochId], [activeEpochId, activeEpochId]],
         updateTriggers: { getFilterValue: [activeEpochId] }
-      } as any),
+      }),
     ] : []),
     ...(journeyMode && JOURNEY_DEFINITIONS[journeyMode] ? [
-      new ScatterplotLayer({
+      new ScatterplotLayer<Waypoint>({
         id: "journey-mode-marker",
         data: [JOURNEY_DEFINITIONS[journeyMode].waypoints[Math.floor(journeyProgress * JOURNEY_DEFINITIONS[journeyMode].waypoints.length)] || JOURNEY_DEFINITIONS[journeyMode].waypoints[0]].filter(Boolean),
-        getPosition: (d: any) => [d.lon, d.lat],
+        getPosition: (d: Waypoint) => [d.lon, d.lat],
         getFillColor: [255, 180, 50, 220],
         getLineColor: [255, 220, 150, 255],
         getRadius: 18 + Math.sin(Date.now() / 300) * 4,
@@ -1344,20 +1360,20 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         filled: true,
         lineWidthMinPixels: 3,
         pickable: false,
-      } as any),
-      new ScatterplotLayer({
+      }),
+      new ScatterplotLayer<Waypoint>({
         id: "journey-mode-pulse",
         data: [JOURNEY_DEFINITIONS[journeyMode].waypoints[Math.floor(journeyProgress * JOURNEY_DEFINITIONS[journeyMode].waypoints.length)] || JOURNEY_DEFINITIONS[journeyMode].waypoints[0]].filter(Boolean),
-        getPosition: (d: any) => [d.lon, d.lat],
+        getPosition: (d: Waypoint) => [d.lon, d.lat],
         getFillColor: [255, 160, 0, 40],
         getRadius: 45 + Math.sin(Date.now() / 500) * 10,
         radiusUnits: "pixels",
         stroked: false,
         filled: true,
         pickable: false,
-      } as any),
+      }),
     ] : []),
-    new ScatterplotLayer({
+    new ScatterplotLayer<number, DataFilterExtensionProps<number>>({
       id: "major-events-glow",
       data: filteredIndices.filter(idx => {
         if (!arrowTable) return false;
@@ -1397,8 +1413,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         getFilterValue: [currentYear, activeEpochId],
         getRadius: [mousePosition.x, mousePosition.y] 
       },
-    } as any),
-    new ScatterplotLayer({
+    }),
+    new ScatterplotLayer<number, DataFilterExtensionProps<number> & CollisionFilterExtensionProps<number>>({
       id: "bible-points",
       data: filteredIndices,
       getPosition: (idx: number) => {
@@ -1449,7 +1465,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           setHoverInfo(null);
         }
       },
-      onClick: (info: any) => {
+      onClick: (info: PickingInfo<number>) => {
         if (info.object !== undefined && info.index >= 0 && arrowTable) {
           const idx = info.object as number;
           const cols = {
@@ -1480,6 +1496,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         }
       },
       extensions:      [new DataFilterExtension({ filterSize: 2 }), new CollisionFilterExtension()],
+      collisionEnabled: true,
       getCollisionPriority: (idx: number) => {
         if (!arrowTable) return 0;
         const typeCol = arrowTable.getChild("event_type");
@@ -1507,7 +1524,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         getRadius: [arrowTable],
         getFilterValue: [currentYear, activeEpochId, arrowTable] 
       },
-    } as any),
+    }),
   ];
 
   if (loading) return (
@@ -1545,7 +1562,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       <div className="mt-4 max-w-md text-center px-8">
         <div className="text-[11px] text-slate-600 uppercase tracking-widest mb-3">Scripture</div>
         <div className="text-sm text-slate-500 italic leading-relaxed">
-          "{randomQuote.current}"
+          &ldquo;{randomQuote.current}&rdquo;
         </div>
       </div>
       <div className="mt-8 text-[10px] text-slate-700 uppercase tracking-wider">
@@ -1600,14 +1617,16 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         <DeckGL
           initialViewState={INITIAL_VIEW}
           viewState={viewState}
-          onViewStateChange={({ viewState }) => setViewState(viewState)}
+          onViewStateChange={({ viewState }) => {
+            if ("longitude" in viewState && "latitude" in viewState && "zoom" in viewState) setViewState(viewState);
+          }}
           controller
           layers={layers}
           effects={[lightingEffect]}
           style={{ width: "100%", height: "100%" }}
-          onClick={(info: any) => { if (!info.object) setSelectedEvent(null); }}
+          onClick={(info: PickingInfo<number>) => { if (!info.object) setSelectedEvent(null); }}
         >
-          <Map ref={mapRef} mapStyle={MAP_STYLE} />
+          <BibleMapView ref={mapRef} mapStyle={MAP_STYLE} />
         </DeckGL>
       </Suspense>
 
@@ -1617,7 +1636,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] bg-red-950/95 border border-red-800 rounded-lg px-4 py-3 shadow-2xl backdrop-blur-md">
           <div className="flex items-center gap-3">
             <div className="text-red-400 text-sm">
-              Failed to load {EPOCHS[activeEpochId]?.name}. {chunkErrors.get(activeEpochId)}
+              Failed to load {EPOCHS.find(ep => ep.id === activeEpochId)?.name}. {chunkErrors.get(activeEpochId)}
             </div>
             <button 
               onClick={() => loadChunk(activeEpochId, 0)}
@@ -1918,7 +1937,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[95%] md:w-[600px] bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl z-10 flex flex-col items-center gap-3">
         <div className="flex justify-between items-end w-full px-2">
-          <div className="hidden md:block text-slate-400 text-xs">{EPOCHS[activeEpochId]?.description}</div>
+          <div className="hidden md:block text-slate-400 text-xs">{EPOCHS.find(ep => ep.id === activeEpochId)?.description}</div>
           <div className="text-2xl font-bold text-amber-500 tabular-nums w-full md:w-auto text-center md:text-right">
             {currentYear < 0 ? `${Math.abs(Math.round(currentYear))} BC` : `${Math.round(currentYear)} AD`}
           </div>
@@ -1976,12 +1995,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             }}
             onTouchStart={(e) => {
               const touch = e.touches[0];
-              (e.currentTarget as any)._touchStartY = touch.clientY;
-              (e.currentTarget as any)._touchStartTime = Date.now();
+              touchStart.current.y = touch.clientY;
+              touchStart.current.time = Date.now();
             }}
             onTouchMove={(e) => {
               const touch = e.touches[0];
-              const startY = (e.currentTarget as any)._touchStartY || 0;
+              const startY = touchStart.current.y || 0;
               const deltaY = touch.clientY - startY;
               
               if (window.innerWidth < 768 && deltaY > 0) {
@@ -1993,8 +2012,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             }}
             onTouchEnd={(e) => {
               const touch = e.changedTouches[0];
-              const startY = (e.currentTarget as any)._touchStartY || 0;
-              const startTime = (e.currentTarget as any)._touchStartTime || 0;
+              const startY = touchStart.current.y || 0;
+              const startTime = touchStart.current.time || 0;
               const deltaY = touch.clientY - startY;
               const deltaTime = Date.now() - startTime;
               const velocity = deltaY / deltaTime;
@@ -2086,7 +2105,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                   <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:100ms] -mx-5 md:-mx-7">
                     <div className="bg-[#fef3c7] border-l-[3px] border-[#d97706] px-5 md:px-7 py-4">
                       <p className="text-[17px] leading-[1.65] text-[#44403c] italic [font-family:'Playfair_Display',Georgia,serif]">
-                        "{selectedEvent.verse_text_snippet}"
+                        &ldquo;{selectedEvent.verse_text_snippet}&rdquo;
                       </p>
                       {selectedEvent.verse_reference && (
                         <div className="mt-3 text-[10px] font-medium uppercase tracking-[0.08em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
@@ -2222,7 +2241,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
       {filteredIndices.length === 0 && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 border border-slate-700 rounded-xl px-6 py-4 text-slate-400 text-center shadow-2xl pointer-events-none">
-          No events found for <strong className="text-amber-500">{selectedBook}</strong> in {EPOCHS[activeEpochId]?.name}
+          No events found for <strong className="text-amber-500">{selectedBook}</strong> in {EPOCHS.find(ep => ep.id === activeEpochId)?.name}
         </div>
       )}
 
@@ -2246,7 +2265,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 Read Full Chapter on BibleGateway →
               </a>
               <div className="text-xs text-slate-500 mt-4 text-center">
-                Context: {EPOCHS[activeEpochId]?.name} • {selectedEvent.event_type}
+                Context: {EPOCHS.find(ep => ep.id === activeEpochId)?.name} • {selectedEvent.event_type}
               </div>
             </div>
           </div>
