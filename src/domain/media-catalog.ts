@@ -35,6 +35,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Michelangelo Buonarroti, The Creation of Adam, c. 1511, Sistine Chapel. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:f3dc7d3d1b63acfc1f4902fe52f2d2896835c1fc6b2c9153b667ac22f0b759c0",
+    localPath: "/media/approved/michelangelo-creation-of-adam.jpg",
     altText:
       "Fresco of God reaching toward Adam, their fingers nearly touching, painted on the Sistine Chapel ceiling.",
     caption:
@@ -66,6 +67,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Nicolas Poussin, The Crossing of the Red Sea, 1633–1634, National Gallery of Victoria. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:c95f1dc97146fb43de410ad0f98dc9b977171d476f78b451c639a78ce4ea9064",
+    localPath: "/media/approved/poussin-crossing-red-sea.jpg",
     altText:
       "Baroque painting of Israelites gathering on a shore while Egyptian chariots founder in returning waters.",
     caption:
@@ -98,6 +100,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Rembrandt van Rijn, Moses with the Tablets of the Law, 1659, Gemäldegalerie, Berlin. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:63200b860f9633f0c0cb3bb0ed7a51008ba8ba0da74ee53f18bbf9d6f4ae0c1d",
+    localPath: "/media/approved/rembrandt-moses-tablets.jpg",
     altText:
       "Moses stands holding two large inscribed stone tablets above his head, lit against a dark ground.",
     caption:
@@ -129,6 +132,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Caravaggio, David with the Head of Goliath, c. 1610, Galleria Borghese. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:7b9dd671d32623cf626cd32e16f74511fac33d4824d78e41d783dfdc7c38536f",
+    localPath: "/media/approved/caravaggio-david-goliath.jpg",
     altText:
       "A young David holds a sword and the severed head of Goliath, both faces caught in Caravaggio's raking light.",
     caption:
@@ -160,6 +164,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Human-headed winged lion (lamassu), Assyrian, c. 883–859 BC. The Metropolitan Museum of Art, Gift of John D. Rockefeller Jr., 1932 (32.143.2). CC0.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:903a3129921e57914d2f2019a5d131fee1c796dbdbe190b11c06fd79828d3d9b",
+    localPath: "/media/approved/met-lamassu.jpg",
     altText:
       "Colossal gypsum alabaster sculpture of a human-headed winged lion that once guarded an Assyrian palace gate.",
     caption:
@@ -191,6 +196,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Giotto di Bondone, Nativity, c. 1305, Scrovegni Chapel, Padua. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:10646087f8a791a0b358fe089517a0c4a90c9e9bb3fef4442aaa5129a80d4ed3",
+    localPath: "/media/approved/giotto-nativity.jpg",
     altText:
       "Fresco of Mary reclining beside the infant Jesus in a rocky shelter, with ox, ass, and attending women.",
     caption:
@@ -222,6 +228,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Jacopo Tintoretto, The Last Supper, 1592–1594, San Giorgio Maggiore, Venice. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:09ba0214c1a0a1659933e76d1e41bc31ffed116caa0be513ff16cabc9a86a0f4",
+    localPath: "/media/approved/tintoretto-last-supper.jpg",
     altText:
       "A diagonally receding supper table in a dark Venetian hall, with angels in the rafters and servants at work.",
     caption:
@@ -253,6 +260,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Diego Velázquez, Christ Crucified, c. 1632, Museo Nacional del Prado. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:1bac9eff947514915e554fac9ba30b916a6994562fdd6cf40184f98c6360b14d",
+    localPath: "/media/approved/velazquez-christ-crucified.jpg",
     altText:
       "Christ alone on a cross against a dark ground, head bowed, painted with quiet Spanish naturalism.",
     caption:
@@ -284,6 +292,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Piero della Francesca, The Resurrection, c. 1463–1465, Museo Civico, Sansepolcro. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:e09592efb93ce6eb5d2d3bbcd275565b145aaa946f869e7ed3a516832326dfe3",
+    localPath: "/media/approved/piero-resurrection.jpg",
     altText:
       "The risen Christ stands in a stone sarcophagus above sleeping soldiers, holding a banner, landscape split between winter and spring.",
     caption:
@@ -316,6 +325,7 @@ export const MEDIA_CATALOG: readonly CuratedMediaAsset[] = [
       "Caravaggio, Conversion on the Way to Damascus, 1601, Santa Maria del Popolo, Rome. Public domain.",
     downloadedAt: "2026-09-08",
     checksum: "sha256:bf5644b230a19cc32c6154e4133cbd3b31ed4301a2e79ab5f06f854825d1973d",
+    localPath: "/media/approved/caravaggio-conversion-damascus.jpg",
     altText:
       "Saul lies on his back in a pool of light beneath a horse, arms open, the rest of the canvas in deep shadow.",
     caption:

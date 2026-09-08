@@ -8,7 +8,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState, Suspense } from "react";
 import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu, Sparkles, Navigation } from "lucide-react";
 import { tableFromIPC, Table } from "apache-arrow";
-import { type MapViewState, type PickingInfo, LightingEffect, AmbientLight, DirectionalLight } from "@deck.gl/core";
+import { type MapViewState, type PickingInfo, LightingEffect, AmbientLight, DirectionalLight, FlyToInterpolator } from "@deck.gl/core";
 import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { type DataFilterExtensionProps, type CollisionFilterExtensionProps, DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
@@ -18,7 +18,10 @@ import { mediaForEvent, mediaForJourney } from "@/domain/media-catalog";
 import { CinematicCanvas, pickPrimaryMedia } from "@/features/media/CinematicCanvas";
 import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
 import { usePrefersReducedMotion } from "@/features/media/usePrefersReducedMotion";
-import { type FocusPhase, motionTokens } from "@/scenes/motion";
+import { publishBibleMapInspector } from "@/lib/biblemap-inspector";
+import { type FocusPhase } from "@/scenes/motion";
+import { beatFromEvent, mediaForBeat, type CameraTarget } from "@/scenes/orchestrateScene";
+import { useSceneOrchestrator } from "@/scenes/useSceneOrchestrator";
 import type { MapRef } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -787,7 +790,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [journeyMode, setJourneyMode] = useState<string | null>(null);
   const [journeyProgress, setJourneyProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [focusPhase, setFocusPhase] = useState<FocusPhase>("idle");
 
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -1132,6 +1134,68 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     setIsPlayingAudio(false);
   }, [audioElement]);
 
+  const flyToCamera = useCallback((target: CameraTarget) => {
+    const duration = prefersReducedMotion ? 0 : target.durationMs;
+    setViewState((prev) => ({
+      ...prev,
+      longitude: target.longitude,
+      latitude: target.latitude,
+      zoom: target.zoom,
+      pitch: target.pitch,
+      bearing: target.bearing,
+      transitionDuration: duration,
+      transitionInterpolator: duration > 0 ? new FlyToInterpolator({ curve: 1.5 }) : undefined,
+      transitionEasing: (t: number) => 1 - (1 - t) * (1 - t),
+    } as MapViewState));
+  }, [prefersReducedMotion]);
+
+  const scene = useSceneOrchestrator({
+    flyTo: flyToCamera,
+    onBeatStart: (beat) => {
+      stopNarration();
+      if (!beat.sceneId.startsWith("event:")) {
+        const curated = beat.eventId ? CURATED_CONTENT[beat.eventId] : undefined;
+        setSelectedEvent({
+          name: beat.title,
+          ussher_year: beat.year ?? 0,
+          epoch_id: activeEpochId,
+          event_type: "journey",
+          description: beat.description || curated?.summary || "",
+          lon: beat.camera.longitude,
+          lat: beat.camera.latitude,
+          verse_text_snippet: beat.scripture?.text ?? curated?.keyVerse.text ?? "",
+          verse_reference: beat.scripture?.reference ?? curated?.keyVerse.reference ?? "",
+          primary_book: curated?.tags[0] ?? "",
+        });
+      }
+      if (typeof beat.year === "number") {
+        setCurrentYear(beat.year);
+      }
+    },
+  });
+
+  const closeFocus = useCallback(() => {
+    stopNarration();
+    scene.exit();
+    setSelectedEvent(null);
+    setJourneyMode(null);
+    setJourneyProgress(0);
+  }, [scene, stopNarration]);
+
+  const focusEvent = useCallback((eventData: BibleEvent) => {
+    const curated = resolveCuratedEvent(eventData.name);
+    const media = pickPrimaryMedia(curated?.media);
+    setSelectedEvent(eventData);
+    scene.playBeat(
+      beatFromEvent(eventData, {
+        eventId: curated?.id,
+        media,
+        scripture: curated?.keyVerse,
+        description: curated?.summary,
+      })
+    );
+  }, [scene]);
+
   useEffect(() => {
     if (ambientEnabled && !ambientAudio) {
       const ambient = new Audio();
@@ -1144,49 +1208,13 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   }, [ambientEnabled, ambientAudio]);
 
   useEffect(() => {
-    if (!journeyMode || !JOURNEY_DEFINITIONS[journeyMode]) return;
-
-    const journey = JOURNEY_DEFINITIONS[journeyMode];
-    const waypoints = journey.waypoints;
-    let currentIndex = 0;
-
-    const advanceWaypoint = () => {
-      if (currentIndex >= waypoints.length) {
-        currentIndex = 0;
-      }
-
-      const waypoint = waypoints[currentIndex];
-      if (mapRef.current) {
-        mapRef.current.flyTo({
-          center: [waypoint.lon, waypoint.lat],
-          zoom: 7,
-          duration: 2000,
-          essential: true
-        });
-      }
-
-      setJourneyProgress((currentIndex + 1) / waypoints.length);
-      
-      if (arrowTable) {
-        const nameCol = arrowTable.getChild("name");
-        for (let i = 0; i < Math.min(100, arrowTable.numRows); i++) {
-          const name = String(nameCol?.get(i) ?? "");
-          if (name.toLowerCase().includes(waypoint.name.toLowerCase().split(' ')[0])) {
-            break;
-          }
-        }
-      }
-
-      currentIndex++;
-    };
-
-    advanceWaypoint();
-    const progressInterval = setInterval(advanceWaypoint, 4000);
-
-    return () => {
-      if (progressInterval) clearInterval(progressInterval);
-    };
-  }, [journeyMode, arrowTable]);
+    if (!scene.journeyId || scene.beatCount === 0) {
+      if (!journeyMode) setJourneyProgress(0);
+      return;
+    }
+    setJourneyProgress((scene.beatIndex + 1) / scene.beatCount);
+    setJourneyMode(scene.journeyId);
+  }, [scene.journeyId, scene.beatIndex, scene.beatCount, journeyMode]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -1256,20 +1284,46 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               verse_reference: String(cols.vr?.get(idx) ?? ""),
             };
             setSelectedEvent(eventData);
+            scene.playBeat(
+              beatFromEvent(eventData, {
+                eventId: resolveCuratedEvent(eventData.name)?.id,
+                media: pickPrimaryMedia(resolveCuratedEvent(eventData.name)?.media),
+                scripture: resolveCuratedEvent(eventData.name)?.keyVerse,
+              })
+            );
           }
           break;
         case 'Escape':
           e.preventDefault();
-          setSelectedEvent(null);
+          closeFocus();
           setShowVerseModal(false);
           setIsSidebarOpen(false);
+          break;
+        case ']':
+          if (scene.journeyId) {
+            e.preventDefault();
+            scene.skip();
+          }
+          break;
+        case '[':
+          if (scene.journeyId) {
+            e.preventDefault();
+            scene.replay();
+          }
+          break;
+        case ' ':
+          if (scene.journeyId) {
+            e.preventDefault();
+            if (scene.paused) scene.resume();
+            else scene.pause();
+          }
           break;
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [minYear, maxYear, filteredIndices, highlightedEventIndex, arrowTable, stopAnim]);
+  }, [minYear, maxYear, filteredIndices, highlightedEventIndex, arrowTable, stopAnim, scene, closeFocus]);
 
   useEffect(() => {
     if (!selectedEvent || !mapRef.current) return;
@@ -1324,32 +1378,35 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   }, [selectedEvent, showVerseModal]);
 
   const curatedForSelection = selectedEvent ? resolveCuratedEvent(selectedEvent.name) : undefined;
-  const focusMedia = pickPrimaryMedia(curatedForSelection?.media);
+  const beatMedia = scene.activeBeat ? mediaForBeat(scene.activeBeat) : null;
+  const focusMedia = beatMedia ?? pickPrimaryMedia(curatedForSelection?.media);
+  const focusPhase: FocusPhase = scene.phase === "idle" && selectedEvent ? "focused" : scene.phase;
 
   useEffect(() => {
-    if (!selectedEvent) {
-      setFocusPhase("idle");
-      return;
-    }
-
-    const tokens = motionTokens(prefersReducedMotion);
-    if (tokens.dimMs === 0) {
-      setFocusPhase("focused");
-      return;
-    }
-
-    setFocusPhase("dimming");
-    const revealTimer = window.setTimeout(() => setFocusPhase("revealing"), tokens.dimMs);
-    const focusedTimer = window.setTimeout(
-      () => setFocusPhase("focused"),
-      tokens.dimMs + tokens.revealMs
-    );
-
-    return () => {
-      window.clearTimeout(revealTimer);
-      window.clearTimeout(focusedTimer);
-    };
-  }, [selectedEvent, prefersReducedMotion]);
+    publishBibleMapInspector({
+      ready: !loading,
+      activeEpoch: activeEpochId,
+      currentYear,
+      loadedChunks: Array.from(loadedChunks.keys()),
+      selectedEvent: selectedEvent?.name ?? null,
+      visibleEventCount: filteredIndices.length,
+      mediaId: focusMedia?.id ?? null,
+      mediaClass: focusMedia?.class ?? null,
+      narrationStatus: isPlayingAudio ? "playing" : scene.narrationReady ? "ready" : "idle",
+      reducedMotion: prefersReducedMotion,
+    });
+  }, [
+    loading,
+    activeEpochId,
+    currentYear,
+    loadedChunks,
+    selectedEvent,
+    filteredIndices.length,
+    focusMedia,
+    isPlayingAudio,
+    scene.narrationReady,
+    prefersReducedMotion,
+  ]);
 
   const handleBookChange = useCallback((book: string) => {
     setSelectedBook(book);
@@ -1575,6 +1632,14 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             verse_reference: String(cols.vr?.get(idx) ?? ""),
           };
           setSelectedEvent(eventData);
+          scene.playBeat(
+            beatFromEvent(eventData, {
+              eventId: resolveCuratedEvent(eventData.name)?.id,
+              media: pickPrimaryMedia(resolveCuratedEvent(eventData.name)?.media),
+              scripture: resolveCuratedEvent(eventData.name)?.keyVerse,
+              description: resolveCuratedEvent(eventData.name)?.summary,
+            })
+          );
         }
       },
       extensions:      [new DataFilterExtension({ filterSize: 2 }), new CollisionFilterExtension()],
@@ -1706,7 +1771,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           layers={layers}
           effects={[lightingEffect]}
           style={{ width: "100%", height: "100%" }}
-          onClick={(info: PickingInfo<number>) => { if (!info.object) setSelectedEvent(null); }}
+          onClick={(info: PickingInfo<number>) => { if (!info.object) closeFocus(); }}
         >
           <BibleMapView ref={mapRef} mapStyle={MAP_STYLE} />
         </DeckGL>
@@ -1941,15 +2006,11 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               onChange={(e) => {
                 const mode = e.target.value || null;
                 setJourneyMode(mode);
-                if (mode && JOURNEY_DEFINITIONS[mode]) {
-                  const journey = JOURNEY_DEFINITIONS[mode];
-                  if (mapRef.current && journey.waypoints[0]) {
-                    mapRef.current.flyTo({
-                      center: [journey.waypoints[0].lon, journey.waypoints[0].lat],
-                      zoom: 6,
-                      duration: 1200
-                    });
-                  }
+                if (mode) {
+                  stopAnim();
+                  scene.playJourney(mode);
+                } else {
+                  scene.exit();
                   setJourneyProgress(0);
                 }
               }}
@@ -1963,8 +2024,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             {journeyMode && (
               <div className="mt-2">
                 <div className="flex justify-between text-[9px] text-slate-500 mb-1">
-                  <span>Progress</span>
-                  <span>{Math.round(journeyProgress * 100)}%</span>
+                  <span>{scene.activeBeat?.title ?? "Progress"}</span>
+                  <span>{scene.beatIndex + 1}/{Math.max(scene.beatCount, 1)}</span>
                 </div>
                 <div className="h-1 bg-slate-800 rounded-full overflow-hidden">
                   <div 
@@ -1972,6 +2033,43 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                     style={{ width: `${journeyProgress * 100}%` }}
                   />
                 </div>
+                <div className="mt-2 grid grid-cols-4 gap-1">
+                  <button
+                    type="button"
+                    onClick={() => scene.paused ? scene.resume() : scene.pause()}
+                    className="px-1 py-1 rounded text-[9px] uppercase tracking-wide bg-slate-800 text-amber-400 border border-slate-700"
+                    aria-label={scene.paused ? "Resume journey" : "Pause journey"}
+                  >
+                    {scene.paused ? "Resume" : "Pause"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={scene.replay}
+                    className="px-1 py-1 rounded text-[9px] uppercase tracking-wide bg-slate-800 text-slate-300 border border-slate-700"
+                    aria-label="Replay scene"
+                  >
+                    Replay
+                  </button>
+                  <button
+                    type="button"
+                    onClick={scene.skip}
+                    className="px-1 py-1 rounded text-[9px] uppercase tracking-wide bg-slate-800 text-slate-300 border border-slate-700"
+                    aria-label="Skip to next scene"
+                  >
+                    Skip
+                  </button>
+                  <button
+                    type="button"
+                    onClick={closeFocus}
+                    className="px-1 py-1 rounded text-[9px] uppercase tracking-wide bg-slate-800 text-slate-400 border border-slate-700"
+                    aria-label="Exit journey"
+                  >
+                    Exit
+                  </button>
+                </div>
+                <p className="mt-1.5 text-[9px] leading-snug text-slate-600">
+                  Space pauses · ] skips · Escape exits. Narration never starts on its own.
+                </p>
               </div>
             )}
           </div>
@@ -2061,7 +2159,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             }
             filmGrain={filmGrainEnabled}
             parchmentMode={parchmentMode}
-            onClose={() => setSelectedEvent(null)}
+            onClose={closeFocus}
           />
           
           <div 
@@ -2114,7 +2212,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               e.currentTarget.style.transform = '';
               
               if (window.innerWidth < 768 && (deltaY > 100 || velocity > 0.5)) {
-                setSelectedEvent(null);
+                closeFocus();
               }
             }}
           >
@@ -2130,7 +2228,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             </div>
             
             <button
-              onClick={() => setSelectedEvent(null)}
+              onClick={closeFocus}
               className="hidden md:flex absolute top-6 right-6 w-8 h-8 items-center justify-center rounded-full text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors z-10"
               aria-label="Close panel"
             >
@@ -2164,7 +2262,11 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:75ms] flex items-center gap-2">
                   <button
                     onClick={() => isPlayingAudio ? stopNarration() : playNarration(selectedEvent.name, selectedEvent.name)}
-                    className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#d97706]/10 hover:bg-[#d97706]/20 border border-[#d97706]/20 transition-all duration-200"
+                    className={`group flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-200 ${
+                      scene.narrationReady && !isPlayingAudio
+                        ? "bg-[#d97706]/20 border-[#d97706]/40"
+                        : "bg-[#d97706]/10 hover:bg-[#d97706]/20 border-[#d97706]/20"
+                    }`}
                     aria-label={isPlayingAudio ? "Pause narration" : "Play narration"}
                   >
                     {isPlayingAudio ? (
@@ -2295,16 +2397,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                         .map((ev) => (
                         <button
                           key={ev.name}
-                          onClick={() => {
-                            setSelectedEvent(ev);
-                            if (mapRef.current) {
-                              mapRef.current.flyTo({ 
-                                center: [ev.lon, ev.lat], 
-                                zoom: 7, 
-                                duration: 600 
-                              });
-                            }
-                          }}
+                          onClick={() => focusEvent(ev)}
                           className="group flex-shrink-0 w-[140px] text-left p-3 rounded-[12px] bg-white border border-stone-200 hover:border-stone-300 hover:shadow-sm transition-all duration-200 active:scale-[0.98]"
                         >
                           <div className="text-[13px] leading-[1.35] text-stone-800 font-medium line-clamp-2 mb-1.5 [font-family:'Geist_Sans',system-ui,sans-serif] group-hover:text-stone-900">

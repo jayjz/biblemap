@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 import {
   isEvidenceClass,
   isInterpretiveClass,
@@ -40,21 +40,12 @@ export function CinematicCanvas({
   const reducedMotion = usePrefersReducedMotion();
   const tokens = motionTokens(reducedMotion);
   const captionId = useId();
-  const [imageState, setImageState] = useState<"pending" | "loaded" | "missing">("pending");
-
-  const src = media ? resolveMediaSrc(media) : null;
-  const remoteFallback = media?.originalAssetUrl ?? null;
-
-  useEffect(() => {
-    setImageState(media ? "pending" : "missing");
-  }, [media?.id, src]);
 
   if (!open && phase === "idle") return null;
 
   const visiblePhase: FocusPhase =
     open && phase === "idle" ? "dimming" : phase;
 
-  const showArtwork = Boolean(media) && imageState !== "missing";
   const interpretive = media ? isInterpretiveClass(media.class) : false;
   const evidence = media ? isEvidenceClass(media.class) : false;
 
@@ -82,24 +73,18 @@ export function CinematicCanvas({
       <div className="cinematic-stage">
         <figure className="cinematic-frame" aria-labelledby={captionId}>
           <div className="cinematic-mat">
-            {showArtwork && media && src ? (
-              <>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className={`cinematic-image${imageState === "loaded" ? " is-loaded" : ""}`}
-                  src={src}
-                  alt={media.altText}
-                  onLoad={() => setImageState("loaded")}
-                  onError={(event) => {
-                    if (remoteFallback && event.currentTarget.src !== remoteFallback) {
-                      event.currentTarget.src = remoteFallback;
-                      return;
-                    }
-                    setImageState("missing");
-                  }}
-                />
-                <div className="cinematic-grain" aria-hidden="true" />
-              </>
+            {media ? (
+              <ArtworkImage
+                key={media.id}
+                asset={media}
+                fallback={
+                  <TypographicFallback
+                    eventName={eventName}
+                    eventPlace={eventPlace}
+                    scripture={scripture}
+                  />
+                }
+              />
             ) : (
               <TypographicFallback
                 eventName={eventName}
@@ -150,6 +135,40 @@ export function CinematicCanvas({
         </figure>
       </div>
     </div>
+  );
+}
+
+function ArtworkImage({
+  asset,
+  fallback,
+}: {
+  asset: CuratedMediaAsset;
+  fallback: ReactNode;
+}) {
+  const [status, setStatus] = useState<"pending" | "loaded" | "missing">("pending");
+  const src = resolveMediaSrc(asset);
+  const remoteFallback = asset.originalAssetUrl;
+
+  if (status === "missing") return <>{fallback}</>;
+
+  return (
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className={`cinematic-image${status === "loaded" ? " is-loaded" : ""}`}
+        src={src}
+        alt={asset.altText}
+        onLoad={() => setStatus("loaded")}
+        onError={(event) => {
+          if (remoteFallback && event.currentTarget.src !== remoteFallback) {
+            event.currentTarget.src = remoteFallback;
+            return;
+          }
+          setStatus("missing");
+        }}
+      />
+      <div className="cinematic-grain" aria-hidden="true" />
+    </>
   );
 }
 
