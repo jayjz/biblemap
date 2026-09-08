@@ -13,6 +13,8 @@ import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { type DataFilterExtensionProps, type CollisionFilterExtensionProps, DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
 import epochManifest from "@/domain/epochs.json";
+import { slugifyName, type CuratedMediaAsset } from "@/domain/media";
+import { mediaForEvent, mediaForJourney } from "@/domain/media-catalog";
 import type { MapRef } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -68,9 +70,26 @@ interface CuratedEvent {
   whyItMatters: string;
   tags: string[];
   audioUrl?: string;
+  /**
+   * Provenance-strict media. Every object must carry title, creator,
+   * institution, license, class, and review metadata (see public/media/AGENTS.md).
+   * Only approved assets are attached at hydration time.
+   */
+  media: CuratedMediaAsset[];
 }
 
-const CURATED_CONTENT: Record<string, CuratedEvent> = {
+function hydrateCuratedEvents(
+  events: Record<string, Omit<CuratedEvent, "media">>
+): Record<string, CuratedEvent> {
+  return Object.fromEntries(
+    Object.entries(events).map(([key, event]) => [
+      key,
+      { ...event, media: mediaForEvent(event.id) },
+    ])
+  );
+}
+
+const CURATED_CONTENT: Record<string, CuratedEvent> = hydrateCuratedEvents({
   'creation': {
     id: 'creation',
     summary: "Out of formless void and darkness, God speaks light, sky, seas, and land into being. Over six days, the cosmos takes shape—stars above, creatures below, and humanity crowned as image-bearers. On the seventh day, God rests, establishing a rhythm of work and worship.",
@@ -421,7 +440,7 @@ const CURATED_CONTENT: Record<string, CuratedEvent> = {
     whyItMatters: "Your suffering has purpose—God uses your hardest seasons to spread hope to people you'll never meet this side of heaven.",
     tags: ["mission", "suffering", "perseverance", "gospel"]
   }
-};
+});
 
 const CURATED_SUMMARIES: Record<string, string> = {
   "Red Sea": "God parts the Red Sea, allowing Israel to escape Egypt. Pharaoh's army is destroyed in the waters. A defining moment of divine deliverance that shapes Israel's identity.",
@@ -460,17 +479,31 @@ interface Journey {
   path: [number, number][];
   timestamps: number[];
   color: [number, number, number];
+  /** Stable journey id independent of array order or display name. */
+  id?: string;
+  /**
+   * Provenance-strict media attached by journey id. Empty when no
+   * approved asset has been reviewed for this route.
+   */
+  media: CuratedMediaAsset[];
 }
 
-type Waypoint = { name: string; lat: number; lon: number; year: number; description: string };
+type Waypoint = {
+  name: string;
+  lat: number;
+  lon: number;
+  year: number;
+  description: string;
+  eventId?: string;
+};
 
 const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Waypoint[] }> = {
   exodus: {
     name: "The Exodus Journey",
     waypoints: [
-      { name: "Israel in Egypt", lat: 30.0444, lon: 31.2357, year: -1446, description: "400 years of slavery in Egypt" },
-      { name: "Red Sea Crossing", lat: 29.5, lon: 32.8, year: -1446, description: "God parts the waters" },
-      { name: "Mount Sinai", lat: 28.5, lon: 33.9, year: -1446, description: "The Law is given" },
+      { name: "Israel in Egypt", lat: 30.0444, lon: 31.2357, year: -1446, description: "400 years of slavery in Egypt", eventId: "moses-birth" },
+      { name: "Red Sea Crossing", lat: 29.5, lon: 32.8, year: -1446, description: "God parts the waters", eventId: "exodus-red-sea" },
+      { name: "Mount Sinai", lat: 28.5, lon: 33.9, year: -1446, description: "The Law is given", eventId: "sinai-covenant" },
       { name: "Kadesh Barnea", lat: 30.7, lon: 34.5, year: -1445, description: "40 years of wandering begin" },
       { name: "Plains of Moab", lat: 31.7, lon: 35.7, year: -1406, description: "Moses' final address" },
     ]
@@ -478,7 +511,7 @@ const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Waypoint[] 
   paul1: {
     name: "Paul's First Missionary Journey",
     waypoints: [
-      { name: "Antioch", lat: 36.2, lon: 36.1, year: 46, description: "Sent out by the Spirit" },
+      { name: "Antioch", lat: 36.2, lon: 36.1, year: 46, description: "Sent out by the Spirit", eventId: "pauls-conversion" },
       { name: "Cyprus", lat: 35.0, lon: 33.0, year: 46, description: "Proconsul believes" },
       { name: "Pisidian Antioch", lat: 38.3, lon: 31.2, year: 47, description: "Gentiles rejoice at the Word" },
       { name: "Iconium", lat: 37.9, lon: 32.5, year: 47, description: "Signs and wonders" },
@@ -488,11 +521,11 @@ const JOURNEY_DEFINITIONS: Record<string, { name: string; waypoints: Waypoint[] 
   jesus_ministry: {
     name: "Jesus' Galilean Ministry",
     waypoints: [
-      { name: "Nazareth", lat: 32.7, lon: 35.3, year: 27, description: "No prophet is accepted in hometown" },
+      { name: "Nazareth", lat: 32.7, lon: 35.3, year: 27, description: "No prophet is accepted in hometown", eventId: "birth-of-jesus" },
       { name: "Capernaum", lat: 32.9, lon: 35.6, year: 27, description: "His ministry headquarters" },
       { name: "Sea of Galilee", lat: 32.8, lon: 35.6, year: 28, description: "Calming storms, walking on water" },
       { name: "Caesarea Philippi", lat: 33.2, lon: 35.7, year: 29, description: "You are the Christ" },
-      { name: "Mount of Transfiguration", lat: 32.7, lon: 35.4, year: 29, description: "Glory revealed" },
+      { name: "Mount of Transfiguration", lat: 32.7, lon: 35.4, year: 29, description: "Glory revealed", eventId: "transfiguration" },
     ]
   }
 };
@@ -674,6 +707,8 @@ async function fetchAndUnpackJourneys(url: string): Promise<Journey[]> {
       path: formattedPath,
       timestamps: formattedTimes,
       color: [color[0], color[1], color[2]],
+      id: slugifyName(String(table.getChild("name")?.get(i) ?? `journey-${i}`)),
+      media: mediaForJourney(slugifyName(String(table.getChild("name")?.get(i) ?? ""))),
     });
   }
   return journeys;
