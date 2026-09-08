@@ -11,12 +11,11 @@ import { tableFromIPC, Table } from "apache-arrow";
 import { type MapViewState, type PickingInfo, LightingEffect, AmbientLight, DirectionalLight, FlyToInterpolator } from "@deck.gl/core";
 import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
-import { type DataFilterExtensionProps, type CollisionFilterExtensionProps, DataFilterExtension, CollisionFilterExtension } from "@deck.gl/extensions";
+import { type DataFilterExtensionProps, DataFilterExtension } from "@deck.gl/extensions";
 import epochManifest from "@/domain/epochs.json";
 import { slugifyName, type CuratedMediaAsset } from "@/domain/media";
 import { mediaForEvent, mediaForJourney } from "@/domain/media-catalog";
-import { CinematicCanvas, pickPrimaryMedia } from "@/features/media/CinematicCanvas";
-import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
+import { CinematicCanvas, pickPrimaryMedia, displayHeading, truncateEditorial } from "@/features/media/CinematicCanvas";
 import { usePrefersReducedMotion } from "@/features/media/usePrefersReducedMotion";
 import { publishBibleMapInspector } from "@/lib/biblemap-inspector";
 import { type FocusPhase } from "@/scenes/motion";
@@ -483,6 +482,15 @@ const CURATED_SUMMARIES: Record<string, string> = {
   "Daniel in Lions": "Faithful in exile, Daniel survives the lions' den. The king decrees that all must fear Daniel's God. Integrity outlasts empires.",
 };
 
+function matchCuratedSummary(eventName: string): string | undefined {
+  const eventNameLower = eventName.toLowerCase();
+  for (const [key, summary] of Object.entries(CURATED_SUMMARIES)) {
+    const keyLower = key.toLowerCase();
+    if (eventNameLower.includes(keyLower)) return summary;
+  }
+  return undefined;
+}
+
 const INITIAL_VIEW = { longitude: 35.2, latitude: 31.8, zoom: 4.5, pitch: 35, bearing: 0 };
 
 interface BibleEvent {
@@ -740,17 +748,23 @@ function Tooltip({ info }: { info: PickingInfo | null }) {
   const yearLabel = data.ussher_year < 0
     ? `${Math.abs(Math.round(data.ussher_year))} BC`
     : `${Math.round(data.ussher_year)} AD`;
+  const title = displayHeading(data.name);
+  const blurb = truncateEditorial(data.description);
+  const x = typeof info.x === "number" ? info.x : 0;
+  const y = typeof info.y === "number" ? info.y : 0;
+  const left = Math.min(x + 14, typeof window !== "undefined" ? window.innerWidth - 300 : x + 14);
+  const top = Math.min(y + 14, typeof window !== "undefined" ? window.innerHeight - 140 : y + 14);
 
   return (
-    <div style={{ position: "fixed", pointerEvents: "none", background: "rgba(0,43,54,0.93)", color: "#839496", border: "1px solid #073642", borderRadius: 8, padding: "10px 14px", fontSize: 13, lineHeight: 1.5, zIndex: 1000, maxWidth: 300 }}>
-      <strong style={{ color: "#eee8d5" }}>{data.name}</strong>
+    <div style={{ position: "fixed", left, top, pointerEvents: "none", background: "rgba(0,43,54,0.93)", color: "#839496", border: "1px solid #073642", borderRadius: 8, padding: "10px 14px", fontSize: 13, lineHeight: 1.5, zIndex: 1000, maxWidth: 280 }}>
+      <strong style={{ color: "#eee8d5" }}>{title}</strong>
       <div style={{ color: "#586e75", fontSize: 11, marginBottom: 4 }}>
         {yearLabel} · {data.event_type}
       </div>
-      <div>{data.description}</div>
+      {blurb && <div>{blurb}</div>}
       {data.verse_text_snippet && (
         <div style={{ marginTop: 8, fontStyle: "italic", color: "#93a1a1", borderTop: "1px solid #073642", paddingTop: 8 }}>
-          &ldquo;{data.verse_text_snippet}&hellip;&rdquo;
+          &ldquo;{truncateEditorial(data.verse_text_snippet, 1, 140)}&rdquo;
         </div>
       )}
     </div>
@@ -796,7 +810,6 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const isPlaying  = useRef(false);
   const lastTsRef  = useRef<number | null>(null);
   const rafRef     = useRef<number | null>(null);
-  const touchStart = useRef({ y: 0, time: 0 });
   const mapRef     = useRef<MapRef>(null);
   const maxYearRef = useRef<number>(0);
   const randomQuote = useRef(BIBLICAL_QUOTES[Math.floor(Math.random() * BIBLICAL_QUOTES.length)]);
@@ -1186,6 +1199,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     const curated = resolveCuratedEvent(eventData.name);
     const media = pickPrimaryMedia(curated?.media);
     setSelectedEvent(eventData);
+    setHoverInfo(null);
     scene.playBeat(
       beatFromEvent(eventData, {
         eventId: curated?.id,
@@ -1284,6 +1298,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               verse_reference: String(cols.vr?.get(idx) ?? ""),
             };
             setSelectedEvent(eventData);
+            setHoverInfo(null);
             scene.playBeat(
               beatFromEvent(eventData, {
                 eventId: resolveCuratedEvent(eventData.name)?.id,
@@ -1553,7 +1568,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         getRadius: [mousePosition.x, mousePosition.y] 
       },
     }),
-    new ScatterplotLayer<number, DataFilterExtensionProps<number> & CollisionFilterExtensionProps<number>>({
+    new ScatterplotLayer<number, DataFilterExtensionProps<number>>({
       id: "bible-points",
       data: filteredIndices,
       getPosition: (idx: number) => {
@@ -1632,6 +1647,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
             verse_reference: String(cols.vr?.get(idx) ?? ""),
           };
           setSelectedEvent(eventData);
+          setHoverInfo(null);
           scene.playBeat(
             beatFromEvent(eventData, {
               eventId: resolveCuratedEvent(eventData.name)?.id,
@@ -1642,18 +1658,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           );
         }
       },
-      extensions:      [new DataFilterExtension({ filterSize: 2 }), new CollisionFilterExtension()],
-      collisionEnabled: true,
-      getCollisionPriority: (idx: number) => {
-        if (!arrowTable) return 0;
-        const typeCol = arrowTable.getChild("event_type");
-        const type = String(typeCol?.get(idx) ?? "");
-        const priorities: Record<string, number> = {
-          battle: 10, miracle: 9, covenant: 8, prophecy: 7, 
-          birth: 6, death: 6, building: 5, journey: 4, general: 1
-        };
-        return priorities[type] ?? 1;
-      },
+      extensions:      [new DataFilterExtension({ filterSize: 2 })],
       getFilterValue: (idx: number) => {
         if (!arrowTable) return [0, 0];
         const yearCol = arrowTable.getChild("ussher_year");
@@ -1777,7 +1782,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         </DeckGL>
       </Suspense>
 
-      <Tooltip info={hoverInfo} />
+      <Tooltip info={selectedEvent ? null : hoverInfo} />
 
       {chunkErrors.has(activeEpochId) && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[100] bg-red-950/95 border border-red-800 rounded-lg px-4 py-3 shadow-2xl backdrop-blur-md">
@@ -2144,277 +2149,45 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       </div>
 
       {selectedEvent && (
-        <>
-          <CinematicCanvas
-            open={Boolean(selectedEvent)}
-            phase={focusPhase}
-            media={focusMedia}
-            eventName={selectedEvent.name}
-            eventPlace={selectedEvent.primary_book}
-            scripture={
-              curatedForSelection?.keyVerse ??
-              (selectedEvent.verse_text_snippet
-                ? { text: selectedEvent.verse_text_snippet, reference: selectedEvent.verse_reference }
-                : undefined)
-            }
-            filmGrain={filmGrainEnabled}
-            parchmentMode={parchmentMode}
-            onClose={closeFocus}
-          />
-          
-          <div 
-            className={`
-              fixed z-40 flex flex-col
-              md:top-0 md:right-0 md:h-screen md:w-[400px] md:max-w-[400px]
-              bottom-0 left-0 right-0 h-[65vh] min-h-[400px] max-h-[85vh]
-              md:rounded-none rounded-t-[24px]
-              bg-[#fefcf8]/[0.98] backdrop-blur-xl
-              md:border-l border-t md:border-t-0 border-black/[0.06]
-              md:shadow-[-4px_0_24px_rgba(0,0,0,0.08)] shadow-[0_-4px_24px_rgba(0,0,0,0.12)]
-              transition-transform duration-[300ms] ease-[cubic-bezier(0.2,0,0,1)]
-              will-change-transform
-              ${selectedEvent 
-                ? 'translate-y-0 md:translate-x-0' 
-                : 'translate-y-full md:translate-x-full md:translate-y-0'
-              }
-            `}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Event details"
-            style={{
-              paddingBottom: 'env(safe-area-inset-bottom)',
-            }}
-            onTouchStart={(e) => {
-              const touch = e.touches[0];
-              touchStart.current.y = touch.clientY;
-              touchStart.current.time = Date.now();
-            }}
-            onTouchMove={(e) => {
-              const touch = e.touches[0];
-              const startY = touchStart.current.y || 0;
-              const deltaY = touch.clientY - startY;
-              
-              if (window.innerWidth < 768 && deltaY > 0) {
-                const scrollContainer = e.currentTarget.querySelector('[data-scroll-container]');
-                if (scrollContainer && scrollContainer.scrollTop === 0) {
-                  e.currentTarget.style.transform = `translateY(${Math.min(deltaY, 200)}px)`;
-                }
-              }
-            }}
-            onTouchEnd={(e) => {
-              const touch = e.changedTouches[0];
-              const startY = touchStart.current.y || 0;
-              const startTime = touchStart.current.time || 0;
-              const deltaY = touch.clientY - startY;
-              const deltaTime = Date.now() - startTime;
-              const velocity = deltaY / deltaTime;
-              
-              e.currentTarget.style.transform = '';
-              
-              if (window.innerWidth < 768 && (deltaY > 100 || velocity > 0.5)) {
-                closeFocus();
-              }
-            }}
-          >
-            <div 
-              className="pointer-events-none absolute inset-0 opacity-[0.02] mix-blend-multiply"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-              }}
-            />
-            
-            <div className="md:hidden flex justify-center pt-2 pb-1">
-              <div className="w-9 h-1 rounded-full bg-stone-300" />
-            </div>
-            
-            <button
-              onClick={closeFocus}
-              className="hidden md:flex absolute top-6 right-6 w-8 h-8 items-center justify-center rounded-full text-stone-500 hover:text-stone-700 hover:bg-stone-100 transition-colors z-10"
-              aria-label="Close panel"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            
-            <div 
-              data-scroll-container
-              className="flex-1 overflow-y-auto overscroll-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            >
-              <div className="px-5 md:px-7 pt-4 md:pt-10 pb-8 space-y-6">
-                
-                <div className="space-y-2 animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:50ms]">
-                  <h1 
-                    className="text-[clamp(24px,4vw,32px)] font-semibold leading-[1.15] tracking-[-0.02em] text-[#1c1917] [font-family:'Playfair_Display',Georgia,serif]"
-                  >
-                    {selectedEvent.name}
-                  </h1>
-                  
-                  <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.05em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
-                    <span>
-                      {selectedEvent.ussher_year < 0 
-                        ? `${Math.abs(Math.round(selectedEvent.ussher_year))} BC` 
-                        : `${Math.round(selectedEvent.ussher_year)} AD`}
-                    </span>
-                    <span className="text-stone-300">•</span>
-                    <span>{selectedEvent.primary_book || 'Biblical Lands'}</span>
-                  </div>
-                </div>
-                
-                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:75ms] flex items-center gap-2">
-                  <button
-                    onClick={() => isPlayingAudio ? stopNarration() : playNarration(selectedEvent.name, selectedEvent.name)}
-                    className={`group flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-200 ${
-                      scene.narrationReady && !isPlayingAudio
-                        ? "bg-[#d97706]/20 border-[#d97706]/40"
-                        : "bg-[#d97706]/10 hover:bg-[#d97706]/20 border-[#d97706]/20"
-                    }`}
-                    aria-label={isPlayingAudio ? "Pause narration" : "Play narration"}
-                  >
-                    {isPlayingAudio ? (
-                      <Pause className="w-3.5 h-3.5 text-[#d97706] group-hover:scale-110 transition-transform" />
-                    ) : (
-                      <Play className="w-3.5 h-3.5 text-[#d97706] group-hover:scale-110 transition-transform fill-current" />
-                    )}
-                    <span className="text-[10.5px] font-medium uppercase tracking-wider text-[#92400e] [font-family:'Geist_Sans',system-ui,sans-serif]">
-                      {isPlayingAudio ? 'Pause' : 'Listen'}
-                    </span>
-                  </button>
-                  <div className="flex items-center gap-1.5 ml-1">
-                    <input
-                      type="range"
-                      min="0"
-                      max="1"
-                      step="0.1"
-                      value={audioVolume}
-                      onChange={(e) => {
-                        const vol = parseFloat(e.target.value);
-                        setAudioVolume(vol);
-                        if (audioElement) audioElement.volume = vol;
-                      }}
-                      className="w-16 h-1 bg-stone-200 rounded-full appearance-none cursor-pointer accent-[#d97706]"
-                      aria-label="Volume"
-                    />
-                  </div>
-                </div>
-                
-                {selectedEvent.verse_text_snippet && (
-                  <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:100ms] -mx-5 md:-mx-7">
-                    <div className="bg-[#fef3c7] border-l-[3px] border-[#d97706] px-5 md:px-7 py-4">
-                      <p className="text-[17px] leading-[1.65] text-[#44403c] italic [font-family:'Playfair_Display',Georgia,serif]">
-                        &ldquo;{selectedEvent.verse_text_snippet}&rdquo;
-                      </p>
-                      {selectedEvent.verse_reference && (
-                        <div className="mt-3 text-[10px] font-medium uppercase tracking-[0.08em] text-[#78716c] [font-family:'Geist_Sans',system-ui,sans-serif]">
-                          — {selectedEvent.verse_reference}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-                
-                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:150ms] space-y-3">
-                  <p className="text-[14.5px] leading-[1.7] text-[#44403c] [font-family:'Geist_Sans',system-ui,sans-serif]">
-                    {(() => {
-                      const eventNameLower = selectedEvent.name.toLowerCase();
-                      for (const [key, summary] of Object.entries(CURATED_SUMMARIES)) {
-                        if (eventNameLower.includes(key.toLowerCase()) || key.toLowerCase().includes(eventNameLower.split(' ')[0])) {
-                          return summary;
-                        }
-                      }
-                      const desc = selectedEvent.description || '';
-                      const sentences = desc.match(/[^.!?]+[.!?]+/g) || [desc];
-                      return sentences.slice(0, 2).join(' ').trim() || desc.slice(0, 200) + '...';
-                    })()}
-                  </p>
-                  {selectedEvent.description && selectedEvent.description.length > 200 && (
-                    <details className="group">
-                      <summary className="cursor-pointer text-[11px] font-medium uppercase tracking-wider text-[#78716c] hover:text-[#57534e] transition-colors list-none flex items-center gap-1">
-                        <span>Read full account</span>
-                        <span className="transition-transform group-open:rotate-90">›</span>
-                      </summary>
-                      <p className="mt-3 text-[13px] leading-[1.65] text-[#57534e] [font-family:'Geist_Sans',system-ui,sans-serif] border-l-2 border-stone-200 pl-3">
-                        {selectedEvent.description}
-                      </p>
-                    </details>
-                  )}
-                </div>
-                
-                {(() => {
-                  const curatedEvent = curatedForSelection;
-                  
-                  if (curatedEvent?.whyItMatters) {
-                    return (
-                      <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:175ms] -mx-5 md:-mx-7 my-1">
-                        <div className="bg-gradient-to-r from-amber-50/80 to-orange-50/60 border-l-[3px] border-amber-500/70 px-5 md:px-7 py-4 backdrop-blur-sm">
-                          <div className="flex items-start gap-2.5">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-500/15 flex items-center justify-center mt-0.5">
-                              <span className="text-[10px]">✦</span>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="text-[9px] font-bold uppercase tracking-[0.12em] text-amber-700/80 mb-2 [font-family:'Geist_Sans',system-ui,sans-serif]">
-                                Why This Matters
-                              </div>
-                              <p className="text-[13.5px] leading-[1.6] text-stone-700 italic [font-family:'Geist_Sans',system-ui,sans-serif]">
-                                {curatedEvent.whyItMatters}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  }
-                  return null;
-                })()}
-
-                {focusMedia && (
-                  <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:190ms]">
-                    <MediaProvenancePlate asset={focusMedia} />
-                  </div>
-                )}
-                
-                <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:200ms] flex flex-wrap gap-1.5">
-                  {[selectedEvent.event_type, selectedEvent.primary_book]
-                    .filter(Boolean)
-                    .map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-stone-100 text-[10px] font-medium uppercase tracking-wide text-stone-600 [font-family:'Geist_Sans',system-ui,sans-serif]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                {(relatedEvents.before.length > 0 || relatedEvents.after.length > 0 || relatedEvents.nearby.length > 0) && (
-                  <div className="animate-[fadeInUp_0.4s_ease-out_forwards] opacity-0 [animation-delay:250ms] pt-2 border-t border-stone-200">
-                    <h3 className="text-[10px] font-semibold uppercase tracking-[0.1em] text-stone-500 mb-3 [font-family:'Geist_Sans',system-ui,sans-serif]">
-                      Related Events
-                    </h3>
-                    
-                    <div className="flex gap-2.5 overflow-x-auto -mx-1 px-1 pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-                      {[...relatedEvents.before.slice(-2).reverse(), ...relatedEvents.after.slice(0, 3)]
-                        .filter((ev, idx, arr) => ev && arr.findIndex(e => e.name === ev.name) === idx)
-                        .slice(0, 5)
-                        .map((ev) => (
-                        <button
-                          key={ev.name}
-                          onClick={() => focusEvent(ev)}
-                          className="group flex-shrink-0 w-[140px] text-left p-3 rounded-[12px] bg-white border border-stone-200 hover:border-stone-300 hover:shadow-sm transition-all duration-200 active:scale-[0.98]"
-                        >
-                          <div className="text-[13px] leading-[1.35] text-stone-800 font-medium line-clamp-2 mb-1.5 [font-family:'Geist_Sans',system-ui,sans-serif] group-hover:text-stone-900">
-                            {ev.name}
-                          </div>
-                          <div className="text-[10px] text-stone-500 [font-family:'Geist_Sans',system-ui,sans-serif]">
-                            {Math.abs(ev.ussher_year)} {ev.ussher_year < 0 ? 'BC' : 'AD'}
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </>
+        <CinematicCanvas
+          open={Boolean(selectedEvent)}
+          phase={focusPhase}
+          media={focusMedia}
+          eventName={selectedEvent.name}
+          eventPlace={selectedEvent.primary_book}
+          eventYear={selectedEvent.ussher_year}
+          eventType={selectedEvent.event_type}
+          scripture={
+            curatedForSelection?.keyVerse ??
+            (selectedEvent.verse_text_snippet
+              ? { text: selectedEvent.verse_text_snippet, reference: selectedEvent.verse_reference }
+              : undefined)
+          }
+          summary={curatedForSelection?.summary ?? matchCuratedSummary(selectedEvent.name)}
+          rawDescription={selectedEvent.description}
+          whyItMatters={curatedForSelection?.whyItMatters}
+          filmGrain={filmGrainEnabled}
+          parchmentMode={parchmentMode}
+          onClose={closeFocus}
+          isPlayingAudio={isPlayingAudio}
+          narrationReady={scene.narrationReady}
+          audioVolume={audioVolume}
+          onPlayNarration={() => playNarration(selectedEvent.name, selectedEvent.name)}
+          onStopNarration={stopNarration}
+          onVolumeChange={(vol) => {
+            setAudioVolume(vol);
+            if (audioElement) audioElement.volume = vol;
+          }}
+          relatedEvents={[
+            ...relatedEvents.before.slice(-2).reverse(),
+            ...relatedEvents.after.slice(0, 3),
+          ]}
+          onSelectRelated={(moment) => {
+            const found = [...relatedEvents.before, ...relatedEvents.after, ...relatedEvents.nearby]
+              .find((event) => event.name === moment.name);
+            if (found) focusEvent(found);
+          }}
+        />
       )}
 
       {filteredIndices.length === 0 && (
