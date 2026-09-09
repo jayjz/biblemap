@@ -2055,6 +2055,12 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 <option key={key} value={key}>{journey.name}</option>
               ))}
             </select>
+            <a
+              href="/demo"
+              className="mt-2 block text-center px-2 py-1.5 rounded text-[10px] font-medium border border-amber-500/30 text-amber-200/90 hover:border-amber-400/60 hover:text-amber-100"
+            >
+              Watch 20s demo
+            </a>
             {journeyMode && (
               <div className="mt-2">
                 <div className="flex justify-between text-[9px] text-slate-500 mb-1">
