@@ -22,6 +22,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: MOTION.cameraMs,
       },
       durationMs: 9000,
+      contextId: "world-exodus-egypt",
       scripture: {
         text: "She named him Moses, saying, 'I drew him out of the water.'",
         reference: "Exodus 2:10",
@@ -48,6 +49,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
       },
       mediaId: "poussin-crossing-red-sea",
       durationMs: 11000,
+      contextId: "world-exodus-sea",
       scripture: {
         text: "The Lord will fight for you; you need only to be still.",
         reference: "Exodus 14:14",
@@ -74,6 +76,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
       },
       mediaId: "rembrandt-moses-tablets",
       durationMs: 11000,
+      contextId: "world-exodus-sinai",
       scripture: {
         text: "Now if you obey me fully and keep my covenant, then out of all nations you will be my treasured possession.",
         reference: "Exodus 19:5",
@@ -98,6 +101,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: MOTION.cameraMsNear,
       },
       durationMs: 8000,
+      contextId: "world-exodus-kadesh",
       narration: {
         transcript:
           "Here the journey slows. Forty years are a theological claim and a wilderness of disputed camps. We do not pretend to stand in a verified courtyard.",
@@ -118,6 +122,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: 2000,
       },
       durationMs: 9000,
+      contextId: "world-exodus-moab",
       narration: {
         transcript:
           "From Moab the Jordan is a short descent. The story turns from road to inheritance. We leave the camera here, looking across.",
@@ -142,6 +147,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
       },
       mediaId: "caravaggio-conversion-damascus",
       durationMs: 11000,
+      contextId: "world-paul-antioch",
       scripture: {
         text: "This man is my chosen instrument to proclaim my name to the Gentiles and their kings and to the people of Israel.",
         reference: "Acts 9:15",
@@ -166,6 +172,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: MOTION.cameraMsNear,
       },
       durationMs: 8000,
+      contextId: "world-paul-cyprus",
       narration: {
         transcript:
           "The island sits in the path of every empire's shipping. Acts places Paul and Barnabas here first. We fly because the story moves; we do not reconstruct the praetorium.",
@@ -186,6 +193,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: 2000,
       },
       durationMs: 8000,
+      contextId: "world-paul-pisidian",
       narration: {
         transcript:
           "High on the Anatolian plateau, a Roman colony hears a Sabbath sermon that will not stay in one people. The map tightens. The argument widens.",
@@ -206,6 +214,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: MOTION.cameraMsNear,
       },
       durationMs: 7000,
+      contextId: "world-paul-iconium",
     },
     {
       sceneId: "paul-lystra",
@@ -221,6 +230,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: MOTION.cameraMsNear,
       },
       durationMs: 8000,
+      contextId: "world-paul-lystra",
       narration: {
         transcript:
           "Lystra is where the crowd's theology fails: they would crown the messengers. Then stones. The road does not get smoother. It gets truer.",
@@ -245,6 +255,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
       },
       mediaId: "giotto-nativity",
       durationMs: 10000,
+      contextId: "world-jesus-nazareth",
       scripture: {
         text: "Today in the town of David a Savior has been born to you; he is the Messiah, the Lord.",
         reference: "Luke 2:11",
@@ -269,6 +280,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: 2000,
       },
       durationMs: 8000,
+      contextId: "world-jesus-capernaum",
       narration: {
         transcript:
           "The lake is still here. First-century basalt walls still rise at Capernaum. We draw closer because the Gospels do.",
@@ -289,6 +301,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: MOTION.cameraMsNear,
       },
       durationMs: 8000,
+      contextId: "world-jesus-galilee",
     },
     {
       sceneId: "jesus-caesarea-philippi",
@@ -304,6 +317,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: 2000,
       },
       durationMs: 8000,
+      contextId: "world-jesus-caesarea-philippi",
       scripture: {
         text: "You are the Messiah, the Son of the living God.",
         reference: "Matthew 16:16",
@@ -324,6 +338,7 @@ export const JOURNEY_SCENES: Record<string, SceneBeat[]> = {
         durationMs: 2000,
       },
       durationMs: 10000,
+      contextId: "world-jesus-transfiguration",
       scripture: {
         text: "This is my Son, whom I love; with him I am well pleased. Listen to him!",
         reference: "Matthew 17:5",

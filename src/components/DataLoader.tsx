@@ -21,6 +21,8 @@ import { publishBibleMapInspector } from "@/lib/biblemap-inspector";
 import { type FocusPhase } from "@/scenes/motion";
 import { beatFromEvent, mediaForBeat, type CameraTarget } from "@/scenes/orchestrateScene";
 import { useSceneOrchestrator } from "@/scenes/useSceneOrchestrator";
+import { historicalContextForBeat, historicalContextForEvent } from "@/content/historical-contexts";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import type { MapRef } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -1206,6 +1208,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         media,
         scripture: curated?.keyVerse,
         description: curated?.summary,
+        contextId: historicalContextForEvent(curated?.id)?.id,
       })
     );
   }, [scene]);
@@ -1304,6 +1307,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
                 eventId: resolveCuratedEvent(eventData.name)?.id,
                 media: pickPrimaryMedia(resolveCuratedEvent(eventData.name)?.media),
                 scripture: resolveCuratedEvent(eventData.name)?.keyVerse,
+                contextId: historicalContextForEvent(resolveCuratedEvent(eventData.name)?.id)?.id,
               })
             );
           }
@@ -1396,6 +1400,9 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const beatMedia = scene.activeBeat ? mediaForBeat(scene.activeBeat) : null;
   const focusMedia = beatMedia ?? pickPrimaryMedia(curatedForSelection?.media);
   const focusPhase: FocusPhase = scene.phase === "idle" && selectedEvent ? "focused" : scene.phase;
+  const worldContext =
+    historicalContextForBeat(scene.activeBeat ?? {}) ??
+    historicalContextForEvent(curatedForSelection?.id);
 
   useEffect(() => {
     publishBibleMapInspector({
@@ -1409,6 +1416,11 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       mediaClass: focusMedia?.class ?? null,
       narrationStatus: isPlayingAudio ? "playing" : scene.narrationReady ? "ready" : "idle",
       reducedMotion: prefersReducedMotion,
+      contextId: worldContext?.id ?? null,
+      contextVisible: Boolean(worldContext) && Boolean(selectedEvent),
+      contextSourceCount: worldContext?.sourceIds.length ?? 0,
+      contextConfidence: worldContext?.confidence ?? null,
+      contextHasUncertainty: Boolean(worldContext?.uncertainty),
     });
   }, [
     loading,
@@ -1421,6 +1433,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     isPlayingAudio,
     scene.narrationReady,
     prefersReducedMotion,
+    worldContext,
   ]);
 
   const handleBookChange = useCallback((book: string) => {
@@ -1654,6 +1667,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               media: pickPrimaryMedia(resolveCuratedEvent(eventData.name)?.media),
               scripture: resolveCuratedEvent(eventData.name)?.keyVerse,
               description: resolveCuratedEvent(eventData.name)?.summary,
+              contextId: historicalContextForEvent(resolveCuratedEvent(eventData.name)?.id)?.id,
             })
           );
         }
@@ -1765,21 +1779,31 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       {/* This Suspense boundary + React.lazy imports strictly isolate 
         the Deck.gl render cycle from the static compiler module graph. 
       */}
-      <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center bg-slate-950 text-amber-500 font-mono z-50">Initializing 3D Engine...</div>}>
-        <DeckGL
-          initialViewState={INITIAL_VIEW}
-          viewState={viewState}
-          onViewStateChange={({ viewState }) => {
-            if ("longitude" in viewState && "latitude" in viewState && "zoom" in viewState) setViewState(viewState);
-          }}
-          controller
-          layers={layers}
-          effects={[lightingEffect]}
-          style={{ width: "100%", height: "100%" }}
-          onClick={(info: PickingInfo<number>) => { if (!info.object) closeFocus(); }}
+      <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center bg-slate-950 text-amber-500 font-mono z-0">Initializing 3D Engine...</div>}>
+        <ErrorBoundary
+          fallback={() => (
+            <div
+              className="absolute inset-0 bg-[#0b1220]"
+              aria-hidden="true"
+              data-map-fallback="webgl"
+            />
+          )}
         >
-          <BibleMapView ref={mapRef} mapStyle={MAP_STYLE} />
-        </DeckGL>
+          <DeckGL
+            initialViewState={INITIAL_VIEW}
+            viewState={viewState}
+            onViewStateChange={({ viewState }) => {
+              if ("longitude" in viewState && "latitude" in viewState && "zoom" in viewState) setViewState(viewState);
+            }}
+            controller
+            layers={layers}
+            effects={[lightingEffect]}
+            style={{ width: "100%", height: "100%" }}
+            onClick={(info: PickingInfo<number>) => { if (!info.object) closeFocus(); }}
+          >
+            <BibleMapView ref={mapRef} mapStyle={MAP_STYLE} />
+          </DeckGL>
+        </ErrorBoundary>
       </Suspense>
 
       <Tooltip info={selectedEvent ? null : hoverInfo} />
@@ -2003,10 +2027,15 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           </div>
           
           <div className="mt-3 pt-3 border-t border-slate-700/30">
-            <h3 className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+            <label
+              htmlFor="journey-mode"
+              className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider mb-2 block"
+            >
               Journey Mode
-            </h3>
+            </label>
             <select
+              id="journey-mode"
+              aria-label="Journey Mode"
               value={journeyMode || ''}
               onChange={(e) => {
                 const mode = e.target.value || null;
@@ -2187,6 +2216,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               .find((event) => event.name === moment.name);
             if (found) focusEvent(found);
           }}
+          world={worldContext}
         />
       )}
 

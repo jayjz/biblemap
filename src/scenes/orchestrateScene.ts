@@ -34,6 +34,8 @@ export interface SceneBeat {
   narration?: SceneNarrationCue;
   scripture?: { text: string; reference: string };
   durationMs: number;
+  /** Stable id into the human-world context catalog. Optional. */
+  contextId?: string;
 }
 
 export interface SceneTimeline {
@@ -117,6 +119,7 @@ export function beatFromEvent(
     media?: CuratedMediaAsset | null;
     scripture?: { text: string; reference: string };
     description?: string;
+    contextId?: string;
   }
 ): SceneBeat {
   const media = options?.media ?? null;
@@ -148,6 +151,7 @@ export function beatFromEvent(
       : undefined,
     scripture,
     durationMs: 9000,
+    contextId: options?.contextId,
   };
 }
 

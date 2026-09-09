@@ -8,7 +8,8 @@
     "build": "next build --webpack",
     "postbuild": "echo 'Build complete with chunked data'",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --experimental-strip-types --test src/domain/historical-context.test.ts"
   },
   "dependencies": {
     "@deck.gl/core": "^9.2.11",

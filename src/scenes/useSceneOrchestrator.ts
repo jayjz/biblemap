@@ -106,6 +106,7 @@ export function useSceneOrchestrator({
         mediaClass: media?.class ?? null,
         narrationStatus: reducedMotion ? "ready" : "idle",
         reducedMotion,
+        contextId: beat.contextId ?? null,
       });
     },
     [reducedMotion]
@@ -228,6 +229,11 @@ export function useSceneOrchestrator({
       mediaId: null,
       mediaClass: null,
       narrationStatus: "idle",
+      contextId: null,
+      contextVisible: false,
+      contextSourceCount: 0,
+      contextConfidence: null,
+      contextHasUncertainty: false,
     });
   }, [stopClock]);
 

@@ -14,6 +14,11 @@ export interface BibleMapInspectorState {
   reducedMotion: boolean;
   visibleEventCount: number | null;
   recoverableErrors: string[];
+  contextId: string | null;
+  contextVisible: boolean;
+  contextSourceCount: number;
+  contextConfidence: string | null;
+  contextHasUncertainty: boolean;
 }
 
 const EMPTY: BibleMapInspectorState = {
@@ -32,6 +37,11 @@ const EMPTY: BibleMapInspectorState = {
   reducedMotion: false,
   visibleEventCount: null,
   recoverableErrors: [],
+  contextId: null,
+  contextVisible: false,
+  contextSourceCount: 0,
+  contextConfidence: null,
+  contextHasUncertainty: false,
 };
 
 declare global {

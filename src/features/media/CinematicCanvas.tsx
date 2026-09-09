@@ -10,9 +10,11 @@ import {
   resolveMediaSrc,
   type CuratedMediaAsset,
 } from "@/domain/media";
+import type { HistoricalContext } from "@/domain/historical-context";
 import type { FocusPhase } from "@/scenes/motion";
 import { MOTION, motionTokens } from "@/scenes/motion";
 import { usePrefersReducedMotion } from "@/features/media/usePrefersReducedMotion";
+import { WorldAround } from "@/features/context/WorldAround";
 import "./cinematic.css";
 
 export interface RelatedMoment {
@@ -45,6 +47,7 @@ export interface CinematicCanvasProps {
   onVolumeChange?: (volume: number) => void;
   relatedEvents?: readonly RelatedMoment[];
   onSelectRelated?: (moment: RelatedMoment) => void;
+  world?: HistoricalContext | null;
 }
 
 const TITLE_MAX = 72;
@@ -132,6 +135,7 @@ export function CinematicCanvas({
   onVolumeChange,
   relatedEvents = [],
   onSelectRelated,
+  world = null,
 }: CinematicCanvasProps) {
   const reducedMotion = usePrefersReducedMotion();
   const tokens = motionTokens(reducedMotion);
@@ -315,9 +319,11 @@ export function CinematicCanvas({
             </div>
           )}
 
+          <WorldAround context={world} />
+
           {whyItMatters?.trim() && (
             <div className="cinematic-matters">
-              <div className="cinematic-story-label">Why this matters</div>
+              <div className="cinematic-story-label">Devotional reflection</div>
               <p>{truncateEditorial(whyItMatters, 3, 320)}</p>
             </div>
           )}
