@@ -24,6 +24,13 @@ build/
 playwright-report/
 test-results/
 
+# Supplied copies held outside static export pending review; preserve locally.
+artifacts/jonah-image-review/publication-hold/
+# Unidentified digital reproductions: do not redistribute without rights evidence.
+artifacts/jonah-image-review/met-vaillant-prophet-jonas.jpg
+artifacts/jonah-image-review/cma-jonah-swallowed.jpeg
+artifacts/jonah-image-review/cma-jonah-cast-up.jpg
+
 # Python
 __pycache__/
 *.py[cod]

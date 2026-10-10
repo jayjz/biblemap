@@ -1,5 +1,6 @@
 import scripture from "./scripture/web-jonah-1.json" with { type: "json" };
 import type { AuthoredText, Passage, StoryDocument } from "../domain/story.ts";
+import { JONAH_APPROVED_MEDIA, jonahArtworkIds } from "./jonah-media.ts";
 
 const placeholder = (slot: string): AuthoredText => ({ status: "placeholder", slot });
 const ranges = [[1, 2], [3, 3], [4, 6], [7, 10], [11, 16], [17, 17]] as const;
@@ -33,7 +34,7 @@ export const JONAH: StoryDocument = {
     title: placeholder(`${id} title`), narrative: placeholder("scene narrative"),
     passageIds: [passages[i].id],
     reflections: [{ id: `${id}-reflection`, prompt: placeholder("reflection prompt") }],
-    claimIds: [], geographyIds: i === 0 ? ["nineveh"] : i === 1 ? ["joppa", "tarshish"] : [], artworkIds: [],
+    claimIds: [], geographyIds: i === 0 ? ["nineveh"] : i === 1 ? ["joppa", "tarshish"] : [], artworkIds: jonahArtworkIds(id),
     transition: { nextSceneId: ids[i + 1] ?? null, advance: "reader", visual: "fade" },
     review: { status: "draft" },
   })),
@@ -48,5 +49,5 @@ export const JONAH: StoryDocument = {
     placeId, label: placeId[0].toUpperCase() + placeId.slice(1), status: "unknown",
     explanation: placeholder(`${placeId}: geographic evidence and uncertainty`), candidates: [],
   })),
-  media: [],
+  media: JONAH_APPROVED_MEDIA,
 };
