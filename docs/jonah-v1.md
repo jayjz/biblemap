@@ -24,6 +24,10 @@ Approval covers the public preview and the three artwork placements. It does **n
 
 `npm run validate:release` intentionally continues to fail on existing unfinished author slots and human editorial approval requirements. A public reading preview is not a fully approved authored release. Before such a release, review the 13 scene titles/questions/companions, opening orientation, optional philosophy, homepage copy, ending, and author slots. Unresolved reproductions require exact source and rights evidence before publication.
 
+## Human-experience review gate
+
+Distinct from technical CI and editorial publication approval: does the opening invite curiosity without predetermining what Jonah means? Recognition must remain an invitation that Scripture can complicate. Technical checks and creator approval of copy do not establish that unfamiliar readers experience recognition or curiosity. See `docs/experience-principles.md`.
+
 ## Verification and deployment
 
 See `docs/jonah-preview-verification.md` for the current checks and deployment evidence. Earlier local-only verification reports describe historical checkpoints, not the current publication state. PR #4 retains base `feat/jonah-first-encounter`; no merge, branch deletion, or Exodus implementation change is authorized.
