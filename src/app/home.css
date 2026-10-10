@@ -21,3 +21,8 @@
   .bm-feature-copy>.bm-invitation{min-height:7em}
   .bm-moon{opacity:.22;right:6%;top:5%}
 }
+
+/* Version B changes only the opening: a visitor question before explanation. */
+.bm-opening-b{max-width:960px;text-align:left}
+.bm-opening-b h1{max-width:850px;margin-top:0;font-size:clamp(36px,4.2vw,58px)}
+.bm-opening-b .bm-lede{max-width:540px;margin-left:0}
