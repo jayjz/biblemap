@@ -1,8 +1,8 @@
 import pyarrow.parquet as pq
-import pyarrow as pa
 import pyarrow.compute as pc
 import os
 import sys
+from epochs import EPOCHS, epoch_for_year
 
 def split_parquet():
     try:
@@ -20,37 +20,25 @@ def split_parquet():
         table = pq.read_table(source_path)
         print(f"✓ Loaded {table.num_rows:,} rows")
 
-        # Define epochs based on epoch_id (0-6)
-        epochs = {
-            0: 'creation',
-            1: 'patriarchs', 
-            2: 'exodus',
-            3: 'kings',
-            4: 'exile',
-            5: 'intertestamental',
-            6: 'gospels'
-        }
+        # Validate before writing: unknown IDs or stale year assignments are errors.
+        for row in table.select(['epoch_id', 'ussher_year']).to_pylist():
+            if row['epoch_id'] != epoch_for_year(row['ussher_year']):
+                raise ValueError(f"Epoch/year mismatch: {row}")
 
         total_size = 0
         # Split by epoch_id
-        for epoch_id, name in epochs.items():
+        for epoch in EPOCHS:
+            epoch_id, name = epoch["id"], epoch["name"]
             mask = pc.equal(table['epoch_id'], epoch_id)
             chunk = table.filter(mask)
-            if chunk.num_rows > 0:
-                output_path = f'public/data/epoch-{epoch_id}-{name}.parquet'
-                pq.write_table(
-                    chunk, 
-                    output_path,
-                    compression='zstd',
-                    compression_level=3
-                )
-                size_mb = os.path.getsize(output_path) / 1024 / 1024
-                total_size += size_mb
-                print(f"  ✓ Epoch {epoch_id} ({name:20s}): {chunk.num_rows:6,} rows, {size_mb:6.2f} MB")
-            else:
-                print(f"  - Epoch {epoch_id} ({name:20s}): empty, skipping")
-        
-        print(f"\n✓ Split complete! Total: {total_size:.2f} MB across {len([e for e in epochs.values() if os.path.exists(f'public/data/epoch-{list(epochs.keys())[list(epochs.values()).index(e)]}-{e}.parquet')])} files")
+            # Write empty tables too: every manifest path must be fetchable.
+            output_path = os.path.join('public/data', epoch['filename'])
+            pq.write_table(chunk, output_path, compression='zstd', compression_level=3)
+            size_mb = os.path.getsize(output_path) / 1024 / 1024
+            total_size += size_mb
+            print(f"  ✓ Epoch {epoch_id} ({name}): {chunk.num_rows:,} rows, {size_mb:.2f} MB")
+
+        print(f"\n✓ Split complete! Total: {total_size:.2f} MB across {len(EPOCHS)} files")
         return 0
         
     except Exception as e:

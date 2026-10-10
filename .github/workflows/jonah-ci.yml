@@ -1,0 +1,39 @@
+name: Jonah verification
+
+on:
+  pull_request:
+  push:
+    branches: [feat/jonah-visual-assets]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  technical:
+    name: Technical checks and desktop/mobile browsers
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.22.3'
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:story
+      - run: npm test
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-evidence
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

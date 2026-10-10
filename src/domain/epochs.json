@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "chronology": "ussher",
+  "boundaryPolicy": "Upper bounds are inclusive; the following epoch starts above the preceding bound.",
+  "provenance": "Preserves the existing export_production.py SQL boundaries and UI metadata. These application partitions are not independently verified historical dates. Filenames are legacy compatibility paths, not semantic epoch names.",
+  "epochs": [
+    {
+      "id": 0,
+      "name": "Creation & Patriarchs",
+      "description": "From Eden to the descent into Egypt",
+      "hash": "#genesis",
+      "endYearInclusive": -1700,
+      "filename": "epoch-0-creation.parquet"
+    },
+    {
+      "id": 1,
+      "name": "Exodus & Conquest",
+      "description": "Moses, Sinai, and the Promised Land",
+      "hash": "#exodus",
+      "endYearInclusive": -1300,
+      "filename": "epoch-1-patriarchs.parquet"
+    },
+    {
+      "id": 2,
+      "name": "Judges & Kings",
+      "description": "From Joshua to the divided kingdom",
+      "hash": "#kings",
+      "endYearInclusive": -930,
+      "filename": "epoch-2-exodus.parquet"
+    },
+    {
+      "id": 3,
+      "name": "Exile & Return",
+      "description": "Babylon to the Second Temple",
+      "hash": "#exile",
+      "endYearInclusive": -539,
+      "filename": "epoch-3-kings.parquet"
+    },
+    {
+      "id": 4,
+      "name": "Intertestamental",
+      "description": "Silence between the Testaments",
+      "hash": "#inter",
+      "endYearInclusive": -4,
+      "filename": "epoch-4-exile.parquet"
+    },
+    {
+      "id": 5,
+      "name": "Jesus & Early Church",
+      "description": "Gospels to the end of Acts",
+      "hash": "#gospels",
+      "endYearInclusive": null,
+      "filename": "epoch-5-intertestamental.parquet"
+    }
+  ]
+}

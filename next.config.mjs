@@ -10,11 +10,10 @@ const nextConfig = {
     }
   },
 
-  reactStrictMode: false,
+  reactStrictMode: true,
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  typescript: { ignoreBuildErrors: true },
 
   webpack(config, { isServer, dev }) {
     // Parquet support

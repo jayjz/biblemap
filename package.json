@@ -4,11 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "prebuild": "node scripts/split_parquet.js",
+    "prebuild": "node scripts/split_parquet.js && npm run validate:story",
     "build": "next build --webpack",
     "postbuild": "echo 'Build complete with chunked data'",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --experimental-strip-types --test src/domain/*.test.ts",
+    "validate:story": "node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media",
+    "validate:media": "node scripts/validate-jonah-assets.mjs",
+    "validate:release": "node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts --release",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "preview": "python3 -m http.server 4189 --bind 127.0.0.1 --directory out",
+    "review:jonah": "node scripts/review-jonah.mjs"
   },
   "dependencies": {
     "@deck.gl/core": "^9.2.11",
@@ -27,10 +35,13 @@
     "react-map-gl": "^8.1.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
