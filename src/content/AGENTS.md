@@ -1,20 +1,13 @@
-# BibleMap Editorial Content Instructions
+# Scripture, context, and the author's voice
 
-These instructions extend the repository-root and `src/AGENTS.md` files for work under `src/content/` and `src/domain/historical-context.ts`.
+This directory contains reviewable writing and source records, not runtime AI-generated theology. It inherits the repository and `src/AGENTS.md` boundaries.
 
-## Purpose
+- Scripture is primary. Preserve the exact translation, passage reference, publisher/version, and rights record. Never silently alter quoted scripture.
+- The human author owns final prose, scene emphasis, reflection prompts, and interpretive judgments. Leave a visible placeholder where that work is unfinished; don't approve a draft for them.
+- Distinguish direct quotation from attributed paraphrase. A quotation from Peterson, Huff, a church father, pope, or other commentator needs the original work/recording, precise locator or timestamp, correct wording, and a rights assessment. Unverified quotations belong in research notes, not released scenes.
+- Historical claims need followable sources and appropriate scope. Show where scholars differ; never infer precise dates, routes, places, or cultural facts from an illustration.
+- Later paintings and manuscripts are evidence of **reception and interpretation**, not proof of the depicted biblical events. Record artist, date, institution, source, rights, and relevant limitations.
+- Use plain, vivid language rather than generic devotional assurances or automated moral conclusions. Invite thought; don't tell readers what their lives mean.
+- No runtime LLM or web fetch may manufacture published content. Draft and approval states must remain honest. Production context requires actual human approval.
 
-`src/content` holds authored, reviewable historical and narrative copy. It is not generated at runtime. It is not a CMS. It must remain deterministic and auditable in source control.
-
-## Rules
-
-1. Scripture is primary. Historical context illuminates the biblical scene; it does not replace it.
-2. Never invent a date, quotation, archaeological conclusion, population figure, border, language map, travel time, or source citation.
-3. Every shipped historical claim must carry a source ID that another human can follow.
-4. Distinguish explicitly between biblical text, contemporary extra-biblical text, archaeological evidence, traditional identification, scholarly inference, and disputed matters.
-5. Sparse, relevant context is better than padded encyclopedic copy.
-6. Do not flatten peoples into villains, backdrops, or single traits.
-7. Do not present Ussher chronology, or any other single chronology, as uncontested history.
-8. Later artwork is reception history. Do not treat it as evidence of an ancient event.
-9. No runtime LLM or network fetch may author historical claims.
-10. Review status `approved` is required before a context record may render in production.
+See `docs/jonah-prototype.md` for the current release gate and `src/domain/story.ts` for the story contract.
