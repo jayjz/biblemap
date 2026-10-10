@@ -14,8 +14,8 @@ test("recognition leads to Scripture and curiosity before optional research", as
   page.on("response", response => { if (response.status() >= 400) failures.push(`${response.status()} ${response.url()}`); });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "What are we running from?" })).toBeVisible();
-  await expect(page.getByText("We all have something we’d rather not face.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Jonah: The Man Who Ran" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Which question stays with you?" })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("home-recognition.png"), fullPage: true });
   expect((await new AxeBuilder({ page }).include(".bm-home").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
   await page.getByRole("link", { name: "Enter the story" }).click();

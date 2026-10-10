@@ -11,10 +11,10 @@ The first complete reading experience is **[Jonah: The Man Who Ran](https://bibl
 - **Jonah reader** (`/jonah/`): all four chapters of the World English Bible (48 verses), organized as 13 scenes across six movements. The opening invites recognition without assigning Jonah a motive before the text reveals it (Jonah 4:2).
 - **Artwork:** three approved public-domain museum-image placements, with provenance and rights information. Other acquired reproductions remain excluded pending review.
 - **Reading tools:** optional context, linked sources, private in-memory reflection, keyboard navigation, reduced-motion support, and a no-JavaScript reading fallback.
-- **Homepage** (`/`): Jonah as the available journey; Job, Jacob, Exodus, and Joseph are marked as future experiences.
+- **Homepage** (`/`): three optional human questions change a short invitation into Jonah; every entry begins at Jonah 1:1. Copy is provisional for creator review. Job, Jacob, Exodus, and Joseph are marked as future experiences.
 - **Biblical atlas** (`/explore/`): the existing WebGL geography/chronology explorer remains available. It is not yet fully integrated into Jonah's narrative flow.
 
-**Still unfinished:** original authorial narration and several editorial reviews; richer place-based experiences; the proposed interactive Jonah homepage questions. These are directions, not shipped features. Unfinished Exodus work exists separately and must be preserved.
+**Still unfinished:** original authorial narration and several editorial reviews; richer place-based experiences; creator review of the interactive Jonah homepage copy. These items still need development or review. Unfinished Exodus work exists separately and must be preserved.
 
 ## Explore the preview
 
@@ -67,7 +67,8 @@ The human creator retains final authority over storytelling, selection, interpre
 - [Jonah V1 status and approvals](docs/jonah-v1.md)
 - [Recognition-first opening: implementation record](docs/jonah-recognition-opening.md)
 - [Jonah preview verification](docs/jonah-preview-verification.md)
-- [Proposed question-led homepage entry](docs/jonah-question-entry-proposal.md)
+- [Question-led homepage prototype and review decisions](docs/jonah-question-entry-implementation.md)
+- [Original question-entry proposal](docs/jonah-question-entry-proposal.md)
 - [Research and artwork records](docs/research/)
 - [Agent and contribution rules](AGENTS.md)
 

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import "./home.css";
 
@@ -15,7 +15,17 @@ const future = [
   { name: "Exodus", question: "What does freedom demand of us?", theme: "Freedom & responsibility" },
   { name: "Joseph", question: "What does it mean to forgive?", theme: "Betrayal & forgiveness" },
 ];
+// Provisional editorial prompts and invitations: creator review required.
+const questions = [
+  { id: "responsibility", question: "What do we do when we’d rather turn away?", invitation: "Jonah’s story begins with a call and a journey in another direction. Follow what unfolds from there." },
+  { id: "consequences", question: "How do our choices affect others?", invitation: "A journey across the sea brings strangers into the same story. Begin with Jonah and meet them along the way." },
+  { id: "mercy", question: "Why can forgiveness be so difficult?", invitation: "Mercy and resentment meet in Jonah’s story. Read from the beginning, with room for your own questions." },
+];
+const defaultInvitation = "A call. A departure. A story still asking questions. Begin with Jonah, and follow the whole journey.";
+
 export default function Home() {
+  const [selected, setSelected] = useState<string | null>(null);
+  const invitation = questions.find(question => question.id === selected)?.invitation ?? defaultInvitation;
   const legacyAtlas = useSyncExternalStore(subscribe, getLegacy, getServer);
   if (legacyAtlas) return <Atlas />;
   return <div className="bm-home">
@@ -31,11 +41,18 @@ export default function Home() {
         <div className="bm-sea" aria-hidden="true"><span className="bm-moon"/><span className="bm-swell bm-swell-one"/><span className="bm-swell bm-swell-two"/><span className="bm-swell bm-swell-three"/></div>
         <div className="bm-feature-copy">
           <p className="bm-eyebrow">First journey <span aria-hidden="true">/</span> The book of Jonah</p>
-          <h2 id="bm-feature-title">What are we running from?</h2>
-          <p className="bm-feature-name">Jonah: The Man Who Ran</p>
-          <p>We all have something we’d rather not face.</p>
-          <Link className="bm-cta" href="/jonah/">Enter the story <span aria-hidden="true">→</span></Link>
-          <p className="bm-availability">All four chapters · Six movements · Read at your own pace</p>
+          <h2 id="bm-feature-title">Jonah: The Man Who Ran</h2>
+          <fieldset className="bm-questions" aria-describedby="bm-question-hint">
+            <legend>Which question stays with you?</legend>
+            <p id="bm-question-hint">Choose one, or simply enter the story.</p>
+            {questions.map(question => <label className="bm-question" key={question.id}>
+              <input type="radio" name="jonah-question" value={question.id} checked={selected === question.id} onChange={() => setSelected(question.id)} />
+              <span>{question.question}</span>
+            </label>)}
+          </fieldset>
+          <p className="bm-invitation" aria-live="polite" aria-atomic="true">{invitation}</p>
+          <Link className="bm-cta" href="/jonah/" prefetch={false}>Enter the story <span aria-hidden="true">→</span></Link>
+          <p className="bm-availability">Begins at Jonah 1:1 · All four chapters · Read at your own pace</p>
         </div>
       </section>
       <section className="bm-discover" aria-labelledby="bm-discover-title">
