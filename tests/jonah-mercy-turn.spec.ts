@@ -1,0 +1,38 @@
+import { test, expect } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+
+test("Nineveh's repentance leads into Jonah's anger without pre-explaining it", async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/jonah/#jonah-3-mercy");
+  await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
+  const city = page.locator('[data-scene="jonah-3-mercy"]');
+  await expect(city).toBeVisible();
+  await expect(city.locator('[data-reference="3:10"]')).toBeVisible();
+  await expect(city.locator(".story-question")).toHaveCount(0);
+  const cityText = await city.locator(".story-reading").boundingBox();
+  const cityAtmosphere = await city.locator(".story-visual").boundingBox();
+  expect(cityText && cityAtmosphere && cityText.y < cityAtmosphere.y).toBe(true);
+  await city.getByRole("link", { name: "Continue" }).click();
+  const anger = page.locator('[data-scene="jonah-4-anger"]');
+  await expect(anger).toBeVisible();
+  await expect(page.locator("#jonah-4-anger-heading")).toBeFocused();
+  await expect(anger.locator('[data-reference="4:1"]')).toBeInViewport();
+  await expect(anger.locator('[data-reference="4:2"]')).toBeVisible();
+  await expect(anger.locator('[data-reference="4:4"]')).toBeVisible();
+  await expect(anger.locator(".story-question")).toHaveCount(0);
+  const panel = anger.locator(".story-mercy-perspective");
+  await expect(panel).not.toHaveAttribute("open", "");
+  await panel.locator("summary").click();
+  await expect(panel).toContainText("not his commentary on Jonah");
+  await expect(panel.getByRole("link", { name: /Summa Theologiae/ })).toHaveAttribute("href", "https://www.newadvent.org/summa/1021.htm");
+  expect((await new AxeBuilder({ page }).include(".story-root").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath("anger-mobile-aquinas.png"), fullPage: true });
+  await panel.locator("summary").click();
+  await anger.getByRole("link", { name: "Continue" }).click();
+  await page.locator('[data-scene="jonah-4-shade"]').getByRole("link", { name: "Continue" }).click();
+  const ending = page.locator('[data-scene="jonah-4-question"]');
+  await expect(ending.locator('[data-reference="4:11"]')).toBeVisible();
+  await expect(ending.locator(".story-mercy-perspective")).toHaveCount(0);
+});
