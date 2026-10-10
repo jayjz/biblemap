@@ -1,5 +1,7 @@
 # Jonah visual assets — verified acquisition, approval pending
 
+> Historical acquisition checkpoint; its pending-approval/no-render statements are superseded by the later scoped preview approval. Original acquisition findings below are preserved. See [Jonah V1](../jonah-v1.md) and [the maintained completion audit](../jonah-completion.md) for current status. The dated record below is preserved.
+
 Verified locally on 2026-10-10. This supersedes the earlier acquisition-blocked report. All six supplied staging files pass the supplied SHA-256 manifest; all six intended-publication copies are byte-identical. Dimensions are decoded JPEG dimensions, not museum master dimensions. Six distinct hashes mean there are no byte duplicates among the six subjects.
 
 The machine-readable [candidate catalog](jonah-asset-candidates.json) separates museum object candidates from acquired files. The original download URLs and dates were not supplied. Recovered official reference URLs are explicitly distinguished from download receipts. No `reviewedBy` or editorial approval has been inferred.

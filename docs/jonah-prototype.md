@@ -1,5 +1,7 @@
 # Jonah: The Man Who Ran — author-review prototype
 
+> Historical chapter-one checkpoint; chapters two through four and approved media are now integrated. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 The additive `/jonah/` route implements all of Jonah 1 as six reader-controlled beats. It does not replace the map explorer or incorporate the unfinished Exodus world-model changes. Built on `feat/immersive-foundation` (`ea2365a`) in the isolated `feat/jonah-reader` worktree.
 
 ## Review locally

@@ -1,5 +1,7 @@
 # Task 002 — Jonah 1:1–3 first encounter (author-review)
 
+> Historical first-encounter implementation record; its PR stack and publication status are not current workflow instructions. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 ## Creative boundary
 The only verified creator-supplied language guiding this pass is the project thesis and the creator's account of being confused when first reading the Bible, wanting to guide newcomers, and being interested in avoidance, responsibility and the challenge of mercy. No first-person confession, narration, personal reflection prompt, or owner approval is inferred. Existing author slots and Jonah 1 WEB text are unchanged.
 
