@@ -4,13 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { isProductionReadyMedia, type CuratedMediaAsset } from "@/domain/media";
 import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
 
-export function StoryArtwork({ asset }: { asset?: CuratedMediaAsset }) {
+export function StoryArtwork({ asset, sceneId }: { asset?: CuratedMediaAsset; sceneId?: string }) {
   const [failed, setFailed] = useState(false);
   if (!asset || !isProductionReadyMedia(asset) || failed) return (
-    <div className="story-atmosphere" aria-label="Artwork placeholder">
+    <div className={`story-atmosphere story-atmosphere--${sceneId?.replace(/^jonah-1-/, "") ?? "default"}`} role="img" aria-label="Atmospheric visual composition, not a historical reconstruction">
       <div className="story-horizon" aria-hidden="true" />
-      <span className="story-atmosphere-label">{failed ? "Artwork unavailable · reading continues" : "An open canvas"}</span>
-      <span className="story-atmosphere-note">{failed ? "The passage remains available below." : "Artwork awaits the author’s selection"}</span>
+      {failed && <span className="story-atmosphere-note">Artwork unavailable. The passage remains readable.</span>}
     </div>
   );
   return <figure className="story-artwork">
