@@ -3,7 +3,7 @@ name: Jonah verification
 on:
   pull_request:
   push:
-    branches: [feat/jonah-visual-assets]
+    branches: [main, feat/jonah-visual-assets]
   workflow_dispatch:
 
 permissions:
