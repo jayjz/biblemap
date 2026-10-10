@@ -130,3 +130,21 @@
   .story-scene-nav .story-next { padding: .7rem .85rem; gap: .7rem; }
   .story-footer { flex-direction: column; }
 }
+
+/* Task 003: visitor-safe scene treatments. No imagery is represented as ancient evidence. */
+.story-root .story-author-space,
+.story-root .story-preview-note,
+.story-root .story-placeholder { display: none; }
+.story-root .story-atmosphere { position: relative; isolation: isolate; overflow: hidden; min-height: 300px; background: radial-gradient(ellipse at 48% 20%, #596b6880, transparent 48%), linear-gradient(160deg,#17282d 8%,#38505a 56%,#0b1d25 100%); }
+.story-root .story-atmosphere .story-horizon { position: absolute; inset: 58% -10% -12%; opacity: .72; background: repeating-linear-gradient(174deg,transparent 0 35px,#c4d1c414 36px 38px),linear-gradient(#314e59,#0c1a23); border-top:1px solid #b0bba755; transform:rotate(-3deg); }
+.story-root .story-atmosphere--calling { background: radial-gradient(ellipse at 55% 22%,#c6ab765e,transparent 32%),linear-gradient(155deg,#3d3d35,#202c2c 62%,#121e22); }
+.story-root .story-atmosphere--calling .story-horizon { inset: 70% -10% -20%; background:linear-gradient(#77715c,#142528); border-top:1px solid #e5d2a455; }
+.story-root .story-atmosphere--escape { background:radial-gradient(ellipse at 72% 27%,#9da6a27a,transparent 20%),linear-gradient(155deg,#28434a 10%,#0e2934 60%,#07181f); }
+.story-root .story-atmosphere--escape .story-horizon { inset: 63% -15% -10%; transform:rotate(5deg); }
+.story-root .story-atmosphere--storm-wind, .story-root .story-atmosphere--storm-lots { background:linear-gradient(145deg,#536269,#192b34 42%,#071920 90%); }
+.story-root .story-atmosphere--storm-wind .story-horizon, .story-root .story-atmosphere--storm-lots .story-horizon { inset:46% -12% -20%; transform:rotate(-11deg); }
+.story-root .story-atmosphere--storm-sea { background:radial-gradient(circle at 67% 28%,#9ca6a542,transparent 31%),linear-gradient(165deg,#192b33,#071721); }
+.story-root .story-atmosphere--depths { background:radial-gradient(ellipse at 48% 9%,#61797a55,transparent 48%),linear-gradient(#122a34,#040d13); }
+.story-root .story-atmosphere--depths .story-horizon { inset:22% -15% -25%; opacity:.22; }
+.story-root .story-atmosphere-note { position:absolute; bottom:1rem; left:1rem; right:1rem; font-size:.75rem; color:#e7e4da; text-shadow:0 1px 2px #000; }
+@media (prefers-reduced-motion:reduce){ .story-root .story-atmosphere, .story-root .story-atmosphere *{animation:none!important;transition:none!important;} }
