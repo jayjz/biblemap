@@ -209,3 +209,24 @@
   .story-opening-scene .story-reading { grid-row: 1; }
   .story-opening-scene .story-visual { grid-row: 2; }
 }
+
+/* Jonah 3:10 -> 4:1: put the text of the reversal before the abstract atmosphere.
+   This is a passage-specific composition, not new authored narrative or artwork. */
+.story-scene[data-scene="jonah-3-mercy"] .story-columns,
+.story-scene[data-scene="jonah-4-anger"] .story-columns { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+.story-scene[data-scene="jonah-3-mercy"] .story-reading,
+.story-scene[data-scene="jonah-4-anger"] .story-reading { grid-column: 1; grid-row: 1; }
+.story-scene[data-scene="jonah-3-mercy"] .story-visual,
+.story-scene[data-scene="jonah-4-anger"] .story-visual { grid-column: 2; grid-row: 1; position: static; }
+.story-scene[data-scene="jonah-3-mercy"] .story-atmosphere,
+.story-scene[data-scene="jonah-4-anger"] .story-atmosphere { min-height: 220px; }
+.story-scene[data-scene="jonah-3-mercy"] .story-scene-nav { border-top-color: var(--bronze); }
+.story-mercy-perspective summary { color: var(--paper); }
+@media (max-width: 640px) {
+  .story-scene[data-scene="jonah-3-mercy"] .story-columns,
+  .story-scene[data-scene="jonah-4-anger"] .story-columns { grid-template-columns: minmax(0, 1fr); }
+  .story-scene[data-scene="jonah-3-mercy"] .story-visual,
+  .story-scene[data-scene="jonah-4-anger"] .story-visual { grid-column: 1; grid-row: 2; }
+  .story-scene[data-scene="jonah-3-mercy"] .story-atmosphere,
+  .story-scene[data-scene="jonah-4-anger"] .story-atmosphere { min-height: 140px; }
+}
