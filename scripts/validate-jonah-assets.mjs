@@ -41,10 +41,20 @@ for (const file of catalog.acquiredFiles) {
 const publicDir = new URL("public/media/jonah/", root);
 if (existsSync(publicDir)) {
   for (const filename of readdirSync(publicDir)) {
-    const file = catalog.acquiredFiles.find(file => file.filename === filename);
-    const candidate = catalog.assets.find(asset => asset.id === file?.matchedCandidateId);
-    if (!candidate || candidate.productionReviewStatus !== "approved" || !candidate.reviewedBy || !candidate.downloadedAt || !candidate.approvedSceneIds.length) errors.push(`${filename}: unapproved file would be published by static export`);
+    const file = catalog.publicationFiles.find(file => file.filename === filename);
+    const candidate = catalog.assets.find(asset => asset.id === file?.assetId);
+    if (!candidate || candidate.productionReviewStatus !== "approved" || !candidate.reviewedBy || !candidate.downloadedAt || !candidate.approvedSceneIds.length) {
+      errors.push(`${filename}: unapproved file would be published by static export`);
+      continue;
+    }
+    const bytes = readFileSync(new URL(filename, publicDir));
+    const size = dimensions(bytes);
+    if (createHash("sha256").update(bytes).digest("hex") !== file.checksumSha256 || bytes.length !== file.bytes || size.width !== file.width || size.height !== file.height) errors.push(`${filename}: publication checksum/dimensions mismatch`);
+    if (file.sourceUrl !== candidate.originalAssetUrl || !Number.isFinite(Date.parse(file.downloadedAt)) || !/^[a-f0-9]{64}$/.test(file.sourceChecksumSha256)) errors.push(`${filename}: missing verifiable acquisition metadata`);
   }
+}
+for (const file of catalog.publicationFiles) {
+  if (!existsSync(new URL(`public${file.localPath}`, root))) errors.push(`${file.filename}: approved publication file missing`);
 }
 if (errors.length) throw new Error(errors.join("\n"));
 console.log(`✓ ${checksums.size} distinct Jonah acquisition records; available originals and held copies verified; publication approval enforced`);

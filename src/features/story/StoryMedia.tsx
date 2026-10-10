@@ -37,7 +37,10 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
   return <figure className="story-artwork">
     {/* Local, rights-reviewed asset only. No remote substitution on failure. */}
     {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img src={asset.localPath} alt={asset.altText} loading="lazy" decoding="async" onError={() => setFailedPath(asset.localPath)} />
+    <img ref={image => {
+      // A server-rendered image can fail before hydration attaches onError.
+      if (image?.complete && image.naturalWidth === 0) setFailedPath(asset.localPath);
+    }} src={asset.localPath} alt={asset.altText} loading="lazy" decoding="async" onError={() => setFailedPath(asset.localPath)} />
     <figcaption>
       {reviewOnly && <p className="story-preview-note">Local composition review · Not approved for publication</p>}
       <p className="story-artwork-caption">{asset.creator} · {asset.creationDate}<br />{asset.title}<br /><small>Artistic depiction · {asset.sourceInstitution}</small></p>

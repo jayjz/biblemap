@@ -85,3 +85,37 @@ test("unapproved media makes no image request; approved fixture preserves compos
   await page.screenshot({ path: testInfo.outputPath("test-only-portrait-provenance.png"), fullPage: true });
   expect(requests.some(url => url.includes("test-unapproved.jpg"))).toBe(false);
 });
+
+test("normal Jonah route loads only creator-approved scene artworks with accessible provenance", async ({ page }) => {
+  for (const [scene, id] of [
+    ["jonah-1-calling", "nga-raphael-hosea-jonah"],
+    ["jonah-1-depths", "met-rosselli-prophet-jonah"],
+    ["jonah-2-prayer", "met-rosselli-prophet-jonah"],
+    ["jonah-2-shore", "met-gassel-ship-jonah"],
+  ]) {
+    await page.goto(`/jonah/#${scene}`);
+    const article = page.locator(`[data-scene="${scene}"]`);
+    const image = article.locator(".story-artwork img");
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+    expect(await image.evaluate(img => getComputedStyle(img).objectFit)).toBe("contain");
+    const publication = catalog.publicationFiles.find(file => file.assetId === id);
+    expect(publication).toBeDefined();
+    await expect(image).toHaveAttribute("src", publication?.localPath ?? "");
+    await article.getByText("About this artwork & rights", { exact: true }).click();
+    await expect(article.locator(".story-artwork")).toContainText("Public Domain");
+    await expect(article.locator(".story-artwork")).toContainText("not archaeological evidence");
+    expect((await new AxeBuilder({ page }).include(`[data-scene="${scene}"] .story-artwork`).analyze()).violations).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await expect(page.locator(".story-root")).not.toContainText(/Provisional|Local composition review|Local creator review/);
+  }
+});
+
+test("normal reader recovers from a missing approved artwork", async ({ page }) => {
+  await page.route("**/media/jonah/nga-raphael-hosea-jonah.jpeg", route => route.fulfill({ status: 404 }));
+  await page.goto("/jonah/");
+  await expect(page.getByText("Artwork unavailable. The passage remains readable.").filter({ visible: true })).toBeVisible();
+  await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
+  await page.getByRole("link", { name: "Continue" }).click();
+  await expect(page.locator('[data-scene="jonah-1-escape"]')).toBeVisible();
+});

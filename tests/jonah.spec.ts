@@ -23,7 +23,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   for (const [index, scene] of JONAH.scenes.entries()) {
     const article = page.locator(`[data-scene="${scene.id}"]`);
     await expect(article).toBeVisible();
-    await expect(article.locator(".story-question")).toContainText("Provisional editorial prompt");
+    await expect(article.locator(".story-question")).not.toContainText("Provisional");
     displayed.push(...await article.locator("[data-reference]").evaluateAll(elements => elements.map(element => ({
       reference: element.getAttribute("data-reference") ?? "",
       text: Array.from(element.childNodes).filter(node => node.nodeName !== "SUP").map(node => node.textContent).join(""),

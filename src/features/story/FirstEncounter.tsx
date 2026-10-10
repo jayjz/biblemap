@@ -11,7 +11,6 @@ export function FirstEncounter({ sceneId }: { sceneId: string }) {
     {sceneId === "jonah-1-calling" && <div className="story-first-orientation">
       <p className="story-eyebrow">A place to begin</p>
       <p>This is the opening of the book of Jonah. Nineveh is the city Jonah is told to visit. Read the words first; you do not need to know the geography or the interpretations to begin.</p>
-      <p className="story-first-editorial">This orientation is provisional editorial guidance, not Scripture or personal testimony.</p>
     </div>}
     {sceneId === "jonah-1-escape" && <details className="story-disclosure story-first-perspectives">
       <summary>Why do people run? <span>Optional · philosophy, not Scripture</span></summary>
@@ -22,7 +21,7 @@ export function FirstEncounter({ sceneId }: { sceneId: string }) {
           <p>{p.text}</p>
           <p><a href={p.href} target="_blank" rel="noopener noreferrer">Read {p.work}, {p.locator} ↗</a></p>
         </section>)}
-        <p>The opening chapter describes Jonah’s flight without explaining his motive. These connections are provisional editorial selections for review.</p>
+        <p>The opening chapter describes Jonah’s flight without explaining his motive. These are optional philosophical connections.</p>
       </div>
     </details>}
   </section>;

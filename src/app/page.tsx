@@ -44,6 +44,6 @@ export default function Home() {
       </section>
       <section className="bm-world" aria-labelledby="bm-world-title"><div><p className="bm-eyebrow">Another way to explore</p><h2 id="bm-world-title">Every story unfolds somewhere.</h2><p>Explore places, journeys, and chronology in the biblical atlas.</p></div><Link href="/explore/">Explore the biblical world <span aria-hidden="true">↗</span></Link></section>
     </main>
-    <footer className="bm-footer"><span>BibleMap · Ancient stories. Human questions.</span><span>Questions and descriptions are provisional editorial concepts.</span></footer>
+    <footer className="bm-footer"><span>BibleMap · Ancient stories. Human questions.</span></footer>
   </div>;
 }

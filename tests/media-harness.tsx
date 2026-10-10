@@ -18,7 +18,7 @@ const fixture: CuratedMediaAsset = {
 function Harness() {
   const [mounted, setMounted] = useState(true);
   const [portrait, setPortrait] = useState(false);
-  // Synthetic test approval only. The real record remains rights-verified with no reviewer.
+  // Synthetic harness URL and approval identity; real scoped approval is tested on /jonah/.
   const testPortrait: CuratedMediaAsset = { ...JONAH_MEDIA_REVIEW[0], reviewStatus: "approved", reviewedBy: "test-fixture-only", downloadedAt: "2026-10-10", localPath: "/media/test-reviewed-portrait.jpg" };
   return <main><button onClick={() => setMounted(false)}>Leave scene</button>
     <button onClick={() => setPortrait(true)}>Show test-approved portrait</button>

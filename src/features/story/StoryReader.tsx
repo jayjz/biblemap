@@ -113,7 +113,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
           <div className="story-columns">
             <aside className="story-visual" aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
               <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={Boolean(preview)} />
-              {scene.readingGuide && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p><small>Provisional editorial prompt</small></div>}
+              {scene.readingGuide && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
                 <p>{narrative}</p>
@@ -132,7 +132,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
                   <PassageSource passage={p} story={story} />
                 </section>;
               })}
-              {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>Optional · reading companion</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>Provisional editorial reading, not Scripture or the creator’s personal account.</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
+              {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>Optional · reading companion</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>Reading companion · Commentary on the passage</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
               <FirstEncounter sceneId={scene.id} />
               <StoryEvidence story={story} scene={scene} authorReview={authorReview} />
 
@@ -162,6 +162,6 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         </article>;
       })}
     </main>
-    <footer className="story-footer"><span>BibleMap <span aria-hidden="true">·</span> Scripture, place, reflection<br />Reading prompts are provisional editorial copy.</span><Link href="/?explore=1" prefetch={false} onClick={clear}>Explore the map ↗</Link></footer>
+    <footer className="story-footer"><span>BibleMap <span aria-hidden="true">·</span> Scripture, place, reflection</span><Link href="/?explore=1" prefetch={false} onClick={clear}>Explore the map ↗</Link></footer>
   </div>;
 }

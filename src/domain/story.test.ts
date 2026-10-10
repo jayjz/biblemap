@@ -5,11 +5,17 @@ import { approvedAuthoredText, sceneFromHash, validateStory, type Claim, type St
 import { JONAH_MEDIA_REVIEW } from "../content/jonah-media.ts";
 import { isProductionReadyMedia } from "./media.ts";
 
-test("acquired media never implies editorial or scene approval", () => {
+test("creator approval publishes exactly the three scoped artworks", () => {
   assert.equal(JONAH_MEDIA_REVIEW.length, 3);
-  assert.ok(JONAH_MEDIA_REVIEW.every(asset => !isProductionReadyMedia(asset) && !asset.reviewedBy && !asset.downloadedAt));
-  assert.deepEqual(JONAH.media, []);
-  assert.ok(JONAH.scenes.every(scene => !scene.artworkIds.length));
+  assert.ok(JONAH_MEDIA_REVIEW.every(isProductionReadyMedia));
+  assert.equal(JONAH.media.length, 3);
+  const placements = Object.fromEntries(JONAH.scenes.filter(scene => scene.artworkIds.length).map(scene => [scene.id, scene.artworkIds]));
+  assert.deepEqual(placements, {
+    "jonah-1-calling": ["nga-raphael-hosea-jonah"],
+    "jonah-1-depths": ["met-rosselli-prophet-jonah"],
+    "jonah-2-prayer": ["met-rosselli-prophet-jonah"],
+    "jonah-2-shore": ["met-gassel-ship-jonah"],
+  });
 });
 
 test("visitor copy requires actual approval; source slots and drafts remain intact", () => {

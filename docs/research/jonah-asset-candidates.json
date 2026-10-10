@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "storyId": "jonah",
-  "status": "research-candidates-not-production",
+  "status": "three-artworks-approved-for-public-preview",
   "rightsCheckedOn": "2026-10-10",
-  "note": "Six supplied JPEGs inspected and checksum-verified on 2026-10-10. Filenames are not identities. acquiredFiles records exact bytes separately from object candidates. No editorial approval or original download date/receipt was supplied; unknown fields remain null. Recovered museum image URLs are reference URLs, not claimed download receipts.",
+  "note": "Original supplied-file acquisition records remain unchanged; original dates and receipts are unknown. publicationFiles records fresh institutional retrievals and uncropped optimized derivatives for this preview.",
   "assets": [
     {
       "id": "nga-raphael-hosea-jonah",
@@ -20,7 +20,7 @@
       "visualClassification": "character",
       "sceneFitCaveat": "Jonah appears with Hosea; no literal calling scene.",
       "mediaClass": "artistic-depiction",
-      "productionReviewStatus": "rights-verified",
+      "productionReviewStatus": "approved",
       "originalAssetUrl": "https://api.nga.gov/iiif/6c410918-c6a8-428e-94a4-02470f4e777b/full/!611,800/0/default.jpg",
       "originalDimensions": {
         "width": 611,
@@ -34,9 +34,11 @@
       "motionProposal": null,
       "captionStatus": "pending-human-review",
       "acquisitionStatus": "acquired-identity-and-object-rights-verified",
-      "reviewedBy": null,
-      "downloadedAt": null,
-      "approvedSceneIds": []
+      "reviewedBy": "Creator, as relayed by the user; personal name and original approval date not supplied",
+      "downloadedAt": "2026-10-10T12:18:45.266Z",
+      "approvedSceneIds": [
+        "jonah-1-calling"
+      ]
     },
     {
       "id": "met-vaillant-prophet-jonas",
@@ -83,7 +85,7 @@
       "visualClassification": "character",
       "sceneFitCaveat": "Seated prophet with a sea-creature attribute and inscriptions. A later symbolic portrait, not a likeness or literal calling. Reserve until 1:17; retain full sheet, text, and margins.",
       "mediaClass": "artistic-depiction",
-      "productionReviewStatus": "rights-verified",
+      "productionReviewStatus": "approved",
       "originalAssetUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP835425.jpg",
       "originalDimensions": {
         "width": 843,
@@ -97,9 +99,12 @@
       "motionProposal": null,
       "captionStatus": "pending-human-review",
       "acquisitionStatus": "acquired-identity-and-object-rights-verified",
-      "reviewedBy": null,
-      "downloadedAt": null,
-      "approvedSceneIds": []
+      "reviewedBy": "Creator, as relayed by the user; personal name and original approval date not supplied",
+      "downloadedAt": "2026-10-10T12:18:43.519Z",
+      "approvedSceneIds": [
+        "jonah-1-depths",
+        "jonah-2-prayer"
+      ]
     },
     {
       "id": "met-gassel-ship-jonah",
@@ -116,7 +121,7 @@
       "visualClassification": "adjacent-scene",
       "sceneFitCaveat": "Foreground figure emerges from a sea creature beside the ship; later release imagery spoils chapter one. Do not use as departure, storm-only, or 1:17 art, and do not crop out narrative context.",
       "mediaClass": "artistic-depiction",
-      "productionReviewStatus": "rights-verified",
+      "productionReviewStatus": "approved",
       "originalAssetUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP875195.jpg",
       "originalDimensions": {
         "width": 1200,
@@ -130,9 +135,11 @@
       "motionProposal": null,
       "captionStatus": "pending-human-review",
       "acquisitionStatus": "acquired-identity-and-object-rights-verified",
-      "reviewedBy": null,
-      "downloadedAt": null,
-      "approvedSceneIds": []
+      "reviewedBy": "Creator, as relayed by the user; personal name and original approval date not supplied",
+      "downloadedAt": "2026-10-10T12:18:44.974Z",
+      "approvedSceneIds": [
+        "jonah-2-shore"
+      ]
     },
     {
       "id": "rijks-velde-jona-sea",
@@ -490,7 +497,7 @@
       "candidateIds": [
         "nga-raphael-hosea-jonah"
       ],
-      "status": "pending-human-review",
+      "status": "creator-approved-public-preview",
       "caveat": "Full two-prophet composition; reception history, not a literal calling."
     },
     {
@@ -522,8 +529,58 @@
       "candidateIds": [
         "met-rosselli-prophet-jonah"
       ],
-      "status": "pending-human-review",
+      "status": "creator-approved-public-preview",
       "caveat": "Symbolic prophet portrait only. Composite CMA swallowing/release image excluded."
+    }
+  ],
+  "creatorApproval": {
+    "recordedAt": "2026-10-10T12:19:27.452Z",
+    "evidence": "User task request: creator has approved a public-facing preview and the proposed Raphael (1:1–2), Rosselli (1:17 and 2:1–9), and Gassel (2:10) placements.",
+    "reviewerIdentity": "Creator, as relayed by the user; personal name and original approval date not supplied",
+    "scope": "Public Jonah reading preview and these three full-composition placements only. Does not approve all editorial content, author slots, or unresolved reproductions."
+  },
+  "publicationFiles": [
+    {
+      "assetId": "nga-raphael-hosea-jonah",
+      "filename": "nga-raphael-hosea-jonah.jpeg",
+      "localPath": "/media/jonah/nga-raphael-hosea-jonah.jpeg",
+      "downloadedAt": "2026-10-10T12:18:45.266Z",
+      "sourceUrl": "https://api.nga.gov/iiif/6c410918-c6a8-428e-94a4-02470f4e777b/full/!611,800/0/default.jpg",
+      "sourceChecksumSha256": "1a14da117c9e773a32adc69551f03bb5d37074ddf00c766334504dc2d2192611",
+      "checksumSha256": "e26bc6e475600c441ea1530cb297539f6d826eab190eafefdd697466feaf2810",
+      "bytes": 144468,
+      "width": 611,
+      "height": 800,
+      "transformation": "sharp 0.34.5; fit inside 1200×1200, without enlargement; JPEG quality 85; full composition, no crop",
+      "retrievalTimestampBasis": "Completion write time of this session’s fresh curl download (curl did not preserve remote timestamps); not the supplied original’s file time."
+    },
+    {
+      "assetId": "met-rosselli-prophet-jonah",
+      "filename": "met-rosselli-prophet-jonah.jpeg",
+      "localPath": "/media/jonah/met-rosselli-prophet-jonah.jpeg",
+      "downloadedAt": "2026-10-10T12:18:43.519Z",
+      "sourceUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP835425.jpg",
+      "sourceChecksumSha256": "ace7eb6cbee282fb6f8400f3eef22919fc6299fbdabe495df367302c80ec0d17",
+      "checksumSha256": "aec8b6e372470ac3554e9729ad72ff2167f7e3fab6809b47e168a1e61418fe9f",
+      "bytes": 174011,
+      "width": 844,
+      "height": 1200,
+      "transformation": "sharp 0.34.5; fit inside 1200×1200, without enlargement; JPEG quality 85; full composition, no crop",
+      "retrievalTimestampBasis": "Completion write time of this session’s fresh curl download (curl did not preserve remote timestamps); not the supplied original’s file time."
+    },
+    {
+      "assetId": "met-gassel-ship-jonah",
+      "filename": "met-gassel-ship-jonah.jpeg",
+      "localPath": "/media/jonah/met-gassel-ship-jonah.jpeg",
+      "downloadedAt": "2026-10-10T12:18:44.974Z",
+      "sourceUrl": "https://images.metmuseum.org/CRDImages/dp/original/DP875195.jpg",
+      "sourceChecksumSha256": "0587752923b313c11438c3152f09c422675e74eb584202a66d0acea07037ef43",
+      "checksumSha256": "c151174d777f9ae412a3d0b5d58e164375b09b19d636974d2304e13d4137802c",
+      "bytes": 337787,
+      "width": 1200,
+      "height": 887,
+      "transformation": "sharp 0.34.5; fit inside 1200×1200, without enlargement; JPEG quality 85; full composition, no crop",
+      "retrievalTimestampBasis": "Completion write time of this session’s fresh curl download (curl did not preserve remote timestamps); not the supplied original’s file time."
     }
   ]
 }
