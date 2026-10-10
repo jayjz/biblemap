@@ -23,8 +23,12 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   for (const [index, scene] of JONAH.scenes.entries()) {
     const article = page.locator(`[data-scene="${scene.id}"]`);
     await expect(article).toBeVisible();
-    if (index < 3) await expect(article.locator(".story-question")).toHaveCount(0);
-    else await expect(article.locator(".story-question")).not.toContainText("Provisional");
+    // Opening scenes and the Jonah 3:10 -> 4:1 turn keep leading editorial questions out of the passage.
+    if (index < 3 || scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger") {
+      await expect(article.locator(".story-question")).toHaveCount(0);
+    } else {
+      await expect(article.locator(".story-question")).not.toContainText("Provisional");
+    }
     displayed.push(...await article.locator("[data-reference]").evaluateAll(elements => elements.map(element => ({
       reference: element.getAttribute("data-reference") ?? "",
       text: Array.from(element.childNodes).filter(node => node.nodeName !== "SUP").map(node => node.textContent).join(""),
