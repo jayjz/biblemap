@@ -19,10 +19,6 @@ test("recognition leads to Scripture and curiosity before optional research", as
   await page.screenshot({ path: testInfo.outputPath("home-recognition.png"), fullPage: true });
   expect((await new AxeBuilder({ page }).include(".bm-home").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
   await page.getByRole("link", { name: "Enter the story" }).click();
-  await expect(page.getByText("A conversation. A responsibility. A truth about ourselves.")).toBeVisible();
-  await expect(page.getByText("Sometimes, leaving feels easier.")).toBeVisible();
-  await page.getByRole("link", { name: "Begin reading" }).focus();
-  await page.keyboard.press("Enter");
   await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
   await expect(page.locator("[data-scene='jonah-1-calling']")).toBeVisible();
   await expect(page.locator(".story-first-orientation")).toHaveCount(0);

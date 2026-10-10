@@ -8,17 +8,17 @@ test("homepage introduces Jonah and clearly distinguishes future journeys", asyn
   page.on("request", request => { if (new URL(request.url()).hostname !== "127.0.0.1") external.push(request.url()); });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Questions that stay with us.");
-  await expect(page.getByRole("link", { name: "Enter the story" })).toHaveAttribute("href", "/jonah/");
+  await expect(page.getByRole("link", { name: "Enter the story" })).toHaveAttribute("href", "/jonah/#jonah-1-calling");
   await expect(page.getByRole("link", { name: /Explore the biblical world/ }).first()).toHaveAttribute("href", "/explore/");
   await expect(page.getByText("Future journey · Not yet available")).toHaveCount(4);
   await expect(page.locator("canvas")).toHaveCount(0);
   await page.screenshot({ path: testInfo.outputPath("homepage.png"), fullPage: true });
   await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
   await page.getByRole("link", { name: "Enter the story" }).click();
-  await expect(page).toHaveURL(/\/jonah\/$/);
+  await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
-  await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
+  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
 });
@@ -37,8 +37,8 @@ test("homepage reflows and respects reduced motion", async ({ page }, testInfo) 
 
 const doors = [
   { question: "What do we do when we’d rather turn away?", invitation: "Jonah’s story begins with a call" },
-  { question: "How do our choices affect others?", invitation: "A journey across the sea" },
-  { question: "Why can forgiveness be so difficult?", invitation: "Mercy and resentment meet" },
+  { question: "What happens when our choices reach beyond us?", invitation: "A journey across the sea" },
+  { question: "Why can mercy be hard to offer?", invitation: "Carry that question with you" },
 ];
 
 for (const door of doors) {
@@ -68,10 +68,10 @@ for (const door of doors) {
     expect(requests).toEqual([]);
     await page.screenshot({ path: testInfo.outputPath("selected.png"), fullPage: true });
     await page.getByRole("link", { name: "Enter the story" }).click();
-    await expect(page).toHaveURL(/\/jonah\/$/);
+    await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
     await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
     await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
-    await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
+    await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
     expect(errors).toEqual([]);
   });
 }
@@ -114,7 +114,36 @@ test("story entry remains available without JavaScript", async ({ browser, baseU
   await page.goto(`${baseURL}/`);
   await expect(page.locator(".bm-invitation")).toContainText("Begin with Jonah");
   await page.getByRole("link", { name: "Enter the story" }).click();
-  await expect(page).toHaveURL(/\/jonah\/$/);
-  await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
+  await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
+  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
   await context.close();
+});
+
+test("homepage entry, reload, history, and direct reader visits keep their destinations", async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await page.getByRole("link", { name: "Enter the story" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
+  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
+  await expect(page.locator(".story-intro")).not.toBeInViewport();
+  await page.screenshot({ path: testInfo.outputPath("homepage-scripture-entry.png") });
+  await page.getByRole("link", { name: "Continue" }).click();
+  await expect(page).toHaveURL(/#jonah-1-escape$/);
+  await page.goBack();
+  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
+  await page.goBack();
+  await expect(page).toHaveURL(/\/$/);
+  await page.goForward();
+  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
+  await page.reload();
+  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
+  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
+  await page.goto("/jonah/");
+  await expect(page.locator(".story-intro")).toBeInViewport();
+  await page.getByRole("link", { name: "Begin reading" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
+  await page.goto("/jonah/#jonah-3-return");
+  await expect(page.locator(".story-root")).toHaveAttribute("data-active-scene", "jonah-3-return");
 });

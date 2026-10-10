@@ -18,8 +18,8 @@ const future = [
 // Provisional editorial prompts and invitations: creator review required.
 const questions = [
   { id: "responsibility", question: "What do we do when we’d rather turn away?", invitation: "Jonah’s story begins with a call and a journey in another direction. Follow what unfolds from there." },
-  { id: "consequences", question: "How do our choices affect others?", invitation: "A journey across the sea brings strangers into the same story. Begin with Jonah and meet them along the way." },
-  { id: "mercy", question: "Why can forgiveness be so difficult?", invitation: "Mercy and resentment meet in Jonah’s story. Read from the beginning, with room for your own questions." },
+  { id: "consequences", question: "What happens when our choices reach beyond us?", invitation: "A journey across the sea brings strangers into the same story. Begin with Jonah and meet them along the way." },
+  { id: "mercy", question: "Why can mercy be hard to offer?", invitation: "Carry that question with you. Begin with the words Jonah hears, and let the story unfold." },
 ];
 const defaultInvitation = "A call. A departure. A story still asking questions. Begin with Jonah, and follow the whole journey.";
 
@@ -51,7 +51,8 @@ export default function Home() {
             </label>)}
           </fieldset>
           <p className="bm-invitation" aria-live="polite" aria-atomic="true">{invitation}</p>
-          <Link className="bm-cta" href="/jonah/" prefetch={false}>Enter the story <span aria-hidden="true">→</span></Link>
+          {/* A document link lets the reader own fragment focus without router focus races. */}
+          <a className="bm-cta" href="/jonah/#jonah-1-calling">Enter the story <span aria-hidden="true">→</span></a>
           <p className="bm-availability">Begins at Jonah 1:1 · All four chapters · Read at your own pace</p>
         </div>
       </section>
