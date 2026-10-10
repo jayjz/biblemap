@@ -1,170 +1,45 @@
-# BibleMap Agent Instructions
+# Working on BibleMap
 
-## Mission
+BibleMap is a human-authored exploration of biblical stories, the people in them, and what those stories ask of us. Scripture leads. Geography, history, artwork, theological perspectives, and technology help visitors encounter the text; they do not replace it.
 
-BibleMap is an immersive, human-centered journey through biblical geography, narrative, theology, history, and art.
+## Protect the voice
 
-The product should help a person experience the relationships between Scripture, place, time, movement, and meaning. It is not merely a database visualization, generic Bible application, AI chatbot, or collection of decorative effects.
+- The owner writes or explicitly approves final narrative, interpretation, reflection prompts, and visual taste. Leave clear author slots rather than inventing their voice.
+- Do not turn reflection into a quiz, prescribe a visitor's personal meaning, or add an AI chatbot without a specific request.
+- Never invent scripture, quotation, provenance, historical evidence, dates, routes, or theological consensus.
+- Distinguish **scripture**, **historical evidence**, **tradition**, **scholarly inference**, **theological interpretation**, and **artistic reconstruction**. Record disagreement and uncertainty plainly.
+- Respect the subject and the reader. No manipulative engagement loops, sensationalism, or false certainty.
+- Third-party images, translations, audio, and modern quotations require source and rights review. A public URL is not proof of permission.
 
-The intended experience combines:
+## Before changing anything
 
-- Interactive biblical geography
-- Chronological exploration
-- Guided cinematic journeys
-- Scripture and cross-references
-- Human narration and environmental sound
-- Historically contextual art and artifacts
-- Clearly labeled interpretive reconstructions
-- Transparent sources, uncertainty, and competing scholarly conclusions
+1. Read the applicable nested `AGENTS.md` files and the documents relevant to the task.
+2. Check working tree, active branch, base, and uncommitted work. Preserve the separate unfinished Exodus worktree.
+3. Inspect current implementation; verify reported failures. Treat old audit notes as leads, not current facts.
+4. Keep changes narrow and reversible. Never merge, deploy, delete branches, or claim editorial approval without authorization.
+5. Report what changed, what was verified, what remains unknown, and where human judgment is needed.
 
-Immersion must come from coherence, meaning, pacing, sound, geography, and visual storytelling—not from maximizing animation.
+Use a task branch. Do not edit `main` directly. Follow the user's explicit permissions for commit/push actions.
 
-## Product Principles
+## Engineering boundaries
 
-1. Scripture is primary. Commentary, chronology, geography, art, and generated material are supporting layers.
-2. Never fabricate a verse, quotation, source, archaeological claim, historical date, place identification, or theological consensus.
-3. Distinguish explicitly between:
-   - Biblical text
-   - Historical or archaeological evidence
-   - Traditional interpretation
-   - Denominational or theological interpretation
-   - Scholarly inference
-   - Speculation
-   - AI-generated reconstruction
-4. Uncertainty is part of the product. Represent disputed dates and locations instead of silently selecting one.
-5. Do not present an artistic depiction as a historically accurate reconstruction.
-6. Do not present one chronology, including Ussher chronology, as uncontested history.
-7. The tone should be reverent, accessible, intellectually serious, and welcoming.
-8. Avoid manipulative engagement systems, trivial gamification, fake urgency, addictive streak mechanics, or sensational theology.
-9. Do not add an in-app AI chatbot unless explicitly requested and supported by a source-constrained design.
-10. Generated theology or historical content cannot ship without identifiable sources and human review.
+- Preserve the map explorer while developing standalone stories. Keep story text separate from WebGL internals.
+- Maintain static export unless a change explicitly requires and justifies another deployment model.
+- Keep stable scene IDs, readable source links, keyboard navigation, reduced-motion behavior, and non-WebGL reading.
+- Never store, log, or transmit private reflections without a separate, explicit privacy design and approval.
+- Avoid unnecessary dependencies, broad refactors, and disabling lint, type, or accessibility checks.
+- Changes to scripture or historical claims need source evidence and human review, not only passing tests.
 
-## Experience Direction
+## How to verify
 
-The visual identity should feel like ancient material culture interpreted through a modern cinematic atlas:
+Run checks relevant to the changed files using the actual scripts in `package.json`: `npm test`, `npm run typecheck`, `npm run lint`, `npm run build`, and `npm run test:e2e` for interaction changes. Don't claim a check passed if it was not run. For visual work, inspect desktop and mobile, keyboard and reduced motion, failure states, and the browser console.
 
-- Warm stone, parchment, bronze, lapis, desert night, firelight, and natural earth tones
-- Clear modern typography and navigation
-- Atmospheric depth without sacrificing readability
-- Editorial restraint rather than generic glassmorphism or cyber-neon UI
-- Motion that communicates travel, chronological change, discovery, or theological emphasis
-- Art and sound used at narratively meaningful moments
-- A contemplative pace with immediate user control
+`npm run validate:release` intentionally rejects author-review placeholders. **Never weaken that gate merely to obtain a green build.**
 
-The primary experience modes are:
+For Jonah's current status, content-editing workflow, and known defects, read [docs/jonah-prototype.md](docs/jonah-prototype.md). For changes inside `src/`, `src/content/`, `scripts/`, or `public/media/`, follow the narrower instructions in those directories.
 
-- Explore: freely navigate places, events, books, and time
-- Journey: follow a curated story through sequential locations
-- Sources: inspect passages, provenance, confidence, chronology, and alternative interpretations
+## Guidance for agents
 
-Do not build three disconnected applications. These are layers of one coherent experience.
+Keep instructions short and specific; don't repeat repo policies in every prompt. Use plans for genuinely multi-step work and small verifiable increments. A skill is appropriate only for a repeated workflow that needs its own instructions or scripts—not as a substitute for understanding the code.
 
-## Current Technical Context
-
-The current application uses:
-
-- Next.js App Router
-- React and TypeScript
-- Deck.gl
-- MapLibre
-- Apache Arrow
-- Parquet
-- Python ETL with PostgreSQL/PostGIS
-- Static export deployment
-
-Known stabilization concerns must be verified rather than assumed:
-
-- A lazily imported component named `Map` may shadow the global JavaScript `Map` constructor.
-- `useSearchParams` may sit outside the effective Suspense boundary.
-- TypeScript validation is disabled during builds.
-- Minifier and constructor workarounds may be masking root defects.
-- `DataLoader.tsx` is an oversized component.
-- UI, ETL, and Parquet epoch definitions may have drifted.
-- Data and media attribution are incomplete.
-- Automated browser coverage is missing.
-
-## Repository Workflow
-
-Before editing:
-
-1. Read this file.
-2. Read the nearest nested `AGENTS.md` for every directory being modified.
-3. Inspect `git status`, the active branch, repository structure, package scripts, and relevant documentation.
-4. Reproduce reported failures before attempting fixes.
-5. Separate verified defects from assumptions.
-6. State a concise plan for multi-step work.
-7. Preserve unrelated user changes.
-
-Work on a task-specific branch. Do not commit directly to `main`.
-
-Do not commit, push, open a pull request, publish, or deploy unless explicitly authorized.
-
-Prefer focused, reviewable changes. Avoid mixing stabilization, architecture changes, content expansion, and visual redesign in one diff.
-
-## Engineering Rules
-
-- Fix root causes before adding configuration workarounds.
-- Do not disable TypeScript, ESLint, tests, React Strict Mode, accessibility checks, or browser checks to make CI green.
-- Do not add `any`, `@ts-ignore`, unsafe assertions, silent catches, or global error suppression without a documented and narrowly scoped reason.
-- Prefer `@ts-expect-error` only when the failure is intentional and explained.
-- Do not name an imported component `Map`, `Set`, `Date`, `Error`, `Promise`, `Object`, or another JavaScript global.
-- Centralize shared domain constants such as epochs, book order, event types, routes, and schemas.
-- Stable domain identifiers must not depend on array position or display names.
-- Avoid loading production data from unversioned runtime sources.
-- Preserve static export compatibility unless an architectural decision explicitly changes deployment.
-- New production dependencies require justification and an assessment of bundle, licensing, maintenance, and security impact.
-- Keep WebGL rendering code isolated from editorial content and application orchestration.
-- Prefer small components, pure transformations, typed schemas, and deterministic data pipelines.
-- Treat performance and accessibility as correctness requirements.
-
-## Required Verification
-
-For code changes, run the applicable checks:
-
-```text
-npm ci
-npm run lint
-npx tsc --noEmit
-npm run build
-npm run test
-npm run test:e2e
-
-A command that does not exist should be reported, not falsely claimed as passing. Add missing test commands when the task includes establishing that test layer.
-
-For Python or ETL changes, run relevant focused tests and data validation. Do not require a production database merely to validate pure parsing or schema logic.
-
-For visual changes:
-
-Inspect the result in a real browser.
-Check desktop and mobile.
-Check loading, empty, error, and selected-event states.
-Check keyboard navigation.
-Check reduced-motion behavior.
-Report console errors and failed network requests.
-Compare screenshots when visual references exist.
-Definition of Done
-
-A task is complete only when:
-
-The requested behavior exists.
-Relevant tests pass.
-Build, lint, and type-check pass or remaining failures are explicitly documented as pre-existing with evidence.
-Error and fallback states have been considered.
-Accessibility and responsive behavior have been checked.
-Data, media, theological, and historical claims remain traceable.
-The final diff contains no unrelated changes.
-The final report lists changed files, verification performed, assumptions, and remaining risks.
-Code Review Rules
-
-Flag as high priority:
-
-Fabricated, unattributed, or misleading content
-Loss of source or licensing metadata
-Conflation of biblical text with commentary or reconstruction
-Unlabeled uncertainty
-Incorrect event chronology or location mapping
-Broken keyboard or reduced-motion behavior
-Main-thread work that damages interaction during timeline or map movement
-Runtime network dependencies that can break the core experience
-Disabled validation or hidden errors
-Changes that make a cinematic effect impossible to test deterministically
+When working with OpenAI APIs or Codex features, consult the current official [developer documentation](https://developers.openai.com/) rather than relying on remembered interfaces.
