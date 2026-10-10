@@ -38,6 +38,8 @@ export interface StoryScene {
   soundscapeId?: string;
   transition: { nextSceneId: string | null; advance: "reader"; visual: "cut" | "fade" };
   review: Review;
+  /** Explicit provisional prompts; never Scripture or creator testimony. */
+  readingGuide?: { title: string; question: string; context: string; sourceId: string; locator: string; status: "provisional" };
 }
 export interface StoryDocument {
   schemaVersion: 1; id: string; book: string; mode: "author-review" | "release";
@@ -144,6 +146,12 @@ export function validateStory(story: StoryDocument, mode = story.mode): string[]
     if (!isProductionReadyMedia(asset) || !/^sha256:[a-f0-9]{64}$/.test(asset.checksum) || !/^\/media\/[\w/.-]+$/.test(asset.localPath) || asset.localPath.includes("..")) fail(asset.id, "approved local media with verified provenance required");
   }
   story.scenes.forEach((scene, index) => {
+    if (scene.readingGuide) {
+      const guide = scene.readingGuide;
+      refs(scene.id, [guide.sourceId], sourceIds);
+      if (![guide.title, guide.question, guide.context, guide.locator].every(text) || guide.status !== "provisional") fail(scene.id, "incomplete reading companion");
+      if (mode === "release") fail(scene.id, "reading companion requires human approval");
+    }
     checkReview(scene.id, scene.review);
     checkCopy(scene.id, scene.title); checkCopy(scene.id, scene.narrative);
     scene.reflections.forEach(r => checkCopy(r.id, r.prompt));

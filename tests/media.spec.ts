@@ -2,6 +2,16 @@ import { test, expect } from "@playwright/test";
 import { build } from "esbuild";
 import { readFileSync, readdirSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
+import catalog from "../docs/research/jonah-asset-candidates.json";
+
+test("static export excludes held reproductions and local review routes", () => {
+  const exported = readdirSync("out", { recursive: true }).map(String);
+  for (const file of catalog.acquiredFiles) {
+    const candidate = catalog.assets.find(asset => asset.id === file.matchedCandidateId);
+    if (candidate?.productionReviewStatus !== "approved") expect(exported.some(path => path.endsWith(file.filename))).toBe(false);
+  }
+  expect(exported.some(path => /review-assets|jonah-review|publication-hold/.test(path))).toBe(false);
+});
 
 let bundle = "";
 test.beforeAll(async () => {
@@ -66,6 +76,7 @@ test("unapproved media makes no image request; approved fixture preserves compos
   await expect.poll(() => portrait.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(611);
   expect(await portrait.evaluate(img => getComputedStyle(img).objectFit)).toBe("contain");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.getByText("About this artwork & rights", { exact: true }).click();
   await expect(page.getByRole("heading", { name: "The Prophets Hosea and Jonah" })).toBeVisible();
   await expect(page.locator(".story-artwork")).toContainText("National Gallery of Art");
   await expect(page.locator(".story-artwork")).toContainText("not archaeological evidence");

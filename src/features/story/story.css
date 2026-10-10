@@ -156,3 +156,45 @@
 .story-root .story-atmosphere-note { position:absolute; bottom:1rem; left:1rem; right:1rem; font-size:.75rem; color:#e7e4da; text-shadow:0 1px 2px #000; }
 @media (prefers-reduced-motion:reduce){ .story-root .story-atmosphere, .story-root .story-atmosphere *{animation:none!important;transition:none!important;} }
 @media (max-width:640px){ .story-root .story-atmosphere { min-height:180px; } }
+
+/* A complete reading journey: generous text, intact artworks, distinct movements. */
+.story-intro { position: relative; max-width: none; isolation: isolate; padding-right: 25%; }
+.story-intro::after { content: ""; position: absolute; z-index: -1; right: 0; top: 12%; width: 42%; height: 76%; opacity: .5; border-radius: 50%; background: radial-gradient(ellipse at 70% 38%, #c5ad7840, transparent 32%), repeating-radial-gradient(ellipse at 100% 100%, transparent 0 25px, #91b2b21c 26px 27px, transparent 28px 54px); mask-image: linear-gradient(90deg, transparent, #000); }
+.story-scene { padding-top: 3.5rem; }
+.story-visual { position: sticky; top: 2rem; }
+.story-question { margin: 2rem 0; padding: 1.5rem 0 0 1.5rem; border-left: 1px solid var(--bronze); }
+.story-question > p:not(.story-eyebrow) { font-family: var(--font-playfair), Georgia, serif; font-size: clamp(25px, 2.4vw, 33px); line-height: 1.45; color: var(--paper); }
+.story-question small { font-size: 12px; color: var(--muted); }
+.story-artwork img { display: block; background: #e2d6bb; padding: 10px; border: 1px solid #6d6957; box-shadow: 0 20px 60px #0004; }
+.story-artwork-caption { color: #e0d4be; font: 15px/1.65 var(--font-geist-sans), Arial, sans-serif; }
+.story-artwork-caption small { color: var(--muted); font-size: 12px; }
+.story-artwork-credits { font-size: 13px; border-top: 1px solid var(--line); }
+.story-artwork-credits summary { color: var(--bronze); }
+.story-root .story-atmosphere { min-height: 390px; }
+.story-root .story-atmosphere--prayer { background: conic-gradient(from 163deg at 50% -20%, #07131a, #304f5790 12deg, #07131a 27deg, #07131a); }
+.story-atmosphere--prayer .story-water-lines { transform: rotate(180deg); opacity: .08; }
+.story-root .story-atmosphere--shore { background: linear-gradient(#64716d, #b9aa87 52%, #45585a 53%, #263d43 69%, #80715b 70%, #2e302b); }
+.story-root .story-atmosphere--return { background: radial-gradient(ellipse at 65% 40%, #cfb77c55, transparent 32%), linear-gradient(#363c35, #7b6951 65%, #292d28); }
+.story-root .story-atmosphere--mercy { background: radial-gradient(ellipse at 55% 40%, #dcc38b80, transparent 53%), linear-gradient(#4d5040, #736247 65%, #30352b); }
+.story-root .story-atmosphere--anger { background: radial-gradient(circle at 72% 22%, #d9c797 0 5%, #b2946940 6%, transparent 28%), linear-gradient(#66533d, #967f56 64%, #383a2d 65%); }
+.story-root .story-atmosphere--shade { background: linear-gradient(125deg, #142e28a6 0 38%, transparent 39%), linear-gradient(#787557, #b7a079 64%, #726448 65%); }
+.story-root .story-atmosphere--question { background: radial-gradient(ellipse at 50% 42%, #cdbb8b77, transparent 48%), linear-gradient(#455652, #7b8068 65%, #333f38 66%); }
+.story-root :is(.story-atmosphere--return,.story-atmosphere--mercy,.story-atmosphere--anger,.story-atmosphere--shade,.story-atmosphere--question) :is(.story-water-lines,.story-horizon) { display: none; }
+.story-verses [data-reference^="2:"] { white-space: pre-line; }
+.story-final-question .story-verses { font-size: clamp(28px, 2.8vw, 38px); line-height: 1.75; padding-top: 1rem; }
+.story-final-question .story-columns { padding-bottom: 2rem; }
+.story-ending { padding: 3rem 0; margin: 2rem auto 0; text-align: center; border-top: 1px solid var(--line); }
+.story-ending-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; font-size: 15px; }
+.story-ending-links a { display: inline-flex; align-items: center; min-height: 48px; color: var(--bronze); }
+@media (max-width: 900px) { .story-intro { padding-right: 10%; } }
+@media (max-width: 640px) {
+  .story-intro { padding-right: 0; }
+  .story-intro::after { width: 60%; opacity: .25; }
+  .story-scene { padding-top: 2.5rem; }
+  .story-visual { position: static; }
+  .story-root .story-atmosphere { min-height: 250px; }
+  .story-artwork img { max-height: 450px; }
+  .story-scene-mark { display: none; }
+  .story-question { margin-bottom: 0; }
+  .story-final-question .story-verses { font-size: 28px; }
+}

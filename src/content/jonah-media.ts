@@ -14,10 +14,17 @@ const descriptions: Record<string, { alt: string; caption: string; reason: strin
   },
   "met-gassel-ship-jonah": {
     alt: "Etching and engraving of a large sailing ship near a coastal town, with a figure emerging from a sea creature in the foreground.",
-    caption: "Lucas Gassel, ca. 1560–70. Ship, coastline, and sea creature belong to a later artistic interpretation. Release imagery extends beyond Jonah chapter one.",
-    reason: "Acquired and documented for review; excluded from chapter-one scene mappings to avoid revealing the release prematurely.",
+    caption: "Lucas Gassel, ca. 1560–70. The ship, coastline, and sea creature form a later artistic interpretation of Jonah’s release, not a reconstruction of the ancient setting.",
+    reason: "Full composition only after Jonah 2:10, when the reader has reached the release. No crop or motion over the image.",
   },
 };
+
+/** Ready for creator scene approval. These mappings confer no approval. */
+export const JONAH_ARTWORK_PLACEMENTS = [
+  { assetId: "nga-raphael-hosea-jonah", sceneIds: ["jonah-1-calling"] },
+  { assetId: "met-rosselli-prophet-jonah", sceneIds: ["jonah-1-depths", "jonah-2-prayer"] },
+  { assetId: "met-gassel-ship-jonah", sceneIds: ["jonah-2-shore"] },
+];
 
 /** Review records use the existing contract. Missing receipt/reviewer fields stay empty,
  * so validation and the production gate fail closed. No editorial approval is inferred.

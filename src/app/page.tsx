@@ -35,7 +35,7 @@ export default function Home() {
           <p className="bm-feature-name">Jonah: The Man Who Ran</p>
           <p>A calling. A ship bound the other way. A storm. Read the story at your own pace, with optional paths into its history and interpretation.</p>
           <Link className="bm-cta" href="/jonah/">Enter the story <span aria-hidden="true">→</span></Link>
-          <p className="bm-availability">Available now · Chapter one author-review experience</p>
+          <p className="bm-availability">All four chapters · Six movements · Read at your own pace</p>
         </div>
       </section>
       <section className="bm-discover" aria-labelledby="bm-discover-title">
@@ -44,6 +44,6 @@ export default function Home() {
       </section>
       <section className="bm-world" aria-labelledby="bm-world-title"><div><p className="bm-eyebrow">Another way to explore</p><h2 id="bm-world-title">Every story unfolds somewhere.</h2><p>Explore places, journeys, and chronology in the biblical atlas.</p></div><Link href="/explore/">Explore the biblical world <span aria-hidden="true">↗</span></Link></section>
     </main>
-    <footer className="bm-footer"><span>BibleMap · A human-authored exploration</span><span>Questions and descriptions are provisional editorial concepts.</span></footer>
+    <footer className="bm-footer"><span>BibleMap · Ancient stories. Human questions.</span><span>Questions and descriptions are provisional editorial concepts.</span></footer>
   </div>;
 }

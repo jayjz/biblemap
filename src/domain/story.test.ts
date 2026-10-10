@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { JONAH } from "../content/jonah.ts";
+import { JONAH, JONAH_CHAPTERS } from "../content/jonah.ts";
 import { approvedAuthoredText, sceneFromHash, validateStory, type Claim, type StoryDocument } from "./story.ts";
 import { JONAH_MEDIA_REVIEW } from "../content/jonah-media.ts";
 import { isProductionReadyMedia } from "./media.ts";
@@ -24,7 +24,15 @@ test("author review is valid, while release fails closed on unfinished authorshi
   assert.deepEqual(validateStory(JONAH), []);
   assert.ok(validateStory(JONAH, "release").some(e => e.includes("human approval")));
   assert.ok(validateStory(JONAH, "release").some(e => e.includes("author slot")));
-  assert.deepEqual(JONAH.passages.flatMap(p => p.verses.map(v => v.number)), Array.from({ length: 17 }, (_, i) => i + 1));
+  for (const [index, chapter] of JONAH_CHAPTERS.entries()) {
+    assert.deepEqual(JONAH.passages.filter(p => p.chapter === index + 1).flatMap(p => p.verses), chapter.verses);
+  }
+  assert.equal(JONAH.passages.flatMap(p => p.verses).length, 48);
+  assert.ok(JONAH.sections.every(section => section.available && JONAH.scenes.some(scene => scene.sectionId === section.id)));
+  const last = JONAH.scenes.at(-1);
+  assert.equal(last?.id, "jonah-4-question");
+  assert.equal(last?.transition.nextSceneId, null);
+  assert.ok(JONAH.passages.at(-1)?.verses[0].text.endsWith("animals?”"));
 });
 
 test("malformed links cannot select unintended scenes", () => {
@@ -38,6 +46,7 @@ test("broken content and transitions are rejected before rendering", () => {
     s => { s.scenes[0].transition.nextSceneId = s.scenes[3].id; },
     s => { s.scenes[0].passageIds = ["missing"]; },
     s => { s.scenes[0].chapter = 2; },
+    s => { if (s.scenes[0].readingGuide) s.scenes[0].readingGuide.sourceId = "missing"; },
     s => { s.passages[0].verses = [{ number: 2, text: "Wrong order" }]; },
     s => { s.passages[0].checksum = "unverified"; },
     s => { s.passages[0].rightsUrl = "javascript:alert(1)"; },

@@ -6,7 +6,7 @@ import "@/features/story/story.css";
 
 export const metadata: Metadata = {
   title: "Jonah: The Man Who Ran · BibleMap",
-  description: "An author-review prototype exploring Jonah chapter one through scripture, place, and private reflection.",
+  description: "Read all four chapters of Jonah through Scripture, art, and questions that stay with us.",
   robots: { index: false, follow: false },
 };
 

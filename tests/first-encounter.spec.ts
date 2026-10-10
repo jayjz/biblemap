@@ -27,6 +27,6 @@ test("first encounter remains available without JavaScript", async ({ browser, b
   const page = await context.newPage();
   await page.goto(`${baseURL}/jonah/`);
   await expect(page.getByText("A place to begin", { exact: true })).toBeVisible();
-  await expect(page.locator("[data-verse]")).toHaveCount(17);
+  await expect(page.locator("[data-verse]")).toHaveCount(48);
   await context.close();
 });

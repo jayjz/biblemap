@@ -30,14 +30,14 @@ export function StoryEvidence({ story, scene, authorReview = false }: { story: S
             <text y="35" textAnchor="middle" fill="currentColor">{place.label}</text>
           </g>)}
         </svg>
-        {places.map(place => <details key={place.placeId} className="story-place">
+        {places.map(place => !authorReview && !approvedAuthoredText(place.explanation) && !place.candidates.length ? <p key={place.placeId} className="story-place-note"><strong>{place.label}</strong> · Named in the passage. Its geographic identification is not established in this reader.</p> : <details key={place.placeId} className="story-place">
           <summary>{place.label} · identification {place.status === "unknown" ? "not established here" : place.status}</summary>
           {(authorReview || approvedAuthoredText(place.explanation)) && <p>{authorReview ? authoredLabel(place.explanation) : approvedAuthoredText(place.explanation)}</p>}
           {place.candidates.map(candidate => <div key={candidate.id}><h4>{candidate.label}</h4>{candidate.evidence.map(ref => <p key={`${ref.sourceId}-${ref.locator}`}>{ref.locator}: {ref.supports} Limits: {ref.doesNotEstablish} <a href={story.sources.find(s => s.id === ref.sourceId)?.url} target="_blank" rel="noreferrer">Source ↗</a></p>)}</div>)}
         </details>)}
       </div>
     </details>}
-    <details className="story-disclosure">
+    {(claims.length > 0 || authorReview) && <details className="story-disclosure">
       <summary>Historical context & evidence</summary>
       <div className="story-disclosure-body">
         {claims.length === 0 ? <><p>No reviewed historical claims are attached to this scene.</p>{authorReview && <p className="story-placeholder">[AUTHOR: historical context and interpretive framing]</p>}</> : claims.map(claim => <article key={claim.id}>
@@ -48,6 +48,6 @@ export function StoryEvidence({ story, scene, authorReview = false }: { story: S
           <ul>{claim.evidence.map(ref => <li key={`${ref.sourceId}-${ref.locator}`}><a href={story.sources.find(s => s.id === ref.sourceId)?.url} target="_blank" rel="noreferrer">{ref.locator} ↗</a><p>Supports: {ref.supports}</p><p>Does not establish: {ref.doesNotEstablish}</p></li>)}</ul>
         </article>)}
       </div>
-    </details>
+    </details>}
   </>;
 }

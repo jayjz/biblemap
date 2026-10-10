@@ -1,37 +1,67 @@
 import { test, expect } from "@playwright/test";
+import { JONAH } from "../src/content/jonah";
 import AxeBuilder from "@axe-core/playwright";
 
-test("complete reader-controlled chapter, history, malformed links, and keyboard focus", async ({ page }, testInfo) => {
+test("complete reader-controlled book, history, malformed links, and keyboard focus", async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
-  await page.goto("/jonah/");
+  const network: string[] = [];
+  const cancelledNavigations: string[] = [];
+  page.on("requestfailed", request => {
+    // Chrome cancels document navigation/Next HEAD probes when leaving a page.
+    // Record those separately; failures of scripts, CSS, imagery, or data still fail.
+    const message = `${request.method()} ${request.url()}: ${request.failure()?.errorText}`;
+    if (request.failure()?.errorText === "net::ERR_ABORTED" && (request.isNavigationRequest() || request.method() === "HEAD")) cancelledNavigations.push(message);
+    else network.push(message);
+  });
+  page.on("response", response => { if (response.status() >= 400) network.push(`${response.status()} ${response.url()}`); });
+  await page.goto("/");
+  await page.getByRole("link", { name: "Enter the story" }).click();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("jonah-entry.png"), fullPage: true });
-  const ids = ["calling", "escape", "storm-wind", "storm-lots", "storm-sea", "depths"];
-  for (let i = 0; i < ids.length; i++) {
-    await expect(page.locator(`[data-scene=jonah-1-${ids[i]}]`)).toBeVisible();
-    if (i < ids.length - 1) {
+  const displayed: { reference: string; text: string }[] = [];
+  for (const [index, scene] of JONAH.scenes.entries()) {
+    const article = page.locator(`[data-scene="${scene.id}"]`);
+    await expect(article).toBeVisible();
+    await expect(article.locator(".story-question")).toContainText("Provisional editorial prompt");
+    displayed.push(...await article.locator("[data-reference]").evaluateAll(elements => elements.map(element => ({
+      reference: element.getAttribute("data-reference") ?? "",
+      text: Array.from(element.childNodes).filter(node => node.nodeName !== "SUP").map(node => node.textContent).join(""),
+    }))));
+    await expect(page.locator(".story-scene:visible")).toHaveCount(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: testInfo.outputPath(`${scene.id}.png`), fullPage: true });
+    await article.getByText("Pause with the passage", { exact: false }).click();
+    await expect(article.locator(".story-companion[open]")).toContainText(scene.readingGuide?.context ?? "");
+    if (index < JONAH.scenes.length - 1) {
       const next = page.getByRole("link", { name: "Continue" });
       await next.focus(); await page.keyboard.press("Enter");
-      await expect(page.locator(`#jonah-1-${ids[i + 1]}-heading`)).toBeFocused();
+      await expect(page.locator(`#${JONAH.scenes[index + 1].id}-heading`)).toBeFocused();
     }
   }
-  await expect(page.getByText("The prototype pauses here.")).toBeVisible();
-  await expect(page.locator("[data-verse='17']")).toBeVisible();
-  await page.goBack(); await expect(page.locator("[data-scene=jonah-1-storm-sea]")).toBeVisible();
-  await page.goForward(); await expect(page.locator("[data-scene=jonah-1-depths]")).toBeVisible();
+  expect(displayed).toEqual(JONAH.passages.flatMap(passage => passage.verses.map(verse => ({ reference: `${passage.chapter}:${verse.number}`, text: verse.text }))));
+  await expect(page.locator('[data-reference="4:11"]')).toContainText(JONAH.passages.at(-1)?.verses[0].text ?? "");
+  await expect(page.getByRole("link", { name: "Return to the stories" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open the atlas" })).toHaveAttribute("href", "/explore/");
+  await page.goBack(); await expect(page.locator("[data-scene=jonah-4-shade]")).toBeVisible();
+  await page.goForward(); await expect(page.locator("[data-scene=jonah-4-question]")).toBeVisible();
+  await page.getByRole("link", { name: "Return to the stories" }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
   await page.goto("/jonah/#%E0%A4%A");
   await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
   await page.goto("/jonah/#jonah-1-escape");
   await page.getByText("Explore the places in this passage", { exact: true }).filter({ visible: true }).click();
   await expect(page.getByRole("img", { name: /Joppa, Tarshish/ })).toBeVisible();
-  await page.getByText("Tarshish · identification not established here", { exact: true }).click();
+  await expect(page.locator(".story-place-note").filter({ hasText: "Tarshish" })).toContainText("geographic identification is not established");
   await expect(page.locator(".story-root")).not.toContainText("[AUTHOR:");
   await expect(page.locator(".story-placeholder")).toHaveCount(0);
   // A timer crossing the legacy 9-second threshold cannot advance this reader.
   await page.clock.install(); await page.clock.fastForward(60000);
   await expect(page.locator("[data-scene=jonah-1-escape]")).toBeVisible();
   expect(errors).toEqual([]);
+  await testInfo.attach("navigation-cancellations", { body: JSON.stringify(cancelledNavigations), contentType: "application/json" });
+  expect(network).toEqual([]);
 });
 
 test("reflection stays in memory and clears on reload and exit", async ({ page }) => {
@@ -95,11 +125,11 @@ test("accessible reduced-motion reader with no WebGL or third-party requests", a
   expect(external).toEqual([]);
 });
 
-test("without JavaScript all 17 verses and anchor navigation remain readable", async ({ browser, baseURL }) => {
+test("without JavaScript all 48 verses and anchor navigation remain readable", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto(`${baseURL}/jonah/`);
-  await expect(page.locator("[data-verse]")).toHaveCount(17);
+  await expect(page.locator("[data-verse]")).toHaveCount(48);
   await expect(page.locator("[data-verse='17']")).toBeVisible();
   await expect(page.getByRole("textbox", { name: "Your private notes", includeHidden: true }).first()).toBeDisabled();
   await page.getByRole("link", { name: "Continue" }).first().click();

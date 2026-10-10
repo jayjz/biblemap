@@ -11,14 +11,21 @@ const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
   "jonah-1-storm-lots": { label: "Dark water beneath a narrowing light", reference: "Jonah 1:7–10" },
   "jonah-1-storm-sea": { label: "Layered waves beneath a dark sky", reference: "Jonah 1:11–16" },
   "jonah-1-depths": { label: "Fading light in deep water", reference: "Jonah 1:17" },
+  "jonah-2-prayer": { label: "A narrow shaft of light in deep blue water", reference: "Jonah 2:1–9" },
+  "jonah-2-shore": { label: "A pale horizon where water meets land", reference: "Jonah 2:10" },
+  "jonah-3-return": { label: "Warm earth and an opening in the distance", reference: "Jonah 3:1–4" },
+  "jonah-3-mercy": { label: "A widening circle of light over warm earth", reference: "Jonah 3:5–10" },
+  "jonah-4-anger": { label: "A harsh sun over a dry horizon", reference: "Jonah 4:1–4" },
+  "jonah-4-shade": { label: "A fading patch of shade on warm earth", reference: "Jonah 4:5–10" },
+  "jonah-4-question": { label: "An open horizon beneath a quiet sky", reference: "Jonah 4:11" },
 };
 
-export function StoryArtwork({ asset, sceneId }: { asset?: CuratedMediaAsset; sceneId?: string }) {
+export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset; sceneId?: string; reviewOnly?: boolean }) {
   const [failedPath, setFailedPath] = useState<string | null>(null);
   const failed = Boolean(asset && failedPath === asset.localPath);
   const atmosphere = ATMOSPHERES[sceneId ?? ""];
-  if (!asset || !isProductionReadyMedia(asset) || failed) return <figure className="story-atmosphere-frame">
-    <div className={`story-atmosphere story-atmosphere--${sceneId?.replace(/^jonah-1-/, "") ?? "default"}`} role="img" aria-label={`${atmosphere?.label ?? "Atmospheric visual composition"}. Abstract study, not a historical reconstruction.`}>
+  if (!asset || (!reviewOnly && !isProductionReadyMedia(asset)) || failed) return <figure className="story-atmosphere-frame">
+    <div className={`story-atmosphere story-atmosphere--${sceneId?.replace(/^jonah-\d-/, "") ?? "default"}`} role="img" aria-label={`${atmosphere?.label ?? "Atmospheric visual composition"}. Abstract study, not a historical reconstruction.`}>
       <div className="story-horizon" aria-hidden="true" />
       <svg className="story-water-lines" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
         <path d="M-40 236 Q100 204 260 236 T640 231 M-30 266 Q120 235 290 269 T650 260 M-40 304 Q100 273 280 310 T650 295 M-40 347 Q110 307 300 353 T650 336" />
@@ -31,7 +38,11 @@ export function StoryArtwork({ asset, sceneId }: { asset?: CuratedMediaAsset; sc
     {/* Local, rights-reviewed asset only. No remote substitution on failure. */}
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <img src={asset.localPath} alt={asset.altText} loading="lazy" decoding="async" onError={() => setFailedPath(asset.localPath)} />
-    <figcaption><MediaProvenancePlate asset={asset} /></figcaption>
+    <figcaption>
+      {reviewOnly && <p className="story-preview-note">Local composition review · Not approved for publication</p>}
+      <p className="story-artwork-caption">{asset.creator} · {asset.creationDate}<br />{asset.title}<br /><small>Artistic depiction · {asset.sourceInstitution}</small></p>
+      <details className="story-artwork-credits"><summary>About this artwork & rights</summary><MediaProvenancePlate asset={asset} /></details>
+    </figcaption>
   </figure>;
 }
 
