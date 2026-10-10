@@ -16,8 +16,15 @@ The integration history contains the foundation/Exodus checkpoint
 first encounter, visual work, and PR #5. The separate `feat/exodus-world-model`
 worktree still points at `ea2365a`, identical to `origin/feat/immersive-foundation`;
 it has no commits absent from Jonah HEAD. This is an ancestry finding, not a
-claim that unfinished Exodus work is release-complete. Other worktree files were
-not edited or cleaned. No merge, closure, deletion, rebase or force push occurred.
+claim that unfinished Exodus work is release-complete. Read-only status inspection
+also found **uncommitted Exodus work** in `/home/abundance333/Desktop/Projects/biblemap`:
+modified package/TypeScript configuration, homepage/DataLoader, historical content,
+WorldAround and cinematic components; untracked `exodus-world.ts`,
+`historical-world.ts`, `historical-world.test.ts` and `ClaimEvidence.tsx`.
+Those local changes are not represented by #6's committed history and must stay
+in that worktree for a separate Exodus review. The homepage, reader and PR #3
+worktrees each have a generated `next-env.d.ts` modification. No other worktree
+files were edited or cleaned. No merge, closure, deletion, rebase or force push occurred.
 
 ## PR representation
 
