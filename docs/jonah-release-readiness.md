@@ -4,7 +4,8 @@
 
 Inspected integration HEAD: `1cad96cd5567a55e8cf325c0c5f4316c9ba4b731`.
 Task branch: `chore/jonah-release-readiness`, directly based on that HEAD.
-Only this report, `.github/workflows/jonah-ci.yml` and a browser-test readiness
+Only this report, `.github/workflows/jonah-ci.yml`, the manual
+`.github/workflows/jonah-release.yml` and a browser-test readiness
 assertion in `tests/jonah.spec.ts` change. Application behavior,
 research files, dependencies, publication metadata and editorial approvals remain unchanged.
 The pre-existing generated `next-env.d.ts` modification is excluded from the commit.
@@ -75,10 +76,18 @@ secret or production-setting change is involved.
 
 Setup follows [GitHub's Node CI documentation](https://docs.github.com/en/actions/tutorials/build-and-test-code/nodejs)
 and [Playwright's CI instructions](https://playwright.dev/docs/ci).
-The independent editorial job runs the unchanged `validate:release`; it is expected
-to fail until genuine human approval/authorship exists. There is no
-`continue-on-error`, suppressed failure, or newly skipped test. A red editorial
-check must not be described as a fully green release.
+Technical integration checks run automatically on pull requests. The separate
+`jonah-release.yml` workflow runs only through `workflow_dispatch` and executes
+the unchanged strict `validate:release`. It is expected to fail until genuine
+human approval/authorship exists. There is no `continue-on-error`, suppressed
+failure, or newly skipped test. Green technical CI does not confer publication
+approval. Earlier runs below predate this workflow separation.
+
+GitHub requires a dispatch workflow to exist on the default branch before it can
+be triggered ([manual workflow documentation](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)).
+Once available there, run `gh workflow run jonah-release.yml --repo jayjz/biblemap --ref <release-branch>`
+to validate the chosen publication candidate. This task does not merge workflows
+to main or change production settings.
 
 Local checks:
 
@@ -135,14 +144,14 @@ they stay excluded from publication. See [current limitations](jonah-v1.md).
 ## Recommended order (no merges or closures performed)
 
 1. Review this focused draft PR into `feat/jonah-visual-assets`; require its technical
-   CI result and explicitly acknowledge the failing editorial gate. Merge it only
+   CI result. Editorial publication approval remains a separate manual gate. Merge it only
    with creator authorization. Its documentation/CI can be integrated independently
    of editorial publication approval.
 2. Re-run #6 on the updated integration head. Review the existing mobile atlas gap,
    dependency advisories and preview scope. For a fully authored release, complete
    genuine authorship/editorial review and require `validate:release` to pass.
    A preview-only merge requires the creator's explicit acceptance of the narrower
-   scope and remaining red editorial gate.
+   scope and outstanding editorial approval; technical CI alone is insufficient.
 3. Merge #6 into main once those conditions are accepted. Prefer a merge commit to
    preserve the existing branch ancestry and independently inspectable history.
 4. After verifying main includes the integration, close #4, then #3, then #1, then
