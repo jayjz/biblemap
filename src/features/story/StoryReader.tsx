@@ -108,7 +108,7 @@ export function StoryReader({ story }: { story: StoryDocument }) {
           </div>
           <div className="story-columns">
             <aside className="story-visual" aria-label="Scene artwork and author workspace">
-              <StoryArtwork key={scene.artworkIds[0] ?? scene.id} asset={story.media.find(m => m.id === scene.artworkIds[0])} />
+              <StoryArtwork key={scene.artworkIds[0] ?? scene.id} sceneId={scene.id} asset={story.media.find(m => m.id === scene.artworkIds[0])} />
               <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
                 <p className="story-placeholder">{authoredLabel(scene.narrative)}</p>
