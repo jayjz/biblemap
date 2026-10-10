@@ -6,6 +6,7 @@ import { authoredLabel, sceneFromHash, type StoryDocument } from "@/domain/story
 import { MOTION } from "@/scenes/motion";
 import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
+import { InterpretationNotes } from "./InterpretationNotes";
 
 function subscribeHash(onChange: () => void) {
   window.addEventListener("hashchange", onChange);
@@ -126,6 +127,7 @@ export function StoryReader({ story }: { story: StoryDocument }) {
                 </section>;
               })}
               <StoryEvidence story={story} scene={scene} />
+              <InterpretationNotes sceneId={scene.id} />
               <details className="story-disclosure story-reflection">
                 <summary>Private reflection <span>Optional</span></summary>
                 <div className="story-disclosure-body">
