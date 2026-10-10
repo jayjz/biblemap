@@ -70,6 +70,8 @@ test("reflection stays in memory and clears on reload and exit", async ({ page }
   const requests: string[] = [];
   page.on("request", r => requests.push(`${r.url()} ${r.postData() ?? ""}`));
   await page.goto("/jonah/");
+  // Before hydration all scenes are visible for no-JavaScript reading.
+  await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await page.getByText("Private reflection", { exact: false }).filter({ visible: true }).click();
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
   await page.getByRole("link", { name: "Continue" }).click();
@@ -81,6 +83,7 @@ test("reflection stays in memory and clears on reload and exit", async ({ page }
   await expect(page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true })).toHaveValue("");
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
   await page.reload();
+  await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await page.getByText("Private reflection", { exact: false }).filter({ visible: true }).click();
   await expect(page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true })).toHaveValue("");
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
