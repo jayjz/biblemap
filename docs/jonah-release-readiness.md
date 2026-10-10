@@ -4,7 +4,8 @@
 
 Inspected integration HEAD: `1cad96cd5567a55e8cf325c0c5f4316c9ba4b731`.
 Task branch: `chore/jonah-release-readiness`, directly based on that HEAD.
-Only this report and `.github/workflows/jonah-ci.yml` change. Application behavior,
+Only this report, `.github/workflows/jonah-ci.yml` and a browser-test readiness
+assertion in `tests/jonah.spec.ts` change. Application behavior,
 research files, dependencies, publication metadata and editorial approvals remain unchanged.
 The pre-existing generated `next-env.d.ts` modification is excluded from the commit.
 
@@ -101,11 +102,20 @@ Local checks:
 
 Local browsers used installed system Chrome; the hosted workflow independently
 installs the browser revision specified by locked Playwright. Hosted CI evidence
-is recorded with the task PR. The existing
+is recorded with the task PR. Initial hosted run `38063513744` passed technical
+checks. Run `38063622621` exposed a reflection-test hydration race: its locator
+matched all 13 server-rendered scenes before client initialization. The test now
+waits for the existing `data-reader-ready=true` signal after entry and reload,
+as the navigation test already does. No timeout, retry or application change
+conceals the failure; the failing run and trace remain available. The existing
 mobile explorer interaction skip remains an explicit coverage gap; Jonah runs at
 both sizes. Existing suites cover keyboard navigation, reduced motion, no-JavaScript
 reading, reflow, private reflection lifecycle, selected events, empty filters,
 approved media provenance, and deliberate image/audio failure fallbacks.
+
+After the readiness fix, the reflection test passed three repetitions on each
+viewport (6/6); lint and TypeScript passed again. Final full hosted results are
+linked in the task PR so the report does not imply that the failed run was green.
 
 ## Preview and human gates
 
