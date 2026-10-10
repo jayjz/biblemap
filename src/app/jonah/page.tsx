@@ -1,0 +1,17 @@
+import type { Metadata } from "next";
+import { JONAH } from "@/content/jonah";
+import { validateStory } from "@/domain/story";
+import { StoryReader } from "@/features/story/StoryReader";
+import "@/features/story/story.css";
+
+export const metadata: Metadata = {
+  title: "Jonah: The Man Who Ran · BibleMap",
+  description: "An author-review prototype exploring Jonah chapter one through scripture, place, and private reflection.",
+  robots: { index: false, follow: false },
+};
+
+export default function JonahPage() {
+  const errors = validateStory(JONAH);
+  if (errors.length) throw new Error(errors.join("\n"));
+  return <StoryReader story={JONAH} />;
+}

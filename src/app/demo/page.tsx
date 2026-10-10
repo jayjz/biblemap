@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "BibleMap · 20s demo",
@@ -48,12 +49,12 @@ export default function DemoPage() {
         >
           Download 1080p
         </a>
-        <a
+        <Link
           href="/"
           className="px-5 py-2.5 rounded-full text-[#c5d4e8] text-sm tracking-wide hover:text-[#f4ead3]"
         >
           Back to the map
-        </a>
+        </Link>
       </div>
     </main>
   );
