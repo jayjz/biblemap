@@ -1,6 +1,6 @@
-# Jonah homepage question entry — proposal (not implemented)
+# Jonah homepage question entry — proposal (implemented as provisional prototype)
 
-**Status:** creative proposal for human review, 2026-10-10. The current deployed homepage offers a single Jonah entry. This proposal does not assert implementation, editorial approval, or user research outcomes.
+**Status:** implemented as a homepage prototype. See [implementation record](jonah-question-entry-implementation.md). All questions and invitation copy remain provisional editorial drafts for creator review. This document does not assert editorial approval or user-research outcomes.
 
 ## Human experience
 
@@ -35,4 +35,4 @@ Prefer the first option for a bounded test. Three choices may be enough, but qua
 
 Implement a **homepage-only prototype**, compare desktop/mobile and no-selection paths, then observe whether first-time readers feel invited rather than examined. Treat answers to feedback questions as qualitative evidence, not a conversion metric.
 
-**Reference baseline:** `feat/jonah-visual-assets` commit `0131398e664be7432ca49256522a8f4b8e166520`; [recognition opening record](jonah-recognition-opening.md). The earlier [question-led homepage task note](question-led-homepage.md) reflects its original chapter-one scope.
+**Reference baseline:** `feat/jonah-visual-assets` commit `0131398e664be7432ca49256522a8f4b8e166520`; [recognition opening record](jonah-recognition-opening.md). The earlier [question-led homepage task note](question-led-homepage.md) reflects its original chapter-one scope. The current implementation lives on `main` following PR #9.
