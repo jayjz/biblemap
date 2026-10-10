@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
-import { authoredLabel, sceneFromHash, type StoryDocument } from "@/domain/story";
+import { approvedAuthoredText, authoredLabel, sceneFromHash, type StoryDocument } from "@/domain/story";
 import { MOTION } from "@/scenes/motion";
 import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
@@ -17,7 +17,7 @@ function subscribeHash(onChange: () => void) {
 const getHash = () => window.location.hash;
 const serverHash = () => null;
 
-export function StoryReader({ story }: { story: StoryDocument }) {
+export function StoryReader({ story, authorReview = false }: { story: StoryDocument; authorReview?: boolean }) {
   const hash = useSyncExternalStore(subscribeHash, getHash, serverHash);
   const active = sceneFromHash(story, hash ?? "");
   const [reflections, setReflections] = useState<Record<string, string>>({});
@@ -90,10 +90,11 @@ export function StoryReader({ story }: { story: StoryDocument }) {
           </a> : <span className="story-future"><span className="story-section-number">0{i + 1}</span><span>{section.label}<small>{section.reference} · outline only</small></span></span>}</li>;
         })}</ol>
       </nav>
-      <p className="story-preview-note">A working study for the author. Narrative, questions, artwork, and interpretation await review.</p>
+      {authorReview && <p className="story-preview-note">A working study for the author. Narrative, questions, artwork, and interpretation await review.</p>}
       {story.scenes.map((scene, index) => {
         const section = story.sections.find(s => s.id === scene.sectionId);
-        const label = scene.title.status === "written" ? scene.title.text : section?.label ?? "Scene";
+        const label = (authorReview && scene.title.status === "written" ? scene.title.text : approvedAuthoredText(scene.title)) ?? section?.label ?? "Scene";
+        const narrative = authorReview ? authoredLabel(scene.narrative) : approvedAuthoredText(scene.narrative);
         const passage = story.passages.find(p => p.id === scene.passageIds[0]);
         const narration = story.media.find(m => m.id === scene.narration?.mediaId);
         const ambience = story.media.find(m => m.id === scene.soundscapeId);
@@ -107,12 +108,12 @@ export function StoryReader({ story }: { story: StoryDocument }) {
             <span className="story-scene-mark" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
           </div>
           <div className="story-columns">
-            <aside className="story-visual" aria-label="Scene artwork and author workspace">
+            <aside className="story-visual" aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
               <StoryArtwork key={scene.artworkIds[0] ?? scene.id} sceneId={scene.id} asset={story.media.find(m => m.id === scene.artworkIds[0])} />
-              <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
-                {scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
-                <p className="story-placeholder">{authoredLabel(scene.narrative)}</p>
-              </div>
+              {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
+                {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
+                <p>{narrative}</p>
+              </div>}
               {isActive && narration && scene.narration?.transcript.status === "written" && <AudioTrack key={`${scene.id}-narration`} asset={narration} label="Narration" transcript={scene.narration.transcript.text} />}
               {isActive && ambience && <AudioTrack key={`${scene.id}-ambience`} asset={ambience} label="Ambience" />}
               {!narration && <p className="story-silence">Silence is available throughout.<br />No approved narration is attached.</p>}
@@ -128,14 +129,14 @@ export function StoryReader({ story }: { story: StoryDocument }) {
                 </section>;
               })}
               <FirstEncounter sceneId={scene.id} />
-              <StoryEvidence story={story} scene={scene} />
+              <StoryEvidence story={story} scene={scene} authorReview={authorReview} />
               <InterpretationNotes sceneId={scene.id} />
               <details className="story-disclosure story-reflection">
                 <summary>Private reflection <span>Optional</span></summary>
                 <div className="story-disclosure-body">
                   <p id={`${scene.id}-privacy`}>Writing stays in memory for this visit. It is not sent or saved by BibleMap and is cleared when you leave or reload.</p>
                   {scene.reflections.map(reflection => <div key={reflection.id}>
-                    <p className="story-placeholder">{authoredLabel(reflection.prompt)}</p>
+                    {(authorReview || approvedAuthoredText(reflection.prompt)) && <p>{authorReview ? authoredLabel(reflection.prompt) : approvedAuthoredText(reflection.prompt)}</p>}
                     <label htmlFor={reflection.id}>Your private notes</label>
                     <textarea id={reflection.id} aria-describedby={`${scene.id}-privacy`} rows={5} autoComplete="off" spellCheck={false} disabled={hash === null}
                       value={reflections[reflection.id] ?? ""} onChange={e => { setReflections(previous => ({ ...previous, [reflection.id]: e.target.value })); setCleared(false); }} />

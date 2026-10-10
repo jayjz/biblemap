@@ -26,7 +26,8 @@ test("complete reader-controlled chapter, history, malformed links, and keyboard
   await page.getByText("Explore the places in this passage", { exact: true }).filter({ visible: true }).click();
   await expect(page.getByRole("img", { name: /Joppa, Tarshish/ })).toBeVisible();
   await page.getByText("Tarshish · identification not established here", { exact: true }).click();
-  await expect(page.getByText("[AUTHOR: tarshish: geographic evidence and uncertainty]", { exact: true })).toBeHidden();
+  await expect(page.locator(".story-root")).not.toContainText("[AUTHOR:");
+  await expect(page.locator(".story-placeholder")).toHaveCount(0);
   // A timer crossing the legacy 9-second threshold cannot advance this reader.
   await page.clock.install(); await page.clock.fastForward(60000);
   await expect(page.locator("[data-scene=jonah-1-escape]")).toBeVisible();

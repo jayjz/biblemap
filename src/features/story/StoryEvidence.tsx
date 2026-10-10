@@ -1,4 +1,4 @@
-import { authoredLabel, type Passage, type StoryDocument, type StoryScene } from "@/domain/story";
+import { approvedAuthoredText, authoredLabel, type Passage, type StoryDocument, type StoryScene } from "@/domain/story";
 
 export function PassageSource({ passage, story }: { passage: Passage; story: StoryDocument }) {
   const source = story.sources.find(s => s.id === passage.sourceId);
@@ -15,9 +15,9 @@ export function PassageSource({ passage, story }: { passage: Passage; story: Sto
   </details>;
 }
 
-export function StoryEvidence({ story, scene }: { story: StoryDocument; scene: StoryScene }) {
+export function StoryEvidence({ story, scene, authorReview = false }: { story: StoryDocument; scene: StoryScene; authorReview?: boolean }) {
   const places = story.geography.filter(g => scene.geographyIds.includes(g.placeId));
-  const claims = story.claims.filter(c => scene.claimIds.includes(c.id));
+  const claims = story.claims.filter(c => scene.claimIds.includes(c.id) && (authorReview || approvedAuthoredText(c.statement)));
   return <>
     {places.length > 0 && <details className="story-disclosure">
       <summary>Explore the places in this passage</summary>
@@ -32,7 +32,7 @@ export function StoryEvidence({ story, scene }: { story: StoryDocument; scene: S
         </svg>
         {places.map(place => <details key={place.placeId} className="story-place">
           <summary>{place.label} · identification {place.status === "unknown" ? "not established here" : place.status}</summary>
-          <p className="story-placeholder">{authoredLabel(place.explanation)}</p>
+          {(authorReview || approvedAuthoredText(place.explanation)) && <p>{authorReview ? authoredLabel(place.explanation) : approvedAuthoredText(place.explanation)}</p>}
           {place.candidates.map(candidate => <div key={candidate.id}><h4>{candidate.label}</h4>{candidate.evidence.map(ref => <p key={`${ref.sourceId}-${ref.locator}`}>{ref.locator}: {ref.supports} Limits: {ref.doesNotEstablish} <a href={story.sources.find(s => s.id === ref.sourceId)?.url} target="_blank" rel="noreferrer">Source ↗</a></p>)}</div>)}
         </details>)}
       </div>
@@ -40,7 +40,7 @@ export function StoryEvidence({ story, scene }: { story: StoryDocument; scene: S
     <details className="story-disclosure">
       <summary>Historical context & evidence</summary>
       <div className="story-disclosure-body">
-        {claims.length === 0 ? <><p>No reviewed historical claims are attached to this scene.</p><p className="story-placeholder">[AUTHOR: historical context and interpretive framing]</p></> : claims.map(claim => <article key={claim.id}>
+        {claims.length === 0 ? <><p>No reviewed historical claims are attached to this scene.</p>{authorReview && <p className="story-placeholder">[AUTHOR: historical context and interpretive framing]</p>}</> : claims.map(claim => <article key={claim.id}>
           <p className="story-eyebrow">{claim.basis.replaceAll("-", " ")} · {claim.certainty}</p>
           <p>{authoredLabel(claim.statement)}</p>
           {claim.interpretiveLens && <p>Interpretive lens: {claim.interpretiveLens}</p>}

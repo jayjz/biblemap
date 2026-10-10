@@ -1,7 +1,24 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { JONAH } from "../content/jonah.ts";
-import { sceneFromHash, validateStory, type Claim, type StoryDocument } from "./story.ts";
+import { approvedAuthoredText, sceneFromHash, validateStory, type Claim, type StoryDocument } from "./story.ts";
+import { JONAH_MEDIA_REVIEW } from "../content/jonah-media.ts";
+import { isProductionReadyMedia } from "./media.ts";
+
+test("acquired media never implies editorial or scene approval", () => {
+  assert.equal(JONAH_MEDIA_REVIEW.length, 3);
+  assert.ok(JONAH_MEDIA_REVIEW.every(asset => !isProductionReadyMedia(asset) && !asset.reviewedBy && !asset.downloadedAt));
+  assert.deepEqual(JONAH.media, []);
+  assert.ok(JONAH.scenes.every(scene => !scene.artworkIds.length));
+});
+
+test("visitor copy requires actual approval; source slots and drafts remain intact", () => {
+  assert.equal(approvedAuthoredText({ status: "placeholder", slot: "original author slot" }), null);
+  assert.equal(approvedAuthoredText({ status: "written", text: "Draft", authorId: "fixture", review: { status: "draft" } }), null);
+  assert.equal(approvedAuthoredText({ status: "written", text: "Approved", authorId: "fixture", review: { status: "approved", reviewedBy: "", reviewedAt: "2026-10-10" } }), null);
+  assert.equal(approvedAuthoredText({ status: "written", text: "Approved", authorId: "fixture", review: { status: "approved", reviewedBy: "test-fixture-only", reviewedAt: "2026-10-10" } }), "Approved");
+  assert.equal(JONAH.scenes[0].narrative.status, "placeholder");
+});
 
 test("author review is valid, while release fails closed on unfinished authorship", () => {
   assert.deepEqual(validateStory(JONAH), []);

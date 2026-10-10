@@ -52,6 +52,13 @@ export function authoredLabel(copy: AuthoredText): string {
   return copy.status === "placeholder" ? `[AUTHOR: ${copy.slot}]` : copy.text;
 }
 
+/** Drafts remain in the source and author workspace, never in visitor markup. */
+export function approvedAuthoredText(copy: AuthoredText): string | null {
+  return copy.status === "written" && copy.review.status === "approved" &&
+    copy.review.reviewedBy.trim() && Number.isFinite(Date.parse(copy.review.reviewedAt))
+    ? copy.text : null;
+}
+
 /** URL values never become indexes, selectors, or executable content. */
 export function sceneFromHash(story: StoryDocument, hash: string): StoryScene {
   let id = "";

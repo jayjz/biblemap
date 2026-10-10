@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { useState } from "react";
 import { AudioTrack, StoryArtwork } from "../src/features/story/StoryMedia";
 import type { CuratedMediaAsset } from "../src/domain/media";
+import { JONAH_MEDIA_REVIEW } from "../src/content/jonah-media";
 
 const fixture: CuratedMediaAsset = {
   id: "test-audio", eventIds: [], journeyIds: [], class: "narration", title: "Test-only silence",
@@ -16,9 +17,14 @@ const fixture: CuratedMediaAsset = {
 };
 function Harness() {
   const [mounted, setMounted] = useState(true);
+  const [portrait, setPortrait] = useState(false);
+  // Synthetic test approval only. The real record remains rights-verified with no reviewer.
+  const testPortrait: CuratedMediaAsset = { ...JONAH_MEDIA_REVIEW[0], reviewStatus: "approved", reviewedBy: "test-fixture-only", downloadedAt: "2026-10-10", localPath: "/media/test-reviewed-portrait.jpg" };
   return <main><button onClick={() => setMounted(false)}>Leave scene</button>
+    <button onClick={() => setPortrait(true)}>Show test-approved portrait</button>
     {mounted && <AudioTrack asset={fixture} label="Narration" transcript="Test transcript" />}
-    <StoryArtwork asset={{ ...fixture, id: "test-image", class: "artistic-depiction", localPath: "/media/test-missing.jpg" }} />
+    <div className="story-root" style={{ maxWidth: 520, margin: "2rem auto" }}><StoryArtwork sceneId="jonah-1-calling" asset={portrait ? testPortrait : { ...fixture, id: "test-image", class: "artistic-depiction", localPath: "/media/test-missing.jpg" }} /></div>
+    <div data-testid="unapproved-art"><StoryArtwork asset={{ ...testPortrait, reviewStatus: "rights-verified", reviewedBy: "", localPath: "/media/test-unapproved.jpg" }} /></div>
   </main>;
 }
 const root = document.getElementById("test-root");

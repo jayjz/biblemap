@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { build } from "esbuild";
+import { readFileSync, readdirSync } from "node:fs";
+import AxeBuilder from "@axe-core/playwright";
 
 let bundle = "";
 test.beforeAll(async () => {
@@ -16,10 +18,10 @@ test("media failure preserves fallback; audio requires action and pauses on scen
   wav.write("data", 36); wav.writeUInt32LE(wav.length - 44, 40);
   await page.route("**/media/test-silence.wav", route => route.fulfill({ contentType: "audio/wav", body: wav }));
   await page.route("**/media/test-missing.jpg", route => route.fulfill({ status: 404 }));
-  await page.route("**/test-only-media-harness", route => route.fulfill({ contentType: "text/html", body: '<html lang="en"><body><div id="test-root"></div></body></html>' }));
+  await page.route("**/test-only-media-harness", route => route.fulfill({ contentType: "text/html", body: '<html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><div id="test-root"></div></body></html>' }));
   await page.goto("/test-only-media-harness");
   await page.addScriptTag({ content: bundle });
-  await expect(page.getByText("Artwork unavailable · reading continues")).toBeVisible();
+  await expect(page.getByText("Artwork unavailable. The passage remains readable.")).toBeVisible();
   expect(await page.locator("audio").evaluate((audio: HTMLAudioElement) => audio.paused)).toBe(true);
   await page.getByRole("button", { name: "Play narration", exact: true }).click();
   await expect(page.getByRole("button", { name: "Pause narration", exact: true })).toBeVisible();
@@ -44,4 +46,31 @@ test("rejected playback remains recoverable without synthesis", async ({ page })
   await expect(page.getByRole("status")).toContainText("Audio unavailable");
   await page.getByText("Narration transcript", { exact: true }).click();
   await expect(page.getByText("Test transcript", { exact: true }).filter({ visible: true })).toBeVisible();
+});
+
+test("unapproved media makes no image request; approved fixture preserves composition and provenance after failure", async ({ page }, testInfo) => {
+  const requests: string[] = [];
+  page.on("request", request => requests.push(request.url()));
+  await page.route("**/test-only-media-harness", route => route.fulfill({ contentType: "text/html", body: '<html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><div id="test-root"></div></body></html>' }));
+  await page.route("**/media/test-missing.jpg", route => route.fulfill({ status: 404 }));
+  await page.route("**/media/test-reviewed-portrait.jpg", route => route.fulfill({ contentType: "image/jpeg", body: readFileSync("artifacts/jonah-image-review/nga-raphael-hosea-jonah.jpeg") }));
+  await page.goto("/test-only-media-harness");
+  const cssDir = "out/_next/static/css";
+  await page.addStyleTag({ content: readdirSync(cssDir).filter(file => file.endsWith(".css")).map(file => readFileSync(`${cssDir}/${file}`, "utf8")).join("\n") });
+  await page.addScriptTag({ content: bundle });
+  await expect(page.getByText("Artwork unavailable. The passage remains readable.")).toBeVisible();
+  await expect(page.getByTestId("unapproved-art").locator("img")).toHaveCount(0);
+  await page.getByRole("button", { name: "Show test-approved portrait" }).click();
+  const portrait = page.locator(".story-artwork img");
+  await portrait.scrollIntoViewIfNeeded();
+  await expect.poll(() => portrait.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(611);
+  expect(await portrait.evaluate(img => getComputedStyle(img).objectFit)).toBe("contain");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await expect(page.getByRole("heading", { name: "The Prophets Hosea and Jonah" })).toBeVisible();
+  await expect(page.locator(".story-artwork")).toContainText("National Gallery of Art");
+  await expect(page.locator(".story-artwork")).toContainText("not archaeological evidence");
+  const accessibility = await new AxeBuilder({ page }).include(".story-artwork").analyze();
+  expect(accessibility.violations).toEqual([]);
+  await page.screenshot({ path: testInfo.outputPath("test-only-portrait-provenance.png"), fullPage: true });
+  expect(requests.some(url => url.includes("test-unapproved.jpg"))).toBe(false);
 });
