@@ -198,3 +198,14 @@
   .story-question { margin-bottom: 0; }
   .story-final-question .story-verses { font-size: 28px; }
 }
+
+/* Recognition leads into Scripture without another introductory screen. */
+.story-intro { padding-top: 4rem; padding-bottom: 3rem; }
+.story-recognition { color: var(--paper); }
+.story-curiosity { margin: 1.8rem 0 2.5rem; max-width: 28rem; }
+.story-curiosity p { color: var(--paper); font: 400 clamp(25px, 2.4vw, 33px)/1.45 var(--font-playfair), Georgia, serif; }
+@media (max-width: 640px) {
+  .story-intro { padding-top: 2.5rem; padding-bottom: 2rem; }
+  .story-opening-scene .story-reading { grid-row: 1; }
+  .story-opening-scene .story-visual { grid-row: 2; }
+}

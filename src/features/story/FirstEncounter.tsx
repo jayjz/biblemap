@@ -6,12 +6,8 @@ const perspectives = [
 ] as const;
 
 export function FirstEncounter({ sceneId }: { sceneId: string }) {
-  if (sceneId !== "jonah-1-calling" && sceneId !== "jonah-1-escape") return null;
-  return <section className="story-first-encounter" aria-label="Orientation and optional philosophical perspectives">
-    {sceneId === "jonah-1-calling" && <div className="story-first-orientation">
-      <p className="story-eyebrow">A place to begin</p>
-      <p>This is the opening of the book of Jonah. Nineveh is the city Jonah is told to visit. Read the words first; you do not need to know the geography or the interpretations to begin.</p>
-    </div>}
+  if (sceneId !== "jonah-1-escape") return null;
+  return <section className="story-first-encounter" aria-label="Optional philosophical perspectives">
     {sceneId === "jonah-1-escape" && <details className="story-disclosure story-first-perspectives">
       <summary>Why do people run? <span>Optional · philosophy, not Scripture</span></summary>
       <div className="story-disclosure-body">

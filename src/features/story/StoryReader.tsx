@@ -79,7 +79,8 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
       <div className="story-intro">
         <p className="story-eyebrow">The book of Jonah <span aria-hidden="true">/</span> A journey in six movements</p>
         <h1>{story.title}<span>{story.subtitle}</span></h1>
-        <p className="story-invitation">A command. A departure. The lives caught in between. Read slowly. Follow the story wherever its questions lead.</p>
+        <p className="story-invitation">A conversation. A responsibility. A truth about ourselves.</p>
+        <p className="story-invitation story-recognition">Sometimes, leaving feels easier.</p>
         <div className="story-intro-meta"><span>All four chapters</span><span>World English Bible</span><span>At your own pace · In silence</span></div>
         <a className="story-begin" href={`#${active.id}`} onClick={e => navigate(e, active.id)}>Begin reading <span aria-hidden="true">↓</span></a>
       </div>
@@ -102,7 +103,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         const preview = (authorReview || localReview) ? previewMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset : undefined;
         const artwork = story.media.find(m => m.id === scene.artworkIds[0]) ?? preview;
         const isActive = hash !== null && active.id === scene.id;
-        return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
+        return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${index < 3 ? " story-opening-scene" : ""}${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
           <div className="story-scene-header">
             <div><p className="story-eyebrow">Chapter {String(scene.chapter).padStart(2, "0")} <span aria-hidden="true">/</span> {String(index + 1).padStart(2, "0")} of {String(story.scenes.length).padStart(2, "0")}</p>
               <h2 id={`${scene.id}-heading`} tabIndex={-1}>{label}</h2>
@@ -113,7 +114,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
           <div className="story-columns">
             <aside className="story-visual" aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
               <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={Boolean(preview)} />
-              {scene.readingGuide && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
+              {scene.readingGuide && index >= 3 && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
                 <p>{narrative}</p>
@@ -132,6 +133,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
                   <PassageSource passage={p} story={story} />
                 </section>;
               })}
+              {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
               {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>Optional · reading companion</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>Reading companion · Commentary on the passage</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
               <FirstEncounter sceneId={scene.id} />
               <StoryEvidence story={story} scene={scene} authorReview={authorReview} />

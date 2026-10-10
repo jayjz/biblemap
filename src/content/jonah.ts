@@ -13,7 +13,7 @@ const sequence = [
     title: "Calling", question: "What do we do with a responsibility we did not choose?",
     context: "Nineveh is the city Jonah is told to visit. The opening gives a command, but does not yet tell us what Jonah thinks of it." },
   { id: "jonah-1-escape", section: "escape", chapter: 1, first: 3, last: 3,
-    title: "Flight", question: "When is leaving an act of freedom—and when is it avoidance?",
+    title: "Flight", question: "But what was Jonah really running from?",
     context: "Watch the repeated movement away: Jonah goes to Joppa, finds a ship, and pays his fare. The verse describes his departure without explaining his motive." },
   { id: "jonah-1-storm-wind", section: "storm", chapter: 1, first: 4, last: 6,
     title: "While Jonah sleeps", question: "Who carries the weight of the things we avoid?",

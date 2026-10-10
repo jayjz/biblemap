@@ -31,9 +31,9 @@ export default function Home() {
         <div className="bm-sea" aria-hidden="true"><span className="bm-moon"/><span className="bm-swell bm-swell-one"/><span className="bm-swell bm-swell-two"/><span className="bm-swell bm-swell-three"/></div>
         <div className="bm-feature-copy">
           <p className="bm-eyebrow">First journey <span aria-hidden="true">/</span> The book of Jonah</p>
-          <h2 id="bm-feature-title">Why do we run from what we know is right?</h2>
+          <h2 id="bm-feature-title">What are we running from?</h2>
           <p className="bm-feature-name">Jonah: The Man Who Ran</p>
-          <p>A calling. A ship bound the other way. A storm. Read the story at your own pace, with optional paths into its history and interpretation.</p>
+          <p>We all have something we’d rather not face.</p>
           <Link className="bm-cta" href="/jonah/">Enter the story <span aria-hidden="true">→</span></Link>
           <p className="bm-availability">All four chapters · Six movements · Read at your own pace</p>
         </div>
