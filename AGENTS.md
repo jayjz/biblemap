@@ -59,6 +59,10 @@ The primary experience modes are:
 
 Do not build three disconnected applications. These are layers of one coherent experience.
 
+### Experience-design requirement
+
+Create an opening for recognition, then let Scripture complicate what visitors think they recognize. Recognition is invitation, not interpretation, diagnosis, or confirmation. The first viewport must not predetermine a character’s psychology or the story’s meaning. See `docs/experience-principles.md`.
+
 ## Current Technical Context
 
 The current application uses:
