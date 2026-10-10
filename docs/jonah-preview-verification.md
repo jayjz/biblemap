@@ -1,5 +1,7 @@
 # Jonah public-preview preparation — 2026-10-10
 
+> Historical preview-preparation evidence; its branch/PR/protection state and test results describe that checkpoint. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 Branch: `feat/jonah-visual-assets`. PR: https://github.com/jayjz/biblemap/pull/4. Existing PR base and prior work retained; no main merge, branch deletion, or Exodus implementation change.
 
 ## Changed files

@@ -4,7 +4,7 @@
 
 BibleMap is a human-authored exploration of biblical stories through Scripture, geography, historical art, theology, and reflection. The goal is to invite curiosity and personal recognition—not prescribe what to believe.
 
-The first complete reading experience is **[Jonah: The Man Who Ran](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/jonah/)**. It is currently a **public preview on a feature branch**, not an approved editorial release or a deployment from `main`.
+The flagship **Jonah: The Man Who Ran** is implemented on `main` as a complete-text reading preview, not a finished, creator-approved authored experience. See the maintained [Jonah completion audit and blueprint](docs/jonah-completion.md) for the pinned repository baseline, scene matrix, source candidates and shortest completion path.
 
 ## What works today
 
@@ -22,7 +22,7 @@ The first complete reading experience is **[Jonah: The Man Who Ran](https://bibl
 - [Jonah reading experience](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/jonah/)
 - [Atlas](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/explore/)
 
-These are Vercel **Preview** URLs associated with `feat/jonah-visual-assets`; availability may change when branches or deployment protection settings change. Do not treat them as the `main` release.
+These are historical Vercel **Preview** URLs associated with `feat/jonah-visual-assets`; availability may change. Their feature integration is now on `main`, but these aliases do not identify its current deployment. The separate recognition-led `/opening-b/` experiment remains [draft PR #11](https://github.com/jayjz/biblemap/pull/11) at the audit baseline.
 
 ## Development
 
@@ -65,6 +65,7 @@ The human creator retains final authority over storytelling, selection, interpre
 ## Documentation and GitHub workflow
 
 - [Jonah V1 status and approvals](docs/jonah-v1.md)
+- [Maintained Jonah completion audit and blueprint](docs/jonah-completion.md)
 - [Recognition-first opening: implementation record](docs/jonah-recognition-opening.md)
 - [Jonah preview verification](docs/jonah-preview-verification.md)
 - [Question-led homepage prototype and review decisions](docs/jonah-question-entry-implementation.md)
@@ -72,7 +73,7 @@ The human creator retains final authority over storytelling, selection, interpre
 - [Research and artwork records](docs/research/)
 - [Agent and contribution rules](AGENTS.md)
 
-The `docs/question-led-homepage.md` task note describes an **earlier chapter-one checkpoint** and is preserved as historical context, not a current feature inventory. PRs [#3](https://github.com/jayjz/biblemap/pull/3) and [#4](https://github.com/jayjz/biblemap/pull/4) are stacked; review ancestry before merging or closing either. Do not merge or delete unfinished Exodus branches as part of Jonah integration.
+The dated task notes describe earlier checkpoints, not current feature inventories or outstanding merge instructions. Inspect current GitHub state before acting. Preserve unfinished Exodus work, including the separately documented uncommitted work on another host; do not merge or delete its branches as part of Jonah completion.
 
 ## License
 

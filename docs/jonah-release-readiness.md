@@ -1,5 +1,7 @@
 # Jonah integration audit — 2026-10-10
 
+> Historical integration checkpoint, including evidence of separate uncommitted Exodus work. Its PR states and suggested merge order are superseded; do not execute them as current instructions. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 ## Scope and checkpoint
 
 Inspected integration HEAD: `1cad96cd5567a55e8cf325c0c5f4316c9ba4b731`.

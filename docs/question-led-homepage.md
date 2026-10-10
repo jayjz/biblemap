@@ -1,5 +1,7 @@
 # Task 001 — Question-led homepage (author-review)
 
+> Historical homepage checkpoint; its chapter-one-only inventory is superseded. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 ## Intent
 Start with questions that invite a reader unfamiliar with Scripture, not with maps, filters, or an assertion about what to believe. The visual sea/storm composition is CSS-only; it is atmospheric, not an image claiming to depict an ancient event or a rights-cleared museum artwork.
 

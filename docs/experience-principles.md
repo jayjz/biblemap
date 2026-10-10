@@ -33,3 +33,11 @@ Scripture is permitted to complicate, contradict, or surprise the recognition th
 Artistic intention and observed visitor response are different things. Passing technical checks, accessibility tests, or editorial review does not establish that a stranger experienced recognition or curiosity. Emotional claims require observation of people who have not been briefed on the principle and who have not recently read the story. Indifference and early exits are data.
 
 These principles govern creative and technical decisions for the Jonah experience. They do not replace Scripture-first safeguards, source transparency, or human editorial authority.
+
+## Perspectives earn their place
+
+Creative inclusion is driven by meaningful contextual connection, not author fame, source prestige, or a requirement that a thinker directly commented on Jonah. A related argument about mercy, flight or responsibility can illuminate a passage, provided BibleMap identifies its own proposed connection and preserves the source's actual context and differences.
+
+Primary works, established translations, reputable reprints, published interviews/lectures and credible secondary collections are legitimate research sources. Verify wording, attribution and an exact obtainable location before quoting; distinguish paraphrase from quotation. Modern translation and reproduction rights remain separate from the age of the original work. Human review governs final selection, interpretation, copy and placement, not whether a candidate may be explored.
+
+Some scenes need silence. The biblical passage remains primary; a recurring template must not require a quotation, reflection question or historical image in every scene. See the maintained [Jonah completion blueprint](jonah-completion.md).

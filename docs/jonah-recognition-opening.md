@@ -1,5 +1,7 @@
 # Jonah recognition-first opening — 2026-10-10
 
+> Historical opening checkpoint; subsequent homepage work is on main and a separate A/B experiment remains draft #11 at the completion-audit baseline. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 Branch: `feat/jonah-visual-assets`; PR #4. Baseline: `4f6a116a401d15ecb46ceb41419b90a798b903fa` and its existing Vercel branch preview. This pass is limited to the homepage, reader introduction, first three scene compositions, and related browser assertions. All 48 WEB verses, 13 scenes, three museum images and their approvals/provenance, atlas, and Exodus implementation remain intact.
 
 ## Composition and copy

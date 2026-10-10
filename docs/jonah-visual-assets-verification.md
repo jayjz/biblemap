@@ -1,5 +1,7 @@
 # Jonah visual integration — local verification, 2026-10-10
 
+> Historical preapproval checkpoint; its zero-artwork publication status is superseded by the scoped preview approval. See [Jonah V1](jonah-v1.md) and [the maintained completion audit](jonah-completion.md) for current status. The dated record below is preserved.
+
 Branch: `feat/jonah-visual-assets`. PR: https://github.com/jayjz/biblemap/pull/4, retaining base `feat/jonah-first-encounter` (PR #3). No merge, deployment, main-branch change, or Exodus implementation change.
 
 ## Delivered files and display state

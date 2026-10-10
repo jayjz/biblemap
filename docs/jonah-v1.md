@@ -1,5 +1,7 @@
 # Jonah V1 — public preview and editorial status
 
+Current integration baseline: `main` at `1e68586c56c1c74fb40ec52ca700de08883f5b41`. Maintain completion planning in [Jonah completion audit and blueprint](jonah-completion.md). The approval evidence below remains scoped to the preview and named placements; complete text does not mean complete authored experience.
+
 The reader covers all four chapters: 48 complete World English Bible verses in 13 reader-controlled scenes. Scripture, translator notes, and source snapshots are unchanged by the preview work. Static export, silent-default reading, optional sources, temporary private reflections, and keyboard navigation remain available.
 
 ## Scoped creator approval
@@ -30,4 +32,4 @@ Distinct from technical CI and editorial publication approval: does the opening 
 
 ## Verification and deployment
 
-See `docs/jonah-preview-verification.md` for the current checks and deployment evidence. Earlier local-only verification reports describe historical checkpoints, not the current publication state. PR #4 retains base `feat/jonah-first-encounter`; no merge, branch deletion, or Exodus implementation change is authorized.
+See [preview verification](jonah-preview-verification.md) for the checks and deployment evidence recorded at that checkpoint, and [the completion audit](jonah-completion.md) for fresh findings and verification limits. The earlier PR #4 stack is historical; inspect current GitHub state before workflow changes. No merge, branch deletion, deployment or Exodus implementation change is authorized by this status document.

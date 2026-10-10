@@ -41,7 +41,7 @@ Immersion must come from coherence, meaning, pacing, sound, geography, and visua
 
 ## Experience Direction
 
-The visual identity should feel like ancient material culture interpreted through a modern cinematic atlas:
+The existing visual studies explore ancient material culture through a modern cinematic atlas. This palette and style remain provisional, subject to creator direction:
 
 - Warm stone, parchment, bronze, lapis, desert night, firelight, and natural earth tones
 - Clear modern typography and navigation
@@ -62,6 +62,8 @@ Do not build three disconnected applications. These are layers of one coherent e
 ### Experience-design requirement
 
 Create an opening for recognition, then let Scripture complicate what visitors think they recognize. Recognition is invitation, not interpretation, diagnosis, or confirmation. The first viewport must not predetermine a character’s psychology or the story’s meaning. See `docs/experience-principles.md`.
+
+Creative inclusion is driven by a meaningful contextual connection, not author fame, institutional prestige, or whether a thinker directly commented on Jonah. Primary works, established translations, reputable reprints, published lectures/interviews and credible secondary collections may all support exploration. Clearly distinguish direct commentary, a source's related argument, and BibleMap's own editorial connection. Verify attribution, wording, context and precise location before quoting; check the chosen translation/reproduction's rights before publication. Research selection does not confer human editorial approval. Maintain Jonah completion work in `docs/jonah-completion.md`; preserve dated research records as historical evidence.
 
 ## Current Technical Context
 
@@ -85,7 +87,7 @@ Known stabilization concerns must be verified rather than assumed:
 - `DataLoader.tsx` is an oversized component.
 - UI, ETL, and Parquet epoch definitions may have drifted.
 - Data and media attribution are incomplete.
-- Automated browser coverage is missing.
+- Automated browser coverage exists under `tests/`; verify its current results and gaps rather than treating historical passes as current. The documented legacy mobile-atlas interaction skip and manual assistive-technology checks remain separate concerns.
 
 ## Repository Workflow
 
@@ -132,6 +134,7 @@ npx tsc --noEmit
 npm run build
 npm run test
 npm run test:e2e
+```
 
 A command that does not exist should be reported, not falsely claimed as passing. Add missing test commands when the task includes establishing that test layer.
 
