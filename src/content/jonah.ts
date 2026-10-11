@@ -3,7 +3,7 @@ import chapter2 from "./scripture/web-jonah-2.json" with { type: "json" };
 import chapter3 from "./scripture/web-jonah-3.json" with { type: "json" };
 import chapter4 from "./scripture/web-jonah-4.json" with { type: "json" };
 import type { AuthoredText, Passage, StoryDocument } from "../domain/story.ts";
-import { JONAH_APPROVED_MEDIA, jonahArtworkIds } from "./jonah-media.ts";
+import { JONAH_APPROVED_MEDIA, JONAH_PROVISIONAL_MEDIA, jonahSceneArtworkIds } from "./jonah-media.ts";
 
 const placeholder = (slot: string): AuthoredText => ({ status: "placeholder", slot });
 export const JONAH_CHAPTERS = [chapter1, chapter2, chapter3, chapter4];
@@ -81,7 +81,7 @@ export const JONAH: StoryDocument = {
     passageIds: [passages[i].id],
     reflections: [{ id: `${scene.id}-reflection`, prompt: placeholder("creator reflection prompt") }],
     claimIds: [], geographyIds: scene.id === "jonah-1-calling" || scene.chapter === 3 ? ["nineveh"] : scene.id === "jonah-1-escape" ? ["joppa", "tarshish"] : [],
-    artworkIds: jonahArtworkIds(scene.id),
+    artworkIds: jonahSceneArtworkIds(scene.id),
     transition: { nextSceneId: sequence[i + 1]?.id ?? null, advance: "reader", visual: "fade" },
     review: { status: "draft" },
     readingGuide: { title: scene.title, question: scene.question, context: scene.context,
@@ -98,5 +98,5 @@ export const JONAH: StoryDocument = {
     placeId, label: placeId[0].toUpperCase() + placeId.slice(1), status: "unknown",
     explanation: placeholder(`${placeId}: geographic evidence and uncertainty`), candidates: [],
   })),
-  media: JONAH_APPROVED_MEDIA,
+  media: [...JONAH_APPROVED_MEDIA, ...JONAH_PROVISIONAL_MEDIA],
 };

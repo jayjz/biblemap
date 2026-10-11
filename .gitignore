@@ -32,6 +32,8 @@ artifacts/jonah-v1-review/
 artifacts/jonah-image-review/met-vaillant-prophet-jonas.jpg
 artifacts/jonah-image-review/cma-jonah-swallowed.jpeg
 artifacts/jonah-image-review/cma-jonah-cast-up.jpg
+# Commons public-domain labels not reconfirmed with the institution. Local visual review only; do not publish the files.
+artifacts/jonah-visual-review/*.jpg
 
 # Python
 __pycache__/

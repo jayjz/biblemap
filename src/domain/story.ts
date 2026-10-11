@@ -1,5 +1,5 @@
 import type { HistoricalSource } from "./historical-context.ts";
-import { isProductionReadyMedia, type CuratedMediaAsset } from "./media.ts";
+import { mayPublishMedia, type CuratedMediaAsset } from "./media.ts";
 
 export type Review = { status: "draft" } | { status: "approved"; reviewedBy: string; reviewedAt: string };
 export type AuthoredText =
@@ -143,7 +143,7 @@ export function validateStory(story: StoryDocument, mode = story.mode): string[]
     }
   }
   for (const asset of story.media) {
-    if (!isProductionReadyMedia(asset) || !/^sha256:[a-f0-9]{64}$/.test(asset.checksum) || !/^\/media\/[\w/.-]+$/.test(asset.localPath) || asset.localPath.includes("..")) fail(asset.id, "approved local media with verified provenance required");
+    if (!mayPublishMedia(asset) || !/^sha256:[a-f0-9]{64}$/.test(asset.checksum) || !/^\/media\/[\w/.-]+$/.test(asset.localPath) || asset.localPath.includes("..")) fail(asset.id, "publishable local media with a source and open rights required");
   }
   story.scenes.forEach((scene, index) => {
     if (scene.readingGuide) {

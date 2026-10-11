@@ -100,8 +100,9 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         const passage = story.passages.find(p => p.id === scene.passageIds[0]);
         const narration = story.media.find(m => m.id === scene.narration?.mediaId);
         const ambience = story.media.find(m => m.id === scene.soundscapeId);
+        const fromStory = story.media.find(m => m.id === scene.artworkIds[0]);
         const preview = (authorReview || localReview) ? previewMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset : undefined;
-        const artwork = story.media.find(m => m.id === scene.artworkIds[0]) ?? preview;
+        const artwork = fromStory ?? preview;
         const isActive = hash !== null && active.id === scene.id;
         return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${index < 3 ? " story-opening-scene" : ""}${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
           <div className="story-scene-header">
@@ -113,7 +114,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
           </div>
           <div className="story-columns">
             <aside className="story-visual" aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
-              <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={Boolean(preview)} />
+              <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && Boolean(preview)} />
               {scene.readingGuide && index >= 3 && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
