@@ -9,6 +9,8 @@ export const DISCOVERY_SOURCES = {
   library: { title: 'British Museum · What was Ashurbanipal’s Library?', url: 'https://www.britishmuseum.org/research/projects/what-was-ashurbanipals-library' },
   floodTablet: { title: 'British Museum · The Flood Tablet (K.3375)', url: 'https://www.britishmuseum.org/collection/search?keyword=K.3375' },
   sculpture: { title: 'Cleveland Museum of Art · Jonah Under the Gourd Vine, 1965.239', url: 'https://www.clevelandart.org/art/1965.239' },
+  jerwan: { title: 'ORACC · Sennacherib 226 (Q004031)', url: 'https://oracc.museum.upenn.edu/rinap/rinap3/Q004031' },
+  jerwanStudy: { title: 'University of Chicago · Sennacherib’s Aqueduct at Jerwan', url: 'https://isac.uchicago.edu/publications/sennacheribs-aqueduct-jerwan' },
 } as const;
 
 export const STORY_PLACES = {

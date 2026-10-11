@@ -9,6 +9,7 @@ import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
 
 import { SceneDiscovery } from "./SceneDiscovery";
+import { CityInsideName } from "./CityInsideName";
 
 function subscribeHash(onChange: () => void) {
   window.addEventListener("hashchange", onChange);
@@ -121,14 +122,14 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
                 if (!p) return null;
                 return <section key={p.id} aria-label={`Scripture: Jonah ${p.chapter}:${p.firstVerse}–${p.lastVerse}`}>
                   <p className="story-eyebrow">Scripture <span aria-hidden="true">/</span> World English Bible</p>
-                  <div className="story-verses">{p.verses.map(v => <p key={v.number} data-verse={v.number} data-reference={`${p.chapter}:${v.number}`}><sup aria-label={`Verse ${v.number}`}>{v.number}</sup>{v.text}</p>)}</div>
+                  <div className="story-verses">{p.verses.map(v => <p key={v.number} tabIndex={scene.id === "jonah-3-mercy" ? -1 : undefined} data-verse={v.number} data-reference={`${p.chapter}:${v.number}`}><sup aria-label={`Verse ${v.number}`}>{v.number}</sup>{v.text}</p>)}</div>
                 </section>;
               })}
               {scene.id === "jonah-3-mercy" && <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>}
               {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
             </div>
-            <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
-              {(scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger") && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>{scene.id === "jonah-3-mercy" ? "The city" : "The prophet"}</span><em>{scene.id === "jonah-3-mercy" ? "spared." : "angry."}</em><small>{scene.id === "jonah-3-mercy" ? "Jonah 3" : "Jonah 4"}</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
+            <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={scene.id === "jonah-3-mercy" ? "Optional Nineveh place encounter" : authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
+              {scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
               {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
