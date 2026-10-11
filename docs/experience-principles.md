@@ -33,3 +33,37 @@ Scripture is permitted to complicate, contradict, or surprise the recognition th
 Artistic intention and observed visitor response are different things. Passing technical checks, accessibility tests, or editorial review does not establish that a stranger experienced recognition or curiosity. Emotional claims require observation of people who have not been briefed on the principle and who have not recently read the story. Indifference and early exits are data.
 
 These principles govern creative and technical decisions for the Jonah experience. They do not replace Scripture-first safeguards, source transparency, or human editorial authority.
+
+## Expressive freedom and historical responsibility
+
+BibleMap should explore the full language of visual and auditory storytelling rather than defaulting to archival artwork.
+
+Original illustration, typography, visual metaphor, licensed photography, historical cartography, animation, and sound design may communicate relationships that no surviving artifact can depict.
+
+Different passages may demand different expressive approaches:
+
+- Historical evidence can establish place, period, and material culture.
+- Original illustration can explore human experience without claiming historical authenticity.
+- Typography can make literary structure and contrast perceptible.
+- Maps can communicate movement, geography, and historical uncertainty.
+- Animation can reveal transformation, chronology, or juxtaposition.
+- Silence and sound can shape pacing without prescribing emotional conclusions.
+- Archival art can reveal how later generations interpreted Scripture.
+
+These are creative possibilities, not mandatory scene components.
+
+### Selection principle
+
+Choose a medium because it enables a meaningful discovery.
+
+Ask:
+
+1. What does the visitor notice or understand through this medium?
+2. Why is this stronger than explanatory prose alone?
+3. Does it preserve the passage's ambiguity?
+4. Could it imply unsupported historical authenticity?
+5. Is the material appropriately sourced, licensed, labeled, and reviewed?
+
+No medium receives automatic preference merely because its provenance is easier to establish.
+
+Beautiful presentation does not excuse factual invention. Factual integrity does not require visually conservative design.
