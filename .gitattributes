@@ -1,0 +1,5 @@
+# Pinned publisher HTML contains mixed line endings: preserve exact source bytes.
+# JSON and generated checksum manifests retain LF across checkouts.
+src/content/scripture/web-jonah-*.html -text
+src/content/scripture/web-jonah-*.json text eol=lf
+artifacts/jonah-image-review/SHA256SUMS text eol=lf

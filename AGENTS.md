@@ -76,16 +76,9 @@ The current application uses:
 - Python ETL with PostgreSQL/PostGIS
 - Static export deployment
 
-Known stabilization concerns must be verified rather than assumed:
+The current baseline includes automated browser coverage, pinned Scripture validation, media-rights gates, a static reader, and an existing WebGL atlas. Verify remaining issues in the implementation rather than treating historical audit findings as current defects.
 
-- A lazily imported component named `Map` may shadow the global JavaScript `Map` constructor.
-- `useSearchParams` may sit outside the effective Suspense boundary.
-- TypeScript validation is disabled during builds.
-- Minifier and constructor workarounds may be masking root defects.
-- `DataLoader.tsx` is an oversized component.
-- UI, ETL, and Parquet epoch definitions may have drifted.
-- Data and media attribution are incomplete.
-- Automated browser coverage is missing.
+Supporting metadata may sit behind accessible disclosures. Preserve provenance and review gates without exposing internal workflow in the story’s foreground. Sourced experiments requested for a draft review are not production release approval.
 
 ## Repository Workflow
 
@@ -172,3 +165,37 @@ Main-thread work that damages interaction during timeline or map movement
 Runtime network dependencies that can break the core experience
 Disabled validation or hidden errors
 Changes that make a cinematic effect impossible to test deterministically
+
+## Creative Media Freedom
+
+BibleMap is not restricted to museum objects, archival artwork, or historical photographs.
+
+The following are welcome when they meaningfully serve Scripture and the visitor's experience:
+
+- Original illustration, drawing, painting, and commissioned artwork
+- Expressive typography and visual metaphor
+- Licensed photography and documentary imagery
+- Historical maps and clearly identified interpretive cartography
+- Animation, cinematic transitions, and restrained visual effects
+- Music, environmental audio, narration, and sound design
+- Museum collections, manuscripts, artifacts, and archival imagery
+
+Choose the expressive medium based on what the passage needs, not merely on the availability of a museum collection record.
+
+### Evidence and representation boundaries
+
+Creative expression is not historical evidence.
+
+- Historical claims require verifiable sources.
+- Original or generated artwork must not be presented as an authentic historical artifact.
+- Reconstructed locations, objects, clothing, and events must be identified as interpretive when historical specificity is implied.
+- Artistic metaphors need not represent literal historical events.
+- Historical maps must be distinguished from speculative routes or reconstructions.
+- Sound must not imply historically verified instruments, speech, or environments without supporting evidence.
+- Every third-party visual or audio asset requires appropriate reuse rights.
+- Original and commissioned media require provenance and applicable editorial review.
+- AI-generated material must be disclosed and reviewed according to existing project requirements.
+
+Maintain all existing source-validation, uncertainty, media-rights, accessibility, and editorial-approval requirements.
+
+Do not equate historical accuracy with visual conservatism. Historical rigor and artistic originality are compatible.

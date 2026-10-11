@@ -98,5 +98,5 @@ export const JONAH: StoryDocument = {
     placeId, label: placeId[0].toUpperCase() + placeId.slice(1), status: "unknown",
     explanation: placeholder(`${placeId}: geographic evidence and uncertainty`), candidates: [],
   })),
-  media: JONAH_APPROVED_MEDIA,
+  media: [...JONAH_APPROVED_MEDIA],
 };

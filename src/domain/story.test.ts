@@ -2,13 +2,18 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { JONAH, JONAH_CHAPTERS } from "../content/jonah.ts";
 import { approvedAuthoredText, sceneFromHash, validateStory, type Claim, type StoryDocument } from "./story.ts";
-import { JONAH_MEDIA_REVIEW } from "../content/jonah-media.ts";
-import { isProductionReadyMedia } from "./media.ts";
+import { JONAH_MEDIA_REVIEW, JONAH_OPEN_PLACEMENTS, JONAH_PROVISIONAL_MEDIA } from "../content/jonah-media.ts";
+import { isProductionReadyMedia, mayPublishMedia, publicationFlags } from "./media.ts";
 
-test("creator approval publishes exactly the three scoped artworks", () => {
+test("story document keeps the three approved artworks; open images stay outside it", () => {
   assert.equal(JONAH_MEDIA_REVIEW.length, 3);
   assert.ok(JONAH_MEDIA_REVIEW.every(isProductionReadyMedia));
   assert.equal(JONAH.media.length, 3);
+  assert.ok(JONAH.media.every(isProductionReadyMedia));
+  assert.equal(JONAH_PROVISIONAL_MEDIA.length, 5);
+  assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => mayPublishMedia(asset) && !isProductionReadyMedia(asset) && publicationFlags(asset).length === 0 && asset.reviewStatus === "rights-verified"));
+  assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => !JONAH.media.some(item => item.id === asset.id)));
+  assert.equal(JONAH_OPEN_PLACEMENTS.length, 5);
   const placements = Object.fromEntries(JONAH.scenes.filter(scene => scene.artworkIds.length).map(scene => [scene.id, scene.artworkIds]));
   assert.deepEqual(placements, {
     "jonah-1-calling": ["nga-raphael-hosea-jonah"],
@@ -16,6 +21,16 @@ test("creator approval publishes exactly the three scoped artworks", () => {
     "jonah-2-prayer": ["met-rosselli-prophet-jonah"],
     "jonah-2-shore": ["met-gassel-ship-jonah"],
   });
+  assert.deepEqual(JONAH_OPEN_PLACEMENTS.map(entry => [entry.sceneIds[0], entry.asset.id]).sort(), [
+    ["jonah-1-escape", "cma-roberts-jaffa"],
+    ["jonah-1-storm-sea", "nga-sadeler-jonah-storm"],
+    ["jonah-1-storm-wind", "cma-backhuysen-storm"],
+    ["jonah-3-return", "commons-nineveh-gardens"],
+    ["jonah-4-shade", "cma-jonah-gourd-vine"],
+  ].sort());
+  const withOpenImage = structuredClone(JONAH);
+  withOpenImage.media = [...withOpenImage.media, JONAH_PROVISIONAL_MEDIA[0]];
+  assert.ok(validateStory(withOpenImage).some(error => error.includes("approved local media")));
 });
 
 test("visitor copy requires actual approval; source slots and drafts remain intact", () => {

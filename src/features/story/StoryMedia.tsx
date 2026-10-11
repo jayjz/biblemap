@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { isProductionReadyMedia, type CuratedMediaAsset } from "@/domain/media";
+import { canRenderMedia, mayPublishMedia, isInterpretiveClass, isProductionReadyMedia, mediaClassLabel, publicationFlags, type CuratedMediaAsset } from "@/domain/media";
 import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
 
 const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
@@ -21,30 +21,56 @@ const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
 };
 
 export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset; sceneId?: string; reviewOnly?: boolean }) {
+  const study = useRef<HTMLDialogElement>(null);
+  const studyTrigger = useRef<HTMLButtonElement>(null);
+  const [studyOpen, setStudyOpen] = useState(false);
   const [failedPath, setFailedPath] = useState<string | null>(null);
   const failed = Boolean(asset && failedPath === asset.localPath);
   const atmosphere = ATMOSPHERES[sceneId ?? ""];
-  if (!asset || (!reviewOnly && !isProductionReadyMedia(asset)) || failed) return <figure className="story-atmosphere-frame">
-    <div className={`story-atmosphere story-atmosphere--${sceneId?.replace(/^jonah-\d-/, "") ?? "default"}`} role="img" aria-label={`${atmosphere?.label ?? "Atmospheric visual composition"}. Abstract study, not a historical reconstruction.`}>
-      <div className="story-horizon" aria-hidden="true" />
-      <svg className="story-water-lines" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M-40 236 Q100 204 260 236 T640 231 M-30 266 Q120 235 290 269 T650 260 M-40 304 Q100 273 280 310 T650 295 M-40 347 Q110 307 300 353 T650 336" />
-      </svg>
-      {failed && <span className="story-atmosphere-note">Artwork unavailable. The passage remains readable.</span>}
-    </div>
-    <figcaption>{atmosphere?.reference && <span>{atmosphere.reference} <span aria-hidden="true">·</span> </span>}Atmospheric study</figcaption>
-  </figure>;
-  return <figure className="story-artwork">
-    {/* Local, rights-reviewed asset only. No remote substitution on failure. */}
+  const visible = Boolean(asset && (reviewOnly ? canRenderMedia(asset) : mayPublishMedia(asset)) && !failed);
+  if (!visible) {
+    if ((sceneId === "jonah-4-question" || sceneId === "jonah-1-storm-lots") && !asset) return null;
+    return <figure className="story-atmosphere-frame">
+      <div className={`story-atmosphere story-atmosphere--${sceneId?.replace(/^jonah-\d-/, "") ?? "default"}`} role="img" aria-label={`${atmosphere?.label ?? "Atmospheric visual composition"}. Abstract study, not a historical reconstruction.`}>
+        <div className="story-horizon" aria-hidden="true" />
+        <svg className="story-water-lines" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-40 236 Q100 204 260 236 T640 231 M-30 266 Q120 235 290 269 T650 260 M-40 304 Q100 273 280 310 T650 295 M-40 347 Q110 307 300 353 T650 336" />
+        </svg>
+        {failed && <span className="story-atmosphere-note">Artwork unavailable. The passage remains readable.</span>}
+      </div>
+      <figcaption>{atmosphere?.reference && <span>{atmosphere.reference} <span aria-hidden="true">·</span> </span>}Atmospheric study</figcaption>
+    </figure>;
+  }
+  const ready = isProductionReadyMedia(asset!);
+  const unresolved = publicationFlags(asset!).includes("unresolved-rights");
+  const kind = isInterpretiveClass(asset!.class) ? "not archaeological evidence" : "contextual image, not a depiction of Jonah";
+  return <figure className={`story-artwork${ready ? "" : " story-artwork--provisional"}${sceneId === "jonah-4-question" ? " story-artwork--quiet" : ""}`}>
+    {/* Local file only. No remote substitution on failure. */}
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <img ref={image => {
       // A server-rendered image can fail before hydration attaches onError.
-      if (image?.complete && image.naturalWidth === 0) setFailedPath(asset.localPath);
-    }} src={asset.localPath} alt={asset.altText} loading="lazy" decoding="async" onError={() => setFailedPath(asset.localPath)} />
+      if (image?.complete && image.naturalWidth === 0) setFailedPath(asset!.localPath);
+    }} src={asset!.localPath} alt={asset!.altText || asset!.title} loading="lazy" decoding="async" onError={() => setFailedPath(asset!.localPath)} />
     <figcaption>
-      {reviewOnly && <p className="story-preview-note">Local composition review · Not approved for publication</p>}
-      <p className="story-artwork-caption">{asset.creator} · {asset.creationDate}<br />{asset.title}<br /><small>Artistic depiction · {asset.sourceInstitution}</small></p>
-      <details className="story-artwork-credits"><summary>About this artwork & rights</summary><MediaProvenancePlate asset={asset} /></details>
+      <p className="story-artwork-caption">{asset!.title}<br /><small>{asset!.creator?.trim() || "Maker not recorded"} · {asset!.creationDate?.trim() || "Date not recorded"}</small></p>
+      {sceneId === "jonah-4-shade" && <>
+        <button ref={studyTrigger} type="button" className="story-artwork-study" onClick={() => { setStudyOpen(true); study.current?.showModal(); }}>Look closely at the sculpture <span aria-hidden="true">↗</span></button>
+        <dialog ref={study} className="story-artwork-dialog" aria-labelledby="shade-study-title" onClose={() => { setStudyOpen(false); studyTrigger.current?.focus(); }}>
+          <form method="dialog"><button autoFocus>Return to the passage <span aria-hidden="true">×</span></button></form>
+          <h3 id="shade-study-title">{asset!.title}</h3>
+          {/* Same rights-verified local reproduction, shown intact rather than cropped. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {studyOpen && <img src={asset!.localPath} alt={asset!.altText || asset!.title} />}
+          <p>{asset!.creator} · {asset!.creationDate}</p>
+          <p className="story-study-context">Later artistic reception of Jonah, not a reconstruction of his world.</p>
+        </dialog>
+      </>}
+      <details className="story-artwork-credits"><summary>About this artwork & rights</summary>
+        <p>{asset!.caption}</p>
+        <p><small>{mediaClassLabel(asset!.class)} · {kind}</small></p>
+        {!ready && <p className="story-preview-note">{unresolved ? "Visual review · rights unresolved · not for publication" : reviewOnly ? "Visual review · not approved for publication" : "Provisional placement · image rights verified · editorial review pending"}</p>}
+        <MediaProvenancePlate asset={asset!} />
+      </details>
     </figcaption>
   </figure>;
 }

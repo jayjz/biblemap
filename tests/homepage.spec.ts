@@ -147,3 +147,17 @@ test("homepage entry, reload, history, and direct reader visits keep their desti
   await page.goto("/jonah/#jonah-3-return");
   await expect(page.locator(".story-root")).toHaveAttribute("data-active-scene", "jonah-3-return");
 });
+
+test("homepage skip link remains on stories instead of opening legacy atlas", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".bm-home")).toBeVisible();
+  await page.locator(".bm-skip").focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/#main-content$/);
+  await expect(page.locator("#main-content")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
+  await expect(page.locator(".bm-home")).toBeVisible();
+  await expect(page.locator("canvas")).toHaveCount(0);
+  await page.reload();
+  await expect(page.locator(".bm-home")).toBeVisible();
+});

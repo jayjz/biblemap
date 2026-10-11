@@ -2,6 +2,11 @@ import { test, expect } from "@playwright/test";
 import { JONAH } from "../src/content/jonah";
 import AxeBuilder from "@axe-core/playwright";
 
+async function openFurther(page: import('@playwright/test').Page) {
+  const details = page.locator('.story-scene:visible .story-explore-further');
+  if (await details.getAttribute('open') === null) await details.locator(':scope > summary').click();
+}
+
 test("complete reader-controlled book, history, malformed links, and keyboard focus", async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
@@ -23,8 +28,12 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   for (const [index, scene] of JONAH.scenes.entries()) {
     const article = page.locator(`[data-scene="${scene.id}"]`);
     await expect(article).toBeVisible();
-    if (index < 3) await expect(article.locator(".story-question")).toHaveCount(0);
-    else await expect(article.locator(".story-question")).not.toContainText("Provisional");
+    // Opening scenes and the Jonah 3:10 -> 4:1 turn keep leading editorial questions out of the passage.
+    if (index < 3 || scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger" || scene.id === "jonah-4-question" || scene.id === "jonah-4-shade") {
+      await expect(article.locator(".story-question")).toHaveCount(0);
+    } else {
+      await expect(article.locator(".story-question")).not.toContainText("Provisional");
+    }
     displayed.push(...await article.locator("[data-reference]").evaluateAll(elements => elements.map(element => ({
       reference: element.getAttribute("data-reference") ?? "",
       text: Array.from(element.childNodes).filter(node => node.nodeName !== "SUP").map(node => node.textContent).join(""),
@@ -32,6 +41,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
     await expect(page.locator(".story-scene:visible")).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.screenshot({ path: testInfo.outputPath(`${scene.id}.png`), fullPage: true });
+    await openFurther(page);
     await article.getByText("Pause with the passage", { exact: false }).click();
     await expect(article.locator(".story-companion[open]")).toContainText(scene.readingGuide?.context ?? "");
     if (index < JONAH.scenes.length - 1) {
@@ -52,6 +62,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   await page.goto("/jonah/#%E0%A4%A");
   await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
   await page.goto("/jonah/#jonah-1-escape");
+  await openFurther(page);
   await page.getByText("Explore the places in this passage", { exact: true }).filter({ visible: true }).click();
   await expect(page.getByRole("img", { name: /Joppa, Tarshish/ })).toBeVisible();
   await expect(page.locator(".story-place-note").filter({ hasText: "Tarshish" })).toContainText("geographic identification is not established");
@@ -72,7 +83,8 @@ test("reflection stays in memory and clears on reload and exit", async ({ page }
   await page.goto("/jonah/");
   // Before hydration all scenes are visible for no-JavaScript reading.
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
-  await page.getByText("Private reflection", { exact: false }).filter({ visible: true }).click();
+  await openFurther(page);
+  await page.locator(".story-scene:visible .story-reflection > summary").click();
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
   await page.getByRole("link", { name: "Continue" }).click();
   await page.getByRole("link", { name: "Previous" }).click();
@@ -84,7 +96,8 @@ test("reflection stays in memory and clears on reload and exit", async ({ page }
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
   await page.reload();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
-  await page.getByText("Private reflection", { exact: false }).filter({ visible: true }).click();
+  await openFurther(page);
+  await page.locator(".story-scene:visible .story-reflection > summary").click();
   await expect(page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true })).toHaveValue("");
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
   // Exercise the actual page lifecycle without depending on explorer network services.
@@ -95,6 +108,7 @@ test("reflection stays in memory and clears on reload and exit", async ({ page }
   await expect(page).toHaveURL(/\/?\?explore=1$/);
   await page.goBack();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
+  await openFurther(page);
   const disclosure = page.locator("article:not([hidden]) .story-reflection");
   if (!(await disclosure.getAttribute("open")) && await disclosure.getAttribute("open") !== "") await disclosure.locator("summary").click();
   await expect(page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true })).toHaveValue("");
@@ -116,8 +130,10 @@ test("accessible reduced-motion reader with no WebGL or third-party requests", a
   });
   await page.goto("/jonah/#jonah-1-storm-lots");
   await expect(page.locator("[data-scene=jonah-1-storm-lots]")).toBeVisible();
+  await openFurther(page);
   await page.getByText("Translation, sources & notes", { exact: true }).filter({ visible: true }).click();
-  await page.getByText("Private reflection", { exact: false }).filter({ visible: true }).click();
+  await openFurther(page);
+  await page.locator(".story-scene:visible .story-reflection > summary").click();
   expect(await page.locator("[data-scene=jonah-1-storm-lots]").evaluate(el => getComputedStyle(el).animationName)).toBe("none");
   expect((await new AxeBuilder({ page }).include(".story-root").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
   await page.setViewportSize({ width: 320, height: 700 });

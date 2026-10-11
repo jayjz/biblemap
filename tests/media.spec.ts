@@ -10,7 +10,7 @@ test("static export excludes held reproductions and local review routes", () => 
     const candidate = catalog.assets.find(asset => asset.id === file.matchedCandidateId);
     if (candidate?.productionReviewStatus !== "approved") expect(exported.some(path => path.endsWith(file.filename))).toBe(false);
   }
-  expect(exported.some(path => /review-assets|jonah-review|publication-hold/.test(path))).toBe(false);
+  expect(exported.some(path => /review-assets|jonah-review|publication-hold|kbr-heemskerck|lilien-jonah/.test(path))).toBe(false);
 });
 
 let bundle = "";
@@ -58,7 +58,7 @@ test("rejected playback remains recoverable without synthesis", async ({ page })
   await expect(page.getByText("Test transcript", { exact: true }).filter({ visible: true })).toBeVisible();
 });
 
-test("unapproved media makes no image request; approved fixture preserves composition and provenance after failure", async ({ page }, testInfo) => {
+test("restricted media makes no image request; approved fixture preserves composition and provenance after failure", async ({ page }, testInfo) => {
   const requests: string[] = [];
   page.on("request", request => requests.push(request.url()));
   await page.route("**/test-only-media-harness", route => route.fulfill({ contentType: "text/html", body: '<html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><div id="test-root"></div></body></html>' }));
@@ -84,9 +84,12 @@ test("unapproved media makes no image request; approved fixture preserves compos
   expect(accessibility.violations).toEqual([]);
   await page.screenshot({ path: testInfo.outputPath("test-only-portrait-provenance.png"), fullPage: true });
   expect(requests.some(url => url.includes("test-unapproved.jpg"))).toBe(false);
+  expect(requests.some(url => /test-unresolved.jpg|test-license-claim.jpg/.test(url))).toBe(false);
 });
 
-test("normal Jonah route loads only creator-approved scene artworks with accessible provenance", async ({ page }) => {
+test("normal Jonah route keeps approved art and labels open images as provisional", async ({ page }) => {
+  const requests: string[] = [];
+  page.on("request", request => requests.push(request.url()));
   for (const [scene, id] of [
     ["jonah-1-calling", "nga-raphael-hosea-jonah"],
     ["jonah-1-depths", "met-rosselli-prophet-jonah"],
@@ -105,10 +108,40 @@ test("normal Jonah route loads only creator-approved scene artworks with accessi
     await article.getByText("About this artwork & rights", { exact: true }).click();
     await expect(article.locator(".story-artwork")).toContainText("Public Domain");
     await expect(article.locator(".story-artwork")).toContainText("not archaeological evidence");
+    await expect(article.locator(".story-artwork")).not.toContainText("Provisional");
+    await expect(article.locator(".story-artwork")).not.toContainText("rights unresolved");
     expect((await new AxeBuilder({ page }).include(`[data-scene="${scene}"] .story-artwork`).analyze()).violations).toEqual([]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await expect(page.locator(".story-root")).not.toContainText(/Provisional|Local composition review|Local creator review/);
+    await expect(article).not.toContainText(/Local composition review|Local creator review/);
   }
+  for (const [scene, id, kind] of [
+    ["jonah-1-escape", "cma-roberts-jaffa", "contextual image, not a depiction of Jonah"],
+    ["jonah-1-storm-wind", "cma-backhuysen-storm", "not archaeological evidence"],
+    ["jonah-1-storm-sea", "nga-sadeler-jonah-storm", "not archaeological evidence"],
+    ["jonah-3-return", "commons-nineveh-gardens", "contextual image, not a depiction of Jonah"],
+    ["jonah-4-shade", "cma-jonah-gourd-vine", "not archaeological evidence"],
+  ] as const) {
+    await page.goto(`/jonah/#${scene}`);
+    const article = page.locator(`[data-scene="${scene}"]`);
+    const image = article.locator(".story-artwork img");
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+    expect(await image.evaluate(img => getComputedStyle(img).objectFit)).toBe("contain");
+    const publication = catalog.publicationFiles.find(file => file.assetId === id);
+    await expect(image).toHaveAttribute("src", publication?.localPath ?? "");
+    await expect(article.locator(".story-artwork")).toContainText("Provisional placement · image rights verified · editorial review pending");
+    await expect(article.locator(".story-artwork")).toContainText(kind);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+  await page.goto("/jonah/#jonah-1-storm-lots");
+  await expect(page.locator('[data-scene="jonah-1-storm-lots"] img')).toHaveCount(0);
+  await expect(page.locator('[data-scene="jonah-1-storm-lots"] .story-atmosphere-frame')).toHaveCount(0);
+  await expect(page.locator('[data-reference="1:7"]')).toBeVisible();
+  await page.goto("/jonah/#jonah-4-question");
+  await expect(page.locator('[data-scene="jonah-4-question"] img')).toHaveCount(0);
+  await expect(page.locator('[data-scene="jonah-4-question"] .story-quiet, [data-scene="jonah-4-question"] .story-atmosphere')).toHaveCount(0);
+  await expect(page.locator('[data-reference="4:11"]')).toBeVisible();
+  expect(requests.some(url => /kbr-heemskerck|lilien-jonah|jonah-visual-review/.test(url))).toBe(false);
 });
 
 test("normal reader recovers from a missing approved artwork", async ({ page }) => {

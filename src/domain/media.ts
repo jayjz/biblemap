@@ -1,8 +1,8 @@
 /**
  * Provenance-strict media schema for BibleMap.
  *
- * An asset may not appear in production unless every required field is present,
- * the media class is known, rights are recorded, and reviewStatus is "approved".
+ * An editorially approved asset still requires every field below.
+ * Rendering does not. A valid image may render while publication stays a separate check.
  * Artistic depictions and interpretive reconstructions must never be described
  * as archaeological evidence.
  */
@@ -98,6 +98,8 @@ export interface CuratedMediaAsset {
   editorialReason: string;
   reviewStatus: ReviewStatus;
   reviewedBy: string;
+  /** Open images may be deployed. Unresolved and restricted images must not. */
+  rightsUse?: "open" | "unresolved" | "restricted";
   generator?: string;
   model?: string;
   generatedAt?: string;
@@ -198,10 +200,58 @@ export function validateMediaAsset(asset: CuratedMediaAsset): MediaValidationRes
   return { ok: errors.length === 0, errors };
 }
 
-/** Production gate: only approved, fully attributed assets may render. */
+/** Production gate: editorially approved, fully attributed assets. */
 export function isProductionReadyMedia(asset: CuratedMediaAsset): boolean {
   if (asset.reviewStatus !== "approved") return false;
-  return validateMediaAsset(asset).ok;
+  return validateMediaAsset(asset).ok && mayPublishMedia(asset);
+}
+
+export const PUBLICATION_FLAGS = [
+  "explicit-restriction",
+  "unresolved-rights",
+  "license-unverified",
+  "missing-source",
+  "missing-attribution",
+] as const;
+
+export type PublicationFlag = (typeof PUBLICATION_FLAGS)[number];
+
+const RESTRICTED_LICENSE = /all rights reserved|in copyright|non-?commercial|(?:^|[^a-z])nc(?:[^a-z]|$)|no-?deriv/i;
+const RIGHTS_REVIEWED = new Set(["rights-verified", "historically-reviewed", "theologically-reviewed", "approved"]);
+/** A reusable license string alone does not establish permission to publish. */
+const PUBLICATION_BLOCKERS = new Set<PublicationFlag>(PUBLICATION_FLAGS);
+
+/**
+ * A license string is recorded metadata, not verified permission.
+ * Missing attribution is flagged whenever the attribution line is empty, even if a maker is named.
+ * Restricted assets must not render. Unresolved rights may render in review only.
+ */
+export function publicationFlags(asset: CuratedMediaAsset): PublicationFlag[] {
+  const flags: PublicationFlag[] = [];
+  const license = asset.license?.trim() ?? "";
+  const restrictedByText = Boolean(license) && !isKnownLicense(license) && RESTRICTED_LICENSE.test(license);
+  if (asset.rightsUse === "restricted" || restrictedByText) flags.push("explicit-restriction");
+  else if (asset.rightsUse === "unresolved" || !license || !isKnownLicense(license)) flags.push("unresolved-rights");
+  else if (!RIGHTS_REVIEWED.has(asset.reviewStatus) || !asset.reviewedBy?.trim() || !asset.rightsStatement?.trim()) flags.push("license-unverified");
+  if (!(asset.sourceRecordUrl?.trim() || asset.originalAssetUrl?.trim())) flags.push("missing-source");
+  if (!asset.requiredAttribution?.trim()) flags.push("missing-attribution");
+  return flags;
+}
+
+/** A readable image. Editorial approval is not required. Restricted rights still block rendering. */
+export function canRenderMedia(asset: CuratedMediaAsset): boolean {
+  if (asset.reviewStatus === "rejected") return false;
+  if (!asset.localPath?.trim()) return false;
+  if (!asset.altText?.trim() && !asset.title?.trim()) return false;
+  if (publicationFlags(asset).includes("explicit-restriction")) return false;
+  return true;
+}
+
+/** Rights review is required for public/; editorial approval remains a separate contract. */
+export function mayPublishMedia(asset: CuratedMediaAsset): boolean {
+  if (!canRenderMedia(asset)) return false;
+  if (publicationFlags(asset).some(flag => PUBLICATION_BLOCKERS.has(flag))) return false;
+  return isKnownLicense(asset.license) && /^\/media\/[\w/.-]+$/.test(asset.localPath) && !asset.localPath.includes("..");
 }
 
 export function isInterpretiveClass(mediaClass: MediaClass): boolean {

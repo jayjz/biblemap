@@ -1,0 +1,32 @@
+name: Jonah pinned sources - Windows checkout
+
+on:
+  pull_request:
+    paths:
+      - ".gitattributes"
+      - "src/content/scripture/**"
+      - "artifacts/jonah-image-review/SHA256SUMS"
+      - "scripts/pin-jonah.mjs"
+      - "scripts/validate-jonah-assets.mjs"
+      - ".github/workflows/jonah-source-windows.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checkout-portability:
+    name: Verify pinned bytes with core.autocrlf=true
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - name: Simulate Windows CRLF checkout defaults
+        run: git config --global core.autocrlf true
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.22.3'
+      - name: Verify source snapshot and verse/notes extraction
+        run: node scripts/pin-jonah.mjs --check
+      - name: Verify approved and held artwork manifests
+        run: node scripts/validate-jonah-assets.mjs

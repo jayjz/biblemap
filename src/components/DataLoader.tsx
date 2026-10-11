@@ -9,7 +9,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState, Suspense } fr
 import { Play, Pause, X, Search, BookOpen, Map as MapIcon, Menu, Sparkles, Navigation } from "lucide-react";
 import { tableFromIPC, Table } from "apache-arrow";
 import { type MapViewState, type PickingInfo, LightingEffect, AmbientLight, DirectionalLight, FlyToInterpolator } from "@deck.gl/core";
-import { ScatterplotLayer, PathLayer } from "@deck.gl/layers";
+import { ScatterplotLayer, PathLayer, TextLayer } from "@deck.gl/layers";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import { type DataFilterExtensionProps, DataFilterExtension } from "@deck.gl/extensions";
 import epochManifest from "@/domain/epochs.json";
@@ -23,6 +23,8 @@ import { beatFromEvent, mediaForBeat, type CameraTarget } from "@/scenes/orchest
 import { useSceneOrchestrator } from "@/scenes/useSceneOrchestrator";
 import { historicalContextForBeat, historicalContextForEvent } from "@/content/historical-contexts";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { storyPlaceFromParam } from "@/content/jonah-discoveries";
+import { StoryPlacePanel } from "@/features/explorer/StoryPlacePanel";
 import type { MapRef } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -775,6 +777,8 @@ function Tooltip({ info }: { info: PickingInfo | null }) {
 
 // ── Main component ────────────────────────────────────────────────────────────
 export default function DataLoader({ initialParams }: { initialParams?: { [key: string]: string | string[] | undefined } }) {
+  const storyPlace = storyPlaceFromParam(initialParams?.place);
+  const [placeMapError, setPlaceMapError] = useState(false);
   const [arrowTable,    setArrowTable]    = useState<Table | null>(null);
   const [loading,       setLoading]       = useState(true);
   const [loadProgress,  setLoadProgress]  = useState({ stage: "Initializing...", percent: 0, loaded: 0, total: 0 });
@@ -789,7 +793,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   const [showVerseModal, setShowVerseModal] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [relatedEvents, setRelatedEvents] = useState<{ before: BibleEvent[], after: BibleEvent[], nearby: BibleEvent[] }>({ before: [], after: [], nearby: [] });
-  const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW);
+  const [viewState, setViewState] = useState<MapViewState>(() => storyPlace ? { ...INITIAL_VIEW, longitude: storyPlace.longitude, latitude: storyPlace.latitude, zoom: 6, pitch: 0, bearing: 0 } : INITIAL_VIEW);
   const [highlightedEventIndex, setHighlightedEventIndex] = useState(-1);
   const [filmGrainEnabled, setFilmGrainEnabled] = useState(false);
   const [parchmentMode, setParchmentMode] = useState(false);
@@ -1003,7 +1007,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
   }, []);
 
   useEffect(() => {
-    if (!initialParams || !arrowTable) return;
+    if (storyPlace || !initialParams || !arrowTable) return;
     
     const eventParam = initialParams.event as string;
     const latParam = initialParams.lat as string;
@@ -1058,7 +1062,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
         });
       }, 1000);
     }
-  }, [initialParams, arrowTable]);
+  }, [initialParams, arrowTable, storyPlace]);
 
   const stopAnim = useCallback(() => {
     isPlaying.current = false;
@@ -1243,6 +1247,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (storyPlace) return;
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
       
       switch (e.key) {
@@ -1342,7 +1347,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [minYear, maxYear, filteredIndices, highlightedEventIndex, arrowTable, stopAnim, scene, closeFocus]);
+  }, [minYear, maxYear, filteredIndices, highlightedEventIndex, arrowTable, stopAnim, scene, closeFocus, storyPlace]);
 
   useEffect(() => {
     if (!selectedEvent || !mapRef.current) return;
@@ -1406,7 +1411,9 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
 
   useEffect(() => {
     publishBibleMapInspector({
-      ready: !loading,
+      ready: storyPlace ? true : !loading,
+      selectedPlace: storyPlace?.id ?? null,
+      placeCamera: storyPlace ? { longitude: viewState.longitude, latitude: viewState.latitude, zoom: viewState.zoom } : null,
       activeEpoch: activeEpochId,
       currentYear,
       loadedChunks: Array.from(loadedChunks.keys()),
@@ -1434,6 +1441,8 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     scene.narrationReady,
     prefersReducedMotion,
     worldContext,
+    storyPlace,
+    viewState.longitude, viewState.latitude, viewState.zoom,
   ]);
 
   const handleBookChange = useCallback((book: string) => {
@@ -1693,7 +1702,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
     }),
   ];
 
-  if (loading) return (
+  if (loading && !storyPlace) return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 text-slate-400 font-mono">
       <div className="text-amber-500 text-2xl mb-6 font-bold tracking-wider">BibleMap</div>
       <div className="text-slate-300 mb-3 text-sm">{loadProgress.stage}</div>
@@ -1779,14 +1788,14 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       {/* This Suspense boundary + React.lazy imports strictly isolate 
         the Deck.gl render cycle from the static compiler module graph. 
       */}
+      <div className={storyPlace ? "story-place-map" : "absolute inset-0"}>
       <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center bg-slate-950 text-amber-500 font-mono z-0">Initializing 3D Engine...</div>}>
         <ErrorBoundary
           fallback={() => (
             <div
               className="absolute inset-0 bg-[#0b1220]"
-              aria-hidden="true"
               data-map-fallback="webgl"
-            />
+            >{storyPlace && <p className="story-place-map-error" role="status">The map is unavailable on this device. The city’s history and sources remain available.</p>}</div>
           )}
         >
           <DeckGL
@@ -1796,16 +1805,35 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
               if ("longitude" in viewState && "latitude" in viewState && "zoom" in viewState) setViewState(viewState);
             }}
             controller
-            layers={layers}
+            layers={storyPlace ? [new ScatterplotLayer({
+              id: "story-place-marker", data: [storyPlace],
+              getPosition: place => [place.longitude, place.latitude],
+              getRadius: 9, radiusUnits: "pixels", getFillColor: [223, 189, 133, 255],
+              stroked: true, getLineColor: [255, 244, 213, 255], lineWidthMinPixels: 2,
+            }), new TextLayer({
+              id: "story-place-name", data: [storyPlace],
+              getPosition: place => [place.longitude, place.latitude], getText: place => place.name,
+              getSize: 18, getColor: [255, 244, 213, 255], getPixelOffset: [16, 0],
+              getTextAnchor: "start", getAlignmentBaseline: "center",
+            })] : layers}
             effects={[lightingEffect]}
             style={{ width: "100%", height: "100%" }}
             onClick={(info: PickingInfo<number>) => { if (!info.object) closeFocus(); }}
           >
-            <BibleMapView ref={mapRef} mapStyle={MAP_STYLE} />
+            <BibleMapView ref={mapRef} mapStyle={MAP_STYLE} onError={storyPlace ? () => setPlaceMapError(true) : undefined} />
           </DeckGL>
         </ErrorBoundary>
       </Suspense>
+      {storyPlace && <div className="story-place-map-controls" role="group" aria-label="Place map controls">
+        <span>Modern basemap · ancient city marker</span>
+        <div><button type="button" aria-label="Zoom in on place" onClick={() => setViewState(v => ({ ...v, zoom: Math.min(14, v.zoom + 1) }))}>＋</button>
+        <button type="button" aria-label="Zoom out from place" onClick={() => setViewState(v => ({ ...v, zoom: Math.max(2, v.zoom - 1) }))}>−</button>
+        <button type="button" onClick={() => setViewState(v => ({ ...v, longitude: storyPlace.longitude, latitude: storyPlace.latitude, zoom: 6 }))}>Recenter</button></div>
+      </div>}
+      {storyPlace && placeMapError && <p className="story-place-map-error" role="status">Some map tiles could not load. The city’s history and sources remain available.</p>}
+      </div>
 
+      {storyPlace ? <StoryPlacePanel place={storyPlace} from={initialParams?.from} /> : <>
       <Tooltip info={selectedEvent ? null : hoverInfo} />
 
       {chunkErrors.has(activeEpochId) && (
@@ -2258,6 +2286,7 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
           </div>
         </div>
       )}
+      </>}
     </div>
   );
 }

@@ -7,7 +7,8 @@ import "./home.css";
 
 const Atlas = dynamic(() => import("./explore/page"), { ssr: false });
 const subscribe = (cb: () => void) => { window.addEventListener("hashchange", cb); window.addEventListener("popstate", cb); return () => { window.removeEventListener("hashchange", cb); window.removeEventListener("popstate", cb); }; };
-const getLegacy = () => Boolean(window.location.hash || window.location.search);
+// Keep the homepage's own accessibility anchor distinct from legacy atlas deep links.
+const getLegacy = () => Boolean((window.location.hash && window.location.hash !== "#main-content") || window.location.search);
 const getServer = () => false;
 const future = [
   { name: "Job", question: "What happens when we lose everything?", theme: "Loss & suffering" },
