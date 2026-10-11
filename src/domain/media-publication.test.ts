@@ -17,12 +17,16 @@ function asset(overrides: Partial<CuratedMediaAsset> = {}): CuratedMediaAsset {
   };
 }
 
-test("a valid open image renders and may be published without editorial approval", () => {
+test("a valid open image renders without editorial approval; the license is still only a claim", () => {
   const open = asset();
   assert.equal(isProductionReadyMedia(open), false);
   assert.equal(canRenderMedia(open), true);
   assert.equal(mayPublishMedia(open), true);
-  assert.deepEqual(publicationFlags(open), []);
+  assert.deepEqual(publicationFlags(open), ["license-unverified"]);
+  const reviewed = asset({ reviewStatus: "rights-verified", reviewedBy: "fixture" });
+  assert.equal(publicationFlags(reviewed).includes("license-unverified"), false);
+  assert.equal(mayPublishMedia(reviewed), true);
+  assert.equal(isProductionReadyMedia(reviewed), false);
 });
 
 test("restricted rights do not render or publish", () => {
@@ -48,4 +52,7 @@ test("missing source and attribution are visible as flags, not filled in", () =>
   assert.ok(flags.includes("missing-attribution"));
   assert.ok(flags.includes("unresolved-rights"));
   assert.equal(mayPublishMedia(gaps), false);
+  const namedWithoutCredit = asset({ creator: "Named maker", requiredAttribution: "" });
+  assert.ok(publicationFlags(namedWithoutCredit).includes("missing-attribution"));
+  assert.equal(mayPublishMedia(namedWithoutCredit), false);
 });

@@ -209,6 +209,7 @@ export function isProductionReadyMedia(asset: CuratedMediaAsset): boolean {
 export const PUBLICATION_FLAGS = [
   "explicit-restriction",
   "unresolved-rights",
+  "license-unverified",
   "missing-source",
   "missing-attribution",
 ] as const;
@@ -216,11 +217,14 @@ export const PUBLICATION_FLAGS = [
 export type PublicationFlag = (typeof PUBLICATION_FLAGS)[number];
 
 const RESTRICTED_LICENSE = /all rights reserved|in copyright|non-?commercial|(?:^|[^a-z])nc(?:[^a-z]|$)|no-?deriv/i;
+const RIGHTS_REVIEWED = new Set(["rights-verified", "historically-reviewed", "theologically-reviewed", "approved"]);
+/** These flags keep a file out of public/. A license-unverified flag does not: it only says the license string is a claim. */
+const PUBLICATION_BLOCKERS = new Set<PublicationFlag>(["explicit-restriction", "unresolved-rights", "missing-source", "missing-attribution"]);
 
 /**
- * Publication is separate from rendering. Missing provenance is flagged, not invented.
- * Explicitly restricted assets are flagged and must not render.
- * Unresolved rights may render in review, but must not be deployed from public/.
+ * A license string is recorded metadata, not verified permission.
+ * Missing attribution is flagged whenever the attribution line is empty, even if a maker is named.
+ * Restricted assets must not render. Unresolved rights may render in review only.
  */
 export function publicationFlags(asset: CuratedMediaAsset): PublicationFlag[] {
   const flags: PublicationFlag[] = [];
@@ -228,8 +232,9 @@ export function publicationFlags(asset: CuratedMediaAsset): PublicationFlag[] {
   const restrictedByText = Boolean(license) && !isKnownLicense(license) && RESTRICTED_LICENSE.test(license);
   if (asset.rightsUse === "restricted" || restrictedByText) flags.push("explicit-restriction");
   else if (asset.rightsUse === "unresolved" || !license || !isKnownLicense(license)) flags.push("unresolved-rights");
+  else if (!RIGHTS_REVIEWED.has(asset.reviewStatus)) flags.push("license-unverified");
   if (!(asset.sourceRecordUrl?.trim() || asset.originalAssetUrl?.trim())) flags.push("missing-source");
-  if (!asset.requiredAttribution?.trim() && !asset.creator?.trim()) flags.push("missing-attribution");
+  if (!asset.requiredAttribution?.trim()) flags.push("missing-attribution");
   return flags;
 }
 
@@ -242,11 +247,10 @@ export function canRenderMedia(asset: CuratedMediaAsset): boolean {
   return true;
 }
 
-/** Safe to place in the deployed public media directory. */
+/** Eligible for public/ on a recorded open-license claim. This is not a rights clearance. */
 export function mayPublishMedia(asset: CuratedMediaAsset): boolean {
   if (!canRenderMedia(asset)) return false;
-  const flags = publicationFlags(asset);
-  if (flags.some(flag => flag === "explicit-restriction" || flag === "unresolved-rights" || flag === "missing-source")) return false;
+  if (publicationFlags(asset).some(flag => PUBLICATION_BLOCKERS.has(flag))) return false;
   return isKnownLicense(asset.license) && /^\/media\/[\w/.-]+$/.test(asset.localPath) && !asset.localPath.includes("..");
 }
 

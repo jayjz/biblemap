@@ -128,7 +128,7 @@ test("normal Jonah route keeps approved art and labels open images as provisiona
     expect(await image.evaluate(img => getComputedStyle(img).objectFit)).toBe("contain");
     const publication = catalog.publicationFiles.find(file => file.assetId === id);
     await expect(image).toHaveAttribute("src", publication?.localPath ?? "");
-    await expect(article.locator(".story-artwork")).toContainText("Provisional · open license · not editorially approved");
+    await expect(article.locator(".story-artwork")).toContainText("Provisional · recorded open-license claim · not a verified clearance");
     await expect(article.locator(".story-artwork")).toContainText(kind);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
@@ -137,7 +137,8 @@ test("normal Jonah route keeps approved art and labels open images as provisiona
   await expect(page.locator('[data-scene="jonah-1-storm-lots"]')).toContainText("No picture for the lots");
   await page.goto("/jonah/#jonah-4-question");
   await expect(page.locator('[data-scene="jonah-4-question"] img')).toHaveCount(0);
-  await expect(page.locator('[data-scene="jonah-4-question"]')).toContainText("Left open");
+  await expect(page.locator('[data-scene="jonah-4-question"] .story-quiet, [data-scene="jonah-4-question"] .story-atmosphere')).toHaveCount(0);
+  await expect(page.locator('[data-reference="4:11"]')).toBeVisible();
   expect(requests.some(url => /kbr-heemskerck|lilien-jonah|jonah-visual-review/.test(url))).toBe(false);
 });
 

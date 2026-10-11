@@ -44,10 +44,12 @@ if (existsSync(publicDir)) {
   for (const filename of readdirSync(publicDir)) {
     const file = catalog.publicationFiles.find(file => file.filename === filename);
     const candidate = catalog.assets.find(asset => asset.id === file?.assetId);
+    // A license string in OPEN_LICENSES is a recorded claim, not a clearance.
     if (!candidate || candidate.rightsUse === "restricted" || candidate.rightsUse === "unresolved" || !OPEN_LICENSES.has(candidate.license) || !candidate.sourceRecordUrl) {
       errors.push(`${filename}: unresolved or restricted file would be published by static export`);
       continue;
     }
+    if (!candidate.creator?.trim()) errors.push(`${filename}: missing attribution`);
     const bytes = readFileSync(new URL(filename, publicDir));
     const size = dimensions(bytes);
     if (createHash("sha256").update(bytes).digest("hex") !== file.checksumSha256 || bytes.length !== file.bytes || size.width !== file.width || size.height !== file.height) errors.push(`${filename}: publication checksum/dimensions mismatch`);
@@ -58,4 +60,4 @@ for (const file of catalog.publicationFiles) {
   if (!existsSync(new URL(`public${file.localPath}`, root))) errors.push(`${file.filename}: approved publication file missing`);
 }
 if (errors.length) throw new Error(errors.join("\n"));
-console.log(`✓ ${checksums.size} distinct Jonah acquisition records; available originals and held copies verified; publication approval enforced`);
+console.log(`✓ ${checksums.size} distinct Jonah acquisition records; available originals and held copies verified; open-license claims checked separately from editorial approval`);

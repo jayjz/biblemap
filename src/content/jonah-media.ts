@@ -141,9 +141,13 @@ if (JONAH_PROVISIONAL_MEDIA.some(asset => !mayPublishMedia(asset) || isProductio
   throw new Error("Provisional Jonah images must be publishable and not editorially approved");
 }
 
-/** Approved placements win. Provisional images fill only scenes that have none. */
+/** Approved placements win. Provisional images fill only scenes that have none. They are not story-document media. */
 export function jonahSceneArtworkIds(sceneId: string): string[] {
   const approved = jonahArtworkIds(sceneId);
   if (approved.length) return approved;
   return JONAH_PROVISIONAL_MEDIA.filter(asset => provisionalCopy[asset.id]?.sceneIds.includes(sceneId)).map(asset => asset.id);
 }
+
+/** Reader-only placements. Open-license claims, not editorial approval, and not part of StoryDocument.media. */
+export const JONAH_OPEN_PLACEMENTS: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] =
+  JONAH_PROVISIONAL_MEDIA.map(asset => ({ sceneIds: provisionalCopy[asset.id].sceneIds, asset }));
