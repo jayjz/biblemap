@@ -21,6 +21,9 @@ const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
 };
 
 export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset; sceneId?: string; reviewOnly?: boolean }) {
+  const study = useRef<HTMLDialogElement>(null);
+  const studyTrigger = useRef<HTMLButtonElement>(null);
+  const [studyOpen, setStudyOpen] = useState(false);
   const [failedPath, setFailedPath] = useState<string | null>(null);
   const failed = Boolean(asset && failedPath === asset.localPath);
   const atmosphere = ATMOSPHERES[sceneId ?? ""];
@@ -50,6 +53,18 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
     }} src={asset!.localPath} alt={asset!.altText || asset!.title} loading="lazy" decoding="async" onError={() => setFailedPath(asset!.localPath)} />
     <figcaption>
       <p className="story-artwork-caption">{asset!.title}<br /><small>{asset!.creator?.trim() || "Maker not recorded"} · {asset!.creationDate?.trim() || "Date not recorded"}</small></p>
+      {sceneId === "jonah-4-shade" && <>
+        <button ref={studyTrigger} type="button" className="story-artwork-study" onClick={() => { setStudyOpen(true); study.current?.showModal(); }}>Look closely at the sculpture <span aria-hidden="true">↗</span></button>
+        <dialog ref={study} className="story-artwork-dialog" aria-labelledby="shade-study-title" onClose={() => { setStudyOpen(false); studyTrigger.current?.focus(); }}>
+          <form method="dialog"><button autoFocus>Return to the passage <span aria-hidden="true">×</span></button></form>
+          <h3 id="shade-study-title">{asset!.title}</h3>
+          {/* Same rights-verified local reproduction, shown intact rather than cropped. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          {studyOpen && <img src={asset!.localPath} alt={asset!.altText || asset!.title} />}
+          <p>{asset!.creator} · {asset!.creationDate}</p>
+          <p className="story-study-context">Later artistic reception of Jonah, not a reconstruction of his world.</p>
+        </dialog>
+      </>}
       <details className="story-artwork-credits"><summary>About this artwork & rights</summary>
         <p>{asset!.caption}</p>
         <p><small>{mediaClassLabel(asset!.class)} · {kind}</small></p>

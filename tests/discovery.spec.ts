@@ -1,6 +1,33 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+test('sculpture study preserves the passage, traps focus, and returns on Escape', async ({ page }, testInfo) => {
+  await page.goto('/jonah/#jonah-4-shade');
+  const article = page.locator('[data-scene=jonah-4-shade]');
+  const trigger = article.getByRole('button', { name: 'Look closely at the sculpture' });
+  await trigger.focus();
+  await page.keyboard.press('Enter');
+  const dialog = page.getByRole('dialog', { name: 'Jonah Under the Gourd Vine' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole('button', { name: 'Return to the passage' })).toBeFocused();
+  await expect(dialog.getByRole('img')).toHaveAttribute('src', '/media/jonah/cma-jonah-gourd-vine.jpg');
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Tab');
+  expect(await dialog.evaluate(el => el.contains(document.activeElement))).toBe(true);
+  expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
+  await page.screenshot({ path: testInfo.outputPath('sculpture-study.png') });
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+  await expect(article.locator('[data-reference="4:10"]')).toBeVisible();
+  await trigger.click();
+  await dialog.getByRole('button', { name: 'Return to the passage' }).click();
+  await expect(trigger).toBeFocused();
+  await article.getByRole('link', { name: 'Continue' }).click();
+  await expect(page.locator('[data-reference="4:11"]')).toBeVisible();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+});
+
 test('three discoveries preserve Scripture, disclose sources, and remain readable at 320px', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
