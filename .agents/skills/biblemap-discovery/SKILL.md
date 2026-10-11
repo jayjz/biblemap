@@ -87,3 +87,17 @@ Scripture.
 Inspect the resulting experience in a browser and test relevant behavior.
 
 Report the discovery created for the visitor, not just files changed.
+
+## Creative media selection
+
+Do not default to museum artifacts, paintings, or sculpture.
+
+Consider original illustration, expressive typography, visual metaphor, licensed photography, historical maps, animation, cinematic transitions, and sound alongside archival material.
+
+Select media according to the passage's narrative and intellectual needs.
+
+Treat artistic interpretation, later reception, documentary evidence, and historical reconstruction as different categories.
+
+Original creative expression is welcome without pretending to document ancient events.
+
+Maintain provenance, licensing, uncertainty, and editorial-review safeguards.

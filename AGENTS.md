@@ -165,3 +165,37 @@ Main-thread work that damages interaction during timeline or map movement
 Runtime network dependencies that can break the core experience
 Disabled validation or hidden errors
 Changes that make a cinematic effect impossible to test deterministically
+
+## Creative Media Freedom
+
+BibleMap is not restricted to museum objects, archival artwork, or historical photographs.
+
+The following are welcome when they meaningfully serve Scripture and the visitor's experience:
+
+- Original illustration, drawing, painting, and commissioned artwork
+- Expressive typography and visual metaphor
+- Licensed photography and documentary imagery
+- Historical maps and clearly identified interpretive cartography
+- Animation, cinematic transitions, and restrained visual effects
+- Music, environmental audio, narration, and sound design
+- Museum collections, manuscripts, artifacts, and archival imagery
+
+Choose the expressive medium based on what the passage needs, not merely on the availability of a museum collection record.
+
+### Evidence and representation boundaries
+
+Creative expression is not historical evidence.
+
+- Historical claims require verifiable sources.
+- Original or generated artwork must not be presented as an authentic historical artifact.
+- Reconstructed locations, objects, clothing, and events must be identified as interpretive when historical specificity is implied.
+- Artistic metaphors need not represent literal historical events.
+- Historical maps must be distinguished from speculative routes or reconstructions.
+- Sound must not imply historically verified instruments, speech, or environments without supporting evidence.
+- Every third-party visual or audio asset requires appropriate reuse rights.
+- Original and commissioned media require provenance and applicable editorial review.
+- AI-generated material must be disclosed and reviewed according to existing project requirements.
+
+Maintain all existing source-validation, uncertainty, media-rights, accessibility, and editorial-approval requirements.
+
+Do not equate historical accuracy with visual conservatism. Historical rigor and artistic originality are compatible.
