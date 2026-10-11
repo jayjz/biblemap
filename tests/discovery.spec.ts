@@ -38,6 +38,11 @@ test('passage opens Nineveh in the existing atlas and returns to the same passag
   await expect(panel.getByRole('heading', { name: 'Nineveh', exact: true })).toBeVisible();
   await expect(panel.getByRole('heading', { name: 'A library in clay' })).toBeVisible();
   await expect(panel).toContainText('not a date for Jonah’s visit');
+  await expect(panel.getByText('Early seventh century BCE')).toBeVisible();
+  await panel.getByText('A flood story, pressed into clay').click();
+  await expect(panel.getByRole('link', { name: /See the Flood Tablet/ })).toHaveAttribute(
+    'href', 'https://www.britishmuseum.org/collection/search?keyword=K.3375'
+  );
   await expect.poll(() => page.evaluate(() => window.__BIBLEMAP__?.selectedPlace)).toBe('nineveh');
   const camera = await page.evaluate(() => window.__BIBLEMAP__?.placeCamera);
   expect(camera?.longitude).toBeCloseTo(43.159936889690734, 5);

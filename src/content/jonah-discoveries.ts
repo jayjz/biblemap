@@ -7,6 +7,7 @@ export const DISCOVERY_SOURCES = {
   nineveh: { title: 'Pleiades · Nineveh', url: 'https://pleiades.stoa.org/places/874621' },
   empire: { title: 'British Museum · Assyria: Nineveh', url: 'https://www.britishmuseum.org/collection/galleries/assyria-nineveh' },
   library: { title: 'British Museum · What was Ashurbanipal’s Library?', url: 'https://www.britishmuseum.org/research/projects/what-was-ashurbanipals-library' },
+  floodTablet: { title: 'British Museum · The Flood Tablet (K.3375)', url: 'https://www.britishmuseum.org/collection/search?keyword=K.3375' },
   sculpture: { title: 'Cleveland Museum of Art · Jonah Under the Gourd Vine, 1965.239', url: 'https://www.clevelandart.org/art/1965.239' },
 } as const;
 
