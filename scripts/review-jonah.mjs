@@ -50,6 +50,25 @@ const server = createServer((request, response) => {
     response.setHeader("Content-Type", "text/html; charset=utf-8"); response.end(html(`<main class="gallery"><a href="/">← Review the journey</a><h1>Six artworks. Their actual identities.</h1><p>Local review only. These are later artworks, not historical photographs. No approval or reproduction license is inferred.</p>${figures}</main>`)); return;
   }
   if (path === "/") { response.setHeader("Content-Type", "text/html; charset=utf-8"); response.end(html('<div id="review-root"></div>', '<script src="/review.js"></script>')); return; }
+  const boardDir = new URL("artifacts/jonah-scene-board/", root);
+  if (path === "/board" || path === "/board/") {
+    const index = new URL("index.html", boardDir);
+    if (!existsSync(index)) { response.statusCode = 404; response.end("Scene board not generated on this machine."); return; }
+    response.setHeader("Content-Type", "text/html; charset=utf-8");
+    response.end(readFileSync(index));
+    return;
+  }
+  if (path.startsWith("/board/")) {
+    const name = path.slice("/board/".length);
+    if (/^[a-z0-9.-]+$/i.test(name)) {
+      const boardImage = new URL(name, boardDir);
+      if (existsSync(boardImage)) {
+        response.setHeader("Content-Type", name.endsWith(".png") ? "image/png" : "image/jpeg");
+        response.end(readFileSync(boardImage));
+        return;
+      }
+    }
+  }
   response.statusCode = 404; response.end("Not available in the local review server.");
 });
 server.listen(port, host, () => console.log(`Local Jonah review: http://${host}:${port}/ — unresolved files only from artifacts/jonah-visual-review. Never publish this server.`));

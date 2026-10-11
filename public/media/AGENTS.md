@@ -91,7 +91,7 @@ theologically-reviewed
 approved
 rejected
 
-Only editorially approved assets are publication-ready. Open-license images with a recorded source may live in `public/` before that approval, and the reader must label them provisional. Restricted and unresolved-rights images must not be placed in `public/`.
+Only editorially approved assets are publication-ready. A license string is recorded metadata, not verified permission. Open-license claims with a source and an attribution line may live in `public/` before editorial approval, and the reader must say the clearance is unverified. Missing attribution blocks that placement even when a maker is named. Restricted and unresolved-rights images must not be placed in `public/`.
 
 Artwork Rules
 

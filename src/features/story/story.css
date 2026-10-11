@@ -96,7 +96,6 @@
 .story-artwork .story-preview-note { margin: 0 0 .65rem !important; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #c4a574; }
 .story-quiet-panel { min-height: 168px; display: flex; align-items: flex-end; padding: 1.25rem 1.4rem; border: 1px solid #6d6957; background: radial-gradient(ellipse at 50% 28%, #cdbb8b33, transparent 55%), linear-gradient(#2c3834, #161e1c); }
 .story-quiet-panel p { margin: 0; color: #e7dfd0; font: italic 22px/1.35 var(--font-playfair), Georgia, serif; }
-.story-final-question .story-quiet-panel { min-height: 112px; }
 .story-root :is(.story-artwork, .story-audio) section[aria-label="Artwork provenance"] :is(p, div, span, a) { font-size: 14px; color: #51483f; }
 .story-root :is(.story-artwork, .story-audio) section[aria-label="Artwork provenance"] h3 { font-size: 18px; }
 .story-root :is(.story-artwork, .story-audio) section[aria-label="Artwork provenance"] a { color: #75451c; min-height: 44px; display: inline-flex; align-items: center; }
@@ -187,6 +186,8 @@
 .story-verses [data-reference^="2:"] { white-space: pre-line; }
 .story-final-question .story-verses { font-size: clamp(28px, 2.8vw, 38px); line-height: 1.75; padding-top: 1rem; }
 .story-final-question .story-columns { padding-bottom: 2rem; }
+.story-final-question .story-visual--absent { display: none; }
+.story-final-question .story-columns:has(.story-visual--absent) { grid-template-columns: minmax(0, 42rem); }
 .story-ending { padding: 3rem 0; margin: 2rem auto 0; text-align: center; border-top: 1px solid var(--line); }
 .story-ending-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; font-size: 15px; }
 .story-ending-links a { display: inline-flex; align-items: center; min-height: 48px; color: var(--bronze); }
@@ -212,4 +213,24 @@
 .story-curiosity p { color: var(--paper); font: 400 clamp(25px, 2.4vw, 33px)/1.45 var(--font-playfair), Georgia, serif; }
 @media (max-width: 640px) {
   .story-intro { padding-top: 2.5rem; padding-bottom: 2rem; }
+}
+
+/* Jonah 3:10 -> 4:1: Scripture leads, including on desktop. Passage-specific composition from the mercy encounter. */
+.story-scene[data-scene="jonah-3-mercy"] .story-columns,
+.story-scene[data-scene="jonah-4-anger"] .story-columns { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+.story-scene[data-scene="jonah-3-mercy"] .story-reading,
+.story-scene[data-scene="jonah-4-anger"] .story-reading { grid-column: 1; grid-row: 1; }
+.story-scene[data-scene="jonah-3-mercy"] .story-visual,
+.story-scene[data-scene="jonah-4-anger"] .story-visual { grid-column: 2; grid-row: 1; position: static; }
+.story-scene[data-scene="jonah-3-mercy"] .story-atmosphere,
+.story-scene[data-scene="jonah-4-anger"] .story-atmosphere { min-height: 220px; }
+.story-scene[data-scene="jonah-3-mercy"] .story-scene-nav { border-top-color: var(--bronze); }
+.story-mercy-perspective summary { color: var(--paper); }
+@media (max-width: 640px) {
+  .story-scene[data-scene="jonah-3-mercy"] .story-columns,
+  .story-scene[data-scene="jonah-4-anger"] .story-columns { grid-template-columns: minmax(0, 1fr); }
+  .story-scene[data-scene="jonah-3-mercy"] .story-visual,
+  .story-scene[data-scene="jonah-4-anger"] .story-visual { grid-column: 1; grid-row: 2; }
+  .story-scene[data-scene="jonah-3-mercy"] .story-atmosphere,
+  .story-scene[data-scene="jonah-4-anger"] .story-atmosphere { min-height: 140px; }
 }

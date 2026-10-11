@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { approvedAuthoredText, authoredLabel, sceneFromHash, type StoryDocument } from "@/domain/story";
-import type { CuratedMediaAsset } from "@/domain/media";
+import { mayPublishMedia, type CuratedMediaAsset } from "@/domain/media";
 import { MOTION } from "@/scenes/motion";
 import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
 
 import { FirstEncounter } from "./FirstEncounter";
+import { AquinasMercyPerspective } from "./AquinasMercyPerspective";
 
 function subscribeHash(onChange: () => void) {
   window.addEventListener("hashchange", onChange);
@@ -18,7 +19,7 @@ function subscribeHash(onChange: () => void) {
 const getHash = () => window.location.hash;
 const serverHash = () => null;
 
-export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [] }: { story: StoryDocument; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] }) {
+export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [], openMedia = [] }: { story: StoryDocument; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[]; openMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] }) {
   const hash = useSyncExternalStore(subscribeHash, getHash, serverHash);
   const active = sceneFromHash(story, hash ?? "");
   const [reflections, setReflections] = useState<Record<string, string>>({});
@@ -101,8 +102,10 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         const narration = story.media.find(m => m.id === scene.narration?.mediaId);
         const ambience = story.media.find(m => m.id === scene.soundscapeId);
         const fromStory = story.media.find(m => m.id === scene.artworkIds[0]);
+        const open = openMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset;
+        const supplemental = open && mayPublishMedia(open) ? open : undefined;
         const preview = (authorReview || localReview) ? previewMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset : undefined;
-        const artwork = fromStory ?? preview;
+        const artwork = fromStory ?? supplemental ?? preview;
         const isActive = hash !== null && active.id === scene.id;
         return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${index < 3 ? " story-opening-scene" : ""}${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
           <div className="story-scene-header">
@@ -113,9 +116,9 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
             <span className="story-scene-mark" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
           </div>
           <div className="story-columns">
-            <aside className="story-visual" aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
-              <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && Boolean(preview)} />
-              {scene.readingGuide && index >= 3 && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
+            <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
+              <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />
+              {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
                 <p>{narrative}</p>
@@ -136,6 +139,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
               })}
               {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
               {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>Optional · reading companion</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>Reading companion · Commentary on the passage</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
+              <AquinasMercyPerspective sceneId={scene.id} />
               <FirstEncounter sceneId={scene.id} />
               <StoryEvidence story={story} scene={scene} authorReview={authorReview} />
 

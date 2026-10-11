@@ -25,10 +25,6 @@ const QUIET_SCENES: Record<string, { title: string; note: string }> = {
     title: "No picture for the lots",
     note: "The passage is a conversation: the crew cast lots, and Jonah names the God he fears. No cleared image of that moment is placed here.",
   },
-  "jonah-4-question": {
-    title: "Left open",
-    note: "No narrative picture. The book ends on a question, and this scene stays quiet on purpose.",
-  },
 };
 
 export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset; sceneId?: string; reviewOnly?: boolean }) {
@@ -38,6 +34,7 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
   const quiet = QUIET_SCENES[sceneId ?? ""];
   const visible = Boolean(asset && canRenderMedia(asset) && !failed);
   if (!visible) {
+    if (sceneId === "jonah-4-question" && !asset) return null;
     if (quiet && !failed) return <figure className="story-atmosphere-frame story-quiet">
       <div className="story-quiet-panel" role="img" aria-label={`${quiet.title}. ${quiet.note}`}><p>{quiet.title}</p></div>
       <figcaption>{atmosphere?.reference && <span>{atmosphere.reference} <span aria-hidden="true">·</span> </span>}{quiet.note}</figcaption>
@@ -64,7 +61,7 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
       if (image?.complete && image.naturalWidth === 0) setFailedPath(asset!.localPath);
     }} src={asset!.localPath} alt={asset!.altText || asset!.title} loading="lazy" decoding="async" onError={() => setFailedPath(asset!.localPath)} />
     <figcaption>
-      {!ready && <p className="story-preview-note">{unresolved || reviewOnly ? "Visual review · rights unresolved · not for publication" : "Provisional · open license · not editorially approved"}</p>}
+      {!ready && <p className="story-preview-note">{unresolved || reviewOnly ? "Visual review · rights unresolved · not for publication" : "Provisional · recorded open-license claim · not a verified clearance"}</p>}
       <p className="story-artwork-caption">{asset!.creator?.trim() || "Maker not recorded"} · {asset!.creationDate?.trim() || "Date not recorded"}<br />{asset!.title}<br /><small>{mediaClassLabel(asset!.class)} · {kind}</small></p>
       <details className="story-artwork-credits"><summary>About this artwork & rights</summary><MediaProvenancePlate asset={asset!} /></details>
     </figcaption>
