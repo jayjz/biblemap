@@ -82,3 +82,17 @@ Report concisely:
 5. Screenshot and preview locations.
 
 Do not expand scope into unrelated redesigns.
+
+## Artistic range
+
+Evaluate whether the composition uses the most appropriate expressive medium.
+
+Museum artwork is one option, not the default.
+
+Consider original illustration, typography, visual metaphor, licensed photography, interpretive cartography, motion, and sound.
+
+Ask whether alternative media would communicate the passage more effectively.
+
+Do not reward archival aesthetics merely for appearing historically serious.
+
+Verify factual implications, source integrity, licensing, accessibility, and editorial status independently of artistic merit.
