@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import catalog from "../docs/research/jonah-asset-candidates.json" with { type: "json" };
+import rightsChecks from "../docs/research/jonah-rights-verification.json" with { type: "json" };
 
 const root = new URL("../", import.meta.url);
 const errors = [];
@@ -39,17 +40,21 @@ for (const file of catalog.acquiredFiles) {
   }
 }
 const OPEN_LICENSES = new Set(["CC0-1.0", "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-SA-3.0", "CC-BY-3.0", "Public Domain", "PD-Art", "PD-US"]);
+const RIGHTS_REVIEWED = new Set(["rights-verified", "historically-reviewed", "theologically-reviewed", "approved"]);
 const publicDir = new URL("public/media/jonah/", root);
 if (existsSync(publicDir)) {
   for (const filename of readdirSync(publicDir)) {
     const file = catalog.publicationFiles.find(file => file.filename === filename);
     const candidate = catalog.assets.find(asset => asset.id === file?.assetId);
-    // A license string in OPEN_LICENSES is a recorded claim, not a clearance.
-    if (!candidate || candidate.rightsUse === "restricted" || candidate.rightsUse === "unresolved" || !OPEN_LICENSES.has(candidate.license) || !candidate.sourceRecordUrl) {
-      errors.push(`${filename}: unresolved or restricted file would be published by static export`);
+    if (!candidate || candidate.rightsUse === "restricted" || candidate.rightsUse === "unresolved" || !OPEN_LICENSES.has(candidate.license) || !candidate.sourceRecordUrl || !RIGHTS_REVIEWED.has(candidate.productionReviewStatus) || !candidate.reviewedBy?.trim() || !candidate.rightsEvidence) {
+      errors.push(`${filename}: unverified, unresolved or restricted file would be published by static export`);
       continue;
     }
     if (!candidate.creator?.trim()) errors.push(`${filename}: missing attribution`);
+    if (candidate.productionReviewStatus !== "approved") {
+      const check = rightsChecks.find(check => check.assetId === candidate.id);
+      if (!check || check.sourceUrl !== candidate.rightsEvidence || !/^[a-f0-9]{64}$/.test(check.responseSha256) || !Number.isFinite(Date.parse(check.checkedAt))) errors.push(`${filename}: missing source verification evidence`);
+    }
     const bytes = readFileSync(new URL(filename, publicDir));
     const size = dimensions(bytes);
     if (createHash("sha256").update(bytes).digest("hex") !== file.checksumSha256 || bytes.length !== file.bytes || size.width !== file.width || size.height !== file.height) errors.push(`${filename}: publication checksum/dimensions mismatch`);
@@ -60,4 +65,4 @@ for (const file of catalog.publicationFiles) {
   if (!existsSync(new URL(`public${file.localPath}`, root))) errors.push(`${file.filename}: approved publication file missing`);
 }
 if (errors.length) throw new Error(errors.join("\n"));
-console.log(`✓ ${checksums.size} distinct Jonah acquisition records; available originals and held copies verified; open-license claims checked separately from editorial approval`);
+console.log(`✓ ${checksums.size} distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval`);

@@ -94,8 +94,6 @@
 .story-artwork img { width: 100%; height: auto; max-height: min(68vh, 560px); object-fit: contain; }
 .story-artwork figcaption { margin-top: 1rem; }
 .story-artwork .story-preview-note { margin: 0 0 .65rem !important; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #c4a574; }
-.story-quiet-panel { min-height: 168px; display: flex; align-items: flex-end; padding: 1.25rem 1.4rem; border: 1px solid #6d6957; background: radial-gradient(ellipse at 50% 28%, #cdbb8b33, transparent 55%), linear-gradient(#2c3834, #161e1c); }
-.story-quiet-panel p { margin: 0; color: #e7dfd0; font: italic 22px/1.35 var(--font-playfair), Georgia, serif; }
 .story-root :is(.story-artwork, .story-audio) section[aria-label="Artwork provenance"] :is(p, div, span, a) { font-size: 14px; color: #51483f; }
 .story-root :is(.story-artwork, .story-audio) section[aria-label="Artwork provenance"] h3 { font-size: 18px; }
 .story-root :is(.story-artwork, .story-audio) section[aria-label="Artwork provenance"] a { color: #75451c; min-height: 44px; display: inline-flex; align-items: center; }

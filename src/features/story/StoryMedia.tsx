@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { canRenderMedia, isInterpretiveClass, isProductionReadyMedia, mediaClassLabel, publicationFlags, type CuratedMediaAsset } from "@/domain/media";
+import { canRenderMedia, mayPublishMedia, isInterpretiveClass, isProductionReadyMedia, mediaClassLabel, publicationFlags, type CuratedMediaAsset } from "@/domain/media";
 import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
 
 const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
@@ -20,25 +20,13 @@ const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
   "jonah-4-question": { label: "An open horizon beneath a quiet sky", reference: "Jonah 4:11" },
 };
 
-const QUIET_SCENES: Record<string, { title: string; note: string }> = {
-  "jonah-1-storm-lots": {
-    title: "No picture for the lots",
-    note: "The passage is a conversation: the crew cast lots, and Jonah names the God he fears. No cleared image of that moment is placed here.",
-  },
-};
-
 export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset; sceneId?: string; reviewOnly?: boolean }) {
   const [failedPath, setFailedPath] = useState<string | null>(null);
   const failed = Boolean(asset && failedPath === asset.localPath);
   const atmosphere = ATMOSPHERES[sceneId ?? ""];
-  const quiet = QUIET_SCENES[sceneId ?? ""];
-  const visible = Boolean(asset && canRenderMedia(asset) && !failed);
+  const visible = Boolean(asset && (reviewOnly ? canRenderMedia(asset) : mayPublishMedia(asset)) && !failed);
   if (!visible) {
-    if (sceneId === "jonah-4-question" && !asset) return null;
-    if (quiet && !failed) return <figure className="story-atmosphere-frame story-quiet">
-      <div className="story-quiet-panel" role="img" aria-label={`${quiet.title}. ${quiet.note}`}><p>{quiet.title}</p></div>
-      <figcaption>{atmosphere?.reference && <span>{atmosphere.reference} <span aria-hidden="true">·</span> </span>}{quiet.note}</figcaption>
-    </figure>;
+    if ((sceneId === "jonah-4-question" || sceneId === "jonah-1-storm-lots") && !asset) return null;
     return <figure className="story-atmosphere-frame">
       <div className={`story-atmosphere story-atmosphere--${sceneId?.replace(/^jonah-\d-/, "") ?? "default"}`} role="img" aria-label={`${atmosphere?.label ?? "Atmospheric visual composition"}. Abstract study, not a historical reconstruction.`}>
         <div className="story-horizon" aria-hidden="true" />
@@ -61,7 +49,7 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
       if (image?.complete && image.naturalWidth === 0) setFailedPath(asset!.localPath);
     }} src={asset!.localPath} alt={asset!.altText || asset!.title} loading="lazy" decoding="async" onError={() => setFailedPath(asset!.localPath)} />
     <figcaption>
-      {!ready && <p className="story-preview-note">{unresolved || reviewOnly ? "Visual review · rights unresolved · not for publication" : "Provisional · recorded open-license claim · not a verified clearance"}</p>}
+      {!ready && <p className="story-preview-note">{unresolved ? "Visual review · rights unresolved · not for publication" : reviewOnly ? "Visual review · not approved for publication" : "Provisional placement · image rights verified · editorial review pending"}</p>}
       <p className="story-artwork-caption">{asset!.creator?.trim() || "Maker not recorded"} · {asset!.creationDate?.trim() || "Date not recorded"}<br />{asset!.title}<br /><small>{mediaClassLabel(asset!.class)} · {kind}</small></p>
       <details className="story-artwork-credits"><summary>About this artwork & rights</summary><MediaProvenancePlate asset={asset!} /></details>
     </figcaption>

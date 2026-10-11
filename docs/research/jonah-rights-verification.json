@@ -1,0 +1,62 @@
+[
+  {
+    "assetId": "cma-roberts-jaffa",
+    "checkedAt": "2026-10-11",
+    "sourceUrl": "https://openaccess-api.clevelandart.org/api/artworks/?accession_number=1927.84",
+    "responseSha256": "ac5e1ce449a1cf42d16f611968bde58c5b7edf5fce207d7f7d275b90ff6d9403",
+    "observed": {
+      "accessionNumber": "1927.84",
+      "shareLicenseStatus": "CC0",
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1927.84/1927.84_web.jpg"
+    },
+    "scope": "Image reuse only. Editorial placement remains provisional; no legal or creator approval is inferred."
+  },
+  {
+    "assetId": "cma-backhuysen-storm",
+    "checkedAt": "2026-10-11",
+    "sourceUrl": "https://openaccess-api.clevelandart.org/api/artworks/?accession_number=1924.848.10",
+    "responseSha256": "d7b86596f8df09858c22c4d47c95a486737a2ff1afb74aa92b919695d1f1579b",
+    "observed": {
+      "accessionNumber": "1924.848.10",
+      "shareLicenseStatus": "CC0",
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1924.848.10/1924.848.10_web.jpg"
+    },
+    "scope": "Image reuse only. Editorial placement remains provisional; no legal or creator approval is inferred."
+  },
+  {
+    "assetId": "nga-sadeler-jonah-storm",
+    "checkedAt": "2026-10-11",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Justus_Sadeler_after_Paul_Bril,_Jonah_Thrown_into_the_Stormy_Sea,_1610-1620,_NGA_110821.jpg",
+    "responseSha256": "968ec58203b3a62ef00af5308bef294c4ce7ae081ac1db5b5e30102820d7dd68",
+    "observed": {
+      "fileLevelLicense": "CC0-1.0",
+      "credit": "National Gallery of Art donation",
+      "restriction": "none recorded in file-level rights metadata"
+    },
+    "scope": "Image reuse only. Editorial placement remains provisional; no legal or creator approval is inferred."
+  },
+  {
+    "assetId": "commons-nineveh-gardens",
+    "checkedAt": "2026-10-11",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gypsum_Relief_of_Gardens_of_Nineveh,_North_Palace,_Nineveh,_Iraq,_645-635_BC.jpg",
+    "responseSha256": "31132ef09fc6a0f18fcf4e7cc646a07dc4a9ae5c6553fb4a46ccd81a01e293d2",
+    "observed": {
+      "fileLevelLicense": "CC0-1.0",
+      "credit": "Gary Todd; Flickr source linked by file record",
+      "restriction": "none recorded in file-level rights metadata"
+    },
+    "scope": "Image reuse only. Editorial placement remains provisional; no legal or creator approval is inferred."
+  },
+  {
+    "assetId": "cma-jonah-gourd-vine",
+    "checkedAt": "2026-10-11",
+    "sourceUrl": "https://openaccess-api.clevelandart.org/api/artworks/?accession_number=1965.239",
+    "responseSha256": "728d8cccd808710d484aa97662c4ef6ab1c96f78c9d04acdc114116e39a08613",
+    "observed": {
+      "accessionNumber": "1965.239",
+      "shareLicenseStatus": "CC0",
+      "imageUrl": "https://openaccess-cdn.clevelandart.org/1965.239/1965.239_web.jpg"
+    },
+    "scope": "Image reuse only. Editorial placement remains provisional; no legal or creator approval is inferred."
+  }
+]

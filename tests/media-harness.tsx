@@ -25,6 +25,8 @@ function Harness() {
     {mounted && <AudioTrack asset={fixture} label="Narration" transcript="Test transcript" />}
     <div className="story-root" style={{ maxWidth: 520, margin: "2rem auto" }}><StoryArtwork sceneId="jonah-1-calling" asset={portrait ? testPortrait : { ...fixture, id: "test-image", class: "artistic-depiction", localPath: "/media/test-missing.jpg" }} /></div>
     <div data-testid="unapproved-art"><StoryArtwork asset={{ ...testPortrait, reviewStatus: "rights-verified", reviewedBy: "", localPath: "/media/test-unapproved.jpg", rightsUse: "restricted", license: "In Copyright" }} /></div>
+    <div data-testid="unresolved-art"><StoryArtwork asset={{ ...testPortrait, rightsUse: "unresolved", localPath: "/media/test-unresolved.jpg" }} /></div>
+    <div data-testid="license-claim-art"><StoryArtwork asset={{ ...testPortrait, reviewStatus: "candidate", reviewedBy: "", rightsUse: "open", localPath: "/media/test-license-claim.jpg" }} /></div>
   </main>;
 }
 const root = document.getElementById("test-root");

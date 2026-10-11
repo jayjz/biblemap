@@ -17,16 +17,20 @@ function asset(overrides: Partial<CuratedMediaAsset> = {}): CuratedMediaAsset {
   };
 }
 
-test("a valid open image renders without editorial approval; the license is still only a claim", () => {
+test("a license claim allows local review but cannot authorize public export", () => {
   const open = asset();
   assert.equal(isProductionReadyMedia(open), false);
   assert.equal(canRenderMedia(open), true);
-  assert.equal(mayPublishMedia(open), true);
+  assert.equal(mayPublishMedia(open), false);
   assert.deepEqual(publicationFlags(open), ["license-unverified"]);
   const reviewed = asset({ reviewStatus: "rights-verified", reviewedBy: "fixture" });
   assert.equal(publicationFlags(reviewed).includes("license-unverified"), false);
   assert.equal(mayPublishMedia(reviewed), true);
   assert.equal(isProductionReadyMedia(reviewed), false);
+  assert.equal(mayPublishMedia(asset({ reviewStatus: "rights-verified", reviewedBy: "" })), false);
+  assert.equal(mayPublishMedia(asset({ reviewStatus: "approved", reviewedBy: "fixture", rightsUse: "unresolved" })), false);
+  assert.equal(isProductionReadyMedia(asset({ reviewStatus: "approved", reviewedBy: "fixture", rightsUse: "unresolved" })), false);
+  assert.equal(isProductionReadyMedia(asset({ reviewStatus: "approved", reviewedBy: "fixture", rightsUse: "restricted" })), false);
 });
 
 test("restricted rights do not render or publish", () => {

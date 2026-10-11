@@ -203,7 +203,7 @@ export function validateMediaAsset(asset: CuratedMediaAsset): MediaValidationRes
 /** Production gate: editorially approved, fully attributed assets. */
 export function isProductionReadyMedia(asset: CuratedMediaAsset): boolean {
   if (asset.reviewStatus !== "approved") return false;
-  return validateMediaAsset(asset).ok;
+  return validateMediaAsset(asset).ok && mayPublishMedia(asset);
 }
 
 export const PUBLICATION_FLAGS = [
@@ -218,8 +218,8 @@ export type PublicationFlag = (typeof PUBLICATION_FLAGS)[number];
 
 const RESTRICTED_LICENSE = /all rights reserved|in copyright|non-?commercial|(?:^|[^a-z])nc(?:[^a-z]|$)|no-?deriv/i;
 const RIGHTS_REVIEWED = new Set(["rights-verified", "historically-reviewed", "theologically-reviewed", "approved"]);
-/** These flags keep a file out of public/. A license-unverified flag does not: it only says the license string is a claim. */
-const PUBLICATION_BLOCKERS = new Set<PublicationFlag>(["explicit-restriction", "unresolved-rights", "missing-source", "missing-attribution"]);
+/** A reusable license string alone does not establish permission to publish. */
+const PUBLICATION_BLOCKERS = new Set<PublicationFlag>(PUBLICATION_FLAGS);
 
 /**
  * A license string is recorded metadata, not verified permission.
@@ -232,7 +232,7 @@ export function publicationFlags(asset: CuratedMediaAsset): PublicationFlag[] {
   const restrictedByText = Boolean(license) && !isKnownLicense(license) && RESTRICTED_LICENSE.test(license);
   if (asset.rightsUse === "restricted" || restrictedByText) flags.push("explicit-restriction");
   else if (asset.rightsUse === "unresolved" || !license || !isKnownLicense(license)) flags.push("unresolved-rights");
-  else if (!RIGHTS_REVIEWED.has(asset.reviewStatus)) flags.push("license-unverified");
+  else if (!RIGHTS_REVIEWED.has(asset.reviewStatus) || !asset.reviewedBy?.trim() || !asset.rightsStatement?.trim()) flags.push("license-unverified");
   if (!(asset.sourceRecordUrl?.trim() || asset.originalAssetUrl?.trim())) flags.push("missing-source");
   if (!asset.requiredAttribution?.trim()) flags.push("missing-attribution");
   return flags;
@@ -247,7 +247,7 @@ export function canRenderMedia(asset: CuratedMediaAsset): boolean {
   return true;
 }
 
-/** Eligible for public/ on a recorded open-license claim. This is not a rights clearance. */
+/** Rights review is required for public/; editorial approval remains a separate contract. */
 export function mayPublishMedia(asset: CuratedMediaAsset): boolean {
   if (!canRenderMedia(asset)) return false;
   if (publicationFlags(asset).some(flag => PUBLICATION_BLOCKERS.has(flag))) return false;

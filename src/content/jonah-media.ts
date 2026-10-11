@@ -114,7 +114,7 @@ function asMediaClass(value: string): MediaClass {
   return value as MediaClass;
 }
 
-/** Open-license pictures placed before editorial approval. Not publication-ready. */
+/** Rights-verified pictures placed before editorial approval. Not publication-ready. */
 export const JONAH_PROVISIONAL_MEDIA: readonly CuratedMediaAsset[] = catalog.assets.flatMap(candidate => {
   const copy = provisionalCopy[candidate.id];
   if (!copy) return [];
@@ -128,7 +128,7 @@ export const JONAH_PROVISIONAL_MEDIA: readonly CuratedMediaAsset[] = catalog.ass
     depictedPeriod: copy.depicted,
     sourceInstitution: candidate.sourceInstitution, sourceRecordUrl: candidate.sourceRecordUrl,
     originalAssetUrl: candidate.originalAssetUrl ?? acquired.sourceUrl, license: candidate.license,
-    rightsStatement: `Open license recorded as ${candidate.license}. Rights evidence: ${candidate.rightsEvidence}. Editorial approval is not claimed.`,
+    rightsStatement: `Image reuse rights checked against the source record on 2026-10-11: ${candidate.license}. Rights evidence: ${candidate.rightsEvidence}. Verification observations: docs/research/jonah-rights-verification.json. Editorial approval is not claimed.`,
     requiredAttribution: `${candidate.creator}, ${candidate.title}, ${candidate.creationDate}. ${candidate.sourceInstitution}${candidate.accessionNumber ? `, ${candidate.accessionNumber}` : ""}. ${candidate.license}. ${candidate.sourceRecordUrl}`,
     downloadedAt: acquired.downloadedAt, checksum: `sha256:${acquired.checksumSha256}`,
     localPath: acquired.localPath, altText: copy.alt, caption: copy.caption, historicalFit: copy.fit,
@@ -148,6 +148,6 @@ export function jonahSceneArtworkIds(sceneId: string): string[] {
   return JONAH_PROVISIONAL_MEDIA.filter(asset => provisionalCopy[asset.id]?.sceneIds.includes(sceneId)).map(asset => asset.id);
 }
 
-/** Reader-only placements. Open-license claims, not editorial approval, and not part of StoryDocument.media. */
+/** Reader-only placements with verified image rights; not editorial approval or StoryDocument.media. */
 export const JONAH_OPEN_PLACEMENTS: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] =
   JONAH_PROVISIONAL_MEDIA.map(asset => ({ sceneIds: provisionalCopy[asset.id].sceneIds, asset }));

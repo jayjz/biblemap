@@ -11,7 +11,7 @@ test("story document keeps the three approved artworks; open images stay outside
   assert.equal(JONAH.media.length, 3);
   assert.ok(JONAH.media.every(isProductionReadyMedia));
   assert.equal(JONAH_PROVISIONAL_MEDIA.length, 5);
-  assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => mayPublishMedia(asset) && !isProductionReadyMedia(asset) && publicationFlags(asset).includes("license-unverified") && !publicationFlags(asset).includes("missing-attribution")));
+  assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => mayPublishMedia(asset) && !isProductionReadyMedia(asset) && publicationFlags(asset).length === 0 && asset.reviewStatus === "rights-verified"));
   assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => !JONAH.media.some(item => item.id === asset.id)));
   assert.equal(JONAH_OPEN_PLACEMENTS.length, 5);
   const placements = Object.fromEntries(JONAH.scenes.filter(scene => scene.artworkIds.length).map(scene => [scene.id, scene.artworkIds]));

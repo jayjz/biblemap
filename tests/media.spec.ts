@@ -84,6 +84,7 @@ test("restricted media makes no image request; approved fixture preserves compos
   expect(accessibility.violations).toEqual([]);
   await page.screenshot({ path: testInfo.outputPath("test-only-portrait-provenance.png"), fullPage: true });
   expect(requests.some(url => url.includes("test-unapproved.jpg"))).toBe(false);
+  expect(requests.some(url => /test-unresolved.jpg|test-license-claim.jpg/.test(url))).toBe(false);
 });
 
 test("normal Jonah route keeps approved art and labels open images as provisional", async ({ page }) => {
@@ -128,13 +129,14 @@ test("normal Jonah route keeps approved art and labels open images as provisiona
     expect(await image.evaluate(img => getComputedStyle(img).objectFit)).toBe("contain");
     const publication = catalog.publicationFiles.find(file => file.assetId === id);
     await expect(image).toHaveAttribute("src", publication?.localPath ?? "");
-    await expect(article.locator(".story-artwork")).toContainText("Provisional · recorded open-license claim · not a verified clearance");
+    await expect(article.locator(".story-artwork")).toContainText("Provisional placement · image rights verified · editorial review pending");
     await expect(article.locator(".story-artwork")).toContainText(kind);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   await page.goto("/jonah/#jonah-1-storm-lots");
   await expect(page.locator('[data-scene="jonah-1-storm-lots"] img')).toHaveCount(0);
-  await expect(page.locator('[data-scene="jonah-1-storm-lots"]')).toContainText("No picture for the lots");
+  await expect(page.locator('[data-scene="jonah-1-storm-lots"] .story-atmosphere-frame')).toHaveCount(0);
+  await expect(page.locator('[data-reference="1:7"]')).toBeVisible();
   await page.goto("/jonah/#jonah-4-question");
   await expect(page.locator('[data-scene="jonah-4-question"] img')).toHaveCount(0);
   await expect(page.locator('[data-scene="jonah-4-question"] .story-quiet, [data-scene="jonah-4-question"] .story-atmosphere')).toHaveCount(0);

@@ -91,7 +91,7 @@ theologically-reviewed
 approved
 rejected
 
-Only editorially approved assets are publication-ready. A license string is recorded metadata, not verified permission. Open-license claims with a source and an attribution line may live in `public/` before editorial approval, and the reader must say the clearance is unverified. Missing attribution blocks that placement even when a maker is named. Restricted and unresolved-rights images must not be placed in `public/`.
+Only editorially approved assets are publication-ready. A license string is recorded metadata, not verified permission. Provisional placements may live in `public/` only after image reuse rights are verified against the exact source record, with evidence and reviewer recorded. Label their pending editorial review. Missing attribution, unverified license claims, restricted rights, and unresolved rights block public export. Restricted assets must not render even in local review; unresolved assets may render only in local review.
 
 Artwork Rules
 

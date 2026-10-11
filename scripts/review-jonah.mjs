@@ -14,7 +14,11 @@ if (host !== "127.0.0.1" && host !== "::1" && host !== "0.0.0.0") throw new Erro
 const bundle = await build({ entryPoints: [fileURLToPath(new URL("scripts/jonah-review.tsx", root))], bundle: true, write: false, jsx: "automatic", define: { "process.env.NODE_ENV": '"production"', "process.env": "{}" } });
 const escapeHtml = value => String(value).replace(/[&<>"\']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
 const localCss = `body{margin:0;background:#131d20;color:#f1eadb;font:18px/1.6 Georgia,serif}a{color:#d8be8b}.local-review-banner{padding:1rem 4%;font:14px/1.6 Arial;background:#352f23}main.gallery{max-width:1100px;margin:auto;padding:2rem} .gallery figure{margin:3rem 0;padding:1rem;border-top:1px solid #65716a}.gallery img{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto}.gallery figcaption{padding:1rem 0}.gallery small{display:block}.gallery code{overflow-wrap:anywhere;font-size:12px}`;
-function html(body, script = "") { return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jonah · Local creator review</title><link rel="stylesheet" href="/review.css"></head><body>${body}${script}</body></html>`; }
+function html(body, script = "") {
+  const exported = new URL("out/jonah/index.html", root);
+  const fontClasses = existsSync(exported) ? readFileSync(exported, "utf8").match(/<body class="([^"]+)"/)?.[1] ?? "" : "";
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jonah · Local creator review</title><link rel="stylesheet" href="/review.css"></head><body class="${escapeHtml(fontClasses)}">${body}${script}</body></html>`;
+}
 function namedFile(directory, requestPath, prefix) {
   if (!requestPath.startsWith(prefix)) return null;
   const name = basename(requestPath);
@@ -25,6 +29,10 @@ function namedFile(directory, requestPath, prefix) {
 const server = createServer((request, response) => {
   const path = new URL(request.url, `http://127.0.0.1:${port}`).pathname;
   response.setHeader("Cache-Control", "no-store");
+  if (path.startsWith("/_next/static/media/")) {
+    const font = namedFile(new URL("out/_next/static/media/", root), path, "/_next/static/media/");
+    if (font && path.endsWith(".woff2")) { response.setHeader("Content-Type", "font/woff2"); response.end(readFileSync(font)); return; }
+  }
   if (path === "/review.js") { response.setHeader("Content-Type", "text/javascript"); response.end(bundle.outputFiles[0].text); return; }
   if (path === "/review.css") {
     const directory = new URL("out/_next/static/css/", root);
