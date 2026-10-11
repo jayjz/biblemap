@@ -38,13 +38,14 @@ for (const file of catalog.acquiredFiles) {
     if (size.width !== file.originalDimensions.width || size.height !== file.originalDimensions.height || bytes.length !== file.bytes) errors.push(`${path}: dimensions or byte length mismatch`);
   }
 }
+const OPEN_LICENSES = new Set(["CC0-1.0", "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-SA-3.0", "CC-BY-3.0", "Public Domain", "PD-Art", "PD-US"]);
 const publicDir = new URL("public/media/jonah/", root);
 if (existsSync(publicDir)) {
   for (const filename of readdirSync(publicDir)) {
     const file = catalog.publicationFiles.find(file => file.filename === filename);
     const candidate = catalog.assets.find(asset => asset.id === file?.assetId);
-    if (!candidate || candidate.productionReviewStatus !== "approved" || !candidate.reviewedBy || !candidate.downloadedAt || !candidate.approvedSceneIds.length) {
-      errors.push(`${filename}: unapproved file would be published by static export`);
+    if (!candidate || candidate.rightsUse === "restricted" || candidate.rightsUse === "unresolved" || !OPEN_LICENSES.has(candidate.license) || !candidate.sourceRecordUrl) {
+      errors.push(`${filename}: unresolved or restricted file would be published by static export`);
       continue;
     }
     const bytes = readFileSync(new URL(filename, publicDir));

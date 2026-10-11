@@ -24,7 +24,7 @@ function Harness() {
     <button onClick={() => setPortrait(true)}>Show test-approved portrait</button>
     {mounted && <AudioTrack asset={fixture} label="Narration" transcript="Test transcript" />}
     <div className="story-root" style={{ maxWidth: 520, margin: "2rem auto" }}><StoryArtwork sceneId="jonah-1-calling" asset={portrait ? testPortrait : { ...fixture, id: "test-image", class: "artistic-depiction", localPath: "/media/test-missing.jpg" }} /></div>
-    <div data-testid="unapproved-art"><StoryArtwork asset={{ ...testPortrait, reviewStatus: "rights-verified", reviewedBy: "", localPath: "/media/test-unapproved.jpg" }} /></div>
+    <div data-testid="unapproved-art"><StoryArtwork asset={{ ...testPortrait, reviewStatus: "rights-verified", reviewedBy: "", localPath: "/media/test-unapproved.jpg", rightsUse: "restricted", license: "In Copyright" }} /></div>
   </main>;
 }
 const root = document.getElementById("test-root");

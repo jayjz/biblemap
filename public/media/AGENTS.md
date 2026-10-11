@@ -6,7 +6,7 @@ These instructions extend the repository-root `AGENTS.md` for artwork, images, a
 
 No media asset may ship without known provenance, rights status, classification, and review state.
 
-When rights cannot be verified, omit the asset.
+When rights are explicitly restricted, omit the asset. Uncertain rights stay outside `public/` until cleared.
 
 Do not download or ship images found through general search results merely because they are publicly visible online.
 
@@ -91,7 +91,7 @@ theologically-reviewed
 approved
 rejected
 
-Only approved assets may appear in production.
+Only editorially approved assets are publication-ready. Open-license images with a recorded source may live in `public/` before that approval, and the reader must label them provisional. Restricted and unresolved-rights images must not be placed in `public/`.
 
 Artwork Rules
 
