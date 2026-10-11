@@ -232,3 +232,69 @@
   .story-scene[data-scene="jonah-3-mercy"] .story-atmosphere,
   .story-scene[data-scene="jonah-4-anger"] .story-atmosphere { min-height: 140px; }
 }
+
+/* Three encounters share typography, but not a fixed card layout. */
+.story-scene[data-scene="jonah-1-escape"] .story-columns { grid-template-columns: 1.08fr 1fr; gap: 4rem; }
+.story-scene[data-scene="jonah-1-escape"] .story-verses { font-size: clamp(24px, 2.3vw, 32px); line-height: 1.75; }
+.story-scene[data-scene="jonah-1-escape"] .story-artwork img { padding: 0; border: 0; max-height: none; }
+.story-scene[data-scene="jonah-1-escape"] .story-visual { padding-top: 2rem; }
+.story-scene[data-scene="jonah-1-escape"] .story-curiosity { margin-bottom: 0; }
+.story-curiosity p { color: var(--bronze); font-size: 24px; }
+.story-explore-further { margin-top: 3rem; color: var(--muted); }
+.story-further-content { max-width: 760px; padding: 1.5rem 0 2rem; }
+.scene-discovery { margin: 4rem 0 0; padding: 3rem 0 0; border-top: 1px solid var(--line); }
+.scene-discovery h3 { color: var(--paper); font-size: clamp(30px, 3vw, 42px); line-height: 1.2; margin: .75rem 0 1.3rem; }
+.scene-discovery p { max-width: 38rem; }
+.scene-discovery a { color: var(--bronze); font-size: 15px; display: inline-block; min-height: 44px; padding: .65rem 0; }
+.discovery-flight { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.discovery-footnote { margin-top: 1rem; font-size: 14px; color: var(--muted); }
+.discovery-footnote a { display: block; }
+.discovery-caption { font-size: 13px; color: var(--muted); line-height: 1.65; margin-top: 1rem !important; }
+.story-first-perspectives { margin-top: 1rem; }
+.discovery-mercy { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5rem; }
+.discovery-world-door { border-left: 1px solid var(--bronze); padding-left: 2rem; }
+.discovery-world-door h4 { font: 400 30px/1.35 var(--font-playfair), Georgia, serif; margin: .8rem 0 1rem; color: var(--paper); }
+.mercy-lettering { min-height: 400px; padding: 3rem 0 2rem 2rem; border-left: 1px solid #897252; color: #bba789; display: flex; flex-direction: column; justify-content: center; }
+.mercy-lettering > span { font-size: 15px; letter-spacing: .22em; text-transform: uppercase; }
+.mercy-lettering em { font: italic clamp(64px, 7vw, 110px)/1.4 var(--font-playfair), Georgia, serif; }
+.mercy-lettering small { font-size: 12px; letter-spacing: .12em; margin-top: 1rem; }
+.story-scene[data-scene="jonah-4-anger"] .mercy-lettering { color: #dda58c; border-color: #a9755c; }
+.story-scene[data-scene="jonah-4-anger"] .story-verses [data-reference="4:4"] { font-size: 1.25em; border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 1.5rem; }
+.story-scene[data-scene="jonah-4-shade"] .story-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+.story-scene[data-scene="jonah-4-shade"] .story-reading { grid-row: 1; max-width: 900px; }
+.story-scene[data-scene="jonah-4-shade"] .story-verses { columns: 2; column-gap: 3rem; font-size: 22px; }
+.story-scene[data-scene="jonah-4-shade"] .story-verses p { break-inside: avoid; }
+.story-scene[data-scene="jonah-4-shade"] .story-visual { position: static; grid-row: 2; }
+.story-scene[data-scene="jonah-4-shade"] .story-artwork { background: #090e10; padding: 2.5rem; }
+.story-scene[data-scene="jonah-4-shade"] .story-artwork img { max-height: 580px; border: 0; padding: 0; background: transparent; box-shadow: none; }
+.story-scene[data-scene="jonah-4-shade"] .story-artwork figcaption { max-width: 680px; margin: 1.5rem auto 0; }
+.discovery-shade { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; margin-top: 0; border-top: 0; }
+.shade-looking { align-self: start; border-top: 1px solid var(--bronze); margin-top: .5rem; }
+.shade-looking summary { display: flex; justify-content: space-between; gap: 1rem; color: var(--bronze); }
+.shade-looking h4 { font: 400 25px/1.4 var(--font-playfair), Georgia, serif; margin: 1rem 0; }
+.story-artwork-credits > p { font-size: 14px; }
+.story-scene-nav { margin-top: 2rem; }
+@media (max-width: 900px) {
+  .story-scene[data-scene="jonah-1-escape"] .story-columns { gap: 2rem; }
+  .discovery-flight, .discovery-mercy, .discovery-shade { gap: 2.5rem; }
+}
+@media (max-width: 640px) {
+  .story-scene[data-scene="jonah-1-escape"] .story-columns,
+  .discovery-flight, .discovery-mercy, .discovery-shade { grid-template-columns: 1fr; gap: 2.5rem; }
+  .story-scene[data-scene="jonah-1-escape"] .story-visual { padding-top: 0; }
+  .story-scene[data-scene="jonah-1-escape"] .story-verses { font-size: 25px; }
+  .story-scene[data-scene="jonah-1-escape"] .story-artwork img { max-height: none; }
+  .scene-discovery { margin-top: 2.5rem; padding-top: 2rem; }
+  .story-explore-further > summary > span { display: block; margin: .3rem 0 0 1rem; }
+  .mercy-lettering { min-height: 0; padding: 1rem 1.5rem; }
+  .mercy-lettering em { font-size: 68px; }
+  .mercy-lettering small { margin-top: 0; }
+  .discovery-world-door { padding-left: 1.3rem; }
+  .story-scene[data-scene="jonah-4-shade"] .story-verses { columns: 1; }
+  .story-scene[data-scene="jonah-4-shade"] .story-artwork { padding: 1rem; }
+  .story-scene[data-scene="jonah-4-shade"] .story-artwork img { max-height: none; }
+  .story-disclosure summary > span { margin-left: 0; }
+}
+.story-turn-link { display: inline-flex; align-items: center; gap: 1rem; min-height: 48px; padding: .6rem 0; border-bottom: 1px solid var(--bronze); color: var(--bronze) !important; text-decoration: none; font-size: 16px; }
+/* Scripture leads in the DOM; the desktop artwork retains its facing-page position. */
+.story-columns > .story-visual { order: -1; }

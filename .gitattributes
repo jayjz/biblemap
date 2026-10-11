@@ -1,5 +1,5 @@
-# Exact pinned Jonah source snapshots and manifests must retain LF checkout bytes.
-# Git's core.autocrlf=true would otherwise change their checksums on Windows.
-src/content/scripture/web-jonah-*.html text eol=lf
+# Pinned publisher HTML contains mixed line endings: preserve exact source bytes.
+# JSON and generated checksum manifests retain LF across checkouts.
+src/content/scripture/web-jonah-*.html -text
 src/content/scripture/web-jonah-*.json text eol=lf
 artifacts/jonah-image-review/SHA256SUMS text eol=lf

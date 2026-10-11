@@ -18,7 +18,7 @@ function Explorer() {
     searchParams.forEach((value, key) => { obj[key] = value; });
     return obj;
   }, [searchParams]);
-  return <main className="w-screen h-screen overflow-hidden"><ErrorBoundary><DataLoader initialParams={initialParams} /></ErrorBoundary></main>;
+  return <main className="w-screen h-screen overflow-hidden"><ErrorBoundary><DataLoader key={typeof initialParams.place === "string" ? initialParams.place : "atlas"} initialParams={initialParams} /></ErrorBoundary></main>;
 }
 
 export default function ExplorePage() {

@@ -8,8 +8,7 @@ import { MOTION } from "@/scenes/motion";
 import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
 
-import { FirstEncounter } from "./FirstEncounter";
-import { AquinasMercyPerspective } from "./AquinasMercyPerspective";
+import { SceneDiscovery } from "./SceneDiscovery";
 
 function subscribeHash(onChange: () => void) {
   window.addEventListener("hashchange", onChange);
@@ -116,9 +115,21 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
             <span className="story-scene-mark" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
           </div>
           <div className="story-columns">
+            <div className="story-reading">
+              {scene.passageIds.map(id => {
+                const p = story.passages.find(p => p.id === id);
+                if (!p) return null;
+                return <section key={p.id} aria-label={`Scripture: Jonah ${p.chapter}:${p.firstVerse}–${p.lastVerse}`}>
+                  <p className="story-eyebrow">Scripture <span aria-hidden="true">/</span> World English Bible</p>
+                  <div className="story-verses">{p.verses.map(v => <p key={v.number} data-verse={v.number} data-reference={`${p.chapter}:${v.number}`}><sup aria-label={`Verse ${v.number}`}>{v.number}</sup>{v.text}</p>)}</div>
+                </section>;
+              })}
+              {scene.id === "jonah-3-mercy" && <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>}
+              {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
+            </div>
             <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
-              <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />
-              {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
+              {(scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger") && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>{scene.id === "jonah-3-mercy" ? "The city" : "The prophet"}</span><em>{scene.id === "jonah-3-mercy" ? "spared." : "angry."}</em><small>{scene.id === "jonah-3-mercy" ? "Jonah 3" : "Jonah 4"}</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
+              {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
                 <p>{narrative}</p>
@@ -127,20 +138,13 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
               {isActive && ambience && <AudioTrack key={`${scene.id}-ambience`} asset={ambience} label="Ambience" />}
 
             </aside>
-            <div className="story-reading">
-              {scene.passageIds.map(id => {
-                const p = story.passages.find(p => p.id === id);
-                if (!p) return null;
-                return <section key={p.id} aria-label={`Scripture: Jonah ${p.chapter}:${p.firstVerse}–${p.lastVerse}`}>
-                  <p className="story-eyebrow">Scripture <span aria-hidden="true">/</span> World English Bible</p>
-                  <div className="story-verses">{p.verses.map(v => <p key={v.number} data-verse={v.number} data-reference={`${p.chapter}:${v.number}`}><sup aria-label={`Verse ${v.number}`}>{v.number}</sup>{v.text}</p>)}</div>
-                  <PassageSource passage={p} story={story} />
-                </section>;
-              })}
-              {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
+          </div>
+          <SceneDiscovery sceneId={scene.id} />
+          <details className="story-explore-further story-disclosure">
+            <summary>Explore further <span>Sources, reading notes & private reflection</span></summary>
+            <div className="story-further-content">
+              {scene.passageIds.map(id => { const p = story.passages.find(p => p.id === id); return p ? <PassageSource key={id} passage={p} story={story} /> : null; })}
               {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>Optional · reading companion</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>Reading companion · Commentary on the passage</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
-              <AquinasMercyPerspective sceneId={scene.id} />
-              <FirstEncounter sceneId={scene.id} />
               <StoryEvidence story={story} scene={scene} authorReview={authorReview} />
 
               <details className="story-disclosure story-reflection">
@@ -159,7 +163,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
                 </div>
               </details>
             </div>
-          </div>
+          </details>
           {index === story.scenes.length - 1 && <section className="story-ending"><p className="story-eyebrow">The book ends here</p><h3>A question, left open.</h3><p>Take your time.</p><div className="story-ending-links"><Link href="/" prefetch={false} onClick={clear}>Return to the stories ↗</Link><Link href="/explore/" prefetch={false} onClick={clear}>Open the atlas ↗</Link></div></section>}
           <nav className="story-scene-nav" aria-label={`${label} scene navigation`}>
             {index > 0 ? <a href={`#${story.scenes[index - 1].id}`} onClick={e => navigate(e, story.scenes[index - 1].id)}>← Previous</a> : <span>Begin here</span>}

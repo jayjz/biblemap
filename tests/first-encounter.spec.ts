@@ -37,7 +37,7 @@ test("recognition leads to Scripture and curiosity before optional research", as
   await page.screenshot({ path: testInfo.outputPath("jonah-escape.png"), fullPage: true });
   await expect(page.getByText("Pascal examines")).not.toBeVisible();
   await page.getByText("Why do people run?", { exact: false }).click();
-  for (const name of ["Blaise Pascal", "Friedrich Nietzsche", "Augustine of Hippo"]) {
+  for (const name of ["Blaise Pascal"]) {
     await expect(page.locator(".story-first-perspectives").getByRole("heading", { name: new RegExp(name) })).toBeVisible();
   }
   await page.getByRole("link", { name: "Continue" }).click();

@@ -76,16 +76,9 @@ The current application uses:
 - Python ETL with PostgreSQL/PostGIS
 - Static export deployment
 
-Known stabilization concerns must be verified rather than assumed:
+The current baseline includes automated browser coverage, pinned Scripture validation, media-rights gates, a static reader, and an existing WebGL atlas. Verify remaining issues in the implementation rather than treating historical audit findings as current defects.
 
-- A lazily imported component named `Map` may shadow the global JavaScript `Map` constructor.
-- `useSearchParams` may sit outside the effective Suspense boundary.
-- TypeScript validation is disabled during builds.
-- Minifier and constructor workarounds may be masking root defects.
-- `DataLoader.tsx` is an oversized component.
-- UI, ETL, and Parquet epoch definitions may have drifted.
-- Data and media attribution are incomplete.
-- Automated browser coverage is missing.
+Supporting metadata may sit behind accessible disclosures. Preserve provenance and review gates without exposing internal workflow in the story’s foreground. Sourced experiments requested for a draft review are not production release approval.
 
 ## Repository Workflow
 

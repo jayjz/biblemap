@@ -13,7 +13,7 @@ test("Nineveh's repentance leads into Jonah's anger without pre-explaining it", 
   const cityText = await city.locator(".story-reading").boundingBox();
   const cityAtmosphere = await city.locator(".story-visual").boundingBox();
   expect(cityText && cityAtmosphere && cityText.y < cityAtmosphere.y).toBe(true);
-  await city.getByRole("link", { name: "Continue" }).click();
+  await city.getByRole("link", { name: "Read Jonah’s response" }).click();
   const anger = page.locator('[data-scene="jonah-4-anger"]');
   await expect(anger).toBeVisible();
   await expect(page.locator("#jonah-4-anger-heading")).toBeFocused();

@@ -1,4 +1,6 @@
 export interface BibleMapInspectorState {
+  selectedPlace?: string | null;
+  placeCamera?: { longitude: number; latitude: number; zoom: number } | null;
   ready: boolean;
   activeEpoch: number | null;
   currentYear: number | null;

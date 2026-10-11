@@ -49,9 +49,13 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
       if (image?.complete && image.naturalWidth === 0) setFailedPath(asset!.localPath);
     }} src={asset!.localPath} alt={asset!.altText || asset!.title} loading="lazy" decoding="async" onError={() => setFailedPath(asset!.localPath)} />
     <figcaption>
-      {!ready && <p className="story-preview-note">{unresolved ? "Visual review · rights unresolved · not for publication" : reviewOnly ? "Visual review · not approved for publication" : "Provisional placement · image rights verified · editorial review pending"}</p>}
-      <p className="story-artwork-caption">{asset!.creator?.trim() || "Maker not recorded"} · {asset!.creationDate?.trim() || "Date not recorded"}<br />{asset!.title}<br /><small>{mediaClassLabel(asset!.class)} · {kind}</small></p>
-      <details className="story-artwork-credits"><summary>About this artwork & rights</summary><MediaProvenancePlate asset={asset!} /></details>
+      <p className="story-artwork-caption">{asset!.title}<br /><small>{asset!.creator?.trim() || "Maker not recorded"} · {asset!.creationDate?.trim() || "Date not recorded"}</small></p>
+      <details className="story-artwork-credits"><summary>About this artwork & rights</summary>
+        <p>{asset!.caption}</p>
+        <p><small>{mediaClassLabel(asset!.class)} · {kind}</small></p>
+        {!ready && <p className="story-preview-note">{unresolved ? "Visual review · rights unresolved · not for publication" : reviewOnly ? "Visual review · not approved for publication" : "Provisional placement · image rights verified · editorial review pending"}</p>}
+        <MediaProvenancePlate asset={asset!} />
+      </details>
     </figcaption>
   </figure>;
 }

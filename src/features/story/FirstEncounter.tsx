@@ -1,24 +1,17 @@
-/** Optional connections to philosophical works, not direct exegesis of Jonah or creator-authored narration. */
-const perspectives = [
-  { name: "Blaise Pascal", title: "Diversion", work: "Pensées", locator: "Brunschvicg 139 (Lafuma 136)", href: "https://www.gutenberg.org/cache/epub/18269/pg18269-images.html", text: "Pascal examines how constant activity and diversion can distract us from confronting our own condition. The parallel with Jonah's travel is a question, not Pascal's reading of Jonah." },
-  { name: "Friedrich Nietzsche", title: "Freedom for what?", work: "Thus Spake Zarathustra", locator: "Part I, XVII: The Way of the Creating One; Thomas Common translation", href: "https://www.gutenberg.org/files/1998/1998-h/1998-h.htm", text: "Nietzsche asks whether liberation has a purpose beyond breaking away. Unlike Jonah's biblical framework, his argument concerns self-directed creation of values. Leaving can be courage as well as avoidance." },
-  { name: "Augustine of Hippo", title: "The presence we flee", work: "Confessions", locator: "Book V, chapter 2; NPNF translation", href: "https://www.newadvent.org/fathers/110105.htm", text: "Augustine reflects on fleeing God's presence while remaining seen. This language closely echoes Jonah’s flight; it is a thematic connection, not a claim that Augustine was explaining Jonah here." },
-] as const;
+import { DISCOVERY_SOURCES } from '@/content/jonah-discoveries';
 
+/** A thematic connection, not an explanation of Jonah's psychology. */
 export function FirstEncounter({ sceneId }: { sceneId: string }) {
-  if (sceneId !== "jonah-1-escape") return null;
-  return <section className="story-first-encounter" aria-label="Optional philosophical perspectives">
-    {sceneId === "jonah-1-escape" && <details className="story-disclosure story-first-perspectives">
-      <summary>Why do people run? <span>Optional · philosophy, not Scripture</span></summary>
-      <div className="story-disclosure-body">
-        <p>These thinkers did not write these passages about Jonah. Their arguments offer different ways to think about departure, avoidance, and freedom; none determines Jonah’s motive.</p>
-        {perspectives.map(p => <section key={p.name} className="story-first-perspective">
-          <h4>{p.name} — {p.title}</h4>
-          <p>{p.text}</p>
-          <p><a href={p.href} target="_blank" rel="noopener noreferrer">Read {p.work}, {p.locator} ↗</a></p>
-        </section>)}
-        <p>The opening chapter describes Jonah’s flight without explaining his motive. These are optional philosophical connections.</p>
+  if (sceneId !== 'jonah-1-escape') return null;
+  return <section className="story-first-encounter" aria-label="A philosophical connection">
+    <p className="story-eyebrow">An idea to travel with / Blaise Pascal</p>
+    <h3>Distance is not always escape.</h3>
+    <p>In <em>Pensées</em>, Pascal considers the restless search for occupation: sometimes we pursue the bustle of a journey because stillness leaves us alone with ourselves.</p>
+    <details className="story-disclosure story-first-perspectives"><summary>Why do people run?</summary>
+      <div className="story-disclosure-body"><h4>Blaise Pascal — Diversion</h4><p>Pascal examines diversion as a way of avoiding our vulnerability and mortality. That is a question to bring to the act of leaving, not a diagnosis of Jonah. This passage tells us what Jonah does; his own explanation comes later.</p>
+        <p>What are we free to do when we leave—and what responsibility travels with us?</p>
+        <a href={DISCOVERY_SOURCES.pascal.url} target="_blank" rel="noreferrer">Read {DISCOVERY_SOURCES.pascal.title} ↗</a><p><small>Thematic connection · paraphrase, not quotation or direct biblical interpretation.</small></p>
       </div>
-    </details>}
+    </details>
   </section>;
 }
