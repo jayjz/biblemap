@@ -18,11 +18,10 @@ export function SceneDiscovery({ sceneId }: { sceneId: string }) {
     <FirstEncounter sceneId={sceneId} />
   </section>;
   if (sceneId === 'jonah-3-mercy' || sceneId === 'jonah-4-anger') return <section className="scene-discovery discovery-mercy" aria-label="Discover mercy and anger">
-    <div><p className="story-eyebrow">{sceneId === 'jonah-3-mercy' ? 'The world beyond the passage' : 'The difficulty of mercy'}</p>
-      <h3>{sceneId === 'jonah-3-mercy' ? 'More than a wicked city.' : 'When forgiveness feels unjust.'}</h3>
-      <p>{sceneId === 'jonah-3-mercy' ? 'Nineveh was a real Assyrian city. Its later palaces displayed royal power and conquest; its scribes gathered a library of clay tablets. The people in this passage inhabit a world larger than a single verdict.' : 'The city turns from violence. God spares it. Jonah is angry. The story lets those responses stand beside one another before asking him a question.'}</p>
-      {sceneId === 'jonah-4-anger' && <AquinasMercyPerspective sceneId={sceneId} />}
-    </div>
+    {sceneId === 'jonah-3-mercy' ? <div><p className="story-eyebrow">The world beyond the passage</p>
+      <h3>More than a wicked city.</h3>
+      <p>Nineveh was a real Assyrian city. Its later palaces displayed royal power and conquest; its scribes gathered a library of clay tablets. The people in this passage inhabit a world larger than a single verdict.</p>
+    </div> : <div><AquinasMercyPerspective sceneId={sceneId} /></div>}
     <div className="discovery-world-door"><p className="story-eyebrow">Nineveh / Neo-Assyrian world</p><h4>A city of power.<br />A city of readers.</h4><p>Meet the city through its palaces and Ashurbanipal’s library.</p><Link href={storyPlaceHref('nineveh', sceneId)} prefetch={false}>Explore Nineveh <span aria-hidden="true">↗</span></Link><p className="discovery-caption">Seventh-century BCE context; Jonah’s visit is not dated here.</p>
       <details className="discovery-footnote"><summary>Follow the historical sources</summary><DiscoverySource id="empire" /><DiscoverySource id="library" /></details>
     </div>
