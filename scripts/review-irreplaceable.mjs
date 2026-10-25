@@ -16,6 +16,17 @@ const types = { '.html': 'text/html; charset=utf-8', '.txt': 'text/plain; charse
 createServer((request, response) => {
   response.setHeader('Cache-Control', 'no-store');
   const path = new URL(request.url, `http://127.0.0.1:${port}`).pathname;
+  if (path === '/review-assets/nineveh-landscape.webp') {
+    // Original generated candidate: available to local creative review, never copied to out/public.
+    const file = resolve('artifacts/nineveh-review/landscape.webp');
+    if (!existsSync(file)) { response.writeHead(404).end('Local Nineveh artwork unavailable.'); return; }
+    response.setHeader('Content-Type', 'image/webp'); response.end(readFileSync(file)); return;
+  }
+  if (path === '/nineveh-review/' || /^\/nineveh-review\/[a-z0-9-]+\.png$/.test(path)) {
+    const file = resolve('artifacts/nineveh-review', path === '/nineveh-review/' ? 'index.html' : path.slice('/nineveh-review/'.length));
+    if (!existsSync(file)) { response.writeHead(404).end('Run node scripts/capture-nineveh.mjs to capture the local review.'); return; }
+    response.setHeader('Content-Type', types[extname(file)]); response.end(readFileSync(file)); return;
+  }
   if (path === '/evidence/' || /^\/evidence\/(baseline|experiment)\/[a-z0-9-]+\.png$/.test(path)) {
     const evidence = resolve('artifacts/irreplaceable', path === '/evidence/' ? 'index.html' : path.slice('/evidence/'.length));
     if (!existsSync(evidence)) { response.writeHead(404).end('Run node scripts/verify-irreplaceable.mjs to generate evidence.'); return; }

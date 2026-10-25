@@ -1,0 +1,118 @@
+.nineveh { --nv-ink: #f4edda; --nv-muted: #c5c4b4; --nv-gold: #d7bd88; background: #142326; color: var(--nv-ink); min-height: 100svh; isolation: isolate; font-family: var(--font-geist-sans), Arial, sans-serif; }
+.nineveh * { box-sizing: border-box; }
+.nineveh a { color: inherit; text-underline-offset: .28em; }
+.nineveh a:hover { text-decoration: underline; }
+.nineveh :is(a, button, summary):focus-visible, .nineveh h1:focus-visible { outline: 2px solid #f5d490; outline-offset: 5px; }
+.nineveh h1:focus:not(:focus-visible) { outline: none; }
+.nineveh button, .nineveh summary { cursor: pointer; }
+.nineveh-skip { position: fixed; z-index: 10; left: 20px; top: -100px; padding: 15px; background: #142326; }
+.nineveh-skip:focus { top: 10px; }
+.nineveh-header { min-height: 80px; padding: 20px 4vw; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: sticky; top: 0; z-index: 3; background: #142326; border-bottom: 1px solid #ffffff16; font-size: 13px; }
+.nineveh-header > div { display: flex; gap: 28px; align-items: center; }
+.nineveh-header button { background: none; border: none; color: var(--nv-muted); min-height: 44px; font-size: 11px; }
+.nineveh-header a { display: inline-flex; align-items: center; min-height: 44px; gap: 10px; }
+.nineveh-brand { font: 25px Georgia, serif; text-decoration: none; }
+.nineveh-header > span { color: var(--nv-muted); letter-spacing: .12em; text-transform: uppercase; font-size: 10px; }
+.nineveh-landscape { position: fixed; z-index: -2; inset: 80px 0 0; overflow: hidden; background: linear-gradient(#3f5353, #968b6e 56%, #233431 80%); }
+.nineveh-world { width: 100%; height: 100%; transform-origin: 34% 58%; }
+.nineveh-world img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+.nineveh-foreground { position: absolute; inset: 45% -5% -5%; pointer-events: none; background: linear-gradient(164deg, transparent 45%, #0c1b1c66 66%, #0c1b1cee); }
+.nineveh-landscape-caption { position: absolute; z-index: 1; bottom: 18vh; left: 4vw; font-size: 10px; color: #f2e9d5; padding: 6px 8px; background: #142326df; }
+.nineveh-landscape::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 20%, #14232615 43%, #142326ed 63%, #142326 100%); pointer-events: none; }
+.nineveh-place-anchor { position: absolute; z-index: 1; left: 33%; top: 52%; display: flex; flex-direction: column; align-items: flex-start; color: #fff4db; text-shadow: 0 1px 5px #101a1c; }
+.nineveh-place-anchor strong { font: 22px Georgia, serif; font-weight: normal; }
+.nineveh-place-anchor > span:last-child { margin-top: 6px; font-size: 11px; letter-spacing: .08em; }
+.nineveh-place-rule { height: 28px; width: 1px; background: #ead9af; margin-bottom: 10px; }
+.nineveh-main { position: relative; width: 43%; margin: 0 5% 0 auto; min-height: calc(100svh - 163px); display: flex; flex-direction: column; padding: clamp(45px, 7vh, 85px) 0 24px; }
+.nineveh-reading { margin-bottom: 34px; }
+.nineveh-eyebrow { color: var(--nv-gold); font-size: 10px; font-weight: 600; letter-spacing: .16em; line-height: 1.7; text-transform: uppercase; margin: 0 0 22px; }
+.nineveh h1 { font: 22px Georgia, serif; font-weight: normal; margin: 0 0 32px; color: var(--nv-muted); }
+.nineveh-verses { font: clamp(23px, 2.15vw, 34px)/1.6 Georgia, "Times New Roman", serif; }
+.nineveh-verses p { position: relative; margin: 0 0 24px; }
+.nineveh-verses sup { font: 10px/1.5 var(--font-geist-sans), Arial, sans-serif; color: var(--nv-gold); position: absolute; left: -21px; top: 9px; }
+.nineveh[data-beat="anger"] .nineveh-verses { font-size: clamp(20px, 1.65vw, 25px); }
+.nineveh[data-beat="question"] .nineveh-reading { padding-top: 7vh; }
+.nineveh[data-beat="question"] .nineveh-verses { font-size: clamp(29px, 2.9vw, 44px); line-height: 1.45; }
+.nineveh-navigation { margin-top: auto; }
+.nineveh-step-links { display: flex; align-items: center; justify-content: space-between; gap: 22px; font-size: 12px; }
+.nineveh-step-links a { min-height: 48px; display: inline-flex; align-items: center; }
+.nineveh-continue { border-bottom: 1px solid var(--nv-gold); color: var(--nv-gold) !important; gap: 14px; }
+.nineveh-beats { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.nineveh-beats a { min-height: 52px; display: flex; flex-direction: column; gap: 9px; border-top: 1px solid #a9b2a355; padding-top: 12px; color: var(--nv-muted); font-size: 11px; text-decoration: none; }
+.nineveh-beats a > span { font-size: 9px; letter-spacing: .1em; }
+.nineveh-beats a[aria-current] { border-color: var(--nv-gold); color: #ffe4af; }
+.nineveh-recall { border-top: 1px solid #a9b2a355; margin-top: 30px; }
+.nineveh-recall summary { padding: 15px 0; font-size: 12px; color: var(--nv-muted); min-height: 48px; }
+.nineveh-recall[open] > .nineveh-eyebrow { margin-top: 15px; }
+.nineveh .nineveh-recall .nineveh-verses { font-size: 21px; }
+.nineveh-footer { position: relative; padding: 12px 4vw 20px; background: #142326; border-top: 1px solid #ffffff20; }
+.nineveh-tools { display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--nv-muted); font-size: 11px; }
+.nineveh-tools > span { letter-spacing: .03em; }
+.nineveh-tools > div { display: flex; gap: 24px; }
+.nineveh-tools button { padding: 10px 0; min-height: 44px; background: none; border: 0; color: inherit; font-size: 12px; }
+.nineveh-sources { border-top: 1px solid #ffffff20; margin-top: 8px; }
+.nineveh-sources summary { padding: 18px 0; font-size: 12px; color: var(--nv-muted); }
+.nineveh-source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 45px; padding: 18px 0 30px; font-size: 14px; line-height: 1.75; color: var(--nv-muted); }
+.nineveh-source-grid h2 { color: var(--nv-ink); font: 25px Georgia, serif; margin: 0 0 18px; }
+.nineveh-source-grid p { margin: 0 0 16px; }
+.nineveh-source-grid a { text-decoration: underline; color: var(--nv-gold); }
+.nineveh-review-label { margin: 0; color: var(--nv-muted); font-size: 10px; }
+.nineveh-visual-status { position: absolute; z-index: 2; top: 12%; left: 6%; max-width: 33ch; padding: 16px; background: #142326; color: var(--nv-ink); font-size: 14px; line-height: 1.6; }
+.nineveh[data-beat="city"] .nineveh-landscape::after { background: linear-gradient(180deg, #142326cf 0%, #14232666 36%, transparent 55%, #14232620 70%, #142326 100%); }
+.nineveh[data-beat="city"] .nineveh-main { width: auto; margin: 0 7%; padding-top: 5vh; }
+.nineveh[data-beat="city"] h1 { font: clamp(64px, 7.5vw, 114px)/1.05 var(--font-playfair), Georgia, serif; color: var(--nv-ink); letter-spacing: -.045em; margin-bottom: 24px; }
+.nineveh[data-beat="city"] h1 span { display: block; font: italic clamp(24px, 3vw, 39px)/1.5 Georgia, serif; letter-spacing: 0; margin-top: 8px; }
+.nineveh-orientation { font: 19px/1.65 Georgia, serif; }
+.nineveh-range { margin-top: 18px; color: var(--nv-gold); font: 12px var(--font-geist-sans), Arial, sans-serif; }
+.nineveh-pace { margin: 0 0 15px; color: var(--nv-muted); font: 12px/1.7 var(--font-geist-sans), Arial, sans-serif; }
+.nineveh[data-beat="city"] .nineveh-reading { max-width: 480px; }
+.nineveh[data-beat="city"] .nineveh-navigation { width: 46%; margin-left: auto; }
+.nineveh[data-plain="true"] .nineveh-landscape { background: #263936; }
+.nineveh-noscript { position: relative; padding: 32px; background: #142326; max-width: 780px; margin: auto; }
+@media (max-width: 760px) {
+  .nineveh-header { min-height: 65px; padding: 10px 22px; gap: 12px; }
+  .nineveh-header > span { display: none; }
+  .nineveh-brand { font-size: 22px; }
+  .nineveh-header > div { gap: 14px; }
+  .nineveh-header > div a { font-size: 11px; gap: 4px; }
+  .nineveh-header button { font-size: 10px; }
+  .nineveh-landscape { position: sticky; z-index: 2; top: 65px; height: clamp(150px, 25svh, 220px); }
+  .nineveh-world { width: 100%; }
+  .nineveh-landscape::after { background: linear-gradient(0deg, #142326 0%, transparent 25%); }
+  .nineveh-place-anchor { left: 38%; top: 52%; }
+  .nineveh-landscape-caption { bottom: 5px; left: 14px; font-size: 9px; }
+  .nineveh-place-anchor strong { font-size: 17px; }
+  .nineveh-place-anchor > span:last-child { font-size: 10px; margin-top: 3px; }
+  .nineveh-place-rule { height: 12px; margin-bottom: 5px; }
+  .nineveh-main { width: auto; margin: 0; min-height: calc(73svh - 65px); padding: 25px 28px 28px 36px; }
+  .nineveh-reading { margin-bottom: 24px; }
+  .nineveh-eyebrow { font-size: 9px; margin-bottom: 16px; }
+  .nineveh h1 { font-size: 18px; margin-bottom: 23px; scroll-margin-top: 30svh; }
+  .nineveh-verses { font-size: 24px; line-height: 1.6; }
+  .nineveh[data-beat="anger"] .nineveh-verses { font-size: 21px; }
+  .nineveh[data-beat="question"] .nineveh-reading { padding-top: 12px; }
+  .nineveh[data-beat="question"] .nineveh-verses { font-size: 30px; }
+  .nineveh-step-links { font-size: 11px; gap: 20px; }
+  .nineveh-continue { max-width: 65%; }
+  .nineveh-beats { gap: 10px; margin-top: 26px; }
+  .nineveh-beats a { font-size: 10px; }
+  .nineveh-footer { padding: 10px 24px 22px; }
+  .nineveh-tools { flex-wrap: wrap; gap: 0; }
+  .nineveh-tools > span { font-size: 10px; flex-basis: 100%; padding-top: 8px; }
+  .nineveh-tools > div { gap: 28px; }
+  .nineveh-source-grid { grid-template-columns: 1fr; gap: 25px; }
+  .nineveh-visual-status { top: 6%; left: 3%; max-width: 82%; font-size: 12px; padding: 10px; }
+  .nineveh[data-beat="city"] .nineveh-landscape { position: absolute; top: 65px; height: calc(100svh - 65px); width: 100%; z-index: -1; }
+  .nineveh[data-beat="city"] .nineveh-world { width: 100%; }
+  .nineveh[data-beat="city"] .nineveh-world img { object-position: 26% 50%; }
+  .nineveh[data-beat="city"] .nineveh-main { padding: 35px 28px 24px; margin: 0; min-height: calc(100svh - 65px); }
+  .nineveh[data-beat="city"] h1 { font-size: 64px; }
+  .nineveh[data-beat="city"] h1 span { font-size: 26px; }
+  .nineveh[data-beat="city"] .nineveh-navigation { width: 100%; }
+  .nineveh[data-beat="city"] .nineveh-place-anchor { top: 50%; left: 49%; }
+  .nineveh[data-beat="city"] .nineveh-landscape-caption { top: 10px; bottom: auto; left: 28px; }
+  .nineveh-orientation { font-size: 17px; }
+  .nineveh[data-beat="city"] .nineveh-reading { margin-bottom: 190px; }
+}
+@media (prefers-reduced-motion: reduce) { .nineveh-world, .nineveh-foreground { transform: none !important; } }
+@media (forced-colors: active) { .nineveh-landscape { border-bottom: 1px solid CanvasText; } .nineveh-world { visibility: hidden; } .nineveh-place-anchor { color: CanvasText; text-shadow: none; } }

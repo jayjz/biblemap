@@ -1,0 +1,5 @@
+# Reproducible local browser evidence and generated master; never auto-publish.
+*.png
+tests/
+regression/
+baseline-recheck/

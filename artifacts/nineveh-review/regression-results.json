@@ -1,0 +1,3306 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Dev\\biblemap-release\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--output",
+      "artifacts/nineveh-review/regression",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Dev\\biblemap-release\\playwright.config.ts",
+    "rootDir": "C:/Dev/biblemap-release/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Dev/biblemap-release/artifacts/nineveh-review/regression",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "C:/Dev/biblemap-release/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "C:/Dev/biblemap-release/artifacts/nineveh-review/regression",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Dev/biblemap-release/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "C:\\Dev\\biblemap-release\\tests",
+        "snapshotDir": "C:\\Dev\\biblemap-release\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4191",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "C:\\Dev\\biblemap-release\\tests",
+        "snapshotDir": "C:\\Dev\\biblemap-release\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4191",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "launchOptions": {
+            "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+            "args": [
+              "--enable-unsafe-swiftshader"
+            ]
+          },
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "python3 -m http.server 4191 --bind 127.0.0.1 --directory out",
+      "url": "http://127.0.0.1:4191/jonah/",
+      "reuseExistingServer": true
+    }
+  },
+  "suites": [
+    {
+      "title": "authorship.spec.ts",
+      "file": "authorship.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "visitor DOM omits slots and written drafts while author workspace retains them",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 855,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:35.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ffe8202d56016ba96fc0-350c463e9f177615d6ee",
+          "file": "authorship.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "visitor DOM omits slots and written drafts while author workspace retains them",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 969,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:56.866Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ffe8202d56016ba96fc0-56c1c51c288a3841df68",
+          "file": "authorship.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "city-inside-name.spec.ts",
+      "file": "city-inside-name.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Nineveh encounter unfolds from Scripture to later context and back to verses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:36.811Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be1f615711983c99d5cb-61721f53495cdab14581",
+          "file": "city-inside-name.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "the encounter reads without JavaScript or image loading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 797,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:39.155Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be1f615711983c99d5cb-653673d58fc2a4901f27",
+          "file": "city-inside-name.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "reduced motion retains the same stages",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 758,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:39.966Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be1f615711983c99d5cb-c543c382298b32fa7d41",
+          "file": "city-inside-name.spec.ts",
+          "line": 56,
+          "column": 5
+        },
+        {
+          "title": "Nineveh encounter unfolds from Scripture to later context and back to verses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3157,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:58.080Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be1f615711983c99d5cb-beab9f8de64858f3992f",
+          "file": "city-inside-name.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "the encounter reads without JavaScript or image loading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 840,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:01.247Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be1f615711983c99d5cb-9f7933d3a9e36bff7633",
+          "file": "city-inside-name.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "reduced motion retains the same stages",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:02.104Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be1f615711983c99d5cb-ea578ea01def54231c30",
+          "file": "city-inside-name.spec.ts",
+          "line": 56,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "discovery.spec.ts",
+      "file": "discovery.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sculpture study preserves the passage, traps focus, and returns on Escape",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1700,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:40.742Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-65d62d36d885fad3c668",
+          "file": "discovery.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "three discoveries preserve Scripture, disclose sources, and remain readable at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5043,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:42.454Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-cf7839cd0b6f7a75ded4",
+          "file": "discovery.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "passage opens Nineveh in the existing atlas and returns to the same passage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4035,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:47.518Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-340514eb8d92542de492",
+          "file": "discovery.spec.ts",
+          "line": 60,
+          "column": 5
+        },
+        {
+          "title": "discovery artwork failure preserves passage and connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 926,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:51.565Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-58ce9d000831f455121f",
+          "file": "discovery.spec.ts",
+          "line": 93,
+          "column": 5
+        },
+        {
+          "title": "Joppa link and missing basemap retain sourced places and return navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2046,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:52.504Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-3891d15913b7ef7abd47",
+          "file": "discovery.spec.ts",
+          "line": 104,
+          "column": 5
+        },
+        {
+          "title": "sculpture study preserves the passage, traps focus, and returns on Escape",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1923,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:02.872Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-7ca8a539e1df0688c7fe",
+          "file": "discovery.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "three discoveries preserve Scripture, disclose sources, and remain readable at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6190,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:04.806Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-36dbeee7c382ba301c93",
+          "file": "discovery.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "passage opens Nineveh in the existing atlas and returns to the same passage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:11.010Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-186c56f8b58a46c963f6",
+          "file": "discovery.spec.ts",
+          "line": 60,
+          "column": 5
+        },
+        {
+          "title": "discovery artwork failure preserves passage and connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 833,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:14.494Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-205d0880dcec309b2652",
+          "file": "discovery.spec.ts",
+          "line": 93,
+          "column": 5
+        },
+        {
+          "title": "Joppa link and missing basemap retain sourced places and return navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1910,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:15.341Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea3dfd443fc52d1802e6-9bb90d5e4936ab77d030",
+          "file": "discovery.spec.ts",
+          "line": 104,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "explorer.spec.ts",
+      "file": "explorer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "explorer baseline: data, filters, epochs, selection, journeys and fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:35:54.573Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "explorer-diagnostics",
+                      "contentType": "text/plain",
+                      "body": "Tm8gcnVudGltZSBlcnJvcnMgb3IgZmFpbGVkIHJlcXVlc3RzLg=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3409f8ab2ee04d46f500-2e42b1386396990f3104",
+          "file": "explorer.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "explorer baseline: data, filters, epochs, selection, journeys and fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Legacy explorer baseline is desktop; Jonah is tested on both sizes.",
+                  "location": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\explorer.spec.ts",
+                    "line": 5,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 220,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:17.268Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Legacy explorer baseline is desktop; Jonah is tested on both sizes.",
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\explorer.spec.ts",
+                        "line": 5,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "3409f8ab2ee04d46f500-00d48f97dc1ddf007815",
+          "file": "explorer.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "first-encounter.spec.ts",
+      "file": "first-encounter.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "recognition leads to Scripture and curiosity before optional research",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4163,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts:49:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts",
+                      "column": 20,
+                      "line": 49
+                    },
+                    "snippet": "  47 |   await page.screenshot({ path: testInfo.outputPath(\"jonah-storm.png\"), fullPage: true });\n  48 |   await testInfo.attach(\"cancelled-probes\", { body: JSON.stringify(cancelledProbes), contentType: \"application/json\" });\n> 49 |   expect(failures).toEqual([]);\n     |                    ^\n  50 | });\n  51 |\n  52 | test(\"first encounter remains available without JavaScript\", async ({ browser, baseURL }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts",
+                        "column": 20,
+                        "line": 49
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  47 |   await page.screenshot({ path: testInfo.outputPath(\"jonah-storm.png\"), fullPage: true });\n  48 |   await testInfo.attach(\"cancelled-probes\", { body: JSON.stringify(cancelledProbes), contentType: \"application/json\" });\n> 49 |   expect(failures).toEqual([]);\n     |                    ^\n  50 | });\n  51 |\n  52 | test(\"first encounter remains available without JavaScript\", async ({ browser, baseURL }) => {\n    at C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts:49:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:00.538Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "cancelled-probes",
+                      "contentType": "application/json",
+                      "body": "WyJIRUFEIGh0dHA6Ly8xMjcuMC4wLjE6NDE5MS9leHBsb3JlLzogbmV0OjpFUlJfQUJPUlRFRCIsIkhFQUQgaHR0cDovLzEyNy4wLjAuMTo0MTkxLzogbmV0OjpFUlJfQUJPUlRFRCJd"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\first-encounter-recognitio-5ffc5-ty-before-optional-research-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\first-encounter-recognitio-5ffc5-ty-before-optional-research-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\first-encounter-recognitio-5ffc5-ty-before-optional-research-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts",
+                    "column": 20,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d0019ea44f7e97dc8637-f65529d9c005d0089fb6",
+          "file": "first-encounter.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "first encounter remains available without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 821,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:05.661Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d0019ea44f7e97dc8637-d3b726ede82c3f9250dd",
+          "file": "first-encounter.spec.ts",
+          "line": 52,
+          "column": 5
+        },
+        {
+          "title": "recognition leads to Scripture and curiosity before optional research",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5496,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts:49:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts",
+                      "column": 20,
+                      "line": 49
+                    },
+                    "snippet": "  47 |   await page.screenshot({ path: testInfo.outputPath(\"jonah-storm.png\"), fullPage: true });\n  48 |   await testInfo.attach(\"cancelled-probes\", { body: JSON.stringify(cancelledProbes), contentType: \"application/json\" });\n> 49 |   expect(failures).toEqual([]);\n     |                    ^\n  50 | });\n  51 |\n  52 | test(\"first encounter remains available without JavaScript\", async ({ browser, baseURL }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts",
+                        "column": 20,
+                        "line": 49
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  47 |   await page.screenshot({ path: testInfo.outputPath(\"jonah-storm.png\"), fullPage: true });\n  48 |   await testInfo.attach(\"cancelled-probes\", { body: JSON.stringify(cancelledProbes), contentType: \"application/json\" });\n> 49 |   expect(failures).toEqual([]);\n     |                    ^\n  50 | });\n  51 |\n  52 | test(\"first encounter remains available without JavaScript\", async ({ browser, baseURL }) => {\n    at C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts:49:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:17.503Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "cancelled-probes",
+                      "contentType": "application/json",
+                      "body": "WyJIRUFEIGh0dHA6Ly8xMjcuMC4wLjE6NDE5MS9leHBsb3JlLzogbmV0OjpFUlJfQUJPUlRFRCIsIkhFQUQgaHR0cDovLzEyNy4wLjAuMTo0MTkxLzogbmV0OjpFUlJfQUJPUlRFRCJd"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\first-encounter-recognitio-5ffc5-ty-before-optional-research-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\first-encounter-recognitio-5ffc5-ty-before-optional-research-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\first-encounter-recognitio-5ffc5-ty-before-optional-research-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\first-encounter.spec.ts",
+                    "column": 20,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d0019ea44f7e97dc8637-a400add8c5bde91c8970",
+          "file": "first-encounter.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "first encounter remains available without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 981,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:24.193Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d0019ea44f7e97dc8637-8d78ac018cc7a14d8d1d",
+          "file": "first-encounter.spec.ts",
+          "line": 52,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "homepage.spec.ts",
+      "file": "homepage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage introduces Jonah and clearly distinguishes future journeys",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1244,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:06.699Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-ab09261aa4151234035d",
+          "file": "homepage.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "homepage reflows and respects reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1340,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:07.955Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-3368a895ed622657611d",
+          "file": "homepage.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "optional question: What do we do when we’d rather turn away?",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1474,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                      "column": 20,
+                      "line": 75
+                    },
+                    "snippet": "  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                        "column": 20,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:09.305Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-7c7f1-when-we’d-rather-turn-away--desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-7c7f1-when-we’d-rather-turn-away--desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-7c7f1-when-we’d-rather-turn-away--desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                    "column": 20,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-e00867da0927e0e3dfab",
+          "file": "homepage.spec.ts",
+          "line": 45,
+          "column": 7
+        },
+        {
+          "title": "optional question: What happens when our choices reach beyond us?",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1706,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                      "column": 20,
+                      "line": 75
+                    },
+                    "snippet": "  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                        "column": 20,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:11.500Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-413d8-ur-choices-reach-beyond-us--desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-413d8-ur-choices-reach-beyond-us--desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-413d8-ur-choices-reach-beyond-us--desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                    "column": 20,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-8e5669a95eebadf96ccd",
+          "file": "homepage.spec.ts",
+          "line": 45,
+          "column": 7
+        },
+        {
+          "title": "optional question: Why can mercy be hard to offer?",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1702,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                      "column": 20,
+                      "line": 75
+                    },
+                    "snippet": "  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                        "column": 20,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:14.078Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-Why-can-mercy-be-hard-to-offer--desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-Why-can-mercy-be-hard-to-offer--desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-Why-can-mercy-be-hard-to-offer--desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                    "column": 20,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-c9b5e2600ef3a4d64426",
+          "file": "homepage.spec.ts",
+          "line": 45,
+          "column": 7
+        },
+        {
+          "title": "question keyboard navigation, reset, and narrow mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1982,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:16.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-9130c9a16a3794b16c1a",
+          "file": "homepage.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "story entry remains available without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 897,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:18.833Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-90b0631d5fa749d14f43",
+          "file": "homepage.spec.ts",
+          "line": 111,
+          "column": 5
+        },
+        {
+          "title": "homepage entry, reload, history, and direct reader visits keep their destinations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:19.744Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-120a0ead5a0fd0c76e35",
+          "file": "homepage.spec.ts",
+          "line": 122,
+          "column": 5
+        },
+        {
+          "title": "homepage skip link remains on stories instead of opening legacy atlas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 703,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:21.585Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-b719b7a2b891f254b634",
+          "file": "homepage.spec.ts",
+          "line": 151,
+          "column": 5
+        },
+        {
+          "title": "homepage introduces Jonah and clearly distinguishes future journeys",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1538,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:25.371Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-0aa9a7c5f2bf3c4345be",
+          "file": "homepage.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "homepage reflows and respects reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4918,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:26.921Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-ba0c9d37df8e45bd1f10",
+          "file": "homepage.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "optional question: What do we do when we’d rather turn away?",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1819,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                      "column": 20,
+                      "line": 75
+                    },
+                    "snippet": "  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                        "column": 20,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:31.852Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-7c7f1-when-we’d-rather-turn-away--mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-7c7f1-when-we’d-rather-turn-away--mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-7c7f1-when-we’d-rather-turn-away--mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                    "column": 20,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-55aae13843d7b177341d",
+          "file": "homepage.spec.ts",
+          "line": 45,
+          "column": 7
+        },
+        {
+          "title": "optional question: What happens when our choices reach beyond us?",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1903,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                      "column": 20,
+                      "line": 75
+                    },
+                    "snippet": "  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                        "column": 20,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:34.404Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-413d8-ur-choices-reach-beyond-us--mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-413d8-ur-choices-reach-beyond-us--mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-413d8-ur-choices-reach-beyond-us--mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                    "column": 20,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-4837c8b2c59a0c664e5a",
+          "file": "homepage.spec.ts",
+          "line": 45,
+          "column": 7
+        },
+        {
+          "title": "optional question: Why can mercy be hard to offer?",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1911,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                      "column": 20,
+                      "line": 75
+                    },
+                    "snippet": "  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                        "column": 20,
+                        "line": 75
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  73 |     await expect(page.locator(\"[data-scene=jonah-1-calling]\")).toBeVisible();\n  74 |     await expect(page.locator('[data-reference=\"1:1\"]')).toBeInViewport();\n> 75 |     expect(errors).toEqual([]);\n     |                    ^\n  76 |   });\n  77 | }\n  78 |\n    at C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts:75:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:37.200Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-Why-can-mercy-be-hard-to-offer--mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-Why-can-mercy-be-hard-to-offer--mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\homepage-optional-question-Why-can-mercy-be-hard-to-offer--mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\homepage.spec.ts",
+                    "column": 20,
+                    "line": 75
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-4aa0fc00319c1b44c06e",
+          "file": "homepage.spec.ts",
+          "line": 45,
+          "column": 7
+        },
+        {
+          "title": "question keyboard navigation, reset, and narrow mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:39.983Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-8cd7d9d2011e5035f70f",
+          "file": "homepage.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "story entry remains available without JavaScript",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 945,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:43.493Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-fd20d451585aa078a136",
+          "file": "homepage.spec.ts",
+          "line": 111,
+          "column": 5
+        },
+        {
+          "title": "homepage entry, reload, history, and direct reader visits keep their destinations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2093,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:44.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-e88d35e1920185f36e68",
+          "file": "homepage.spec.ts",
+          "line": 122,
+          "column": 5
+        },
+        {
+          "title": "homepage skip link remains on stories instead of opening legacy atlas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 756,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:46.554Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "84e7eb052e8cbae1c9f0-f02db7ef675adc8a9b73",
+          "file": "homepage.spec.ts",
+          "line": 151,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "jonah-mercy-turn.spec.ts",
+      "file": "jonah-mercy-turn.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Nineveh's repentance leads into Jonah's anger without pre-explaining it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1986,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:22.304Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8cad87939dc6958326fb-fbea19d7af7c0aaf593c",
+          "file": "jonah-mercy-turn.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "Nineveh's repentance leads into Jonah's anger without pre-explaining it",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2517,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:47.329Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8cad87939dc6958326fb-25758b9bd06b8d13c5c9",
+          "file": "jonah-mercy-turn.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "jonah.spec.ts",
+      "file": "jonah.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "complete reader-controlled book, history, malformed links, and keyboard focus",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9231,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts:76:19",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts",
+                      "column": 19,
+                      "line": 76
+                    },
+                    "snippet": "  74 |   expect(errors).toEqual([]);\n  75 |   await testInfo.attach(\"navigation-cancellations\", { body: JSON.stringify(cancelledNavigations), contentType: \"application/json\" });\n> 76 |   expect(network).toEqual([]);\n     |                   ^\n  77 | });\n  78 |\n  79 | test(\"reflection stays in memory and clears on reload and exit\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts",
+                        "column": 19,
+                        "line": 76
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  74 |   expect(errors).toEqual([]);\n  75 |   await testInfo.attach(\"navigation-cancellations\", { body: JSON.stringify(cancelledNavigations), contentType: \"application/json\" });\n> 76 |   expect(network).toEqual([]);\n     |                   ^\n  77 | });\n  78 |\n  79 | test(\"reflection stays in memory and clears on reload and exit\", async ({ page }) => {\n    at C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts:76:19"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:24.317Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "navigation-cancellations",
+                      "contentType": "application/json",
+                      "body": "WyJIRUFEIGh0dHA6Ly8xMjcuMC4wLjE6NDE5MS9leHBsb3JlLzogbmV0OjpFUlJfQUJPUlRFRCIsIkhFQUQgaHR0cDovLzEyNy4wLjAuMTo0MTkxLzogbmV0OjpFUlJfQUJPUlRFRCIsIkhFQUQgaHR0cDovLzEyNy4wLjAuMTo0MTkxL2V4cGxvcmUvOiBuZXQ6OkVSUl9BQk9SVEVEIiwiSEVBRCBodHRwOi8vMTI3LjAuMC4xOjQxOTEvOiBuZXQ6OkVSUl9BQk9SVEVEIl0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\jonah-complete-reader-cont-adacf-ed-links-and-keyboard-focus-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\jonah-complete-reader-cont-adacf-ed-links-and-keyboard-focus-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\jonah-complete-reader-cont-adacf-ed-links-and-keyboard-focus-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts",
+                    "column": 19,
+                    "line": 76
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-c36ccaf65c36d844f885",
+          "file": "jonah.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "reflection stays in memory and clears on reload and exit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2122,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:34.682Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-4363df47396a3c50d1f3",
+          "file": "jonah.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "accessible reduced-motion reader with no WebGL or third-party requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1859,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:37.011Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-253fb0448e9c0c6e0f17",
+          "file": "jonah.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "without JavaScript all 48 verses and anchor navigation remain readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:38.882Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-9e3fef40f954befe5f7c",
+          "file": "jonah.spec.ts",
+          "line": 148,
+          "column": 5
+        },
+        {
+          "title": "complete reader-controlled book, history, malformed links, and keyboard focus",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13254,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts:76:19",
+                    "location": {
+                      "file": "C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts",
+                      "column": 19,
+                      "line": 76
+                    },
+                    "snippet": "  74 |   expect(errors).toEqual([]);\n  75 |   await testInfo.attach(\"navigation-cancellations\", { body: JSON.stringify(cancelledNavigations), contentType: \"application/json\" });\n> 76 |   expect(network).toEqual([]);\n     |                   ^\n  77 | });\n  78 |\n  79 | test(\"reflection stays in memory and clears on reload and exit\", async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts",
+                        "column": 19,
+                        "line": 76
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+   \"404 http://127.0.0.1:4191/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  74 |   expect(errors).toEqual([]);\n  75 |   await testInfo.attach(\"navigation-cancellations\", { body: JSON.stringify(cancelledNavigations), contentType: \"application/json\" });\n> 76 |   expect(network).toEqual([]);\n     |                   ^\n  77 | });\n  78 |\n  79 | test(\"reflection stays in memory and clears on reload and exit\", async ({ page }) => {\n    at C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts:76:19"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:37:49.870Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "navigation-cancellations",
+                      "contentType": "application/json",
+                      "body": "WyJIRUFEIGh0dHA6Ly8xMjcuMC4wLjE6NDE5MS9leHBsb3JlLzogbmV0OjpFUlJfQUJPUlRFRCIsIkhFQUQgaHR0cDovLzEyNy4wLjAuMTo0MTkxLzogbmV0OjpFUlJfQUJPUlRFRCIsIkhFQUQgaHR0cDovLzEyNy4wLjAuMTo0MTkxL2V4cGxvcmUvOiBuZXQ6OkVSUl9BQk9SVEVEIiwiSEVBRCBodHRwOi8vMTI3LjAuMC4xOjQxOTEvOiBuZXQ6OkVSUl9BQk9SVEVEIl0="
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\jonah-complete-reader-cont-adacf-ed-links-and-keyboard-focus-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\jonah-complete-reader-cont-adacf-ed-links-and-keyboard-focus-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Dev\\biblemap-release\\artifacts\\nineveh-review\\regression\\jonah-complete-reader-cont-adacf-ed-links-and-keyboard-focus-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Dev\\biblemap-release\\tests\\jonah.spec.ts",
+                    "column": 19,
+                    "line": 76
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-7dfc296a2318dd692b65",
+          "file": "jonah.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "reflection stays in memory and clears on reload and exit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2337,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:04.249Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-12eb5dd0f35f703d4469",
+          "file": "jonah.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "accessible reduced-motion reader with no WebGL or third-party requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2259,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:06.776Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-91817d2210959c163e97",
+          "file": "jonah.spec.ts",
+          "line": 117,
+          "column": 5
+        },
+        {
+          "title": "without JavaScript all 48 verses and anchor navigation remain readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 901,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:09.047Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c3ac2de3516e229fa60a-fd7c643405b0c6802776",
+          "file": "jonah.spec.ts",
+          "line": 148,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "media.spec.ts",
+      "file": "media.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "static export excludes held reproductions and local review routes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:39.769Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-b2d57d07d69241d0dc8c",
+          "file": "media.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "media failure preserves fallback; audio requires action and pauses on scene exit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:39.843Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-ae8eef34090ff3353120",
+          "file": "media.spec.ts",
+          "line": 22,
+          "column": 5
+        },
+        {
+          "title": "rejected playback remains recoverable without synthesis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:40.453Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-e7dd3df753751c96b4da",
+          "file": "media.spec.ts",
+          "line": 49,
+          "column": 5
+        },
+        {
+          "title": "restricted media makes no image request; approved fixture preserves composition and provenance after failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:40.920Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-800ae7065ec39e5778f2",
+          "file": "media.spec.ts",
+          "line": 61,
+          "column": 5
+        },
+        {
+          "title": "normal Jonah route keeps approved art and labels open images as provisional",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:42.349Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-e36aaca68fa7d76eb2bb",
+          "file": "media.spec.ts",
+          "line": 90,
+          "column": 5
+        },
+        {
+          "title": "normal reader recovers from a missing approved artwork",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 792,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:46.763Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-c5859840bf8b86500143",
+          "file": "media.spec.ts",
+          "line": 147,
+          "column": 5
+        },
+        {
+          "title": "static export excludes held reproductions and local review routes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:09.973Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-1689f4296411004896ee",
+          "file": "media.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "media failure preserves fallback; audio requires action and pauses on scene exit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 712,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:10.044Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-0a8c8d9679aa8322b655",
+          "file": "media.spec.ts",
+          "line": 22,
+          "column": 5
+        },
+        {
+          "title": "rejected playback remains recoverable without synthesis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 513,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:10.765Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-166602249f3825b4fa5b",
+          "file": "media.spec.ts",
+          "line": 49,
+          "column": 5
+        },
+        {
+          "title": "restricted media makes no image request; approved fixture preserves composition and provenance after failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1620,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:11.289Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-d9f8833d7d8f4633c1a4",
+          "file": "media.spec.ts",
+          "line": 61,
+          "column": 5
+        },
+        {
+          "title": "normal Jonah route keeps approved art and labels open images as provisional",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4358,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:12.919Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-d2802092783af5b8b6a1",
+          "file": "media.spec.ts",
+          "line": 90,
+          "column": 5
+        },
+        {
+          "title": "normal reader recovers from a missing approved artwork",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 913,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:17.286Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "66eff6f10bb92964d9d6-bf0beb83ba1063ab3fe7",
+          "file": "media.spec.ts",
+          "line": 147,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "nineveh.spec.ts",
+      "file": "nineveh.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "four beats keep Nineveh present, exact Scripture, history, sources and reader continuation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4376,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:47.577Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-426b0ea1de98d7f448a7",
+          "file": "nineveh.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "pause, reduced motion, text view, malformed links and no timed progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 648,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:51.963Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-58bb2081bdeedcd85960",
+          "file": "nineveh.spec.ts",
+          "line": 54,
+          "column": 5
+        },
+        {
+          "title": "landscape loading and rejected chunk keep Scripture and controls available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 953,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:52.622Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "deliberately-blocked-landscape",
+                      "contentType": "application/json",
+                      "body": "WyJodHRwOi8vMTI3LjAuMC4xOjQxOTEvX25leHQvc3RhdGljL2NodW5rcy82MDEuZTRhODM2N2FkMjg0MDAwNC5qcyJd"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-0ade6fc9502767e8687f",
+          "file": "nineveh.spec.ts",
+          "line": 76,
+          "column": 5
+        },
+        {
+          "title": "no JavaScript retains complete Scripture and an exit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 792,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:53.588Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-f1c7b6ab40ec66010db7",
+          "file": "nineveh.spec.ts",
+          "line": 98,
+          "column": 5
+        },
+        {
+          "title": "missing image retains reading and explicit fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 991,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:54.392Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-a64b3eb2def73e6c1c9d",
+          "file": "nineveh.spec.ts",
+          "line": 108,
+          "column": 5
+        },
+        {
+          "title": "narrow viewport, touch and keyboard preserve the city while reading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 882,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:36:55.394Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-d035396d0bbf5f200388",
+          "file": "nineveh.spec.ts",
+          "line": 118,
+          "column": 5
+        },
+        {
+          "title": "four beats keep Nineveh present, exact Scripture, history, sources and reader continuation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4124,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:18.220Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-85187c4e427c743502bb",
+          "file": "nineveh.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "pause, reduced motion, text view, malformed links and no timed progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:22.353Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-8f9865cffe406e5f2591",
+          "file": "nineveh.spec.ts",
+          "line": 54,
+          "column": 5
+        },
+        {
+          "title": "landscape loading and rejected chunk keep Scripture and controls available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 795,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:23.049Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "deliberately-blocked-landscape",
+                      "contentType": "application/json",
+                      "body": "WyJodHRwOi8vMTI3LjAuMC4xOjQxOTEvX25leHQvc3RhdGljL2NodW5rcy82MDEuZTRhODM2N2FkMjg0MDAwNC5qcyJd"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-594f2c8aa77418cd789b",
+          "file": "nineveh.spec.ts",
+          "line": 76,
+          "column": 5
+        },
+        {
+          "title": "no JavaScript retains complete Scripture and an exit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 763,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:23.854Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-11a052417db53503ed03",
+          "file": "nineveh.spec.ts",
+          "line": 98,
+          "column": 5
+        },
+        {
+          "title": "missing image retains reading and explicit fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 902,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:24.627Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-32df81fdea96dd08379f",
+          "file": "nineveh.spec.ts",
+          "line": 108,
+          "column": 5
+        },
+        {
+          "title": "narrow viewport, touch and keyboard preserve the city while reading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1127,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T03:38:25.541Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b23faabe039d098ad305-20027f7d4eec266d0fda",
+          "file": "nineveh.spec.ts",
+          "line": 118,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T03:35:34.875Z",
+    "duration": 172098.068,
+    "expected": 65,
+    "skipped": 1,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}
