@@ -1,0 +1,700 @@
+[
+  {
+    "treatment": "a",
+    "size": "desktop",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 55.099999994039536,
+      "resourceBytes": 312505,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 174.99220000000003
+    }
+  },
+  {
+    "treatment": "b",
+    "size": "desktop",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 47.599999994039536,
+      "resourceBytes": 317456,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable-map-4C36Y5I7.js",
+          "bytes": 4951
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 479.2488999999996
+    }
+  },
+  {
+    "treatment": "c",
+    "size": "desktop",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 46.19999998807907,
+      "resourceBytes": 312505,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 146.1862999999994
+    }
+  },
+  {
+    "treatment": "a",
+    "size": "mobile",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 52.5,
+      "resourceBytes": 312505,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 148.6280000000006
+    }
+  },
+  {
+    "treatment": "b",
+    "size": "mobile",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 49.1000000089407,
+      "resourceBytes": 317456,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable-map-4C36Y5I7.js",
+          "bytes": 4951
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 463.4960999999985
+    }
+  },
+  {
+    "treatment": "c",
+    "size": "mobile",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 48.5,
+      "resourceBytes": 312505,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 148.84850000000006
+    }
+  },
+  {
+    "treatment": "a",
+    "size": "narrow",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 45.3999999910593,
+      "resourceBytes": 312505,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 151.55359999999928
+    }
+  },
+  {
+    "treatment": "b",
+    "size": "narrow",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 49.1000000089407,
+      "resourceBytes": 317456,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable-map-4C36Y5I7.js",
+          "bytes": 4951
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 463.8220999999976
+    }
+  },
+  {
+    "treatment": "c",
+    "size": "narrow",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "steps": [
+      {
+        "reference": "3:10",
+        "violations": []
+      },
+      {
+        "reference": "4:1",
+        "violations": []
+      },
+      {
+        "reference": "4:2",
+        "violations": []
+      },
+      {
+        "reference": "4:3",
+        "violations": []
+      },
+      {
+        "reference": "4:4",
+        "violations": []
+      }
+    ],
+    "metrics": {
+      "navigationMs": 48.900000005960464,
+      "resourceBytes": 312505,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:4191/experiment/style.css",
+          "bytes": 77541
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+          "bytes": 198931
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+          "bytes": 8925
+        },
+        {
+          "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+          "bytes": 877
+        },
+        {
+          "name": "http://127.0.0.1:4191/favicon.ico",
+          "bytes": 26231
+        }
+      ],
+      "externalRequests": 0,
+      "readyMs": 147.89310000000114
+    }
+  },
+  {
+    "treatment": "b-live-map",
+    "size": "desktop",
+    "errors": [],
+    "requests": [
+      {
+        "url": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        "error": "net::ERR_FAILED"
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4191/experiment/style.css",
+        "bytes": 77541
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+        "bytes": 198931
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+        "bytes": 8925
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+        "bytes": 877
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/irreplaceable-map-4C36Y5I7.js",
+        "bytes": 4951
+      },
+      {
+        "name": "http://127.0.0.1:4191/favicon.ico",
+        "bytes": 26231
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/maplibre-gl-5LRYGUV7.js",
+        "bytes": 1014823
+      },
+      {
+        "name": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/gl/dark-matter-gl-style/sprite.json",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/gl/dark-matter-gl-style/sprite.png",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20Regular%20Italic,Open%20Sans%20Italic,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/0-255.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/0-255.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/256-511.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/1536-1791.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/7680-7935.pbf",
+        "bytes": 0
+      }
+    ],
+    "violations": [],
+    "deliberateMapFailure": "PASS; expected blocked CARTO request recorded separately"
+  },
+  {
+    "treatment": "b-live-map",
+    "size": "mobile",
+    "errors": [],
+    "requests": [
+      {
+        "url": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        "error": "net::ERR_FAILED"
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://127.0.0.1:4191/experiment/style.css",
+        "bytes": 77541
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/irreplaceable.js",
+        "bytes": 198931
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/chunk-GTKEWVXI.js",
+        "bytes": 8925
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/chunk-SQE76S5B.js",
+        "bytes": 877
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/irreplaceable-map-4C36Y5I7.js",
+        "bytes": 4951
+      },
+      {
+        "name": "http://127.0.0.1:4191/favicon.ico",
+        "bytes": 26231
+      },
+      {
+        "name": "http://127.0.0.1:4191/experiment/maplibre-gl-5LRYGUV7.js",
+        "bytes": 1014823
+      },
+      {
+        "name": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/gl/dark-matter-gl-style/sprite.json",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/gl/dark-matter-gl-style/sprite.png",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20Regular%20Italic,Open%20Sans%20Italic,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/0-255.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/0-255.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/256-511.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/1536-1791.pbf",
+        "bytes": 0
+      },
+      {
+        "name": "https://tiles.basemaps.cartocdn.com/v/20261001-03/fonts/Montserrat%20SemiBold,Open%20Sans%20Bold,Noto%20Sans%20Regular,Noto%20Sans%20CJK%20JP%20Regular/7680-7935.pbf",
+        "bytes": 0
+      }
+    ],
+    "violations": [],
+    "deliberateMapFailure": "PASS; expected blocked CARTO request recorded separately"
+  },
+  {
+    "treatment": "motion-and-no-js"
+  },
+  {
+    "treatment": "d-reader",
+    "size": "desktop",
+    "previousVerseHidden": true,
+    "violations": [],
+    "metrics": {
+      "navigationMs": 243.3999999910593,
+      "resourceBytes": 1170423
+    }
+  },
+  {
+    "treatment": "d-reader",
+    "size": "mobile",
+    "previousVerseHidden": true,
+    "violations": [],
+    "metrics": {
+      "navigationMs": 264.6000000089407,
+      "resourceBytes": 891382
+    }
+  }
+]
