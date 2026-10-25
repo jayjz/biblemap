@@ -1,0 +1,917 @@
+[
+  {
+    "name": "september",
+    "size": "desktop",
+    "origin": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "observations": [
+      {
+        "label": "home",
+        "url": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app/",
+        "title": "BibleExplorer",
+        "text": "BibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nMIC\nCOL\nJUD\nREV\n109 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nFrom Eden to the descent into Egypt\n4004 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false
+        }
+      },
+      {
+        "label": "atlas",
+        "url": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app/#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nMIC\nCOL\nJUD\nREV\n109 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nFrom Eden to the descent into Egypt\n4004 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false
+        }
+      },
+      {
+        "label": "exodus",
+        "url": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app/?event=the-sea&lat=30.0444&lng=31.2357&zoom=6.40#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nThe sea\n2/5\nPAUSE\nREPLAY\nSKIP\nEXIT\n\nSpace pauses · ] skips · Escape exits. Narration never starts on its own.\n\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nMoses, Sinai, and the Promised Land\n1446 BC\nPlay Era\nPause\nARTISTIC DEPICTION\nNOT ARCHAEOLOGICAL EVIDENCE\nThe Crossing of the Red Sea\n\nNicolas Poussin, 1633–1634\nNational Gallery of Victoria, Melbourne\n\nCreated 1633–1634; depicts The Exodus, traditionally placed in the Late Bronze Age. This is artistic depiction, not archaeological evidence of the event.\n\nPoussin stages the sea crossing as a composed classical drama. Egyptian armor, drapery, and landscape belong to seventeenth-century European painting, not to New Kingdom Egypt.\n\nSource record\nPD-Art\nNicolas Poussin, The Crossing of the Red Sea, 1633–1634, National Gallery of Victoria. Public domain.\nThe sea\n1446 BC\n·\nDELIVERANCE\n·\nJOURNEY\nLISTEN\nVOLUME\n\n“I will put enmity between you and the woman, and between your offspring and hers; he will crush your head.”\n\n— GENESIS 3:15\nSUMMARY\n\nIn Eden's perfection, Adam and Eve choose rebellion over relationship, eating the forbidden fruit. Shame enters the world as they hide from God. Yet even in judgment, God promises a descendant who will crush the serpent and restore what was lost.\n\nWORLD AROUND THIS MOMENT\nEastern Nile frontier / northern Sinai waters\n\nThe crossing — body of water unidentified\n\nThe story pins a people between chariot power and water. Geography here is a constraint: Egypt's military roads ran the northern Sinai; wetlands and lakes sat on the eastern edge of the Delta. The biblical text gives a deliverance at the sea. It does not give a modern grid reference. Later paintings, including the one this journey may show, are reception — how Europe imagined the scene centuries afterward — not evidence of a particular beach.\n\nHOW PEOPLE MOVE\nSCHOLARLY INFERENCE\nEgyptian military and trade routes crossed northern Sinai. A fleeing group would have had to leave the Nile corridor; which water they met is not settled.\nWHAT SURVIVES\nDISPUTED\nProposed identifications (Bitter Lakes, Lake Sirbonis, Gulf of Suez, Gulf of Aqaba) remain competing scholarly reconstructions. None is archaeologically tagged as the crossing.\n\nWHAT CHANGED\nThe narrative leaves the irrigated imperial center for a threshold landscape — water, wind, and an army's reach — without a verified campsite.\n\nUNCERTAIN\nRoute, body of water, and date are all disputed. The camera is a storytelling choice. It is not a survey peg.\n\nCHRONOLOGY\nThe Hebrew yam suf is traditionally rendered Red Sea; many scholars read a reed sea or lagoon on the eastern Delta. The map must choose a shore. That choice is not a verified waypoint.\n\nDISPUTED\nSCHOLARLY INFERENCE\nSOURCES (2)\nDEVOTIONAL REFLECTION\n\nYour shame and hiding can't separate you from God—He pursues you even in your failure with a rescue plan.",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1446,
+          "loadedChunks": [
+            0,
+            1,
+            2
+          ],
+          "selectedEvent": "The sea",
+          "activeScene": "exodus-sea",
+          "activeJourney": "exodus",
+          "journeyIndex": 1,
+          "focusPhase": "focused",
+          "mediaId": "poussin-crossing-red-sea",
+          "mediaClass": "artistic-depiction",
+          "narrationStatus": "ready",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": "world-exodus-sea",
+          "contextVisible": true,
+          "contextSourceCount": 2,
+          "contextConfidence": "disputed",
+          "contextHasUncertainty": true
+        }
+      }
+    ]
+  },
+  {
+    "name": "september",
+    "size": "mobile",
+    "origin": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app",
+    "errors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "observations": [
+      {
+        "label": "home",
+        "url": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app/",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nMIC\nCOL\nJUD\nREV\n109 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\n4004 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false
+        }
+      },
+      {
+        "label": "atlas",
+        "url": "https://biblemap-2ninjk1d5-elliotandersons-projects.vercel.app/#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nMIC\nCOL\nJUD\nREV\n109 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\n4004 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false
+        }
+      }
+    ]
+  },
+  {
+    "name": "october",
+    "size": "desktop",
+    "origin": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app",
+    "errors": [],
+    "failedRequests": [
+      {
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "httpErrors": [],
+    "observations": [
+      {
+        "label": "home",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/",
+        "title": "BibleExplorer",
+        "text": "Skip to stories\nBibleMap\nExplore the biblical world ↗\n\nANCIENT STORIES. HUMAN QUESTIONS.\n\nThe human condition.\nQuestions that stay with us.\n\nStories written long ago still ask difficult questions about the way we live. Begin with one. Follow where it leads.\n\nFIRST JOURNEY / THE BOOK OF JONAH\n\nJonah: The Man Who Ran\nWhich question stays with you?\n\nChoose one, or simply enter the story.\n\nWhat do we do when we’d rather turn away?\nWhat happens when our choices reach beyond us?\nWhy can mercy be hard to offer?\n\nA call. A departure. A story still asking questions. Begin with Jonah, and follow the whole journey.\n\nEnter the story\n→\n\nBegins at Jonah 1:1 · All four chapters · Read at your own pace\n\nOTHER QUESTIONS\n\nThere are more stories to encounter.\n\nThese journeys are still being developed. Their questions are starting points, not final answers.\n\n01 / Loss & suffering\nWhat happens when we lose everything?\n\nJob\n\nFuture journey · Not yet available\n02 / Identity & change\nCan we become someone different?\n\nJacob\n\nFuture journey · Not yet available\n03 / Freedom & responsibility\nWhat does freedom demand of us?\n\nExodus\n\nFuture journey · Not yet available\n04 / Betrayal & forgiveness\nWhat does it mean to forgive?\n\nJoseph\n\nFuture journey · Not yet available\n\nANOTHER WAY TO EXPLORE\n\nEvery story unfolds somewhere.\n\nExplore places, journeys, and chronology in the biblical atlas.\n\nExplore the biblical world\n↗\nBibleMap · Ancient stories. Human questions.",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "entry",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/jonah/#jonah-1-calling",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 01 / 01 OF 13\n\nCalling\n\nJonah 1:1–2\n\n01\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1Now the LORD’s word came to Jonah the son of Amittai, saying,\n\n2“Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.”\n\nThe Prophets Hosea and Jonah\nRaphael · c. 1510\n\nAbout this artwork & rights\nExplore further Sources, reading notes & private reflection\nBegin here\n1 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "mercy",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/jonah/#jonah-3-mercy",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 03 / 10 OF 13\n\nA city turns\n\nJonah 3:5–10\n\n10\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n5The people of Nineveh believed God; and they proclaimed a fast and put on sackcloth, from their greatest even to their least.\n\n6The news reached the king of Nineveh, and he arose from his throne, took off his royal robe, covered himself with sackcloth, and sat in ashes.\n\n7He made a proclamation and published through Nineveh by the decree of the king and his nobles, saying, “Let neither man nor animal, herd nor flock, taste anything; let them not feed, nor drink water;\n\n8but let them be covered with sackcloth, both man and animal, and let them cry mightily to God. Yes, let them turn everyone from his evil way and from the violence that is in his hands.\n\n9Who knows whether God will not turn and relent, and turn away from his fierce anger, so that we might not perish?”\n\n10God saw their works, that they turned from their evil way. God relented of the disaster which he said he would do to them, and he didn’t do it.\n\nRead Jonah’s response\n→\n\nTHE CITY INSIDE THE NAME\n\nNINEVEH\n\nA place beyond the word. What does the passage ask us to see there?\n\nSee the place\n↗\n\nTHE WORLD BEYOND THE PASSAGE\n\nMore than a wicked city.\n\nNineveh was a real Assyrian city. Its later palaces displayed royal power and conquest; its scribes gathered a library of clay tablets. The people in this passage inhabit a world larger than a single verdict.\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further Sources, reading notes & private reflection\n← Previous\n10 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "anger",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/jonah/#jonah-4-anger",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 04 / 11 OF 13\n\nWhen mercy hurts\n\nJonah 4:1–4\n\n11\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1But it displeased Jonah exceedingly, and he was angry.\n\n2He prayed to the LORD, and said, “Please, LORD, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.\n\n3Therefore now, LORD, take, I beg you, my life from me, for it is better for me to die than to live.”\n\n4The LORD said, “Is it right for you to be angry?”\n\nTHE PROPHET\nangry.\nJonah 4\nCan mercy and justice coexist? Optional · Thomas Aquinas\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further Sources, reading notes & private reflection\n← Previous\n11 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "transition-geometry",
+        "verses": [
+          {
+            "reference": "3:10",
+            "top": 0,
+            "bottom": 0,
+            "height": 0
+          },
+          {
+            "reference": "4:1",
+            "top": 240.921875,
+            "bottom": 286.515625,
+            "height": 45.59375
+          }
+        ]
+      },
+      {
+        "label": "nineveh",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/?place=nineveh&from=jonah-4-anger",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nModern basemap · ancient city marker\n＋−Recenter\n← Return to the passage\n\nTHE WORLD OF JONAH\n\nNineveh\n\nOpposite Mosul · Tigris valley\n\nThe city in the story belongs to a wider world of palaces, conquest, gardens, and books written in clay.\n\nNineveh stood beside the Tigris, opposite modern Mosul in northern Iraq. The marker locates the ancient city, not Jonah’s movements within it.\n\nA city across time\nEarly seventh century BCE\nAn imperial capital\n\nSennacherib transforms Nineveh into a major Assyrian capital. Palace reliefs display royal building projects and conquest.\n\nSeventh century BCE\nA library in clay\n\nAshurbanipal’s library brings together cuneiform texts. More than 30,000 tablets and fragments have been found in Nineveh’s ruins.\n\n612 BCE\nThe capital falls\n\nA Babylonian–Median coalition captures Nineveh. The clay tablets preserve traces of its intellectual life.\n\nA flood story, pressed into clay\n\nThis is the city’s history, not a date for Jonah’s visit. The book does not name its king; its relationship to these events remains uncertain.\n\nSources & map attribution\nContinue into the full atlas ↗",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            1,
+            0
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": "nineveh",
+          "placeCamera": {
+            "longitude": 43.159936889690734,
+            "latitude": 36.36076152375775,
+            "zoom": 6
+          }
+        }
+      },
+      {
+        "label": "nineveh-links",
+        "links": [
+          {
+            "text": "MapLibre",
+            "href": "https://maplibre.org/"
+          },
+          {
+            "text": "OpenStreetMap",
+            "href": "https://www.openstreetmap.org/copyright"
+          },
+          {
+            "text": "CARTO",
+            "href": "https://carto.com/about-carto/"
+          },
+          {
+            "text": "← Return to the passage",
+            "href": "/jonah/#jonah-4-anger"
+          },
+          {
+            "text": "Continue into the full atlas ↗",
+            "href": "/explore/"
+          }
+        ]
+      },
+      {
+        "label": "atlas",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nMoses, Sinai, and the Promised Land\n1635 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1635,
+          "loadedChunks": [
+            0,
+            1,
+            2
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": null,
+          "placeCamera": null
+        }
+      },
+      {
+        "label": "exodus",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/?event=the-sea&lat=30.0444&lng=31.2357&zoom=6.40#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nThe sea\n2/5\nPAUSE\nREPLAY\nSKIP\nEXIT\n\nSpace pauses · ] skips · Escape exits. Narration never starts on its own.\n\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nMoses, Sinai, and the Promised Land\n1446 BC\nPlay Era\nPause\nARTISTIC DEPICTION\nNOT ARCHAEOLOGICAL EVIDENCE\nThe Crossing of the Red Sea\n\nNicolas Poussin, 1633–1634\nNational Gallery of Victoria, Melbourne\n\nCreated 1633–1634; depicts The Exodus, traditionally placed in the Late Bronze Age. This is artistic depiction, not archaeological evidence of the event.\n\nPoussin stages the sea crossing as a composed classical drama. Egyptian armor, drapery, and landscape belong to seventeenth-century European painting, not to New Kingdom Egypt.\n\nSource record\nPD-Art\nNicolas Poussin, The Crossing of the Red Sea, 1633–1634, National Gallery of Victoria. Public domain.\nThe sea\n1446 BC\n·\nDELIVERANCE\n·\nJOURNEY\nLISTEN\nVOLUME\n\n“I will put enmity between you and the woman, and between your offspring and hers; he will crush your head.”\n\n— GENESIS 3:15\nSUMMARY\n\nIn Eden's perfection, Adam and Eve choose rebellion over relationship, eating the forbidden fruit. Shame enters the world as they hide from God. Yet even in judgment, God promises a descendant who will crush the serpent and restore what was lost.\n\nWORLD AROUND THIS MOMENT\nEastern Nile frontier / northern Sinai waters\n\nThe crossing — body of water unidentified\n\nThe story pins a people between chariot power and water. Geography here is a constraint: Egypt's military roads ran the northern Sinai; wetlands and lakes sat on the eastern edge of the Delta. The biblical text gives a deliverance at the sea. It does not give a modern grid reference. Later paintings, including the one this journey may show, are reception — how Europe imagined the scene centuries afterward — not evidence of a particular beach.\n\nHOW PEOPLE MOVE\nSCHOLARLY INFERENCE\nEgyptian military and trade routes crossed northern Sinai. A fleeing group would have had to leave the Nile corridor; which water they met is not settled.\nWHAT SURVIVES\nDISPUTED\nProposed identifications (Bitter Lakes, Lake Sirbonis, Gulf of Suez, Gulf of Aqaba) remain competing scholarly reconstructions. None is archaeologically tagged as the crossing.\n\nWHAT CHANGED\nThe narrative leaves the irrigated imperial center for a threshold landscape — water, wind, and an army's reach — without a verified campsite.\n\nUNCERTAIN\nRoute, body of water, and date are all disputed. The camera is a storytelling choice. It is not a survey peg.\n\nCHRONOLOGY\nThe Hebrew yam suf is traditionally rendered Red Sea; many scholars read a reed sea or lagoon on the eastern Delta. The map must choose a shore. That choice is not a verified waypoint.\n\nDISPUTED\nSCHOLARLY INFERENCE\nSOURCES (2)\nDEVOTIONAL REFLECTION\n\nYour shame and hiding can't separate you from God—He pursues you even in your failure with a rescue plan.",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1446,
+          "loadedChunks": [
+            0,
+            1,
+            2
+          ],
+          "selectedEvent": "The sea",
+          "activeScene": "exodus-sea",
+          "activeJourney": "exodus",
+          "journeyIndex": 1,
+          "focusPhase": "focused",
+          "mediaId": "poussin-crossing-red-sea",
+          "mediaClass": "artistic-depiction",
+          "narrationStatus": "ready",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": "world-exodus-sea",
+          "contextVisible": true,
+          "contextSourceCount": 2,
+          "contextConfidence": "disputed",
+          "contextHasUncertainty": true,
+          "selectedPlace": null,
+          "placeCamera": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "october",
+    "size": "mobile",
+    "origin": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app",
+    "errors": [],
+    "failedRequests": [
+      {
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "httpErrors": [],
+    "observations": [
+      {
+        "label": "home",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/",
+        "title": "BibleExplorer",
+        "text": "Skip to stories\nBibleMap\nExplore the biblical world ↗\n\nANCIENT STORIES. HUMAN QUESTIONS.\n\nThe human condition.\nQuestions that stay with us.\n\nStories written long ago still ask difficult questions about the way we live. Begin with one. Follow where it leads.\n\nFIRST JOURNEY / THE BOOK OF JONAH\n\nJonah: The Man Who Ran\nWhich question stays with you?\n\nChoose one, or simply enter the story.\n\nWhat do we do when we’d rather turn away?\nWhat happens when our choices reach beyond us?\nWhy can mercy be hard to offer?\n\nA call. A departure. A story still asking questions. Begin with Jonah, and follow the whole journey.\n\nEnter the story\n→\n\nBegins at Jonah 1:1 · All four chapters · Read at your own pace\n\nOTHER QUESTIONS\n\nThere are more stories to encounter.\n\nThese journeys are still being developed. Their questions are starting points, not final answers.\n\n01 / Loss & suffering\nWhat happens when we lose everything?\n\nJob\n\nFuture journey · Not yet available\n02 / Identity & change\nCan we become someone different?\n\nJacob\n\nFuture journey · Not yet available\n03 / Freedom & responsibility\nWhat does freedom demand of us?\n\nExodus\n\nFuture journey · Not yet available\n04 / Betrayal & forgiveness\nWhat does it mean to forgive?\n\nJoseph\n\nFuture journey · Not yet available\n\nANOTHER WAY TO EXPLORE\n\nEvery story unfolds somewhere.\n\nExplore places, journeys, and chronology in the biblical atlas.\n\nExplore the biblical world\n↗\nBibleMap · Ancient stories. Human questions.",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "entry",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/jonah/#jonah-1-calling",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 01 / 01 OF 13\n\nCalling\n\nJonah 1:1–2\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1Now the LORD’s word came to Jonah the son of Amittai, saying,\n\n2“Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.”\n\nThe Prophets Hosea and Jonah\nRaphael · c. 1510\n\nAbout this artwork & rights\nExplore further\nSources, reading notes & private reflection\nBegin here\n1 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "mercy",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/jonah/#jonah-3-mercy",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 03 / 10 OF 13\n\nA city turns\n\nJonah 3:5–10\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n5The people of Nineveh believed God; and they proclaimed a fast and put on sackcloth, from their greatest even to their least.\n\n6The news reached the king of Nineveh, and he arose from his throne, took off his royal robe, covered himself with sackcloth, and sat in ashes.\n\n7He made a proclamation and published through Nineveh by the decree of the king and his nobles, saying, “Let neither man nor animal, herd nor flock, taste anything; let them not feed, nor drink water;\n\n8but let them be covered with sackcloth, both man and animal, and let them cry mightily to God. Yes, let them turn everyone from his evil way and from the violence that is in his hands.\n\n9Who knows whether God will not turn and relent, and turn away from his fierce anger, so that we might not perish?”\n\n10God saw their works, that they turned from their evil way. God relented of the disaster which he said he would do to them, and he didn’t do it.\n\nRead Jonah’s response\n→\n\nTHE CITY INSIDE THE NAME\n\nNINEVEH\n\nA place beyond the word. What does the passage ask us to see there?\n\nSee the place\n↗\n\nTHE WORLD BEYOND THE PASSAGE\n\nMore than a wicked city.\n\nNineveh was a real Assyrian city. Its later palaces displayed royal power and conquest; its scribes gathered a library of clay tablets. The people in this passage inhabit a world larger than a single verdict.\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further\nSources, reading notes & private reflection\n← Previous\n10 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "anger",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/jonah/#jonah-4-anger",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 04 / 11 OF 13\n\nWhen mercy hurts\n\nJonah 4:1–4\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1But it displeased Jonah exceedingly, and he was angry.\n\n2He prayed to the LORD, and said, “Please, LORD, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.\n\n3Therefore now, LORD, take, I beg you, my life from me, for it is better for me to die than to live.”\n\n4The LORD said, “Is it right for you to be angry?”\n\nTHE PROPHET\nangry.\nJonah 4\nCan mercy and justice coexist? Optional · Thomas Aquinas\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further\nSources, reading notes & private reflection\n← Previous\n11 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "transition-geometry",
+        "verses": [
+          {
+            "reference": "3:10",
+            "top": 0,
+            "bottom": 0,
+            "height": 0
+          },
+          {
+            "reference": "4:1",
+            "top": 195.71875,
+            "bottom": 275.5,
+            "height": 79.78125
+          }
+        ]
+      },
+      {
+        "label": "nineveh",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/?place=nineveh&from=jonah-4-anger",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nModern basemap · ancient city marker\n＋−Recenter\n← Return to the passage\n\nTHE WORLD OF JONAH\n\nNineveh\n\nOpposite Mosul · Tigris valley\n\nThe city in the story belongs to a wider world of palaces, conquest, gardens, and books written in clay.\n\nNineveh stood beside the Tigris, opposite modern Mosul in northern Iraq. The marker locates the ancient city, not Jonah’s movements within it.\n\nA city across time\nEarly seventh century BCE\nAn imperial capital\n\nSennacherib transforms Nineveh into a major Assyrian capital. Palace reliefs display royal building projects and conquest.\n\nSeventh century BCE\nA library in clay\n\nAshurbanipal’s library brings together cuneiform texts. More than 30,000 tablets and fragments have been found in Nineveh’s ruins.\n\n612 BCE\nThe capital falls\n\nA Babylonian–Median coalition captures Nineveh. The clay tablets preserve traces of its intellectual life.\n\nA flood story, pressed into clay\n\nThis is the city’s history, not a date for Jonah’s visit. The book does not name its king; its relationship to these events remains uncertain.\n\nSources & map attribution\nContinue into the full atlas ↗",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": "nineveh",
+          "placeCamera": {
+            "longitude": 43.159936889690734,
+            "latitude": 36.36076152375775,
+            "zoom": 6
+          }
+        }
+      },
+      {
+        "label": "nineveh-links",
+        "links": [
+          {
+            "text": "MapLibre",
+            "href": "https://maplibre.org/"
+          },
+          {
+            "text": "OpenStreetMap",
+            "href": "https://www.openstreetmap.org/copyright"
+          },
+          {
+            "text": "CARTO",
+            "href": "https://carto.com/about-carto/"
+          },
+          {
+            "text": "← Return to the passage",
+            "href": "/jonah/#jonah-4-anger"
+          },
+          {
+            "text": "Continue into the full atlas ↗",
+            "href": "/explore/"
+          }
+        ]
+      },
+      {
+        "label": "atlas",
+        "url": "https://biblemap-bho2je0q6-elliotandersons-projects.vercel.app/explore/#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\n1635 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1635,
+          "loadedChunks": [
+            2,
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": null,
+          "placeCamera": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "production",
+    "size": "desktop",
+    "origin": "https://biblemap-pink.vercel.app",
+    "errors": [],
+    "failedRequests": [
+      {
+        "url": "https://biblemap-pink.vercel.app/",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://biblemap-pink.vercel.app/explore/",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "httpErrors": [],
+    "observations": [
+      {
+        "label": "home",
+        "url": "https://biblemap-pink.vercel.app/",
+        "title": "BibleExplorer",
+        "text": "Skip to stories\nBibleMap\nExplore the biblical world ↗\n\nANCIENT STORIES. HUMAN QUESTIONS.\n\nThe human condition.\nQuestions that stay with us.\n\nStories written long ago still ask difficult questions about the way we live. Begin with one. Follow where it leads.\n\nFIRST JOURNEY / THE BOOK OF JONAH\n\nJonah: The Man Who Ran\nWhich question stays with you?\n\nChoose one, or simply enter the story.\n\nWhat do we do when we’d rather turn away?\nWhat happens when our choices reach beyond us?\nWhy can mercy be hard to offer?\n\nA call. A departure. A story still asking questions. Begin with Jonah, and follow the whole journey.\n\nEnter the story\n→\n\nBegins at Jonah 1:1 · All four chapters · Read at your own pace\n\nOTHER QUESTIONS\n\nThere are more stories to encounter.\n\nThese journeys are still being developed. Their questions are starting points, not final answers.\n\n01 / Loss & suffering\nWhat happens when we lose everything?\n\nJob\n\nFuture journey · Not yet available\n02 / Identity & change\nCan we become someone different?\n\nJacob\n\nFuture journey · Not yet available\n03 / Freedom & responsibility\nWhat does freedom demand of us?\n\nExodus\n\nFuture journey · Not yet available\n04 / Betrayal & forgiveness\nWhat does it mean to forgive?\n\nJoseph\n\nFuture journey · Not yet available\n\nANOTHER WAY TO EXPLORE\n\nEvery story unfolds somewhere.\n\nExplore places, journeys, and chronology in the biblical atlas.\n\nExplore the biblical world\n↗\nBibleMap · Ancient stories. Human questions.",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "entry",
+        "url": "https://biblemap-pink.vercel.app/jonah/#jonah-1-calling",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 01 / 01 OF 13\n\nCalling\n\nJonah 1:1–2\n\n01\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1Now the LORD’s word came to Jonah the son of Amittai, saying,\n\n2“Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.”\n\nThe Prophets Hosea and Jonah\nRaphael · c. 1510\n\nAbout this artwork & rights\nExplore further Sources, reading notes & private reflection\nBegin here\n1 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "mercy",
+        "url": "https://biblemap-pink.vercel.app/jonah/#jonah-3-mercy",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 03 / 10 OF 13\n\nA city turns\n\nJonah 3:5–10\n\n10\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n5The people of Nineveh believed God; and they proclaimed a fast and put on sackcloth, from their greatest even to their least.\n\n6The news reached the king of Nineveh, and he arose from his throne, took off his royal robe, covered himself with sackcloth, and sat in ashes.\n\n7He made a proclamation and published through Nineveh by the decree of the king and his nobles, saying, “Let neither man nor animal, herd nor flock, taste anything; let them not feed, nor drink water;\n\n8but let them be covered with sackcloth, both man and animal, and let them cry mightily to God. Yes, let them turn everyone from his evil way and from the violence that is in his hands.\n\n9Who knows whether God will not turn and relent, and turn away from his fierce anger, so that we might not perish?”\n\n10God saw their works, that they turned from their evil way. God relented of the disaster which he said he would do to them, and he didn’t do it.\n\nRead Jonah’s response\n→\n\nTHE CITY INSIDE THE NAME\n\nNINEVEH\n\nA place beyond the word. What does the passage ask us to see there?\n\nSee the place\n↗\n\nTHE WORLD BEYOND THE PASSAGE\n\nMore than a wicked city.\n\nNineveh was a real Assyrian city. Its later palaces displayed royal power and conquest; its scribes gathered a library of clay tablets. The people in this passage inhabit a world larger than a single verdict.\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further Sources, reading notes & private reflection\n← Previous\n10 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "anger",
+        "url": "https://biblemap-pink.vercel.app/jonah/#jonah-4-anger",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 04 / 11 OF 13\n\nWhen mercy hurts\n\nJonah 4:1–4\n\n11\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1But it displeased Jonah exceedingly, and he was angry.\n\n2He prayed to the LORD, and said, “Please, LORD, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.\n\n3Therefore now, LORD, take, I beg you, my life from me, for it is better for me to die than to live.”\n\n4The LORD said, “Is it right for you to be angry?”\n\nTHE PROPHET\nangry.\nJonah 4\nCan mercy and justice coexist? Optional · Thomas Aquinas\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further Sources, reading notes & private reflection\n← Previous\n11 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "transition-geometry",
+        "verses": [
+          {
+            "reference": "3:10",
+            "top": 0,
+            "bottom": 0,
+            "height": 0
+          },
+          {
+            "reference": "4:1",
+            "top": 240.921875,
+            "bottom": 286.515625,
+            "height": 45.59375
+          }
+        ]
+      },
+      {
+        "label": "nineveh",
+        "url": "https://biblemap-pink.vercel.app/explore/?place=nineveh&from=jonah-4-anger",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nModern basemap · ancient city marker\n＋−Recenter\n← Return to the passage\n\nTHE WORLD OF JONAH\n\nNineveh\n\nOpposite Mosul · Tigris valley\n\nThe city in the story belongs to a wider world of palaces, conquest, gardens, and books written in clay.\n\nNineveh stood beside the Tigris, opposite modern Mosul in northern Iraq. The marker locates the ancient city, not Jonah’s movements within it.\n\nA city across time\nEarly seventh century BCE\nAn imperial capital\n\nSennacherib transforms Nineveh into a major Assyrian capital. Palace reliefs display royal building projects and conquest.\n\nSeventh century BCE\nA library in clay\n\nAshurbanipal’s library brings together cuneiform texts. More than 30,000 tablets and fragments have been found in Nineveh’s ruins.\n\n612 BCE\nThe capital falls\n\nA Babylonian–Median coalition captures Nineveh. The clay tablets preserve traces of its intellectual life.\n\nA flood story, pressed into clay\n\nThis is the city’s history, not a date for Jonah’s visit. The book does not name its king; its relationship to these events remains uncertain.\n\nSources & map attribution\nContinue into the full atlas ↗",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            1,
+            0
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": "nineveh",
+          "placeCamera": {
+            "longitude": 43.159936889690734,
+            "latitude": 36.36076152375775,
+            "zoom": 6
+          }
+        }
+      },
+      {
+        "label": "nineveh-links",
+        "links": [
+          {
+            "text": "MapLibre",
+            "href": "https://maplibre.org/"
+          },
+          {
+            "text": "OpenStreetMap",
+            "href": "https://www.openstreetmap.org/copyright"
+          },
+          {
+            "text": "CARTO",
+            "href": "https://carto.com/about-carto/"
+          },
+          {
+            "text": "← Return to the passage",
+            "href": "/jonah/#jonah-4-anger"
+          },
+          {
+            "text": "Continue into the full atlas ↗",
+            "href": "/explore/"
+          }
+        ]
+      },
+      {
+        "label": "atlas",
+        "url": "https://biblemap-pink.vercel.app/explore/#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nMoses, Sinai, and the Promised Land\n1635 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1635,
+          "loadedChunks": [
+            0,
+            1,
+            2
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": null,
+          "placeCamera": null
+        }
+      },
+      {
+        "label": "exodus",
+        "url": "https://biblemap-pink.vercel.app/explore/?event=the-sea&lat=30.0444&lng=31.2357&zoom=6.40#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nThe sea\n2/5\nPAUSE\nREPLAY\nSKIP\nEXIT\n\nSpace pauses · ] skips · Escape exits. Narration never starts on its own.\n\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nMoses, Sinai, and the Promised Land\n1446 BC\nPlay Era\nPause\nARTISTIC DEPICTION\nNOT ARCHAEOLOGICAL EVIDENCE\nThe Crossing of the Red Sea\n\nNicolas Poussin, 1633–1634\nNational Gallery of Victoria, Melbourne\n\nCreated 1633–1634; depicts The Exodus, traditionally placed in the Late Bronze Age. This is artistic depiction, not archaeological evidence of the event.\n\nPoussin stages the sea crossing as a composed classical drama. Egyptian armor, drapery, and landscape belong to seventeenth-century European painting, not to New Kingdom Egypt.\n\nSource record\nPD-Art\nNicolas Poussin, The Crossing of the Red Sea, 1633–1634, National Gallery of Victoria. Public domain.\nThe sea\n1446 BC\n·\nDELIVERANCE\n·\nJOURNEY\nLISTEN\nVOLUME\n\n“I will put enmity between you and the woman, and between your offspring and hers; he will crush your head.”\n\n— GENESIS 3:15\nSUMMARY\n\nIn Eden's perfection, Adam and Eve choose rebellion over relationship, eating the forbidden fruit. Shame enters the world as they hide from God. Yet even in judgment, God promises a descendant who will crush the serpent and restore what was lost.\n\nWORLD AROUND THIS MOMENT\nEastern Nile frontier / northern Sinai waters\n\nThe crossing — body of water unidentified\n\nThe story pins a people between chariot power and water. Geography here is a constraint: Egypt's military roads ran the northern Sinai; wetlands and lakes sat on the eastern edge of the Delta. The biblical text gives a deliverance at the sea. It does not give a modern grid reference. Later paintings, including the one this journey may show, are reception — how Europe imagined the scene centuries afterward — not evidence of a particular beach.\n\nHOW PEOPLE MOVE\nSCHOLARLY INFERENCE\nEgyptian military and trade routes crossed northern Sinai. A fleeing group would have had to leave the Nile corridor; which water they met is not settled.\nWHAT SURVIVES\nDISPUTED\nProposed identifications (Bitter Lakes, Lake Sirbonis, Gulf of Suez, Gulf of Aqaba) remain competing scholarly reconstructions. None is archaeologically tagged as the crossing.\n\nWHAT CHANGED\nThe narrative leaves the irrigated imperial center for a threshold landscape — water, wind, and an army's reach — without a verified campsite.\n\nUNCERTAIN\nRoute, body of water, and date are all disputed. The camera is a storytelling choice. It is not a survey peg.\n\nCHRONOLOGY\nThe Hebrew yam suf is traditionally rendered Red Sea; many scholars read a reed sea or lagoon on the eastern Delta. The map must choose a shore. That choice is not a verified waypoint.\n\nDISPUTED\nSCHOLARLY INFERENCE\nSOURCES (2)\nDEVOTIONAL REFLECTION\n\nYour shame and hiding can't separate you from God—He pursues you even in your failure with a rescue plan.",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1446,
+          "loadedChunks": [
+            0,
+            1,
+            2
+          ],
+          "selectedEvent": "The sea",
+          "activeScene": "exodus-sea",
+          "activeJourney": "exodus",
+          "journeyIndex": 1,
+          "focusPhase": "focused",
+          "mediaId": "poussin-crossing-red-sea",
+          "mediaClass": "artistic-depiction",
+          "narrationStatus": "ready",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": "world-exodus-sea",
+          "contextVisible": true,
+          "contextSourceCount": 2,
+          "contextConfidence": "disputed",
+          "contextHasUncertainty": true,
+          "selectedPlace": null,
+          "placeCamera": null
+        }
+      }
+    ]
+  },
+  {
+    "name": "production",
+    "size": "mobile",
+    "origin": "https://biblemap-pink.vercel.app",
+    "errors": [],
+    "failedRequests": [
+      {
+        "url": "https://biblemap-pink.vercel.app/explore/",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://biblemap-pink.vercel.app/",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "httpErrors": [],
+    "observations": [
+      {
+        "label": "home",
+        "url": "https://biblemap-pink.vercel.app/",
+        "title": "BibleExplorer",
+        "text": "Skip to stories\nBibleMap\nExplore the biblical world ↗\n\nANCIENT STORIES. HUMAN QUESTIONS.\n\nThe human condition.\nQuestions that stay with us.\n\nStories written long ago still ask difficult questions about the way we live. Begin with one. Follow where it leads.\n\nFIRST JOURNEY / THE BOOK OF JONAH\n\nJonah: The Man Who Ran\nWhich question stays with you?\n\nChoose one, or simply enter the story.\n\nWhat do we do when we’d rather turn away?\nWhat happens when our choices reach beyond us?\nWhy can mercy be hard to offer?\n\nA call. A departure. A story still asking questions. Begin with Jonah, and follow the whole journey.\n\nEnter the story\n→\n\nBegins at Jonah 1:1 · All four chapters · Read at your own pace\n\nOTHER QUESTIONS\n\nThere are more stories to encounter.\n\nThese journeys are still being developed. Their questions are starting points, not final answers.\n\n01 / Loss & suffering\nWhat happens when we lose everything?\n\nJob\n\nFuture journey · Not yet available\n02 / Identity & change\nCan we become someone different?\n\nJacob\n\nFuture journey · Not yet available\n03 / Freedom & responsibility\nWhat does freedom demand of us?\n\nExodus\n\nFuture journey · Not yet available\n04 / Betrayal & forgiveness\nWhat does it mean to forgive?\n\nJoseph\n\nFuture journey · Not yet available\n\nANOTHER WAY TO EXPLORE\n\nEvery story unfolds somewhere.\n\nExplore places, journeys, and chronology in the biblical atlas.\n\nExplore the biblical world\n↗\nBibleMap · Ancient stories. Human questions.",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "entry",
+        "url": "https://biblemap-pink.vercel.app/jonah/#jonah-1-calling",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 01 / 01 OF 13\n\nCalling\n\nJonah 1:1–2\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1Now the LORD’s word came to Jonah the son of Amittai, saying,\n\n2“Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.”\n\nThe Prophets Hosea and Jonah\nRaphael · c. 1510\n\nAbout this artwork & rights\nExplore further\nSources, reading notes & private reflection\nBegin here\n1 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "mercy",
+        "url": "https://biblemap-pink.vercel.app/jonah/#jonah-3-mercy",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 03 / 10 OF 13\n\nA city turns\n\nJonah 3:5–10\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n5The people of Nineveh believed God; and they proclaimed a fast and put on sackcloth, from their greatest even to their least.\n\n6The news reached the king of Nineveh, and he arose from his throne, took off his royal robe, covered himself with sackcloth, and sat in ashes.\n\n7He made a proclamation and published through Nineveh by the decree of the king and his nobles, saying, “Let neither man nor animal, herd nor flock, taste anything; let them not feed, nor drink water;\n\n8but let them be covered with sackcloth, both man and animal, and let them cry mightily to God. Yes, let them turn everyone from his evil way and from the violence that is in his hands.\n\n9Who knows whether God will not turn and relent, and turn away from his fierce anger, so that we might not perish?”\n\n10God saw their works, that they turned from their evil way. God relented of the disaster which he said he would do to them, and he didn’t do it.\n\nRead Jonah’s response\n→\n\nTHE CITY INSIDE THE NAME\n\nNINEVEH\n\nA place beyond the word. What does the passage ask us to see there?\n\nSee the place\n↗\n\nTHE WORLD BEYOND THE PASSAGE\n\nMore than a wicked city.\n\nNineveh was a real Assyrian city. Its later palaces displayed royal power and conquest; its scribes gathered a library of clay tablets. The people in this passage inhabit a world larger than a single verdict.\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further\nSources, reading notes & private reflection\n← Previous\n10 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "anger",
+        "url": "https://biblemap-pink.vercel.app/jonah/#jonah-4-anger",
+        "title": "Jonah: The Man Who Ran · BibleMap",
+        "text": "Skip to scripture\nBibleMap\n/\nStories\nExit to map\n↗\n\nTHE BOOK OF JONAH / A JOURNEY IN SIX MOVEMENTS\n\nJonah\nThe Man Who Ran\n\nA conversation. A responsibility. A truth about ourselves.\n\nSometimes, leaving feels easier.\n\nAll four chapters\nWorld English Bible\nAt your own pace · In silence\nBegin reading\n↓\n01\nCalling\n1:1–2\n02\nFlight\n1:3\n03\nStorm\n1:4–16\n04\nDepths\n1:17–2:10\n05\nNineveh\nChapter 3\n06\nThe unanswered question\nChapter 4\n\nCHAPTER 04 / 11 OF 13\n\nWhen mercy hurts\n\nJonah 4:1–4\n\nSCRIPTURE / WORLD ENGLISH BIBLE\n\n1But it displeased Jonah exceedingly, and he was angry.\n\n2He prayed to the LORD, and said, “Please, LORD, wasn’t this what I said when I was still in my own country? Therefore I hurried to flee to Tarshish, for I knew that you are a gracious God and merciful, slow to anger, and abundant in loving kindness, and you relent of doing harm.\n\n3Therefore now, LORD, take, I beg you, my life from me, for it is better for me to die than to live.”\n\n4The LORD said, “Is it right for you to be angry?”\n\nTHE PROPHET\nangry.\nJonah 4\nCan mercy and justice coexist? Optional · Thomas Aquinas\n\nNINEVEH / NEO-ASSYRIAN WORLD\n\nA city of power.\nA city of readers.\n\nMeet the city through its palaces and Ashurbanipal’s library.\n\nExplore Nineveh ↗\n\nSeventh-century BCE context; Jonah’s visit is not dated here.\n\nFollow the historical sources\nExplore further\nSources, reading notes & private reflection\n← Previous\n11 / 13\nContinue\n→\nBibleMap · Scripture, place, reflection\nExplore the map ↗",
+        "overflow": false,
+        "state": null
+      },
+      {
+        "label": "transition-geometry",
+        "verses": [
+          {
+            "reference": "3:10",
+            "top": 0,
+            "bottom": 0,
+            "height": 0
+          },
+          {
+            "reference": "4:1",
+            "top": 195.71875,
+            "bottom": 275.5,
+            "height": 79.78125
+          }
+        ]
+      },
+      {
+        "label": "nineveh",
+        "url": "https://biblemap-pink.vercel.app/explore/?place=nineveh&from=jonah-4-anger",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nModern basemap · ancient city marker\n＋−Recenter\n← Return to the passage\n\nTHE WORLD OF JONAH\n\nNineveh\n\nOpposite Mosul · Tigris valley\n\nThe city in the story belongs to a wider world of palaces, conquest, gardens, and books written in clay.\n\nNineveh stood beside the Tigris, opposite modern Mosul in northern Iraq. The marker locates the ancient city, not Jonah’s movements within it.\n\nA city across time\nEarly seventh century BCE\nAn imperial capital\n\nSennacherib transforms Nineveh into a major Assyrian capital. Palace reliefs display royal building projects and conquest.\n\nSeventh century BCE\nA library in clay\n\nAshurbanipal’s library brings together cuneiform texts. More than 30,000 tablets and fragments have been found in Nineveh’s ruins.\n\n612 BCE\nThe capital falls\n\nA Babylonian–Median coalition captures Nineveh. The clay tablets preserve traces of its intellectual life.\n\nA flood story, pressed into clay\n\nThis is the city’s history, not a date for Jonah’s visit. The book does not name its king; its relationship to these events remains uncertain.\n\nSources & map attribution\nContinue into the full atlas ↗",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 0,
+          "currentYear": -4004,
+          "loadedChunks": [
+            0,
+            1
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 109,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": "nineveh",
+          "placeCamera": {
+            "longitude": 43.159936889690734,
+            "latitude": 36.36076152375775,
+            "zoom": 6
+          }
+        }
+      },
+      {
+        "label": "nineveh-links",
+        "links": [
+          {
+            "text": "MapLibre",
+            "href": "https://maplibre.org/"
+          },
+          {
+            "text": "OpenStreetMap",
+            "href": "https://www.openstreetmap.org/copyright"
+          },
+          {
+            "text": "CARTO",
+            "href": "https://carto.com/about-carto/"
+          },
+          {
+            "text": "← Return to the passage",
+            "href": "/jonah/#jonah-4-anger"
+          },
+          {
+            "text": "Continue into the full atlas ↗",
+            "href": "/explore/"
+          }
+        ]
+      },
+      {
+        "label": "atlas",
+        "url": "https://biblemap-pink.vercel.app/explore/#exodus",
+        "title": "BibleExplorer",
+        "text": "MapLibre | © OpenStreetMap contributors © CARTO\nBibleExplorer\n\nEXPLORE THE STORIES OF THE BIBLE IN A WAY YOU NEVER HAVE.\n\nAll\nGEN\nEXO\nLEV\nNUM\nDEU\nJOS\nPSA\nISA\nEZK\nMIC\nCOL\nJUD\nREV\n164 EVENTS VISIBLE\nHISTORICAL EPOCHS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\nVISUAL FX\nFilm Grain\nParchment\nJourney Trails\nAmbient Soundscape\nJOURNEY MODE\nSelect a journey...\nThe Exodus Journey\nPaul's First Missionary Journey\nJesus' Galilean Ministry\nWatch 20s demo\nDATA CHUNKS\nCreation & Patriarchs\nExodus & Conquest\nJudges & Kings\nExile & Return\nIntertestamental\nJesus & Early Church\n1635 BC\nPlay Era\nPause",
+        "overflow": false,
+        "state": {
+          "ready": true,
+          "activeEpoch": 1,
+          "currentYear": -1635,
+          "loadedChunks": [
+            0,
+            1,
+            2
+          ],
+          "selectedEvent": null,
+          "activeScene": null,
+          "activeJourney": null,
+          "journeyIndex": null,
+          "focusPhase": "idle",
+          "mediaId": null,
+          "mediaClass": null,
+          "narrationStatus": "idle",
+          "reducedMotion": true,
+          "visibleEventCount": 164,
+          "recoverableErrors": [],
+          "contextId": null,
+          "contextVisible": false,
+          "contextSourceCount": 0,
+          "contextConfidence": null,
+          "contextHasUncertainty": false,
+          "selectedPlace": null,
+          "placeCamera": null
+        }
+      }
+    ]
+  }
+]
