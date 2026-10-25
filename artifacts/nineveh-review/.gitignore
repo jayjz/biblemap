@@ -1,5 +1,6 @@
 # Reproducible local browser evidence and generated master; never auto-publish.
 *.png
+landscape.webp
 tests/
 regression/
 baseline-recheck/

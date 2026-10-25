@@ -116,3 +116,78 @@
 }
 @media (prefers-reduced-motion: reduce) { .nineveh-world, .nineveh-foreground { transform: none !important; } }
 @media (forced-colors: active) { .nineveh-landscape { border-bottom: 1px solid CanvasText; } .nineveh-world { visibility: hidden; } .nineveh-place-anchor { color: CanvasText; text-shadow: none; } }
+
+/* Discoveries sit beside the passage; their objects are not placed in the invented skyline. */
+.nineveh-discoveries { position: absolute; width: 62%; left: -110%; bottom: 28px; padding: 18px 22px; background: #142326ee; border-left: 1px solid #d7bd8866; }
+@media (min-width: 761px) { .nineveh:not([data-beat="city"]) .nineveh-landscape-caption { top: 24px; bottom: auto; } }
+.nineveh-discoveries .nineveh-eyebrow { margin-bottom: 4px; }
+.nineveh-discoveries > a { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 13px 0; text-decoration: none; border-bottom: 1px solid #c5c4b433; font: 18px/1.4 Georgia, serif; }
+.nineveh-discoveries > a:last-child { border: 0; padding-bottom: 4px; }
+.nineveh-discoveries small { display: block; color: var(--nv-muted); font: 11px/1.5 var(--font-geist-sans), Arial, sans-serif; margin-top: 4px; }
+.nineveh-discoveries > a > span:last-child { color: var(--nv-gold); }
+.nineveh-discovery-dialog { position: fixed; inset: 0; margin: auto; width: min(1120px, calc(100% - 64px)); max-width: none; max-height: calc(100svh - 64px); padding: 0; color: #f4edda; background: #17292b; border: 1px solid #7f8a7c; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.nineveh-discovery-dialog::backdrop { background: #091718c9; }
+.nineveh-discovery-dialog :is(h2,h3,h4,p,figure,blockquote) { margin: 0; }
+.nineveh-dialog-top { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 28px; background: #17292b; border-bottom: 1px solid #c5c4b433; font-size: 11px; }
+.nineveh-dialog-top > span { color: #c5c4b4; }
+.nineveh-discovery-dialog button { background: none; color: #ead4a5; border: 1px solid #a99a7966; padding: 11px 15px; min-height: 44px; font: 12px/1.5 var(--font-geist-sans), Arial, sans-serif; }
+.nineveh-dialog-top button { border: none; }
+.nineveh-dialog-top button span { font-size: 22px; margin-left: 12px; }
+.nineveh-dialog-body { padding: 28px 44px 40px; }
+.nineveh-discovery-dialog h2 { font: 13px/1.6 var(--font-geist-sans), Arial, sans-serif; color: #c5c4b4; margin-bottom: 26px; }
+.nineveh-discovery-dialog :is(h2,[tabindex]):focus-visible { outline: 2px solid #f5d490; outline-offset: 4px; }
+.nineveh-discovery-dialog h3 { font: 38px/1.15 Georgia, serif; font-weight: normal; margin: 12px 0 24px; }
+.nineveh-discovery-dialog p { font-size: 16px; line-height: 1.8; margin-bottom: 18px; }
+.nineveh-discovery-dialog .nineveh-eyebrow { font-size: 10px; line-height: 1.8; margin-bottom: 10px; color: #dfc596; }
+.nineveh-discovery-dialog a { color: #ead4a5; font-size: 13px; line-height: 1.8; text-decoration: underline; }
+.nineveh-new-tab { font-size: 10px; }
+.nineveh-world-discovery { display: grid; grid-template-columns: 1fr 1.04fr; gap: 44px; align-items: start; }
+.nineveh-object-window { background: #30332e; overflow: auto; max-height: 60svh; }
+.nineveh-object-window img { display: block; width: 100%; height: auto; object-fit: contain; }
+.nineveh-object-window[data-enlarged="true"] img { width: 180%; max-width: none; }
+.nineveh-object > button { margin-top: 12px; }
+.nineveh-object figcaption { color: #c5c4b4; font-size: 11px; line-height: 1.8; margin-top: 12px; }
+.nineveh-object figcaption a { font-size: inherit; }
+.nineveh-image-fallback { padding: 28px; background: #263936; border: 1px solid #788577; }
+.nineveh-depth-details { border-top: 1px solid #c5c4b444; margin: 24px 0; font-size: 14px; line-height: 1.8; }
+.nineveh-depth-details summary { padding: 14px 0; min-height: 48px; color: #dfc596; }
+.nineveh-depth-details :is(p,dd) { font-size: 14px; }
+.nineveh-depth-details dl { margin-bottom: 20px; }
+.nineveh-depth-details dt { margin-top: 14px; color: #dfc596; font-size: 11px; }
+.nineveh-depth-details dd { margin-left: 0; }
+.nineveh-discovery-dialog .nineveh-limitation { color: #c5c4b4; font-size: 13px; border-left: 1px solid #a99a79; padding-left: 16px; margin-top: 24px; }
+.nineveh-art-discovery { max-width: 790px; margin: auto; }
+.nineveh-art-discovery .nineveh-object-window { max-height: none; background: #303030; }
+.nineveh-art-discovery .nineveh-object-window:not([data-enlarged="true"]) img { max-height: 52svh; }
+.nineveh-art-discovery .nineveh-object-window[data-enlarged="true"] { max-height: 65svh; }
+.nineveh-art-caption { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 28px; }
+.nineveh-discovery-dialog blockquote { font: 27px/1.6 Georgia, serif; margin: 20px 0; }
+.nineveh-voices-discovery { max-width: 760px; margin: auto; }
+.nineveh-voice-choice { display: flex; gap: 14px; margin-bottom: 28px; }
+.nineveh-voice-choice button[aria-pressed="true"] { background: #ead4a5; color: #17292b; border-color: #ead4a5; }
+.nineveh-voice { border-left: 1px solid #a99a79; padding-left: 28px; }
+.nineveh-voice h4 { font: 22px Georgia, serif; font-weight: normal; }
+.nineveh-voice .nineveh-voice-era { color: #c5c4b4; font-size: 12px; }
+.nineveh-voice .nineveh-quotation-credit { color: #dfc596; font-size: 12px; }
+.nineveh-copy-label { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #dfc596; }
+.nineveh-text-anchor { border-top: 1px solid #c5c4b444; padding-top: 28px; margin-top: 30px; }
+.nineveh-text-anchor p:not(.nineveh-eyebrow) { font: 21px/1.7 Georgia, serif; }
+.nineveh-text-anchor small { display: block; color: #dfc596; font: 11px/2 var(--font-geist-sans), Arial, sans-serif; margin-bottom: 8px; }
+.nineveh-discovery-dialog .nineveh-return { margin-top: 26px; border-width: 0 0 1px; padding-left: 0; }
+@media (max-width: 760px) {
+  .nineveh-discoveries { position: static; width: auto; margin: 4px 0 28px; padding: 18px 0 4px; background: none; border-left: 0; border-top: 1px solid #c5c4b444; }
+  .nineveh-discoveries > a { font-size: 18px; min-height: 64px; }
+  .nineveh-discovery-dialog { width: 100%; max-height: 100svh; height: 100svh; border: none; margin: 0; }
+  .nineveh-dialog-top { padding: 9px 16px; flex-wrap: wrap; gap: 0 8px; }
+  .nineveh-dialog-top > span { font-size: 10px; }
+  .nineveh-dialog-top button { padding: 6px 0; }
+  .nineveh-dialog-body { padding: 24px; }
+  .nineveh-discovery-dialog h3 { font-size: 32px; }
+  .nineveh-world-discovery { display: flex; flex-direction: column; gap: 28px; }
+  .nineveh-world-discovery > .nineveh-object { order: -1; width: 100%; }
+  .nineveh-world-discovery .nineveh-object-window:not([data-enlarged="true"]) img { max-height: 42svh; }
+  .nineveh-art-caption { grid-template-columns: 1fr; gap: 0; }
+  .nineveh-discovery-dialog blockquote { font-size: 25px; }
+  .nineveh-voice { padding-left: 18px; }
+}
+@media (forced-colors: active) { .nineveh-discovery-dialog, .nineveh-voice-choice button[aria-pressed="true"] { border: 2px solid CanvasText; } }

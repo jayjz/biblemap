@@ -5,14 +5,10 @@ import Link from "next/link";
 import chapter3 from "@/content/scripture/web-jonah-3.json";
 import chapter4 from "@/content/scripture/web-jonah-4.json";
 import { DISCOVERY_SOURCES, STORY_PLACES } from "@/content/jonah-discoveries";
+import { NINEVEH_BEATS as beats, parseNinevehHash } from "@/domain/nineveh-navigation";
+import { DiscoveryEntrances, NinevehDiscoveryDialog } from "./NinevehDiscovery";
 
 const Environment = lazy(() => import("./NinevehEnvironment"));
-const beats = [
-  { id: "city", label: "The city", reference: "Jonah 3:10–4:4" },
-  { id: "mercy", label: "Mercy", reference: "Jonah 3:10" },
-  { id: "anger", label: "Anger", reference: "Jonah 4:1–4" },
-  { id: "question", label: "The question", reference: "Jonah 4:4" },
-] as const;
 const mercy = chapter3.verses.filter(verse => verse.number === 10);
 const response = chapter4.verses.filter(verse => verse.number <= 4);
 const question = response.filter(verse => verse.number === 4);
@@ -36,7 +32,7 @@ function Verses({ verses, chapter }: { verses: typeof mercy; chapter: number }) 
 
 export function NinevehEncounter() {
   const hash = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
-  const beat = beats.find(item => item.id === hash) ?? beats[0];
+  const { beat, discovery } = parseNinevehHash(hash);
   const index = beats.indexOf(beat);
   const [paused, setPaused] = useState(false);
   const [plain, setPlain] = useState(false);
@@ -56,7 +52,14 @@ export function NinevehEncounter() {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     if (location.hash !== `#${id}`) {
-      history.pushState(null, "", `#${id}`);
+      history.pushState(id.includes("/") ? { ninevehDiscovery: true } : null, "", `#${id}`);
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    }
+  }
+  function closeDiscovery() {
+    if (history.state?.ninevehDiscovery) history.back();
+    else {
+      history.replaceState(null, "", `#${beat.id}`);
       window.dispatchEvent(new PopStateEvent("popstate"));
     }
   }
@@ -80,6 +83,7 @@ export function NinevehEncounter() {
           {(beat.id === "anger" || beat.id === "question") && <details className="nineveh-recall" key={beat.id}><summary>Return to what happened · 3:10</summary><p className="nineveh-eyebrow">Jonah 3:10 · World English Bible</p><Verses verses={mercy} chapter={3}/></details>}
         </>}
       </section>
+      {beat.id !== "city" && <DiscoveryEntrances beat={beat.id} navigate={navigate}/>}
       <nav className="nineveh-navigation" aria-label="Encounter navigation">
         {beat.id === "city" && <p className="nineveh-pace">Take your time. Continue when you are ready.</p>}
         <div className="nineveh-step-links">
@@ -94,10 +98,11 @@ export function NinevehEncounter() {
       <details className="nineveh-sources"><summary>Place, Scripture & the making of this view</summary><div className="nineveh-source-grid">
         <section><h2>The place</h2><p>{STORY_PLACES.nineveh.geography}</p><a href={DISCOVERY_SOURCES.nineveh.url}>{DISCOVERY_SOURCES.nineveh.title}</a><p>The landscape is not a measured view. The river’s shape, skyline and terrain are artistic choices. No date for Jonah’s visit or location for him in these verses is inferred.</p><a href="/explore/?place=nineveh&from=jonah-3-mercy">Locate Nineveh in the atlas ↗</a></section>
         <section><h2>The text</h2><p>World English Bible · Public domain. Exact text from BibleMap’s pinned {chapter3.sourceVersion}. Jonah’s prayer is shown together; 4:4 is repeated in the final beat.</p><p><a href={chapter3.sourceUrl}>Jonah 3 · publisher</a> · <a href={chapter4.sourceUrl}>Jonah 4 · publisher</a></p><a href="https://ebible.org/engwebp/copyright.htm">Translation rights</a><p>The continuation returns to the existing reader at 4:5. The book’s final question remains unanswered.</p></section>
-        <section><h2>The composition</h2><p>Original AI-generated landscape for BibleMap, October 2026, created with OpenAI image generation. Interpretive reconstruction, awaiting human creative and historical review. No third-party image or audio is used.</p><p>The city forms are invented, without identifiable buildings or people. This is neither an archaeological reconstruction nor Jonah’s viewpoint. The camera adjustment marks a change in attention, not a journey or passing time.</p><p>Nothing advances automatically. Pause motion holds a viewpoint transition; reduced motion uses still views.</p></section>
+        <section><h2>The composition</h2><p>Original AI-generated landscape for BibleMap, October 2026, created with OpenAI image generation. Interpretive reconstruction, awaiting human creative and historical review. No third-party image or audio is used in the landscape. The optional discoveries have separate image credits and rights records.</p><p>The city forms are invented, without identifiable buildings or people. This is neither an archaeological reconstruction nor Jonah’s viewpoint. The camera adjustment marks a change in attention, not a journey or passing time.</p><p>Nothing advances automatically. Pause motion holds a viewpoint transition; reduced motion uses still views.</p></section>
       </div></details>
       <p className="nineveh-review-label">Experimental encounter · Creative review</p>
     </footer>
+    {discovery && <NinevehDiscoveryDialog key={discovery} discovery={discovery} reference={beat.reference} plain={plain} onClose={closeDiscovery}/>}
     <noscript><section className="nineveh-noscript"><h2>Read the passage</h2><p>The interactive landscape needs JavaScript. The complete passage remains here.</p><p>Scripture · World English Bible · Public domain</p><h3>Jonah 3:10</h3><Verses verses={mercy} chapter={3}/><h3>Jonah 4:1–4</h3><Verses verses={response} chapter={4}/><a href="/jonah/#jonah-4-shade">Continue in the reader · Jonah 4:5–11</a></section></noscript>
   </div>;
 }

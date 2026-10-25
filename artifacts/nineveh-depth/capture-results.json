@@ -1,0 +1,15 @@
+{
+  "viewports": [
+    "1440×1000",
+    "390×844",
+    "320×700"
+  ],
+  "browser": "Chrome",
+  "reducedMotion": true,
+  "touchOpenAndClose": [
+    "390×844",
+    "320×700"
+  ],
+  "failures": [],
+  "note": "Only cropped discovery and text-view screenshots are shared. Generated landscape stays local."
+}
