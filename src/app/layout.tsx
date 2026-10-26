@@ -19,17 +19,17 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "BibleExplorer",
-  description: "Explore the Stories of the Bible in a way you never have.",
+  title: "BibleMap",
+  description: "Ancient stories, geography, art and questions that stay with us.",
   openGraph: {
-    title: "BibleExplorer",
-    description: "Explore the Stories of the Bible in a way you never have.",
+    title: "BibleMap",
+    description: "Ancient stories, geography, art and questions that stay with us.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BibleExplorer",
-    description: "Explore the Stories of the Bible in a way you never have.",
+    title: "BibleMap",
+    description: "Ancient stories, geography, art and questions that stay with us.",
   }
 };
 
