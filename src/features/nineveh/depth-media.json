@@ -29,7 +29,8 @@
       "height": 1407,
       "altText": "Broken clay tablet on a modern mount, covered with rows of wedge-shaped cuneiform marks in two columns.",
       "historicalFit": "Excavated evidence of literary culture in seventh-century BCE Nineveh. Does not date or verify Jonah’s visit, or establish literary dependence.",
-      "editorialReason": "Makes writing and the preservation of stories visible within the city’s history."
+      "editorialReason": "Makes writing and the preservation of stories visible within the city’s history.",
+      "publicUrl": "/media/nineveh-depth/flood-tablet.webp"
     },
     {
       "id": "jonah-vine",
@@ -58,7 +59,8 @@
       "height": 579,
       "altText": "Marble Jonah reclines beneath broad leaves, one arm raised over his head, the other supporting his body; his ankles cross.",
       "historicalFit": "Later Christian artistic reception. Costume, posture and plant form cannot establish the appearance of Jonah’s world.",
-      "editorialReason": "Moves attention from the city to the body sheltered by the plant in the continuation, without answering the book’s final question."
+      "editorialReason": "Moves attention from the city to the body sheltered by the plant in the continuation, without answering the book’s final question.",
+      "publicUrl": "/media/nineveh-depth/jonah-vine.webp"
     }
   ]
 }
