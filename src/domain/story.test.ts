@@ -30,7 +30,9 @@ test("story document keeps the three approved artworks; open images stay outside
   ].sort());
   const withOpenImage = structuredClone(JONAH);
   withOpenImage.media = [...withOpenImage.media, JONAH_PROVISIONAL_MEDIA[0]];
-  assert.ok(validateStory(withOpenImage).some(error => error.includes("approved local media")));
+  assert.deepEqual(validateStory(withOpenImage), []);
+  withOpenImage.media[withOpenImage.media.length - 1].rightsUse = "restricted";
+  assert.ok(validateStory(withOpenImage).some(error => error.includes("rights-cleared local media")));
 });
 
 test("visitor copy requires actual approval; source slots and drafts remain intact", () => {
