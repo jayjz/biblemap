@@ -25,7 +25,14 @@ jobs:
       - run: npm test
       - run: npm run lint
       - run: npx tsc --noEmit
-      - run: npm run build
+      - name: Verify ordinary export excludes experimental Nineveh media
+        run: |
+          npm run build
+          node scripts/validate-nineveh-depth.mjs --production-export
+      - name: Build opt-in Nineveh experience for browser tests
+        run: npm run build
+        env:
+          BIBLEMAP_NINEVEH_REVIEW: "1"
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - name: Preserve browser evidence
