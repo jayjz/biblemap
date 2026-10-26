@@ -114,7 +114,7 @@ function asMediaClass(value: string): MediaClass {
   return value as MediaClass;
 }
 
-/** Rights-verified pictures placed before editorial approval. Not publication-ready. */
+/** Rights-verified pictures can publish without a creative approval stamp. */
 export const JONAH_PROVISIONAL_MEDIA: readonly CuratedMediaAsset[] = catalog.assets.flatMap(candidate => {
   const copy = provisionalCopy[candidate.id];
   if (!copy) return [];
@@ -137,8 +137,8 @@ export const JONAH_PROVISIONAL_MEDIA: readonly CuratedMediaAsset[] = catalog.ass
   }];
 });
 
-if (JONAH_PROVISIONAL_MEDIA.some(asset => !mayPublishMedia(asset) || isProductionReadyMedia(asset))) {
-  throw new Error("Provisional Jonah images must be publishable and not editorially approved");
+if (JONAH_PROVISIONAL_MEDIA.some(asset => !mayPublishMedia(asset) || asset.reviewStatus === "approved")) {
+  throw new Error("Rights-verified Jonah images must be publishable without claiming editorial approval");
 }
 
 /** Approved placements win. Provisional images fill only scenes that have none. They are not story-document media. */
@@ -148,6 +148,6 @@ export function jonahSceneArtworkIds(sceneId: string): string[] {
   return JONAH_PROVISIONAL_MEDIA.filter(asset => provisionalCopy[asset.id]?.sceneIds.includes(sceneId)).map(asset => asset.id);
 }
 
-/** Reader-only placements with verified image rights; not editorial approval or StoryDocument.media. */
+/** Reader placements with verified image rights; creative status remains separate. */
 export const JONAH_OPEN_PLACEMENTS: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] =
   JONAH_PROVISIONAL_MEDIA.map(asset => ({ sceneIds: provisionalCopy[asset.id].sceneIds, asset }));

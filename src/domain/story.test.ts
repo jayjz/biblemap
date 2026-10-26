@@ -11,7 +11,7 @@ test("story document keeps the three approved artworks; open images stay outside
   assert.equal(JONAH.media.length, 3);
   assert.ok(JONAH.media.every(isProductionReadyMedia));
   assert.equal(JONAH_PROVISIONAL_MEDIA.length, 5);
-  assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => mayPublishMedia(asset) && !isProductionReadyMedia(asset) && publicationFlags(asset).length === 0 && asset.reviewStatus === "rights-verified"));
+  assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => mayPublishMedia(asset) && isProductionReadyMedia(asset) && publicationFlags(asset).length === 0 && asset.reviewStatus === "rights-verified"));
   assert.ok(JONAH_PROVISIONAL_MEDIA.every(asset => !JONAH.media.some(item => item.id === asset.id)));
   assert.equal(JONAH_OPEN_PLACEMENTS.length, 5);
   const placements = Object.fromEntries(JONAH.scenes.filter(scene => scene.artworkIds.length).map(scene => [scene.id, scene.artworkIds]));
@@ -30,7 +30,9 @@ test("story document keeps the three approved artworks; open images stay outside
   ].sort());
   const withOpenImage = structuredClone(JONAH);
   withOpenImage.media = [...withOpenImage.media, JONAH_PROVISIONAL_MEDIA[0]];
-  assert.ok(validateStory(withOpenImage).some(error => error.includes("approved local media")));
+  assert.deepEqual(validateStory(withOpenImage), []);
+  withOpenImage.media[withOpenImage.media.length - 1].rightsUse = "restricted";
+  assert.ok(validateStory(withOpenImage).some(error => error.includes("rights-cleared local media")));
 });
 
 test("visitor copy requires actual approval; source slots and drafts remain intact", () => {

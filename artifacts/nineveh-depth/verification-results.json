@@ -1,0 +1,614 @@
+﻿{
+    "stats":  {
+                  "startTime":  "2026-10-25T23:41:30.042Z",
+                  "duration":  189369.933,
+                  "expected":  75,
+                  "skipped":  1,
+                  "unexpected":  10,
+                  "flaky":  0
+              },
+    "cases":  [
+                  {
+                      "file":  "authorship.spec.ts",
+                      "title":  "visitor DOM omits slots and written drafts while author workspace retains them",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "authorship.spec.ts",
+                      "title":  "visitor DOM omits slots and written drafts while author workspace retains them",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "city-inside-name.spec.ts",
+                      "title":  "Nineveh encounter unfolds from Scripture to later context and back to verses",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "city-inside-name.spec.ts",
+                      "title":  "the encounter reads without JavaScript or image loading",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "city-inside-name.spec.ts",
+                      "title":  "reduced motion retains the same stages",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "city-inside-name.spec.ts",
+                      "title":  "Nineveh encounter unfolds from Scripture to later context and back to verses",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "city-inside-name.spec.ts",
+                      "title":  "the encounter reads without JavaScript or image loading",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "city-inside-name.spec.ts",
+                      "title":  "reduced motion retains the same stages",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "sculpture study preserves the passage, traps focus, and returns on Escape",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "three discoveries preserve Scripture, disclose sources, and remain readable at 320px",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "passage opens Nineveh in the existing atlas and returns to the same passage",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "discovery artwork failure preserves passage and connections",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "Joppa link and missing basemap retain sourced places and return navigation",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "sculpture study preserves the passage, traps focus, and returns on Escape",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "three discoveries preserve Scripture, disclose sources, and remain readable at 320px",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "passage opens Nineveh in the existing atlas and returns to the same passage",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "discovery artwork failure preserves passage and connections",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "discovery.spec.ts",
+                      "title":  "Joppa link and missing basemap retain sourced places and return navigation",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "explorer.spec.ts",
+                      "title":  "explorer baseline: data, filters, epochs, selection, journeys and fallback",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "explorer.spec.ts",
+                      "title":  "explorer baseline: data, filters, epochs, selection, journeys and fallback",
+                      "project":  "mobile",
+                      "status":  "skipped",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "first-encounter.spec.ts",
+                      "title":  "recognition leads to Scripture and curiosity before optional research",
+                      "project":  "desktop",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 3\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+ ]"
+                  },
+                  {
+                      "file":  "first-encounter.spec.ts",
+                      "title":  "first encounter remains available without JavaScript",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "first-encounter.spec.ts",
+                      "title":  "recognition leads to Scripture and curiosity before optional research",
+                      "project":  "mobile",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 3\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+ ]"
+                  },
+                  {
+                      "file":  "first-encounter.spec.ts",
+                      "title":  "first encounter remains available without JavaScript",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage introduces Jonah and clearly distinguishes future journeys",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage reflows and respects reduced motion",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "optional question: What do we do when we’d rather turn away?",
+                      "project":  "desktop",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\n+ ]"
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "optional question: What happens when our choices reach beyond us?",
+                      "project":  "desktop",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\n+ ]"
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "optional question: Why can mercy be hard to offer?",
+                      "project":  "desktop",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\n+ ]"
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "question keyboard navigation, reset, and narrow mobile",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "story entry remains available without JavaScript",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage entry, reload, history, and direct reader visits keep their destinations",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage skip link remains on stories instead of opening legacy atlas",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage introduces Jonah and clearly distinguishes future journeys",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage reflows and respects reduced motion",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "optional question: What do we do when we’d rather turn away?",
+                      "project":  "mobile",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\n+ ]"
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "optional question: What happens when our choices reach beyond us?",
+                      "project":  "mobile",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\n+ ]"
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "optional question: Why can mercy be hard to offer?",
+                      "project":  "mobile",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"Failed to load resource: the server responded with a status of 404 (Not Found)\",\n+ ]"
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "question keyboard navigation, reset, and narrow mobile",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "story entry remains available without JavaScript",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage entry, reload, history, and direct reader visits keep their destinations",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "homepage.spec.ts",
+                      "title":  "homepage skip link remains on stories instead of opening legacy atlas",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah-mercy-turn.spec.ts",
+                      "title":  "Nineveh\u0027s repentance leads into Jonah\u0027s anger without pre-explaining it",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah-mercy-turn.spec.ts",
+                      "title":  "Nineveh\u0027s repentance leads into Jonah\u0027s anger without pre-explaining it",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "complete reader-controlled book, history, malformed links, and keyboard focus",
+                      "project":  "desktop",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 4\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+ ]"
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "reflection stays in memory and clears on reload and exit",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "accessible reduced-motion reader with no WebGL or third-party requests",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "without JavaScript all 48 verses and anchor navigation remain readable",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "complete reader-controlled book, history, malformed links, and keyboard focus",
+                      "project":  "mobile",
+                      "status":  "unexpected",
+                      "failure":  "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 1\n+ Received  + 5\n\n- Array []\n+ Array [\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+   \"GET http://127.0.0.1:4194/__next._tree.txt?_rsc=1r34m: net::ERR_ABORTED\",\n+   \"404 http://127.0.0.1:4194/explore/__next.explore.__PAGE__.txt?_rsc=jizhw\",\n+ ]"
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "reflection stays in memory and clears on reload and exit",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "accessible reduced-motion reader with no WebGL or third-party requests",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "jonah.spec.ts",
+                      "title":  "without JavaScript all 48 verses and anchor navigation remain readable",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "static export excludes held reproductions and local review routes",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "media failure preserves fallback; audio requires action and pauses on scene exit",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "rejected playback remains recoverable without synthesis",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "restricted media makes no image request; approved fixture preserves composition and provenance after failure",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "normal Jonah route keeps approved art and labels open images as provisional",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "normal reader recovers from a missing approved artwork",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "static export excludes held reproductions and local review routes",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "media failure preserves fallback; audio requires action and pauses on scene exit",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "rejected playback remains recoverable without synthesis",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "restricted media makes no image request; approved fixture preserves composition and provenance after failure",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "normal Jonah route keeps approved art and labels open images as provisional",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "media.spec.ts",
+                      "title":  "normal reader recovers from a missing approved artwork",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "discoveries preserve Scripture, view, scroll, focus and history without external requests",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "shared discovery reloads, direct close preserves beat, 320px reflow and touch",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "discovery entrances leave reconstruction and place labels unobscured",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "missing or restricted photographs retain object description, rights, source and Scripture",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "text view omits image requests and retains all discoveries in either motion preference",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "discoveries preserve Scripture, view, scroll, focus and history without external requests",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "shared discovery reloads, direct close preserves beat, 320px reflow and touch",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "discovery entrances leave reconstruction and place labels unobscured",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "missing or restricted photographs retain object description, rights, source and Scripture",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh-depth.spec.ts",
+                      "title":  "text view omits image requests and retains all discoveries in either motion preference",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "four beats keep Nineveh present, exact Scripture, history, sources and reader continuation",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "pause, reduced motion, text view, malformed links and no timed progression",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "landscape loading and rejected chunk keep Scripture and controls available",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "no JavaScript retains complete Scripture and an exit",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "missing image retains reading and explicit fallback",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "narrow viewport, touch and keyboard preserve the city while reading",
+                      "project":  "desktop",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "four beats keep Nineveh present, exact Scripture, history, sources and reader continuation",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "pause, reduced motion, text view, malformed links and no timed progression",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "landscape loading and rejected chunk keep Scripture and controls available",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "no JavaScript retains complete Scripture and an exit",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "missing image retains reading and explicit fallback",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  },
+                  {
+                      "file":  "nineveh.spec.ts",
+                      "title":  "narrow viewport, touch and keyboard preserve the city while reading",
+                      "project":  "mobile",
+                      "status":  "expected",
+                      "failure":  null
+                  }
+              ]
+}

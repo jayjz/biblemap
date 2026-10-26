@@ -25,9 +25,26 @@ jobs:
       - run: npm test
       - run: npm run lint
       - run: npx tsc --noEmit
-      - run: npm run build
+      - name: Verify ordinary export excludes experimental Nineveh media
+        run: |
+          npm run build
+          node scripts/validate-nineveh-depth.mjs --production-export
+      - name: Build opt-in Nineveh experience for browser tests
+        run: npm run build
+        env:
+          BIBLEMAP_NINEVEH_REVIEW: "1"
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      - name: Prepare CI-only visual fixture for the gated Nineveh review
+        run: |
+          # The original generated landscape remains local and excluded from GitHub.
+          # Only browser interaction is tested here, not artwork accuracy or aesthetic approval.
+          cp artifacts/nineveh-depth/media/flood-tablet.webp artifacts/nineveh-review/landscape.webp
+      - name: Browser tests for normal exported reader and atlas
+        run: npm run test:e2e
+      - name: Browser tests with the local-only Nineveh review server
+        run: npm run test:e2e
+        env:
+          PLAYWRIGHT_REVIEW_SERVER: "1"
       - name: Preserve browser evidence
         if: always()
         uses: actions/upload-artifact@v7
@@ -36,4 +53,6 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            playwright-report-nineveh/
+            test-results-nineveh/
           retention-days: 14

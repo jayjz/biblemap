@@ -1,0 +1,30 @@
+{
+  "id": "nineveh-city-remains-environment",
+  "class": "interpretive-reconstruction",
+  "title": "Nineveh — The City Remains",
+  "creator": "OpenAI image generation, directed by Codex for BibleMap",
+  "creationDate": "2026-10-24",
+  "depictedPeriod": "Unspecified ancient setting; no visit date asserted",
+  "sourceInstitution": "BibleMap original generated artwork",
+  "license": "Original generated output; no third-party source image",
+  "rightsStatement": "Created with the built-in OpenAI image generation tool from text alone. No third-party artwork incorporated. Not archaeological evidence.",
+  "requiredAttribution": "AI-generated interpretive reconstruction for BibleMap, October 2026.",
+  "localPath": "artifacts/nineveh-review/landscape.webp",
+  "checksum": "sha256:2ea1d33ca7e1a024bb163ca53a4c34be15a2ff5a22547d2d87b83837a52e3cab",
+  "originalPath": "artifacts/nineveh-review/generated-original.png",
+  "reviewStatus": "candidate",
+  "reviewedBy": null,
+  "generator": "Built-in image_gen",
+  "model": "Not reported by tool",
+  "prompt": "Use case: stylized-concept. Asset type: original panoramic environmental matte painting for BibleMap's local experimental encounter Nineveh — The City Remains, later composited under accessible Scripture. Produce a widescreen 3:2 image. Scene: a distant substantial ancient Near Eastern city on a broad alluvial plain beside a restrained narrow river, interpreted as Nineveh near the Tigris. This is explicitly artistic reconstruction, NOT an archaeological view or a documented historic moment. A low long continuous mass of weathered earthen city walls and softly suggested dense flat roofs occupies the left-center, between 15% and 53% of image width, at 54–63% image height. Buildings remain distant indistinct masses, no identifiable palace, gate, monument, ziggurat, columns or domes. No people, faces, figures, boats, ceremonies, smoke or events. River flows in from lower left, small and quiet. Terrain mostly flat with gently rising dry ground, no dramatic mountains. Foreground at bottom and right: tactile dusty earth, low irregular stone and clay outcrops, dry grasses sparse, natural subtle strata, dark umber and blue-green shade. Open muted blue-grey sky occupies upper half, softly warming to pale stone haze at horizon. Restrained oblique light, no visible sun, no god rays, no epic sunset. Rich material presence and atmospheric recession, carefully painted editorial realism with very subtle painterly edges, not a flat vector, not fantasy concept art, not a map, not a photograph claiming authenticity. Palette aged earth, limestone dust, subdued bronze, grey sage, dark petrol shadows. Right 45% quietly dark and compositionally simple for Scripture overlay, upper left calm negative space for title. Nothing destroyed, no weather changes, no implied action. NO lettering, labels, text, logo, frames, UI or watermark. The city must be clearly readable as a substantial distant inhabited settlement without inventing particular historical structures.",
+  "historicalSources": [
+    "https://pleiades.stoa.org/places/874621"
+  ],
+  "knownInaccuracies": [
+    "City layout, wall forms, river course, vegetation, terrain, light, and camera bearing are invented.",
+    "No identified building, individual, historic event, or viewpoint of Jonah is represented.",
+    "Appearance is not tied to a documented period."
+  ],
+  "editorialReason": "Keep the same substantial city visible while the narrative turns from Jonah 3:10 to 4:1–4.",
+  "publicationGate": "Experimental route only built when BIBLEMAP_NINEVEH_REVIEW=1. Candidate artwork stays outside public and static export, served solely by the loopback review server. Human approval remains required."
+}

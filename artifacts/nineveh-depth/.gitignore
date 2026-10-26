@@ -1,0 +1,9 @@
+media/*-original.jpg
+baseline/
+local-scenes/
+tests/
+full-suite/
+*.log
+full-results.json
+baseline.mjs
+prepare-media.mjs
