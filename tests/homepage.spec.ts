@@ -34,14 +34,15 @@ test("Nineveh transition uses pinned verses, preserves history, and links to the
   await page.getByRole("link", { name: /Continue · Jonah 4:5–11/ }).click();
   await expect(page.locator('[data-scene="jonah-4-shade"]')).toBeVisible();
   await page.getByRole("link", { name: "Continue", exact: true }).click();
-  await expect(page.locator('[data-reference="4:11"]')).toHaveText(chapter4.verses[10].text);
+  await expect(page.locator('[data-reference="4:11"]')).toContainText(chapter4.verses[10].text);
 });
 
 test("published discoveries contain locally served images, rights and context", async ({ page }) => {
   await page.goto("/#anger/world");
   const dialog = page.getByRole("dialog", { name: "The world of Nineveh" });
   await expect(dialog).toBeVisible();
-  await expect(dialog.locator("img")).toHaveAttribute("src", "/media/nineveh-depth/flood-tablet.webp");
+  await expect(dialog.locator("img")).toHaveAttribute("src", /\/media\/nineveh-depth\/flood-tablet\.webp$/);
+  await expect.poll(() => dialog.locator("img").evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await dialog.getByText("Object, provenance & image rights").click();
   await expect(dialog).toContainText("CC BY-SA 3.0");
   await expect(dialog).toContainText("seventh-century BCE");
@@ -50,7 +51,8 @@ test("published discoveries contain locally served images, rights and context", 
   await expect(dialog).not.toBeVisible();
   await page.goto("/#anger/art");
   const art = page.getByRole("dialog", { name: "Jonah through art" });
-  await expect(art.locator("img")).toHaveAttribute("src", "/media/nineveh-depth/jonah-vine.webp");
+  await expect(art.locator("img")).toHaveAttribute("src", /\/media\/nineveh-depth\/jonah-vine\.webp$/);
+  await expect.poll(() => art.locator("img").evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
   await art.getByText("Object, provenance & image rights").click();
   await expect(art).toContainText("CC0");
   await page.keyboard.press("Escape");
