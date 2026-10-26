@@ -39,7 +39,9 @@ jobs:
           # The original generated landscape remains local and excluded from GitHub.
           # Only browser interaction is tested here, not artwork accuracy or aesthetic approval.
           cp artifacts/nineveh-depth/media/flood-tablet.webp artifacts/nineveh-review/landscape.webp
-      - name: Browser tests with the local-only review asset server
+      - name: Browser tests for normal exported reader and atlas
+        run: npm run test:e2e
+      - name: Browser tests with the local-only Nineveh review server
         run: npm run test:e2e
         env:
           PLAYWRIGHT_REVIEW_SERVER: "1"
@@ -51,4 +53,6 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            playwright-report-nineveh/
+            test-results-nineveh/
           retention-days: 14
