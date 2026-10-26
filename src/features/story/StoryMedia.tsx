@@ -41,7 +41,8 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
       <figcaption>{atmosphere?.reference && <span>{atmosphere.reference} <span aria-hidden="true">·</span> </span>}Atmospheric study</figcaption>
     </figure>;
   }
-  const ready = isProductionReadyMedia(asset!);
+  // Rights-cleared visual publication is distinct from editorial endorsement.
+  const ready = asset!.reviewStatus === "approved" && isProductionReadyMedia(asset!);
   const unresolved = publicationFlags(asset!).includes("unresolved-rights");
   const kind = isInterpretiveClass(asset!.class) ? "not archaeological evidence" : "contextual image, not a depiction of Jonah";
   return <figure className={`story-artwork${ready ? "" : " story-artwork--provisional"}${sceneId === "jonah-4-question" ? " story-artwork--quiet" : ""}`}>
