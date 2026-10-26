@@ -34,7 +34,15 @@ jobs:
         env:
           BIBLEMAP_NINEVEH_REVIEW: "1"
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      - name: Prepare CI-only visual fixture for the gated Nineveh review
+        run: |
+          # The original generated landscape remains local and excluded from GitHub.
+          # Only browser interaction is tested here, not artwork accuracy or aesthetic approval.
+          cp artifacts/nineveh-depth/media/flood-tablet.webp artifacts/nineveh-review/landscape.webp
+      - name: Browser tests with the local-only review asset server
+        run: npm run test:e2e
+        env:
+          PLAYWRIGHT_REVIEW_SERVER: "1"
       - name: Preserve browser evidence
         if: always()
         uses: actions/upload-artifact@v7
