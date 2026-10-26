@@ -200,9 +200,14 @@ export function validateMediaAsset(asset: CuratedMediaAsset): MediaValidationRes
   return { ok: errors.length === 0, errors };
 }
 
-/** Production gate: editorially approved, fully attributed assets. */
+/**
+ * Rights-cleared visual media may appear without a separate creative-approval stamp.
+ * Nonvisual media (narration, soundscape, music) retain the existing editorial gate.
+ * Historical/theological claims and generated-image disclosures remain independently reviewable.
+ */
 export function isProductionReadyMedia(asset: CuratedMediaAsset): boolean {
-  if (asset.reviewStatus !== "approved") return false;
+  const visual = !["narration", "soundscape", "music"].includes(asset.class);
+  if (!visual && asset.reviewStatus !== "approved") return false;
   return validateMediaAsset(asset).ok && mayPublishMedia(asset);
 }
 
@@ -247,7 +252,7 @@ export function canRenderMedia(asset: CuratedMediaAsset): boolean {
   return true;
 }
 
-/** Rights review is required for public/; editorial approval remains a separate contract. */
+/** Reuse-rights verification is mandatory for publication; creative sign-off is not a visual-media prerequisite. */
 export function mayPublishMedia(asset: CuratedMediaAsset): boolean {
   if (!canRenderMedia(asset)) return false;
   if (publicationFlags(asset).some(flag => PUBLICATION_BLOCKERS.has(flag))) return false;

@@ -26,11 +26,20 @@ test("a license claim allows local review but cannot authorize public export", (
   const reviewed = asset({ reviewStatus: "rights-verified", reviewedBy: "fixture" });
   assert.equal(publicationFlags(reviewed).includes("license-unverified"), false);
   assert.equal(mayPublishMedia(reviewed), true);
-  assert.equal(isProductionReadyMedia(reviewed), false);
+  assert.equal(isProductionReadyMedia(reviewed), true);
   assert.equal(mayPublishMedia(asset({ reviewStatus: "rights-verified", reviewedBy: "" })), false);
   assert.equal(mayPublishMedia(asset({ reviewStatus: "approved", reviewedBy: "fixture", rightsUse: "unresolved" })), false);
   assert.equal(isProductionReadyMedia(asset({ reviewStatus: "approved", reviewedBy: "fixture", rightsUse: "unresolved" })), false);
   assert.equal(isProductionReadyMedia(asset({ reviewStatus: "approved", reviewedBy: "fixture", rightsUse: "restricted" })), false);
+});
+
+test("rights-cleared visuals need no creative approval, but audio retains its review gate", () => {
+  const visual = asset({ reviewStatus: "rights-verified", reviewedBy: "rights-reviewer" });
+  assert.equal(isProductionReadyMedia(visual), true);
+  assert.equal(isProductionReadyMedia(asset({ ...visual, class: "interpretive-reconstruction", knownInaccuracies: ["Visual conjecture"], historicalSources: ["https://example.test/source"] })), true);
+  const audio = asset({ ...visual, class: "music" });
+  assert.equal(isProductionReadyMedia(audio), false);
+  assert.equal(isProductionReadyMedia(asset({ ...audio, reviewStatus: "approved" })), true);
 });
 
 test("restricted rights do not render or publish", () => {

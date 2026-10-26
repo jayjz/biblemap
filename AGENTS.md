@@ -196,6 +196,6 @@ Creative expression is not historical evidence.
 - Original and commissioned media require provenance and applicable editorial review.
 - AI-generated material must be disclosed and reviewed according to existing project requirements.
 
-Maintain all existing source-validation, uncertainty, media-rights, accessibility, and editorial-approval requirements.
+Maintain all source-validation, uncertainty, media-rights, and accessibility requirements. Visual media may be published once lawful reuse rights and provenance are verified; a separate generic `approved` image status is not required. Scripture, theological commentary, historical claims, and audio retain their own review requirements.
 
 Do not equate historical accuracy with visual conservatism. Historical rigor and artistic originality are compatible.

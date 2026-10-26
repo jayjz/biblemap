@@ -9,8 +9,8 @@ import {
 /**
  * Editorial media catalog.
  *
- * Only assets with verified reusable rights and reviewStatus "approved"
- * may render. Creation date is always distinguished from the depicted period.
+ * Rights-cleared visual assets may render without a separate creative approval.
+ * Nonvisual assets retain their editorial gate. Creation date is distinguished from the depicted period.
  * These works illuminate reception history and material culture; they do not
  * establish the appearance of ancient events.
  */

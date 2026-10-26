@@ -91,7 +91,7 @@ theologically-reviewed
 approved
 rejected
 
-Only editorially approved assets are publication-ready. A license string is recorded metadata, not verified permission. Provisional placements may live in `public/` only after image reuse rights are verified against the exact source record, with evidence and reviewer recorded. Label their pending editorial review. Missing attribution, unverified license claims, restricted rights, and unresolved rights block public export. Restricted assets must not render even in local review; unresolved assets may render only in local review.
+Rights-verified visual assets can be publication-ready without a separate creative approval. Creative selection is not restricted to museums or institutional collections. A license string is recorded metadata, not verified permission. Provisional placements may live in `public/` only after image reuse rights are verified against the exact source record, with evidence and reviewer recorded. Label their pending editorial review. Missing attribution, unverified license claims, restricted rights, and unresolved rights block public export. Restricted assets must not render even in local review; unresolved assets may render only in local review.
 
 Artwork Rules
 
@@ -115,7 +115,7 @@ Be based on cited geographical and material-culture references
 Document deliberate artistic choices
 Record known uncertainties and inaccuracies
 Avoid claiming photographic or archaeological authenticity
-Receive human editorial approval
+Include a source-linked reconstruction record and disclosure; do not require an arbitrary `approved` status when reuse rights and provenance are verified
 
 Generated images must not be used to manufacture evidence for supernatural, historical, archaeological, or doctrinal claims.
 
@@ -145,6 +145,12 @@ Label reconstructed ancient instruments or environments appropriately.
 Avoid continuous audio fatigue. Use silence intentionally.
 
 The experience must remain complete with audio disabled.
+
+## Visual curation freedom
+
+Search widely: public-domain historical paintings, medieval/early-Christian imagery, old maps, archaeological drawings, illustrated histories, woodcuts, engravings, illuminated manuscripts, photography with reusable licenses, original commissioned art, and clearly labeled interpretive reconstructions. Museum origin is not required. Rank for relevance and visual storytelling, not institutional prestige or number of images. Search visibility alone does not convey a reuse license.
+
+Editorial notes may remain provisional. Do not block a rights-cleared visual solely because its `reviewStatus` is `rights-verified` rather than `approved`. The reviewer recorded in the manifest may be the rights verifier. Narration, audio, theological interpretation, and factual claims retain their respective evidence/review rules.
 
 Delivery
 
@@ -176,7 +182,7 @@ Never substitute an unrelated image automatically.
 
 Review Checklist
 
-Before approving an asset:
+Before publishing an asset:
 
 Rights verified
 Attribution complete
