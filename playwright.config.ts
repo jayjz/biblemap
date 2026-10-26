@@ -17,5 +17,5 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 1000 } } },
     { name: "mobile", use: { ...devices["Pixel 7"], defaultBrowserType: "chromium" } },
   ],
-  webServer: { command: `python3 -m http.server ${port} --bind 127.0.0.1 --directory out`, url: `${baseURL}/jonah/`, reuseExistingServer: !process.env.CI },
+  webServer: { command: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? `node scripts/review-irreplaceable.mjs` : `python3 -m http.server ${port} --bind 127.0.0.1 --directory out`, env: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? { EXPERIMENT_PORT: String(port) } : undefined, url: `${baseURL}/jonah/`, reuseExistingServer: !process.env.CI },
 });
