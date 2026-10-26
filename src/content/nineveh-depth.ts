@@ -1,5 +1,5 @@
-// Sourced editorial draft. Only the existing no-index, opt-in Nineveh route uses it.
-// Human historical, theological and creative approval remains required.
+// 2026-10-25: Shared source-led historical and theological material now appears on the public Nineveh homepage.
+// Interpretive claims remain attributed and provisional; neither artifact dates Jonah's visit.
 export const NINEVEH_DEPTH_REVIEW = { status: "draft", reviewedBy: null } as const;
 export const depthSources = {
   tablet: { title: "British Museum · K.3375", url: "https://www.britishmuseum.org/collection/object/W_K-3375", locator: "Description; Production date; Findspot; Curator’s comments" },
