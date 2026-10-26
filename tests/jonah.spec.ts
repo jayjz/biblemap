@@ -21,7 +21,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   });
   page.on("response", response => { if (response.status() >= 400) network.push(`${response.status()} ${response.url()}`); });
   await page.goto("/");
-  await page.getByRole("link", { name: "Enter the story" }).click();
+  await page.getByRole("link", { name: "Begin at Jonah 1:1" }).click();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("jonah-entry.png"), fullPage: true });
   const displayed: { reference: string; text: string }[] = [];
@@ -58,7 +58,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   await page.goForward(); await expect(page.locator("[data-scene=jonah-4-question]")).toBeVisible();
   await page.getByRole("link", { name: "Return to the stories" }).click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
   await page.goto("/jonah/#%E0%A4%A");
   await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
   await page.goto("/jonah/#jonah-1-escape");
