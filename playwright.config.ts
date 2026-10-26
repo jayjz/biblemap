@@ -5,9 +5,13 @@ if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error("Inv
 const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
-  testDir: "./tests", fullyParallel: false, workers: 1, timeout: 45000,
+  testDir: "./tests",
+  testMatch: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? ["**/nineveh.spec.ts", "**/nineveh-depth.spec.ts"] : undefined,
+  testIgnore: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? undefined : ["**/nineveh.spec.ts", "**/nineveh-depth.spec.ts"],
+  outputDir: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? "test-results-nineveh" : "test-results",
+  fullyParallel: false, workers: 1, timeout: 45000,
   expect: { timeout: 12000 },
-  reporter: [["list"], ["html", { open: "never" }]],
+  reporter: [["list"], ["html", { open: "never", outputFolder: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? "playwright-report-nineveh" : "playwright-report" }]],
   use: {
     baseURL, trace: "retain-on-failure",
     screenshot: "only-on-failure",
