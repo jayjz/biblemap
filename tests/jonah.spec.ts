@@ -105,7 +105,7 @@ test("reflection stays in memory and clears on reload and exit", async ({ page }
   await expect(page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true })).toHaveValue("");
   await page.getByRole("textbox", { name: "Your private notes" }).filter({ visible: true }).fill(marker);
   await page.getByRole("link", { name: "Exit to map" }).click();
-  await expect(page).toHaveURL(/\/?\?explore=1$/);
+  await expect(page).toHaveURL(/\/explore\/$/);
   await page.goBack();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await openFurther(page);

@@ -1853,13 +1853,16 @@ export default function DataLoader({ initialParams }: { initialParams?: { [key: 
       )}
 
       <button
+        aria-label={isSidebarOpen ? "Close atlas controls" : "Open atlas controls"}
+        aria-expanded={isSidebarOpen}
+        aria-controls="atlas-controls"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         className="md:hidden fixed top-4 left-4 z-[200] bg-slate-900/90 border border-slate-700 p-3 rounded-full shadow-lg text-amber-500"
       >
         {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
-      <div className={`fixed md:absolute top-4 left-4 z-50 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl flex flex-col gap-4 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-[calc(100%+2rem)] md:translate-x-0'}`}>
+      <div id="atlas-controls" className={`fixed md:absolute top-4 left-4 z-50 w-80 bg-slate-900/90 backdrop-blur-md border border-slate-700 rounded-xl p-4 shadow-2xl flex flex-col gap-4 transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-[calc(100%+2rem)] md:translate-x-0'}`}>
         <div className="flex flex-col border-b border-slate-700 pb-3">
           <div className="flex items-center gap-2">
             <MapIcon className="w-5 h-5 text-amber-500" />
