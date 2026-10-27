@@ -1,0 +1,255 @@
+{
+  "runtime": "v25.0.0",
+  "platform": "win32",
+  "defaults": {
+    "CHROME_PATH": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "PLAYWRIGHT_PORT": "4198",
+    "EXPERIMENT_PORT": "4198",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "BIBLEMAP_NINEVEH_REVIEW": "",
+    "PLAYWRIGHT_REVIEW_SERVER": ""
+  },
+  "reportArchive": "C:\\Users\\jcoul\\AppData\\Local\\Temp\\biblemap-four-beat-reports\\1793127615490",
+  "results": [
+    {
+      "id": "dependencies",
+      "command": "npm.cmd ci",
+      "env": {},
+      "startedAt": "2026-10-27T19:00:15.495Z",
+      "completedAt": "2026-10-27T19:00:54.321Z",
+      "exitCode": 0,
+      "summary": [
+        "30 vulnerabilities (1 low, 8 moderate, 19 high, 2 critical)"
+      ]
+    },
+    {
+      "id": "story",
+      "command": "npm.cmd run validate:story",
+      "env": {},
+      "startedAt": "2026-10-27T19:00:54.322Z",
+      "completedAt": "2026-10-27T19:00:55.325Z",
+      "exitCode": 0,
+      "summary": [
+        "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah content validates in author-review mode; release requires human authorship and approval",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "Four-beat panorama: provenance/checksum retained; candidate unapproved; no public asset"
+      ]
+    },
+    {
+      "id": "media",
+      "command": "npm.cmd run validate:media",
+      "env": {},
+      "startedAt": "2026-10-27T19:00:55.326Z",
+      "completedAt": "2026-10-27T19:00:55.855Z",
+      "exitCode": 0,
+      "summary": [
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "Four-beat panorama: provenance/checksum retained; candidate unapproved; no public asset"
+      ]
+    },
+    {
+      "id": "unit",
+      "command": "npm.cmd test",
+      "env": {},
+      "startedAt": "2026-10-27T19:00:55.855Z",
+      "completedAt": "2026-10-27T19:00:56.385Z",
+      "exitCode": 0,
+      "summary": [
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "ℹ tests 25",
+        "ℹ suites 1",
+        "ℹ pass 25",
+        "ℹ fail 0",
+        "ℹ cancelled 0",
+        "ℹ skipped 0",
+        "ℹ todo 0",
+        "ℹ duration_ms 169.5465"
+      ]
+    },
+    {
+      "id": "lint",
+      "command": "npm.cmd run lint",
+      "env": {},
+      "startedAt": "2026-10-27T19:00:56.385Z",
+      "completedAt": "2026-10-27T19:01:02.319Z",
+      "exitCode": 0,
+      "summary": [
+        "  4:10  warning  'basename' is defined but never used  @typescript-eslint/no-unused-vars",
+        "   35:7   warning  'POINTS_URL' is assigned a value but never used   @typescript-eslint/no-unused-vars",
+        "  659:10  warning  'haversineDistance' is defined but never used     @typescript-eslint/no-unused-vars",
+        "  669:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars",
+        "✖ 4 problems (0 errors, 4 warnings)"
+      ]
+    },
+    {
+      "id": "types",
+      "command": "npm.cmd run typecheck",
+      "env": {},
+      "startedAt": "2026-10-27T19:01:02.319Z",
+      "completedAt": "2026-10-27T19:01:05.208Z",
+      "exitCode": 0,
+      "summary": []
+    },
+    {
+      "id": "ordinary-build",
+      "command": "npm.cmd run build",
+      "env": {},
+      "startedAt": "2026-10-27T19:01:05.209Z",
+      "completedAt": "2026-10-27T19:01:19.832Z",
+      "exitCode": 0,
+      "summary": [
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)",
+        "✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)",
+        "✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)",
+        "✓ epoch-3-kings.parquet: 188 rows (Exile & Return)",
+        "✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)",
+        "✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)",
+        "✓ Validated 6 chunks, 2917 rows",
+        "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah content validates in author-review mode; release requires human authorship and approval",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "Four-beat panorama: provenance/checksum retained; candidate unapproved; no public asset",
+        "✓ Compiled successfully in 2.3s",
+        "✓ Generating static pages using 15 workers (9/9) in 594.8ms"
+      ]
+    },
+    {
+      "id": "ordinary-export",
+      "command": "node scripts/validate-nineveh-depth.mjs --production-export",
+      "env": {},
+      "startedAt": "2026-10-27T19:01:19.833Z",
+      "completedAt": "2026-10-27T19:01:19.931Z",
+      "exitCode": 0,
+      "summary": [
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced; homepage active; experimental image excluded",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)"
+      ]
+    },
+    {
+      "id": "prototype-export-gate",
+      "command": "node scripts/validate-four-beat.mjs --production-export",
+      "env": {},
+      "startedAt": "2026-10-27T19:01:19.932Z",
+      "completedAt": "2026-10-27T19:01:19.993Z",
+      "exitCode": 0,
+      "summary": [
+        "Four-beat panorama: provenance/checksum retained; candidate unapproved; no public asset; ordinary route gated"
+      ]
+    },
+    {
+      "id": "normal-browsers",
+      "command": "npm.cmd run test:e2e",
+      "env": {},
+      "startedAt": "2026-10-27T19:01:20.287Z",
+      "completedAt": "2026-10-27T19:03:15.097Z",
+      "exitCode": 0,
+      "summary": [
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "  1 skipped",
+        "  69 passed (1.9m)"
+      ]
+    },
+    {
+      "id": "review-build",
+      "command": "npm.cmd run build",
+      "env": {
+        "BIBLEMAP_NINEVEH_REVIEW": "1"
+      },
+      "startedAt": "2026-10-27T19:03:15.105Z",
+      "completedAt": "2026-10-27T19:03:29.913Z",
+      "exitCode": 0,
+      "summary": [
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)",
+        "✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)",
+        "✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)",
+        "✓ epoch-3-kings.parquet: 188 rows (Exile & Return)",
+        "✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)",
+        "✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)",
+        "✓ Validated 6 chunks, 2917 rows",
+        "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah content validates in author-review mode; release requires human authorship and approval",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "Four-beat panorama: provenance/checksum retained; candidate unapproved; no public asset",
+        "✓ Compiled successfully in 2.5s",
+        "✓ Generating static pages using 15 workers (9/9) in 603.3ms"
+      ]
+    },
+    {
+      "id": "review-browsers",
+      "command": "npm.cmd run test:e2e",
+      "env": {
+        "PLAYWRIGHT_REVIEW_SERVER": "1"
+      },
+      "startedAt": "2026-10-27T19:03:30.189Z",
+      "completedAt": "2026-10-27T19:05:06.279Z",
+      "exitCode": 1,
+      "summary": [
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "  x  10 [desktop] › tests\\nineveh-four-beat.spec.ts:90:5 › loading, failed imagery, still view and text view retain working Scripture (12.9s)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "  x  26 [mobile] › tests\\nineveh-four-beat.spec.ts:90:5 › loading, failed imagery, still view and text view retain working Scripture (12.7s)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "    Error: expect(locator).toBeInViewport() failed",
+        "    test-results-nineveh\\nineveh-four-beat-contextu-a19c6-e-and-a-return-to-Scripture-desktop\\test-failed-1.png",
+        "  2) [desktop] › tests\\nineveh-four-beat.spec.ts:90:5 › loading, failed imagery, still view and text view retain working Scripture ",
+        "    Error: expect(locator).toContainText(expected) failed",
+        "    test-results-nineveh\\nineveh-four-beat-loading--07d84-ew-retain-working-Scripture-desktop\\test-failed-1.png",
+        "    Error: expect(locator).toBeInViewport() failed",
+        "    test-results-nineveh\\nineveh-four-beat-contextu-a19c6-e-and-a-return-to-Scripture-mobile\\test-failed-1.png",
+        "  4) [mobile] › tests\\nineveh-four-beat.spec.ts:90:5 › loading, failed imagery, still view and text view retain working Scripture ",
+        "    Error: expect(locator).toContainText(expected) failed",
+        "    test-results-nineveh\\nineveh-four-beat-loading--07d84-ew-retain-working-Scripture-mobile\\test-failed-1.png",
+        "  4 failed",
+        "    [desktop] › tests\\nineveh-four-beat.spec.ts:90:5 › loading, failed imagery, still view and text view retain working Scripture ",
+        "    [mobile] › tests\\nineveh-four-beat.spec.ts:90:5 › loading, failed imagery, still view and text view retain working Scripture ",
+        "  28 passed (1.6m)"
+      ]
+    }
+  ]
+}
