@@ -2,47 +2,41 @@
 
 **Ancient stories. The human condition. Questions that stay with us.**
 
-BibleMap is a human-authored exploration of biblical stories through Scripture, geography, historical art, theology, and reflection. The goal is to invite curiosity and personal recognition—not prescribe what to believe.
+BibleMap is a human-authored exploration of Scripture, ancient geography, visual culture, theology and reflection. The aim is discovery rather than telling visitors what to believe.
 
-The first complete reading experience is **[Jonah: The Man Who Ran](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/jonah/)**. It is currently a **public preview on a feature branch**, not an approved editorial release or a deployment from `main`.
+## Experience
 
-## What works today
+- **Nineveh homepage (`/`)** — on [PR #30](https://github.com/jayjz/biblemap/pull/30) pending review: an optional four-beat encounter with Jonah 3:10–4:4, a source-disclosed illustrative city, seventh-century BCE archaeological context, early Christian artwork, and attributed theological voices. It explicitly offers the first chapter before the visitor proceeds. The city image is **interpretive**, not a documented historic view.
+- **[Jonah: The Man Who Ran](/jonah/)** — the complete 48-verse World English Bible book in 13 scenes, with contextual resources, art, accessibility and the unanswered conclusion of Jonah 4:11.
+- **[Atlas](/explore/)** — existing WebGL geographic and chronological exploration; legacy root deep links are preserved.
+- **Exodus** — unfinished development remains separate and must not be deleted.
 
-- **Jonah reader** (`/jonah/`): all four chapters of the World English Bible (48 verses), organized as 13 scenes across six movements. The opening invites recognition without assigning Jonah a motive before the text reveals it (Jonah 4:2).
-- **Artwork:** three approved public-domain museum-image placements, with provenance and rights information. Other acquired reproductions remain excluded pending review.
-- **Reading tools:** optional context, linked sources, private in-memory reflection, keyboard navigation, reduced-motion support, and a no-JavaScript reading fallback.
-- **Homepage** (`/`): three optional human questions change a short invitation into Jonah; every entry begins at Jonah 1:1. Copy is provisional for creator review. Job, Jacob, Exodus, and Joseph are marked as future experiences.
-- **Biblical atlas** (`/explore/`): the existing WebGL geography/chronology explorer remains available. It is not yet fully integrated into Jonah's narrative flow.
+The proposed Nineveh homepage is available to review at [the PR #30 Vercel preview](https://biblemap-git-feat-nineveh-defin-1a3705-elliotandersons-projects.vercel.app/). The production site remains [biblemap-pink.vercel.app](https://biblemap-pink.vercel.app/) until the new PR is approved and merged. Passing CI does not imply historical/editorial publication approval.
 
-**Still unfinished:** original authorial narration and several editorial reviews; richer place-based experiences; creator review of the interactive Jonah homepage copy. These items still need development or review. Unfinished Exodus work exists separately and must be preserved.
+## Evidence and media boundaries
 
-## Explore the preview
+The Nineveh opening distinguishes the biblical account, archaeological context, artistic reception, theological interpretation and an original stylized SVG city. Two historical/reception images are bundled for static delivery:
 
-- [BibleMap homepage](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/)
-- [Jonah reading experience](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/jonah/)
-- [Atlas](https://biblemap-git-feat-jonah-visual-assets-elliotandersons-projects.vercel.app/explore/)
+- Flood Tablet photograph by Fæ, [CC BY-SA 3.0](public/media/nineveh-depth/README.md), from Nineveh's seventh-century BCE literary culture—not evidence of Jonah's visit or a dating of the book.
+- *Jonah Under the Gourd Vine*, 280–290 CE, [Cleveland Museum of Art, CC0](https://www.clevelandart.org/art/1965.239)—later Christian reception, not Jonah's portrait.
 
-These are Vercel **Preview** URLs associated with `feat/jonah-visual-assets`; availability may change when branches or deployment protection settings change. Do not treat them as the `main` release.
+Source and reuse records: [Nineveh source ledger](docs/research/nineveh-depth-sources.md), [media manifest](src/features/nineveh/depth-media.json), [homepage code audit](docs/nineveh-homepage-audit-2026-10-25.md). Additional public-domain paintings, maps, original illustration and interpretive reconstructions are welcome when they serve the passage and have verifiable rights. Rights clearance remains a distinct requirement from creative selection.
 
 ## Development
 
-The current app uses Next.js 16 App Router, React 19, TypeScript, Deck.gl/MapLibre, and a static export. Node.js and npm are required; use the Node version compatible with the repository's locked dependencies (the verified Codex run used Node 22).
+Next.js App Router, React/TypeScript and static export, with Deck.gl/MapLibre for the existing atlas. Use Node 22 compatible with the lockfile.
 
 ```bash
 npm ci
 npm run dev
-```
-
-Open `http://localhost:3000`. To build and inspect the static export:
-
-```bash
+# To test the deployable static output:
 npm run build
 npm run preview
 ```
 
-`npm run preview` serves `out/` locally on port 4189. The separate `npm run review:jonah` workflow is for local artwork and editorial inspection, **not a public route**.
+The old `/experiments/nineveh/` route remains opt-in for archival local review; its AI-generated matte painting is intentionally not part of the public static export. Do **not** enable `BIBLEMAP_NINEVEH_REVIEW=1` in production.
 
-### Verification
+## Verification
 
 ```bash
 npm run validate:story
@@ -54,26 +48,12 @@ npm run build
 npm run test:e2e
 ```
 
-`npm run validate:release` intentionally remains stricter: it rejects unfinished editorial approvals. A passing build or Vercel deployment does not confer creator approval.
+CI also runs a separate gated Nineveh review-mode build and browser suite. The normal build validates that the homepage, rights-cleared images, and exported file checksums exist without publishing the old generated artwork. `npm run validate:release` intentionally remains stricter about unfinished human-authored copy and editorial claims.
 
-## Source and editorial boundaries
+## Contributing and editorial control
 
-Scripture is presented with translation attribution and source information. Later artworks are **artistic reception**, not visual evidence of ancient events. Historical identifications and theological interpretations must distinguish evidence, tradition, uncertainty, and personal reflection. Publication rights and scene placements are explicitly reviewed.
-
-The human creator retains final authority over storytelling, selection, interpretation, and artistic direction.
-
-## Documentation and GitHub workflow
-
-- [Jonah V1 status and approvals](docs/jonah-v1.md)
-- [Recognition-first opening: implementation record](docs/jonah-recognition-opening.md)
-- [Jonah preview verification](docs/jonah-preview-verification.md)
-- [Question-led homepage prototype and review decisions](docs/jonah-question-entry-implementation.md)
-- [Original question-entry proposal](docs/jonah-question-entry-proposal.md)
-- [Research and artwork records](docs/research/)
-- [Agent and contribution rules](AGENTS.md)
-
-The `docs/question-led-homepage.md` task note describes an **earlier chapter-one checkpoint** and is preserved as historical context, not a current feature inventory. PRs [#3](https://github.com/jayjz/biblemap/pull/3) and [#4](https://github.com/jayjz/biblemap/pull/4) are stacked; review ancestry before merging or closing either. Do not merge or delete unfinished Exodus branches as part of Jonah integration.
+Start with [AGENTS.md](AGENTS.md), [experience principles](docs/experience-principles.md), and the [research](docs/research/) catalog. Preserve Exodus, the complete Jonah reader, accessibility, content provenance, and honest uncertainty. Creator authority over storytelling, theology and visual direction is final. New features should be reviewable in isolated PRs.
 
 ## License
 
-See [LICENSE](LICENSE). Third-party Scripture, artwork, and research sources retain their separately documented rights and attribution requirements.
+See [LICENSE](LICENSE). The repository's software license does not override Scripture, artwork, historical-source or third-party data rights.

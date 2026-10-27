@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("recognition leads to Scripture and curiosity before optional research", async ({ page }, testInfo) => {
+test("Nineveh gateway leads to the first calling and curiosity before optional research", async ({ page }, testInfo) => {
   const failures: string[] = [];
   page.on("pageerror", error => failures.push(error.message));
   const cancelledProbes: string[] = [];
@@ -14,11 +14,11 @@ test("recognition leads to Scripture and curiosity before optional research", as
   page.on("response", response => { if (response.status() >= 400) failures.push(`${response.status()} ${response.url()}`); });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "Jonah: The Man Who Ran" })).toBeVisible();
-  await expect(page.getByRole("group", { name: "Which question stays with you?" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Nineveh");
+  await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("home-recognition.png"), fullPage: true });
-  expect((await new AxeBuilder({ page }).include(".bm-home").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
-  await page.getByRole("link", { name: "Enter the story" }).click();
+  expect((await new AxeBuilder({ page }).include(".nineveh").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
+  await page.getByRole("link", { name: "Begin at Jonah 1:1" }).click();
   await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
   await expect(page.locator("[data-scene='jonah-1-calling']")).toBeVisible();
   await expect(page.locator(".story-first-orientation")).toHaveCount(0);

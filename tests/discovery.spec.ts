@@ -59,7 +59,7 @@ test('three discoveries preserve Scripture, disclose sources, and remain readabl
 
 test('passage opens Nineveh in the existing atlas and returns to the same passage', async ({ page }, testInfo) => {
   await page.goto('/jonah/#jonah-4-anger');
-  await page.getByRole('link', { name: 'Explore Nineveh', exact: false }).click();
+  await page.locator('[data-scene="jonah-4-anger"]').getByRole('link', { name: 'Explore Nineveh' }).click();
   await expect(page).toHaveURL(/place=nineveh&from=jonah-4-anger/);
   const panel = page.locator('[data-story-place=nineveh]');
   await expect(panel.getByRole('heading', { name: 'Nineveh', exact: true })).toBeVisible();

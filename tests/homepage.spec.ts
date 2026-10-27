@@ -1,163 +1,112 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import chapter3 from "../src/content/scripture/web-jonah-3.json";
+import chapter4 from "../src/content/scripture/web-jonah-4.json";
 
-test("homepage introduces Jonah and clearly distinguishes future journeys", async ({ page }, testInfo) => {
+// 2026-10-25: "/" now opens the contextual Nineveh encounter, not the retired question-selector UI.
+// Tests prove that visitors can still begin at Jonah 1:1 and finish at 4:11.
+test("public homepage begins in Nineveh with real Scripture and a full-book entry", async ({ page }, testInfo) => {
   const errors: string[] = [];
-  const external: string[] = [];
-  page.on("pageerror", e => errors.push(e.message));
-  page.on("request", request => { if (new URL(request.url()).hostname !== "127.0.0.1") external.push(request.url()); });
+  page.on("pageerror", error => errors.push(error.message));
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Questions that stay with us.");
-  await expect(page.getByRole("link", { name: "Enter the story" })).toHaveAttribute("href", "/jonah/#jonah-1-calling");
-  await expect(page.getByRole("link", { name: /Explore the biblical world/ }).first()).toHaveAttribute("href", "/explore/");
-  await expect(page.getByText("Future journey · Not yet available")).toHaveCount(4);
-  await expect(page.locator("canvas")).toHaveCount(0);
-  await page.screenshot({ path: testInfo.outputPath("homepage.png"), fullPage: true });
-  await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
-  await page.getByRole("link", { name: "Enter the story" }).click();
-  await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
-  await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
-  await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
-  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
+  const landing = page.locator(".nineveh");
+  await expect(landing).toHaveAttribute("data-published", "true");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Nineveh");
+  await expect(page.locator(".nineveh-world")).toHaveAttribute("data-environment", "ready");
+  await expect(page.locator(".nineveh-illustration")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toHaveAttribute("href", "/jonah/#jonah-1-calling");
+  await expect(page.getByRole("link", { name: "Read Jonah" })).toHaveAttribute("href", "/jonah/#jonah-1-calling");
+  await expect(page.locator(".nineveh-discoveries > a")).toHaveCount(3);
+  await page.screenshot({ path: testInfo.outputPath("nineveh-home-desktop.png"), fullPage: true });
   expect(errors).toEqual([]);
-  expect(external).toEqual([]);
 });
 
-test("homepage reflows and respects reduced motion", async ({ page }, testInfo) => {
+test("Nineveh transition uses pinned verses, preserves history, and links to the ending", async ({ page }) => {
+  await page.goto("/");
+  await page.locator('.nineveh-beats a[href="#mercy"]').click();
+  await expect(page.locator('.nineveh-reading [data-reference="3:10"]')).toHaveText(chapter3.verses[9].text);
+  await page.locator('.nineveh-beats a[href="#anger"]').click();
+  await expect(page.locator('.nineveh-reading [data-reference="4:2"]')).toHaveText(chapter4.verses[1].text);
+  await page.goBack();
+  await expect(page.locator(".nineveh")).toHaveAttribute("data-beat", "mercy");
+  await page.goto("/#question");
+  await expect(page.locator('.nineveh-reading [data-reference="4:4"]')).toHaveText(chapter4.verses[3].text);
+  await page.getByRole("link", { name: /Continue · Jonah 4:5–11/ }).click();
+  await expect(page.locator('[data-scene="jonah-4-shade"]')).toBeVisible();
+  await page.getByRole("link", { name: "Continue", exact: true }).click();
+  await expect(page.locator('[data-reference="4:11"]')).toContainText(chapter4.verses[10].text);
+});
+
+test("published discoveries contain locally served images, rights and context", async ({ page }) => {
+  await page.goto("/#anger/world");
+  const dialog = page.getByRole("dialog", { name: "The world of Nineveh" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("img")).toHaveAttribute("src", /\/media\/nineveh-depth\/flood-tablet\.webp$/);
+  await expect.poll(() => dialog.locator("img").evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await dialog.getByText("Object, provenance & image rights").click();
+  await expect(dialog).toContainText("CC BY-SA 3.0");
+  await expect(dialog).toContainText("seventh-century BCE");
+  await expect(dialog).toContainText("does not date or verify Jonah");
+  await page.keyboard.press("Escape");
+  await expect(dialog).not.toBeVisible();
+  await page.goto("/#anger/art");
+  const art = page.getByRole("dialog", { name: "Jonah through art" });
+  await expect(art.locator("img")).toHaveAttribute("src", /\/media\/nineveh-depth\/jonah-vine\.webp$/);
+  await expect.poll(() => art.locator("img").evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await art.getByText("Object, provenance & image rights").click();
+  await expect(art).toContainText("CC0");
+  await page.keyboard.press("Escape");
+  await page.goto("/#question/voices");
+  const voices = page.getByRole("dialog", { name: "The question across centuries" });
+  await expect(voices).toContainText("Augustine");
+  await voices.getByRole("button", { name: "Pope Francis" }).click();
+  await expect(voices).toContainText("pastoral interpretation");
+});
+
+test("homepage remains readable at 320px and with reduced motion", async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 840 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.screenshot({ path: testInfo.outputPath(`homepage-${width}.png`), fullPage: true });
+    await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
+    await page.screenshot({ path: testInfo.outputPath(`nineveh-home-${width}.png`), fullPage: true });
   }
-  await page.keyboard.press("Tab");
-  await expect(page.locator(".bm-skip")).toBeFocused();
+  await expect.poll(() => page.locator(".nineveh-world").evaluate(el => el.getAnimations().length)).toBe(0);
+  expect((await new AxeBuilder({ page }).include(".nineveh").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
 });
 
-const doors = [
-  { question: "What do we do when we’d rather turn away?", invitation: "Jonah’s story begins with a call" },
-  { question: "What happens when our choices reach beyond us?", invitation: "A journey across the sea" },
-  { question: "Why can mercy be hard to offer?", invitation: "Carry that question with you" },
-];
-
-for (const door of doors) {
-  test(`optional question: ${door.question}`, async ({ page }, testInfo) => {
-    const errors: string[] = [];
-    page.on("pageerror", error => errors.push(error.message));
-    page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
-    page.on("requestfailed", request => {
-      if (request.failure()?.errorText !== "net::ERR_ABORTED") errors.push(request.url());
-    });
-    page.on("response", response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
-    await page.goto("/");
-    const radios = page.getByRole("radio");
-    await expect(radios).toHaveCount(3);
-    for (const radio of await radios.all()) await expect(radio).not.toBeChecked();
-    // Wait for hydration by exercising two choices, ending on the requested one.
-    await radios.last().check();
-    await expect(radios.last()).toBeChecked();
-    const requests: string[] = [];
-    page.on("request", request => requests.push(request.url()));
-    const initialState = await page.evaluate(() => JSON.stringify({ local: { ...localStorage }, session: { ...sessionStorage }, url: location.href }));
-    const radio = page.getByRole("radio", { name: door.question, exact: true });
-    await radio.check();
-    await expect(radio).toBeChecked();
-    await expect(page.locator(".bm-invitation")).toContainText(door.invitation);
-    expect(await page.evaluate(() => JSON.stringify({ local: { ...localStorage }, session: { ...sessionStorage }, url: location.href }))).toBe(initialState);
-    expect(requests).toEqual([]);
-    await page.screenshot({ path: testInfo.outputPath("selected.png"), fullPage: true });
-    await page.getByRole("link", { name: "Enter the story" }).click();
-    await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
-    await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
-    await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
-    await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
-    expect(errors).toEqual([]);
-  });
-}
-
-test("question keyboard navigation, reset, and narrow mobile", async ({ page }, testInfo) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
+test("homepage keyboard skip-link and reader entry remain accessible", async ({ page }) => {
   await page.goto("/");
   await page.keyboard.press("Tab");
-  await expect(page.locator(".bm-skip")).toBeFocused();
-  await page.keyboard.press("Tab");
-  await page.keyboard.press("Tab");
-  await page.keyboard.press("Tab");
-  const first = page.getByRole("radio").first();
-  await expect(first).toBeFocused();
-  await page.screenshot({ path: testInfo.outputPath("keyboard-focus.png"), fullPage: true });
-  await page.keyboard.press("Space");
-  await expect(first).toBeChecked();
-  await page.keyboard.press("ArrowDown");
-  await expect(page.getByRole("radio").nth(1)).toBeChecked();
-  await expect(page.getByRole("radio").nth(1)).toBeFocused();
-  await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "Enter the story" })).toBeFocused();
-  await page.reload();
-  for (const radio of await page.getByRole("radio").all()) await expect(radio).not.toBeChecked();
-  await page.setViewportSize({ width: 320, height: 700 });
-  await page.screenshot({ path: testInfo.outputPath("narrow-default.png"), fullPage: true });
-  for (const door of doors) {
-    await page.getByRole("radio", { name: door.question, exact: true }).check();
-    await expect(page.locator(".bm-invitation")).toContainText(door.invitation);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
-  }
-  await page.screenshot({ path: testInfo.outputPath("narrow-selected.png"), fullPage: true });
-  expect((await new AxeBuilder({ page }).include(".bm-home").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
+  await expect(page.locator(".nineveh-skip")).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#nineveh-heading")).toBeFocused();
+  await page.getByRole("link", { name: "Begin at Jonah 1:1" }).click();
+  await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
+  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
+  await expect(page.locator('[data-scene="jonah-1-calling"]')).toBeVisible();
 });
 
-test("story entry remains available without JavaScript", async ({ browser, baseURL }) => {
+test("no JavaScript still shows Nineveh Scripture and the whole-book exit", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto(`${baseURL}/`);
-  await expect(page.locator(".bm-invitation")).toContainText("Begin with Jonah");
-  await page.getByRole("link", { name: "Enter the story" }).click();
-  await expect(page).toHaveURL(/\/jonah\/#jonah-1-calling$/);
-  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
+  await expect(page.locator(".nineveh-noscript [data-reference]")).toHaveCount(5);
+  await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
+  await page.getByRole("link", { name: "Begin at Jonah 1:1" }).click();
+  await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
   await context.close();
 });
 
-test("homepage entry, reload, history, and direct reader visits keep their destinations", async ({ page }, testInfo) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
-  await page.getByRole("link", { name: "Enter the story" }).focus();
-  await page.keyboard.press("Enter");
-  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
-  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
-  await expect(page.locator(".story-intro")).not.toBeInViewport();
-  await page.screenshot({ path: testInfo.outputPath("homepage-scripture-entry.png") });
-  await page.getByRole("link", { name: "Continue" }).click();
-  await expect(page).toHaveURL(/#jonah-1-escape$/);
-  await page.goBack();
-  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
-  await page.goBack();
-  await expect(page).toHaveURL(/\/$/);
-  await page.goForward();
-  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
-  await page.reload();
-  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
-  await expect(page.locator('[data-reference="1:1"]')).toBeInViewport();
-  await page.goto("/jonah/");
-  await expect(page.locator(".story-intro")).toBeInViewport();
-  await page.getByRole("link", { name: "Begin reading" }).focus();
-  await page.keyboard.press("Enter");
-  await expect(page.locator("#jonah-1-calling-heading")).toBeFocused();
-  await page.goto("/jonah/#jonah-3-return");
-  await expect(page.locator(".story-root")).toHaveAttribute("data-active-scene", "jonah-3-return");
+test("legacy root map links still load the atlas rather than hijacking the Nineveh hash", async ({ page }) => {
+  await page.goto("/?place=nineveh&from=jonah-3-mercy");
+  await expect(page.locator(".nineveh")).toHaveCount(0);
+  await expect(page.locator("canvas").first()).toBeVisible({ timeout: 20000 });
 });
 
-test("homepage skip link remains on stories instead of opening legacy atlas", async ({ page }) => {
-  await page.goto("/");
-  await expect(page.locator(".bm-home")).toBeVisible();
-  await page.locator(".bm-skip").focus();
-  await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/\/#main-content$/);
-  await expect(page.locator("#main-content")).toBeVisible();
-  await expect(page.getByRole("link", { name: "Enter the story" })).toBeVisible();
-  await expect(page.locator(".bm-home")).toBeVisible();
-  await expect(page.locator("canvas")).toHaveCount(0);
-  await page.reload();
-  await expect(page.locator(".bm-home")).toBeVisible();
+test("legacy skip fragment is treated as a homepage anchor", async ({ page }) => {
+  await page.goto("/#main-content");
+  await expect(page.locator(".nineveh")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Nineveh");
 });

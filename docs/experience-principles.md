@@ -4,7 +4,7 @@ BibleMap explores biblical stories through Scripture, geography, historical art,
 
 ## Visitor progression
 
-The intended emotional movement is not a mandatory interface sequence. It is the progression we want to support:
+The intended emotional movement is not a mandatory interface sequence. As of 2026-10-25, the public homepage is the Nineveh encounter; entering at Jonah 3 is a thematic threshold, not a claim that the book starts there. It is the progression we want to support:
 
 1. **Recognition** — Something in the visitor’s life feels familiar enough to notice.
 2. **Curiosity** — Why does this ancient story matter? What happens next?
@@ -24,8 +24,8 @@ Scripture is permitted to complicate, contradict, or surprise the recognition th
 ## Constraints for the opening
 
 - The first viewport must not predetermine Jonah’s psychology or moral situation.
-- Questions and invitations remain optional. All paths enter the same story at Jonah 1:1.
-- Do not explain the project’s purpose before offering a concrete human situation that might be recognized.
+- The public entrance opens with a deliberate pause at Nineveh (Jonah 3:10–4:4). A clearly labeled link leads to Jonah 1:1; reading the complete narrative must never depend on completing the encounter.
+- Let Nineveh, the words of Scripture, and the contrast between the city and the prophet invite curiosity before explanatory interpretation.
 - Preserve room for the sailors, Nineveh, divine mercy, Jonah’s anger, and the open ending.
 
 ## Evidence, not intention

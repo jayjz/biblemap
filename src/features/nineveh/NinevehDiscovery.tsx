@@ -29,18 +29,19 @@ function Source({ id }: { id: keyof typeof depthSources }) {
   return <a href={source.url} target="_blank" rel="noreferrer">{source.title} <span className="nineveh-new-tab">(new tab)</span></a>;
 }
 
-function EvidenceImage({ id, plain }: { id: string; plain: boolean }) {
+function EvidenceImage({ id, plain, published }: { id: string; plain: boolean; published: boolean }) {
   const asset = media.assets.find(item => item.id === id);
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [enlarged, setEnlarged] = useState(false);
   if (!asset) return <p role="status">No object image is available.</p>;
+  // 2026-10-25: Reuse the same rights-verified bytes, served by static export in public and a loopback allowlist in review.
   const available = !plain && !failed && mayReviewDepthImage(asset);
   return <figure className="nineveh-object">
     {available ? <>
       {!loaded && <p role="status">Loading the object image…</p>}
       <div className="nineveh-object-window" data-enlarged={enlarged} tabIndex={enlarged ? 0 : undefined} role={enlarged ? "region" : undefined} aria-label={enlarged ? "Enlarged object; scroll to examine" : undefined}>
-        <Image src={asset.reviewUrl} width={asset.width} height={asset.height} alt={asset.altText} unoptimized onLoad={() => setLoaded(true)} onError={() => setFailed(true)} />
+        <Image src={published ? asset.publicUrl : asset.reviewUrl} width={asset.width} height={asset.height} alt={asset.altText} unoptimized onLoad={() => setLoaded(true)} onError={() => setFailed(true)} />
       </div>
       {loaded && <button type="button" aria-pressed={enlarged} onClick={() => setEnlarged(!enlarged)}>{enlarged ? "Show whole object" : "Examine larger"}</button>}
     </> : <div className="nineveh-image-fallback"><p>{plain ? "Text view" : "Object image unavailable"}</p><p>{asset.altText}</p></div>}
@@ -48,16 +49,16 @@ function EvidenceImage({ id, plain }: { id: string; plain: boolean }) {
   </figure>;
 }
 
-function Provenance({ id }: { id: string }) {
+function Provenance({ id, published }: { id: string; published: boolean }) {
   const asset = media.assets.find(item => item.id === id);
   if (!asset) return null;
   return <details className="nineveh-depth-details"><summary>Object, provenance & image rights</summary>
-    <dl><dt>Maker / culture</dt><dd>{asset.creator}</dd><dt>Object date</dt><dd>{asset.creationDate}</dd><dt>Collection</dt><dd>{asset.sourceInstitution} · {asset.identifier}</dd><dt>Provenance</dt><dd>{asset.provenance}</dd><dt>Limits</dt><dd>{asset.historicalFit}</dd><dt>Image rights</dt><dd>{asset.rightsStatement}</dd><dt>Editorial status</dt><dd>Sourced draft for human review; not approved for publication.</dd></dl>
+    <dl><dt>Maker / culture</dt><dd>{asset.creator}</dd><dt>Object date</dt><dd>{asset.creationDate}</dd><dt>Collection</dt><dd>{asset.sourceInstitution} · {asset.identifier}</dd><dt>Provenance</dt><dd>{asset.provenance}</dd><dt>Limits</dt><dd>{asset.historicalFit}</dd><dt>Image rights</dt><dd>{asset.rightsStatement}</dd><dt>Editorial status</dt><dd>{published ? "Image reuse rights verified; interpretations and historical limitations remain explicitly documented." : "Sourced draft for human review; not approved for publication."}</dd></dl>
     <a href={asset.imageRecordUrl} target="_blank" rel="noreferrer">Image source record (new tab)</a>
   </details>;
 }
 
-function World({ plain }: { plain: boolean }) {
+function World({ plain, published }: { plain: boolean; published: boolean }) {
   return <div className="nineveh-world-discovery">
     <div><p className="nineveh-eyebrow">Historical / archaeological evidence · Seventh century BCE</p><h3>A city that kept stories</h3>
       <p>This clay fragment was excavated at Kouyunjik, Nineveh. Its cuneiform preserves part of the flood story in the <cite>Epic of Gilgamesh</cite>. It belongs to the collection known as Ashurbanipal’s library.</p>
@@ -65,21 +66,21 @@ function World({ plain }: { plain: boolean }) {
       <Source id="tablet"/>
       <details className="nineveh-depth-details"><summary>What kind of library?</summary><p>The surviving collection includes literary, medical, divinatory and administrative texts. Knowledge served royal power as well as preserving stories. The name “library” covers tablets found across Kuyunjik; their original arrangement and membership remain uncertain.</p><Source id="library"/></details>
       <p className="nineveh-limitation">The tablet’s seventh-century BCE date does not date or verify Jonah’s visit. No connection between its flood narrative and the composition of Jonah is asserted.</p>
-      <Provenance id="flood-tablet"/>
+      <Provenance id="flood-tablet" published={published}/>
     </div>
-    <EvidenceImage id="flood-tablet" plain={plain}/>
+    <EvidenceImage id="flood-tablet" plain={plain} published={published}/>
   </div>;
 }
 
-function Art({ plain }: { plain: boolean }) {
+function Art({ plain, published }: { plain: boolean; published: boolean }) {
   return <div className="nineveh-art-discovery">
     <p className="nineveh-eyebrow">Artistic reception · Anatolia · 280–290 CE</p>
     <h3>Under the leaves</h3>
-    <EvidenceImage id="jonah-vine" plain={plain}/>
+    <EvidenceImage id="jonah-vine" plain={plain} published={published}/>
     <div className="nineveh-art-caption"><p><cite>Jonah Under the Gourd Vine</cite>. An unknown sculptor gives Jonah a reclining body, a raised arm and sheltering leaves. The city is absent from this small marble.</p><p>This late Roman–early Christian image turns toward the plant in Jonah 4:6. It is a later artistic reading, not a reconstruction of Jonah’s appearance or the plant’s species.</p></div>
     <Source id="art"/>
     <details className="nineveh-depth-details"><summary>Read the moment ahead · Jonah 4:6</summary><p className="nineveh-eyebrow">Biblical text · World English Bible · Public domain</p><blockquote data-reference="4:6">{chapter4.verses.find(verse => verse.number === 6)?.text}</blockquote><p>The plant’s shade is one moment in the continuing story. The reader continues through 4:11 without supplying an answer.</p><a href="/jonah/#jonah-4-shade">Continue in the reader · Jonah 4:5–11 →</a></details>
-    <Provenance id="jonah-vine"/>
+    <Provenance id="jonah-vine" published={published}/>
   </div>;
 }
 
@@ -98,7 +99,7 @@ function Voices() {
   </div>;
 }
 
-export function NinevehDiscoveryDialog({ discovery, reference, plain, onClose }: { discovery: NinevehDiscovery; reference: string; plain: boolean; onClose: () => void }) {
+export function NinevehDiscoveryDialog({ discovery, reference, plain, published, onClose }: { discovery: NinevehDiscovery; reference: string; plain: boolean; published: boolean; onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const definition = discoveries.find(item => item.id === discovery);
@@ -127,7 +128,7 @@ export function NinevehDiscoveryDialog({ discovery, reference, plain, onClose }:
   }}>
     <div className="nineveh-dialog-top"><span>Nineveh · Alongside {reference}</span><button type="button" onClick={onClose}>Return to passage <span aria-hidden="true">×</span></button></div>
     <div className="nineveh-dialog-body"><h2 ref={title} tabIndex={-1} id="nineveh-discovery-title">{definition?.title}</h2>
-      {discovery === "world" ? <World plain={plain}/> : discovery === "art" ? <Art plain={plain}/> : <Voices/>}
+      {discovery === "world" ? <World plain={plain} published={published}/> : discovery === "art" ? <Art plain={plain} published={published}/> : <Voices/>}
       <button className="nineveh-return" type="button" onClick={onClose}>Return to {reference} →</button>
     </div>
   </dialog>;
