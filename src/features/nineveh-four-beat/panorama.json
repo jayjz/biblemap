@@ -1,0 +1,41 @@
+{
+  "id": "nineveh-four-beat-panorama",
+  "class": "interpretive-reconstruction",
+  "title": "Nineveh, an imagined continuous world",
+  "creator": "OpenAI image generation, directed by Codex for BibleMap",
+  "creationDate": "2026-10-27",
+  "depictedPeriod": "Unspecified imagined ancient Nineveh; not tied to a historical year",
+  "sourceInstitution": "BibleMap original design study",
+  "sourceRecordUrl": "docs/research/nineveh-four-beat-ledger.md",
+  "originalAssetUrl": null,
+  "license": "Original generated output; no third-party source image incorporated",
+  "rightsStatement": "Generated with the built-in image_gen tool from text alone. Does not confer archaeological authenticity or human editorial approval.",
+  "requiredAttribution": "AI-generated interpretive reconstruction for BibleMap, October 2026.",
+  "downloadedAt": "2026-10-27",
+  "checksum": "e49fce8bcf3fdb3f1db729e780671bc053bf52d317c73196a3ecb7d52e6bd5a9",
+  "localPath": "artifacts/nineveh-four-beat/media/panorama.webp",
+  "reviewUrl": "/review-assets/four-beat-panorama.webp",
+  "width": 1672,
+  "height": 941,
+  "bytes": 410070,
+  "altText": "Imagined broad earthen city beside a winding river; city architecture, river course, terrain and camera bearing are invented.",
+  "caption": "AI-generated interpretive reconstruction. Not archaeological evidence.",
+  "historicalFit": "Only the broad place relationship is supported: Nineveh at the eastern Tigris flood plain. The panorama is not a model of excavated remains.",
+  "editorialReason": "One persistent city supplies scale while Scripture changes the visitor's attention.",
+  "reviewStatus": "candidate",
+  "reviewedBy": null,
+  "generator": "Built-in image_gen",
+  "model": "Not reported by tool",
+  "prompt": "Use case: stylized-concept. Create an original panoramic environmental painting for a review-only BibleMap experience about Nineveh, NOT an archaeological reconstruction or evidence of Jonah. Wide 16:9 landscape. A vast densely inhabited low ancient Mesopotamian city on an alluvial plain occupies left two-thirds middle of image, substantial in scale and visually legible, long sun-baked mudbrick walls, many modest flat-roofed earthen buildings, occasional subdued broad terraces, no identifiable palace or gate and no ziggurat. The quiet Tigris-inspired river curves from distant left to lower left foreground; its exact course is imagined. Elevated oblique view from low dry ground, NOT Jonah's documented viewpoint. Earthy chalk limestone, clay, bronze, smoky lapis shadows and silver sage river. Luminous dusty warm haze in distant pale sky; foreground tactile worn earth and sparse dry grass. High artistic quality, richly layered oil/gouache matte painting, observational material detail, atmospheric perspective, restrained cinematic scale. City fills middle 30-65% of height with skyline detailed enough to feel inhabited, not toy blocks. Dark right quarter is simple open shadow terrain for reading overlay. No people closeups, no biblical characters, no calamity, no fire or smoke, no divine rays or visible sun, no giant mountains, no Greco-Roman columns, no fantasy towers or domes. No inscriptions, text, labels, UI or watermarks. Landscape should feel still, ancient, materially persuasive, and humane. Architectural details are deliberately nonspecific artistic invention; not tied to a precise year.",
+  "historicalSources": [
+    "https://pleiades.stoa.org/places/874621",
+    "https://oracc.museum.upenn.edu/asbp/areasofnineveh/index.html",
+    "https://oracc.museum.upenn.edu/saao/knpp/downloads/frahm_jcsms3.pdf"
+  ],
+  "knownInaccuracies": [
+    "The generated walls, towers, rooftops, channels, plants, terrain and lighting are artistic invention.",
+    "The image should not be used to reconstruct eighth- or seventh-century Nineveh.",
+    "No documented palace or gate identification, measurement, population estimate or viewpoint of Jonah is asserted."
+  ],
+  "publicationGate": "Candidate remains outside public/out. Only the loopback review server serves it. Route is opt-in; branch Vercel deployment disabled."
+}

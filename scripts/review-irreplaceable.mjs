@@ -18,6 +18,12 @@ const types = { '.html': 'text/html; charset=utf-8', '.txt': 'text/plain; charse
 createServer((request, response) => {
   response.setHeader('Cache-Control', 'no-store');
   const path = new URL(request.url, `http://127.0.0.1:${port}`).pathname;
+  if (path === '/review-assets/four-beat-panorama.webp') {
+    // Original AI-generated design candidate; loopback review only, never public/export.
+    const file = resolve('artifacts/nineveh-four-beat/media/panorama.webp');
+    if (!existsSync(file)) { response.writeHead(404).end('Review panorama unavailable.'); return; }
+    response.setHeader('Content-Type', 'image/webp'); response.end(readFileSync(file)); return;
+  }
   const depthAsset = depthMedia.assets.find(asset => asset.reviewUrl === path);
   if (depthAsset) {
     // Explicit local-review allowlist. Restricted/unverified images never leave the server.

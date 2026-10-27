@@ -11,7 +11,7 @@
     "lint": "eslint",
     "test": "node --experimental-strip-types --test src/domain/*.test.ts",
     "validate:story": "node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media",
-    "validate:media": "node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs",
+    "validate:media": "node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node scripts/validate-four-beat.mjs",
     "validate:release": "node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts --release",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
