@@ -1,0 +1,102 @@
+[
+  {
+    "id": "dependencies",
+    "command": "npm ci --cache /tmp/biblemap-npm-cache",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:02.513Z",
+    "completedAt": "2026-10-27T16:39:14.418Z",
+    "exitCode": 0
+  },
+  {
+    "id": "story",
+    "command": "npm run validate:story",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:14.418Z",
+    "completedAt": "2026-10-27T16:39:14.917Z",
+    "exitCode": 0
+  },
+  {
+    "id": "media",
+    "command": "npm run validate:media",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:14.918Z",
+    "completedAt": "2026-10-27T16:39:15.152Z",
+    "exitCode": 0
+  },
+  {
+    "id": "unit",
+    "command": "npm test",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:15.152Z",
+    "completedAt": "2026-10-27T16:39:15.537Z",
+    "exitCode": 0
+  },
+  {
+    "id": "unit-individual-cases",
+    "command": "node --experimental-strip-types --test --test-isolation=none src/domain/atlas-routing.test.ts src/domain/historical-context.test.ts src/domain/human-city.test.ts src/domain/media-publication.test.ts src/domain/nineveh.test.ts src/domain/story.test.ts",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:15.537Z",
+    "completedAt": "2026-10-27T16:39:15.690Z",
+    "exitCode": 0
+  },
+  {
+    "id": "lint",
+    "command": "npm run lint",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:15.690Z",
+    "completedAt": "2026-10-27T16:39:20.747Z",
+    "exitCode": 0
+  },
+  {
+    "id": "types",
+    "command": "npm run typecheck",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:20.747Z",
+    "completedAt": "2026-10-27T16:39:23.609Z",
+    "exitCode": 0
+  },
+  {
+    "id": "production-build",
+    "command": "npm run build",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:23.609Z",
+    "completedAt": "2026-10-27T16:39:41.005Z",
+    "exitCode": 0
+  },
+  {
+    "id": "production-export",
+    "command": "node scripts/validate-nineveh-depth.mjs --production-export",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:41.005Z",
+    "completedAt": "2026-10-27T16:39:41.107Z",
+    "exitCode": 0
+  },
+  {
+    "id": "normal-browsers",
+    "command": "npm run test:e2e",
+    "env": {},
+    "startedAt": "2026-10-27T16:39:41.107Z",
+    "completedAt": "2026-10-27T16:43:10.557Z",
+    "exitCode": 0
+  },
+  {
+    "id": "review-build",
+    "command": "npm run build",
+    "env": {
+      "BIBLEMAP_NINEVEH_REVIEW": "1"
+    },
+    "startedAt": "2026-10-27T16:43:10.558Z",
+    "completedAt": "2026-10-27T16:43:27.187Z",
+    "exitCode": 0
+  },
+  {
+    "id": "review-browsers",
+    "command": "npm run test:e2e",
+    "env": {
+      "PLAYWRIGHT_REVIEW_SERVER": "1"
+    },
+    "startedAt": "2026-10-27T16:43:27.188Z",
+    "completedAt": "2026-10-27T16:44:09.017Z",
+    "exitCode": 1
+  }
+]

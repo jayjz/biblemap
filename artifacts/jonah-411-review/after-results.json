@@ -1,0 +1,34 @@
+[
+  {
+    "label": "320",
+    "errors": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "overflow": false
+  },
+  {
+    "label": "390",
+    "errors": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "overflow": false
+  },
+  {
+    "label": "tablet",
+    "errors": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "overflow": false
+  },
+  {
+    "label": "desktop",
+    "errors": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "httpErrors": [],
+    "overflow": false
+  }
+]

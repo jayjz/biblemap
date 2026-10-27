@@ -4,6 +4,7 @@ import { JONAH_OPEN_PLACEMENTS } from "@/content/jonah-media";
 import { validateStory } from "@/domain/story";
 import { StoryReader } from "@/features/story/StoryReader";
 import "@/features/story/story.css";
+import "@/features/story/human-city.css";
 
 export const metadata: Metadata = {
   title: "Jonah: The Man Who Ran · BibleMap",
