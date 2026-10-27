@@ -1,0 +1,4 @@
+.atlas-navigation { position: fixed; z-index: 60; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); display: flex; gap: 16px; padding: 0 12px; background: #142326; color: #f4edda; border: 1px solid #72817d; border-radius: 6px; font-size: 13px; }
+.atlas-navigation a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: .25em; }
+.atlas-navigation a:hover { text-decoration: underline; }
+.atlas-navigation a:focus-visible { outline: 2px solid #f5d490; outline-offset: 2px; }

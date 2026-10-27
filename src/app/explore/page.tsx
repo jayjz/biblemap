@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useSearchParams } from "next/navigation";
 import { useMemo, Suspense } from "react";
+import Link from "next/link";
+import "./explore.css";
 
 // Keep the existing WebGL atlas isolated from server rendering.
 const DataLoader = dynamic(() => import("@/components/DataLoader"), {
@@ -22,5 +24,11 @@ function Explorer() {
 }
 
 export default function ExplorePage() {
-  return <Suspense fallback={<div className="flex items-center justify-center w-screen h-screen bg-[#002b36] text-[#a6b7b7]">Loading the biblical atlas…</div>}><Explorer /></Suspense>;
+  return <>
+    <nav className="atlas-navigation" aria-label="Atlas navigation">
+      <Link href="/" prefetch={false}>BibleMap home</Link>
+      <a href="/jonah/#jonah-1-calling">Read Jonah</a>
+    </nav>
+    <Suspense fallback={<div role="status" className="flex items-center justify-center w-screen h-screen bg-[#002b36] text-[#a6b7b7]">Loading the biblical atlas…</div>}><Explorer /></Suspense>
+  </>;
 }

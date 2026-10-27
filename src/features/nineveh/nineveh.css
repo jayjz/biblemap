@@ -7,7 +7,7 @@
 .nineveh button, .nineveh summary { cursor: pointer; }
 .nineveh-skip { position: fixed; z-index: 10; left: 20px; top: -100px; padding: 15px; background: #142326; }
 .nineveh-skip:focus { top: 10px; }
-.nineveh-header { min-height: 80px; padding: 20px 4vw; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: sticky; top: 0; z-index: 3; background: #142326; border-bottom: 1px solid #ffffff16; font-size: 13px; }
+.nineveh-header { min-height: 80px; padding: 20px 4vw; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; position: sticky; top: 0; z-index: 3; background: #142326; border-bottom: 1px solid #ffffff16; font-size: 13px; }
 .nineveh-header > div { display: flex; gap: 28px; align-items: center; }
 .nineveh-header button { background: none; border: none; color: var(--nv-muted); min-height: 44px; font-size: 11px; }
 .nineveh-header a { display: inline-flex; align-items: center; min-height: 44px; gap: 10px; }

@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useSyncExternalStore } from "react";
-import { NINEVEH_BEATS, NINEVEH_DISCOVERIES } from "@/domain/nineveh-navigation";
+import { isLegacyAtlasLink } from "@/domain/atlas-routing";
 import { NinevehEncounter } from "@/features/nineveh/NinevehEncounter";
 
 // 2026-10-25: Preserve legacy root atlas deep links while giving plain "/" to Nineveh.
@@ -17,13 +17,7 @@ const subscribe = (callback: () => void) => {
   };
 };
 function legacyAtlasLink() {
-  if (window.location.search) return true;
-  const fragment = window.location.hash.slice(1);
-  if (!fragment || fragment === "main-content" || fragment === "nineveh-reading") return false;
-  const [beat, discovery, extra] = fragment.split("/");
-  const validBeat = NINEVEH_BEATS.some(item => item.id === beat);
-  const validDiscovery = discovery === undefined || (extra === undefined && NINEVEH_DISCOVERIES.some(id => id === discovery));
-  return !(validBeat && validDiscovery);
+  return isLegacyAtlasLink(window.location.search, window.location.hash);
 }
 
 export function NinevehHome() {

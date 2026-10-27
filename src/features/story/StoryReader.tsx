@@ -74,7 +74,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
     <header className="story-topbar">
       <Link className="story-brand" href="/" prefetch={false} onClick={clear}>BibleMap<span aria-hidden="true"> / </span><span>Stories</span></Link>
       {authorReview && <span className="story-review">Local creator review</span>}
-      <Link href="/?explore=1" prefetch={false} onClick={clear} className="story-exit">Exit to map <span aria-hidden="true">↗</span></Link>
+      <Link href="/explore/" prefetch={false} onClick={clear} className="story-exit">Exit to map <span aria-hidden="true">↗</span></Link>
     </header>
     <main id="story-main">
       <div className="story-intro">
@@ -174,6 +174,6 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         </article>;
       })}
     </main>
-    <footer className="story-footer"><span>BibleMap <span aria-hidden="true">·</span> Scripture, place, reflection</span><Link href="/?explore=1" prefetch={false} onClick={clear}>Explore the map ↗</Link></footer>
+    <footer className="story-footer"><span>BibleMap <span aria-hidden="true">·</span> Scripture, place, reflection</span><Link href="/explore/" prefetch={false} onClick={clear}>Explore the map ↗</Link></footer>
   </div>;
 }
