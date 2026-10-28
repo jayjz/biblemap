@@ -346,3 +346,38 @@
 .city-sequence a { min-height: 44px; display: inline-flex; align-items: center; color: var(--bronze); font-size: .83rem; justify-self: start; }
 .story-scene[data-scene="jonah-3-mercy"] .story-verses p:focus { outline: 2px solid var(--bronze); outline-offset: 5px; }
 @media (max-width: 640px) { .city-word { font-size: clamp(3rem, 14vw, 5.4rem); } .city-name { padding-top: 1rem; } }
+
+
+
+.reader-transition .reader-environment { margin: 0 0 3rem; background: #253333; position: relative; }
+.reader-environment img { display: block; width: 100%; height: 380px; object-fit: cover; object-position: 30% 55%; }
+.reader-environment figcaption { padding: .75rem 1rem; font-size: 12px; line-height: 1.6; color: #e6dfcf; background: #202c2d; }
+.reader-environment-fallback { padding: 3rem; color: #eee2c8; }
+.reader-transition[data-scene="jonah-3-mercy"] .story-verses [data-reference="3:10"] { font-size: 1.25em; border-top: 1px solid var(--bronze); padding-top: 2rem; margin-top: 2rem; }
+.reader-transition[data-scene="jonah-4-anger"] .reader-environment img { height: 110px; object-position: 30% 55%; opacity: .65; }
+.reader-transition[data-scene="jonah-4-anger"] .story-columns { grid-template-columns: minmax(0, 39rem) minmax(0, 1fr); gap: 5rem; }
+.reader-transition .story-visual { position: sticky !important; top: 2rem; }
+.reader-artifact, .reader-margin { border-left: 1px solid var(--bronze); padding: 1rem 0 1rem 2rem; font-size: 16px; line-height: 1.8; }
+.reader-artifact h3, .reader-margin-title { font-family: var(--font-playfair), Georgia, serif; font-size: 30px; line-height: 1.3; margin: .6rem 0 1rem; color: var(--paper); }
+.reader-margin { margin-top: 6rem; }
+.reader-margin > p > span { display: block; font-size: 13px; }
+.reader-transition button { min-height: 48px; padding: .6rem 1rem; border: 1px solid #bba16e; color: #f3e7cb; background: #263839; cursor: pointer; font: inherit; }
+.reader-transition button:focus-visible, .reader-object-image:focus-visible { outline: 3px solid #e7c17d; outline-offset: 4px; }
+.reader-credit { font-size: 12px; line-height: 1.7; color: #c5c9c3; }
+.reader-object-dialog { width: min(960px, calc(100vw - 32px)); max-height: 90dvh; overflow: auto; background: #172527; color: #eee5d3; border: 1px solid #bba16e; padding: 1.5rem; margin: auto; line-height: 1.8; }
+.reader-object-dialog::backdrop { background: #061013c9; }
+.reader-object-toolbar { display: flex; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.reader-object-image { overflow: auto; max-height: 52dvh; margin: 1rem 0; background: #0d1718; text-align: center; }
+.reader-object-image img { height: auto; display: inline-block; vertical-align: top; }
+@media (max-width: 1000px) {
+  .reader-environment img { height: 210px; }
+  .reader-transition[data-scene="jonah-4-anger"] .reader-environment img { height: 70px; }
+  .reader-transition[data-scene="jonah-4-anger"] .story-columns { grid-template-columns: 1fr; gap: 2rem; }
+  .reader-transition .story-visual { position: static !important; }
+  .reader-artifact, .reader-margin { margin-top: 0; padding-left: 1rem; }
+  .reader-object-dialog { padding: 1rem; }
+}
+@media (max-width: 1000px) {
+  .reader-transition[data-scene] .story-columns { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .reader-transition[data-scene] .story-visual { grid-column: 1; grid-row: 2; }
+}

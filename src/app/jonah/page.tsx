@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 export default function JonahPage() {
   const errors = validateStory(JONAH);
   if (errors.length) throw new Error(errors.join("\n"));
-  return <StoryReader story={JONAH} openMedia={JONAH_OPEN_PLACEMENTS} />;
+  return <StoryReader transitionReview={process.env.BIBLEMAP_READER_TRANSITION_REVIEW === "1"} story={JONAH} openMedia={JONAH_OPEN_PLACEMENTS} />;
 }

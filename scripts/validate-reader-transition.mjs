@@ -1,0 +1,13 @@
+import {readFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const record=JSON.parse(readFileSync('artifacts/reader-transition/media/provenance.json','utf8'));
+assert.equal(createHash('sha256').update(readFileSync(record.localPath)).digest('hex'),record.checksum);
+assert.equal(record.reviewStatus,'candidate');
+assert.equal(record.reviewedBy,null);
+assert.ok(!existsSync('public/review-assets/reader-panorama.webp'));
+assert.ok(!existsSync('out/review-assets/reader-panorama.webp'));
+assert.ok(!readFileSync('out/jonah/index.html','utf8').includes('reader-environment'));
+const vercel=JSON.parse(readFileSync('vercel.json','utf8'));
+assert.equal(vercel.git.deploymentEnabled['feat/reader-mercy-anger'],false);
+console.log('Ordinary reader excludes prototype; generated media hash and publication boundary verified.');

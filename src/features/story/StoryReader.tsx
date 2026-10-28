@@ -9,6 +9,7 @@ import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
 
 import { SceneDiscovery } from "./SceneDiscovery";
+import { ReaderEnvironment, ReaderArtifact, ReaderInterpretation } from "./ReaderTransition";
 import { CityInsideName } from "./CityInsideName";
 
 function subscribeHash(onChange: () => void) {
@@ -19,7 +20,7 @@ function subscribeHash(onChange: () => void) {
 const getHash = () => window.location.hash;
 const serverHash = () => null;
 
-export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [], openMedia = [] }: { story: StoryDocument; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[]; openMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] }) {
+export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [], openMedia = [], transitionReview = false }: { story: StoryDocument; transitionReview?: boolean; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[]; openMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] }) {
   const hash = useSyncExternalStore(subscribeHash, getHash, serverHash);
   const active = sceneFromHash(story, hash ?? "");
   const [reflections, setReflections] = useState<Record<string, string>>({});
@@ -106,8 +107,9 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         const supplemental = open && mayPublishMedia(open) ? open : undefined;
         const preview = (authorReview || localReview) ? previewMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset : undefined;
         const artwork = fromStory ?? supplemental ?? preview;
+        const transition = transitionReview && (scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger");
         const isActive = hash !== null && active.id === scene.id;
-        return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${index < 3 ? " story-opening-scene" : ""}${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
+        return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${transition ? " reader-transition" : ""}${index < 3 ? " story-opening-scene" : ""}${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
           <div className="story-scene-header">
             <div><p className="story-eyebrow">Chapter {String(scene.chapter).padStart(2, "0")} <span aria-hidden="true">/</span> {String(index + 1).padStart(2, "0")} of {String(story.scenes.length).padStart(2, "0")}</p>
               <h2 id={`${scene.id}-heading`} tabIndex={-1}>{label}</h2>
@@ -115,6 +117,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
             </div>
             <span className="story-scene-mark" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
           </div>
+          {transition && <ReaderEnvironment />}
           <div className="story-columns">
             <div className="story-reading">
               {scene.passageIds.map(id => {
@@ -128,8 +131,8 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
               {scene.id === "jonah-3-mercy" && <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>}
               {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
             </div>
-            <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={scene.id === "jonah-3-mercy" ? "Optional Nineveh place encounter" : authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
-              {scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
+            <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={transition && scene.id === "jonah-4-anger" ? "Optional theological interpretation" : scene.id === "jonah-3-mercy" ? "Optional Nineveh place encounter" : authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
+              {transition ? (scene.id === "jonah-3-mercy" ? <ReaderArtifact /> : <ReaderInterpretation />) : scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
               {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}
@@ -140,7 +143,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
 
             </aside>
           </div>
-          <SceneDiscovery sceneId={scene.id} />
+          {!transition && <SceneDiscovery sceneId={scene.id} />}
           <details className="story-explore-further story-disclosure">
             <summary>Explore further <span>Sources, reading notes & private reflection</span></summary>
             <div className="story-further-content">
