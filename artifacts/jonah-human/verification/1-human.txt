@@ -1,0 +1,72 @@
+
+> next_temp@0.1.0 prebuild
+> node scripts/split_parquet.js && npm run validate:story
+
+✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)
+✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)
+✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)
+✓ epoch-3-kings.parquet: 188 rows (Exile & Return)
+✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)
+✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)
+✓ Validated 6 chunks, 2917 rows
+
+> next_temp@0.1.0 validate:story
+> node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+✓ Jonah content validates in author-review mode; release requires human authorship and approval
+
+> next_temp@0.1.0 validate:media
+> node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs
+
+✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
+✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced
+
+> next_temp@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.1.6 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.2s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/8) ...
+  Generating static pages using 11 workers (2/8)
+  Generating static pages using 11 workers (4/8)
+  Generating static pages using 11 workers (6/8)
+✓ Generating static pages using 11 workers (8/8) in 862.7ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /demo
+├ ○ /experiments/nineveh
+├ ○ /explore
+└ ○ /jonah
+
+
+○  (Static)  prerendered as static content
+
+
+> next_temp@0.1.0 postbuild
+> echo 'Build complete with chunked data'
+
+'Build complete with chunked data'
+(node:19156) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/scripts/split_parquet.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13568) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18276) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)

@@ -1,0 +1,15 @@
+{
+  "phase": "after",
+  "scenes": 26,
+  "errors": [
+    {
+      "width": 1440,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "errors": []
+    }
+  ],
+  "overflow": []
+}

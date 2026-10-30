@@ -51,7 +51,8 @@ for (const [command, overrides = {}] of phases[phase]) {
   const output = (result.stdout ?? '') + (result.stderr ?? '') + (result.error?.message ?? '');
   const index = runs.length + 1;
   const filename = `${index}-${phase}.txt`;
-  writeFileSync(`${directory}/${filename}`, output);
+  // Preserve command text/results while making terminal output reviewable in Git.
+  writeFileSync(`${directory}/${filename}`, output ? output.replace(/[ \t]+$/gm, '').trimEnd() + '\n' : '');
   runs.push({ phase, command, environment: overrides, node: process.version, platform: process.platform, started, ended: new Date().toISOString(), exitCode: result.status, signal: result.signal, log: filename });
   writeFileSync(logPath, JSON.stringify(runs, null, 2));
   console.log(output.slice(-6500));

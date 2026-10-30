@@ -1,0 +1,6 @@
+{
+  "reason": "Original local-only generated panorama absent; use the existing CI interaction fixture.",
+  "source": "artifacts/nineveh-depth/media/flood-tablet.webp",
+  "destination": "artifacts/nineveh-review/landscape.webp",
+  "scope": "Interaction regression only; no aesthetic or historical reconstruction approval."
+}

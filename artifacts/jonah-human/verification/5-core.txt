@@ -1,0 +1,16 @@
+npm error code EPERM
+npm error syscall unlink
+npm error path C:\Dev\biblemap-human-experience\node_modules\@img\sharp-win32-x64\lib\libvips-42.dll
+npm error errno -4048
+npm error [Error: EPERM: operation not permitted, unlink 'C:\Dev\biblemap-human-experience\node_modules\@img\sharp-win32-x64\lib\libvips-42.dll'] {
+npm error   errno: -4048,
+npm error   code: 'EPERM',
+npm error   syscall: 'unlink',
+npm error   path: 'C:\\Dev\\biblemap-human-experience\\node_modules\\@img\\sharp-win32-x64\\lib\\libvips-42.dll'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It's possible that the file was already in use (by a text editor or antivirus), or that you lack permissions to access it.
+npm error
+npm error If you believe this might be a permissions issue, please double-check the permissions of the file and its containing directories, or try running the command again as root/Administrator.
+npm error A complete log of this run can be found in: C:\Users\jcoul\AppData\Local\npm-cache\_logs\2026-10-30T23_30_40_247Z-debug-0.log

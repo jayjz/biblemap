@@ -1,0 +1,59 @@
+
+> next_temp@0.1.0 test
+> node --experimental-strip-types --test src/domain/*.test.ts
+
+(node:21560) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/atlas-routing.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tracking, unknown state and editorial anchors stay on the homepage (2.1219ms)
+✔ supported atlas query selectors survive tracking parameters (0.2031ms)
+✔ manifest epoch links and their book filters remain compatible (0.2584ms)
+(node:17108) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/historical-context.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ historical context validation
+  ✔ accepts a sparse approved record (1.8211ms)
+  ✔ requires uncertainty when confidence is disputed (0.3207ms)
+  ✔ requires uncertainty when confidence is traditional (2.0274ms)
+  ✔ rejects an unsourced record (0.3023ms)
+  ✔ rejects a draft from production rendering (0.1772ms)
+  ✔ rejects a missing narrative or empty scene list (0.2248ms)
+  ✔ rejects an oversized narrative and too many beats (0.2642ms)
+  ✔ labels claim kinds for the UI (0.2136ms)
+  ✔ labels beat kinds for the UI (0.3945ms)
+✔ historical context validation (7.8974ms)
+(node:15056) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/media-publication.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a license claim allows local review but cannot authorize public export (4.1661ms)
+✔ rights-cleared visuals need no creative approval, but audio retains its review gate (0.364ms)
+✔ restricted rights do not render or publish (0.5024ms)
+✔ unresolved rights may render in review and must not publish (0.4907ms)
+✔ missing source and attribution are visible as flags, not filled in (0.2531ms)
+(node:19476) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/nineveh.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Nineveh share links keep the passage and reject malformed or unknown discoveries (0.9877ms)
+✔ Nineveh local review refuses restricted, unverified, unattributed and unknown-license images (0.3522ms)
+(node:10572) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ story document keeps the three approved artworks; open images stay outside it (4.0608ms)
+✔ visitor copy requires actual approval; source slots and drafts remain intact (0.2825ms)
+✔ author review is valid, while release fails closed on unfinished authorship (1.2777ms)
+✔ malformed links cannot select unintended scenes (0.2528ms)
+✔ broken content and transitions are rejected before rendering (6.4246ms)
+✔ claim evidence needs scope, uncertainty, and interpretive lens (1.0349ms)
+ℹ tests 25
+ℹ suites 1
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 243.219
