@@ -1,0 +1,103 @@
+
+Running 12 tests using 1 worker
+
+  ok  1 [desktop] › tests\jonah-human.spec.ts:5:5 › a neutral entrance still leads through all thirteen scenes and exact pinned Scripture (2.1s)
+  ok  2 [desktop] › tests\jonah-human.spec.ts:34:5 › the dated record can be followed, shared, restored by history, and closed with keyboard focus (1.3s)
+  ok  3 [desktop] › tests\jonah-human.spec.ts:59:5 › passage, history and later readings are distinguishable at four widths (6.0s)
+  x   4 [desktop] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading (12.9s)
+  ok  5 [desktop] › tests\jonah-human.spec.ts:97:5 › image failure and malformed record links cannot take away Scripture or invent a selection (1.1s)
+  ok  6 [desktop] › tests\jonah-human.spec.ts:109:5 › chapter navigation cuts for reduced motion and progressively enhances when supported (1.3s)
+  ok  7 [mobile] › tests\jonah-human.spec.ts:5:5 › a neutral entrance still leads through all thirteen scenes and exact pinned Scripture (1.9s)
+  ok  8 [mobile] › tests\jonah-human.spec.ts:34:5 › the dated record can be followed, shared, restored by history, and closed with keyboard focus (1.3s)
+  ok  9 [mobile] › tests\jonah-human.spec.ts:59:5 › passage, history and later readings are distinguishable at four widths (5.8s)
+  x  10 [mobile] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading (12.8s)
+  ok 11 [mobile] › tests\jonah-human.spec.ts:97:5 › image failure and malformed record links cannot take away Scripture or invent a selection (1.0s)
+  ok 12 [mobile] › tests\jonah-human.spec.ts:109:5 › chapter navigation cuts for reduced motion and progressively enhances when supported (1.4s)
+
+
+  1) [desktop] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' })
+    Expected pattern: /P335268/
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' }) with timeout 12000ms
+      - waiting for getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' })
+
+
+      91 |     await page.locator('.nineveh-sale > summary').click();
+      92 |     await expect(page.locator('.nineveh-sale dl')).toBeVisible();
+    > 93 |     await expect(page.getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' })).toHaveAttribute('href', /P335268/);
+         |                                                                                                           ^
+      94 |   } finally { await context.close(); }
+      95 | });
+      96 |
+        at C:\Dev\biblemap-human-experience\tests\jonah-human.spec.ts:93:107
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' })
+    Expected pattern: /P335268/
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' }) with timeout 12000ms
+      - waiting for getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' })
+
+
+      91 |     await page.locator('.nineveh-sale > summary').click();
+      92 |     await expect(page.locator('.nineveh-sale dl')).toBeVisible();
+    > 93 |     await expect(page.getByRole('link', { name: 'Read the Akkadian edition and translation (new tab)' })).toHaveAttribute('href', /P335268/);
+         |                                                                                                           ^
+      94 |   } finally { await context.close(); }
+      95 | });
+      96 |
+        at C:\Dev\biblemap-human-experience\tests\jonah-human.spec.ts:93:107
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\human\jonah-human-no-JavaScript--5fd87--native-documentary-reading-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading
+    [mobile] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading
+  10 passed (53.0s)
+(node:7428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

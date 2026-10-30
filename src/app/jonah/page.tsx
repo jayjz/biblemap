@@ -4,6 +4,7 @@ import { JONAH_OPEN_PLACEMENTS } from "@/content/jonah-media";
 import { validateStory } from "@/domain/story";
 import { StoryReader } from "@/features/story/StoryReader";
 import "@/features/story/story.css";
+import "@/features/story/human-story.css";
 
 export const metadata: Metadata = {
   title: "Jonah: The Man Who Ran · BibleMap",
@@ -14,5 +15,5 @@ export const metadata: Metadata = {
 export default function JonahPage() {
   const errors = validateStory(JONAH);
   if (errors.length) throw new Error(errors.join("\n"));
-  return <StoryReader story={JONAH} openMedia={JONAH_OPEN_PLACEMENTS} />;
+  return <StoryReader humanReview={process.env.BIBLEMAP_HUMAN_REVIEW === "1"} transitionReview={process.env.BIBLEMAP_READER_TRANSITION_REVIEW === "1"} story={JONAH} openMedia={JONAH_OPEN_PLACEMENTS} />;
 }

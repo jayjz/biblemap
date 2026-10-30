@@ -1,0 +1,21 @@
+
+Running 12 tests using 1 worker
+
+  ok  1 [desktop] › tests\jonah-human.spec.ts:5:5 › a neutral entrance still leads through all thirteen scenes and exact pinned Scripture (2.0s)
+  ok  2 [desktop] › tests\jonah-human.spec.ts:34:5 › the dated record can be followed, shared, restored by history, and closed with keyboard focus (1.3s)
+  ok  3 [desktop] › tests\jonah-human.spec.ts:59:5 › passage, history and later readings are distinguishable at four widths (5.6s)
+  ok  4 [desktop] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading (795ms)
+  ok  5 [desktop] › tests\jonah-human.spec.ts:98:5 › image failure and malformed record links cannot take away Scripture or invent a selection (882ms)
+  ok  6 [desktop] › tests\jonah-human.spec.ts:110:5 › chapter navigation cuts for reduced motion and progressively enhances when supported (1.4s)
+  ok  7 [mobile] › tests\jonah-human.spec.ts:5:5 › a neutral entrance still leads through all thirteen scenes and exact pinned Scripture (1.9s)
+  ok  8 [mobile] › tests\jonah-human.spec.ts:34:5 › the dated record can be followed, shared, restored by history, and closed with keyboard focus (1.3s)
+  ok  9 [mobile] › tests\jonah-human.spec.ts:59:5 › passage, history and later readings are distinguishable at four widths (5.9s)
+  ok 10 [mobile] › tests\jonah-human.spec.ts:84:5 › no JavaScript keeps the whole book and native documentary reading (834ms)
+  ok 11 [mobile] › tests\jonah-human.spec.ts:98:5 › image failure and malformed record links cannot take away Scripture or invent a selection (945ms)
+  ok 12 [mobile] › tests\jonah-human.spec.ts:110:5 › chapter navigation cuts for reduced motion and progressively enhances when supported (1.4s)
+
+  12 passed (26.4s)
+(node:18656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

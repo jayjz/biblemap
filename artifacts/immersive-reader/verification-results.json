@@ -1,0 +1,284 @@
+{
+  "runtime": "v25.0.0",
+  "platform": "win32",
+  "defaults": {
+    "CHROME_PATH": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "PLAYWRIGHT_PORT": "4205",
+    "EXPERIMENT_PORT": "4205",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "BIBLEMAP_READER_TRANSITION_REVIEW": "",
+    "BIBLEMAP_NINEVEH_REVIEW": "",
+    "PLAYWRIGHT_REVIEW_SERVER": ""
+  },
+  "reportArchive": "C:\\Users\\jcoul\\AppData\\Local\\Temp\\biblemap-reader-reports\\1793399131132",
+  "results": [
+    {
+      "id": "dependencies",
+      "command": "npm.cmd ci",
+      "env": {},
+      "startedAt": "2026-10-30T22:25:31.133Z",
+      "completedAt": "2026-10-30T22:25:58.156Z",
+      "exitCode": 0,
+      "summary": [
+        "30 vulnerabilities (1 low, 8 moderate, 19 high, 2 critical)"
+      ]
+    },
+    {
+      "id": "lockfile",
+      "command": "git diff --exit-code -- package-lock.json",
+      "env": {},
+      "startedAt": "2026-10-30T22:25:58.157Z",
+      "completedAt": "2026-10-30T22:25:58.191Z",
+      "exitCode": 0,
+      "summary": []
+    },
+    {
+      "id": "story",
+      "command": "npm.cmd run validate:story",
+      "env": {},
+      "startedAt": "2026-10-30T22:25:58.192Z",
+      "completedAt": "2026-10-30T22:25:59.290Z",
+      "exitCode": 0,
+      "summary": [
+        "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah content validates in author-review mode; release requires human authorship and approval",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)"
+      ]
+    },
+    {
+      "id": "media",
+      "command": "npm.cmd run validate:media",
+      "env": {},
+      "startedAt": "2026-10-30T22:25:59.290Z",
+      "completedAt": "2026-10-30T22:25:59.833Z",
+      "exitCode": 0,
+      "summary": [
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)"
+      ]
+    },
+    {
+      "id": "unit",
+      "command": "npm.cmd test",
+      "env": {},
+      "startedAt": "2026-10-30T22:25:59.833Z",
+      "completedAt": "2026-10-30T22:26:00.462Z",
+      "exitCode": 0,
+      "summary": [
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "ℹ tests 25",
+        "ℹ suites 1",
+        "ℹ pass 25",
+        "ℹ fail 0",
+        "ℹ cancelled 0",
+        "ℹ skipped 0",
+        "ℹ todo 0",
+        "ℹ duration_ms 184.4288"
+      ]
+    },
+    {
+      "id": "lint",
+      "command": "npm.cmd run lint",
+      "env": {},
+      "startedAt": "2026-10-30T22:26:00.463Z",
+      "completedAt": "2026-10-30T22:26:08.879Z",
+      "exitCode": 0,
+      "summary": [
+        "  4:10  warning  'basename' is defined but never used  @typescript-eslint/no-unused-vars",
+        "   35:7   warning  'POINTS_URL' is assigned a value but never used   @typescript-eslint/no-unused-vars",
+        "  659:10  warning  'haversineDistance' is defined but never used     @typescript-eslint/no-unused-vars",
+        "  669:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars",
+        "✖ 4 problems (0 errors, 4 warnings)"
+      ]
+    },
+    {
+      "id": "types",
+      "command": "npm.cmd run typecheck",
+      "env": {},
+      "startedAt": "2026-10-30T22:26:08.880Z",
+      "completedAt": "2026-10-30T22:26:12.088Z",
+      "exitCode": 0,
+      "summary": []
+    },
+    {
+      "id": "ordinary-build",
+      "command": "npm.cmd run build",
+      "env": {},
+      "startedAt": "2026-10-30T22:26:12.088Z",
+      "completedAt": "2026-10-30T22:26:30.045Z",
+      "exitCode": 0,
+      "summary": [
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)",
+        "✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)",
+        "✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)",
+        "✓ epoch-3-kings.parquet: 188 rows (Exile & Return)",
+        "✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)",
+        "✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)",
+        "✓ Validated 6 chunks, 2917 rows",
+        "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah content validates in author-review mode; release requires human authorship and approval",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        " To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.",
+        "✓ Compiled successfully in 3.8s",
+        "✓ Generating static pages using 15 workers (8/8) in 765.1ms"
+      ]
+    },
+    {
+      "id": "ordinary-export",
+      "command": "node scripts/validate-nineveh-depth.mjs --production-export",
+      "env": {},
+      "startedAt": "2026-10-30T22:26:30.045Z",
+      "completedAt": "2026-10-30T22:26:30.155Z",
+      "exitCode": 0,
+      "summary": [
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced; homepage active; experimental image excluded",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)"
+      ]
+    },
+    {
+      "id": "prototype-export-gate",
+      "command": "node scripts/validate-reader-transition.mjs",
+      "env": {},
+      "startedAt": "2026-10-30T22:26:30.155Z",
+      "completedAt": "2026-10-30T22:26:30.206Z",
+      "exitCode": 0,
+      "summary": []
+    },
+    {
+      "id": "normal-browsers",
+      "command": "npm.cmd run test:e2e",
+      "env": {},
+      "startedAt": "2026-10-30T22:26:31.303Z",
+      "completedAt": "2026-10-30T22:28:36.957Z",
+      "exitCode": 0,
+      "summary": [
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "  1 skipped",
+        "  69 passed (2.1m)"
+      ]
+    },
+    {
+      "id": "review-build",
+      "command": "npm.cmd run build",
+      "env": {
+        "BIBLEMAP_NINEVEH_REVIEW": "1",
+        "BIBLEMAP_READER_TRANSITION_REVIEW": "1"
+      },
+      "startedAt": "2026-10-30T22:28:36.966Z",
+      "completedAt": "2026-10-30T22:28:55.278Z",
+      "exitCode": 0,
+      "summary": [
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)",
+        "✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)",
+        "✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)",
+        "✓ epoch-3-kings.parquet: 188 rows (Exile & Return)",
+        "✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)",
+        "✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)",
+        "✓ Validated 6 chunks, 2917 rows",
+        "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot",
+        "✓ Jonah content validates in author-review mode; release requires human authorship and approval",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval",
+        "✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced",
+        "To eliminate this warning, add \"type\": \"module\" to C:\\Dev\\biblemap-nineveh-design\\reader-prototype\\package.json.",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        " To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.",
+        "✓ Compiled successfully in 3.3s",
+        "✓ Generating static pages using 15 workers (8/8) in 750.6ms"
+      ]
+    },
+    {
+      "id": "review-browsers",
+      "command": "npm.cmd run test:e2e",
+      "env": {
+        "PLAYWRIGHT_REVIEW_SERVER": "1"
+      },
+      "startedAt": "2026-10-30T22:28:55.549Z",
+      "completedAt": "2026-10-30T22:29:26.823Z",
+      "exitCode": 0,
+      "summary": [
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "  22 passed (30.4s)"
+      ]
+    },
+    {
+      "id": "reader-browsers",
+      "command": "node node_modules/@playwright/test/cli.js test -c playwright.reader.config.ts",
+      "env": {},
+      "startedAt": "2026-10-30T22:29:26.824Z",
+      "completedAt": "2026-10-30T22:29:41.624Z",
+      "exitCode": 0,
+      "summary": [
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "(Use `node --trace-warnings ...` to show where the warning was created)",
+        "  10 passed (14.3s)"
+      ]
+    },
+    {
+      "id": "final-captures",
+      "command": "node scripts/capture-immersive-reader.mjs after",
+      "env": {},
+      "startedAt": "2026-10-30T22:29:41.624Z",
+      "completedAt": "2026-10-30T22:29:45.464Z",
+      "exitCode": 0,
+      "summary": []
+    },
+    {
+      "id": "whitespace",
+      "command": "git diff --check",
+      "env": {},
+      "startedAt": "2026-10-30T22:29:45.465Z",
+      "completedAt": "2026-10-30T22:29:45.510Z",
+      "exitCode": 0,
+      "summary": [
+        "warning: in the working copy of 'docs/reader-transition.md', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'playwright.reader.config.ts', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'scripts/review-irreplaceable.mjs', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'scripts/validate-reader-transition.mjs', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'scripts/verify-reader-transition.mjs', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'src/features/story/ReaderTransition.tsx', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'src/features/story/StoryReader.tsx', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'src/features/story/story.css', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'tests/reader-transition.spec.ts', LF will be replaced by CRLF the next time Git touches it"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+[
+  {
+    "phase": "human",
+    "command": "npm run build",
+    "environment": {
+      "BIBLEMAP_HUMAN_REVIEW": "1"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:27:42.788Z",
+    "ended": "2026-10-30T23:28:03.990Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "1-human.txt"
+  },
+  {
+    "phase": "human",
+    "command": "npx playwright test --config playwright.human.config.ts",
+    "environment": {
+      "PLAYWRIGHT_PORT": "4311"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:28:03.990Z",
+    "ended": "2026-10-30T23:28:58.681Z",
+    "exitCode": 1,
+    "signal": null,
+    "log": "2-human.txt"
+  },
+  {
+    "phase": "human",
+    "command": "npm run build",
+    "environment": {
+      "BIBLEMAP_HUMAN_REVIEW": "1"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:29:46.413Z",
+    "ended": "2026-10-30T23:30:07.815Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "3-human.txt"
+  },
+  {
+    "phase": "human",
+    "command": "npx playwright test --config playwright.human.config.ts",
+    "environment": {
+      "PLAYWRIGHT_PORT": "4311"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:30:07.816Z",
+    "ended": "2026-10-30T23:30:35.755Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "4-human.txt"
+  },
+  {
+    "phase": "human",
+    "command": "node scripts/capture-jonah-human.mjs after",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:30:35.756Z",
+    "ended": "2026-10-30T23:30:45.309Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "5-human.txt"
+  },
+  {
+    "phase": "core",
+    "command": "npm ci",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:30:55.268Z",
+    "ended": "2026-10-30T23:31:21.568Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "6-core.txt"
+  },
+  {
+    "phase": "core",
+    "command": "npm run validate:story",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:31:21.569Z",
+    "ended": "2026-10-30T23:31:22.709Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "7-core.txt"
+  },
+  {
+    "phase": "core",
+    "command": "npm run test",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:31:22.710Z",
+    "ended": "2026-10-30T23:31:23.406Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "8-core.txt"
+  },
+  {
+    "phase": "core",
+    "command": "npm run lint",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:31:23.406Z",
+    "ended": "2026-10-30T23:31:31.799Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "9-core.txt"
+  },
+  {
+    "phase": "core",
+    "command": "npx tsc --noEmit",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:31:31.800Z",
+    "ended": "2026-10-30T23:31:38.148Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "10-core.txt"
+  },
+  {
+    "phase": "production",
+    "command": "npm run build",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:32:04.151Z",
+    "ended": "2026-10-30T23:32:25.236Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "11-production.txt"
+  },
+  {
+    "phase": "production",
+    "command": "node scripts/validate-nineveh-depth.mjs --production-export",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:32:25.238Z",
+    "ended": "2026-10-30T23:32:25.378Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "12-production.txt"
+  },
+  {
+    "phase": "production",
+    "command": "npm run test:e2e",
+    "environment": {
+      "PLAYWRIGHT_PORT": "4311"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:32:25.379Z",
+    "ended": "2026-10-30T23:34:55.572Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "13-production.txt"
+  },
+  {
+    "phase": "nineveh",
+    "command": "npm run build",
+    "environment": {
+      "BIBLEMAP_NINEVEH_REVIEW": "1"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:35:15.288Z",
+    "ended": "2026-10-30T23:35:36.676Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "14-nineveh.txt"
+  },
+  {
+    "phase": "nineveh",
+    "command": "npm run test:e2e",
+    "environment": {
+      "PLAYWRIGHT_REVIEW_SERVER": "1",
+      "PLAYWRIGHT_PORT": "4315"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:35:36.676Z",
+    "ended": "2026-10-30T23:36:15.906Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "15-nineveh.txt"
+  },
+  {
+    "phase": "inherited",
+    "command": "npm run build",
+    "environment": {
+      "BIBLEMAP_READER_TRANSITION_REVIEW": "1"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:36:42.968Z",
+    "ended": "2026-10-30T23:37:04.230Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "16-inherited.txt"
+  },
+  {
+    "phase": "inherited",
+    "command": "npx playwright test --config playwright.reader.config.ts",
+    "environment": {
+      "PLAYWRIGHT_PORT": "4311"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:37:04.230Z",
+    "ended": "2026-10-30T23:37:23.671Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "17-inherited.txt"
+  },
+  {
+    "phase": "human",
+    "command": "npm run build",
+    "environment": {
+      "BIBLEMAP_HUMAN_REVIEW": "1"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:38:49.492Z",
+    "ended": "2026-10-30T23:39:10.362Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "18-human.txt"
+  },
+  {
+    "phase": "human",
+    "command": "npx playwright test --config playwright.human.config.ts",
+    "environment": {
+      "PLAYWRIGHT_PORT": "4311"
+    },
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:39:10.362Z",
+    "ended": "2026-10-30T23:39:38.188Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "19-human.txt"
+  },
+  {
+    "phase": "human",
+    "command": "node scripts/capture-jonah-human.mjs after",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": "2026-10-30T23:39:38.189Z",
+    "ended": "2026-10-30T23:39:48.152Z",
+    "exitCode": 0,
+    "signal": null,
+    "log": "20-human.txt"
+  },
+  {
+    "phase": "core",
+    "command": "npm ci",
+    "environment": {},
+    "node": "v24.21.0",
+    "platform": "win32",
+    "started": null,
+    "ended": null,
+    "exitCode": 1,
+    "signal": null,
+    "log": "5-core.txt",
+    "note": "Earlier concurrent invocation failed with a Sharp DLL lock. Raw log retained; timestamps were lost when concurrent writers updated the ledger. Final sequential core run passed."
+  }
+]

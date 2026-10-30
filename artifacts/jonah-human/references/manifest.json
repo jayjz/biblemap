@@ -1,0 +1,26 @@
+[
+  {
+    "file": "met-451419.jpg",
+    "assetUrl": "https://images.metmuseum.org/CRDImages/is/web-large/DP-15004-001.jpg",
+    "recordUrl": "https://www.metmuseum.org/art/collection/search/451419",
+    "rights": "Metropolitan Museum of Art, 57.51.37.4. Public domain; exact API isPublicDomain=true. Full frame retained; no conversion.",
+    "retrieved": "2026-10-30",
+    "sha256": "7183ac5e2c3a7a3424c0a0726114039c9e5e408c0e12f071669ebc007a827ad0"
+  },
+  {
+    "file": "pr32.png",
+    "assetUrl": "https://raw.githubusercontent.com/jayjz/biblemap/feat/jonah-411-human-city/artifacts/jonah-411-review/after-scene-desktop.png",
+    "recordUrl": "https://github.com/jayjz/biblemap/pull/32",
+    "rights": "BibleMap interface screenshot, dd9c775. Research comparison, not archaeological evidence.",
+    "retrieved": "2026-10-30",
+    "sha256": "f9136cade236673f239e128bdec92e2feac9cc5b17629aabf057972d90cf837a"
+  },
+  {
+    "file": "pr33.png",
+    "assetUrl": "https://raw.githubusercontent.com/jayjz/biblemap/feat/nineveh-four-beat-experience/artifacts/nineveh-four-beat/after-desktop-mercy.png",
+    "recordUrl": "https://github.com/jayjz/biblemap/pull/33",
+    "rights": "BibleMap interface screenshot, 8f43ad6. Contains a disclosed generated reconstruction; no accuracy claim.",
+    "retrieved": "2026-10-30",
+    "sha256": "53c69d7ac316b6291f1d1e9247a25882c21e8c5a73250986f027c3f3fa333632"
+  }
+]

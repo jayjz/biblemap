@@ -2,7 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "feat/root-routing-explore-20261027": false
+      "feat/root-routing-explore-20261027": false,
+      "feat/reader-mercy-anger": false,
+      "feat/jonah-human-experience": false
     }
   }
 }
