@@ -1,0 +1,59 @@
+/* Opt-in exhibition study. Colors separate documentary material from Scripture. */
+.story-root--human {
+  --night: #172c34; --paper: #eee8d9; --ink: #eee8d9;
+  --muted: #b9c7c4; --bronze: #c9bd91; --line: #566b6c;
+  background: var(--night);
+}
+.story-root--human .story-intro { padding-block: 3.5rem 3rem; }
+.story-root--human .story-intro::after { content: none; }
+.story-root--human .story-intro h1 { font-size: clamp(100px, 12vw, 164px); margin-block: 0 1.5rem; line-height: 1.05; }
+.story-root--human .story-eyebrow { text-transform: none; letter-spacing: .015em; }
+.story-root--human .story-invitation { font-size: 20px; line-height: 1.65; }
+.story-root--human .reader-transition .story-scene-header { margin-bottom: 2.5rem; }
+.story-root--human .reader-transition h2 { scroll-margin-top: 5rem; }
+.story-root--human .reader-transition .story-visual { align-self: start; }
+.story-root--human .reader-transition .story-verses { line-height: 1.85; }
+.nineveh-record { font-size: 15px; line-height: 1.65; }
+.nineveh-document { background: #b8b09a; color: #172c34; padding: 1.5rem 2rem 1rem; }
+.nineveh-document-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1rem; font-size: 12px; }
+.nineveh-document h3 { font: 400 24px/1.3 Georgia, serif; letter-spacing: -.015em; padding-block: 1.5rem 2rem; margin: 0; }
+.nineveh-record-name { font: 400 clamp(32px, 3.8vw, 55px)/1.25 Georgia, serif; overflow-wrap: anywhere; }
+.nineveh-record-name small { display: block; font: 12px/1.6 var(--font-geist-sans), Arial, sans-serif; margin-top: .6rem; }
+.nineveh-transfer { display: flex; align-items: center; gap: 1rem; margin: 1.1rem 0 1.4rem; font-size: 12px; }
+.nineveh-transfer > span:first-child { font-size: 28px; }
+.nineveh-sale { margin-top: 2rem; border-top: 1px solid #172c3470; border-bottom: 1px solid #172c3470; }
+.nineveh-sale > summary { display: flex; justify-content: space-between; align-items: center; padding: .9rem 0; min-height: 54px; font-size: 15px; list-style: none; }
+.nineveh-sale > summary::-webkit-details-marker { display: none; }
+.nineveh-sale > summary > span { font-size: 25px; }
+.nineveh-sale[open] > summary > span { transform: rotate(45deg); }
+.nineveh-document :is(summary, button, a):focus-visible { outline-color: #172c34; }
+.nineveh-sale-reading { padding-bottom: 1.5rem; }
+.nineveh-sale-reading dl { margin: 1.5rem 0; }
+.nineveh-sale-reading dl > div { margin-bottom: 1.7rem; }
+.nineveh-sale-reading dt { font: 22px/1.3 Georgia, serif; margin-bottom: .5rem; }
+.nineveh-sale-reading dd { margin: 0; font-size: 14px; }
+.nineveh-sale-reading dd small { display: block; margin-top: .5rem; font-size: 11px; }
+.nineveh-sale-reading > a { display: block; min-height: 44px; padding-block: .5rem; font-size: 13px; }
+.nineveh-sale-reading > button { border-color: #172c34; font-size: 14px; }
+.nineveh-document .nineveh-document-caption { font-size: 11px; line-height: 1.6; margin: 1rem 0 0; }
+.nineveh-record-kind { font-size: 12px; }
+.nineveh-record-context { padding: 1.25rem 0 0; font-size: 12px; color: var(--muted); }
+.nineveh-record-sources summary { font-size: 12px; padding-block: .6rem; min-height: 44px; }
+.nineveh-record-sources a { display: inline-block; min-height: 32px; color: var(--paper); }
+.nineveh-record-sources > a { display: block; padding-block: .5rem; }
+.nineveh-jewish-reading { margin-top: 1rem; max-width: 37rem; font: 15px/1.75 var(--font-geist-sans), Arial, sans-serif; }
+.nineveh-jewish-reading summary { color: var(--muted); }
+.nineveh-jewish-reading summary > span { display: block; font-size: 12px; padding-left: 1rem; }
+.nineveh-jewish-reading > div { padding: .8rem 0 1rem; }
+.nineveh-reading-limit { font-size: 12px; color: var(--muted); }
+.nineveh-jewish-reading a { display: inline-block; min-height: 44px; color: var(--bronze); }
+@media (max-width: 850px) {
+  .nineveh-record { max-width: 32rem; }
+  .nineveh-record-name { font-size: 44px; }
+}
+@media (max-width: 600px) {
+  .story-root--human .story-intro { padding-block: 2.5rem; }
+  .story-root--human .story-intro h1 { font-size: 106px; }
+  .nineveh-document { padding-inline: 1.5rem; }
+  .nineveh-record-name { font-size: 38px; }
+}

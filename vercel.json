@@ -3,7 +3,8 @@
   "git": {
     "deploymentEnabled": {
       "feat/root-routing-explore-20261027": false,
-      "feat/reader-mercy-anger": false
+      "feat/reader-mercy-anger": false,
+      "feat/jonah-human-experience": false
     }
   }
 }

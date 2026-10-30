@@ -45,6 +45,14 @@ jobs:
         run: npm run test:e2e
         env:
           PLAYWRIGHT_REVIEW_SERVER: "1"
+      - name: Build the opt-in human-story reader study
+        run: npm run build
+        env:
+          BIBLEMAP_HUMAN_REVIEW: "1"
+      - name: Verify the human-story study in desktop and mobile browsers
+        run: npx playwright test --config playwright.human.config.ts
+        env:
+          PLAYWRIGHT_PORT: "4194"
       - name: Preserve browser evidence
         if: always()
         uses: actions/upload-artifact@v7

@@ -12,6 +12,7 @@ import { PassageSource, StoryEvidence } from "./StoryEvidence";
 import { SceneDiscovery } from "./SceneDiscovery";
 import { ReaderPlace, ReaderArtifact, ReaderInterpretation } from "./ReaderTransition";
 import { CityInsideName } from "./CityInsideName";
+import { NinevehRecord, NinevehJewishReading } from "./NinevehRecord";
 
 function subscribeHash(onChange: () => void) {
   window.addEventListener("hashchange", onChange);
@@ -21,7 +22,8 @@ function subscribeHash(onChange: () => void) {
 const getHash = () => window.location.hash;
 const serverHash = () => null;
 
-export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [], openMedia = [], transitionReview = false }: { story: StoryDocument; transitionReview?: boolean; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[]; openMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] }) {
+export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [], openMedia = [], transitionReview = false, humanReview = false }: { story: StoryDocument; humanReview?: boolean; transitionReview?: boolean; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[]; openMedia?: readonly { sceneIds: readonly string[]; asset: CuratedMediaAsset }[] }) {
+  const chapterTurn = transitionReview || humanReview;
   const hash = useSyncExternalStore(subscribeHash, getHash, serverHash);
   const active = sceneFromHash(story, hash ?? "");
   const [reflections, setReflections] = useState<Record<string, string>>({});
@@ -49,7 +51,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
       focusScene(id);
     };
     const pair = ["jonah-3-mercy", "jonah-4-anger"];
-    if (transitionReview && active.id !== id && pair.includes(active.id) && pair.includes(id)
+    if (chapterTurn && active.id !== id && pair.includes(active.id) && pair.includes(id)
       && document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       sceneTransition.current = document.startViewTransition(move);
       return;
@@ -83,7 +85,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
     }
   }, [hash, active.id]);
 
-  return <div className={`story-root${transitionReview ? " story-root--transition-review" : ""}`} ref={root} data-reader-ready={hash !== null} data-active-scene={active.id}
+  return <div className={`story-root${chapterTurn ? " story-root--transition-review" : ""}${humanReview ? " story-root--human" : ""}`} ref={root} data-reader-ready={hash !== null} data-active-scene={active.id}
     style={{ ["--story-fade-ms" as string]: `${MOTION.captionDelayMs}ms`, ["--story-ease" as string]: MOTION.easeEnter }}>
     <a className="story-skip" href={`#${active.id}-heading`} onClick={event => {
       if (hash === null) return;
@@ -98,10 +100,12 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
     </header>
     <main id="story-main">
       <div className="story-intro">
-        <p className="story-eyebrow">The book of Jonah <span aria-hidden="true">/</span> A journey in six movements</p>
-        <h1>{story.title}<span>{story.subtitle}</span></h1>
+        <p className="story-eyebrow">{humanReview ? "The book of Jonah" : <>The book of Jonah <span aria-hidden="true">/</span> A journey in six movements</>}</p>
+        <h1>{story.title}{!humanReview && <span>{story.subtitle}</span>}</h1>
+        {humanReview ? <p className="story-invitation">Four chapters. Thirteen scenes.<br />Read at your own pace.</p> : <>
         <p className="story-invitation">A conversation. A responsibility. A truth about ourselves.</p>
         <p className="story-invitation story-recognition">Sometimes, leaving feels easier.</p>
+        </>}
         <div className="story-intro-meta"><span>All four chapters</span><span>World English Bible</span><span>At your own pace · In silence</span></div>
         <a className="story-begin" href={`#${active.id}`} onClick={e => navigate(e, active.id)}>Begin reading <span aria-hidden="true">↓</span></a>
       </div>
@@ -126,7 +130,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         const supplemental = open && mayPublishMedia(open) ? open : undefined;
         const preview = (authorReview || localReview) ? previewMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset : undefined;
         const artwork = fromStory ?? supplemental ?? preview;
-        const transition = transitionReview && (scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger");
+        const transition = chapterTurn && (scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger");
         const displayLabel = transition ? (scene.id === "jonah-3-mercy" ? "Nineveh" : "Jonah’s response") : label;
         const turnVerse = transition && scene.id === "jonah-3-mercy" ? passage?.verses.find(verse => verse.number === 10) : undefined;
         const isActive = hash !== null && active.id === scene.id;
@@ -155,9 +159,10 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
               <p className="reader-turn-reference">Jonah 3:10</p>
               <div className="story-verses"><p tabIndex={-1} data-verse={turnVerse.number} data-reference="3:10"><sup aria-label={`Verse ${turnVerse.number}`}>{turnVerse.number}</sup>{turnVerse.text}</p></div>
               <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>
+              {humanReview && <NinevehJewishReading />}
             </section>}
             <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={transition && scene.id === "jonah-4-anger" ? "Optional theological interpretation" : scene.id === "jonah-3-mercy" ? "Optional Nineveh place encounter" : authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
-              {transition ? (scene.id === "jonah-3-mercy" ? <ReaderArtifact /> : <ReaderInterpretation />) : scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
+              {transition ? (scene.id === "jonah-3-mercy" ? (humanReview ? <NinevehRecord /> : <ReaderArtifact />) : <ReaderInterpretation />) : scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
               {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 {authorReview && scene.title.status === "placeholder" && <p className="story-placeholder">[AUTHOR: scene title · provisional section label shown]</p>}

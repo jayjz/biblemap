@@ -23,6 +23,27 @@ build/
 *.tsbuildinfo
 playwright-report/
 test-results/
+playwright-report-nineveh/
+test-results-nineveh/
+
+# Full-book traversal captures remain local; retain selected comparisons in Git.
+artifacts/jonah-human/before/*.png
+!artifacts/jonah-human/before/1440-entry.png
+!artifacts/jonah-human/before/1440-jonah-3-mercy.png
+!artifacts/jonah-human/before/1440-jonah-4-anger.png
+!artifacts/jonah-human/before/390-jonah-3-mercy-full.png
+!artifacts/jonah-human/before/complete-reader.png
+artifacts/jonah-human/study-one/*.png
+!artifacts/jonah-human/study-one/1440-jonah-3-mercy.png
+artifacts/jonah-human/after/*.png
+!artifacts/jonah-human/after/1440-entry.png
+!artifacts/jonah-human/after/1440-jonah-3-mercy.png
+!artifacts/jonah-human/after/1440-jonah-4-anger.png
+!artifacts/jonah-human/after/390-jonah-3-mercy-full.png
+!artifacts/jonah-human/after/complete-reader.png
+!artifacts/jonah-human/after/1440-record-open.png
+!artifacts/jonah-human/after/390-turn-and-reading.png
+!artifacts/jonah-human/after/390-chapter-turn.png
 
 # Supplied copies held outside static export pending review; preserve locally.
 artifacts/jonah-image-review/publication-hold/
