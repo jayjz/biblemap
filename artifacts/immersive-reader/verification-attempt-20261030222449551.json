@@ -1,0 +1,25 @@
+{
+  "runtime": "v25.0.0",
+  "platform": "win32",
+  "defaults": {
+    "CHROME_PATH": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "PLAYWRIGHT_PORT": "4205",
+    "EXPERIMENT_PORT": "4205",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "BIBLEMAP_READER_TRANSITION_REVIEW": "",
+    "BIBLEMAP_NINEVEH_REVIEW": "",
+    "PLAYWRIGHT_REVIEW_SERVER": ""
+  },
+  "reportArchive": "C:\\Users\\jcoul\\AppData\\Local\\Temp\\biblemap-reader-reports\\1793399089551",
+  "results": [
+    {
+      "id": "dependencies",
+      "command": "npm.cmd ci",
+      "env": {},
+      "startedAt": "2026-10-30T22:24:49.551Z",
+      "completedAt": "2026-10-30T22:24:50.738Z",
+      "exitCode": 4294963248,
+      "summary": []
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { flushSync } from "react-dom";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { approvedAuthoredText, authoredLabel, sceneFromHash, type StoryDocument } from "@/domain/story";
 import { mayPublishMedia, type CuratedMediaAsset } from "@/domain/media";
@@ -9,7 +10,7 @@ import { AudioTrack, StoryArtwork } from "./StoryMedia";
 import { PassageSource, StoryEvidence } from "./StoryEvidence";
 
 import { SceneDiscovery } from "./SceneDiscovery";
-import { ReaderEnvironment, ReaderArtifact, ReaderInterpretation } from "./ReaderTransition";
+import { ReaderPlace, ReaderArtifact, ReaderInterpretation } from "./ReaderTransition";
 import { CityInsideName } from "./CityInsideName";
 
 function subscribeHash(onChange: () => void) {
@@ -27,6 +28,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
   const [cleared, setCleared] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const lastScene = useRef<string | null>(null);
+  const sceneTransition = useRef<ViewTransition | null>(null);
   const focusScene = (id: string) => {
     const heading = document.getElementById(`${id}-heading`);
     heading?.focus({ preventScroll: true });
@@ -35,6 +37,23 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
   const navigate = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
+    sceneTransition.current?.skipTransition();
+    const move = () => {
+      // The browser snapshot must see the new scene and its final scroll position.
+      flushSync(() => {
+        if (window.location.hash !== `#${id}`) {
+          window.history.pushState(null, "", `#${id}`);
+          window.dispatchEvent(new PopStateEvent("popstate"));
+        }
+      });
+      focusScene(id);
+    };
+    const pair = ["jonah-3-mercy", "jonah-4-anger"];
+    if (transitionReview && active.id !== id && pair.includes(active.id) && pair.includes(id)
+      && document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      sceneTransition.current = document.startViewTransition(move);
+      return;
+    }
     if (window.location.hash !== `#${id}`) {
       window.history.pushState(null, "", `#${id}`);
       window.dispatchEvent(new PopStateEvent("popstate"));
@@ -64,7 +83,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
     }
   }, [hash, active.id]);
 
-  return <div className="story-root" ref={root} data-reader-ready={hash !== null} data-active-scene={active.id}
+  return <div className={`story-root${transitionReview ? " story-root--transition-review" : ""}`} ref={root} data-reader-ready={hash !== null} data-active-scene={active.id}
     style={{ ["--story-fade-ms" as string]: `${MOTION.captionDelayMs}ms`, ["--story-ease" as string]: MOTION.easeEnter }}>
     <a className="story-skip" href={`#${active.id}-heading`} onClick={event => {
       if (hash === null) return;
@@ -108,16 +127,17 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         const preview = (authorReview || localReview) ? previewMedia.find(entry => entry.sceneIds.includes(scene.id))?.asset : undefined;
         const artwork = fromStory ?? supplemental ?? preview;
         const transition = transitionReview && (scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger");
+        const displayLabel = transition ? (scene.id === "jonah-3-mercy" ? "Nineveh" : "Jonah’s response") : label;
+        const turnVerse = transition && scene.id === "jonah-3-mercy" ? passage?.verses.find(verse => verse.number === 10) : undefined;
         const isActive = hash !== null && active.id === scene.id;
         return <article id={scene.id} key={scene.id} hidden={hash !== null && !isActive} className={`story-scene${transition ? " reader-transition" : ""}${index < 3 ? " story-opening-scene" : ""}${scene.id === "jonah-4-question" ? " story-final-question" : ""}`} data-scene={scene.id} data-chapter={scene.chapter} data-section={scene.sectionId} data-transition={scene.transition.visual}>
           <div className="story-scene-header">
             <div><p className="story-eyebrow">Chapter {String(scene.chapter).padStart(2, "0")} <span aria-hidden="true">/</span> {String(index + 1).padStart(2, "0")} of {String(story.scenes.length).padStart(2, "0")}</p>
-              <h2 id={`${scene.id}-heading`} tabIndex={-1}>{label}</h2>
+              <h2 id={`${scene.id}-heading`} tabIndex={-1}>{displayLabel}</h2>
               <p className="story-reference">Jonah {scene.chapter}:{passage?.firstVerse}{passage && passage.lastVerse !== passage.firstVerse ? `–${passage.lastVerse}` : ""}</p>
             </div>
-            <span className="story-scene-mark" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+            {transition ? <ReaderPlace sceneId={scene.id} /> : <span className="story-scene-mark" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>}
           </div>
-          {transition && <ReaderEnvironment />}
           <div className="story-columns">
             <div className="story-reading">
               {scene.passageIds.map(id => {
@@ -125,12 +145,17 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
                 if (!p) return null;
                 return <section key={p.id} aria-label={`Scripture: Jonah ${p.chapter}:${p.firstVerse}–${p.lastVerse}`}>
                   <p className="story-eyebrow">Scripture <span aria-hidden="true">/</span> World English Bible</p>
-                  <div className="story-verses">{p.verses.map(v => <p key={v.number} tabIndex={scene.id === "jonah-3-mercy" ? -1 : undefined} data-verse={v.number} data-reference={`${p.chapter}:${v.number}`}><sup aria-label={`Verse ${v.number}`}>{v.number}</sup>{v.text}</p>)}</div>
+                  <div className="story-verses">{p.verses.filter(verse => verse !== turnVerse).map(v => <p key={v.number} tabIndex={scene.id === "jonah-3-mercy" ? -1 : undefined} data-verse={v.number} data-reference={`${p.chapter}:${v.number}`}><sup aria-label={`Verse ${v.number}`}>{v.number}</sup>{v.text}</p>)}</div>
                 </section>;
               })}
-              {scene.id === "jonah-3-mercy" && <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>}
+              {scene.id === "jonah-3-mercy" && !turnVerse && <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>}
               {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p></div>}
             </div>
+            {turnVerse && <section className="story-reading reader-turn" aria-label="Scripture: Jonah 3:10">
+              <p className="reader-turn-reference">Jonah 3:10</p>
+              <div className="story-verses"><p tabIndex={-1} data-verse={turnVerse.number} data-reference="3:10"><sup aria-label={`Verse ${turnVerse.number}`}>{turnVerse.number}</sup>{turnVerse.text}</p></div>
+              <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>
+            </section>}
             <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={transition && scene.id === "jonah-4-anger" ? "Optional theological interpretation" : scene.id === "jonah-3-mercy" ? "Optional Nineveh place encounter" : authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
               {transition ? (scene.id === "jonah-3-mercy" ? <ReaderArtifact /> : <ReaderInterpretation />) : scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
               {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p>{authorReview && <small>Provisional editorial prompt</small>}</div>}
@@ -169,7 +194,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
             </div>
           </details>
           {index === story.scenes.length - 1 && <section className="story-ending"><p className="story-eyebrow">The book ends here</p><h3>A question, left open.</h3><p>Take your time.</p><div className="story-ending-links"><Link href="/" prefetch={false} onClick={clear}>Return to the stories ↗</Link><Link href="/explore/" prefetch={false} onClick={clear}>Open the atlas ↗</Link></div></section>}
-          <nav className="story-scene-nav" aria-label={`${label} scene navigation`}>
+          <nav className="story-scene-nav" aria-label={`${displayLabel} scene navigation`}>
             {index > 0 ? <a href={`#${story.scenes[index - 1].id}`} onClick={e => navigate(e, story.scenes[index - 1].id)}>← Previous</a> : <span>Begin here</span>}
             <span>{index + 1} / {story.scenes.length}</span>
             {scene.transition.nextSceneId ? <a className="story-next" href={`#${scene.transition.nextSceneId}`} onClick={e => navigate(e, scene.transition.nextSceneId!)}>Continue <span aria-hidden="true">→</span></a> : <a className="story-next" href={`#${story.scenes[0].id}`} onClick={e => navigate(e, story.scenes[0].id)}>Read again <span aria-hidden="true">↗</span></a>}

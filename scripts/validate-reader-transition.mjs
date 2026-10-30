@@ -8,6 +8,8 @@ assert.equal(record.reviewedBy,null);
 assert.ok(!existsSync('public/review-assets/reader-panorama.webp'));
 assert.ok(!existsSync('out/review-assets/reader-panorama.webp'));
 assert.ok(!readFileSync('out/jonah/index.html','utf8').includes('reader-environment'));
+assert.ok(!readFileSync('out/jonah/index.html','utf8').includes('reader-transition'));
+assert.ok(!readFileSync('out/jonah/index.html','utf8').includes('reader-place'));
 const vercel=JSON.parse(readFileSync('vercel.json','utf8'));
 assert.equal(vercel.git.deploymentEnabled['feat/reader-mercy-anger'],false);
 console.log('Ordinary reader excludes prototype; generated media hash and publication boundary verified.');

@@ -3,7 +3,7 @@ import { spawn } from 'node:child_process';
 import { createWriteStream, readFileSync, writeFileSync, existsSync, mkdirSync, renameSync, copyFileSync } from 'node:fs';
 import { resolve, join, relative } from 'node:path';
 import { tmpdir } from 'node:os';
-const directory='artifacts/reader-transition';
+const directory='artifacts/immersive-reader';
 if (existsSync(`${directory}/verification-results.json`) && !existsSync(`${directory}/verification-previous.json`)) copyFileSync(`${directory}/verification-results.json`,`${directory}/verification-previous.json`);
 if (existsSync(`${directory}/verification-results.json`)) {
   const prior=JSON.parse(readFileSync(`${directory}/verification-results.json`,'utf8'));
@@ -21,7 +21,8 @@ function archiveReports() {
 }
 archiveReports();
 let server;
-const defaults={ CHROME_PATH:process.env.CHROME_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe', PLAYWRIGHT_PORT:'4203', EXPERIMENT_PORT:'4203', NEXT_TELEMETRY_DISABLED:'1', BIBLEMAP_READER_TRANSITION_REVIEW:'', BIBLEMAP_NINEVEH_REVIEW:'', PLAYWRIGHT_REVIEW_SERVER:'' };
+const port=process.env.PLAYWRIGHT_PORT??'4203';
+const defaults={ CHROME_PATH:process.env.CHROME_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe', PLAYWRIGHT_PORT:port, EXPERIMENT_PORT:port, NEXT_TELEMETRY_DISABLED:'1', BIBLEMAP_READER_TRANSITION_REVIEW:'', BIBLEMAP_NINEVEH_REVIEW:'', PLAYWRIGHT_REVIEW_SERVER:'' };
 async function run(id,command,args=[],extra={}) {
   const log=createWriteStream(`${directory}/${id}.log`);
   const startedAt=new Date().toISOString(); let output='';
@@ -45,7 +46,7 @@ async function startServer(extra={}) {
   server.stdout.pipe(log,{end:false}); server.stderr.pipe(log,{end:false});
   for(let attempt=0;attempt<80;attempt++) {
     if(server.exitCode!==null) throw new Error('Review server exited');
-    try { const response=await fetch('http://127.0.0.1:4203/jonah/'); if(response.ok) return; } catch(error) { if(!(error instanceof TypeError)) throw error; }
+    try { const response=await fetch(`http://127.0.0.1:${port}/jonah/`); if(response.ok) return; } catch(error) { if(!(error instanceof TypeError)) throw error; }
     await new Promise(resolveWait=>setTimeout(resolveWait,250));
   }
   throw new Error('Local server did not become ready');
@@ -71,6 +72,6 @@ try {
   await startServer({BIBLEMAP_READER_TRANSITION_REVIEW:'1'});
   await run('review-browsers','npm',['run','test:e2e'],{PLAYWRIGHT_REVIEW_SERVER:'1'});
   await run('reader-browsers','node',['node_modules/@playwright/test/cli.js','test','-c','playwright.reader.config.ts']);
-  await run('final-captures','node',['scripts/capture-reader-transition.mjs','after']);
+  await run('final-captures','node',['scripts/capture-immersive-reader.mjs','after']);
   await run('whitespace','git',['diff','--check']);
 } finally { await stopServer(); }

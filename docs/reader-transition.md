@@ -1,5 +1,7 @@
 # Mercy → Anger: reader composition study
 
+**30 October continuation:** [Clay, river, and the chapter break](reader-art-direction.md) supersedes this initial composition. The generated panorama is no longer rendered in Mercy or Anger. Current before/after evidence and verification live in `artifacts/immersive-reader/`; this document preserves the first study's source and review history.
+
 Draft for creative review. No historical, theological or human editorial approval is claimed.
 
 ## Review locally

@@ -21,6 +21,12 @@ createServer((request, response) => {
   if (path === '/review-assets/reader-panorama.webp' && process.env.BIBLEMAP_READER_TRANSITION_REVIEW === '1') {
     response.setHeader('Content-Type', 'image/webp'); response.end(readFileSync('artifacts/reader-transition/media/panorama.webp')); return;
   }
+  if (path === '/reader-review/' || /^\/reader-review\/[a-z0-9-]+\.png$/.test(path) || path === '/reader-review/after.json') {
+    const file = resolve('artifacts/immersive-reader', path === '/reader-review/' ? 'index.html' : path.slice('/reader-review/'.length));
+    if (!existsSync(file)) { response.writeHead(404).end('Capture the reader review first.'); return; }
+    response.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    response.setHeader('Content-Type', types[extname(file)]); response.end(readFileSync(file)); return;
+  }
   const depthAsset = depthMedia.assets.find(asset => asset.reviewUrl === path);
   if (depthAsset) {
     // Explicit local-review allowlist. Restricted/unverified images never leave the server.
