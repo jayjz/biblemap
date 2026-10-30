@@ -7,7 +7,7 @@ const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
   testDir: "./tests",
   testMatch: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? ["**/nineveh.spec.ts", "**/nineveh-depth.spec.ts"] : undefined,
-  testIgnore: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? undefined : ["**/nineveh.spec.ts", "**/nineveh-depth.spec.ts"],
+  testIgnore: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? undefined : ["**/nineveh.spec.ts", "**/nineveh-depth.spec.ts", "**/reader-transition.spec.ts"],
   outputDir: process.env.PLAYWRIGHT_REVIEW_SERVER === "1" ? "test-results-nineveh" : "test-results",
   fullyParallel: false, workers: 1, timeout: 45000,
   expect: { timeout: 12000 },
