@@ -1,0 +1,29 @@
+# Human Story verification and milestone log
+
+Review branch: `feat/human-story-portal`, PR #36. No merge or deployment authorized. Branch deployment is explicitly disabled in `vercel.json`, following [Vercel's branch configuration](https://vercel.com/docs/project-configuration/git-configuration).
+
+## Milestone 1 — entrance and navigation
+
+Replaced the generic sunset with a source-specific, full-frame Jonah sculpture and a connected-world composition. Added all five navigation doors and a shared semantic page frame. The source descriptions and external reading entrances are interim routes; subsequent milestones turn them into local connected reading rooms.
+
+- `npm ci`: pass; existing dependency audit reports 45 findings. No lockfile change or dependency added.
+- `npm run lint`: pass with the same four existing warnings (DataLoader and validate-nineveh-depth).
+- `npx tsc --noEmit`: pass after build. Build/typecheck cannot run concurrently because Next regenerates route types.
+- `npm run build`: pass, static export; existing pinned Scripture and media validators pass.
+- `npm run test`: 25 pass. Sandbox blocked one invocation with EPERM; approved rerun passed.
+- Targeted Playwright: 4 pass, desktop/mobile; keyboard skip link, axe WCAG A/AA, no-JS reader link and 320px overflow.
+- Browser inspection and screenshots: 320, 390, 820, 1440px, no overflow or page errors. First-pass screenshots in `artifacts/human-story/after/`; baseline in `before/`. Baseline request failures were aborted Next link prefetches during navigation, not unavailable core resources; redesigned entrance uses normal navigation or disables prefetch. No failed requests in the milestone capture.
+- Reproduced and fixed Windows-only QA launcher failure: `python3` is a Store alias; `python --version` is 3.15.0. Playwright now uses `python` on Windows and retains `python3` elsewhere.
+
+Rights: reused `/media/nineveh-depth/jonah-vine.webp` without modification. Exact CMA record [1965.239](https://www.clevelandart.org/art/1965.239) re-read November 1, 2026: public domain, copying/modification/distribution permitted. Existing CC0 manifest and SHA-256 remain in `src/features/nineveh/depth-media.json`. Unknown sculptor, Anatolia, 280–290 CE; later artistic reception, never an Assyrian reconstruction. Original inline linework is interface ornament, not geography or a historical route.
+
+Diff review: existing Nineveh/Jonah/Atlas implementation and source/release gates untouched. No new third-party assets, quotations or dependencies. Exclude the pre-existing `next-env.d.ts` modification and unrelated artifacts from every commit.
+
+| Before | After | Why |
+| --- | --- | --- |
+| Generic CSS sunset | Full, attributed Jonah sculpture | Begin with actual subject matter; disclose later reception |
+| Four mixed navigation items | Five named worlds | Make the larger scope legible |
+| No source-specific visual relationship | Scripture entry beside later artwork | Distinguish the text and its reception |
+| Experimental copy dominates the opening | Review metadata in native disclosure | Keep evidence available while foregrounding exploration |
+
+Editorial acceptance and independent visitor comprehension remain untested. Technical checks do not establish emotional response.
