@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import type { MouseEvent } from "react";
 import {
   PRISON_SCENES,
@@ -10,14 +16,6 @@ import {
 import { PrisonDiagram } from "./PrisonDiagram";
 import styles from "./prison.module.css";
 
-function subscribeHash(update: () => void) {
-  window.addEventListener("hashchange", update);
-  window.addEventListener("popstate", update);
-  return () => {
-    window.removeEventListener("hashchange", update);
-    window.removeEventListener("popstate", update);
-  };
-}
 const getHash = () => window.location.hash;
 const getServerHash = () => null;
 
@@ -158,22 +156,40 @@ function RelationshipScene({
 }
 
 export function PrisonStage() {
+  const requestedFocus = useRef(false);
+  const subscribeHash = useCallback((update: () => void) => {
+    const restoreSceneFocus = () => {
+      // History can hide the focused scene, just as a scene link does.
+      requestedFocus.current = true;
+      update();
+    };
+    window.addEventListener("hashchange", update);
+    // Mark focus before the router handles the same history event.
+    window.addEventListener("popstate", restoreSceneFocus, true);
+    return () => {
+      window.removeEventListener("hashchange", update);
+      window.removeEventListener("popstate", restoreSceneFocus, true);
+    };
+  }, []);
   const hash = useSyncExternalStore<string | null>(
     subscribeHash,
     getHash,
     getServerHash,
   );
   const view = prisonView(hash);
-  const requestedFocus = useRef(false);
   const stage = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!requestedFocus.current) return;
-    stage.current
-      ?.querySelector<HTMLElement>(
-        view.all ? "#all-scenes-title" : `#title-${view.scene.id}`,
-      )
-      ?.focus();
-    requestedFocus.current = false;
+    // Let history finish restoring the document before restoring scene focus.
+    const frame = window.requestAnimationFrame(() => {
+      stage.current
+        ?.querySelector<HTMLElement>(
+          view.all ? "#all-scenes-title" : `#title-${view.scene.id}`,
+        )
+        ?.focus();
+      requestedFocus.current = false;
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [view.scene.id, view.all]);
 
   function navigate(event: MouseEvent<HTMLAnchorElement>, id: string) {
@@ -201,7 +217,7 @@ export function PrisonStage() {
   }
 
   return (
-    <div className={styles.stage} ref={stage} data-prison-ready={view.enhanced}>
+    <div ref={stage} data-prison-ready={view.enhanced}>
       <div className={styles.sceneBar}>
         <nav aria-label="Scenes in The Prison">
           {PRISON_SCENES.map((scene, index) => (

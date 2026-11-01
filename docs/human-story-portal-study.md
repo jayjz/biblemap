@@ -2,6 +2,8 @@
 
 This is the current review surface for PR #36, on `feat/human-story-portal`. It replaces the seed's generic sunset and external teasers with five connected worlds. The creator's [November 1 scope correction](https://github.com/jayjz/biblemap/pull/36#issuecomment-6561745828) supersedes the earlier narrow proposal. No homepage swap, merge, closure or deployment is authorized.
 
+This document is the implementation inventory for human review. The [verification record](human-story-verification.md) is the canonical check and milestone history; the earlier handoff and design plan remain historical context. The final cleanup is limited to verified defects and documentation. Further development requires a new brief.
+
 The existing Nineveh `/`, full Jonah reader `/jonah/`, Atlas `/explore/`, Exodus and legacy deep links remain intact. Start the new experience at `/human-story/`.
 
 The later narrative direction changes the emphasis: the collection supports an encounter rather than being the creative result itself. [Three detailed treatments and visual storyboards](human-story-narrative-treatments.md) precede implementation. **Perpetua — The Prison** replaces the common reading layout on its existing route with a complete, six-scene interactive narrative. Augustine — The Garden and The Witnesses — Rome Remembers remain distinct treatments, not falsely claimed implemented experiences.
@@ -33,6 +35,6 @@ Read the three medium-neutral alternatives and the seed critique in [human-story
 - [Retained legacy research archive](human-story-codex-handoff.md)
 - Screenshots: `artifacts/human-story/before/` and `artifacts/human-story/after/`
 
-Use the installed Anthropic frontend-design, Addy Osmani accessibility and Emil design engineering skills for this review. No additional skill package or production dependency was installed. A temporary formatter makes the new content and components inspectable.
+The original design work used frontend-design, accessibility and Emil design engineering guidance. No additional skill package or production dependency was installed; temporary formatting made the new content and components inspectable.
 
 Editorial questions remain open: the accuracy and framing of each new paraphrase, especially the Hebrew-based Radak summary; the intelligibility of cross-era comparisons; the appropriate relationship between the new entrance and Nineveh; and independent visitor comprehension. Automated checks do not establish a person's emotional response or constitute theological publication approval.

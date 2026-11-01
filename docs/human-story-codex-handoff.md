@@ -1,6 +1,6 @@
 # Codex handoff — BibleMap Human Story redesign
 
-Status: working brief for the next implementation agent, November 1, 2026. This document records design inputs and **review branches**, not publication approval.
+Status: archived implementation brief, November 1, 2026. The seed descriptions and development steps below record earlier design inputs, not current work authorization. The [review inventory](human-story-portal-study.md) and [verification record](human-story-verification.md) describe the implemented checkpoint. Development is stopped for human review; no further milestone, merge or deployment is authorized. Preserve the research links below.
 
 ## Baseline and active task
 

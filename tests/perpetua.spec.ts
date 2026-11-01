@@ -98,8 +98,14 @@ test("scene links, history, keyboard relationships and full reading retain contr
   await expect(meaning).toHaveAttribute("aria-pressed", "true");
   await page.goBack();
   await expect(page.locator('[data-scene="separation"]')).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "She asks for her child." }),
+  ).toBeFocused();
   await page.goForward();
   await expect(page.locator('[data-scene="vision"]')).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "The account changes register." }),
+  ).toBeFocused();
   await page
     .getByRole("link", { name: "Read all six scenes", exact: true })
     .click();

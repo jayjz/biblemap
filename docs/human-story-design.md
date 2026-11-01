@@ -38,7 +38,7 @@ Source boundaries and route back to Nineveh
 
 Left align reading. Vary composition by content rather than repeating five identical category grids. Native links and disclosures work before hydration. Client interaction progressively filters an already rendered collection; it never fetches core content. No scroll traps, autoplay, timed reveals or decorative movement. Press feedback only on pointer activation, under 160ms; respect reduced motion. Keep each connection's kind, source and editorial review state inspectable.
 
-## Milestones and verification
+## Original milestone plan (historical)
 
 1. Entrance, five-world navigation, reusable reading shell, creative comparison and baseline screenshots.
 2. Scripture-led reading rooms and a typed, validated relationship graph.
@@ -47,7 +47,7 @@ Left align reading. Vary composition by content rather than repeating five ident
 5. Interpretive voices, art, language and Atlas links; multiple paths across worlds.
 6. Browser refinement, keyboard/axe, responsive, reduced-motion, no-JS, missing media, ordinary and review regression suites.
 
-Each milestone receives lint, typecheck, build, applicable tests, diff review, a conventional commit and a confirmed push on the existing branch. No merge or deployment. Record final screenshots, checks, commit SHAs and editorial questions in `docs/human-story-verification.md`.
+This plan has concluded. The [verification record](human-story-verification.md) retains executed checks, commit history and editorial questions; the [review inventory](human-story-portal-study.md) describes the resulting implementation. These historical steps do not authorize another milestone.
 
 ## Initial workspace and baseline
 
