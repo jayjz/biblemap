@@ -10,27 +10,80 @@ import { AtlasConnections } from "@/features/human-story/AtlasConnections";
 import styles from "@/features/human-story/human-story.module.css";
 
 export const dynamicParams = false;
-export function generateStaticParams() { return WORLDS.map(world => ({ world: world.id })); }
-export async function generateMetadata({ params }: { params: Promise<{ world: string }> }): Promise<Metadata> {
-  const { world: id } = await params;
-  const world = WORLDS.find(candidate => candidate.id === id);
-  return { title: `${world?.name ?? "Explore"} — The Human Story — BibleMap`, description: world?.description };
+export function generateStaticParams() {
+  return WORLDS.map((world) => ({ world: world.id }));
 }
-export default async function HumanStoryWorld({ params }: { params: Promise<{ world: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ world: string }>;
+}): Promise<Metadata> {
   const { world: id } = await params;
-  const world = WORLDS.find(candidate => candidate.id === id);
+  const world = WORLDS.find((candidate) => candidate.id === id);
+  return {
+    title: `${world?.name ?? "Explore"} — The Human Story — BibleMap`,
+    description: world?.description,
+  };
+}
+export default async function HumanStoryWorld({
+  params,
+}: {
+  params: Promise<{ world: string }>;
+}) {
+  const { world: id } = await params;
+  const world = WORLDS.find((candidate) => candidate.id === id);
   if (!world) notFound();
-  const entries = HUMAN_GRAPH.entries.filter(entry => entry.worlds.includes(world.id));
-  return <HumanStoryFrame activeWorld={world.id}>
-    <header className={styles.worldHeader}><Link prefetch={false} href="/human-story/">The human story</Link><h1>{world.name}</h1><p>{world.description}</p></header>
-    <section className={styles.worldReadings} aria-label={`${world.name} readings`}>
-      {world.id === "witnesses" && <WitnessComparison />}
-      {world.id === "saints" && <aside className={styles.saintNote}><h2>Who tells the life?</h2><p>Perpetua’s attributed words inside an editor’s frame. Augustine and Teresa remembering their own lives. Francis remembered in a later collection of tales.</p><p>The distance between a person and the account is part of the story.</p></aside>}
-      {world.id === "atlas" && <AtlasConnections />}
-      {world.id === "voices" && <aside className={styles.saintNote}><h2>Words become worlds.</h2><p>A plant changes its name. A biblical scene moves onto a ceiling. A community sings. Follow interpreters, makers and readers while preserving their differences.</p></aside>}
-      <EntryCards entries={entries} />
-      <p className={styles.worldInvitation}>Each reading opens into other worlds. Follow its connections to a person, a place, another text or a later work.</p>
-      <Link prefetch={false} href="/human-story/#paths">Explore paths across the five worlds</Link>
-    </section>
-  </HumanStoryFrame>;
+  const entries = HUMAN_GRAPH.entries.filter((entry) =>
+    entry.worlds.includes(world.id),
+  );
+  return (
+    <HumanStoryFrame activeWorld={world.id}>
+      <header className={styles.worldHeader}>
+        <Link prefetch={false} href="/human-story/">
+          The human story
+        </Link>
+        <h1>{world.name}</h1>
+        <p>{world.description}</p>
+      </header>
+      <section
+        className={styles.worldReadings}
+        aria-label={`${world.name} readings`}
+      >
+        {world.id === "witnesses" && <WitnessComparison />}
+        {world.id === "saints" && (
+          <aside className={styles.saintNote}>
+            <h2>Who tells the life?</h2>
+            <p>
+              Perpetua’s attributed words inside an editor’s frame. Augustine
+              and Teresa remembering their own lives. Francis remembered in a
+              later collection of tales.
+            </p>
+            <p>
+              The distance between a person and the account is part of the
+              story.
+            </p>
+          </aside>
+        )}
+        {world.id === "atlas" && <AtlasConnections />}
+        {world.id === "voices" && (
+          <aside className={styles.saintNote}>
+            <h2>Words become worlds.</h2>
+            <p>
+              A plant changes its name. A biblical scene moves onto a ceiling. A
+              community sings. Follow interpreters, makers and readers while
+              preserving their differences.
+            </p>
+          </aside>
+        )}
+        <EntryCards entries={entries} />
+        <p className={styles.worldInvitation}>
+          Each reading opens into other worlds. Follow its connections to a
+          person, a place, another text or a later work.
+        </p>
+        <Link prefetch={false} href="/human-story/#paths">
+          Explore paths across the five worlds
+        </Link>
+      </section>
+    </HumanStoryFrame>
+  );
 }

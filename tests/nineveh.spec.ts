@@ -45,8 +45,9 @@ test("four beats keep Nineveh present, exact Scripture, history, sources and rea
   await expect(page.locator("h1")).toBeFocused();
   await expect(page.locator(".nineveh")).toHaveAttribute("data-beat", "question");
   await page.getByRole("link", { name: "Continue · Jonah 4:5–11" }).click();
+  await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await expect(page.locator('[data-scene="jonah-4-shade"]')).toBeVisible();
-  await page.getByRole("link", { name: "Continue", exact: true }).click();
+  await page.locator('[data-scene="jonah-4-shade"]').getByRole("link", { name: "Continue", exact: true }).click();
   await expect(page.locator('[data-reference="4:11"]')).toContainText(chapter4.verses[10].text);
   expect(failures).toEqual([]);
 });
