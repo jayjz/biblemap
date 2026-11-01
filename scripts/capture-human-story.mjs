@@ -28,6 +28,13 @@ const server = createServer(async (request, response) => {
     const path = decodeURIComponent(
       new URL(request.url, "http://localhost").pathname,
     );
+    if (path === "/review-storyboards/") {
+      response.setHeader("Content-Type", "text/html; charset=utf-8");
+      response.end(
+        await readFile(resolve("docs/storyboards/human-story-narratives.html")),
+      );
+      return;
+    }
     let file = resolve(root, "." + path);
     if (file !== root && !file.startsWith(root + sep)) {
       response.writeHead(403).end();
@@ -59,9 +66,12 @@ try {
   const errors = [],
     failed = [],
     httpErrors = [];
-  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("pageerror", (error) =>
+    errors.push({ route: page.url(), message: error.message }),
+  );
   page.on("console", (message) => {
-    if (message.type() === "error") errors.push(message.text());
+    if (message.type() === "error")
+      errors.push({ route: page.url(), message: message.text() });
   });
   page.on("requestfailed", (request) =>
     failed.push({ url: request.url(), reason: request.failure()?.errorText }),
@@ -99,9 +109,66 @@ try {
     ]) {
       await page.setViewportSize({ width: 1440, height: 1000 });
       await page.goto(`http://127.0.0.1:4196/human-story/${slug}/`);
+      if (slug === "perpetua")
+        await page.locator('[data-prison-ready="true"]').waitFor();
       await page.screenshot({
         path: resolve(destination, `${slug}-1440.png`),
         fullPage: true,
+      });
+    }
+    for (const width of [320, 390, 820, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      for (const scene of [
+        "child",
+        "tribunal",
+        "separation",
+        "vision",
+        "felicity",
+        "handover",
+      ]) {
+        await page.goto(
+          `http://127.0.0.1:4196/human-story/perpetua/#perpetua-${scene}`,
+        );
+        await page.locator('[data-prison-ready="true"]').waitFor();
+        await page.evaluate(() => document.fonts.ready);
+        await page.screenshot({
+          path: resolve(destination, `prison-${scene}-${width}.png`),
+          fullPage: true,
+        });
+        if (scene === "child") {
+          await page.goto("http://127.0.0.1:4196/human-story/perpetua/");
+          await page.locator('[data-prison-ready="true"]').waitFor();
+          await page.evaluate(() => window.scrollTo(0, 0));
+          await page.screenshot({
+            path: resolve(destination, `prison-opening-${width}-viewport.png`),
+          });
+          if (width === 1440) await writeFile(resolve(destination, "prison-accessibility-tree.yml"), await page.locator("main").ariaSnapshot());
+        }
+        checks.push({
+          route: `perpetua/${scene}`,
+          width,
+          overflow: await page.evaluate(
+            () => document.documentElement.scrollWidth > innerWidth,
+          ),
+        });
+      }
+    }
+    const noScriptContext = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width: 390, height: 1000 },
+    });
+    const noScriptPage = await noScriptContext.newPage();
+    await noScriptPage.goto("http://127.0.0.1:4196/human-story/perpetua/");
+    await noScriptPage.screenshot({
+      path: resolve(destination, "prison-no-js-390.png"),
+      fullPage: true,
+    });
+    await noScriptContext.close();
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto("http://127.0.0.1:4196/review-storyboards/");
+    for (const concept of ["prison", "garden", "rome"]) {
+      await page.locator(`section.${concept}`).screenshot({
+        path: resolve(destination, `storyboard-${concept}-1440.png`),
       });
     }
     for (const width of [390, 1440]) {

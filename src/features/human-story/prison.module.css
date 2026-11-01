@@ -1,0 +1,523 @@
+.encounter {
+  --plum: #302335;
+  --lilac: #f0eaf3;
+  --rose: #e7b6c5;
+  --violet: #614b68;
+  background: var(--plum);
+  color: var(--lilac);
+}
+.encounter [hidden] {
+  display: none !important;
+}
+.encounter a {
+  color: inherit;
+  text-underline-offset: 0.3em;
+}
+.encounter :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 6px;
+}
+.encounter :focus,
+.encounter :target {
+  scroll-margin-block: 1.5rem;
+}
+.titleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem clamp(1.5rem, 5vw, 5rem);
+  border-bottom: 1px solid #77637f;
+}
+.titleBar > div {
+  display: flex;
+  gap: 1.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.titleBar p {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  max-width: 43ch;
+}
+.titleBar h1 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+.sceneBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem clamp(1.5rem, 5vw, 5rem);
+  background: #3d2d44;
+}
+.sceneBar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.3rem;
+}
+.sceneBar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+.sceneBar a:hover {
+  text-decoration: underline;
+}
+.sceneBar a[aria-current] {
+  color: var(--rose);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+.sceneBar a span {
+  font-size: 0.7rem;
+}
+.sceneBar .readAll {
+  white-space: nowrap;
+  text-decoration: underline;
+}
+.sceneLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 6rem);
+  row-gap: 0;
+  max-width: 1520px;
+  margin: auto;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 5vw, 5rem);
+}
+.relationships {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: start;
+  min-width: 0;
+}
+.diagram {
+  margin: 0;
+}
+.diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 390px;
+  overflow: visible;
+}
+.diagram path,
+.diagram ellipse {
+  fill: none;
+  stroke-width: 1.5;
+}
+.diagram .outerTrace {
+  stroke: #9b829f;
+  stroke-width: 1;
+}
+.diagram .innerTrace {
+  stroke: #ba99bd;
+  stroke-width: 1;
+}
+.diagram .mother {
+  fill: var(--rose);
+  stroke: var(--rose);
+  stroke-width: 1;
+}
+.diagram .mother[data-empty="true"] {
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+}
+.diagram .child {
+  fill: var(--lilac);
+}
+.diagram .contact {
+  stroke: var(--lilac);
+  stroke-width: 2;
+}
+.diagram .broken {
+  stroke: var(--rose);
+  stroke-width: 2;
+}
+.diagram .point {
+  fill: var(--rose);
+}
+.diagram .visionTrace {
+  stroke: #e2d8e6;
+  stroke-dasharray: 3 8;
+}
+.diagram .authorityTrace {
+  stroke: #8b7292;
+  stroke-width: 1;
+}
+.diagram[data-person="child"] .child,
+.diagram[data-person="daughter"] .child {
+  stroke: var(--rose);
+  stroke-width: 8;
+}
+.diagram[data-person="father"] .outerTrace,
+.diagram[data-person="official"] .authorityTrace,
+.diagram[data-person="narrator"] .outerTrace {
+  stroke: var(--lilac);
+  stroke-width: 3;
+}
+.diagram figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #dacddd;
+}
+.diagram figcaption span:first-child {
+  font-size: 0.9rem;
+  color: var(--lilac);
+}
+.relationshipControl {
+  margin-top: 1.75rem;
+}
+.relationshipControl > p {
+  font-size: 0.8rem;
+  margin-bottom: 0.65rem;
+}
+.relationshipControl [role="group"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.relationshipControl button {
+  font: inherit;
+  font-size: 0.8rem;
+  min-height: 44px;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #a58baa;
+  background: transparent;
+  color: var(--lilac);
+  border-radius: 0;
+  cursor: pointer;
+}
+.relationshipControl button[aria-pressed="true"] {
+  background: var(--lilac);
+  color: #302335;
+  border-color: var(--lilac);
+  font-weight: 600;
+}
+.relationshipControl button:hover {
+  border-color: var(--lilac);
+}
+.relationshipControl button:active {
+  transform: scale(0.98);
+}
+.observation {
+  min-height: 8.7rem;
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rose);
+}
+.encounter .observation h3 {
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.observation p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  max-width: 57ch;
+}
+.sceneCopy {
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 1.25rem;
+  min-width: 0;
+}
+.sceneEvidence {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+}
+.position {
+  font-size: 0.85rem;
+  color: var(--rose);
+  margin-bottom: 1rem !important;
+}
+.encounter .sceneTitle {
+  font-size: clamp(2.5rem, 4.7vw, 4.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  max-width: 13ch;
+  outline-offset: 10px;
+}
+.narrative {
+  margin-top: 2rem;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.8;
+  max-width: 48ch;
+}
+.narrative p + p {
+  margin-top: 1rem;
+}
+.sourceRegister {
+  margin-top: 2rem;
+  border-left: 1px solid #a58baa;
+  padding-left: 1rem;
+  max-width: 52ch;
+}
+.sourceRegister > p {
+  font-size: 0.8rem;
+  color: #dacddd;
+}
+.sourceRegister details {
+  margin-top: 0.25rem;
+}
+.encounter summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+}
+.encounter details p {
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+.sourceRegister details a {
+  display: inline-block;
+  margin-top: 1rem;
+  min-height: 44px;
+}
+.sourceRegister .summaryNote {
+  font-size: 0.75rem;
+  color: #dacddd;
+}
+.limit {
+  border-left: 2px solid var(--rose);
+  padding-left: 1rem;
+}
+.sceneNavigation {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+}
+.sceneNavigation a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.sceneNavigation span {
+  font-size: 0.75rem;
+  color: #dacddd;
+}
+.sceneNavigation .continue {
+  font-weight: 600;
+  border-bottom: 1px solid var(--rose);
+  text-decoration: none;
+}
+.allHeading,
+.noScript {
+  padding: 2rem clamp(1.5rem, 5vw, 5rem);
+  max-width: 75ch;
+}
+.allHeading h2 {
+  font-size: 2rem;
+}
+.allHeading p {
+  margin-top: 1rem;
+}
+.scene + .scene {
+  border-top: 1px solid #77637f;
+}
+.finalQuestion {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #77637f;
+}
+.finalQuestion > p {
+  font-size: 0.8rem;
+  color: var(--rose);
+}
+.encounter .finalQuestion h3 {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+.finalQuestion a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.beyond {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 8vw, 9rem);
+  padding: clamp(2.5rem, 5vw, 5rem);
+  background: #e5dce9;
+  color: #302335;
+}
+.place > p:first-child,
+.outward > p:first-child {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+.encounter .place h2 {
+  font-size: clamp(2rem, 3.25vw, 3rem);
+  line-height: 1.2;
+  max-width: 25ch;
+}
+.place > p {
+  max-width: 55ch;
+  margin-top: 1.25rem;
+}
+.place > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.place .small {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.outward > a {
+  font:
+    1.65rem/1.3 var(--font-playfair),
+    Georgia,
+    serif;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.outward > p:not(:first-child) {
+  font-size: 0.85rem;
+  max-width: 48ch;
+  margin: 0.65rem 0 1.75rem;
+}
+.evidence {
+  padding: 3rem clamp(1.5rem, 5vw, 5rem);
+  background: #f0eaf3;
+  color: #302335;
+}
+.encounter .evidence h2 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+.evidence > p {
+  max-width: 80ch;
+  font-size: 0.9rem;
+  margin: 1rem 0 1.5rem;
+}
+.evidence details {
+  max-width: 90ch;
+  border-top: 1px solid #a58baa;
+}
+.fallbackRelations {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+.fallbackRelations p {
+  margin: 0.75rem 0;
+}
+@media (min-width: 1100px) {
+  .sceneCopy,
+  .sceneEvidence {
+    max-width: 620px;
+  }
+  .sceneLayout {
+    min-height: 750px;
+  }
+}
+@media (max-width: 1000px) {
+  .sceneBar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .sceneLayout {
+    gap: 2rem;
+  }
+  .sceneBar nav {
+    gap: 0.2rem 1rem;
+  }
+  .diagram svg {
+    max-height: 330px;
+  }
+}
+@media (max-width: 720px) {
+  .titleBar {
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .titleBar > div {
+    gap: 0.5rem 1.25rem;
+  }
+  .titleBar h1 {
+    font-size: 1.8rem;
+  }
+  .titleBar > p {
+    font-size: 0.75rem;
+  }
+  .sceneBar {
+    padding: 0.65rem 1.5rem;
+  }
+  .sceneBar nav {
+    gap: 0 1rem;
+  }
+  .sceneBar a {
+    font-size: 0.78rem;
+  }
+  .sceneBar .readAll {
+    font-size: 0.75rem;
+  }
+  .sceneLayout {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+  .relationships {
+    width: 100%;
+  }
+  .sourceRegister {
+    margin-top: 0.25rem;
+  }
+  .sceneNavigation {
+    margin-top: 1rem;
+  }
+  .diagram svg {
+    max-height: 250px;
+  }
+  .diagram figcaption {
+    font-size: 0.7rem;
+  }
+  .diagram figcaption span:first-child {
+    font-size: 0.8rem;
+  }
+  .relationshipControl {
+    margin-top: 1rem;
+  }
+  .observation {
+    min-height: 0;
+    margin-top: 1rem;
+  }
+  .beyond {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  .evidence {
+    padding: 2.5rem 1.5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .relationshipControl button:active {
+    transform: none;
+  }
+}

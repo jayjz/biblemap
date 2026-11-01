@@ -79,3 +79,61 @@ Before committing, the pre-existing `next-env.d.ts` SHA-256 remains `4e4da12aa06
 ## Narrative direction milestone
 
 The creator's subsequent narrative brief changes the emphasis from collection breadth to one complete encounter. Three detailed treatments and visual storyboard sheets were completed before slice implementation and pushed in **`e23a7652f11c5079dd8aa399a4509306f2d1d174`**. The accompanying Perpetua audit records the composite source's single evidence lineage, reported visions/speech, missing voices, edition rights and inaccessible scholarship. It does not pretend that multiple passages independently corroborate each other. No new historical quotation, sound or third-party media is authorized by a visual treatment alone.
+
+The responsive/regression milestone was separately committed and its push confirmed at **`f6bf9597bc35038958bd6f46bda4075696f75602`**. GitHub technical/browser CI passed ([run 41342376547](https://github.com/jayjz/biblemap/actions/runs/41342376547)).
+
+## Perpetua — The Prison: vertical slice
+
+Replaced the existing Perpetua route's shared reading-room composition with six reader-controlled scenes: the child, hearing, separation, reported vision, Felicity and the narrator's ending. A responsive, original relationship drawing changes with the scene. Relationship buttons reveal who is present, who is represented by another voice, and whose account is absent. The source register gives each scene's exact section, evidentiary status and limits. The final narrator's report of the deaths is stated directly without a violent reenactment. The ending leaves a question about surviving voices rather than assigning the visitor a moral verdict.
+
+The five doors remain available, with a homepage entrance into the encounter. Existing graph relationships lead to Pliny and Augustine; the Atlas orients Carthage without asserting a prison/arena location. The Passion's traditional 203 CE date is now qualified in collection metadata as well as in the encounter. Existing Perpetua `#prison`, `#visions`, `#felicity`, `#comparison` and source fragments remain usable. No new route, production dependency, third-party media, quotation or sound was added for this slice.
+
+### Executed checks
+
+- `npm run lint`: pass, same four existing warnings. Initial new JSX apostrophe errors were corrected, not suppressed.
+- `npm run test`: **31 passed**. New contracts check scene evidence and speaker classifications, draft status and valid/legacy/unknown scene fragments.
+- Ordinary and opt-in `npm run build`: pass, 40 statically exported routes. Subsequent `npx tsc --noEmit`: pass. Existing pinned 48 WEB verses and media validators pass.
+- Full ordinary `npm run test:e2e`: **103 passed, 1 existing intentional skip**. Final run includes the legacy Perpetua fragments. Ordinary flow also passed on the opt-in export, matching CI's order.
+- Local-only review `PLAYWRIGHT_REVIEW_SERVER=1 npm run test:e2e`: **22 passed** after the final slice, including Nineveh disclosures, Scripture, continuation, no-JS, missing media, reduced motion, keyboard and narrow-screen behavior.
+- Perpetua-specific flows cover source-attributed human stakes, narrated separation, vision versus waking interpretation, Felicity's mediation, narrator handover, edition disclosure, scene history/back/forward, keyboard Enter/Space, selection focus, full reading, unknown links, no-JS and failed-script fallback. Every scene passes axe A/AA at 320px, 200% text at 820px, and reduced-motion checks. These are interface/comprehension safeguards, not observed human understanding.
+- Real Chrome screenshots at 320/390/820/1440px cover all six scenes and the portal; additional captures include no-JS, selected/empty exploration states, source-aware reading rooms, Atlas, artwork and the three visual storyboard sheets. Screenshot capture records **zero page/console errors, failed requests, HTTP errors or horizontal overflow**. Accessibility tree recorded from the rendered opening.
+
+### Defects found and resolved
+
+Initial scene-test selectors matched hidden no-JS disclosures as well as the intended passage inspector; selectors now identify the exact visible disclosure or opened fallback. A genuine hydration failure was then reproduced in development: React received multiple text children for an SVG `title`. Consolidating the accessible title/description into single strings fixed the root cause. The subsequent development check, static screenshot run and complete browser suite report no hydration errors. No hydration suppression or error filtering was added.
+
+Source review removed an unsupported detail about the father carrying the child and narrowed the companions' prayer description to what §15 reports. See the [claim audit](research/perpetua-narrative-audit.md) for the single source lineage and inaccessible scholarship. The AI-authored SVG's provenance is disclosed; it is modern abstraction, not a portrait, artifact or reconstruction. The source edition's restrictions are retained in the source record; its translated dialogue, scans and layout are not copied.
+
+### Review limits
+
+No independent visitor responses or physical-device/screen-reader sessions have been collected. Automated checks establish that the stakes, speaker distinctions and evidence are available, not that an unfamiliar person understood them or felt immersed. The [treatment's study protocol](human-story-narrative-treatments.md#verification-and-comprehension-protocol) records the next observational checks without inventing participants. Qualified historical/theological review is still required for all editorial drafts, especially the Perpetua authorship/transmission framing and the earlier Hebrew-based Radak paraphrase. The unaccessed Muehlberger article is explicitly a research lead, not support for an unseen argument. Augustine's garden and Rome Remembers are treatments only.
+
+### Change and evidence index
+
+| Requirement | Changed files / observable evidence |
+| --- | --- |
+| Three different forms before implementation | `docs/human-story-narrative-treatments.md`, `docs/storyboards/human-story-narratives.html`, `docs/research/perpetua-narrative-audit.md` |
+| Complete Perpetua encounter on the existing route | `src/content/perpetua-encounter.ts`, `src/features/human-story/{PerpetuaEncounter,PrisonStage,PrisonDiagram}.tsx`, `prison.module.css`, `src/app/human-story/[entry]/page.tsx` |
+| Wider-world invitation and retained source limits | Portal `page.tsx`, shared stylesheet, `human-story-saints.ts`; actual links exercised by browser tests |
+| Accessibility, fallback, history, regression | `tests/perpetua.spec.ts`, updated `tests/human-story.spec.ts`, `src/domain/perpetua.test.ts`; existing complete suites |
+| Reviewable screenshots and error accounting | `scripts/capture-human-story.mjs`, `artifacts/human-story/after/capture.json`, PNGs and accessibility tree |
+
+The existing Nineveh before/after screenshot has identical SHA-256 `c1148815a7abb7953e7d6c308300bdea7ced4b61b077b9513c00b13aa3b74937`. Existing Scripture, historical/media gates and Atlas implementation are unchanged. Unrelated `next-env.d.ts` and initial Jonah/review artifacts remain excluded from commits. The branch remains unmerged and deployment remains disabled.
+
+Development stops at this checkpoint at the creator's explicit request. The next activity is human design and architecture review, followed by the unfamiliar-reader study if authorized. No further feature, experiment, milestone, merge or deployment is started by this handoff. The latest commit and CI state are recorded in PR #36 and the final report, after this document's commit is created.
+
+## Confirmed milestone history
+
+Each following commit was pushed to the existing branch and confirmed. The final Perpetua checkpoint follows these commits; its SHA is reported in PR #36 rather than attempting a self-referential commit hash here.
+
+| Commit | Completed milestone |
+| --- | --- |
+| `6ec1caeb1e4b93713108457717bee2c8b726cc1e` | Entrance and five-world navigation |
+| `ec7e78966621cc1cde9c4dd217920dad63aa9739` | Scripture-led reading rooms and sourced connections |
+| `77c189d86e70771e2a5554940a1811af3638443f` | Witnesses, disputed testimony and evidence comparison |
+| `f2d5331400d533ddeb5187097979c7b6262f2518` | Saints and distinct autobiographical/legendary sources |
+| `b768f6b603b2240f12f4d6877aa2df24565d3641` | Voices, culture, Atlas and authored paths |
+| `e23a7652f11c5079dd8aa399a4509306f2d1d174` | Three narrative treatments, visual storyboards and source audit |
+| `f6bf9597bc35038958bd6f46bda4075696f75602` | Responsive/accessibility fixes and regression groundwork |
+
+CI history: milestones 1–4 passed; milestone 5's legacy Nineveh locator failure is documented above and resolved in `f6bf959`, whose complete CI passed. The final checkpoint's fresh CI may still be queued/running at the requested stop; that is reported as pending rather than represented as a pass.

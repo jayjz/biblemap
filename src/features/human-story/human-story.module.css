@@ -1274,6 +1274,43 @@
     gap: 1.5rem;
   }
 }
+.encounterEntrance {
+  display: grid;
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.6fr) auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem clamp(1.5rem, 5vw, 5.5rem);
+  background: #302335;
+  color: #f0eaf3;
+}
+.encounterEntrance > p {
+  font-size: 0.8rem;
+  max-width: 18ch;
+  color: #e7b6c5;
+}
+.encounterEntrance h2 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+}
+.encounterEntrance div p {
+  font-size: 0.95rem;
+  max-width: 52ch;
+  margin-top: 0.75rem;
+}
+.encounterEntrance a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+@media (max-width: 900px) {
+  .encounterEntrance {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .encounterEntrance > p {
+    max-width: none;
+  }
+}
 @media (max-width: 360px) {
   .worldGrid {
     grid-template-columns: 1fr;

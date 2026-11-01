@@ -18,7 +18,7 @@ export const SAINT_SOURCES: readonly HumanSource[] = [
     kind: "autobiography",
     checkedAt,
     rights:
-      "Modernized translation linked; original editorial paraphrase only, no translated speech reproduced.",
+      "Fordham's electronic form permits educational/personal copying with attribution and restricts commercial reuse. The experience links it and uses original editorial paraphrase only; no translated speech, scan or edition layout is reproduced.",
     limits:
       "A composite Passion, not a surviving autograph. The editor attributes §§3–10 to Perpetua; Saturus's vision and the third-person ending are distinct layers. Visions are reported experiences, not externally verified events.",
   },
@@ -140,7 +140,7 @@ export const SAINT_ENTRIES: readonly HumanEntry[] = [
     subtitle: "A prison, two mothers and a layered account",
     worlds: ["saints", "witnesses"],
     kind: "autobiography",
-    era: "Carthage, 203 CE · composite Christian Passion",
+    era: "Carthage, traditionally dated 203 CE · composite Christian Passion",
     entityIds: ["person-perpetua", "person-felicity", "place-carthage"],
     introduction:
       "Perpetua's first-person voice reaches us inside a text that someone else completed. Felicity's story is told by that narrator. Reading the two together means noticing who gets to speak.",

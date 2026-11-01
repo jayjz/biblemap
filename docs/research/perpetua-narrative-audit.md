@@ -37,7 +37,7 @@ P1's modern introduction sounds more certain about authorship than this implemen
 
 ## Rights and creative representation
 
-Fordham permits educational/personal electronic copying with attribution and restricts commercial reuse of its electronic form. This slice does not copy that edition's text, scans, layout or images. It links the complete source and uses original short summaries, with no invented quotations. Existing Scripture stays in its pinned reader. The original vector relationship drawing is UI artwork by Codex for this review, based on textual roles; it is neither historical evidence nor an authentic map, manuscript or portrait. No new third-party media, voice performance or music is included.
+Fordham permits educational/personal electronic copying with attribution and restricts commercial reuse of its electronic form. This slice does not copy that edition's text, scans, layout or images. It links the complete source and uses original short summaries, with no invented quotations. Existing Scripture stays in its pinned reader. The original vector relationship drawing is AI-authored UI artwork by Codex for this review, based on textual roles; it is neither historical evidence nor an authentic map, manuscript or portrait. Its origin and purpose are disclosed in the encounter's artwork details. No new third-party media, voice performance or music is included.
 
 ## Next discriminating checks
 

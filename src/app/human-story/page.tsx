@@ -108,6 +108,22 @@ export default function HumanStoryPortal() {
         </div>
       </section>
       <section
+        className={styles.encounterEntrance}
+        aria-labelledby="prison-invitation"
+      >
+        <p>A life inside a transmitted account</p>
+        <div>
+          <h2 id="prison-invitation">Perpetua. The Prison.</h2>
+          <p>
+            A mother, her child, a father at the hearing. Follow the
+            relationships, then look at whose voice carries them to us.
+          </p>
+        </div>
+        <Link prefetch={false} href="/human-story/perpetua/">
+          Enter the encounter
+        </Link>
+      </section>
+      <section
         id="paths"
         className={styles.paths}
         aria-labelledby="paths-title"

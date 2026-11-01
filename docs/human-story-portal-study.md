@@ -4,6 +4,8 @@ This is the current review surface for PR #36, on `feat/human-story-portal`. It 
 
 The existing Nineveh `/`, full Jonah reader `/jonah/`, Atlas `/explore/`, Exodus and legacy deep links remain intact. Start the new experience at `/human-story/`.
 
+The later narrative direction changes the emphasis: the collection supports an encounter rather than being the creative result itself. [Three detailed treatments and visual storyboards](human-story-narrative-treatments.md) precede implementation. **Perpetua — The Prison** replaces the common reading layout on its existing route with a complete, six-scene interactive narrative. Augustine — The Garden and The Witnesses — Rome Remembers remain distinct treatments, not falsely claimed implemented experiences.
+
 ## The experience
 
 - **Stories:** five Scripture-led entrances, from Genesis through Exodus, Jonah, Luke and Acts. The existing full Jonah text remains independently accessible.

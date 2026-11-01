@@ -122,9 +122,17 @@ test("saints keep autobiographical voice, editorial framing and legend distinct"
   page,
 }) => {
   await page.goto("/human-story/perpetua/");
+  await page
+    .locator('[data-scene="child"]')
+    .getByText("Inspect this passage", { exact: true })
+    .click();
   await expect(
     page.getByText(/We possess the transmitted composite work/),
   ).toBeVisible();
+  await page
+    .getByRole("navigation", { name: "Scenes in The Prison" })
+    .getByRole("link", { name: "Felicity", exact: true })
+    .click();
   await expect(
     page.getByText(
       /Felicity does not leave a corresponding first-person account/,

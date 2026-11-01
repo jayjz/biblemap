@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HUMAN_GRAPH } from "@/content/human-story";
 import { ReadingRoom } from "@/features/human-story/ReadingRoom";
+import { PerpetuaEncounter } from "@/features/human-story/PerpetuaEncounter";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -27,5 +28,6 @@ export default async function HumanStoryReading({
   const { entry: id } = await params;
   const entry = HUMAN_GRAPH.entries.find((candidate) => candidate.id === id);
   if (!entry) notFound();
+  if (id === "perpetua") return <PerpetuaEncounter />;
   return <ReadingRoom entry={entry} />;
 }
