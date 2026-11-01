@@ -7,6 +7,12 @@ import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import { EntryCards } from "@/features/human-story/EntryCards";
 import { WitnessComparison } from "@/features/human-story/WitnessComparison";
 import { AtlasConnections } from "@/features/human-story/AtlasConnections";
+import { WorldOpening } from "@/features/human-story/WorldOpening";
+import {
+  LetterEncounter,
+  SaintsEncounter,
+} from "@/features/human-story/InteriorEncounters";
+import interior from "@/features/human-story/interior.module.css";
 import styles from "@/features/human-story/human-story.module.css";
 
 export const dynamicParams = false;
@@ -38,32 +44,22 @@ export default async function HumanStoryWorld({
   );
   return (
     <HumanStoryFrame activeWorld={world.id}>
-      <header className={styles.worldHeader}>
-        <Link prefetch={false} href="/human-story/">
-          The human story
-        </Link>
-        <h1>{world.name}</h1>
-        <p>{world.description}</p>
-      </header>
+      <WorldOpening world={world} />
       <section
-        className={styles.worldReadings}
+        id="world-encounter"
+        className={interior.readings}
         aria-label={`${world.name} readings`}
       >
-        {world.id === "witnesses" && <WitnessComparison />}
-        {world.id === "saints" && (
-          <aside className={styles.saintNote}>
-            <h2>Who tells the life?</h2>
-            <p>
-              Perpetua’s attributed words inside an editor’s frame. Augustine
-              and Teresa remembering their own lives. Francis remembered in a
-              later collection of tales.
-            </p>
-            <p>
-              The distance between a person and the account is part of the
-              story.
-            </p>
-          </aside>
+        {world.id === "witnesses" && (
+          <>
+            <LetterEncounter />
+            <details className={interior.accountTable}>
+              <summary>Compare the five ancient accounts</summary>
+              <WitnessComparison />
+            </details>
+          </>
         )}
+        {world.id === "saints" && <SaintsEncounter />}
         {world.id === "atlas" && <AtlasConnections />}
         {world.id === "voices" && (
           <aside className={styles.saintNote}>

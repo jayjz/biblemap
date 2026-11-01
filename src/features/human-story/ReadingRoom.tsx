@@ -9,12 +9,14 @@ import { HUMAN_GRAPH } from "@/content/human-story";
 import chapter4 from "@/content/scripture/web-jonah-4.json";
 import { HumanStoryFrame } from "./HumanStoryFrame";
 import { HumanArtwork } from "./HumanArtwork";
+import { LetterEncounter, AugustineEncounter } from "./InteriorEncounters";
 import { WORLDS } from "./worlds";
 import styles from "./human-story.module.css";
 
 export function ReadingRoom({ entry }: { entry: HumanEntry }) {
   const related = connectionsFor(HUMAN_GRAPH, entry.id);
   const sourceIds = new Set([
+    ...(entry.id === "pliny" ? ["pliny-melmoth"] : []),
     ...entry.sourceIds,
     ...entry.sections.flatMap((section) => section.sourceIds),
     ...related.flatMap(({ connection }) => connection.sourceIds),
@@ -55,6 +57,12 @@ export function ReadingRoom({ entry }: { entry: HumanEntry }) {
             </Link>
           )}
         </header>
+        {entry.id === "augustine" && <AugustineEncounter />}
+        {entry.id === "pliny" && (
+          <div className={styles.worldReadings}>
+            <LetterEncounter />
+          </div>
+        )}
         <div className={styles.readingColumns}>
           <div className={styles.readingBody}>
             {entry.id === "jonah" && (

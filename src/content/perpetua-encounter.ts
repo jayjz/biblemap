@@ -118,22 +118,21 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
     locator: "Passion §6, after the sentence",
     sourceId: "passion-perpetua",
     text: [
-      "Back in the prison, she sends Pomponius to ask her father for the child. Her father will not give him back.",
-      "The account then describes relief from nursing and gives it a divine explanation. The separation and the meaning she finds in it are different kinds of claim.",
+      "Her father will not give him back. His reason is not given.",
     ],
     evidence:
       "The last part of §6 records the request, refusal, the child's no longer needing to nurse and Perpetua's bodily relief. The account presents the relief as God's will.",
     limit:
       "That theological explanation belongs to the attributed account. This paragraph does not tell us the child's later life; the experience leaves that absence open.",
     visualDescription:
-      "The smaller form has moved outside the mother's contour. The line between them is interrupted, marking the narrated refusal to return the child.",
+      "A later devotional mosaic shows mother and child together. It is placed beside the passage of separation as reception history, not a reconstruction.",
     relationships: [
       {
         id: "child",
         name: "Her child",
         position: "Withheld after the hearing",
         observation:
-          "The text records her unsuccessful request. It does not provide the child's later story. The empty interval in the drawing marks a limit in the account, not a new event.",
+          "The text records her unsuccessful request. It does not provide the child's later story. The later mosaic holds mother and child together in an image; it cannot supply that missing history.",
       },
       {
         id: "father",

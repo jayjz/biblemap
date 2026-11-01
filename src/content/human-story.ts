@@ -6,6 +6,7 @@ import type {
   HumanConnection,
 } from "../domain/human-story.ts";
 import { validateHumanGraph } from "../domain/human-story.ts";
+import { INTERIOR_SOURCES } from "./human-story-interiors.ts";
 import {
   WITNESS_SOURCES,
   WITNESS_ENTITIES,
@@ -48,6 +49,7 @@ const scriptureSource = (
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...INTERIOR_SOURCES,
   ...CULTURE_SOURCES,
   ...SAINT_SOURCES,
   ...WITNESS_SOURCES,

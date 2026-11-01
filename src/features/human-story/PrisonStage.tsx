@@ -14,6 +14,8 @@ import {
   type PrisonScene,
 } from "@/content/perpetua-encounter";
 import { PrisonDiagram } from "./PrisonDiagram";
+import { InteriorArtwork } from "./InteriorArtwork";
+import { SeparationPassage } from "./InteriorEncounters";
 import styles from "./prison.module.css";
 
 const getHash = () => window.location.hash;
@@ -49,6 +51,7 @@ function RelationshipScene({
           >
             {scene.title}
           </h2>
+          {scene.id === "separation" && <SeparationPassage />}
           <div className={styles.narrative}>
             {scene.text.map((text) => (
               <p key={text}>{text}</p>
@@ -56,7 +59,11 @@ function RelationshipScene({
           </div>
         </div>
         <div className={styles.relationships}>
-          <PrisonDiagram scene={scene} selected={relationship.id} />
+          {scene.id === "separation" ? (
+            <InteriorArtwork id="perpetua-mosaic" />
+          ) : (
+            <PrisonDiagram scene={scene} selected={relationship.id} />
+          )}
           <div hidden={!enhanced} className={styles.relationshipControl}>
             <p id={`relations-${scene.id}`}>Follow a relationship</p>
             <div role="group" aria-labelledby={`relations-${scene.id}`}>
@@ -103,8 +110,8 @@ function RelationshipScene({
                 Read the complete source at Fordham
               </a>
               <p className={styles.summaryNote}>
-                Original editorial summary. Historical speech is not being
-                performed or quoted here.
+                Original editorial summary. The separately marked translated
+                passage, where present, is historical source language.
               </p>
             </details>
           </div>

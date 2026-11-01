@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HUMAN_GRAPH } from "@/content/human-story";
+import { INTERIOR_SOURCES } from "@/content/human-story-interiors";
 import { HumanStoryFrame } from "./HumanStoryFrame";
 import { PrisonStage } from "./PrisonStage";
 import styles from "./prison.module.css";
@@ -112,6 +113,22 @@ export function PerpetuaEncounter() {
               or independently verified each narrated event.
             </p>
           </details>
+          <details id="source-passion-wallis">
+            <summary>Quoted passages · translation & limits</summary>
+            {INTERIOR_SOURCES.filter(
+              (item) => item.id === "passion-wallis",
+            ).map((item) => (
+              <div key={item.id}>
+                <p>
+                  <a href={item.url}>{item.title}</a>
+                </p>
+                <p>{item.locator}</p>
+                <p>{item.edition}</p>
+                <p>{item.limits}</p>
+                <p>{item.rights}</p>
+              </div>
+            ))}
+          </details>
           <details>
             <summary>About the drawing and this encounter</summary>
             <p>
@@ -122,9 +139,10 @@ export function PerpetuaEncounter() {
             </p>
             <p>
               Original editorial summaries remain drafts for PR #36, pending
-              human historical and theological review. No new historical
-              quotations, third-party images, audio or synthesized voices are
-              used. The complete source remains linked.
+              human historical and theological review. The separation scene adds
+              credited Wallis translation excerpts and a later devotional mosaic
+              with its own image-source details. No audio or synthesized voices
+              are used.
             </p>
           </details>
         </section>

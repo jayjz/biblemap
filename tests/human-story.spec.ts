@@ -90,6 +90,9 @@ test("witnesses distinguish disputed wording, James and scholarly transmission",
   page,
 }) => {
   await page.goto("/human-story/worlds/witnesses/");
+  await page
+    .getByText("Compare the five ancient accounts", { exact: true })
+    .click();
   await expect(page.getByRole("table")).toBeVisible();
   await page
     .getByRole("row", { name: /The Testimonium/ })

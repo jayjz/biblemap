@@ -33,7 +33,7 @@ export const SAINT_SOURCES: readonly HumanSource[] = [
     kind: "autobiography",
     checkedAt,
     rights:
-      "Historical public-domain translation linked; editorial paraphrase only.",
+      "Historical public-domain translation linked. The interior opening quotes a credited excerpt from Book I.1; other sections use editorial paraphrase.",
     limits:
       "Retrospective Christian confession addressed to God, not an unmediated diary or a neutral transcript. Theological self-interpretation belongs to the work's form.",
   },
