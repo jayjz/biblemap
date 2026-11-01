@@ -1,5 +1,6 @@
 import type { HumanGraph, HumanSource, HumanEntry, HumanEntity, HumanConnection } from "../domain/human-story.ts";
 import { validateHumanGraph } from "../domain/human-story.ts";
+import { WITNESS_SOURCES, WITNESS_ENTITIES, WITNESS_ENTRIES, WITNESS_CONNECTIONS } from "./human-story-witnesses.ts";
 
 // Sourced no-index editorial drafts, requested for PR review. No human approval implied.
 const checkedAt = "2026-11-01";
@@ -11,6 +12,7 @@ const scriptureSource = (id: string, title: string, path: string, locator: strin
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...WITNESS_SOURCES,
   scriptureSource("web-genesis", "Genesis 1", "GEN01", "1:1–31, especially 1:26–31"),
   scriptureSource("web-exodus", "Exodus 14", "EXO14", "14:10–31"),
   { ...scriptureSource("web-jonah", "The book of Jonah", "JON01", "Jonah 1–4; especially 3:10–4:11"), edition: "World English Bible engwebp, pinned publisher snapshot 2026-10-10. All 48 verses validated by the existing pipeline." },
@@ -21,6 +23,7 @@ export const HUMAN_SOURCES: readonly HumanSource[] = [
 ];
 
 export const HUMAN_ENTITIES: readonly HumanEntity[] = [
+  ...WITNESS_ENTITIES,
   { id: "person-jonah", type: "person", name: "Jonah", sourceIds: ["web-jonah"] },
   { id: "person-moses", type: "person", name: "Moses", sourceIds: ["web-exodus"] },
   { id: "person-jesus", type: "person", name: "Jesus", sourceIds: ["web-luke", "web-acts"] },
@@ -35,6 +38,7 @@ export const HUMAN_ENTITIES: readonly HumanEntity[] = [
 ];
 
 export const HUMAN_ENTRIES: readonly HumanEntry[] = [
+  ...WITNESS_ENTRIES,
   {
     id: "genesis", title: "In the beginning", subtitle: "Humanity within a created world", worlds: ["stories"], kind: "scripture", era: "Genesis 1 · no historical date assigned", entityIds: [],
     introduction: "Before an individual biography, Genesis places human life within a world of light, water, plants and living creatures.",
@@ -94,6 +98,7 @@ export const HUMAN_ENTRIES: readonly HumanEntry[] = [
 ];
 
 export const HUMAN_CONNECTIONS: readonly HumanConnection[] = [
+  ...WITNESS_CONNECTIONS,
   { id: "jonah-nineveh", from: "jonah", to: "nineveh", label: "The city in the story and the city of an object", kind: "context", note: "The place-name joins the readings. The tablet does not corroborate Jonah's visit.", sourceIds: ["web-jonah", "bm-tablet"], reviewStatus: "draft" },
   { id: "jonah-marble", from: "jonah", to: "jonah-in-marble", label: "The plant becomes a sculpted shelter", kind: "reception", note: "A documented later depiction of Jonah; not an ancient portrait or a settled botanical identification.", sourceIds: ["web-jonah", "cma-jonah"], reviewStatus: "draft" },
   { id: "jonah-exodus", from: "jonah", to: "exodus", label: "Two stories at sea", kind: "comparison", note: "An editorial comparison of danger and passage through water. It does not establish literary dependence or identical theology.", sourceIds: ["web-jonah", "web-exodus"], reviewStatus: "draft" },

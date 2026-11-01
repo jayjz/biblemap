@@ -38,3 +38,16 @@ test("Scripture rooms retain exact Jonah, disclose source limits and connect int
   await expect(page.getByRole("link", { name: "Locate Nineveh in the Atlas" })).toHaveAttribute("href", /place=nineveh/);
   expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
 });
+
+test("witnesses distinguish disputed wording, James and scholarly transmission", async ({ page }) => {
+  await page.goto("/human-story/worlds/witnesses/");
+  await expect(page.getByRole("table")).toBeVisible();
+  await page.getByRole("row", { name: /The Testimonium/ }).getByRole("link").click();
+  await expect(page.getByText(/How much of its wording belongs to Josephus is disputed/)).toBeVisible();
+  await expect(page.getByText(/the full article requires access beyond its public abstract/)).toBeVisible();
+  await page.getByRole("link", { name: "James in Josephus", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Two passages, two problems" })).toBeVisible();
+  await page.goto("/human-story/suetonius/");
+  await expect(page.getByText(/It does not explicitly identify Jesus/)).toBeVisible();
+  await expect(page.getByText("Disputed connection", { exact: true })).toBeVisible();
+});

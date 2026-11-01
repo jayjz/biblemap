@@ -134,6 +134,16 @@
 .sources summary { font-weight: 600; }
 .sources summary span { font-size: .75rem; font-weight: 400; }
 .sources details > p { max-width: 85ch; margin: 1rem 0; }
+.comparison { margin-bottom: 3rem; }
+.comparison h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1.5rem; }
+.tableWrap { overflow-x: auto; border: 1px solid #afc1c7; border-radius: 4px; }
+.tableWrap table { width: 100%; border-collapse: collapse; min-width: 680px; text-align: left; font-size: .85rem; }
+.tableWrap caption { text-align: left; padding: 1.25rem; background: #dbe5eb; font-size: .8rem; }
+.tableWrap th, .tableWrap td { padding: 1.2rem; vertical-align: top; }
+.tableWrap thead { background: #e2e9ec; }
+.tableWrap tbody tr { border-top: 1px solid #bdcbd0; }
+.tableWrap tbody th { width: 25%; }
+.tableWrap small { display: block; font-weight: 400; font-size: .7rem; margin-top: .5rem; }
 @media (hover: hover) and (pointer: fine) {
   .primaryLink { transition: background-color 160ms ease; }
   .primaryLink:hover { background: #d0e7de; }

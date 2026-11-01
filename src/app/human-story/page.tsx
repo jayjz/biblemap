@@ -39,7 +39,7 @@ export default function HumanStoryPortal() {
         <div className={styles.sectionHeading}><h2 id="paths-title">Follow a thread.</h2><p>Begin somewhere particular. See where it leads.</p></div>
         <div className={styles.pathGrid}>
           <article className={`${styles.path} ${styles.pathFeatured}`}><p>Stories / Atlas / Voices</p><h3>A prophet.<br />A city.<br />An open question.</h3><p>Enter Nineveh through Jonah. Read the complete story, then explore its places, objects and later readers.</p><Link prefetch={false} href="/human-story/jonah/">Enter Jonah <span aria-hidden="true">↗</span></Link></article>
-          <article className={styles.path}><p>Witnesses / Culture</p><h3>Seen from<br />the outside.</h3><p>Read the exchange between Pliny and Trajan. Keep a Roman official’s account distinct from Christian testimony.</p><Link prefetch={false} href="https://faculty.georgetown.edu/jod/texts/pliny.html">Read the primary source <span aria-hidden="true">↗</span></Link></article>
+          <article className={styles.path}><p>Witnesses / Stories / Voices</p><h3>Seen from<br />the outside.</h3><p>Read a Roman official’s account, then follow the questions it raises about Christian lives and testimony.</p><Link prefetch={false} href="/human-story/pliny/">Enter the Roman record <span aria-hidden="true">↗</span></Link></article>
           <article className={styles.path}><p>Saints / Voices</p><h3>A life told<br />from within.</h3><p>Open Augustine’s Confessions: a life remembered in a work addressed to God.</p><Link prefetch={false} href="https://www.gutenberg.org/ebooks/3296">Read the Confessions <span aria-hidden="true">↗</span></Link></article>
         </div>
       </section>
