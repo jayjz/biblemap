@@ -6,4 +6,4 @@ export const WORLDS = [
   { id: "voices", name: "Voices", description: "People reading, translating, questioning and making. Theology, philosophy, language and art in conversation.", invitation: "Read Augustine to Jerome", href: "https://www.newadvent.org/fathers/1102071.htm" },
 ] as const;
 
-export type WorldId = typeof WORLDS[number]["id"];
+export type { WorldId } from "@/domain/human-story";

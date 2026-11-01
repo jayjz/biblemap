@@ -26,3 +26,15 @@ test("human story remains readable without JavaScript and at 320px", async ({ br
   await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
   await context.close();
 });
+
+test("Scripture rooms retain exact Jonah, disclose source limits and connect into the Atlas", async ({ page }) => {
+  await page.goto("/human-story/worlds/stories/");
+  await page.getByRole("link", { name: "The prophet and the city", exact: true }).click();
+  await expect(page.locator('[data-entry="jonah"]')).toBeVisible();
+  await expect(page.locator("blockquote")).toContainText("Shouldn’t I be concerned");
+  await expect(page.getByRole("link", { name: "Read the complete Jonah · pinned WEB text" })).toHaveAttribute("href", "/jonah/#jonah-1-calling");
+  await page.getByRole("link", { name: "A city beyond its name", exact: true }).click();
+  await expect(page.getByText(/This tablet does not name Jonah/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Locate Nineveh in the Atlas" })).toHaveAttribute("href", /place=nineveh/);
+  expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
+});

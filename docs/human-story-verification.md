@@ -27,3 +27,13 @@ Diff review: existing Nineveh/Jonah/Atlas implementation and source/release gate
 | Experimental copy dominates the opening | Review metadata in native disclosure | Keep evidence available while foregrounding exploration |
 
 Editorial acceptance and independent visitor comprehension remain untested. Technical checks do not establish emotional response.
+
+## Milestone 2 — biblical stories and relationship integrity
+
+Milestone 1 push confirmed at `6ec1caeb1e4b93713108457717bee2c8b726cc1e`.
+
+Added seven substantive static reading rooms: five biblical entrances (Genesis, Exodus, Jonah, Emmaus, Saul/Ananias), Nineveh's tablet context and Jonah's later marble reception. Added five world destinations, stable person/place/source identities and classified, cited connections. Witness and saint destinations remain explicitly limited at this intermediate milestone; they are populated next. All pages inherit no-index review metadata. Exact Jonah 4:11 is imported from the existing pinned source, not retyped. Every room links onward and back to Scripture or the underlying record.
+
+Checks: 27 unit tests pass, including rejection of unsourced claims and broken graph identities; lint passes with the four baseline warnings; static build and subsequent typecheck pass; six targeted desktop/mobile browser tests pass, including a Stories → Jonah → historical Nineveh flow, keyboard, no-JS and axe. Corrected an initially unsupported Exodus journey query during diff review: the link now uses the existing `#exodus` epoch and does not promise to launch a journey.
+
+Source review: publisher chapters Genesis 1, Exodus 14, Luke 24 and Acts 9 read directly on November 1. No new Scripture quotations beyond the pinned Jonah verse. CMA record rechecked. The live British Museum record returned only a shell; the existing verified Nineveh dossier and retained object manifest support K.3375's dating/findspot. This retrieval limitation is recorded in its source entry. No new archaeological identification, fixed biblical chronology or historical influence is inferred from a thematic comparison.
