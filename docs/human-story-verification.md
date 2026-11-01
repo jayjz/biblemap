@@ -45,3 +45,11 @@ Milestone 2 push confirmed at `ec7e78966621cc1cde9c4dd217920dad63aa9739`. Milest
 Added five connected rooms and a responsive comparison table: Tacitus, Pliny/Trajan, Josephus on James, the Testimonium and Suetonius. Each gives a passage locator, edition, genre and limits. The Testimonium's disputed status is in the introduction, not buried in a disclosure. Whealey's argument about related Syriac/Arabic transmission is attributed to her public publisher abstract; no claim to have read the paywalled article. Kirby's Suetonius guide is labeled modern commentary, not peer-reviewed scholarship. Failed candidate URLs and page shells were not accepted as evidence; the working Rolfe text was checked at Wikisource. No resurrection-proof claim, silent Chrestus identification or fabricated quotation.
 
 Checks: 27 unit tests, lint (four baseline warnings), post-build typecheck and static export pass. Eight targeted desktop/mobile browser checks pass, including the comparative table, Testimonium → James and Suetonius's disputed connection. Diff/source review caught and corrected the draft Suetonius translator attribution before commit: the retrieved edition is **J. C. Rolfe**.
+
+## Milestone 4 — saints and the telling of a life
+
+Milestone 3 push confirmed at `77c189d86e70771e2a5554940a1811af3638443f`.
+
+Added Perpetua/Felicity, Augustine, Teresa of Ávila and Francis. Perpetua's attributed first-person sections, Saturus's vision and the narrator's ending remain separate. Felicity is not assigned an invented diary. Augustine is a retrospective confession, Teresa a specifically Carmelite Catholic spiritual account, and Francis's birds a later hagiographic/legendary tradition. Teresa → Augustine is an explicitly documented reception link (Life 9.8–10), distinct from editorial comparisons. Augustine's Genesis reading is grounded in Confessions XI–XIII. No visions or legendary events are asserted as externally verified history.
+
+Checks: lint (four baseline warnings), 27 unit tests, static build and subsequent typecheck pass. Ten targeted desktop/mobile browser tests pass, including Perpetua → Augustine → Teresa and the immediate legend label on Francis. Rechecked the pre-existing `next-env.d.ts` diff; it is unchanged and remains excluded. Source/rights review: primary editions read directly; no new media files or translated quotations introduced.

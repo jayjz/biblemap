@@ -40,7 +40,7 @@ export default function HumanStoryPortal() {
         <div className={styles.pathGrid}>
           <article className={`${styles.path} ${styles.pathFeatured}`}><p>Stories / Atlas / Voices</p><h3>A prophet.<br />A city.<br />An open question.</h3><p>Enter Nineveh through Jonah. Read the complete story, then explore its places, objects and later readers.</p><Link prefetch={false} href="/human-story/jonah/">Enter Jonah <span aria-hidden="true">↗</span></Link></article>
           <article className={styles.path}><p>Witnesses / Stories / Voices</p><h3>Seen from<br />the outside.</h3><p>Read a Roman official’s account, then follow the questions it raises about Christian lives and testimony.</p><Link prefetch={false} href="/human-story/pliny/">Enter the Roman record <span aria-hidden="true">↗</span></Link></article>
-          <article className={styles.path}><p>Saints / Voices</p><h3>A life told<br />from within.</h3><p>Open Augustine’s Confessions: a life remembered in a work addressed to God.</p><Link prefetch={false} href="https://www.gutenberg.org/ebooks/3296">Read the Confessions <span aria-hidden="true">↗</span></Link></article>
+          <article className={styles.path}><p>Saints / Voices / Stories</p><h3>A life told<br />from within.</h3><p>Augustine remembers. Teresa reads him centuries later. Both return us to the question of a life being changed.</p><Link prefetch={false} href="/human-story/augustine/">Meet Augustine and his readers <span aria-hidden="true">↗</span></Link></article>
         </div>
       </section>
       <section className={styles.worlds} aria-labelledby="worlds-title">

@@ -51,3 +51,15 @@ test("witnesses distinguish disputed wording, James and scholarly transmission",
   await expect(page.getByText(/It does not explicitly identify Jesus/)).toBeVisible();
   await expect(page.getByText("Disputed connection", { exact: true })).toBeVisible();
 });
+
+test("saints keep autobiographical voice, editorial framing and legend distinct", async ({ page }) => {
+  await page.goto("/human-story/perpetua/");
+  await expect(page.getByText(/We possess the transmitted composite work/)).toBeVisible();
+  await expect(page.getByText(/Felicity does not leave a corresponding first-person account/)).toBeVisible();
+  await page.getByRole("link", { name: "Augustine: a life reread", exact: true }).click();
+  await page.getByRole("link", { name: "Teresa: another reader in the garden", exact: true }).click();
+  await expect(page.getByText(/Life 9.8–10 recounts/)).toBeVisible();
+  await page.goto("/human-story/francis/");
+  await expect(page.getByText("Later tradition & legend", { exact: true }).first()).toBeVisible();
+  await expect(page.getByText(/not Francis's own record/)).toBeVisible();
+});

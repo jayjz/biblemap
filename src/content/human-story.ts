@@ -1,6 +1,7 @@
 import type { HumanGraph, HumanSource, HumanEntry, HumanEntity, HumanConnection } from "../domain/human-story.ts";
 import { validateHumanGraph } from "../domain/human-story.ts";
 import { WITNESS_SOURCES, WITNESS_ENTITIES, WITNESS_ENTRIES, WITNESS_CONNECTIONS } from "./human-story-witnesses.ts";
+import { SAINT_SOURCES, SAINT_ENTITIES, SAINT_ENTRIES, SAINT_CONNECTIONS } from "./human-story-saints.ts";
 
 // Sourced no-index editorial drafts, requested for PR review. No human approval implied.
 const checkedAt = "2026-11-01";
@@ -12,6 +13,7 @@ const scriptureSource = (id: string, title: string, path: string, locator: strin
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...SAINT_SOURCES,
   ...WITNESS_SOURCES,
   scriptureSource("web-genesis", "Genesis 1", "GEN01", "1:1–31, especially 1:26–31"),
   scriptureSource("web-exodus", "Exodus 14", "EXO14", "14:10–31"),
@@ -23,6 +25,7 @@ export const HUMAN_SOURCES: readonly HumanSource[] = [
 ];
 
 export const HUMAN_ENTITIES: readonly HumanEntity[] = [
+  ...SAINT_ENTITIES,
   ...WITNESS_ENTITIES,
   { id: "person-jonah", type: "person", name: "Jonah", sourceIds: ["web-jonah"] },
   { id: "person-moses", type: "person", name: "Moses", sourceIds: ["web-exodus"] },
@@ -38,6 +41,7 @@ export const HUMAN_ENTITIES: readonly HumanEntity[] = [
 ];
 
 export const HUMAN_ENTRIES: readonly HumanEntry[] = [
+  ...SAINT_ENTRIES,
   ...WITNESS_ENTRIES,
   {
     id: "genesis", title: "In the beginning", subtitle: "Humanity within a created world", worlds: ["stories"], kind: "scripture", era: "Genesis 1 · no historical date assigned", entityIds: [],
@@ -98,6 +102,7 @@ export const HUMAN_ENTRIES: readonly HumanEntry[] = [
 ];
 
 export const HUMAN_CONNECTIONS: readonly HumanConnection[] = [
+  ...SAINT_CONNECTIONS,
   ...WITNESS_CONNECTIONS,
   { id: "jonah-nineveh", from: "jonah", to: "nineveh", label: "The city in the story and the city of an object", kind: "context", note: "The place-name joins the readings. The tablet does not corroborate Jonah's visit.", sourceIds: ["web-jonah", "bm-tablet"], reviewStatus: "draft" },
   { id: "jonah-marble", from: "jonah", to: "jonah-in-marble", label: "The plant becomes a sculpted shelter", kind: "reception", note: "A documented later depiction of Jonah; not an ancient portrait or a settled botanical identification.", sourceIds: ["web-jonah", "cma-jonah"], reviewStatus: "draft" },

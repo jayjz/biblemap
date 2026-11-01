@@ -144,6 +144,9 @@
 .tableWrap tbody tr { border-top: 1px solid #bdcbd0; }
 .tableWrap tbody th { width: 25%; }
 .tableWrap small { display: block; font-weight: 400; font-size: .7rem; margin-top: .5rem; }
+.saintNote { max-width: 70ch; margin-bottom: 3rem; padding-left: 1.5rem; border-left: 3px solid #7b586a; }
+.saintNote h2 { font-size: 2rem; margin-bottom: 1rem; }
+.saintNote p { font-size: .95rem; line-height: 1.85; margin-top: 1rem; }
 @media (hover: hover) and (pointer: fine) {
   .primaryLink { transition: background-color 160ms ease; }
   .primaryLink:hover { background: #d0e7de; }
