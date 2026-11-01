@@ -6,6 +6,7 @@ import { WORLDS } from "@/features/human-story/worlds";
 import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import { EntryCards } from "@/features/human-story/EntryCards";
 import { WitnessComparison } from "@/features/human-story/WitnessComparison";
+import { AtlasConnections } from "@/features/human-story/AtlasConnections";
 import styles from "@/features/human-story/human-story.module.css";
 
 export const dynamicParams = false;
@@ -25,7 +26,9 @@ export default async function HumanStoryWorld({ params }: { params: Promise<{ wo
     <section className={styles.worldReadings} aria-label={`${world.name} readings`}>
       {world.id === "witnesses" && <WitnessComparison />}
       {world.id === "saints" && <aside className={styles.saintNote}><h2>Who tells the life?</h2><p>Perpetua’s attributed words inside an editor’s frame. Augustine and Teresa remembering their own lives. Francis remembered in a later collection of tales.</p><p>The distance between a person and the account is part of the story.</p></aside>}
-      {entries.length ? <EntryCards entries={entries} /> : <p>Start with a primary source: <Link prefetch={false} href={world.href}>{world.invitation}</Link>. Local reading rooms are being developed in this review.</p>}
+      {world.id === "atlas" && <AtlasConnections />}
+      {world.id === "voices" && <aside className={styles.saintNote}><h2>Words become worlds.</h2><p>A plant changes its name. A biblical scene moves onto a ceiling. A community sings. Follow interpreters, makers and readers while preserving their differences.</p></aside>}
+      <EntryCards entries={entries} />
       <p className={styles.worldInvitation}>Each reading opens into other worlds. Follow its connections to a person, a place, another text or a later work.</p>
       <Link prefetch={false} href="/human-story/#paths">Explore paths across the five worlds</Link>
     </section>

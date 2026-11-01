@@ -4,6 +4,8 @@ export type WorldId = typeof WORLD_IDS[number];
 export const EVIDENCE_LABELS = {
   scripture: "Scripture",
   artifact: "Material evidence",
+  manuscript: "Manuscript witness",
+  geography: "Geography & chronology",
   testimony: "Historical testimony",
   autobiography: "Autobiography & memory",
   interpretation: "Interpretation",

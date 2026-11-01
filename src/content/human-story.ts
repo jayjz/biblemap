@@ -2,6 +2,7 @@ import type { HumanGraph, HumanSource, HumanEntry, HumanEntity, HumanConnection 
 import { validateHumanGraph } from "../domain/human-story.ts";
 import { WITNESS_SOURCES, WITNESS_ENTITIES, WITNESS_ENTRIES, WITNESS_CONNECTIONS } from "./human-story-witnesses.ts";
 import { SAINT_SOURCES, SAINT_ENTITIES, SAINT_ENTRIES, SAINT_CONNECTIONS } from "./human-story-saints.ts";
+import { CULTURE_SOURCES, CULTURE_ENTITIES, CULTURE_ENTRIES, CULTURE_CONNECTIONS } from "./human-story-culture.ts";
 
 // Sourced no-index editorial drafts, requested for PR review. No human approval implied.
 const checkedAt = "2026-11-01";
@@ -13,6 +14,7 @@ const scriptureSource = (id: string, title: string, path: string, locator: strin
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...CULTURE_SOURCES,
   ...SAINT_SOURCES,
   ...WITNESS_SOURCES,
   scriptureSource("web-genesis", "Genesis 1", "GEN01", "1:1–31, especially 1:26–31"),
@@ -25,6 +27,7 @@ export const HUMAN_SOURCES: readonly HumanSource[] = [
 ];
 
 export const HUMAN_ENTITIES: readonly HumanEntity[] = [
+  ...CULTURE_ENTITIES,
   ...SAINT_ENTITIES,
   ...WITNESS_ENTITIES,
   { id: "person-jonah", type: "person", name: "Jonah", sourceIds: ["web-jonah"] },
@@ -41,6 +44,7 @@ export const HUMAN_ENTITIES: readonly HumanEntity[] = [
 ];
 
 export const HUMAN_ENTRIES: readonly HumanEntry[] = [
+  ...CULTURE_ENTRIES,
   ...SAINT_ENTRIES,
   ...WITNESS_ENTRIES,
   {
@@ -89,7 +93,7 @@ export const HUMAN_ENTRIES: readonly HumanEntry[] = [
     sections: [
       { id: "tablet", title: "What survives", text: "The British Museum's K.3375 is a seventh-century BCE clay tablet from Nineveh containing part of the Epic of Gilgamesh's flood narrative. It is evidence of writing and literary preservation in the city. Its survival should widen our attention to a human world beyond an abstract place-name.", sourceIds: ["bm-tablet"] },
       { id: "limits", title: "What it cannot tell us", text: "This tablet does not name Jonah or date his visit. Nor does putting it beside a biblical story demonstrate that one narrative borrowed from another. The connection here is the place: Nineveh belongs both to the biblical account and to the documented history of this object.", sourceIds: ["bm-tablet", "web-jonah"] },
-    ], question: "What can an object establish, and what must remain a different kind of question?", sourceIds: ["bm-tablet", "web-jonah"], atlas: { label: "Locate Nineveh in the Atlas", href: "/explore/?place=nineveh&from=jonah-3-mercy", note: "An orientation to the city, not a verified route or date for Jonah." }, reviewStatus: "draft",
+    ], question: "What can an object establish, and what must remain a different kind of question?", sourceIds: ["bm-tablet", "web-jonah"], imageId: "flood-tablet", atlas: { label: "Locate Nineveh in the Atlas", href: "/explore/?place=nineveh&from=jonah-3-mercy", note: "An orientation to the city, not a verified route or date for Jonah." }, reviewStatus: "draft",
   },
   {
     id: "jonah-in-marble", title: "A story takes another body", subtitle: "Jonah in late Roman Christian art", worlds: ["voices"], kind: "reception", era: "280–290 CE · artwork, not the narrated period", entityIds: ["person-jonah"],
@@ -102,6 +106,7 @@ export const HUMAN_ENTRIES: readonly HumanEntry[] = [
 ];
 
 export const HUMAN_CONNECTIONS: readonly HumanConnection[] = [
+  ...CULTURE_CONNECTIONS,
   ...SAINT_CONNECTIONS,
   ...WITNESS_CONNECTIONS,
   { id: "jonah-nineveh", from: "jonah", to: "nineveh", label: "The city in the story and the city of an object", kind: "context", note: "The place-name joins the readings. The tablet does not corroborate Jonah's visit.", sourceIds: ["web-jonah", "bm-tablet"], reviewStatus: "draft" },

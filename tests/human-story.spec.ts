@@ -63,3 +63,40 @@ test("saints keep autobiographical voice, editorial framing and legend distinct"
   await expect(page.getByText("Later tradition & legend", { exact: true }).first()).toBeVisible();
   await expect(page.getByText(/not Francis's own record/)).toBeVisible();
 });
+
+test("connected exploration searches, recovers from an empty result and previews relationships", async ({ page }) => {
+  await page.goto("/human-story/#discover");
+  const search = page.getByRole("searchbox", { name: "Find a person, passage or place" });
+  await search.fill("nothing-matches-9381");
+  await expect(page.getByRole("heading", { name: "No readings match that search." })).toBeVisible();
+  await page.getByRole("button", { name: "Clear search and filters" }).click();
+  await page.getByRole("combobox", { name: "Explore a world" }).selectOption("saints");
+  await page.getByRole("button", { name: "Show connections for Augustine: a life reread" }).click();
+  await expect(page.getByRole("heading", { name: "Connected to Augustine: a life reread" })).toBeVisible();
+  await expect(page.getByRole("complementary", { name: "Preview connections" }).getByRole("link", { name: "Teresa: another reader in the garden", exact: true })).toBeVisible();
+  await page.getByRole("combobox", { name: "Explore a world" }).selectOption("all");
+  await search.fill("Carthage");
+  await expect(page.locator('[class*="explorerEntry"]').filter({ has: page.getByRole("heading", { name: "Perpetua & Felicity", exact: true }) })).toBeVisible();
+});
+
+test("authored threads cross worlds and retain historical limits", async ({ page }) => {
+  await page.goto("/human-story/paths/a-word-crosses-centuries/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A word crosses centuries");
+  await expect(page.getByText(/not a historical itinerary/)).toBeVisible();
+  await page.getByRole("navigation", { name: "Stops on this reading path" }).getByRole("link", { name: "One plant, a world of words" }).click();
+  await expect(page.locator("#stop-jerome")).toBeInViewport();
+  await page.locator("#stop-jerome").getByRole("link", { name: "Open the reading & sources" }).click();
+  await expect(page.getByRole("heading", { name: "A translator explains his decision" })).toBeVisible();
+  await page.goto("/human-story/worlds/atlas/");
+  await expect(page.getByRole("link", { name: "Orient to Carthage" })).toHaveAttribute("href", /lat=36.85306/);
+});
+
+test("rights-cleared media retains a useful fallback and attribution", async ({ page }) => {
+  await page.route("**/media/approved/michelangelo-creation-of-adam.jpg", route => route.abort());
+  await page.goto("/human-story/genesis-in-paint/");
+  await page.locator("figure").first().scrollIntoViewIfNeeded();
+  await expect(page.getByRole("status")).toContainText("The image could not load.");
+  await page.getByText("Artwork description, provenance & rights", { exact: true }).click();
+  await expect(page.getByText(/Michelangelo Buonarroti, The Creation of Adam/).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Read Genesis 1 · World English Bible" })).toBeVisible();
+});
