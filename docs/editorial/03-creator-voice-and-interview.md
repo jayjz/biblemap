@@ -60,3 +60,27 @@ The supplied reflection has a defensible prospective home **after the hearing**,
 For the separation, wait for the creator's response to question 2. For Felicity, question 4. For the concluding source question, question 5. Until then, omit personal-note modules entirely. Empty author slots, fabricated “I wonder” notes and prompts dressed as the creator's reflections would recreate the problem this work is meant to solve.
 
 The [treatment](04-narrative-treatment-v2.md) identifies that prospective hearing placement. The isolated [source-comparison proof](perpetua-separation-proof.html) contains **no creator quotation or invented note**: the supplied reflection concerns a different moment, and its intended inference and placement remain open. No suggested rewrite of the authentic response is made in this run.
+
+## Creator-authored reflection additions
+
+The creator supplied the following responses after the initial assessment above. They are preserved verbatim, including spelling and punctuation. Earlier statements that questions 2–5 are unanswered describe the prior checkpoint; these additions supersede that status. The first response remains unchanged. No interpretation or rewritten reflection is added here.
+
+### Q2. God's will and separation
+
+> Despite being separated from her child, she had purefaith she was making the correct decision. She believed so heavily that she be seperated from child, and killed rather than deny her belief and give in to the pagan Roman sacrifice.
+
+### Q3. Her father
+
+> The father is mourning- mourning the death of his walking dead daughter in front of him and can't understand her decision. Why do you believe he refused to return her baby?
+
+### Q4. Felicity
+
+> Felicity's dedication to the Spirit of God and her companions set a tone of such conviction- beautiful belief that she will inherit the Kingdom Jesus prophesied
+
+### Q5. History and uncertainty
+
+> When I read historical accounts, it's important to understand an authorship debate and what the means to the actual context of the story. Does it change the story? Do details falter?
+
+### Future editorial note
+
+> Future editorial note: Add a creator-authored reflection on the opening of St. Augustine's Confessions. Status: authorship in progress. Do not invent or publish the reflection before receiving the creator's words.
