@@ -13,7 +13,7 @@ test("Nineveh gateway leads to the first calling and curiosity before optional r
   });
   page.on("response", response => { if (response.status() >= 400) failures.push(`${response.status()} ${response.url()}`); });
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
+  await page.goto("/nineveh/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Nineveh");
   await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("home-recognition.png"), fullPage: true });

@@ -20,7 +20,7 @@ export function HumanStoryFrame({
         <Link
           prefetch={false}
           className={styles.wordmark}
-          href="/human-story/"
+          href="/"
           aria-label="BibleMap: The human story"
         >
           <svg
@@ -60,7 +60,7 @@ export function HumanStoryFrame({
         {children}
       </main>
       <footer className={styles.footer}>
-        <Link href="/" prefetch={false}>
+        <Link href="/nineveh/" prefetch={false}>
           Return to Nineveh
         </Link>
         <p>Scripture at the center. A world of connections.</p>

@@ -2,6 +2,7 @@
 
 import { Component, lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore, type MouseEvent, type ReactNode } from "react";
 import Link from "next/link";
+import { leaveLegacyRoot } from "@/features/navigation/leaveLegacyRoot";
 import chapter3 from "@/content/scripture/web-jonah-3.json";
 import chapter4 from "@/content/scripture/web-jonah-4.json";
 import { DISCOVERY_SOURCES, STORY_PLACES } from "@/content/jonah-discoveries";
@@ -69,7 +70,7 @@ export function NinevehEncounter({ published = false }: { published?: boolean } 
 
   return <div className="nineveh" data-beat={beat.id} data-ready={hash !== null} data-plain={plain} data-paused={paused} data-published={published}>
     <a className="nineveh-skip" href="#main-content" onClick={event => { event.preventDefault(); heading.current?.focus(); }}>Skip to reading</a>
-    <header className="nineveh-header"><Link href="/" prefetch={false} className="nineveh-brand">BibleMap</Link><span>Jonah · The human story</span><div><Link href="/explore/" prefetch={false}>Explore epochs</Link><button type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? "Resume motion" : "Pause motion"}</button><a href={readerExit}>{published ? "Read Jonah" : "Exit to reader"} <span aria-hidden="true">↗</span></a></div></header>
+    <header className="nineveh-header"><Link href="/" prefetch={false} className="nineveh-brand" onNavigate={leaveLegacyRoot}>BibleMap</Link><span>Jonah · The human story</span><div><Link href="/explore/" prefetch={false}>Explore epochs</Link><button type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? "Resume motion" : "Pause motion"}</button><a href={readerExit}>{published ? "Read Jonah" : "Exit to reader"} <span aria-hidden="true">↗</span></a></div></header>
     <div className="nineveh-landscape" role="img" aria-label="Interpretive landscape: a distant city beside water and open terrain. Nineveh remains in view through all four passages. This is not Jonah’s viewpoint.">
       {!plain && <EnvironmentBoundary><Suspense fallback={<p className="nineveh-visual-status" role="status">Preparing the landscape. You can begin reading.</p>}><Environment beat={beat.id} paused={paused} mode={published ? "published" : "review"} /></Suspense></EnvironmentBoundary>}
       <div className="nineveh-place-anchor"><span className="nineveh-place-rule"/><strong>Nineveh</strong><span>Tigris valley</span></div>

@@ -4,8 +4,9 @@ import dynamic from "next/dynamic";
 import { useSyncExternalStore } from "react";
 import { isLegacyAtlasLink } from "@/domain/atlas-routing";
 import { NinevehEncounter } from "@/features/nineveh/NinevehEncounter";
+import "@/features/nineveh/nineveh.css";
 
-// 2026-10-25: Preserve legacy root atlas deep links while giving plain "/" to Nineveh.
+// Shared by /nineveh/ and recognized legacy root links.
 // The dedicated /explore/ route remains the canonical entry for new map links.
 const Atlas = dynamic(() => import("./explore/page"), { ssr: false });
 const subscribe = (callback: () => void) => {

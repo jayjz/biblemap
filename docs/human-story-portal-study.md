@@ -1,10 +1,15 @@
 # Human Story portal — design and editorial study
 
-This is the current review surface for PR #36, on `feat/human-story-portal`. It replaces the seed's generic sunset and external teasers with five connected worlds. The creator's [November 1 scope correction](https://github.com/jayjz/biblemap/pull/36#issuecomment-6561745828) supersedes the earlier narrow proposal. No homepage swap, merge, closure or deployment is authorized.
+Release preparation now stages Human Story at `/` and preserves Nineveh at
+`/nineveh/`, superseding the earlier restriction on preparing that route swap.
+The [release checklist and publication blockers](human-story-homepage-release.md)
+govern the candidate. Editorial approval is still missing; this is not a release.
 
-This document is the implementation inventory for human review. The [verification record](human-story-verification.md) is the canonical check and milestone history; the earlier handoff and design plan remain historical context. The final cleanup is limited to verified defects and documentation. Further development requires a new brief.
+This is the review surface for PR #36, on `feat/human-story-portal`. It replaces the seed's generic sunset and external teasers with five connected worlds. The creator's [November 1 scope correction](https://github.com/jayjz/biblemap/pull/36#issuecomment-6561745828) superseded the earlier narrow proposal. The current release brief authorizes route preparation and a manual preview, conditional on the publication gates described above.
 
-The existing Nineveh `/`, full Jonah reader `/jonah/`, Atlas `/explore/`, Exodus and legacy deep links remain intact. Start the new experience at `/human-story/`.
+This document is the implementation inventory for human review. The [verification record](human-story-verification.md) retains the check and milestone history; the earlier handoff and design plan remain historical context. Release preparation is routing and verification only; narrative and design development require a separate brief.
+
+The preserved Nineveh `/nineveh/`, full Jonah reader `/jonah/`, Atlas `/explore/`, Exodus and legacy deep links remain intact. Human Story is available at `/` and `/human-story/` in the release candidate.
 
 The later narrative direction changes the emphasis: the collection supports an encounter rather than being the creative result itself. [Three detailed treatments and visual storyboards](human-story-narrative-treatments.md) precede implementation. **Perpetua — The Prison** replaces the common reading layout on its existing route with a complete, six-scene interactive narrative. Augustine — The Garden and The Witnesses — Rome Remembers remain distinct treatments, not falsely claimed implemented experiences.
 

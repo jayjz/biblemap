@@ -5,10 +5,10 @@ test.beforeEach(async ({ page }) => {
   await page.route("https://basemaps.cartocdn.com/**", route => route.fulfill({ json: { version: 8, sources: {}, layers: [{ id: "background", type: "background", paint: { "background-color": "#101923" } }] } }));
 });
 
-test("tracking queries keep the Nineveh homepage and its section navigation", async ({ page }, testInfo) => {
+test("tracking queries keep the Nineveh entrance and its section navigation", async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
-  await page.goto("/?utm_source=chatgpt.com&utm_medium=referral");
+  await page.goto("/nineveh/?utm_source=chatgpt.com&utm_medium=referral");
   await expect(page.locator(".nineveh")).toBeVisible();
   await expect(page.locator(".nineveh-world")).toHaveAttribute("data-environment", "ready");
   await page.locator('.nineveh-beats a[href="#mercy"]').click();
@@ -24,11 +24,11 @@ test("tracking queries preserve discoveries, keyboard entry and unknown anchors"
   await expect(page.getByRole("dialog", { name: "Jonah through art" })).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(page.locator(".nineveh")).toHaveAttribute("data-beat", "anger");
-  await page.goto("/?gclid=abc&unknown=value#unknown-anchor");
+  await page.goto("/nineveh/?gclid=abc&unknown=value#unknown-anchor");
   await expect(page.locator(".nineveh")).toBeVisible();
   // A fragment intentionally focuses the reading heading. Test initial Tab order
   // on a fresh tracking-only entry, after hydration has installed its handlers.
-  await page.goto("/?gclid=abc&unknown=value");
+  await page.goto("/nineveh/?gclid=abc&unknown=value");
   await expect(page.locator(".nineveh-world")).toHaveAttribute("data-environment", "ready");
   await page.keyboard.press("Tab");
   await expect(page.locator(".nineveh-skip")).toBeFocused();
@@ -40,7 +40,7 @@ test("homepage, atlas and reader have explicit return paths", async ({ page }, t
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/?utm_source=chatgpt.com");
+  await page.goto("/nineveh/?utm_source=chatgpt.com");
   await expect(page.locator(".nineveh-world")).toHaveAttribute("data-environment", "ready");
   await expect(page.getByRole("link", { name: "Explore epochs" })).toHaveAttribute("href", "/explore/");
   await page.screenshot({ path: testInfo.outputPath("home-navigation.png"), fullPage: true });
@@ -57,7 +57,7 @@ test("homepage, atlas and reader have explicit return paths", async ({ page }, t
   await page.screenshot({ path: testInfo.outputPath("explore-navigation.png"), fullPage: true });
   expect((await new AxeBuilder({ page }).include(".atlas-navigation").analyze()).violations).toEqual([]);
   await page.getByRole("link", { name: "BibleMap home" }).click();
-  await expect(page.locator(".nineveh")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The humanstory.");
   await page.goBack();
   await expect(page.getByRole("navigation", { name: "Atlas navigation" })).toBeVisible();
   await page.getByRole("link", { name: "Read Jonah", exact: true }).click();
@@ -82,4 +82,7 @@ test("legacy atlas links survive UTM parameters and reload", async ({ page }, te
   await page.goto("/?explore=1&utm_source=chatgpt.com");
   await expect.poll(() => page.evaluate(() => window.__BIBLEMAP__?.ready)).toBe(true);
   await expect(page.locator(".nineveh")).toHaveCount(0);
+  await page.getByRole("link", { name: "BibleMap home" }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The humanstory.");
 });
