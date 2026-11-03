@@ -1,0 +1,1810 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Evidence inventory only. Does not authorize publication or replace validate:release. All group details apply to each referenced item.",
+  "publicationDecision": "BLOCKED — HUMAN APPROVAL REQUIRED",
+  "fullReleaseErrors": 68,
+  "groups": {
+    "scene-authorship": {
+      "category": "creator-authored content",
+      "rule": "checkCopy: unfinished author slot in release mode",
+      "markup": "Placeholder title, narrative and reflection text are withheld by approvedAuthoredText. Provisional titles replace scene titles.",
+      "blocks": "Full editorial release; current public export also includes draft source data.",
+      "authority": "Creator writes the material; human editorial reviewer approves the exact revision.",
+      "closure": "Creator-supplied text with author identity and genuine review decision; rerun validate:release and inspect the export.",
+      "count": 39
+    },
+    "geography-authorship": {
+      "category": "geography",
+      "rule": "checkCopy: unfinished author slot in release mode",
+      "markup": "Placeholder explanation withheld. StoryEvidence uses separate Pleiades notes for Nineveh/Joppa and an uncertainty fallback for Tarshish.",
+      "blocks": "Full editorial release; current public export also includes draft source data.",
+      "authority": "Creator/editor authors explanation; qualified geographic/historical reviewer verifies evidence and uncertainty.",
+      "closure": "Sourced explanation with limitations, approved exact text and genuine reviewer/date; no inferred route or location.",
+      "count": 3
+    },
+    "scene-approval": {
+      "category": "internal metadata governing public scenes",
+      "rule": "checkReview: human approval required in release mode",
+      "markup": "The scene's Scripture, media and companion render regardless of scene.review; draft review state travels in the client payload.",
+      "blocks": "Full editorial release and current publicly reachable Jonah reader.",
+      "authority": "Human editorial reviewer and creator publication authority.",
+      "closure": "Traceable decision covering the exact scene revision, reviewer identity, date and scope; a nonempty string is not proof of a decision.",
+      "count": 13
+    },
+    "companion-approval": {
+      "category": "provisional commentary",
+      "rule": "readingGuide: reading companion requires human approval in release mode",
+      "markup": "Title and context render; context is called Commentary on the passage. Some questions render separately. Provisional state is not labeled in ordinary visitor markup.",
+      "blocks": "Full editorial release and current publicly reachable Jonah reader.",
+      "authority": "Human theological/editorial reviewer and creator publication authority.",
+      "closure": "Review each title/question/context against its passage and record the real decision. ReadingGuide currently only supports provisional: a separately reviewed schema change would be needed to represent approval.",
+      "count": 13
+    }
+  },
+  "items": [
+    {
+      "id": "geography[nineveh].explanation",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.geography[nineveh].explanation",
+      "validatorId": "nineveh",
+      "validationError": "nineveh: unfinished author slot",
+      "group": "geography-authorship",
+      "route": "/jonah/",
+      "payloadProbe": "nineveh: geographic evidence and uncertainty",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "geography[joppa].explanation",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.geography[joppa].explanation",
+      "validatorId": "joppa",
+      "validationError": "joppa: unfinished author slot",
+      "group": "geography-authorship",
+      "route": "/jonah/",
+      "payloadProbe": "joppa: geographic evidence and uncertainty",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "geography[tarshish].explanation",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.geography[tarshish].explanation",
+      "validatorId": "tarshish",
+      "validationError": "tarshish: unfinished author slot",
+      "group": "geography-authorship",
+      "route": "/jonah/",
+      "payloadProbe": "tarshish: geographic evidence and uncertainty",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-calling].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-calling].readingGuide",
+      "validatorId": "jonah-1-calling",
+      "validationError": "jonah-1-calling: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-1-calling",
+      "payloadProbe": "Nineveh is the city Jonah is told to visit. The opening gives a command, but does not yet tell us what Jonah thinks of it.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-calling].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-calling].review",
+      "validatorId": "jonah-1-calling",
+      "validationError": "jonah-1-calling: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-1-calling",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-calling].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-calling].title",
+      "validatorId": "jonah-1-calling",
+      "validationError": "jonah-1-calling: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-calling",
+      "payloadProbe": "jonah-1-calling creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-calling].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-calling].narrative",
+      "validatorId": "jonah-1-calling",
+      "validationError": "jonah-1-calling: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-calling",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-calling].reflections[jonah-1-calling-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-calling].reflections[jonah-1-calling-reflection].prompt",
+      "validatorId": "jonah-1-calling-reflection",
+      "validationError": "jonah-1-calling-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-calling",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-escape].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-escape].readingGuide",
+      "validatorId": "jonah-1-escape",
+      "validationError": "jonah-1-escape: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-1-escape",
+      "payloadProbe": "Watch the repeated movement away: Jonah goes to Joppa, finds a ship, and pays his fare. The verse describes his departure without explaining his motive.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-escape].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-escape].review",
+      "validatorId": "jonah-1-escape",
+      "validationError": "jonah-1-escape: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-1-escape",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-escape].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-escape].title",
+      "validatorId": "jonah-1-escape",
+      "validationError": "jonah-1-escape: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-escape",
+      "payloadProbe": "jonah-1-escape creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-escape].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-escape].narrative",
+      "validatorId": "jonah-1-escape",
+      "validationError": "jonah-1-escape: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-escape",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-escape].reflections[jonah-1-escape-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-escape].reflections[jonah-1-escape-reflection].prompt",
+      "validatorId": "jonah-1-escape-reflection",
+      "validationError": "jonah-1-escape-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-escape",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-wind].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-wind].readingGuide",
+      "validatorId": "jonah-1-storm-wind",
+      "validationError": "jonah-1-storm-wind: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-1-storm-wind",
+      "payloadProbe": "The sailors act while Jonah sleeps. Notice how the captain addresses someone who has withdrawn from the danger they share.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-wind].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-wind].review",
+      "validatorId": "jonah-1-storm-wind",
+      "validationError": "jonah-1-storm-wind: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-1-storm-wind",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-wind].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-wind].title",
+      "validatorId": "jonah-1-storm-wind",
+      "validationError": "jonah-1-storm-wind: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-wind",
+      "payloadProbe": "jonah-1-storm-wind creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-wind].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-wind].narrative",
+      "validatorId": "jonah-1-storm-wind",
+      "validationError": "jonah-1-storm-wind: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-wind",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-wind].reflections[jonah-1-storm-wind-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-wind].reflections[jonah-1-storm-wind-reflection].prompt",
+      "validatorId": "jonah-1-storm-wind-reflection",
+      "validationError": "jonah-1-storm-wind-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-wind",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-lots].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-lots].readingGuide",
+      "validatorId": "jonah-1-storm-lots",
+      "validationError": "jonah-1-storm-lots: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-1-storm-lots",
+      "payloadProbe": "Jonah identifies himself by the God he fears. Read that declaration beside what he has already done.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-lots].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-lots].review",
+      "validatorId": "jonah-1-storm-lots",
+      "validationError": "jonah-1-storm-lots: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-1-storm-lots",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-lots].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-lots].title",
+      "validatorId": "jonah-1-storm-lots",
+      "validationError": "jonah-1-storm-lots: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-lots",
+      "payloadProbe": "jonah-1-storm-lots creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-lots].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-lots].narrative",
+      "validatorId": "jonah-1-storm-lots",
+      "validationError": "jonah-1-storm-lots: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-lots",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-lots].reflections[jonah-1-storm-lots-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-lots].reflections[jonah-1-storm-lots-reflection].prompt",
+      "validatorId": "jonah-1-storm-lots-reflection",
+      "validationError": "jonah-1-storm-lots-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-lots",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-sea].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-sea].readingGuide",
+      "validatorId": "jonah-1-storm-sea",
+      "validationError": "jonah-1-storm-sea: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-1-storm-sea",
+      "payloadProbe": "Before throwing Jonah into the sea, the sailors try to row to land. Their hesitation is part of the story too.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-sea].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-sea].review",
+      "validatorId": "jonah-1-storm-sea",
+      "validationError": "jonah-1-storm-sea: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-1-storm-sea",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-sea].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-sea].title",
+      "validatorId": "jonah-1-storm-sea",
+      "validationError": "jonah-1-storm-sea: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-sea",
+      "payloadProbe": "jonah-1-storm-sea creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-sea].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-sea].narrative",
+      "validatorId": "jonah-1-storm-sea",
+      "validationError": "jonah-1-storm-sea: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-sea",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-storm-sea].reflections[jonah-1-storm-sea-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-storm-sea].reflections[jonah-1-storm-sea-reflection].prompt",
+      "validatorId": "jonah-1-storm-sea-reflection",
+      "validationError": "jonah-1-storm-sea-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-storm-sea",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-depths].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-depths].readingGuide",
+      "validatorId": "jonah-1-depths",
+      "validationError": "jonah-1-depths: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-1-depths",
+      "payloadProbe": "The account moves from the open sea to confinement. Let the change in scale settle before continuing.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-depths].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-depths].review",
+      "validatorId": "jonah-1-depths",
+      "validationError": "jonah-1-depths: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-1-depths",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-depths].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-depths].title",
+      "validatorId": "jonah-1-depths",
+      "validationError": "jonah-1-depths: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-depths",
+      "payloadProbe": "jonah-1-depths creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-depths].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-depths].narrative",
+      "validatorId": "jonah-1-depths",
+      "validationError": "jonah-1-depths: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-depths",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-1-depths].reflections[jonah-1-depths-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-1-depths].reflections[jonah-1-depths-reflection].prompt",
+      "validatorId": "jonah-1-depths-reflection",
+      "validationError": "jonah-1-depths-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-1-depths",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-prayer].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-prayer].readingGuide",
+      "validatorId": "jonah-2-prayer",
+      "validationError": "jonah-2-prayer: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-2-prayer",
+      "payloadProbe": "Jonah’s prayer moves between being overwhelmed and being heard. Read slowly; its images of descent and return belong to the prayer itself.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-prayer].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-prayer].review",
+      "validatorId": "jonah-2-prayer",
+      "validationError": "jonah-2-prayer: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-2-prayer",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-prayer].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-prayer].title",
+      "validatorId": "jonah-2-prayer",
+      "validationError": "jonah-2-prayer: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-2-prayer",
+      "payloadProbe": "jonah-2-prayer creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-prayer].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-prayer].narrative",
+      "validatorId": "jonah-2-prayer",
+      "validationError": "jonah-2-prayer: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-2-prayer",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-prayer].reflections[jonah-2-prayer-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-prayer].reflections[jonah-2-prayer-reflection].prompt",
+      "validatorId": "jonah-2-prayer-reflection",
+      "validationError": "jonah-2-prayer-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-2-prayer",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-shore].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-shore].readingGuide",
+      "validatorId": "jonah-2-shore",
+      "validationError": "jonah-2-shore: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-2-shore",
+      "payloadProbe": "The chapter ends with Jonah on dry land. The verse gives no speech from him. Pause here before the command returns.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-shore].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-shore].review",
+      "validatorId": "jonah-2-shore",
+      "validationError": "jonah-2-shore: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-2-shore",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-shore].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-shore].title",
+      "validatorId": "jonah-2-shore",
+      "validationError": "jonah-2-shore: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-2-shore",
+      "payloadProbe": "jonah-2-shore creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-shore].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-shore].narrative",
+      "validatorId": "jonah-2-shore",
+      "validationError": "jonah-2-shore: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-2-shore",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-2-shore].reflections[jonah-2-shore-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-2-shore].reflections[jonah-2-shore-reflection].prompt",
+      "validatorId": "jonah-2-shore-reflection",
+      "validationError": "jonah-2-shore-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-2-shore",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-return].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-return].readingGuide",
+      "validatorId": "jonah-3-return",
+      "validationError": "jonah-3-return: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-3-return",
+      "payloadProbe": "The command comes a second time. Compare this opening with the first: the destination is the same, but Jonah’s direction changes.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-return].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-return].review",
+      "validatorId": "jonah-3-return",
+      "validationError": "jonah-3-return: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-3-return",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-return].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-return].title",
+      "validatorId": "jonah-3-return",
+      "validationError": "jonah-3-return: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-3-return",
+      "payloadProbe": "jonah-3-return creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-return].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-return].narrative",
+      "validatorId": "jonah-3-return",
+      "validationError": "jonah-3-return: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-3-return",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-return].reflections[jonah-3-return-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-return].reflections[jonah-3-return-reflection].prompt",
+      "validatorId": "jonah-3-return-reflection",
+      "validationError": "jonah-3-return-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-3-return",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-mercy].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-mercy].readingGuide",
+      "validatorId": "jonah-3-mercy",
+      "validationError": "jonah-3-mercy: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-3-mercy",
+      "payloadProbe": "The people, the king, and even the animals enter the account. Notice the king’s uncertainty, and what the narrator says God sees.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-mercy].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-mercy].review",
+      "validatorId": "jonah-3-mercy",
+      "validationError": "jonah-3-mercy: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-3-mercy",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-mercy].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-mercy].title",
+      "validatorId": "jonah-3-mercy",
+      "validationError": "jonah-3-mercy: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-3-mercy",
+      "payloadProbe": "jonah-3-mercy creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-mercy].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-mercy].narrative",
+      "validatorId": "jonah-3-mercy",
+      "validationError": "jonah-3-mercy: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-3-mercy",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-3-mercy].reflections[jonah-3-mercy-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-3-mercy].reflections[jonah-3-mercy-reflection].prompt",
+      "validatorId": "jonah-3-mercy-reflection",
+      "validationError": "jonah-3-mercy-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-3-mercy",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-anger].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-anger].readingGuide",
+      "validatorId": "jonah-4-anger",
+      "validationError": "jonah-4-anger: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-4-anger",
+      "payloadProbe": "Here Jonah names his reason for fleeing. Read his explanation beside the mercy he has just received and the mercy the city receives.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-anger].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-anger].review",
+      "validatorId": "jonah-4-anger",
+      "validationError": "jonah-4-anger: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-4-anger",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-anger].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-anger].title",
+      "validatorId": "jonah-4-anger",
+      "validationError": "jonah-4-anger: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-anger",
+      "payloadProbe": "jonah-4-anger creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-anger].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-anger].narrative",
+      "validatorId": "jonah-4-anger",
+      "validationError": "jonah-4-anger: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-anger",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-anger].reflections[jonah-4-anger-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-anger].reflections[jonah-4-anger-reflection].prompt",
+      "validatorId": "jonah-4-anger-reflection",
+      "validationError": "jonah-4-anger-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-anger",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-shade].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-shade].readingGuide",
+      "validatorId": "jonah-4-shade",
+      "validationError": "jonah-4-shade: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-4-shade",
+      "payloadProbe": "A vine brings relief, then withers. The conversation turns toward what Jonah cares for, and what he did not bring into being.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-shade].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-shade].review",
+      "validatorId": "jonah-4-shade",
+      "validationError": "jonah-4-shade: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-4-shade",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-shade].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-shade].title",
+      "validatorId": "jonah-4-shade",
+      "validationError": "jonah-4-shade: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-shade",
+      "payloadProbe": "jonah-4-shade creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-shade].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-shade].narrative",
+      "validatorId": "jonah-4-shade",
+      "validationError": "jonah-4-shade: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-shade",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-shade].reflections[jonah-4-shade-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-shade].reflections[jonah-4-shade-reflection].prompt",
+      "validatorId": "jonah-4-shade-reflection",
+      "validationError": "jonah-4-shade-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-shade",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-question].readingGuide",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-question].readingGuide",
+      "validatorId": "jonah-4-question",
+      "validationError": "jonah-4-question: reading companion requires human approval",
+      "group": "companion-approval",
+      "route": "/jonah/#jonah-4-question",
+      "payloadProbe": "This is the book’s final verse. No reply from Jonah follows. There is room to sit with the question without resolving it.",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-question].review",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-question].review",
+      "validatorId": "jonah-4-question",
+      "validationError": "jonah-4-question: human approval required",
+      "group": "scene-approval",
+      "route": "/jonah/#jonah-4-question",
+      "payloadProbe": "\"review\":{\"status\":\"draft\"}",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-question].title",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-question].title",
+      "validatorId": "jonah-4-question",
+      "validationError": "jonah-4-question: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-question",
+      "payloadProbe": "jonah-4-question creator title",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-question].narrative",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-question].narrative",
+      "validatorId": "jonah-4-question",
+      "validationError": "jonah-4-question: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-question",
+      "payloadProbe": "creator narrative",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    },
+    {
+      "id": "scenes[jonah-4-question].reflections[jonah-4-question-reflection].prompt",
+      "sourceFile": "src/content/jonah.ts",
+      "sourcePath": "JONAH.scenes[jonah-4-question].reflections[jonah-4-question-reflection].prompt",
+      "validatorId": "jonah-4-question-reflection",
+      "validationError": "jonah-4-question-reflection: unfinished author slot",
+      "group": "scene-authorship",
+      "route": "/jonah/#jonah-4-question",
+      "payloadProbe": "creator reflection prompt",
+      "exportedArtifacts": [
+        "jonah/__next._full.txt",
+        "jonah/__next.jonah/__PAGE__.txt",
+        "jonah/index.html",
+        "jonah/index.txt"
+      ]
+    }
+  ],
+  "humanStory": {
+    "status": "Every entry/connection and prison scene remains draft. No approval is inferred from provenance fields or technical CI.",
+    "entries": [
+      {
+        "id": "time-and-memory",
+        "reviewStatus": "draft",
+        "category": "interpretation",
+        "sourceIds": [
+          "augustine-confessions"
+        ],
+        "route": "/human-story/time-and-memory/",
+        "exportedRoute": true
+      },
+      {
+        "id": "sinaiticus",
+        "reviewStatus": "draft",
+        "category": "manuscript",
+        "sourceIds": [
+          "bl-sinaiticus"
+        ],
+        "route": "/human-story/sinaiticus/",
+        "exportedRoute": true
+      },
+      {
+        "id": "jerome",
+        "reviewStatus": "draft",
+        "category": "interpretation",
+        "sourceIds": [
+          "augustine-jerome",
+          "jerome-augustine",
+          "web-jonah"
+        ],
+        "route": "/human-story/jerome/",
+        "exportedRoute": true
+      },
+      {
+        "id": "rashi-radak",
+        "reviewStatus": "draft",
+        "category": "interpretation",
+        "sourceIds": [
+          "rashi-jonah",
+          "radak-jonah",
+          "web-jonah"
+        ],
+        "route": "/human-story/rashi-radak/",
+        "exportedRoute": true
+      },
+      {
+        "id": "singing-in-milan",
+        "reviewStatus": "draft",
+        "category": "autobiography",
+        "sourceIds": [
+          "augustine-confessions"
+        ],
+        "route": "/human-story/singing-in-milan/",
+        "exportedRoute": true
+      },
+      {
+        "id": "genesis-in-paint",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "vatican-creation",
+          "commons-creation",
+          "web-genesis"
+        ],
+        "route": "/human-story/genesis-in-paint/",
+        "exportedRoute": true
+      },
+      {
+        "id": "mediterranean",
+        "reviewStatus": "draft",
+        "category": "geography",
+        "sourceIds": [
+          "pleiades-rome",
+          "pleiades-carthage",
+          "tacitus-annals",
+          "passion-perpetua"
+        ],
+        "route": "/human-story/mediterranean/",
+        "exportedRoute": true
+      },
+      {
+        "id": "perpetua",
+        "reviewStatus": "draft",
+        "category": "autobiography",
+        "sourceIds": [
+          "passion-perpetua"
+        ],
+        "route": "/human-story/perpetua/",
+        "exportedRoute": true
+      },
+      {
+        "id": "augustine",
+        "reviewStatus": "draft",
+        "category": "autobiography",
+        "sourceIds": [
+          "augustine-confessions"
+        ],
+        "route": "/human-story/augustine/",
+        "exportedRoute": true
+      },
+      {
+        "id": "teresa",
+        "reviewStatus": "draft",
+        "category": "autobiography",
+        "sourceIds": [
+          "teresa-life",
+          "augustine-confessions"
+        ],
+        "route": "/human-story/teresa/",
+        "exportedRoute": true
+      },
+      {
+        "id": "francis",
+        "reviewStatus": "draft",
+        "category": "legend",
+        "sourceIds": [
+          "francis-flowers",
+          "francis-collection"
+        ],
+        "route": "/human-story/francis/",
+        "exportedRoute": true
+      },
+      {
+        "id": "tacitus",
+        "reviewStatus": "draft",
+        "category": "testimony",
+        "sourceIds": [
+          "tacitus-annals"
+        ],
+        "route": "/human-story/tacitus/",
+        "exportedRoute": true
+      },
+      {
+        "id": "pliny",
+        "reviewStatus": "draft",
+        "category": "testimony",
+        "sourceIds": [
+          "pliny-letters"
+        ],
+        "route": "/human-story/pliny/",
+        "exportedRoute": true
+      },
+      {
+        "id": "josephus-james",
+        "reviewStatus": "draft",
+        "category": "testimony",
+        "sourceIds": [
+          "josephus-james"
+        ],
+        "route": "/human-story/josephus-james/",
+        "exportedRoute": true
+      },
+      {
+        "id": "testimonium",
+        "reviewStatus": "draft",
+        "category": "testimony",
+        "sourceIds": [
+          "josephus-testimonium",
+          "whealey-transmission"
+        ],
+        "route": "/human-story/testimonium/",
+        "exportedRoute": true
+      },
+      {
+        "id": "suetonius",
+        "reviewStatus": "draft",
+        "category": "testimony",
+        "sourceIds": [
+          "suetonius-claudius",
+          "kirby-suetonius"
+        ],
+        "route": "/human-story/suetonius/",
+        "exportedRoute": true
+      },
+      {
+        "id": "genesis",
+        "reviewStatus": "draft",
+        "category": "scripture",
+        "sourceIds": [
+          "web-genesis"
+        ],
+        "route": "/human-story/genesis/",
+        "exportedRoute": true
+      },
+      {
+        "id": "exodus",
+        "reviewStatus": "draft",
+        "category": "scripture",
+        "sourceIds": [
+          "web-exodus"
+        ],
+        "route": "/human-story/exodus/",
+        "exportedRoute": true
+      },
+      {
+        "id": "jonah",
+        "reviewStatus": "draft",
+        "category": "scripture",
+        "sourceIds": [
+          "web-jonah"
+        ],
+        "route": "/human-story/jonah/",
+        "exportedRoute": true
+      },
+      {
+        "id": "emmaus",
+        "reviewStatus": "draft",
+        "category": "scripture",
+        "sourceIds": [
+          "web-luke"
+        ],
+        "route": "/human-story/emmaus/",
+        "exportedRoute": true
+      },
+      {
+        "id": "paul",
+        "reviewStatus": "draft",
+        "category": "scripture",
+        "sourceIds": [
+          "web-acts"
+        ],
+        "route": "/human-story/paul/",
+        "exportedRoute": true
+      },
+      {
+        "id": "nineveh",
+        "reviewStatus": "draft",
+        "category": "artifact",
+        "sourceIds": [
+          "bm-tablet",
+          "web-jonah"
+        ],
+        "route": "/human-story/nineveh/",
+        "exportedRoute": true
+      },
+      {
+        "id": "jonah-in-marble",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "cma-jonah",
+          "web-jonah"
+        ],
+        "route": "/human-story/jonah-in-marble/",
+        "exportedRoute": true
+      }
+    ],
+    "connections": [
+      {
+        "id": "augustine-time",
+        "from": "augustine",
+        "to": "time-and-memory",
+        "reviewStatus": "draft",
+        "category": "textual",
+        "sourceIds": [
+          "augustine-confessions"
+        ]
+      },
+      {
+        "id": "time-singing",
+        "from": "time-and-memory",
+        "to": "singing-in-milan",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "augustine-confessions"
+        ]
+      },
+      {
+        "id": "sinaiticus-jonah",
+        "from": "sinaiticus",
+        "to": "jonah",
+        "reviewStatus": "draft",
+        "category": "textual",
+        "sourceIds": [
+          "bl-sinaiticus",
+          "web-jonah"
+        ]
+      },
+      {
+        "id": "marble-jerome",
+        "from": "jonah-in-marble",
+        "to": "jerome",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "cma-jonah",
+          "jerome-augustine"
+        ]
+      },
+      {
+        "id": "jerome-jewish-readers",
+        "from": "jerome",
+        "to": "rashi-radak",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "jerome-augustine",
+          "rashi-jonah",
+          "radak-jonah"
+        ]
+      },
+      {
+        "id": "jonah-jerome",
+        "from": "jonah",
+        "to": "jerome",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "web-jonah",
+          "augustine-jerome",
+          "jerome-augustine"
+        ]
+      },
+      {
+        "id": "jerome-augustine-life",
+        "from": "jerome",
+        "to": "augustine",
+        "reviewStatus": "draft",
+        "category": "textual",
+        "sourceIds": [
+          "augustine-confessions",
+          "augustine-jerome"
+        ]
+      },
+      {
+        "id": "jonah-rashi-radak",
+        "from": "jonah",
+        "to": "rashi-radak",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "web-jonah",
+          "rashi-jonah",
+          "radak-jonah"
+        ]
+      },
+      {
+        "id": "augustine-singing",
+        "from": "augustine",
+        "to": "singing-in-milan",
+        "reviewStatus": "draft",
+        "category": "textual",
+        "sourceIds": [
+          "augustine-confessions"
+        ]
+      },
+      {
+        "id": "pliny-singing",
+        "from": "pliny",
+        "to": "singing-in-milan",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "pliny-letters",
+          "augustine-confessions"
+        ]
+      },
+      {
+        "id": "genesis-paint",
+        "from": "genesis",
+        "to": "genesis-in-paint",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "web-genesis",
+          "vatican-creation"
+        ]
+      },
+      {
+        "id": "mediterranean-tacitus",
+        "from": "mediterranean",
+        "to": "tacitus",
+        "reviewStatus": "draft",
+        "category": "context",
+        "sourceIds": [
+          "tacitus-annals",
+          "pleiades-rome"
+        ]
+      },
+      {
+        "id": "mediterranean-perpetua",
+        "from": "mediterranean",
+        "to": "perpetua",
+        "reviewStatus": "draft",
+        "category": "context",
+        "sourceIds": [
+          "passion-perpetua",
+          "pleiades-carthage"
+        ]
+      },
+      {
+        "id": "mediterranean-paint",
+        "from": "mediterranean",
+        "to": "genesis-in-paint",
+        "reviewStatus": "draft",
+        "category": "context",
+        "sourceIds": [
+          "vatican-creation",
+          "pleiades-rome"
+        ]
+      },
+      {
+        "id": "pliny-perpetua",
+        "from": "pliny",
+        "to": "perpetua",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "pliny-letters",
+          "passion-perpetua"
+        ]
+      },
+      {
+        "id": "perpetua-augustine",
+        "from": "perpetua",
+        "to": "augustine",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "passion-perpetua",
+          "augustine-confessions"
+        ]
+      },
+      {
+        "id": "augustine-teresa",
+        "from": "augustine",
+        "to": "teresa",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "teresa-life",
+          "augustine-confessions"
+        ]
+      },
+      {
+        "id": "augustine-genesis",
+        "from": "augustine",
+        "to": "genesis",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "augustine-confessions",
+          "web-genesis"
+        ]
+      },
+      {
+        "id": "francis-genesis",
+        "from": "francis",
+        "to": "genesis",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "francis-flowers",
+          "web-genesis"
+        ]
+      },
+      {
+        "id": "tacitus-emmaus",
+        "from": "tacitus",
+        "to": "emmaus",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "tacitus-annals",
+          "web-luke"
+        ]
+      },
+      {
+        "id": "tacitus-pliny",
+        "from": "tacitus",
+        "to": "pliny",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "tacitus-annals",
+          "pliny-letters"
+        ]
+      },
+      {
+        "id": "pliny-paul",
+        "from": "pliny",
+        "to": "paul",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "pliny-letters",
+          "web-acts"
+        ]
+      },
+      {
+        "id": "josephus-two-notices",
+        "from": "josephus-james",
+        "to": "testimonium",
+        "reviewStatus": "draft",
+        "category": "textual",
+        "sourceIds": [
+          "josephus-james",
+          "josephus-testimonium",
+          "whealey-transmission"
+        ]
+      },
+      {
+        "id": "james-emmaus",
+        "from": "josephus-james",
+        "to": "emmaus",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "josephus-james",
+          "web-luke"
+        ]
+      },
+      {
+        "id": "suetonius-tacitus",
+        "from": "suetonius",
+        "to": "tacitus",
+        "reviewStatus": "draft",
+        "category": "disputed",
+        "sourceIds": [
+          "suetonius-claudius",
+          "kirby-suetonius",
+          "tacitus-annals"
+        ]
+      },
+      {
+        "id": "jonah-nineveh",
+        "from": "jonah",
+        "to": "nineveh",
+        "reviewStatus": "draft",
+        "category": "context",
+        "sourceIds": [
+          "web-jonah",
+          "bm-tablet"
+        ]
+      },
+      {
+        "id": "jonah-marble",
+        "from": "jonah",
+        "to": "jonah-in-marble",
+        "reviewStatus": "draft",
+        "category": "reception",
+        "sourceIds": [
+          "web-jonah",
+          "cma-jonah"
+        ]
+      },
+      {
+        "id": "jonah-exodus",
+        "from": "jonah",
+        "to": "exodus",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "web-jonah",
+          "web-exodus"
+        ]
+      },
+      {
+        "id": "genesis-exodus",
+        "from": "genesis",
+        "to": "exodus",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "web-genesis",
+          "web-exodus"
+        ]
+      },
+      {
+        "id": "emmaus-paul",
+        "from": "emmaus",
+        "to": "paul",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "web-luke",
+          "web-acts"
+        ]
+      },
+      {
+        "id": "paul-jonah",
+        "from": "paul",
+        "to": "jonah",
+        "reviewStatus": "draft",
+        "category": "comparison",
+        "sourceIds": [
+          "web-acts",
+          "web-jonah"
+        ]
+      }
+    ],
+    "prisonScenes": [
+      {
+        "id": "child",
+        "reviewStatus": "draft",
+        "locator": "Passion §3; attribution introduced in §2",
+        "voice": "account"
+      },
+      {
+        "id": "tribunal",
+        "reviewStatus": "draft",
+        "locator": "Passion §§5–6",
+        "voice": "account"
+      },
+      {
+        "id": "separation",
+        "reviewStatus": "draft",
+        "locator": "Passion §6, after the sentence",
+        "voice": "account"
+      },
+      {
+        "id": "vision",
+        "reviewStatus": "draft",
+        "locator": "Passion §10; an earlier vision appears in §4",
+        "voice": "vision"
+      },
+      {
+        "id": "felicity",
+        "reviewStatus": "draft",
+        "locator": "Passion §15",
+        "voice": "narrator"
+      },
+      {
+        "id": "handover",
+        "reviewStatus": "draft",
+        "locator": "End of Passion §10; §§14, 18–21",
+        "voice": "narrator"
+      }
+    ]
+  },
+  "privateCreatorProbes": [
+    {
+      "probe": "No one dies for a lie.",
+      "exportedArtifacts": []
+    },
+    {
+      "probe": "purefaith",
+      "exportedArtifacts": []
+    },
+    {
+      "probe": "The father is mourning",
+      "exportedArtifacts": []
+    },
+    {
+      "probe": "Felicity's dedication to the Spirit of God",
+      "exportedArtifacts": []
+    },
+    {
+      "probe": "When I read historical accounts",
+      "exportedArtifacts": []
+    },
+    {
+      "probe": "authorship in progress",
+      "exportedArtifacts": []
+    }
+  ],
+  "limitations": [
+    "Exact-string artifact matches establish exposure, not human visibility. Encoded/compressed/binary content and changed wording require separate inspection.",
+    "Approval authenticity and historical truth require accountable human review; current validators only check structured metadata.",
+    "This inventory is deliberately bounded to the reproduced Jonah failures and Human Story review scope; unclassified Jonah failures abort generation."
+  ],
+  "inspectedBuildId": "ecc6ea2",
+  "sourceChecksums": {
+    "src/content/jonah.ts": "sha256:cc8e41c3f6685abfb14525c0e2a12bee8932b8a81ac27ecdb01c11b30d857cb9",
+    "src/domain/story.ts": "sha256:634fc5d1dc0bb2781e55614a560562ae82bab961d57d959bfd76c60d4a4e2ac9",
+    "scripts/validate-story.ts": "sha256:54e193ba0172c3e55639c315f587a5e8c234684154050aff5a88b5521e96c2ff",
+    "src/content/human-story.ts": "sha256:78c14b2a1221b13200c33373135c9eb5454214659f54fd6037ace480bc4d429e",
+    "src/content/human-story-saints.ts": "sha256:0a60c9419bfc82345839003e1364ffdae841046346e42c93337fc656545cb785",
+    "src/content/human-story-witnesses.ts": "sha256:24fce28ca3b37004e5689b49b229d78c6544f27c05e6ffad101e61685b684ad1",
+    "src/content/human-story-culture.ts": "sha256:f6383a8c1725ab27efa01c1417309a4ff7afef823b81456651495181ba322132",
+    "src/content/human-story-interiors.ts": "sha256:a2ebc605788b53f9f2d84862cfd08aa8fa57f75fac756ac9049f3b6fbb615f56",
+    "src/content/perpetua-encounter.ts": "sha256:89e959163287457fd04cf60147b11128f1371a64068c3073b85862756defa1f6"
+  }
+}
