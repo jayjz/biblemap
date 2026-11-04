@@ -8,10 +8,12 @@ export function HumanStoryFrame({
   children,
   activeWorld,
   immersive = false,
+  footer = true,
 }: {
   children: ReactNode;
   activeWorld?: WorldId;
   immersive?: boolean;
+  footer?: boolean;
 }) {
   const worldNavigation = <nav aria-label="Explore the five worlds" className={styles.nav}>
     {WORLDS.map((world) => <Link prefetch={false} key={world.id} href={`/human-story/worlds/${world.id}/`} aria-current={activeWorld === world.id ? "page" : undefined}>{world.name}</Link>)}
@@ -53,7 +55,7 @@ export function HumanStoryFrame({
       <main id="main" tabIndex={-1}>
         {children}
       </main>
-      <footer className={styles.footer}>
+      {footer && <footer className={styles.footer}>
         <Link href="/nineveh/" prefetch={false}>
           Return to Nineveh
         </Link>
@@ -61,7 +63,7 @@ export function HumanStoryFrame({
         <Link prefetch={false} href="/jonah/#jonah-1-calling">
           Read Jonah from the beginning
         </Link>
-      </footer>
+      </footer>}
     </div>
   );
 }

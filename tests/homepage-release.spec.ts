@@ -58,6 +58,8 @@ test("five worlds and both principal lives remain reachable through the entrance
   await expect(page).toHaveURL(/\/human-story\/perpetua\/$/);
   await expect(page.getByRole("navigation", { name: "Scenes in The Prison" })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("perpetua-navigation.png"), fullPage: true });
+  await page.getByRole("navigation", { name: "Scenes in The Prison" }).getByRole("link", { name: "The ending", exact: true }).click();
+  await page.locator("#ending-research > summary").click();
   await page.getByRole("link", { name: "Augustine: a life reread", exact: true }).click();
   await expect(page).toHaveURL(/\/human-story\/augustine\/$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

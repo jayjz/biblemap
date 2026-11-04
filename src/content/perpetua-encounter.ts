@@ -40,7 +40,7 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
     limit:
       "We possess the transmitted composite work, not an inspected autograph or the child's account. Its editor attributes §§3–10 to Perpetua. That attribution is part of what the source asks us to examine.",
     visualDescription:
-      "Two nested forms stand for Perpetua and her child, with a continuous line for the contact narrated in section 3.",
+      "Cassatt’s intact print offers an explicitly modern artistic parallel of maternal closeness beside the prison account.",
     relationships: [
       {
         id: "child",
@@ -83,7 +83,7 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
     limit:
       "The Passion is a Christian martyr narrative, not a surviving official transcript. The father's motives cannot be reconstructed beyond what this account says about him.",
     visualDescription:
-      "The mother and child forms are held within a wider contour, representing family and authority entering the same narrated encounter.",
+      "Reported appeals occupy one typographic field; Perpetua’s account of her father’s beating follows her reply, preventing it from becoming an uncomplicated climax.",
     relationships: [
       {
         id: "father",
@@ -154,21 +154,21 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
   {
     id: "vision",
     name: "The vision",
-    title: "The account changes register.",
+    title: "The night before the games.",
     voice: "vision",
     voiceLabel: "A vision reported by Perpetua",
     locator: "Passion §10; an earlier vision appears in §4",
     sourceId: "passion-perpetua",
     text: [
-      "Before the games, she recounts a vision of a contest in an arena. On waking, she understands the struggle as a fight against the devil.",
-      "A vision of victory and the account of her death will occupy different parts of the work. One must not quietly become footage of the other.",
+      "The sentence is to the beasts. In the vision, she meets an opponent instead; her body changes, and she receives a branch with golden fruit. On waking, she understands the struggle as a fight against the devil.",
+      "The vision gives her an expectation of victory before the public games. Her own writing stops here. Another narrator will describe what happens there.",
     ],
     evidence:
       "Section 10 explicitly identifies the episode as a vision, describes the contest and gives her waking interpretation. The attributed account ends after this section, before the games themselves.",
     limit:
       "A reported vision is evidence of what the work says she experienced and understood. It does not independently establish the vision's events or a universal interpretation of its imagery.",
     visualDescription:
-      "An open ring surrounds the inner form. It marks a reported vision's separate narrative register, without depicting its scene as an external event.",
+      "A disclosed AI-generated interpretation accompanies three source moments: expected beasts, a changed body and waking interpretation. It does not reconstruct an external event.",
     relationships: [
       {
         id: "vision",
@@ -197,13 +197,14 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
   {
     id: "felicity",
     name: "Felicity",
-    title: "Another mother. Another voice.",
+    title: "She fears being left behind.",
     voice: "narrator",
     voiceLabel: "Felicity described by the narrator",
     locator: "Passion §15",
     sourceId: "passion-perpetua",
     text: [
-      "The narrator describes the pregnant Felicity among the prisoners. Her companions pray; she gives birth, and another Christian woman takes the daughter to rear.",
+      "The narrator describes the pregnant Felicity among the prisoners. She fears being left behind when her companions die. They grieve at the thought of leaving her and pray together. Then her labour begins.",
+      "An attendant asks how she will bear the beasts if childbirth hurts so much. The reply reported by the narrator places her hope in someone who will suffer in her. Another woman will raise her daughter.",
       "Felicity does not leave a corresponding first-person account in this text. Her reported words and experience come through the narrator's telling.",
     ],
     evidence:
@@ -211,7 +212,7 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
     limit:
       "The absence of a first-person segment here does not mean Felicity had no voice or never wrote. It limits our access through this particular work. Its legal remarks are not treated here as a complete statement of Roman law.",
     visualDescription:
-      "Two forms for Felicity and her newborn are linked through a wider outer contour, marking that a narrator mediates their story.",
+      "Kollwitz’s The Mothers offers a twentieth-century artistic parallel of gathering bodies beside the narrator’s description of companionship, childbirth and a daughter’s care.",
     relationships: [
       {
         id: "felicity",
@@ -254,7 +255,7 @@ export const PRISON_SCENES: readonly PrisonScene[] = [
     limit:
       "The source preserves a Christian interpretation of these deaths. Its composite form gives access to a life while also placing limits on whose words, perspective and experience we can recover.",
     visualDescription:
-      "The central form is now an unfilled outline beside a continuing outer line: the attributed writing has ended and the narrator continues.",
+      "The last attributed sentence gives way to the narrator’s description of one woman raising another. Later remembrance and optional sources precede a final open question, with no footer afterward.",
     relationships: [
       {
         id: "perpetua",

@@ -21,7 +21,7 @@ export const INTERIOR_SOURCES: readonly HumanSource[] = [
     id: "passion-wallis",
     title: "The Passion: Wallis translation",
     url: "https://en.wikisource.org/wiki/Ante-Nicene_Fathers/Volume_III/Ethical/The_Passion_of_the_Holy_Martyrs_Perpetua_and_Felicitas/Argument_II",
-    locator: "Passion §§3 and 6; ANF Argument I.2 and II.2",
+    locator: "Passion §§3, 5–6, 10, 15 and 20; ANF Argument I.2, II.1–2, III.2, V.2 and VI.3",
     edition:
       "R. E. Wallis, Ante-Nicene Fathers III (1885). The electronic transcription’s ‘no long’ is corrected to ‘no [longer]’. Other displayed wording retained.",
     kind: "testimony",

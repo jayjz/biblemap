@@ -25,6 +25,7 @@ test("the prison encounter exposes human stakes and the changing source voice", 
   );
   const child = page.locator('[data-scene="child"]');
   await expect(child).toContainText("her nursing child");
+  await child.getByText("People and the account’s limits", { exact: true }).click();
   await child.getByRole("button", { name: "Her family", exact: true }).click();
   await expect(
     child.getByRole("button", { name: "Her family", exact: true }),
@@ -52,10 +53,11 @@ test("the prison encounter exposes human stakes and the changing source voice", 
   await scenes.getByRole("link", { name: "The vision", exact: true }).click();
   const vision = page.locator('[data-scene="vision"]');
   await expect(vision).toContainText("A vision reported by Perpetua");
+  await vision.getByText("People and the account’s limits", { exact: true }).click();
   await vision
     .getByRole("button", { name: "What it means to her", exact: true })
     .click();
-  await expect(vision.locator('[aria-live="polite"]')).toContainText(
+  await expect(vision.locator("#observation-vision")).toContainText(
     "not asked to verify a supernatural scene",
   );
   await scenes.getByRole("link", { name: "Felicity", exact: true }).click();
@@ -68,6 +70,7 @@ test("the prison encounter exposes human stakes and the changing source voice", 
   await expect(
     ending.getByRole("heading", { name: /Whose voice survives/ }),
   ).toBeVisible();
+  await page.locator("#ending-research > summary").click();
   await page.locator("#source-passion-perpetua summary").click();
   await expect(page.getByText(/Shewring translation/)).toBeVisible();
   expect(errors).toEqual([]);
@@ -87,8 +90,9 @@ test("scene links, history, keyboard relationships and full reading retain contr
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/#perpetua-vision$/);
   await expect(
-    page.getByRole("heading", { name: "The account changes register." }),
+    page.getByRole("heading", { name: "The night before the games." }),
   ).toBeFocused();
+  await page.locator('[data-scene="vision"]').getByText("People and the account’s limits", { exact: true }).click();
   const meaning = page.getByRole("button", {
     name: "What it means to her",
     exact: true,
@@ -104,7 +108,7 @@ test("scene links, history, keyboard relationships and full reading retain contr
   await page.goForward();
   await expect(page.locator('[data-scene="vision"]')).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "The account changes register." }),
+    page.getByRole("heading", { name: "The night before the games." }),
   ).toBeFocused();
   await page
     .getByRole("link", { name: "Read all six scenes", exact: true })
@@ -181,16 +185,14 @@ test("without JavaScript all scenes, people, provenance and onward routes remain
     .getByRole("navigation", { name: "Scenes in The Prison" })
     .getByRole("link", { name: "Felicity", exact: true })
     .click();
-  await page
-    .locator('[data-scene="felicity"] details')
-    .filter({ has: page.locator("summary", { hasText: /^Felicity$/ }) })
-    .locator("summary")
-    .click();
+  await page.locator('[data-scene="felicity"]').getByText("People and the account’s limits", { exact: true }).click();
+  await page.locator('[data-scene="felicity"] summary').filter({ hasText: /^Felicity$/ }).click();
   await expect(
     page
-      .locator('[data-scene="felicity"] details[open]')
+      .locator('[data-scene="felicity"] summary').filter({ hasText: /^Felicity$/ }).locator("..")
       .getByText(/invented diary or interior monologue/),
   ).toBeVisible();
+  await page.locator("#ending-research > summary").click();
   await page.locator("#source-passion-perpetua summary").click();
   await expect(page.getByText(/restricts commercial reuse/)).toBeVisible();
   await expect(

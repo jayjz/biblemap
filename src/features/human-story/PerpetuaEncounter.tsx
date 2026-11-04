@@ -18,29 +18,7 @@ export function PerpetuaEncounter() {
     (item) => item.id === "passion-perpetua",
   );
   if (!source) throw new Error("Perpetua encounter requires its source record");
-  return (
-    <HumanStoryFrame activeWorld="saints" immersive>
-      <article className={styles.encounter} data-entry="perpetua">
-        <header className={styles.entrance}>
-          <div className={styles.entranceArt}><ArtworkImage src="/media/human-story/cassatt-kiss.webp" width={1200} height={1778} priority alt="Mary Cassatt’s Mother’s Kiss: a mother holding and kissing a small child. An artistic parallel, not Perpetua." /></div>
-          <div className={styles.entranceCopy}>
-            <p className={styles.entranceName}>Perpetua</p>
-            <h1>The Prison</h1>
-            <blockquote className={styles.entranceSubtitle}>“I obtained for my infant to remain in the dungeon with me”<cite>Attributed to Perpetua · Passion §3<br />R. E. Wallis translation, 1885</cite></blockquote>
-            <a className={styles.enterStory} href="#perpetua-child">Enter the account <span aria-hidden="true">↓</span></a>
-            <p className={styles.entrancePlace}>Carthage · traditionally dated 203 CE<br />Perpetua & Felicity</p>
-          </div>
-        <p className={styles.entranceCredit}>Mary Cassatt, <cite>Mother’s Kiss</cite>, 1890–1891.<br />An artistic parallel, not a portrayal of Perpetua. <a href="#source-cassatt-art">Image & source</a></p>
-        </header>
-        <details className={styles.reviewNotice}><summary>A story in development · about this encounter</summary><p>The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately. The entrance pairs a nineteenth-century image of maternal closeness with the ancient account. It is an artistic comparison, not a historical likeness.</p></details>
-        <PrisonStage scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={
-          <SeparationReading text={separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text)}>
-            <SourcePassage id="childEarlier" />
-            <SeparationPassage />
-            <p>First, relief comes when the child can stay. Later, the account places relief after separation and attributes it to God’s will. The father’s reason for refusing the request is not given.</p>
-            <p>Reading note · provisional commentary. This paragraph does not tell us the child’s later life.</p>
-          </SeparationReading>
-        } />
+  const endingResearch = <details className={styles.researchDesk} id="ending-research"><summary>Sources, place & further reading</summary>
         <section
           className={styles.beyond}
           id="beyond-prison"
@@ -146,22 +124,28 @@ export function PerpetuaEncounter() {
             ))}
           </details>
           <details>
-            <summary>About the drawing and this encounter</summary>
+            <summary>About the imagery and this encounter</summary>
             <p>
-              AI-authored original vector illustration by Codex for this design
-              review. Its forms describe narrated relationships, contact,
-              separation and a change of voice. It is not an authentic artifact,
-              portrait, prison plan or historical reconstruction.
+              The vision’s image is original AI-generated interpretive artwork,
+              directed by Codex for BibleMap in 2026. Its arena, shifting shadows,
+              light and golden fruit respond to §10. It is not an authentic artifact,
+              likeness, prison plan or verified view of a vision. The hearing’s
+              typography places reported appeals across one field; it does not
+              reconstruct an official transcript.
             </p>
             <p>The separation reading places an opaque reading surface across Cassatt’s intact print when the request is refused. It remains there when the attributed account describes relief. This is a modern artistic composition, not a reconstruction of events or evidence of the child’s later life.</p>
             <p>
               Original editorial summaries remain drafts for PR #36, pending
-              human historical and theological review. The separation scene adds
-              credited Wallis translation excerpts and an artistic parallel and a later devotional mosaic
-              with their own image-source details. No audio or synthesized voices
+              human historical and theological review. Credited Wallis translation
+              excerpts, artistic parallels and the later devotional mosaic
+              retain their own source details. The final movement distinguishes
+              the end of the attributed writing from the narrator’s ending.
+              No audio or synthesized voices
               are used.
             </p>
           </details>
+          <details id="source-felicity-art"><summary>Kollwitz · the print’s own world</summary><InteriorArtwork id="kollwitz-mothers" /><p>This twentieth-century work is an artistic parallel to the gathering of companions and care for a child. It is not a depiction of Felicity or evidence of the prison. Its place in Kollwitz’s War imagery belongs to its own historical world, not to Christian martyr reception.</p><a href="https://www.kollwitz.de/sammlung/krieg/blatt-6">Kollwitz Museum Köln · The Mothers, sheet 6 of War</a></details>
+          <details id="source-vision-art"><summary>A contest before waking · generated artwork and limits</summary><InteriorArtwork id="perpetua-vision" /><p>Generated with OpenAI’s built-in image tool. No third-party reference image was supplied. The architecture is invented; the shadows do not identify an ethnicity or recover Perpetua’s appearance. The composition interprets reported imagery rather than supplying evidence that it occurred.</p></details>
           <details id="source-cassatt-art"><summary>Cassatt · image, rights & artistic comparison</summary><InteriorArtwork id="cassatt-kiss" /><p>The moving reading surface is an original interface composition by Codex. It covers the whole print without editing either figure. This pairing awaits human editorial review.</p></details>
           <details id="source-perpetua-art">
             <summary>The mosaic · provenance and artistic interpretation</summary>
@@ -169,6 +153,30 @@ export function PerpetuaEncounter() {
             <p>The complete image is retained. Changing its scale and surrounding space is an interface composition; no person has been removed from or added to the artwork.</p>
           </details>
         </section>
+  </details>;
+  return (
+    <HumanStoryFrame activeWorld="saints" immersive footer={false}>
+      <article className={styles.encounter} data-entry="perpetua">
+        <header className={styles.entrance}>
+          <div className={styles.entranceArt}><ArtworkImage src="/media/human-story/cassatt-kiss.webp" width={1200} height={1778} priority alt="Mary Cassatt’s Mother’s Kiss: a mother holding and kissing a small child. An artistic parallel, not Perpetua." /></div>
+          <div className={styles.entranceCopy}>
+            <p className={styles.entranceName}>Perpetua</p>
+            <h1>The Prison</h1>
+            <blockquote className={styles.entranceSubtitle}>“I obtained for my infant to remain in the dungeon with me”<cite>Attributed to Perpetua · Passion §3<br />R. E. Wallis translation, 1885</cite></blockquote>
+            <a className={styles.enterStory} href="#perpetua-child">Enter the account <span aria-hidden="true">↓</span></a>
+            <p className={styles.entrancePlace}>Carthage · traditionally dated 203 CE<br />Perpetua & Felicity</p>
+          </div>
+        <p className={styles.entranceCredit}>Mary Cassatt, <cite>Mother’s Kiss</cite>, 1890–1891.<br />An artistic parallel, not a portrayal of Perpetua. <a href="#source-cassatt-art">Image & source</a></p>
+        </header>
+        <details className={styles.reviewNotice}><summary>A story in development · about this encounter</summary><p>The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately. The entrance pairs a nineteenth-century image of maternal closeness with the ancient account. It is an artistic comparison, not a historical likeness.</p></details>
+        <PrisonStage endingResearch={endingResearch} scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={
+          <SeparationReading text={separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text)}>
+            <SourcePassage id="childEarlier" />
+            <SeparationPassage />
+            <p>First, relief comes when the child can stay. Later, the account places relief after separation and attributes it to God’s will. The father’s reason for refusing the request is not given.</p>
+            <p>Reading note · provisional commentary. This paragraph does not tell us the child’s later life.</p>
+          </SeparationReading>
+        } />
       </article>
     </HumanStoryFrame>
   );

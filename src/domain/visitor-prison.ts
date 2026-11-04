@@ -17,8 +17,10 @@ export function projectVisitorPrison(scenes: readonly PrisonScene[]): VisitorPri
 }
 
 /** Unknown/foreign fragments fail safely; IDs are never array positions. */
+export const PRISON_SOURCE_FRAGMENTS = ["#source-passion-perpetua", "#source-passion-wallis", "#source-felicity-art", "#source-vision-art", "#source-cassatt-art", "#source-perpetua-art", "#beyond-prison", "#comparison", "#ending-research"] as const;
+
 export function visitorPrisonView(hash: string | null, scenes: readonly VisitorPrisonScene[]) {
   const legacy: Record<string, string> = { "#prison": "child", "#visions": "vision", "#felicity": "felicity" };
-  const id = hash ? (Object.hasOwn(legacy, hash) ? legacy[hash] : hash.replace(/^#perpetua-/, "")) : undefined;
+  const id = hash ? (PRISON_SOURCE_FRAGMENTS.some(fragment => fragment === hash) ? "handover" : Object.hasOwn(legacy, hash) ? legacy[hash] : hash.replace(/^#perpetua-/, "")) : undefined;
   return { enhanced: hash !== null, all: id === "all", scene: scenes.find(scene => scene.id === id) ?? scenes[0] };
 }

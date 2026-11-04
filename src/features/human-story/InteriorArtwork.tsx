@@ -6,6 +6,9 @@ export type InteriorArtworkId =
   | "rome-forum"
   | "augustine-painting"
   | "perpetua-mosaic"
+  | "felicitas-mosaic"
+  | "kollwitz-mothers"
+  | "perpetua-vision"
   | "cassatt-kiss";
 
 export function InteriorArtwork({

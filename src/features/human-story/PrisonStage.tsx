@@ -8,8 +8,8 @@ import {
   useSyncExternalStore,
 } from "react";
 import type { MouseEvent, ReactNode } from "react";
-import { visitorPrisonView, type VisitorPrisonScene } from "@/domain/visitor-prison";
-import { PrisonDiagram } from "./PrisonDiagram";
+import { PRISON_SOURCE_FRAGMENTS, visitorPrisonView, type VisitorPrisonScene } from "@/domain/visitor-prison";
+import { PerpetuaMovement } from "./PerpetuaMovements";
 import styles from "./prison.module.css";
 
 const getHash = () => window.location.hash;
@@ -20,6 +20,7 @@ function RelationshipScene({
   scenes,
   separationArtwork,
   separationPassage,
+  endingResearch,
   enhanced,
   navigate,
 }: {
@@ -27,6 +28,7 @@ function RelationshipScene({
   scenes: readonly VisitorPrisonScene[];
   separationArtwork: ReactNode;
   separationPassage: ReactNode;
+  endingResearch: ReactNode;
   enhanced: boolean;
   navigate: (event: MouseEvent<HTMLAnchorElement>, id: string) => void;
 }) {
@@ -75,34 +77,14 @@ function RelationshipScene({
       ))}
     </div>
   </>;
-  return (
-    <>
-      <div className={`${styles.sceneLayout}${scene.id === "separation" ? ` ${styles.separationScene}` : ""}`}>
-        <div className={styles.sceneCopy}>
-          <p className={styles.position}>{scene.voiceLabel}</p>
-          <h2
-            className={styles.sceneTitle}
-            id={`title-${scene.id}`}
-            tabIndex={-1}
-          >
-            {scene.title}
-          </h2>
-          <div className={styles.narrative} hidden={scene.id === "separation" && enhanced}>
-            {scene.text.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
-          </div>
-        </div>
-        {scene.id === "separation" && <div className={styles.separationLeaf} aria-label="The two passages in the transmitted account">{separationPassage}</div>}
+  const supporting = (
+        <div className={styles.sceneEvidence}>
         <div className={styles.relationships}>
           {scene.id === "separation" ? (
             <details className={styles.reception}><summary>How a later image holds them together</summary>{separationArtwork}</details>
-          ) : (
-            <PrisonDiagram scene={scene} selected={relationship.id} />
-          )}
-          {scene.id === "separation" ? <details className={styles.peopleDetails}><summary>People and the account’s limits</summary>{people}</details> : people}
+          ) : null}
+          <details className={styles.peopleDetails}><summary>People and the account’s limits</summary>{people}</details>
         </div>
-        <div className={styles.sceneEvidence}>
           <div className={styles.sourceRegister}>
             <p>{scene.locator}</p>
             <details>
@@ -118,15 +100,6 @@ function RelationshipScene({
               </p>
             </details>
           </div>
-          {scene.id === "handover" && (
-            <div className={styles.finalQuestion}>
-              <p>A question to leave with</p>
-              <h3>
-                Whose voice survives when someone else finishes the story?
-              </h3>
-              <a href="#beyond-prison">Follow the story outward</a>
-            </div>
-          )}
           <nav
             className={styles.sceneNavigation}
             aria-label={`Continue from ${scene.name}`}
@@ -160,12 +133,36 @@ function RelationshipScene({
             )}
           </nav>
         </div>
+  );
+  return (
+    <>
+      <div className={styles.sceneLayout}>
+        <div className={styles.sceneCopy}>
+          <p className={styles.movementNumber}>{index + 1} / {scenes.length}<span>{scene.name}</span></p>
+          <p className={styles.position}>{scene.voiceLabel}</p>
+          <h2
+            className={styles.sceneTitle}
+            id={`title-${scene.id}`}
+            tabIndex={-1}
+          >
+            {scene.title}
+          </h2>
+          <PerpetuaMovement id={scene.id} endingNotes={scene.id === "handover" ? <>{supporting}{endingResearch}</> : undefined}>
+          <div className={styles.narrative} hidden={scene.id === "separation" && enhanced}>
+            {scene.text.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+          </div>
+          </PerpetuaMovement>
+        </div>
+        {scene.id === "separation" && <div className={styles.separationLeaf} aria-label="The two passages in the transmitted account">{separationPassage}</div>}
+        {scene.id !== "handover" && supporting}
       </div>
     </>
   );
 }
 
-export function PrisonStage({ scenes, separationArtwork, separationPassage }: { scenes: readonly VisitorPrisonScene[]; separationArtwork: ReactNode; separationPassage: ReactNode }) {
+export function PrisonStage({ scenes, separationArtwork, separationPassage, endingResearch }: { scenes: readonly VisitorPrisonScene[]; separationArtwork: ReactNode; separationPassage: ReactNode; endingResearch: ReactNode }) {
   const requestedFocus = useRef(false);
   const subscribeHash = useCallback((update: () => void) => {
     const restoreSceneFocus = () => {
@@ -191,6 +188,19 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage }: { 
   const stage = useRef<HTMLDivElement>(null);
   const enteredSeparation = useRef(false);
   useEffect(() => {
+    const sourceFragment = PRISON_SOURCE_FRAGMENTS.find(fragment => fragment === hash);
+    if (sourceFragment) {
+      const target = stage.current?.querySelector<HTMLElement>(sourceFragment);
+      let ancestor: HTMLElement | null = target ?? null;
+      while (ancestor && ancestor !== stage.current) {
+        if (ancestor instanceof HTMLDetailsElement) ancestor.open = true;
+        ancestor = ancestor.parentElement;
+      }
+      target?.querySelector<HTMLElement>("summary")?.focus({ preventScroll: true });
+      target?.scrollIntoView({ block: "start", behavior: "instant" });
+      requestedFocus.current = false;
+      return;
+    }
     const initialSeparation = view.enhanced && !view.all && view.scene.id === "separation" && !enteredSeparation.current;
     if (!requestedFocus.current && !initialSeparation) return;
     // Let history finish restoring the document before restoring scene focus.
@@ -199,8 +209,8 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage }: { 
           view.all ? "#all-scenes-title" : `#title-${view.scene.id}`,
         );
       heading?.focus();
+      heading?.scrollIntoView({ block: "start", behavior: "instant" });
       if (!view.all && view.scene.id === "separation") {
-        heading?.scrollIntoView({ block: "start", behavior: "instant" });
         enteredSeparation.current = true;
       }
       requestedFocus.current = false;
@@ -296,6 +306,7 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage }: { 
             scenes={scenes}
             separationArtwork={separationArtwork}
             separationPassage={separationPassage}
+            endingResearch={endingResearch}
             enhanced={view.enhanced}
             navigate={navigate}
           />
