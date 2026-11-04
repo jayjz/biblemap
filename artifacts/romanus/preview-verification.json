@@ -1,0 +1,29 @@
+{
+  "deploymentId": "dpl_nURTWrCPJ1Ks6PS56tYK6qBuJ1zc",
+  "url": "https://biblemap-a09o525d6-elliotandersons-projects.vercel.app/human-story/romanus/",
+  "commit": "d0709d20440d0d15213df654228233587ce237d0",
+  "environment": "preview",
+  "command": "PLAYWRIGHT_BASE_URL=<deployment-origin> npm run test:e2e -- tests/romanus.spec.ts --output=test-results/romanus-preview --reporter=line,json",
+  "exitCode": 0,
+  "stats": {
+    "startTime": "2026-11-04T23:22:39.015Z",
+    "duration": 14142.48,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "errors": [],
+  "coverage": [
+    "desktop",
+    "mobile",
+    "keyboard skip target and focus",
+    "axe",
+    "no JavaScript at 320px",
+    "reduced motion",
+    "missing image fallback",
+    "source navigation",
+    "collection entrance"
+  ],
+  "editorialApproval": false
+}

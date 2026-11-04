@@ -1,0 +1,31 @@
+{
+  "command": "npm run test:e2e -- --output=test-results/romanus-integration --reporter=line,json",
+  "build": "04291dc92bdd6e1cd4f54aeb5cbd02b9adaf8f63",
+  "exitCode": 0,
+  "stats": {
+    "startTime": "2026-11-04T23:16:41.193Z",
+    "duration": 256819.754,
+    "expected": 169,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "errors": [],
+  "skipped": [
+    {
+      "title": "explorer baseline: data, filters, epochs, selection, journeys and fallback",
+      "project": "mobile",
+      "annotations": [
+        {
+          "type": "skip",
+          "description": "Legacy explorer baseline is desktop; Jonah is tested on both sizes.",
+          "location": {
+            "file": "C:\\Dev\\biblemap-human-experience\\tests\\explorer.spec.ts",
+            "line": 5,
+            "column": 8
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -28,12 +28,14 @@ No new production dependencies, runtime content services or release-gate excepti
 - `npm run lint`: passed with four existing unused-variable warnings in `DataLoader.tsx` and `validate-nineveh-depth.mjs`.
 - `npx tsc --noEmit`: passed.
 - `npm run build`: passed, including pinned Scripture, media checksums and visitor-export boundary checks.
-- `npm run test`: 49 passed, one existing export-dependent test skipped in the ordinary invocation.
+- `BIBLEMAP_VERIFY_EXPORT=1 npm run test`: all 50 passed, including the generated-artifact boundary check.
 - Focused Playwright: all eight desktop/mobile checks passed. Includes no JavaScript at 320px, reduced motion, keyboard focus and Enter activation, image failure, deep source navigation, discoverability and axe WCAG 2/2.1/2.2 A/AA rules.
-- Complete integration browser run: pending at this checkpoint.
+- Complete ordinary integration browser run: 169 passed, one existing mobile legacy-explorer skip; no failures or flaky outcomes. Run against build `04291dc`; the subsequent focus-color/skip-target refinement is covered by the final focused Preview run.
 - Actual Chrome captures at 1440×1000 and 390×844 inspected. No horizontal overflow, page/console errors or failed requests in successful-media runs. Intentional image-abort test keeps prose and source record available. The narrative has no asynchronous content, empty collection, timed scene or selected map-event state; stable fragment navigation and open/closed text leaves are its relevant states.
 
-Compared with the captured Perpetua entrance, Romanus makes the person's role, historical setting and source mediation available before any image. The comparison remains distinct on mobile, although the reader must scroll between the shorter text and an expanded account. The ending retains navigation and research below its question. Captures are in `artifacts/romanus/after/`; baseline Perpetua is in `before/`.
+Compared with the captured Perpetua entrance, Romanus makes the person's role, historical setting and source mediation available before any image. Vercel confirms that the supplied Perpetua reference serves the same `21c731f` revision used for these baseline captures. The comparison remains distinct on mobile, although the reader must scroll between the shorter text and an expanded account. The ending retains navigation and research below its question. Captures are in `artifacts/romanus/after/`; baseline Perpetua is in `before/`. Keyboard review also corrected low-contrast outlines on dark surfaces and made the skip target focusable.
+
+Draft PR: [#37](https://github.com/jayjz/biblemap/pull/37), stacked on PR #36. Final runtime Preview: [Romanus](https://biblemap-a09o525d6-elliotandersons-projects.vercel.app/human-story/romanus/) (`d0709d2`). The earlier implementation Preview passed all eight focused checks as well. Machine-readable local integration, deployed-preview and source-hashed visual records live under `artifacts/romanus/`. No production promotion or merge was performed.
 
 ## Remaining limits
 
