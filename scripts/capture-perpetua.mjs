@@ -1,6 +1,7 @@
 import { chromium } from "@playwright/test";
 import { spawn, execFileSync } from "node:child_process";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { once } from "node:events";
 
 const phase = process.argv[2] ?? "final";
@@ -13,6 +14,12 @@ const base = `http://127.0.0.1:${port}`;
 const server = spawn(process.platform === "win32" ? "python" : "python3", ["-m", "http.server", String(port), "--bind", "127.0.0.1", "--directory", "out"], { cwd: root, windowsHide: true, stdio: "ignore" });
 let browser;
 const observations = { phase, sourceHead: execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8", windowsHide: true }).trim(), views: [] };
+observations.buildId = (await readFile(new URL(".next/BUILD_ID", root), "utf8")).trim();
+observations.runtimeSourceSha256 = Object.fromEntries(await Promise.all([
+  "src/features/human-story/SeparationReading.tsx", "src/features/human-story/separation.module.css",
+  "src/features/human-story/PrisonStage.tsx", "src/features/human-story/prison.module.css",
+  "src/features/human-story/PerpetuaEncounter.tsx", "src/features/human-story/SourcePassage.tsx",
+].map(async path => [path, createHash("sha256").update(await readFile(new URL(path, root))).digest("hex")])));
 try {
   let listening = false;
   for (let attempt = 0; attempt < 60; attempt++) {
@@ -35,6 +42,8 @@ try {
     await page.getByRole("navigation", { name: "Scenes in The Prison" }).getByRole("link", { name: "The separation", exact: true }).click();
     const scene = page.locator('[data-scene="separation"]');
     await scene.locator("h2").waitFor();
+    await page.waitForFunction(() => document.activeElement?.id === "title-separation");
+    const readingStates = { initial: await scene.boundingBox() };
     await page.screenshot({ path: new URL(`${name}-separation-viewport.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, "") });
     await scene.screenshot({ path: new URL(`${name}-separation.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, "") });
     const turn = scene.locator("[data-earlier-passage] summary");
@@ -45,14 +54,19 @@ try {
     const later = scene.getByRole("button", { name: /^Read the later passage/ });
     if (await later.count()) {
       await later.click();
-      await scene.screenshot({ path: new URL(`${name}-refusal.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
+      await scene.locator("figure[tabindex='-1']").waitFor();
+      await page.waitForFunction(() => document.activeElement?.getAttribute("aria-label") === "In the account: Perpetua and her child apart");
+      readingStates.refusal = await scene.boundingBox();
       await page.screenshot({ path: new URL(`${name}-refusal-viewport.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
+      await scene.screenshot({ path: new URL(`${name}-refusal.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
       await scene.getByRole("button", { name: /^Read what she says next/ }).click();
+      readingStates.interpretation = await scene.boundingBox();
       await scene.screenshot({ path: new URL(`${name}-interpretation.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
       await scene.getByRole("button", { name: "Read both complete passages", exact: true }).click();
       await scene.screenshot({ path: new URL(`${name}-complete.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
     }
-    observations.views.push({ name, width, height, overflow: await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), sceneBox: await scene.boundingBox(), errors, failures });
+    const sourceAssets = await page.evaluate(() => performance.getEntriesByType("resource").filter(entry => /\.(?:js|css|woff2)(?:\?|$)/.test(entry.name)).map(entry => ({ url: new URL(entry.name).pathname, bytes: entry.decodedBodySize })));
+    observations.views.push({ name, width, height, overflow: await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), readingStates, completeSceneBox: await scene.boundingBox(), sourceAssets, errors, failures });
     await page.close();
   }
   if (process.argv.includes("--references")) {

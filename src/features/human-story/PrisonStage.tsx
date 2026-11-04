@@ -39,6 +39,42 @@ function RelationshipScene({
   const index = scenes.findIndex((item) => item.id === scene.id);
   const previous = scenes[index - 1];
   const next = scenes[index + 1];
+  const people = <>
+    <div hidden={!enhanced} className={styles.relationshipControl}>
+      <p id={`relations-${scene.id}`}>Follow a relationship</p>
+      <div role="group" aria-labelledby={`relations-${scene.id}`}>
+        {scene.relationships.map((item) => (
+          <button
+            type="button"
+            key={item.id}
+            aria-pressed={relationship.id === item.id}
+            aria-controls={`observation-${scene.id}`}
+            onClick={() => setRelationshipId(item.id)}
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
+      <div
+        className={styles.observation}
+        id={`observation-${scene.id}`}
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <h3>{relationship.position}</h3>
+        <p>{relationship.observation}</p>
+      </div>
+    </div>
+    <div hidden={enhanced} className={styles.fallbackRelations}>
+      <p>Explore the people in this passage</p>
+      {scene.relationships.map((item) => (
+        <details key={item.id}>
+          <summary>{item.name}</summary>
+          <p>{item.observation}</p>
+        </details>
+      ))}
+    </div>
+  </>;
   return (
     <>
       <div className={`${styles.sceneLayout}${scene.id === "separation" ? ` ${styles.separationScene}` : ""}`}>
@@ -57,47 +93,14 @@ function RelationshipScene({
             ))}
           </div>
         </div>
-        {scene.id === "separation" && <div className={styles.separationLeaf} aria-label="The later passage in the account">{separationPassage}</div>}
+        {scene.id === "separation" && <div className={styles.separationLeaf} aria-label="The two passages in the transmitted account">{separationPassage}</div>}
         <div className={styles.relationships}>
           {scene.id === "separation" ? (
             <details className={styles.reception}><summary>How a later image holds them together</summary>{separationArtwork}</details>
           ) : (
             <PrisonDiagram scene={scene} selected={relationship.id} />
           )}
-          <div hidden={!enhanced} className={styles.relationshipControl}>
-            <p id={`relations-${scene.id}`}>Follow a relationship</p>
-            <div role="group" aria-labelledby={`relations-${scene.id}`}>
-              {scene.relationships.map((item) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  aria-pressed={relationship.id === item.id}
-                  aria-controls={`observation-${scene.id}`}
-                  onClick={() => setRelationshipId(item.id)}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-            <div
-              className={styles.observation}
-              id={`observation-${scene.id}`}
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <h3>{relationship.position}</h3>
-              <p>{relationship.observation}</p>
-            </div>
-          </div>
-          <div hidden={enhanced} className={styles.fallbackRelations}>
-            <p>Explore the people in this passage</p>
-            {scene.relationships.map((item) => (
-              <details key={item.id}>
-                <summary>{item.name}</summary>
-                <p>{item.observation}</p>
-              </details>
-            ))}
-          </div>
+          {scene.id === "separation" ? <details className={styles.peopleDetails}><summary>People and the account’s limits</summary>{people}</details> : people}
         </div>
         <div className={styles.sceneEvidence}>
           <div className={styles.sourceRegister}>
@@ -185,19 +188,24 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage }: { 
   );
   const view = visitorPrisonView(hash, scenes);
   const stage = useRef<HTMLDivElement>(null);
+  const enteredSeparation = useRef(false);
   useEffect(() => {
-    if (!requestedFocus.current) return;
+    const initialSeparation = view.enhanced && !view.all && view.scene.id === "separation" && !enteredSeparation.current;
+    if (!requestedFocus.current && !initialSeparation) return;
     // Let history finish restoring the document before restoring scene focus.
     const frame = window.requestAnimationFrame(() => {
-      stage.current
-        ?.querySelector<HTMLElement>(
+      const heading = stage.current?.querySelector<HTMLElement>(
           view.all ? "#all-scenes-title" : `#title-${view.scene.id}`,
-        )
-        ?.focus();
+        );
+      heading?.focus();
+      if (!view.all && view.scene.id === "separation") {
+        heading?.scrollIntoView({ block: "start", behavior: "instant" });
+        enteredSeparation.current = true;
+      }
       requestedFocus.current = false;
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [view.scene.id, view.all]);
+  }, [view.scene.id, view.all, view.enhanced]);
 
   function navigate(event: MouseEvent<HTMLAnchorElement>, id: string) {
     if (

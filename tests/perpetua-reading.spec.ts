@@ -9,6 +9,9 @@ test("the reader discovers presence, refusal and interpretation without a fictio
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/human-story/perpetua/#perpetua-separation");
   const scene = page.locator('[data-scene="separation"]');
+  const heading = scene.getByRole("heading", { name: "She asks for her child.", exact: true });
+  await expect(heading).toBeFocused();
+  expect((await heading.boundingBox())?.y).toBeLessThan(40);
   const source = scene.locator("#separation-source-moment blockquote");
   await expect(source).toHaveText(text.presence);
   await expect(scene.getByText("He is allowed to stay with her.", { exact: true })).toBeVisible();
@@ -23,13 +26,19 @@ test("the reader discovers presence, refusal and interpretation without a fictio
   await expect(source).toHaveText(text.refusal);
   await expect(scene.getByText("He is not returned to her.", { exact: true })).toBeVisible();
   await expect(scene.getByRole("complementary", { name: "Remember the earlier passage" })).toBeVisible();
+  expect(INTERIOR_PASSAGES.childEarlier.text).toContain(await scene.locator("#separation-source-moment q").innerText());
   const apart = await distance();
   expect(apart).toBeGreaterThan(together + 40);
   const interpretation = scene.getByRole("button", { name: /^Read what she says next/ });
+  await expect(scene.getByRole("figure", { name: "In the account: Perpetua and her child apart", exact: true })).toBeFocused();
+  expect((await scene.getByRole("figure", { name: "In the account: Perpetua and her child apart", exact: true }).boundingBox())?.y).toBeLessThan(40);
+  await page.keyboard.press("Tab");
   await expect(interpretation).toBeFocused();
   await page.keyboard.press("Space");
   await expect(source).toHaveText(text.relief);
+  await expect(scene.getByRole("figure", { name: "In the account: Perpetua and her child apart", exact: true })).toBeFocused();
   expect(await distance()).toBe(apart);
+  expect(INTERIOR_PASSAGES.childEarlier.text).toContain(await scene.locator("#separation-source-moment q").innerText());
   await expect(scene.getByText("Religious interpretation within the attributed account", { exact: true })).toBeVisible();
   await expect(scene.getByText(/explanation of God’s will belongs to the attributed account/)).toBeVisible();
   await expect(scene.locator("#separation-source-moment")).toContainText("does not tell us the child’s later life");
@@ -41,6 +50,12 @@ test("the reader discovers presence, refusal and interpretation without a fictio
   await expect(scene.locator('[data-passage="childSeparation"]')).toBeVisible();
   await scene.getByRole("button", { name: "Return to the guided reading", exact: true }).click();
   await expect(source).toHaveText(text.relief);
+  await scene.getByText("People and the account’s limits", { exact: true }).click();
+  const father = scene.getByRole("button", { name: "Her father", exact: true });
+  await father.focus();
+  await page.keyboard.press("Space");
+  await expect(father).toHaveAttribute("aria-pressed", "true");
+  await expect(scene.locator('[aria-live="polite"]').filter({ hasText: "His refusal is reported" })).toBeVisible();
 });
 
 test("every source moment remains accessible at 320px with motion reduced", async ({ page }) => {
@@ -48,7 +63,7 @@ test("every source moment remains accessible at 320px with motion reduced", asyn
   await page.setViewportSize({ width: 320, height: 760 });
   await page.goto("/human-story/perpetua/#perpetua-separation");
   const scene = page.locator('[data-scene="separation"]');
-  for (const label of ["The child stays", "The request is refused", "Her interpretation"]) {
+  for (const label of ["Earlier", "After the sentence", "Continued"]) {
     await scene.getByRole("navigation", { name: "Moments in the separation passage" }).getByRole("button", { name: new RegExp(label) }).click();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     expect(await scene.evaluate(element => element.getAnimations({ subtree: true }).filter(animation => animation.playState === "running").length)).toBe(0);

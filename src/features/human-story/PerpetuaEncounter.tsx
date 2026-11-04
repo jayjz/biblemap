@@ -31,7 +31,7 @@ export function PerpetuaEncounter() {
             An encounter with the transmitted <cite>Passion</cite>
           </p>
         </header>
-        <p className={styles.small}>A story in development. The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately.</p>
+        <p className={styles.reviewNotice}>A story in development. The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately.</p>
         <PrisonStage scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={
           <SeparationReading text={separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text)}>
             <SourcePassage id="childEarlier" />
@@ -152,6 +152,7 @@ export function PerpetuaEncounter() {
               separation and a change of voice. It is not an authentic artifact,
               portrait, prison plan or historical reconstruction.
             </p>
+            <p>The separation reading uses a modern text-and-line abstraction. Its marks move apart with the refused request and remain apart when the attributed account describes relief; they do not establish the child’s later life.</p>
             <p>
               Original editorial summaries remain drafts for PR #36, pending
               human historical and theological review. The separation scene adds

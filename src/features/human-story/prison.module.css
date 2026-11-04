@@ -44,6 +44,13 @@
   font-size: 2.25rem;
   line-height: 1.1;
 }
+.reviewNotice {
+  padding: 0.85rem clamp(1.5rem, 5vw, 5rem);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  max-width: 100ch;
+  color: #dacddd;
+}
 .sceneBar {
   display: flex;
   align-items: center;
@@ -499,7 +506,11 @@
   padding-top: 1.5rem;
 }
 .separationScene .relationshipControl {
-  margin: 0;
+  margin: 1rem 0 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+.separationScene .peopleDetails {
   grid-column: 1;
   grid-row: 1;
 }

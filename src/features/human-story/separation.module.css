@@ -25,6 +25,7 @@
   padding: 0.65rem 0 0;
   font-size: 0.75rem;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 .moments button span { display: block; font-size: 0.85rem; }
 .moments button[aria-current] { border-color: var(--ink); font-weight: 650; }
@@ -68,7 +69,7 @@
 .reading[data-separation-moment="presence"] .contact span:last-child { transform: translateX(-2rem); }
 .reading[data-separation-moment="presence"] .contact::after { display: none; }
 .relationship figcaption { text-align: center; font-size: 0.75rem; line-height: 1.5; color: var(--quiet); }
-.sourceMoment { min-height: 27rem; }
+.sourceMoment { min-height: 20rem; }
 .locator { font-size: 0.75rem; line-height: 1.6; margin-bottom: 1.5rem; }
 .locator strong { display: block; font-size: 0.78rem; margin-top: 0.3rem; }
 .reading .sourceMoment blockquote {
@@ -86,10 +87,10 @@
 .readingNote { margin-top: 1.75rem; border-top: 1px solid #b8a9c2; padding-top: 0.5rem; }
 .readingNote p { font-size: 0.9rem; line-height: 1.7; margin-top: 0.8rem; }
 .readingNote small { display: block; font-size: 0.72rem; margin-top: 0.75rem; color: var(--quiet); }
-.turn { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; }
+.turn { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; }
 .turn > span { font-size: 0.72rem; color: var(--quiet); }
 .reading .turn button { border: 0; border-bottom: 1px solid var(--ink); padding: 0.5rem 0; font-size: 0.88rem; text-align: left; }
-.edition { margin-top: 1.5rem; font-size: 0.7rem; line-height: 1.7; }
+.edition { margin-top: 1rem; font-size: 0.7rem; line-height: 1.7; }
 .edition a { display: inline-flex; align-items: center; min-height: 44px; }
 .edition span { display: block; }
 .complete { padding-top: 1rem; }
@@ -97,7 +98,7 @@
 .complete blockquote { font-family: Georgia, "Times New Roman", serif; }
 @media (max-width: 720px) {
   .relationship { margin: 0.75rem 0 1.5rem; }
-  .sourceMoment { min-height: 24rem; }
+  .sourceMoment { min-height: 20rem; }
   .reading .sourceMoment blockquote { font-size: 1.25rem; line-height: 1.6; }
   .moments button { font-size: 0.7rem; }
   .turn { flex-wrap: wrap; margin-top: 1.5rem; gap: 0.4rem 1rem; }

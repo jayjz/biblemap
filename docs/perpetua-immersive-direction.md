@@ -50,3 +50,5 @@ The full §6 paragraph remains readable without an action. A clearly named optio
 ## Pilot decision
 
 Build separation first. Inspect 1440/390/320px, keyboard, reduced motion, comparison open/closed, history, no-JS, failed media/scripts and source access. Make a substantive screenshot-based refinement. Extend only if the comparison is clearer in the actual browser, the source remains comfortable to read and the interface works without motion. Give the other five scenes distinct documentary rhythms; the final handover must show a different narrator without staging violence. Technical/aesthetic judgment is not evidence of reader engagement; no readers have been observed.
+
+The [implemented pilot and browser critique](perpetua-separation-evaluation.md) subsequently rejected the two-quote presentation as insufficient. The retained idea is the earlier passage returning within the later one; the interaction now has three reader-controlled source moments with a persistent relationship mark. Checkpoint 4 refines that single scene. Expansion to the other five scenes is withheld.
