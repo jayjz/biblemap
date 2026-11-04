@@ -90,5 +90,37 @@
     "bytes": 72584,
     "reviewStatus": "rights-verified",
     "reviewedBy": "Codex; source-record and rights verification, editorial selection pending PR review"
+  },
+  {
+    "id": "cassatt-kiss",
+    "title": "Mother?s Kiss",
+    "creator": "Mary Cassatt",
+    "creationDate": "1890?1891",
+    "depictedPeriod": "Nineteenth-century maternal scene; not Perpetua",
+    "sourceInstitution": "National Gallery of Art, Washington",
+    "sourceRecordUrl": "https://www.nga.gov/artworks/5934-mothers-kiss",
+    "originalAssetUrl": "https://api.nga.gov/iiif/bd0f243f-0e55-4843-aeeb-cfd1fb14ca86/full/1200,/0/default.jpg",
+    "license": "CC0",
+    "licenseUrl": "https://www.nga.gov/terms-and-notices",
+    "rightsStatement": "Object page explicitly identifies this media as public domain. NGA Open Access policy releases these images under CC0. Verified 2026-11-04.",
+    "requiredAttribution": "Mary Cassatt, Mother?s Kiss, 1890?1891. Rosenwald Collection, 1943.3.2759. Courtesy National Gallery of Art, Washington.",
+    "altText": "A mother bends to kiss a small child held against her body, in a color print by Mary Cassatt.",
+    "caption": "Mary Cassatt, Mother?s Kiss, 1890?1891. An artistic parallel, not a portrayal of Perpetua.",
+    "historicalFit": "A nineteenth-century artwork placed beside an ancient account as an artistic comparison. Neither a historical likeness nor evidence of the prison or its occupants.",
+    "editorialReason": "Let the physical closeness of mother and child precede the account of separation. The whole artwork remains available; a reading screen covers the composition after refusal, without altering the figures.",
+    "eventIds": [],
+    "journeyIds": [
+      "perpetua"
+    ],
+    "downloadedAt": "2026-11-04",
+    "checkedAt": "2026-11-04",
+    "checksum": "6cb1dd5aace098e580be3c2e11fe8ab46033a05785f26ab54cc19f32906b3c07",
+    "localPath": "/media/human-story/cassatt-kiss.webp",
+    "width": 1200,
+    "height": 1778,
+    "bytes": 176816,
+    "reviewStatus": "rights-verified",
+    "reviewedBy": "Codex: object-page and NGA policy rights verification only; human editorial review pending",
+    "class": "artistic-depiction"
   }
 ]
