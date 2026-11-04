@@ -4,17 +4,20 @@ These instructions extend the repository-root `AGENTS.md` for work under `src/`.
 
 ## Human Experience Goal
 
-Every interaction should answer at least one meaningful human question:
+Every interaction should serve a meaningful narrative purpose. It may answer a question, reveal a source difference, change perspective, deepen attention, or intentionally leave uncertainty unresolved.
 
-- Where did this happen?
-- What changed here?
-- Who traveled?
-- What Scripture describes it?
-- What came before and after?
-- Why does this matter within the biblical narrative?
-- What is historically supported, traditional, disputed, or unknown?
+For a human-story journey, make the person and historical setting understandable before fragmenting the account into scenes. Keep the prose, causality, and transitions coherent from opening to ending. Check whether visitors can distinguish whose voice they encounter and what is historically supported, traditional, disputed, or unknown.
 
-Do not add motion, imagery, sound, text, or controls without identifying their narrative purpose.
+Useful questions include:
+
+- Who is this person, and what can we actually know about them?
+- Where and when did this happen, and what shaped the circumstances?
+- What changed, and what led to the next event?
+- What does Scripture or the surviving primary account actually say?
+- Whose account survives, and where do later interpreters differ?
+- What remains unknown or unresolved?
+
+Do not add motion, imagery, sound, text, or controls without identifying their narrative purpose. Do not force every scene to supply a tidy answer or explanatory panel.
 
 ## Experience Architecture
 
