@@ -19,6 +19,7 @@
 .page a:hover { text-decoration-thickness: 2px; }
 .page a,.page summary { touch-action: manipulation; }
 .page :focus-visible { outline: 3px solid #95652c; outline-offset: 5px; }
+.refusal :focus-visible,.memory :focus-visible { outline-color: #dec18e; }
 .page section:focus { outline: none; }
 .page section:target h2 { text-decoration: underline; text-decoration-color: #b49bb9; text-underline-offset: .18em; text-decoration-thickness: 2px; }
 .page section,.page details { scroll-margin-block: 6rem; }

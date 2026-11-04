@@ -68,7 +68,7 @@ export function RomanusEncounter({ reading = false }: { reading?: boolean }) {
       <Link prefetch={false} href="/human-story/" className={styles.brand}>BibleMap<span>The human story</span></Link>
       <div><Link prefetch={false} href={reading ? "/human-story/romanus/" : "/human-story/romanus/reading/"}>{reading ? "Illustrated journey" : "Simple reading"}</Link><a href="#romanus-research">Sources</a></div>
     </header>
-    <main id="romanus-main">
+    <main id="romanus-main" tabIndex={-1}>
       <article data-entry="romanus">
         <header className={styles.entrance}>
           <p className={styles.setting}>Antioch, Roman Syria · around 303 CE</p>

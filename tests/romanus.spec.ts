@@ -11,6 +11,10 @@ test("Romanus introduces the person and provides the complete source-separated j
   await page.goto("/human-story/romanus/");
   await expect(page).toHaveTitle(/Romanus/);
   await expect(page.getByRole("heading", { name: "Romanus", exact: true })).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Skip to the story" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#romanus-main")).toBeFocused();
   await expect(page.locator("header").filter({ has: page.locator("h1") })).toContainText("Christian deacon");
   await page.getByRole("link", { name: "Begin with the person" }).click();
   await expect(page.locator("#romanus-world")).toBeFocused();
