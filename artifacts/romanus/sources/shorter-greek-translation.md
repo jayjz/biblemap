@@ -12,5 +12,3 @@ McGiffert (1890), inspected 2026-11-04. Historical translation; no autograph ins
 4\. After this punishment he was thrown into [prison](https://www.newadvent.org/cathen/12430a.htm), and suffered there for a very long time. At last the twentieth anniversary of the emperor being near, when, according to an established gracious custom, liberty was proclaimed everywhere to all who were in bonds, he alone had both his feet stretched over five holes in the stocks, and while he lay there was strangled, and was thus [honored](https://www.newadvent.org/cathen/07462a.htm) with [martyrdom](https://www.newadvent.org/cathen/09736b.htm), as he desired.
 
 5\. Although he was outside of his country, yet, as he was a native of Palestine, it is proper to count him among the Palestinian [martyrs](https://www.newadvent.org/cathen/09736b.htm). These things occurred in this manner during the first year, when the [persecution](https://www.newadvent.org/cathen/11703a.htm) was directed only against the rulers of the [Church](https://www.newadvent.org/cathen/03744a.htm).
-
-

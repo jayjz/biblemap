@@ -95,4 +95,4 @@ IN   THE  SECOND  YEAIl  OF  THE  PERSECUTION  IN  OUR  DAYS.\
 \
 It    was  the  second  year  of  the   persecution,  and  the  hostility\
 \
-35 
+35
