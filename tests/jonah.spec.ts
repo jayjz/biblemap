@@ -32,7 +32,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
     if (index < 3 || scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger" || scene.id === "jonah-4-question" || scene.id === "jonah-4-shade") {
       await expect(article.locator(".story-question")).toHaveCount(0);
     } else {
-      await expect(article.locator(".story-question")).not.toContainText("Provisional");
+      await expect(article.locator(".story-question")).toContainText("Provisional reading question");
     }
     displayed.push(...await article.locator("[data-reference]").evaluateAll(elements => elements.map(element => ({
       reference: element.getAttribute("data-reference") ?? "",
@@ -44,6 +44,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
     await openFurther(page);
     await article.getByText("Pause with the passage", { exact: false }).click();
     await expect(article.locator(".story-companion[open]")).toContainText(scene.readingGuide?.context ?? "");
+    await expect(article.locator(".story-companion[open]")).toContainText("Commentary awaiting human review, separate from Scripture");
     if (index < JONAH.scenes.length - 1) {
       const next = page.getByRole("link", { name: "Continue" });
       await next.focus(); await page.keyboard.press("Enter");

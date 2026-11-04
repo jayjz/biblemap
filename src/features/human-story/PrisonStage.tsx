@@ -7,15 +7,9 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import type { MouseEvent } from "react";
-import {
-  PRISON_SCENES,
-  prisonView,
-  type PrisonScene,
-} from "@/content/perpetua-encounter";
+import type { MouseEvent, ReactNode } from "react";
+import { visitorPrisonView, type VisitorPrisonScene } from "@/domain/visitor-prison";
 import { PrisonDiagram } from "./PrisonDiagram";
-import { InteriorArtwork } from "./InteriorArtwork";
-import { SeparationPassage } from "./InteriorEncounters";
 import styles from "./prison.module.css";
 
 const getHash = () => window.location.hash;
@@ -23,10 +17,16 @@ const getServerHash = () => null;
 
 function RelationshipScene({
   scene,
+  scenes,
+  separationArtwork,
+  separationPassage,
   enhanced,
   navigate,
 }: {
-  scene: PrisonScene;
+  scene: VisitorPrisonScene;
+  scenes: readonly VisitorPrisonScene[];
+  separationArtwork: ReactNode;
+  separationPassage: ReactNode;
   enhanced: boolean;
   navigate: (event: MouseEvent<HTMLAnchorElement>, id: string) => void;
 }) {
@@ -36,9 +36,9 @@ function RelationshipScene({
   const relationship =
     scene.relationships.find((item) => item.id === relationshipId) ??
     scene.relationships[0];
-  const index = PRISON_SCENES.findIndex((item) => item.id === scene.id);
-  const previous = PRISON_SCENES[index - 1];
-  const next = PRISON_SCENES[index + 1];
+  const index = scenes.findIndex((item) => item.id === scene.id);
+  const previous = scenes[index - 1];
+  const next = scenes[index + 1];
   return (
     <>
       <div className={styles.sceneLayout}>
@@ -51,7 +51,7 @@ function RelationshipScene({
           >
             {scene.title}
           </h2>
-          {scene.id === "separation" && <SeparationPassage />}
+          {scene.id === "separation" && separationPassage}
           <div className={styles.narrative}>
             {scene.text.map((text) => (
               <p key={text}>{text}</p>
@@ -60,7 +60,7 @@ function RelationshipScene({
         </div>
         <div className={styles.relationships}>
           {scene.id === "separation" ? (
-            <InteriorArtwork id="perpetua-mosaic" />
+            separationArtwork
           ) : (
             <PrisonDiagram scene={scene} selected={relationship.id} />
           )}
@@ -162,7 +162,7 @@ function RelationshipScene({
   );
 }
 
-export function PrisonStage() {
+export function PrisonStage({ scenes, separationArtwork, separationPassage }: { scenes: readonly VisitorPrisonScene[]; separationArtwork: ReactNode; separationPassage: ReactNode }) {
   const requestedFocus = useRef(false);
   const subscribeHash = useCallback((update: () => void) => {
     const restoreSceneFocus = () => {
@@ -183,7 +183,7 @@ export function PrisonStage() {
     getHash,
     getServerHash,
   );
-  const view = prisonView(hash);
+  const view = visitorPrisonView(hash, scenes);
   const stage = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!requestedFocus.current) return;
@@ -227,7 +227,7 @@ export function PrisonStage() {
     <div ref={stage} data-prison-ready={view.enhanced}>
       <div className={styles.sceneBar}>
         <nav aria-label="Scenes in The Prison">
-          {PRISON_SCENES.map((scene, index) => (
+          {scenes.map((scene, index) => (
             <a
               key={scene.id}
               href={`#perpetua-${scene.id}`}
@@ -269,7 +269,7 @@ export function PrisonStage() {
           evidence.
         </p>
       </noscript>
-      {PRISON_SCENES.map((scene) => (
+      {scenes.map((scene) => (
         <section
           className={styles.scene}
           key={scene.id}
@@ -284,6 +284,9 @@ export function PrisonStage() {
           {scene.id === "felicity" && <span id="felicity" aria-hidden="true" />}
           <RelationshipScene
             scene={scene}
+            scenes={scenes}
+            separationArtwork={separationArtwork}
+            separationPassage={separationPassage}
             enhanced={view.enhanced}
             navigate={navigate}
           />

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { JONAH } from "@/content/jonah";
 import { JONAH_OPEN_PLACEMENTS } from "@/content/jonah-media";
 import { validateStory } from "@/domain/story";
+import { projectVisitorStory } from "@/domain/visitor-story";
+import { projectVisitorMedia } from "@/domain/visitor-media";
 import { StoryReader } from "@/features/story/StoryReader";
 import "@/features/story/story.css";
 
@@ -14,5 +16,5 @@ export const metadata: Metadata = {
 export default function JonahPage() {
   const errors = validateStory(JONAH);
   if (errors.length) throw new Error(errors.join("\n"));
-  return <StoryReader story={JONAH} openMedia={JONAH_OPEN_PLACEMENTS} />;
+  return <StoryReader story={projectVisitorStory(JONAH)} openMedia={JONAH_OPEN_PLACEMENTS.map(({ sceneIds, asset }) => ({ sceneIds, asset: projectVisitorMedia(asset) }))} />;
 }

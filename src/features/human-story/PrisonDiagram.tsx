@@ -1,4 +1,4 @@
-import type { PrisonScene } from "@/content/perpetua-encounter";
+import type { VisitorPrisonScene } from "@/domain/visitor-prison";
 import styles from "./prison.module.css";
 
 /** Original editorial illustration of narrated relationships, never a prison reconstruction. */
@@ -6,7 +6,7 @@ export function PrisonDiagram({
   scene,
   selected,
 }: {
-  scene: PrisonScene;
+  scene: VisitorPrisonScene;
   selected: string;
 }) {
   const apart = scene.id === "separation";

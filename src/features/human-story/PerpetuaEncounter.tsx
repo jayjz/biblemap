@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { HUMAN_GRAPH } from "@/content/human-story";
 import { INTERIOR_SOURCES } from "@/content/human-story-interiors";
+import { PRISON_SCENES } from "@/content/perpetua-encounter";
+import { projectVisitorPrison } from "@/domain/visitor-prison";
 import { HumanStoryFrame } from "./HumanStoryFrame";
 import { PrisonStage } from "./PrisonStage";
+import { InteriorArtwork } from "./InteriorArtwork";
+import { SeparationPassage } from "./InteriorEncounters";
 import styles from "./prison.module.css";
 
 export function PerpetuaEncounter() {
@@ -24,7 +28,8 @@ export function PerpetuaEncounter() {
             An encounter with the transmitted <cite>Passion</cite>
           </p>
         </header>
-        <PrisonStage />
+        <p className={styles.small}>A story in development. The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately.</p>
+        <PrisonStage scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={<SeparationPassage />} />
         <section
           className={styles.beyond}
           id="beyond-prison"

@@ -62,7 +62,7 @@ export function approvedAuthoredText(copy: AuthoredText): string | null {
 }
 
 /** URL values never become indexes, selectors, or executable content. */
-export function sceneFromHash(story: StoryDocument, hash: string): StoryScene {
+export function sceneFromHash<T extends { id: string }>(story: { scenes: readonly T[] }, hash: string): T {
   let id = "";
   try { id = decodeURIComponent(hash.replace(/^#/, "")); } catch { /* Invalid URL: use first scene. */ }
   return story.scenes.find(scene => scene.id === id) ?? story.scenes[0];

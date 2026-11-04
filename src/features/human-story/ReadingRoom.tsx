@@ -47,6 +47,7 @@ export function ReadingRoom({ entry }: { entry: HumanEntry }) {
           <h1>{entry.title}</h1>
           <p className={styles.readingSubtitle}>{entry.subtitle}</p>
           <p className={styles.entryEra}>{entry.era}</p>
+          <p className={styles.citation}>A reading in development. Editorial commentary and connections are provisional, awaiting human review; quoted source texts are identified separately.</p>
           {entry.reading && (
             <Link
               prefetch={false}
