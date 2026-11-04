@@ -7,6 +7,7 @@ import type {
 } from "../domain/human-story.ts";
 import { validateHumanGraph } from "../domain/human-story.ts";
 import { INTERIOR_SOURCES } from "./human-story-interiors.ts";
+import { ROMANUS_ENTRY, ROMANUS_SOURCES } from "./romanus.ts";
 import {
   WITNESS_SOURCES,
   WITNESS_ENTITIES,
@@ -49,6 +50,7 @@ const scriptureSource = (
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...ROMANUS_SOURCES,
   ...INTERIOR_SOURCES,
   ...CULTURE_SOURCES,
   ...SAINT_SOURCES,
@@ -171,6 +173,7 @@ export const HUMAN_ENTITIES: readonly HumanEntity[] = [
 ];
 
 export const HUMAN_ENTRIES: readonly HumanEntry[] = [
+  ROMANUS_ENTRY,
   ...CULTURE_ENTRIES,
   ...SAINT_ENTRIES,
   ...WITNESS_ENTRIES,
@@ -423,6 +426,12 @@ export const HUMAN_ENTRIES: readonly HumanEntry[] = [
 ];
 
 export const HUMAN_CONNECTIONS: readonly HumanConnection[] = [
+  {
+    id: "romanus-perpetua-memory", from: "romanus", to: "perpetua",
+    label: "A life preserved by other voices", kind: "comparison",
+    note: "Two Christian martyr narratives with different textual forms. Compare who tells the story; no shared trial, direct literary dependence or independent corroboration is asserted.",
+    sourceIds: ["romanus-short", "passion-perpetua"], reviewStatus: "draft",
+  },
   ...CULTURE_CONNECTIONS,
   ...SAINT_CONNECTIONS,
   ...WITNESS_CONNECTIONS,
