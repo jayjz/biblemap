@@ -53,7 +53,7 @@ Do not build three disconnected applications. These are layers of one coherent e
 
 ### Experience-design requirement
 
-Create an opening for recognition, then let Scripture complicate what visitors think they recognize. Recognition is invitation, not interpretation, diagnosis, or confirmation. The first viewport must not predetermine a character’s psychology or the story’s meaning. See `docs/experience-principles.md`.
+Begin with what the visitor needs to understand: the person, the setting, and the nature of the surviving account. Recognition can be a useful opening, especially in Jonah, but is not a required formula for every biblical or historical journey. Allow Scripture and other primary sources to complicate initial assumptions. Do not assign unrecorded psychology or predetermine the story's meaning. Establish a cohesive narrative before dividing it into scenes, and let each scene advance understanding rather than merely illustrate an additional event. See `docs/experience-principles.md` for the Jonah-specific recognition approach and `.agents/skills/biblemap-creative-direction/SKILL.md` for human-story guidance.
 
 ## Current Technical Context
 
