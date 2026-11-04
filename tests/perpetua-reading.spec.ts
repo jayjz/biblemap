@@ -5,6 +5,18 @@ import { separationReadingText } from "../src/domain/separation-reading";
 
 const text = separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text);
 
+test("the new entrance labels its artistic parallel and survives missing artwork", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 760 });
+  await page.route("**/media/human-story/cassatt-kiss.webp", route => route.abort());
+  await page.goto("/human-story/perpetua/");
+  const entrance = page.locator('[data-entry="perpetua"] > header');
+  await expect(entrance.getByRole("status")).toContainText("The image could not load");
+  await expect(entrance).toContainText("An artistic parallel, not a portrayal of Perpetua");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await entrance.getByRole("link", { name: "Enter the account" }).click();
+  await expect(page.locator("#title-child")).toBeFocused();
+});
+
 test("the reader discovers presence, refusal and interpretation without a fictional reunion", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/human-story/perpetua/#perpetua-separation");

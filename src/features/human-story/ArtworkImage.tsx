@@ -10,16 +10,19 @@ export function ArtworkImage({
   width,
   height,
   priority = false,
+  announceFailure = true,
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
   priority?: boolean;
+  /** Repeated decorative placements retain fallback text without duplicate announcements. */
+  announceFailure?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
   return failed ? (
-    <p className={styles.mediaFallback} role="status">
+    <p className={styles.mediaFallback} role={announceFailure ? "status" : undefined}>
       The image could not load. {alt} Continue with the text and source details.
     </p>
   ) : (

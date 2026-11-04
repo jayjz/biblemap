@@ -7,12 +7,17 @@ import styles from "./human-story.module.css";
 export function HumanStoryFrame({
   children,
   activeWorld,
+  immersive = false,
 }: {
   children: ReactNode;
   activeWorld?: WorldId;
+  immersive?: boolean;
 }) {
+  const worldNavigation = <nav aria-label="Explore the five worlds" className={styles.nav}>
+    {WORLDS.map((world) => <Link prefetch={false} key={world.id} href={`/human-story/worlds/${world.id}/`} aria-current={activeWorld === world.id ? "page" : undefined}>{world.name}</Link>)}
+  </nav>;
   return (
-    <div className={styles.shell}>
+    <div className={`${styles.shell}${immersive ? ` ${styles.immersive}` : ""}`}>
       <a className={styles.skip} href="#main">
         Skip to content
       </a>
@@ -40,18 +45,7 @@ export function HumanStoryFrame({
             BibleMap<small>The human story</small>
           </span>
         </Link>
-        <nav aria-label="Explore the five worlds" className={styles.nav}>
-          {WORLDS.map((world) => (
-            <Link
-              prefetch={false}
-              key={world.id}
-              href={`/human-story/worlds/${world.id}/`}
-              aria-current={activeWorld === world.id ? "page" : undefined}
-            >
-              {world.name}
-            </Link>
-          ))}
-        </nav>
+        {immersive ? <details className={styles.worldMenu}><summary>Explore BibleMap</summary>{worldNavigation}</details> : worldNavigation}
         <Link prefetch={false} className={styles.atlasLink} href="/explore/">
           Open Atlas <span aria-hidden="true">↗</span>
         </Link>

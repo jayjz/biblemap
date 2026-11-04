@@ -5,7 +5,8 @@ import styles from "./interior.module.css";
 export type InteriorArtworkId =
   | "rome-forum"
   | "augustine-painting"
-  | "perpetua-mosaic";
+  | "perpetua-mosaic"
+  | "cassatt-kiss";
 
 export function InteriorArtwork({
   id,

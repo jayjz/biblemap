@@ -5,6 +5,7 @@ import { PRISON_SCENES } from "@/content/perpetua-encounter";
 import { projectVisitorPrison } from "@/domain/visitor-prison";
 import { HumanStoryFrame } from "./HumanStoryFrame";
 import { PrisonStage } from "./PrisonStage";
+import { ArtworkImage } from "./ArtworkImage";
 import { InteriorArtwork } from "./InteriorArtwork";
 import { SeparationPassage } from "./InteriorEncounters";
 import { SourcePassage } from "./SourcePassage";
@@ -18,20 +19,20 @@ export function PerpetuaEncounter() {
   );
   if (!source) throw new Error("Perpetua encounter requires its source record");
   return (
-    <HumanStoryFrame activeWorld="saints">
+    <HumanStoryFrame activeWorld="saints" immersive>
       <article className={styles.encounter} data-entry="perpetua">
-        <header className={styles.titleBar}>
-          <div>
-            <p>Perpetua & Felicity</p>
+        <header className={styles.entrance}>
+          <div className={styles.entranceArt}><ArtworkImage src="/media/human-story/cassatt-kiss.webp" width={1200} height={1778} priority alt="Mary Cassatt’s Mother’s Kiss: a mother holding and kissing a small child. An artistic parallel, not Perpetua." /></div>
+          <div className={styles.entranceCopy}>
+            <p className={styles.entranceName}>Perpetua</p>
             <h1>The Prison</h1>
+            <blockquote className={styles.entranceSubtitle}>“I obtained for my infant to remain in the dungeon with me”<cite>Attributed to Perpetua · Passion §3<br />R. E. Wallis translation, 1885</cite></blockquote>
+            <a className={styles.enterStory} href="#perpetua-child">Enter the account <span aria-hidden="true">↓</span></a>
+            <p className={styles.entrancePlace}>Carthage · traditionally dated 203 CE<br />Perpetua & Felicity</p>
           </div>
-          <p>
-            Carthage · traditionally dated 203 CE
-            <br />
-            An encounter with the transmitted <cite>Passion</cite>
-          </p>
+        <p className={styles.entranceCredit}>Mary Cassatt, <cite>Mother’s Kiss</cite>, 1890–1891.<br />An artistic parallel, not a portrayal of Perpetua. <a href="#source-cassatt-art">Image & source</a></p>
         </header>
-        <p className={styles.reviewNotice}>A story in development. The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately.</p>
+        <details className={styles.reviewNotice}><summary>A story in development · about this encounter</summary><p>The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately. The entrance pairs a nineteenth-century image of maternal closeness with the ancient account. It is an artistic comparison, not a historical likeness.</p></details>
         <PrisonStage scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={
           <SeparationReading text={separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text)}>
             <SourcePassage id="childEarlier" />
@@ -152,14 +153,20 @@ export function PerpetuaEncounter() {
               separation and a change of voice. It is not an authentic artifact,
               portrait, prison plan or historical reconstruction.
             </p>
-            <p>The separation reading uses a modern text-and-line abstraction. Its marks move apart with the refused request and remain apart when the attributed account describes relief; they do not establish the child’s later life.</p>
+            <p>The separation reading places an opaque reading surface across Cassatt’s intact print when the request is refused. It remains there when the attributed account describes relief. This is a modern artistic composition, not a reconstruction of events or evidence of the child’s later life.</p>
             <p>
               Original editorial summaries remain drafts for PR #36, pending
               human historical and theological review. The separation scene adds
-              credited Wallis translation excerpts and a later devotional mosaic
-              with its own image-source details. No audio or synthesized voices
+              credited Wallis translation excerpts and an artistic parallel and a later devotional mosaic
+              with their own image-source details. No audio or synthesized voices
               are used.
             </p>
+          </details>
+          <details id="source-cassatt-art"><summary>Cassatt · image, rights & artistic comparison</summary><InteriorArtwork id="cassatt-kiss" /><p>The moving reading surface is an original interface composition by Codex. It covers the whole print without editing either figure. This pairing awaits human editorial review.</p></details>
+          <details id="source-perpetua-art">
+            <summary>The mosaic · provenance and artistic interpretation</summary>
+            <InteriorArtwork id="perpetua-mosaic" />
+            <p>The complete image is retained. Changing its scale and surrounding space is an interface composition; no person has been removed from or added to the artwork.</p>
           </details>
         </section>
       </article>

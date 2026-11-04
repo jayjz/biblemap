@@ -2,6 +2,7 @@
 
 import { useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { SeparationReadingText } from "@/domain/separation-reading";
+import { ArtworkImage } from "./ArtworkImage";
 import styles from "./separation.module.css";
 
 const subscribe = () => () => {};
@@ -42,9 +43,15 @@ export function SeparationReading({ text, children }: { text: SeparationReadingT
       <button className={styles.completeToggle} type="button" aria-expanded={complete} aria-controls="complete-separation-text" onClick={() => setComplete(value => !value)}>{complete ? "Return to the guided reading" : "Read both complete passages"}</button>
     </div>
     <div hidden={!enhanced || complete}>
+      <div className={styles.tableau}>
       <figure ref={momentStart} tabIndex={-1} className={styles.relationship} aria-label={momentId === "presence" ? "In the account: Perpetua and her child together" : "In the account: Perpetua and her child apart"}>
+        <div className={styles.imageField}>
+          <div className={styles.imagePanel}><ArtworkImage src="/media/human-story/cassatt-kiss.webp" width={1200} height={1778} announceFailure={false} alt="Mary Cassatt’s Mother’s Kiss. An artistic parallel, not a portrayal of Perpetua." /></div>
+
+        </div>
         <div className={styles.contact} aria-hidden="true"><span>Perpetua</span><span>Her child</span></div>
         <figcaption>{momentId === "presence" ? "He is allowed to stay with her." : momentId === "refusal" ? "He is not returned to her." : "The child is still not returned in this paragraph."}</figcaption>
+        <p className={styles.artNote}>Cassatt, Mother’s Kiss, 1890–1891. NGA, CC0. Artistic parallel; not Perpetua.</p>
       </figure>
       <div className={styles.sourceMoment} id="separation-source-moment">
         <p className={styles.locator} aria-live="polite" aria-atomic="true">{moment.locator}{momentId === "relief" && <strong>Religious interpretation within the attributed account</strong>}</p>
@@ -55,11 +62,12 @@ export function SeparationReading({ text, children }: { text: SeparationReadingT
           <small>Reading note · provisional commentary</small>
         </div>}
       </div>
+      </div>
       <div className={styles.turn}>
         <span>{index + 1} of 3 source moments</span>
         <button type="button" aria-controls="separation-source-moment" onClick={() => readMoment(moments[(index + 1) % moments.length].id)}>{moment.next}</button>
       </div>
-      <p className={styles.edition}><a href={`${edition}${moment.source}`}>Read this section in the Wallis edition</a><span>R. E. Wallis, 1885 · public domain</span>{momentId === "relief" && <span>“No [longer]” corrects “no long” in the electronic transcription.</span>}</p>
+      <p className={styles.edition}><a href={`${edition}${moment.source}`}>Read this section in the Wallis edition</a><span>R. E. Wallis, 1885 · public domain</span>{momentId === "relief" && <span>“No [longer]” corrects “no long” in the electronic transcription.</span>}<a href="#source-cassatt-art">Image provenance</a></p>
     </div>
     <div id="complete-separation-text" className={styles.complete} hidden={enhanced && !complete}>{children}</div>
   </div>;

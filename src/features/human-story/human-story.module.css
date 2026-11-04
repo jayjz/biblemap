@@ -1329,3 +1329,17 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Opt-in for the Perpetua encounter; the other worlds keep their frame. */
+.immersive .header { background: #201c1b; color: #eee4d5; padding-block: 0.8rem; gap: 1rem; }
+.immersive .wordmark { font-size: 1.1rem; }
+.immersive .wordmark small { display: none; }
+.immersive .nav a[aria-current] { color: #e4c396; }
+@media (max-width: 720px) {
+  .immersive .header { gap: 0.5rem 1rem; }
+  .immersive .nav { order: 3; width: 100%; gap: 1rem; }
+  .immersive .nav a { font-size: 0.72rem; }
+}
+.immersive .worldMenu { margin-left: auto; position: relative; }
+.worldMenu summary { cursor: pointer; min-height: 44px; display: list-item; align-content: center; font-size: 0.8rem; }
+.worldMenu .nav { position: absolute; right: 0; top: 100%; z-index: 5; width: 240px; padding: 1rem; background: #201c1b; border: 1px solid #c6a69b; }

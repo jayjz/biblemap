@@ -170,17 +170,18 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage }: { 
   const subscribeHash = useCallback((update: () => void) => {
     const restoreSceneFocus = () => {
       // History can hide the focused scene, just as a scene link does.
-      requestedFocus.current = true;
+      requestedFocus.current = window.location.hash === "#perpetua-all" ||
+        scenes.some(scene => window.location.hash === `#perpetua-${scene.id}`);
       update();
     };
-    window.addEventListener("hashchange", update);
+    window.addEventListener("hashchange", restoreSceneFocus);
     // Mark focus before the router handles the same history event.
     window.addEventListener("popstate", restoreSceneFocus, true);
     return () => {
-      window.removeEventListener("hashchange", update);
+      window.removeEventListener("hashchange", restoreSceneFocus);
       window.removeEventListener("popstate", restoreSceneFocus, true);
     };
-  }, []);
+  }, [scenes]);
   const hash = useSyncExternalStore<string | null>(
     subscribeHash,
     getHash,
@@ -205,7 +206,7 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage }: { 
       requestedFocus.current = false;
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [view.scene.id, view.all, view.enhanced]);
+  }, [hash, view.scene.id, view.all, view.enhanced]);
 
   function navigate(event: MouseEvent<HTMLAnchorElement>, id: string) {
     if (

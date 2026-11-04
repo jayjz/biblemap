@@ -1,0 +1,18 @@
+{
+  "build": "passed; 402 export artifacts validated",
+  "typecheck": "passed",
+  "lint": "0 errors; 4 unchanged-file warnings",
+  "unit": {
+    "passed": 47,
+    "skipped": 1,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 20,
+    "failed": 0,
+    "scope": "Perpetua desktop/mobile; narrow reduced-motion axe; no-JS; history; missing media/scripts"
+  },
+  "dependencies": "existing installation; unchanged lockfile; npm ci not repeated",
+  "release": "blocked on existing unfinished author slots and missing human approvals; no approval added",
+  "preview": "No new deployment requested; compared supplied preview in real browser"
+}
