@@ -1,5 +1,7 @@
 # Perpetua: facing passages
 
+> Historical experiment record, superseded 4 November 2026. Its palette, typography, medium and rejected techniques document that experiment, not current design constraints. New directions may use any expressive medium while preserving source, rights, accessibility and editorial boundaries.
+
 3 November 2026. Design checkpoint for PR #36. A prototype for creator review; no editorial or production approval.
 
 ## What the browser shows now

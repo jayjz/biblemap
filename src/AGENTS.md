@@ -54,26 +54,8 @@ Adapt this structure to the existing application incrementally. Do not perform a
 
 Visual Direction
 
-Use a restrained cinematic language:
+Choose color, typography, imagery and composition for each narrative. No palette, material treatment or visual medium is mandatory. Make controls legible and reachable, disclose generated imagery, and keep motion purposeful and under visitor control.
 
-Dark terrain and night-sky depth for the map
-Warm illuminated surfaces for Scripture and story panels
-Bronze or amber for active paths and meaningful highlights
-Lapis, Tyrian purple, earth, water, and stone as supporting colors
-Editorial typography that remains readable
-Subtle material texture
-Clear hierarchy between map, narrative, Scripture, and evidence
-
-Avoid:
-
-Generic SaaS dashboards
-Excessive glass panels
-Cyberpunk neon
-Constant particle noise
-Decorative animations without narrative meaning
-AI imagery presented without context
-Tiny low-contrast text
-Controls that obscure the map on mobile
 Story Flight
 
 A guided journey should behave as a sequence of authored scenes.
@@ -99,7 +81,7 @@ Do not autoplay sound before user consent.
 
 Motion
 
-Motion must communicate:
+Motion may communicate, for example:
 
 Travel
 Chronological movement
@@ -165,7 +147,7 @@ archaeological or landscape evidence
 interpretive reconstruction
 A note when the artwork was created much later than the depicted event
 
-Generated media must be labeled Interpretive reconstruction.
+Disclose generated media and its creation method. Label historically specific reconstruction as interpretive; distinguish symbolic artwork from reconstruction.
 
 Art should enhance the emotional or historical context without replacing the biblical text.
 

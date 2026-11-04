@@ -41,15 +41,7 @@ Immersion must come from coherence, meaning, pacing, sound, geography, and visua
 
 ## Experience Direction
 
-The visual identity should feel like ancient material culture interpreted through a modern cinematic atlas:
-
-- Warm stone, parchment, bronze, lapis, desert night, firelight, and natural earth tones
-- Clear modern typography and navigation
-- Atmospheric depth without sacrificing readability
-- Editorial restraint rather than generic glassmorphism or cyber-neon UI
-- Motion that communicates travel, chronological change, discovery, or theological emphasis
-- Art and sound used at narratively meaningful moments
-- A contemplative pace with immediate user control
+Choose the visual language from the human situation and source material. Palette, typography, medium, composition and transitions are creative choices, not prescribed house styles. Original and generated art, photography, paintings, artifacts, sound and spatial interactions are available when they serve the encounter. Preserve readability, visitor control, provenance and clear distinctions between expression and evidence.
 
 The primary experience modes are:
 

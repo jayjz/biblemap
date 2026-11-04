@@ -19,7 +19,7 @@ Prefer meaningful discovery over decorative spectacle. Preserve theological ambi
 
 Before settling on an archival-art composition, consider whether another artistic medium could communicate the passage more powerfully.
 
-Explore at least three distinct directions when performing a substantial creative-design task.
+Explore genuinely different directions before choosing; use the brief to set the scope of comparison. No medium, palette, typography, layout or transition is prescribed.
 
 Potential approaches include:
 
