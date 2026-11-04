@@ -128,19 +128,8 @@ export function AugustineEncounter() {
 export function SeparationPassage() {
   return (
     <div className={styles.separationPassage}>
-      <p className={styles.eyebrow}>
-        The account attributed to Perpetua · Wallis translation
-      </p>
-      <SourcePassage id="childSeparation" />
-      <details className={styles.earlierPassage}>
-        <summary>Hold this beside the earlier passage</summary>
-        <SourcePassage id="childEarlier" />
-        <p>
-          First, relief comes when the child can stay. Here, the account places
-          relief after separation and attributes it to God’s will. The father’s
-          reason for refusing the request is not given.
-        </p>
-      </details>
+      <p className={styles.eyebrow}>After the sentence · Passion §6</p>
+      <SourcePassage id="childSeparation" articulate />
       <p className={styles.sourceNote}>
         R. E. Wallis, 1885, public domain. “No [longer]” corrects “no long” in
         the electronic transcription. These are translated words from the

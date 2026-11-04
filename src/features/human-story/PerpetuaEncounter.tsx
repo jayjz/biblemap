@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { HUMAN_GRAPH } from "@/content/human-story";
-import { INTERIOR_SOURCES } from "@/content/human-story-interiors";
+import { INTERIOR_SOURCES, INTERIOR_PASSAGES } from "@/content/human-story-interiors";
 import { PRISON_SCENES } from "@/content/perpetua-encounter";
 import { projectVisitorPrison } from "@/domain/visitor-prison";
 import { HumanStoryFrame } from "./HumanStoryFrame";
 import { PrisonStage } from "./PrisonStage";
 import { InteriorArtwork } from "./InteriorArtwork";
 import { SeparationPassage } from "./InteriorEncounters";
+import { SourcePassage } from "./SourcePassage";
+import { SeparationReading } from "./SeparationReading";
+import { separationReadingText } from "@/domain/separation-reading";
 import styles from "./prison.module.css";
 
 export function PerpetuaEncounter() {
@@ -29,7 +32,14 @@ export function PerpetuaEncounter() {
           </p>
         </header>
         <p className={styles.small}>A story in development. The editorial summaries and questions are provisional, awaiting historical and theological review. Attributed testimony is identified separately.</p>
-        <PrisonStage scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={<SeparationPassage />} />
+        <PrisonStage scenes={projectVisitorPrison(PRISON_SCENES)} separationArtwork={<InteriorArtwork id="perpetua-mosaic" />} separationPassage={
+          <SeparationReading text={separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text)}>
+            <SourcePassage id="childEarlier" />
+            <SeparationPassage />
+            <p>First, relief comes when the child can stay. Later, the account places relief after separation and attributes it to God’s will. The father’s reason for refusing the request is not given.</p>
+            <p>Reading note · provisional commentary. This paragraph does not tell us the child’s later life.</p>
+          </SeparationReading>
+        } />
         <section
           className={styles.beyond}
           id="beyond-prison"

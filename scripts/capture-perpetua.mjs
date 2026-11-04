@@ -37,10 +37,20 @@ try {
     await scene.locator("h2").waitFor();
     await page.screenshot({ path: new URL(`${name}-separation-viewport.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, "") });
     await scene.screenshot({ path: new URL(`${name}-separation.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, "") });
-    const turn = scene.getByRole("button", { name: /Read the earlier passage|Return to the later passage/ });
+    const turn = scene.locator("[data-earlier-passage] summary");
     if (await turn.count()) {
       await turn.click();
       await scene.screenshot({ path: new URL(`${name}-comparison.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, "") });
+    }
+    const later = scene.getByRole("button", { name: /^Read the later passage/ });
+    if (await later.count()) {
+      await later.click();
+      await scene.screenshot({ path: new URL(`${name}-refusal.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
+      await page.screenshot({ path: new URL(`${name}-refusal-viewport.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
+      await scene.getByRole("button", { name: /^Read what she says next/ }).click();
+      await scene.screenshot({ path: new URL(`${name}-interpretation.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
+      await scene.getByRole("button", { name: "Read both complete passages", exact: true }).click();
+      await scene.screenshot({ path: new URL(`${name}-complete.png`, destination).pathname.replace(/^\/(?=[A-Z]:)/, ""), animations: "disabled" });
     }
     observations.views.push({ name, width, height, overflow: await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), sceneBox: await scene.boundingBox(), errors, failures });
     await page.close();

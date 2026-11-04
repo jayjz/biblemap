@@ -423,6 +423,105 @@
 .fallbackRelations p {
   margin: 0.75rem 0;
 }
+/* A contemporary facing-page composition; no manuscript or prison is simulated. */
+.separationScene {
+  --page: #ede8f0;
+  --page-ink: #35243f;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+  gap: 2.5rem clamp(2rem, 6vw, 6rem);
+  padding-block: clamp(2.5rem, 5vw, 5rem);
+  background: #291c32;
+}
+.separationScene .sceneCopy {
+  grid-column: 1;
+  grid-row: 1;
+  padding-top: 1rem;
+}
+.encounter .separationScene .sceneTitle {
+  font-size: clamp(3rem, 5.3vw, 5.5rem);
+  line-height: 1.08;
+  max-width: 10ch;
+}
+.separationScene .narrative {
+  margin-top: 1.75rem;
+  font-size: 1rem;
+  max-width: 32ch;
+}
+.separationLeaf {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  background: var(--page);
+  color: var(--page-ink);
+  padding: clamp(1.5rem, 3.8vw, 3.75rem);
+  border-left: 8px solid #d6cbdc;
+  align-self: start;
+}
+.separationLeaf > div {
+  margin: 0;
+}
+.separationLeaf figure {
+  margin: 1.5rem 0 0;
+}
+.separationLeaf figure[data-passage] blockquote {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 1.85vw, 1.7rem);
+  line-height: 1.65;
+  letter-spacing: -0.018em;
+  max-width: 48ch;
+}
+.separationLeaf [data-account-movement] {
+  display: block;
+}
+.separationLeaf [data-account-movement="interpretation"] {
+  margin-top: 1.5em;
+}
+.separationScene .separationLeaf p,
+.separationScene .separationLeaf figcaption {
+  color: var(--page-ink);
+}
+.separationLeaf figure figcaption {
+  margin-top: 1.75rem;
+  font-size: 0.75rem;
+}
+.separationLeaf > div > p:last-child {
+  margin: 1.75rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+.separationScene .relationships {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: 2rem 4rem;
+  border-top: 1px solid #77637f;
+  padding-top: 1.5rem;
+}
+.separationScene .relationshipControl {
+  margin: 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+.separationScene .reception {
+  grid-column: 2;
+  grid-row: 1;
+}
+.reception figure {
+  max-width: 280px;
+}
+.separationScene .sceneEvidence {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  max-width: none;
+}
+.separationScene .sourceRegister,
+.separationScene .sceneNavigation {
+  margin-top: 0;
+}
 @media (min-width: 1100px) {
   .sceneCopy,
   .sceneEvidence {
@@ -515,6 +614,37 @@
   .evidence {
     padding: 2.5rem 1.5rem;
   }
+  .separationScene {
+    padding: 2rem 1.25rem;
+    gap: 2rem;
+  }
+  .encounter .separationScene .sceneTitle {
+    font-size: clamp(2.5rem, 10vw, 3rem);
+    max-width: 15ch;
+  }
+  .separationScene .sceneCopy {
+    padding-top: 0;
+  }
+  .separationScene .narrative {
+    max-width: 38ch;
+  }
+  .separationLeaf {
+    margin-inline: -0.25rem;
+    padding: 1.65rem 1.25rem;
+    border-left-width: 4px;
+  }
+  .separationLeaf figure[data-passage] blockquote {
+    font-size: 1.25rem;
+    line-height: 1.65;
+  }
+  .separationScene .relationships,
+  .separationScene .sceneEvidence {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .separationScene .reception { order: 1; }
+  .separationScene .observation { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .relationshipControl button:active {

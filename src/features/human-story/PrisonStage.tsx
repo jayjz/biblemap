@@ -41,7 +41,7 @@ function RelationshipScene({
   const next = scenes[index + 1];
   return (
     <>
-      <div className={styles.sceneLayout}>
+      <div className={`${styles.sceneLayout}${scene.id === "separation" ? ` ${styles.separationScene}` : ""}`}>
         <div className={styles.sceneCopy}>
           <p className={styles.position}>{scene.voiceLabel}</p>
           <h2
@@ -51,16 +51,16 @@ function RelationshipScene({
           >
             {scene.title}
           </h2>
-          {scene.id === "separation" && separationPassage}
-          <div className={styles.narrative}>
+          <div className={styles.narrative} hidden={scene.id === "separation" && enhanced}>
             {scene.text.map((text) => (
               <p key={text}>{text}</p>
             ))}
           </div>
         </div>
+        {scene.id === "separation" && <div className={styles.separationLeaf} aria-label="The later passage in the account">{separationPassage}</div>}
         <div className={styles.relationships}>
           {scene.id === "separation" ? (
-            separationArtwork
+            <details className={styles.reception}><summary>How a later image holds them together</summary>{separationArtwork}</details>
           ) : (
             <PrisonDiagram scene={scene} selected={relationship.id} />
           )}

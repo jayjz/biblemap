@@ -29,15 +29,13 @@ test("the separation holds two source moments together without changing scenes",
 }) => {
   await page.goto("/human-story/perpetua/#perpetua-separation");
   const scene = page.locator('[data-scene="separation"]');
+  await scene.getByRole("button", { name: "Read both complete passages", exact: true }).click();
   await expect(scene.locator('[data-passage="childSeparation"]')).toContainText(
     "And even as God willed it",
   );
   await expect(
     scene.locator('[data-interior-art="perpetua-mosaic"]'),
-  ).toBeVisible();
-  await scene
-    .getByText("Hold this beside the earlier passage", { exact: true })
-    .click();
+  ).toBeHidden();
   await expect(scene.locator('[data-passage="childEarlier"]')).toBeVisible();
   await expect(page).toHaveURL(/#perpetua-separation$/);
   await expect(
@@ -45,6 +43,8 @@ test("the separation holds two source moments together without changing scenes",
       /The father’s reason for refusing the request is not given/,
     ),
   ).toBeVisible();
+  await scene.getByText("How a later image holds them together", { exact: true }).click();
+  await expect(scene.locator('[data-interior-art="perpetua-mosaic"]')).toBeVisible();
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 320, height: 900 });
   expect(
