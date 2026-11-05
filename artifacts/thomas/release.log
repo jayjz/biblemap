@@ -1,0 +1,98 @@
+
+> next_temp@0.1.0 validate:release
+> node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts --release
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+node.exe : (node:22948) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
+file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:22948) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts:28
+if (errors.length) throw new Error(errors.join("\n"));
+                         ^
+
+Error: nineveh: unfinished author slot
+joppa: unfinished author slot
+tarshish: unfinished author slot
+jonah-1-calling: reading companion requires human approval
+jonah-1-calling: human approval required
+jonah-1-calling: unfinished author slot
+jonah-1-calling: unfinished author slot
+jonah-1-calling-reflection: unfinished author slot
+jonah-1-escape: reading companion requires human approval
+jonah-1-escape: human approval required
+jonah-1-escape: unfinished author slot
+jonah-1-escape: unfinished author slot
+jonah-1-escape-reflection: unfinished author slot
+jonah-1-storm-wind: reading companion requires human approval
+jonah-1-storm-wind: human approval required
+jonah-1-storm-wind: unfinished author slot
+jonah-1-storm-wind: unfinished author slot
+jonah-1-storm-wind-reflection: unfinished author slot
+jonah-1-storm-lots: reading companion requires human approval
+jonah-1-storm-lots: human approval required
+jonah-1-storm-lots: unfinished author slot
+jonah-1-storm-lots: unfinished author slot
+jonah-1-storm-lots-reflection: unfinished author slot
+jonah-1-storm-sea: reading companion requires human approval
+jonah-1-storm-sea: human approval required
+jonah-1-storm-sea: unfinished author slot
+jonah-1-storm-sea: unfinished author slot
+jonah-1-storm-sea-reflection: unfinished author slot
+jonah-1-depths: reading companion requires human approval
+jonah-1-depths: human approval required
+jonah-1-depths: unfinished author slot
+jonah-1-depths: unfinished author slot
+jonah-1-depths-reflection: unfinished author slot
+jonah-2-prayer: reading companion requires human approval
+jonah-2-prayer: human approval required
+jonah-2-prayer: unfinished author slot
+jonah-2-prayer: unfinished author slot
+jonah-2-prayer-reflection: unfinished author slot
+jonah-2-shore: reading companion requires human approval
+jonah-2-shore: human approval required
+jonah-2-shore: unfinished author slot
+jonah-2-shore: unfinished author slot
+jonah-2-shore-reflection: unfinished author slot
+jonah-3-return: reading companion requires human approval
+jonah-3-return: human approval required
+jonah-3-return: unfinished author slot
+jonah-3-return: unfinished author slot
+jonah-3-return-reflection: unfinished author slot
+jonah-3-mercy: reading companion requires human approval
+jonah-3-mercy: human approval required
+jonah-3-mercy: unfinished author slot
+jonah-3-mercy: unfinished author slot
+jonah-3-mercy-reflection: unfinished author slot
+jonah-4-anger: reading companion requires human approval
+jonah-4-anger: human approval required
+jonah-4-anger: unfinished author slot
+jonah-4-anger: unfinished author slot
+jonah-4-anger-reflection: unfinished author slot
+jonah-4-shade: reading companion requires human approval
+jonah-4-shade: human approval required
+jonah-4-shade: unfinished author slot
+jonah-4-shade: unfinished author slot
+jonah-4-shade-reflection: unfinished author slot
+jonah-4-question: reading companion requires human approval
+jonah-4-question: human approval required
+jonah-4-question: unfinished author slot
+jonah-4-question: unfinished author slot
+jonah-4-question-reflection: unfinished author slot
+    at file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts:28:26
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.2
