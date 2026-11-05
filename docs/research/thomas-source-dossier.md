@@ -4,7 +4,7 @@ Checked 5 November 2026. AI-assisted research and editorial draft; human histori
 
 ## Research method and retained evidence
 
-Read the sources below through Firecrawl and inspect the publisher HTML retained under `src/content/scripture/thomas-web-*.html`. Eight WEB chapters, retrieved 2026-11-05, are immutable build inputs. `scripts/pin-thomas.mjs --check` extracts 19 selected verses, removes footnote markup, normalizes whitespace (including line-end spaces in the retained HTML) and checks SHA-256 against each complete retained chapter. No network runs in builds. `scripts/acquire-thomas.mjs` is an explicit research ingestion command, not a build command. The retained Mattison record contains one saying and the translator's rights dedication. Website design and modern scholarly annotations are not assumed to share ancient-text rights.
+Read the sources below through Firecrawl and inspect the publisher HTML retained under `src/content/scripture/thomas-web-*.html`. Eight WEB chapters, retrieved 2026-11-05, are immutable build inputs. `scripts/pin-thomas.mjs --check` extracts 19 selected verses, removes footnote markup, normalizes whitespace (including line-end spaces in the retained HTML) and checks SHA-256 against each complete retained chapter. No network runs in builds. `scripts/acquire-thomas.mjs` is an explicit research ingestion command, not a build command. Retained Mattison records contain sayings 13 and 26 and the translator's rights dedication. Website design and modern scholarly annotations are not assumed to share ancient-text rights.
 
 The machine-readable registry is `src/content/thomas.ts`. Stable source IDs below match its records. Ledger states: SUPPORTED = attested in the specified text/catalogue; INFERRED = a reasoned reading beyond its wording; CONFLICTED = competing credible readings; UNRESOLVED = missing evidence. No numerical probability is assigned. Modern translations are access witnesses, not ancient physical manuscripts. A manuscript copy date supplies a boundary for a text already circulating, not its author's identity or original composition date.
 
@@ -59,7 +59,7 @@ T20 CONFLICTED: “Gnostic” is not a sufficient description of the entire coll
 
 Source caution: Burke's discussion ties an argument about saying 71 to a temple-destruction chronology with problematic 132–136 CE wording. The Second Temple was destroyed in 70 CE; the prototype does not repeat that sentence or use it to date the collection. His article is evidence of one scholarly position, not an uncontested timeline. Search excerpts and summaries are not independent corroborating witnesses.
 
-## Translation and one bounded comparison
+## Translation and bounded comparisons
 
 T21 SUPPORTED: [Mark M. Mattison's translation](https://www.gospels.net/thomas) expressly dedicates its text to the public domain and identifies NHC II,2 as its basis. Retained HTML/JSON excerpts now record sayings 13 and 26 and the dedication; the website's photographs/design are not thereby licensed. Only these two sayings are ingested for display. These are **translations of the Coptic witness**, not translations of the fragmentary P.Oxy. 1. Translation choices and correspondence require human philological review; no Coptic/Greek collation is claimed.
 

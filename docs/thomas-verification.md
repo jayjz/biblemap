@@ -1,5 +1,7 @@
 # Thomas prototype · verification and delivery
 
+Historical record of the initial prototype. The subsequent cinematic revision, artwork, two comparisons and current verification are recorded in [Thomas cinematic verification](thomas-cinematic-verification.md).
+
 5 November 2026. Requested base: `feat/human-story-consolidated`, fetched at `2c119d9e47e96a91f3b1d4607c36c397464a04e4`. Existing remote branch `feat/thomas-doubt-and-sayings` was tracked and confirmed to descend from it. Runtime implementation commit: `e4510b875a5f825c36358516424590a6f8180148`. The final evidence commit adds documentation and strengthens the offline saying validator; it changes no rendered application behavior.
 
 ## Delivered encounter
