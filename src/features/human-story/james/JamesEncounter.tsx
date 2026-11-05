@@ -29,7 +29,8 @@ export function JamesEncounter({ reading = false }: { reading?: boolean }) {
       <nav className={styles.movementNav} aria-label="Movements in James’s story">
         {JAMES_MOVEMENTS.map((m, i) => <a key={m.id} href={`#${m.id}`}><span>{i + 1}</span>{m.label}</a>)}
       </nav>
-      <div className={styles.journey}>{!reading && <JamesExperience />}<JamesNarrative /></div>
+      {!reading && <JamesExperience />}
+      <div className={reading ? styles.journey : styles.cinematicJourney}><JamesNarrative cinematic={!reading} /></div>
       <div className={styles.afterword}><p className={styles.eyebrow}>The brother who remained</p><p>We have his name.<br />We do not have every word.</p><a href="#james-sources">Return to the surviving record</a></div>
       <JamesSources />
     </main>

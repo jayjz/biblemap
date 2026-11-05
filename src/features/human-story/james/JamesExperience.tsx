@@ -14,7 +14,6 @@ export function JamesExperience() {
   const ready = useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
   const [active, setActive] = useState<JamesMovementId>("brother");
   const [witnessId, setWitnessId] = useState("paul");
-  const [still, setStill] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const movement = JAMES_MOVEMENTS.find(m => m.id === active);
@@ -52,15 +51,11 @@ export function JamesExperience() {
     if (visible) setActive(visible.id);
     dialog.current?.showModal();
   };
-  return <><aside className={styles.stage} aria-label="The living palimpsest" data-still={still}>
+  return <><aside className={styles.evidenceDock} aria-label="Evidence at this movement">
     <div className={styles.stageInner}>
       <p className={styles.stageLabel}>{movement.label}</p>
-      <Palimpsest movement={active} />
-      <p className={styles.artCaption}>{movement.art}</p>
-      <p className={styles.artDisclosure}>Symbolic artwork · not a reconstruction</p>
       {ready ? <div className={styles.stageActions}>
         <button ref={trigger} className={styles.primary} onClick={openComparison}>Compare surviving witnesses</button>
-        <button className={styles.quietButton} aria-pressed={still} onClick={() => setStill(value => !value)}>{still ? "Allow transitions" : "Keep artwork still"}</button>
       </div> : <p><a className={styles.primary} href="#james-sources">Compare surviving witnesses</a></p>}
     </div>
   </aside>

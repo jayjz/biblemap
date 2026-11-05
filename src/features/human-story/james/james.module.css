@@ -66,6 +66,12 @@
 .movementNav a { display: inline-flex; gap: 9px; align-items: center; min-height: 44px; font-size: 13px; text-decoration: none; white-space: nowrap; }
 .movementNav a span { color: var(--bronze); font-family: Georgia, serif; }
 .journey { display: grid; grid-template-columns: 48% 52%; max-width: 1550px; margin: auto; overflow-anchor: none; }
+.cinematicJourney > .narrative { padding: 0; }
+.cinematicJourney > .narrative > .movement { max-width: 800px; margin: auto; padding-inline: 5%; }
+.evidenceDock { position: sticky; top: 61px; z-index: 5; background: #172630; border-bottom: 1px solid #819098; }
+.evidenceDock .stageInner { position: static; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: auto; padding: 8px 5%; }
+.evidenceDock .primary { min-height: 40px; padding: 9px 16px; font-size: 12px; }
+.evidenceDock .stageLabel { color: #d6dfdf; }
 .stage { position: relative; min-width: 0; }
 .stageInner { position: sticky; top: 90px; padding: 24px 6% 30px; text-align: center; }
 .stageLabel { font-size: 14px; margin: 0; color: var(--bronze); }
@@ -156,6 +162,8 @@
   .witnessText { padding-right: 25px; }
 }
 @media (max-width: 650px) {
+  .evidenceDock { top: 92px; }
+  .evidenceDock .stageInner { flex-wrap: nowrap; }
   .header { gap: 12px; padding: 18px 6%; flex-wrap: wrap; }
   .wordmark { font-size: 21px; }
   .header nav { gap: 16px; font-size: 12px; flex-wrap: wrap; }
