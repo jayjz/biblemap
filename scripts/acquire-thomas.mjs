@@ -4,7 +4,7 @@ const chapters = ['JHN11', 'JHN14', 'JHN20', 'JHN21', 'MAT10', 'MRK03', 'LUK06',
 for (const chapter of chapters) {
   const response = await fetch(`https://ebible.org/engwebp/${chapter}.htm`);
   if (!response.ok) throw new Error(`${chapter}: ${response.status}`);
-  writeFileSync(`src/content/scripture/thomas-web-${chapter.toLowerCase()}.html`, (await response.text()).replace(/\r\n/g, '\n'));
+  writeFileSync(`src/content/scripture/thomas-web-${chapter.toLowerCase()}.html`, (await response.text()).replace(/\r\n/g, '\n').split('\n').map(line => line.trimEnd()).join('\n'));
 }
 const response = await fetch('https://www.gospels.net/thomas');
 if (!response.ok) throw new Error(`Mattison: ${response.status}`);
