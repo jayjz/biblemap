@@ -119,3 +119,47 @@ test("reduced motion, unavailable images and enlarged text preserve the reading"
   await page.addStyleTag({ content: 'p, a, button, summary { font-size: 200% !important; }' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test("cinematic scenes retain distinct settings, political consequences and accessible evidence", async ({ page, isMobile }) => {
+  await page.goto("/human-story/james/#jerusalem");
+  const jerusalem = page.locator("#jerusalem");
+  await expect(jerusalem.getByRole("button", { name: "Jerusalem · fellowship", exact: true })).toHaveAttribute("aria-pressed", "true");
+  const antioch = jerusalem.getByRole("button", { name: "Antioch · disagreement", exact: true });
+  if (isMobile) await antioch.tap();
+  else await antioch.click();
+  await expect(page.locator("#relationship-dispute")).toBeVisible();
+  await expect(page.locator("#relationship-dispute")).toContainText("not Jerusalem");
+  await expect(page.locator("#relationship-fellowship")).toBeHidden();
+  await jerusalem.getByRole("button", { name: "Jerusalem · Acts", exact: true }).focus();
+  await page.keyboard.press("Space");
+  await expect(page.locator("#relationship-acts")).toContainText("relationship is debated");
+  await page.getByRole("link", { name: "4 The record", exact: true }).click();
+  const record = page.locator("#record");
+  await record.locator("summary").filter({ hasText: "Citizens object. Authority responds." }).click();
+  await expect(record.getByText(/In the received text, James is identified/)).toBeVisible();
+  await expect(record).toContainText("King Agrippa removes Ananus");
+  await record.locator("summary").filter({ hasText: "The boundaries of the notice" }).click();
+  await expect(record.getByText(/The notice is brief/)).toBeVisible();
+  await page.goBack();
+  await expect(page).toHaveURL(/#jerusalem$/);
+  await expect(jerusalem).toBeFocused();
+  for (const [index, label, id] of [[1,"The brother","brother"],[2,"The appearance","appearance"],[3,"Jerusalem","jerusalem"],[4,"The record","record"],[5,"What remained","remained"]] as const) {
+    await page.getByRole("link", { name: `${index} ${label}`, exact: true }).click();
+    await expect(page.locator(`#${id}`)).toBeFocused();
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze()).violations).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+});
+
+test("responsive local art and no-JS scene controls", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 800 } });
+  const page = await context.newPage();
+  await page.goto("/human-story/james/#jerusalem");
+  for (const id of ["fellowship", "dispute", "acts"]) await expect(page.locator(`#relationship-${id}`)).toBeVisible();
+  await expect(page.locator('#jerusalem img')).toHaveJSProperty("naturalWidth", 768);
+  await page.getByRole("link", { name: "4 The record", exact: true }).click();
+  await page.locator("#record summary").filter({ hasText: "Citizens object. Authority responds." }).click();
+  await expect(page.locator("#record").getByText(/In the received text, James is identified/)).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await context.close();
+});

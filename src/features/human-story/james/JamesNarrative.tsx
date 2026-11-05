@@ -1,13 +1,16 @@
 import { JAMES_MOVEMENTS, JAMES_QUOTES, JAMES_SOURCES } from "@/content/james";
 import { MovementSources } from "./JamesSources";
 import styles from "./james.module.css";
-import { JerusalemScene, RecordScene } from "./JamesCinematic";
+import { AppearanceScene, BrotherScene, JerusalemScene, MemoryScene, RecordScene } from "./JamesCinematic";
 
 export function JamesNarrative({ cinematic = false }: { cinematic?: boolean }) {
   return <div className={styles.narrative}>
     {JAMES_MOVEMENTS.map((movement, index) => {
+      if (cinematic && movement.id === "brother") return <BrotherScene key={movement.id} movement={movement} />;
+      if (cinematic && movement.id === "appearance") return <AppearanceScene key={movement.id} movement={movement} />;
       if (cinematic && movement.id === "jerusalem") return <JerusalemScene key={movement.id} movement={movement} />;
       if (cinematic && movement.id === "record") return <RecordScene key={movement.id} movement={movement} />;
+      if (cinematic && movement.id === "remained") return <MemoryScene key={movement.id} movement={movement} />;
       const quote = movement.quote ? JAMES_QUOTES[movement.quote] : null;
       const quoteSource = quote ? JAMES_SOURCES.find(s => s.id === quote.sourceId) : null;
       if (quote && !quoteSource) throw new Error(`Missing quotation source: ${quote.sourceId}`);

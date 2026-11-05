@@ -3,6 +3,7 @@ import styles from "./cinematic.module.css";
 
 export function SceneEnvironment({ place, priority = false }: { place: "galilee" | "jerusalem"; priority?: boolean }) {
   return <div className={styles.environment}>
+    <p className={styles.environmentFallback} aria-hidden="true">{place === "galilee" ? "Galilee" : "Jerusalem"}<span>Interpretive environment unavailable.<br />The story continues below.</span></p>
     <picture>
       <source media="(max-width: 650px)" srcSet={`/media/james/${place}-768.webp`} />
       <Image src={`/media/james/${place}-1536.webp`} alt="" width={1536} height={1024} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} />

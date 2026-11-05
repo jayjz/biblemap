@@ -42,10 +42,16 @@ export function JamesSources() {
       <p><a href={s.url}>{s.locator}</a></p><p>{s.edition}</p><p>{s.limits}</p>
       <p className={styles.small}>{s.rights} Checked {s.checkedAt}.</p>
     </details>)}
+    <details className={styles.sourceDetail} id="james-art">
+      <summary>Environmental paintings: interpretation and provenance</summary>
+      <p>The Galilee and Jerusalem environments are original AI-generated interpretive paintings made for BibleMap in November 2026 using OpenAI’s built-in image-generation tool. The precise model name is not exposed by the tool. Buildings, people, garments, vegetation and viewpoints are imagined. No person is identified as James, Jesus or another historical individual.</p>
+      <p>For Galilee, an <a href="https://publications.iaa.org.il/atiqot/vol98/iss1/3/">Israel Antiquities Authority Nazareth report abstract</a> supports a general domestic setting; it does not identify James’s house. For Jerusalem, an <a href="https://hadashot.iaa.org.il/Report_Detail_Eng.aspx?id=15729&print=nopic">IAA excavation report</a> informs stone construction and elevation in one area. The <a href="https://www.imj.org.il/ar/node/104">Israel Museum model of 66 CE</a> is a later artistic reference for urban scale, not an exact plan for these events.</p>
+      <p>No third-party reference images were reused. These pictures are expression, not historical evidence. <a href="/media/james/manifest.json">Read the complete visual manifest: method, rights, references, file sizes, checksums and limitations.</a> Human historical and artistic review is pending.</p>
+    </details>
     <details className={styles.sourceDetail}>
       <summary>About the title, artwork and this edition</summary>
       <p>“The Brother Who Remained” is a modern framing of James’s continuing presence in the Jerusalem sources. It does not mean he never traveled, alone remained faithful, or outlived every disciple.</p>
-      <p>The moving sheets, erased lines, open space and horizon are original AI-assisted SVG/CSS artwork made for BibleMap in November 2026. They are symbolic, not ancient manuscripts, an archaeological city plan or a reconstruction of a building. The Josephus sheet uses the identifying phrase “whose name was James” from Whiston’s public-domain translation. Other marks are abstract lines, not simulated ancient writing. Code and original composition follow the repository’s MIT license; no third-party image or audio is used.</p>
+      <p>The palimpsest retained for later memory and source comparison is original AI-assisted SVG/CSS artwork made for BibleMap in November 2026. It is symbolic, not an ancient manuscript, archaeological city plan or reconstruction. The Josephus field uses the identifying phrase “whose name was James” from Whiston’s public-domain translation. Other marks are abstract lines, not simulated ancient writing. Code and original SVG composition follow the repository’s MIT license. The generated environmental paintings have separate provenance above. No audio is used.</p>
       <p>Scripture quotations use the public-domain World English Bible, updated 66-book edition. The final comma in 1 Corinthians 15:7 is retained: its sentence continues in verse 8. <a href="https://ebible.org/engwebp/copyright.htm">Publisher’s rights statement</a>.</p>
       <p>AI-assisted editorial draft for creator review. Historical, theological, literary and artistic review is pending. No human approval is claimed. The narrative and visual staging remain on BibleMap’s no-index review surface.</p>
     </details>

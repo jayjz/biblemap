@@ -1,7 +1,7 @@
 .shell {
   --ink: #201e29; --chalk: #f0e7d6; --lilac: #b4a9c3; --bronze: #c5a778;
   background: var(--ink); color: var(--chalk); font-family: var(--font-geist-sans), Arial, sans-serif;
-  --shift: 850ms; --ease: cubic-bezier(.2,.7,.2,1); overflow-wrap: break-word;
+  --shift: 850ms; --ease: cubic-bezier(.2,.7,.2,1); --james-dock: 118px; overflow-wrap: break-word;
 }
 .shell * { box-sizing: border-box; }
 .shell a { text-underline-offset: .25em; }
@@ -62,13 +62,15 @@
 .palimpsest[data-witness="josephus"] .josephusLeaf,
 .palimpsest[data-witness="memory"] .memoryLeaf { opacity: 1; transform: rotate(0) scale(1.04); }
 .comparisonArt[data-empty="true"] .leaf { opacity: .06; }
-.movementNav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: center; gap: clamp(16px, 3.3vw, 56px); padding: 8px 24px; border-top: 1px solid #c5a77855; border-bottom: 1px solid #c5a77855; background: var(--ink); }
+.movementNav { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(16px, 3.3vw, 56px); padding: 8px 24px; border-top: 1px solid #c5a77855; border-bottom: 1px solid #c5a77855; background: var(--ink); }
 .movementNav a { display: inline-flex; gap: 9px; align-items: center; min-height: 44px; font-size: 13px; text-decoration: none; white-space: nowrap; }
 .movementNav a span { color: var(--bronze); font-family: Georgia, serif; }
 .journey { display: grid; grid-template-columns: 48% 52%; max-width: 1550px; margin: auto; overflow-anchor: none; }
 .cinematicJourney > .narrative { padding: 0; }
 .cinematicJourney > .narrative > .movement { max-width: 800px; margin: auto; padding-inline: 5%; }
-.evidenceDock { position: sticky; top: 61px; z-index: 5; background: #172630; border-bottom: 1px solid #819098; }
+.journeyControls { position: sticky; top: 0; z-index: 5; max-height: 35svh; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #b4a9c3 #201e29; }
+.journeyControls .movementNav { position: static; }
+.evidenceDock { background: #172630; border-bottom: 1px solid #819098; }
 .evidenceDock .stageInner { position: static; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: auto; padding: 8px 5%; }
 .evidenceDock .primary { min-height: 40px; padding: 9px 16px; font-size: 12px; }
 .evidenceDock .stageLabel { color: #d6dfdf; }
@@ -163,7 +165,8 @@
 }
 @media (max-width: 650px) {
   .evidenceDock { top: 92px; }
-  .evidenceDock .stageInner { flex-wrap: nowrap; }
+  .evidenceDock .stageInner { flex-wrap: wrap; }
+  .evidenceDock .stageActions { min-width: 0; max-width: 100%; }
   .header { gap: 12px; padding: 18px 6%; flex-wrap: wrap; }
   .wordmark { font-size: 21px; }
   .header nav { gap: 16px; font-size: 12px; flex-wrap: wrap; }

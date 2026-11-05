@@ -3,19 +3,20 @@ import { JAMES_MOVEMENTS } from "@/content/james";
 import { JamesExperience } from "./JamesExperience";
 import { JamesNarrative } from "./JamesNarrative";
 import { JamesSources } from "./JamesSources";
-import { Palimpsest } from "./Palimpsest";
+import { SceneEnvironment, ArtDisclosure } from "./SceneEnvironment";
 import styles from "./james.module.css";
+import cinema from "./cinematic.module.css";
 
 export function JamesEncounter({ reading = false }: { reading?: boolean }) {
-  return <div className={`${styles.shell} ${reading ? styles.reading : ""}`}>
+  return <div data-james-shell className={`${styles.shell} ${reading ? styles.reading : ""}`}>
     <a className={styles.skip} href="#james-main">Skip to the story</a>
     <header className={styles.header}>
       <Link href="/" prefetch={false} className={styles.wordmark}>BibleMap<span>The human story</span></Link>
       <nav aria-label="Leave or change the reading"><Link href="/human-story/worlds/saints/" prefetch={false}>All lives</Link><Link href={reading ? "/human-story/james/" : "/human-story/james/reading/"} prefetch={false}>{reading ? "Visual encounter" : "Simple reading"}</Link></nav>
     </header>
     <main id="james-main" tabIndex={-1}>
-      <section className={styles.opening} aria-labelledby="james-title">
-        {!reading && <div className={styles.openingArt}><Palimpsest /></div>}
+      <section className={`${styles.opening} ${reading ? "" : cinema.entrance}`} aria-labelledby="james-title">
+        {!reading && <SceneEnvironment place="galilee" priority />}
         <div className={styles.openingText}>
           <p className={styles.eyebrow}>A life in the surviving voices</p>
           <h1 id="james-title">James<span>The Brother<br />Who Remained</span></h1>
@@ -23,13 +24,13 @@ export function JamesEncounter({ reading = false }: { reading?: boolean }) {
           <p className={styles.invitation}>Paul says he met him. Josephus records his death. Later Christians remember more. Enter the space between a life and the words that reach us.</p>
           <a className={styles.primary} href="#brother">Begin with the brother <span aria-hidden="true">↓</span></a>
           <p className={styles.openingNote}>Five movements · read at your own pace</p>
+          {!reading && <p className={styles.openingNote}>AI-generated interpretive environment</p>}
         </div>
-        {!reading && <p className={styles.openingArtNote}>An original symbolic composition.<br />No likeness of James is reconstructed.</p>}
+        {!reading && <ArtDisclosure place="Galilee" />}
       </section>
-      <nav className={styles.movementNav} aria-label="Movements in James’s story">
+      <div className={reading ? "" : styles.journeyControls} role="region" aria-label="Story navigation and evidence"><nav className={styles.movementNav} aria-label="Movements in James’s story">
         {JAMES_MOVEMENTS.map((m, i) => <a key={m.id} href={`#${m.id}`}><span>{i + 1}</span>{m.label}</a>)}
-      </nav>
-      {!reading && <JamesExperience />}
+      </nav>{!reading && <JamesExperience />}</div>
       <div className={reading ? styles.journey : styles.cinematicJourney}><JamesNarrative cinematic={!reading} /></div>
       <div className={styles.afterword}><p className={styles.eyebrow}>The brother who remained</p><p>We have his name.<br />We do not have every word.</p><a href="#james-sources">Return to the surviving record</a></div>
       <JamesSources />

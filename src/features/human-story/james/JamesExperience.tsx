@@ -10,24 +10,41 @@ const subscribe = () => () => {};
 const clientSnapshot = () => true;
 const serverSnapshot = () => false;
 
+function visibleMovement(controlsHeight: number) {
+  return JAMES_MOVEMENTS.filter(m => {
+    const bounds = document.getElementById(m.id)?.getBoundingClientRect();
+    return bounds && bounds.top <= Math.max(innerHeight * .45, controlsHeight + 1) && bounds.bottom > controlsHeight;
+  }).at(-1);
+}
+
 export function JamesExperience() {
   const ready = useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
   const [active, setActive] = useState<JamesMovementId>("brother");
   const [witnessId, setWitnessId] = useState("paul");
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
+  const dock = useRef<HTMLElement>(null);
   const movement = JAMES_MOVEMENTS.find(m => m.id === active);
   const witness = JAMES_WITNESSES.find(w => w.id === witnessId);
   if (!movement || !witness) throw new Error("Invalid James narrative selection");
   const layer = witness.layers[active];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    const controls = dock.current?.parentElement;
+    const shell = controls?.closest<HTMLElement>("[data-james-shell]");
+    if (!controls || !shell) return;
+    const observer = new ResizeObserver(() => {
+      shell.style.setProperty("--james-dock", `${controls.getBoundingClientRect().height}px`);
+    });
+    observer.observe(controls);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(() => {
       if (dialog.current?.open) return;
-      for (const entry of entries) if (entry.isIntersecting) {
-        const match = JAMES_MOVEMENTS.find(m => m.id === entry.target.id);
-        if (match) setActive(match.id);
-      }
+      const visible = visibleMovement(dock.current?.parentElement?.getBoundingClientRect().height ?? 0);
+      if (visible) setActive(visible.id);
     }, { rootMargin: "-18% 0px -55% 0px", threshold: 0 });
     document.querySelectorAll("[data-scene]").forEach(el => observer.observe(el));
     const onHash = () => {
@@ -44,16 +61,13 @@ export function JamesExperience() {
   const openComparison = () => {
     // Read the visible narrative when opening: focusing the sticky control must
     // never make a pending observer callback select the previous movement.
-    const visible = JAMES_MOVEMENTS.filter(m => {
-      const bounds = document.getElementById(m.id)?.getBoundingClientRect();
-      return bounds && bounds.top <= innerHeight * .45 && bounds.bottom > 0;
-    }).at(-1);
+    const visible = visibleMovement(dock.current?.parentElement?.getBoundingClientRect().height ?? 0);
     if (visible) setActive(visible.id);
     dialog.current?.showModal();
   };
-  return <><aside className={styles.evidenceDock} aria-label="Evidence at this movement">
+  return <><aside ref={dock} className={styles.evidenceDock} aria-label="Evidence at this movement">
     <div className={styles.stageInner}>
-      <p className={styles.stageLabel}>{movement.label}</p>
+      <p className={styles.stageLabel}>{ready ? movement.label : "The surviving record"}</p>
       {ready ? <div className={styles.stageActions}>
         <button ref={trigger} className={styles.primary} onClick={openComparison}>Compare surviving witnesses</button>
       </div> : <p><a className={styles.primary} href="#james-sources">Compare surviving witnesses</a></p>}

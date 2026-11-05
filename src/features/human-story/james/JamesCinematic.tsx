@@ -1,8 +1,47 @@
-import { JAMES_MOVEMENTS, type JamesMovement } from "@/content/james";
+import { JAMES_MOVEMENTS, JAMES_QUOTES, JAMES_SOURCES, JAMES_WITNESSES, type JamesMovement } from "@/content/james";
 import { MovementSources, SourceLinks } from "./JamesSources";
 import { SceneEnvironment, ArtDisclosure } from "./SceneEnvironment";
 import { JerusalemRelationships } from "./JerusalemRelationships";
+import { Palimpsest } from "./Palimpsest";
 import styles from "./cinematic.module.css";
+
+function SceneProse({ movement }: { movement: JamesMovement }) {
+  return <div className={styles.prose}>{movement.paragraphs.map(p => <p key={p.locator}>{p.text}</p>)}</div>;
+}
+
+function SceneQuote({ which }: { which: keyof typeof JAMES_QUOTES }) {
+  const quote = JAMES_QUOTES[which];
+  const source = JAMES_SOURCES.find(s => s.id === quote.sourceId);
+  if (!source) throw new Error(`Missing source for ${which}`);
+  return <figure className={styles.sceneQuote}><blockquote>{quote.text}</blockquote><figcaption><a href={source.url}>{quote.reference}</a> · World English Bible</figcaption></figure>;
+}
+
+export function BrotherScene({ movement }: { movement: JamesMovement }) {
+  return <section id="brother" data-scene="brother" tabIndex={-1} aria-labelledby="brother-title" className={`${styles.scene} ${styles.brother}`}>
+    <div className={styles.domesticOpening}>
+      <div className={styles.domesticTitle}><p>I · The brother</p><p>Galilee · the family setting</p><h2 id="brother-title">Before a title,<br />a relationship.</h2><p>A name in a family.<br />Not a recovered childhood.</p></div>
+      <div className={styles.domesticWindow}><SceneEnvironment place="galilee" /><ArtDisclosure place="Galilee" /></div>
+    </div>
+    <div className={styles.brotherReading}><SceneQuote which="meeting" /><SceneProse movement={movement} /></div>
+    <SceneEnd movement={movement} />
+  </section>;
+}
+
+export function AppearanceScene({ movement }: { movement: JamesMovement }) {
+  return <section id="appearance" data-scene="appearance" tabIndex={-1} aria-labelledby="appearance-title" className={`${styles.scene} ${styles.appearance}`}>
+    <div className={styles.appearanceOpening}><p>II · The appearance</p><h2 id="appearance-title">One line.<br /> No scene survives.</h2><SceneQuote which="appearance" /><p className={styles.unrecorded}>No place. No dialogue. No description of what James saw.</p><p className={styles.appearanceNote}>Paul reports an appearance to James.<br />He does not supply an encounter we can stage.</p></div>
+    <SceneProse movement={movement} /><SceneEnd movement={movement} />
+  </section>;
+}
+
+export function MemoryScene({ movement }: { movement: JamesMovement }) {
+  return <section id="remained" data-scene="remained" tabIndex={-1} aria-labelledby="remained-title" className={`${styles.scene} ${styles.memory}`}>
+    <div className={styles.memoryOpening}><div><p>V · What remained</p><h2 id="remained-title">The life ends.<br />The telling grows.</h2><p>Early testimony and later remembrance.<br />A longer story is not necessarily another witness.</p></div><div className={styles.memoryArt}><Palimpsest movement="remained" /><p>Symbolic artwork · not an ancient manuscript</p></div></div>
+    <SceneProse movement={movement} />
+    <div className={styles.transmission}><h3>Follow a voice through time.</h3><p>These are kinds of testimony and transmission, not a count of independent confirmations.</p>{JAMES_WITNESSES.map(w => <details key={w.id}><summary><span>{w.name === "Later memory" ? "Hegesippus → Eusebius" : w.name}</span><span>{w.period}</span></summary><p>{w.genre}</p><p>{w.layers.remained?.text}</p><p className={styles.memoryLimit}>{w.layers.remained?.limit}</p><p>{w.transmission}</p>{w.layers.remained && <SourceLinks ids={w.layers.remained.sourceIds} />}</details>)}</div>
+    <SceneEnd movement={movement} />
+  </section>;
+}
 
 export function SceneEnd({ movement }: { movement: JamesMovement }) {
   const index = JAMES_MOVEMENTS.findIndex(m => m.id === movement.id);
