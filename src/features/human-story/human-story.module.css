@@ -93,6 +93,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  min-width: 44px;
   font-size: 0.85rem;
   text-decoration: none;
 }
@@ -143,12 +144,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3.5rem;
   background: var(--mineral);
   color: var(--ink) !important;
   border-radius: 3px;
   min-height: 48px;
-  padding: 0.8rem 1.2rem;
   font-size: 0.9rem;
   font-weight: 600;
   margin-top: 2rem;
@@ -158,7 +157,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   margin-top: 0.65rem;
 }
 .weave {
@@ -234,14 +233,14 @@
 }
 .paths,
 .worlds {
-  padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 5vw, 5.5rem);
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(1.25rem, 5vw, 5.5rem);
 }
 .sectionHeading {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 .sectionHeading h2 {
   font-size: clamp(2rem, 3.2vw, 3.2rem);
@@ -255,17 +254,16 @@
 }
 .pathGrid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 .path {
   background: #dde7e9;
-  padding: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(1.25rem, 2vw, 2rem);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 360px;
 }
 .pathFeatured {
   background: var(--mineral);
@@ -275,28 +273,28 @@
 }
 .path > p:first-child {
   font-size: 0.7rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .path h3 {
   font-size: clamp(1.9rem, 2.5vw, 2.8rem);
   line-height: 1.1;
   letter-spacing: -0.025em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .path > p:not(:first-child) {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.8;
   max-width: 36ch;
 }
-.path a {
+.path > a {
   margin-top: auto;
-  padding-top: 1.5rem;
-  display: inline-flex;
-  gap: 1.5rem;
-  align-items: center;
-  min-height: 44px;
-  font-size: 0.8rem;
-  font-weight: 600;
+}
+.pathContents {
+  margin-block: 1rem 1.5rem;
+  font-size: 0.85rem;
+}
+.pathContents .pathStops {
+  margin-top: 0;
 }
 .worlds {
   background: #dce8e3;
@@ -304,26 +302,38 @@
 .worldGrid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .world {
-  border-top: 2px solid #7c9b91;
-  padding-top: 1.3rem;
+  min-width: 0;
 }
 .world h3 {
   font-size: 1.7rem;
 }
 .world p {
   font-size: 0.85rem;
-  margin: 1rem 0 1.5rem;
+  margin: 0.75rem 0 1.25rem;
   max-width: 36ch;
 }
-.world a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 44px;
-  font-size: 0.8rem;
+.worldLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem 0.5rem 0.75rem;
+  border-top: 2px solid #597b6e;
+  text-decoration: none;
+}
+.collectionAction {
+  margin-top: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.worldLink:hover {
+  background: #cbded4;
+}
+.worldLink:hover h3 {
+  text-decoration: underline;
 }
 .sourceNote {
   display: grid;
@@ -846,12 +856,7 @@
   line-height: 1.9;
 }
 .artSpread > div > a {
-  display: inline-flex;
-  gap: 1rem;
-  align-items: center;
-  min-height: 44px;
   margin-top: 1.5rem;
-  font-size: 0.85rem;
 }
 .explorerControls {
   display: flex;
@@ -897,22 +902,38 @@
   gap: 2rem;
   align-items: start;
 }
+.explorerColumns[data-preview-open="false"] { grid-template-columns: minmax(0, 1fr); }
+.explorerColumns[data-preview-open="false"] .explorerList {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+}
+.closePreview {
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  margin-top: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.closePreview:hover { text-decoration: underline; }
 .explorerList {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 .explorerEntry {
-  background: #fff;
-  border: 1px solid #cedbdf;
-  border-radius: 5px;
-  padding: 1.5rem;
+  border-bottom: 1px solid #aabdc2;
+  border-left: 3px solid transparent;
+  padding: 1rem 1.25rem;
   display: flex;
   flex-direction: column;
 }
 .explorerEntry[data-selected="true"] {
-  border: 2px solid #557d6d;
-  padding: calc(1.5rem - 1px);
+  border-left-color: #557d6d;
+  background: #e0eae5;
 }
 .explorerEntry > .evidenceLabel {
   align-self: flex-start;
@@ -920,14 +941,25 @@
 .explorerEntry h3 {
   font-size: 1.6rem;
   line-height: 1.25;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+}
+.explorerEntry h3 a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 0.25rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+.explorerEntry h3 a:hover {
+  text-decoration-thickness: 2px;
 }
 .explorerEntry > p {
   font-size: 0.85rem;
 }
 .explorerEntryFooter {
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -940,14 +972,15 @@
 }
 .explorerEntryFooter button {
   min-height: 44px;
-  border: 1px solid #9db4bd;
-  padding: 0.5rem 0.8rem;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
   border-radius: 3px;
-  background: white;
+  background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   cursor: pointer;
+  text-decoration: underline;
 }
 .explorerEntryFooter button[hidden] {
   display: none;
@@ -955,6 +988,11 @@
 .explorerEntryFooter button[aria-pressed="true"] {
   background: #dce8e3;
   border-color: #557d6d;
+}
+.explorerEntryFooter button:hover,
+.showAll:hover {
+  text-decoration: underline;
+  background: #d3e3dc;
 }
 .connectionPreview {
   position: sticky;
@@ -1137,7 +1175,23 @@
     gap: 1.4rem;
   }
   .worldGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .worldLink {
+    display: grid;
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+    gap: 0.25rem 1.5rem;
+    padding: 1rem 0.5rem;
+    border-top-width: 1px;
+  }
+  .worldLink p {
+    grid-column: 2;
+    margin: 0;
+  }
+  .collectionAction {
+    grid-column: 2;
+    margin-top: 0.5rem;
   }
   .weave {
     padding: 2rem;
@@ -1159,6 +1213,12 @@
     align-items: flex-start;
     padding: 1rem 1.25rem 0.5rem;
   }
+  .shell:not(.immersive) .header {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem 1rem;
+  }
+  .shell:not(.immersive) .header > .nav { order: 3; }
   .wordmark {
     font-size: 1.4rem;
   }
@@ -1169,7 +1229,8 @@
     gap: 0 0.75rem;
   }
   .nav a {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
+    padding-inline: 0.5rem;
   }
   .opening {
     grid-template-columns: 1fr;
@@ -1205,14 +1266,13 @@
     gap: 1rem;
   }
   .path {
-    min-height: 310px;
+    min-height: 0;
   }
   .path h3 {
     font-size: 2.6rem;
   }
   .worldGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem 1.5rem;
+    grid-template-columns: minmax(0, 1fr);
   }
   .sourceNote {
     display: block;
@@ -1258,6 +1318,7 @@
   .explorerColumns {
     grid-template-columns: 1fr;
   }
+  .explorerColumns[data-preview-open="false"] .explorerList { grid-template-columns: minmax(0, 1fr); }
   .connectionPreview {
     position: static;
   }
@@ -1274,42 +1335,12 @@
     gap: 1.5rem;
   }
 }
-.encounterEntrance {
-  display: grid;
-  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.6fr) auto;
-  align-items: center;
-  gap: 2rem;
-  padding: 3rem clamp(1.5rem, 5vw, 5.5rem);
-  background: #302335;
-  color: #f0eaf3;
+@media (max-width: 1050px) {
+  .shell:not(.immersive) .atlasLink { display: inline-flex; }
 }
-.encounterEntrance > p {
-  font-size: 0.8rem;
-  max-width: 18ch;
-  color: #e7b6c5;
-}
-.encounterEntrance h2 {
-  font-size: 2.4rem;
-  line-height: 1.2;
-}
-.encounterEntrance div p {
-  font-size: 0.95rem;
-  max-width: 52ch;
-  margin-top: 0.75rem;
-}
-.encounterEntrance a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-}
-@media (max-width: 900px) {
-  .encounterEntrance {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .encounterEntrance > p {
-    max-width: none;
-  }
+@media (max-width: 540px) {
+  .worldLink { grid-template-columns: minmax(0, 1fr); }
+  .worldLink p, .collectionAction { grid-column: 1; }
 }
 @media (max-width: 360px) {
   .worldGrid {

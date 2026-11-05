@@ -43,6 +43,8 @@ export function ConnectedExplorer({
   const [world, setWorld] = useState("all");
   const [selectedId, setSelectedId] = useState("jonah");
   const [showAll, setShowAll] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const previewTrigger = useRef<HTMLButtonElement | null>(null);
   const searchInput = useRef<HTMLInputElement>(null);
   const previewHeading = useRef<HTMLHeadingElement>(null);
   const selectionRequested = useRef(false);
@@ -87,13 +89,15 @@ export function ConnectedExplorer({
       });
       selectionRequested.current = false;
     }
-  }, [selectedId]);
-  function selectEntry(id: string) {
+  }, [selectedId, previewOpen]);
+  function selectEntry(id: string, trigger: HTMLButtonElement) {
+    previewTrigger.current = trigger;
     selectionRequested.current = true;
-    if (id === selectedId) {
+    if (id === selectedId && previewOpen) {
       previewHeading.current?.focus();
       selectionRequested.current = false;
     } else setSelectedId(id);
+    setPreviewOpen(true);
   }
   return (
     <div className={styles.explorer}>
@@ -144,12 +148,12 @@ export function ConnectedExplorer({
           connections; use the five-world navigation to narrow your exploration.
         </p>
       </noscript>
-      <div className={styles.explorerColumns}>
+      <div className={styles.explorerColumns} data-preview-open={previewOpen}>
         <div className={styles.explorerList}>
           {shown.map((entry) => (
             <article
               className={styles.explorerEntry}
-              data-selected={entry.id === activeId}
+              data-selected={previewOpen && entry.id === activeId}
               key={entry.id}
               id={`reading-${entry.id}`}
               tabIndex={-1}
@@ -172,12 +176,12 @@ export function ConnectedExplorer({
                 <button
                   hidden={!hydrated}
                   type="button"
-                  onClick={() => selectEntry(entry.id)}
+                  onClick={(event) => selectEntry(entry.id, event.currentTarget)}
                   aria-label={`Show connections for ${entry.title}`}
-                  aria-pressed={entry.id === activeId}
+                  aria-pressed={previewOpen && entry.id === activeId}
                   aria-controls="connection-preview"
                 >
-                  {entry.id === activeId ? "Selected" : "Connections"}
+                  {previewOpen && entry.id === activeId ? "Viewing connections" : "Preview connections"}
                 </button>
               </div>
             </article>
@@ -206,7 +210,7 @@ export function ConnectedExplorer({
           className={styles.connectionPreview}
           id="connection-preview"
           aria-label="Preview connections"
-          hidden={visible.length === 0}
+          hidden={visible.length === 0 || !previewOpen}
         >
           <p>Every reading has a way onward</p>
           <h3 ref={previewHeading} tabIndex={-1}>
@@ -243,6 +247,10 @@ export function ConnectedExplorer({
             inside the reading; it does not automatically mean influence or
             historical proof.
           </p>
+          <button type="button" className={styles.closePreview} onClick={() => {
+            setPreviewOpen(false);
+            previewTrigger.current?.focus();
+          }}>Close connection preview</button>
         </aside>
       </div>
     </div>

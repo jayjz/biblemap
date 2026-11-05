@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SourcePassage } from "./SourcePassage";
 import { InteriorArtwork } from "./InteriorArtwork";
 import styles from "./interior.module.css";
+import actions from "./action-link.module.css";
 
 export function LetterEncounter() {
   return (
@@ -68,7 +69,7 @@ export function SaintsEncounter() {
               The work attributes these words to Perpetua. Later, a narrator
               must tell the part she cannot write.
             </p>
-            <Link prefetch={false} href="/human-story/perpetua/#perpetua-child">
+            <Link className={actions.action} prefetch={false} href="/human-story/perpetua/#perpetua-child">
               Enter the prison
             </Link>
           </article>
@@ -79,7 +80,7 @@ export function SaintsEncounter() {
               He begins with praise and questions. The “Thee” of this opening is
               God; we read over his shoulder.
             </p>
-            <Link prefetch={false} href="/human-story/augustine/">
+            <Link className={actions.action} prefetch={false} href="/human-story/augustine/">
               Read the opening with the painting
             </Link>
           </article>

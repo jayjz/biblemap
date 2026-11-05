@@ -3,6 +3,7 @@ import type { WorldId } from "@/domain/human-story";
 import { HumanArtwork } from "./HumanArtwork";
 import { InteriorArtwork } from "./InteriorArtwork";
 import styles from "./interior.module.css";
+import actions from "./action-link.module.css";
 
 const invitations: Record<WorldId, string> = {
   stories: "A small object. A story larger than its frame.",
@@ -27,8 +28,8 @@ export function WorldOpening({
         <h1>{world.name}</h1>
         <p className={styles.worldInvitation}>{invitations[world.id]}</p>
         <p className={styles.worldDescription}>{world.description}</p>
-        <a className={styles.startHere} href="#world-encounter">
-          Look inside <span aria-hidden="true">↓</span>
+        <a className={`${styles.startHere} ${actions.action}`} href={world.id === "saints" ? "#reading-index-title" : "#world-encounter"}>
+          {world.id === "saints" ? "Choose a life to read" : `Read the ${world.name.toLowerCase()} collection`}
         </a>
       </div>
       <div className={styles.worldImage}>

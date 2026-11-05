@@ -6,7 +6,17 @@ import { HUMAN_GRAPH } from "@/content/human-story";
 import { ConnectedExplorer } from "@/features/human-story/ConnectedExplorer";
 import { PathPreview } from "@/features/human-story/PathPreview";
 import { ArtworkImage } from "@/features/human-story/ArtworkImage";
+import { FeaturedEncounters } from "./FeaturedEncounters";
+import actions from "./action-link.module.css";
 import styles from "@/features/human-story/human-story.module.css";
+
+const collectionInvitations = {
+  stories: { description: "Scripture, from the first garden to the early Church.", action: "Read Scripture" },
+  witnesses: { description: "Jesus and the biblical world in other people’s records.", action: "Read the accounts" },
+  saints: { description: "Faith lived in particular bodies and places.", action: "Meet the saints" },
+  atlas: { description: "Places, civilizations, journeys and the material things that remain.", action: "Locate the stories" },
+  voices: { description: "Theology, philosophy, language and art in conversation.", action: "Meet the interpreters" },
+};
 
 export const humanStoryMetadata: Metadata = {
   title: "The Human Story — BibleMap",
@@ -38,10 +48,10 @@ export default function HumanStoryHome() {
   const featured = [
     "jonah",
     "perpetua",
+    "romanus",
     "augustine",
     "pliny",
     "genesis-in-paint",
-    "nineveh",
   ];
   const entries = [...HUMAN_GRAPH.entries].sort((a, b) => {
     const rank = (id: string) =>
@@ -65,8 +75,8 @@ export default function HumanStoryHome() {
           <p className={styles.sublede}>
             Explore the human story through a biblical worldview.
           </p>
-          <Link prefetch={false} className={styles.primaryLink} href="#paths">
-            Find a way in <span aria-hidden="true">↘</span>
+          <Link prefetch={false} className={`${styles.primaryLink} ${actions.action} ${actions.primary}`} href="#encounters">
+            Meet Perpetua & Romanus
           </Link>
           <Link
             prefetch={false}
@@ -126,22 +136,7 @@ export default function HumanStoryHome() {
           </Link>
         </div>
       </section>
-      <section
-        className={styles.encounterEntrance}
-        aria-labelledby="prison-invitation"
-      >
-        <p>A life inside a transmitted account</p>
-        <div>
-          <h2 id="prison-invitation">Perpetua. The Prison.</h2>
-          <p>
-            A mother, her child, a father at the hearing. Follow the
-            relationships, then look at whose voice carries them to us.
-          </p>
-        </div>
-        <Link prefetch={false} href="/human-story/perpetua/">
-          Enter the encounter
-        </Link>
-      </section>
+      <FeaturedEncounters />
       <section
         id="paths"
         className={styles.paths}
@@ -182,9 +177,8 @@ export default function HumanStoryHome() {
             later artist makes visible, then return to what the chapter actually
             says.
           </p>
-          <Link prefetch={false} href="/human-story/genesis-in-paint/">
+          <Link prefetch={false} className={actions.action} href="/human-story/genesis-in-paint/">
             Look at Genesis on a chapel ceiling{" "}
-            <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </section>
@@ -196,10 +190,10 @@ export default function HumanStoryHome() {
         <div className={styles.worldGrid}>
           {WORLDS.map((world) => (
             <article id={world.id} className={styles.world} key={world.id}>
-              <h3>{world.name}</h3>
-              <p>{world.description}</p>
-              <Link prefetch={false} href={`/human-story/worlds/${world.id}/`}>
-                Explore {world.name} <span aria-hidden="true">↗</span>
+              <Link className={styles.worldLink} prefetch={false} href={`/human-story/worlds/${world.id}/`}>
+                <h3>{world.name}</h3>
+                <p>{collectionInvitations[world.id].description}</p>
+                <span className={styles.collectionAction}>{collectionInvitations[world.id].action}</span>
               </Link>
             </article>
           ))}
@@ -211,8 +205,8 @@ export default function HumanStoryHome() {
         aria-labelledby="readings-title"
       >
         <div className={styles.sectionHeading}>
-          <h2 id="readings-title">Find a life. Open a world.</h2>
-          <p>Choose a reading to see its connections.</p>
+          <h2 id="readings-title">Choose a reading.</h2>
+          <p>Open a story, or preview where it connects.</p>
         </div>
         <ConnectedExplorer
           entries={entries.map((entry) => ({
