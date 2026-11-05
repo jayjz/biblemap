@@ -23,5 +23,6 @@ test('Thomas source distinctions, witness identities, rights and review boundary
   assert.match(THOMAS_SOURCES.find(s => s.id === 'thomas-oxy655')?.url ?? '', /62839/);
   assert.match(THOMAS_SAYING.rights, /Public domain/);
   assert.match(THOMAS_SAYING.text, /speck.*beam/);
+  assert.doesNotMatch(THOMAS_SAYING.text, /&[a-z]+;|&#\d+;/);
   assert.match(THOMAS_MOVEMENTS[3].note, /does not describe Thomas reaching out/);
 });

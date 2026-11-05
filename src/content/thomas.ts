@@ -36,7 +36,7 @@ export const THOMAS_SAYING = saying;
 export const THOMAS_ART = {
   id: 'thomas-spatial-study', class: 'artistic-depiction', title: 'The space between', creator: 'BibleMap · original AI-assisted SVG/CSS composition', creationDate: '2026-11-05',
   sourceInstitution: 'BibleMap', sourceRecordUrl: '/human-story/thomas/#art-provenance', localPath: 'src/features/human-story/thomas/SpatialArtwork.tsx',
-  rights: 'Original artwork in code under repository MIT license; no third-party image or generated bitmap.', reviewStatus: 'draft',
+  rights: 'Original artwork in code under repository MIT license; no third-party image or generated bitmap.', reviewStatus: 'draft', reviewedBy: 'Codex · provenance/rights check only; human artistic review pending',
   limits: 'Symbolic, unlocated architecture; no ancient building, room plan, person, source of light or archaeological reconstruction is claimed.',
 } as const;
 export const THOMAS_MOVEMENTS = [

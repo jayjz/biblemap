@@ -9,7 +9,7 @@ for (const chapter of chapters) {
 const response = await fetch('https://www.gospels.net/thomas');
 if (!response.ok) throw new Error(`Mattison: ${response.status}`);
 const html = await response.text();
-const text = html.replace(/<[^>]+>/g, ' ').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+const text = html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/g, ' ').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ');
 const saying = text.match(/Saying 26: Speck and Beam(.*?)Saying 27:/)?.[1]?.trim();
 if (!saying || !text.includes('committed to the public domain')) throw new Error('Mattison structure or rights changed');
 writeFileSync('src/content/scripture/thomas-mattison-26.json', JSON.stringify({

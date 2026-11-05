@@ -33,6 +33,17 @@
     "checksum": "sha256:22f3cd937229cfc8a4b4dedb84189555d58a2b44b71d10ad194be42758443a57"
   },
   {
+    "id": "jhn20-20",
+    "chapter": "JHN20",
+    "verse": 20,
+    "text": "When he had said this, he showed them his hands and his side. The disciples therefore were glad when they saw the Lord.",
+    "file": "thomas-web-jhn20.html",
+    "sourceUrl": "https://ebible.org/engwebp/JHN20.htm",
+    "sourceVersion": "engwebp publisher snapshot 2026-11-05",
+    "rights": "Public domain",
+    "checksum": "sha256:12795753543a5d9c697331e7b02f866b02cb441b50eea9980c81340307a7f1bb"
+  },
+  {
     "id": "jhn20-24",
     "chapter": "JHN20",
     "verse": 24,
