@@ -18,6 +18,7 @@ for (const width of [1440, 768, 390, 320]) {
   await page.screenshot({ path: `${folder}/opening-${width}.jpg`, quality: 85 });
   for (const [index, id, label] of [[1,'brother','The brother'],[2,'appearance','The appearance'],[3,'jerusalem','Jerusalem'],[4,'record','The record'],[5,'remained','What remained']]) {
     await page.getByRole('link', { name: `${index} ${label}`, exact: true }).click();
+    if (phase !== 'before' && ['brother', 'jerusalem'].includes(id)) await page.locator(`#${id} img`).evaluate(img => img.decode());
     await page.waitForTimeout(160);
     await page.screenshot({ path: `${folder}/${id}-${width}.jpg`, quality: 85 });
   }
