@@ -25,15 +25,20 @@ for (const width of phase === 'studies' ? [1440,390] : [1440,768,390,320]) {
     if (phase === 'baseline') {
       await page.goto(`${base}/human-story/james/`);
       await page.evaluate(() => document.fonts.ready);
+      if (await page.locator('[data-cinematic-frame] img').count()) await page.locator('[data-cinematic-frame] img').first().evaluate(img => img.decode());
       await page.screenshot({ path: `${folder}/james-${width}.jpg`, quality: 80 });
     } else {
       await page.goto(`${base}/human-story/thomas/`);
       await page.evaluate(() => document.fonts.ready);
+      if (await page.locator('[data-cinematic-frame] img').count()) await page.locator('[data-cinematic-frame] img').first().evaluate(img => img.decode());
       await page.screenshot({ path: `${folder}/opening-${width}.jpg`, quality: 85 });
       for (const id of ['absent','unless','eight-days','confession','not-seen']) {
         await page.locator(`nav[aria-label="Thomas movements"] a[href="#${id}"]`).click();
+        await page.locator(`#${id} img`).evaluateAll(images => Promise.all(images.map(img => img.decode())));
         await page.screenshot({ path: `${folder}/${id}-${width}.jpg`, quality: 85 });
+        if (phase === 'cinematic-after' && [1440,390].includes(width)) await page.locator(`#${id}`).screenshot({ path: `${folder}/${id}-full-${width}.jpg`, quality: 80 });
       }
+      if (phase === 'cinematic-after' && [1440,390].includes(width)) await page.screenshot({ path: `${folder}/journey-full-${width}.jpg`, fullPage: true, quality: 75 });
       await page.goto(`${base}/human-story/thomas/sayings/#comparison`);
       await page.screenshot({ path: `${folder}/comparison-${width}.jpg`, quality: 85 });
     }

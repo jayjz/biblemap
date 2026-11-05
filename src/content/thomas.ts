@@ -1,6 +1,7 @@
 import type { HumanSource } from '../domain/human-story.ts';
 import pinned from './scripture/thomas-quotes.json' with { type: 'json' };
 import saying from './scripture/thomas-mattison-26.json' with { type: 'json' };
+import saying13 from './scripture/thomas-mattison-13.json' with { type: 'json' };
 
 export const THOMAS_ROUTES = { encounter: '/human-story/thomas/', reading: '/human-story/thomas/reading/', sayings: '/human-story/thomas/sayings/' } as const;
 export const THOMAS_REVIEW = { status: 'draft', humanReview: 'Historical, theological, literary, translation and artistic review pending', author: 'AI-assisted editorial prototype', indexed: false } as const;
@@ -14,7 +15,7 @@ export const THOMAS_SOURCES: readonly HumanSource[] = [
   source('thomas-lists', 'Thomas among the apostles', 'https://ebible.org/engwebp/MAT10.htm', 'Matthew 10:2–4; Mark 3:16–19; Luke 6:13–16; Acts 1:13', 'Four WEB chapter snapshots retained; public-domain translation.', 'Names do not establish authorship of a later sayings collection. Thomas and the James figures are separate.', 'scripture', 'Public-domain WEB text.'),
   source('thomas-luke', 'Luke · speck and beam', 'https://ebible.org/engwebp/LUK06.htm', '6:41–42', 'WEB publisher snapshot 2026-11-05.', 'A textual parallel does not establish the direction of dependence or authenticate a saying.', 'scripture', 'Public-domain WEB text.'),
   source('thomas-web-rights', 'World English Bible · rights', 'https://ebible.org/engwebp/copyright.htm', 'Publisher public-domain dedication', 'Updated 66-book edition, inspected 2026-11-05.', 'Does not license unrelated website imagery.', 'scripture', 'Public domain.'),
-  source('thomas-mattison', 'Gospel of Thomas · Mark M. Mattison', 'https://www.gospels.net/thomas', 'Prologue; sayings 12, 13, 26; translator rights statement', 'Modern English translation based on NHC II,2. Saying 26 retained locally.', 'An attributed sayings collection, not authenticated apostolic authorship or independently authenticated words of Jesus. Translation requires human review.', 'testimony', 'Translator explicitly dedicates the translation to the public domain. Website images/design excluded.'),
+  source('thomas-mattison', 'Gospel of Thomas · Mark M. Mattison', 'https://www.gospels.net/thomas', 'Prologue; sayings 12, 13, 26; translator rights statement', 'Modern English translation based on NHC II,2. Sayings 13 and 26 retained locally with source excerpts.', 'An attributed sayings collection, not authenticated apostolic authorship or independently authenticated words of Jesus. Translation requires human review.', 'testimony', 'Translator explicitly dedicates the translation to the public domain. Website images/design excluded.'),
   source('thomas-nhc', 'Nag Hammadi Codex II · tractate 2', 'https://www.gospels.net/manuscript', 'Gospel of Thomas; codex pages 32–51', 'Coptic papyrus codex; fourth century commonly cited; this inventory allows fourth/fifth century.', 'Physical manuscript date is not original composition date. Linked image leads were not cleared for reproduction.', 'manuscript'),
   source('thomas-claremont', 'Claremont · the beginning of Thomas', 'https://ccdl.claremont.edu/digital/collection/nha/id/2580', 'Codex II, papyrus pages 32 and 111; negative 189', 'Photograph dated September 1975. Page 32 begins Thomas; page 111 is a different text.', 'Photograph date is not manuscript date. Copyright retained; no image reproduced.', 'manuscript', 'Institution retains physical rights and copyright according to US law. Link only.'),
   source('thomas-oxy1', 'P.Oxy. 1 · a Greek codex leaf', 'https://papyri.info/dclp/62838', 'DCLP 62838; verso lines 1–4; sayings 26–30, 77b, 31–33', 'Bodleian MS. Gr. th. e. 7 (P). Catalogue dates 151–300 CE; narrower early-third-century estimate in Hurtado.', 'The surviving opening preserves only the end of saying 26. Not the complete Coptic saying or an apostolic autograph.', 'manuscript', 'DCLP/LDAB metadata and transcription CC BY 3.0. Image rights separate; no facsimile reproduced.'),
@@ -33,6 +34,16 @@ export function thomasVerse(id: string) {
   return record;
 }
 export const THOMAS_SAYING = saying;
+export const THOMAS_SAYINGS = { 13: saying13, 26: saying } as const;
+const confession13 = saying13.text.match(/Thomas said to him, "Teacher,[^"]+"/)?.[0];
+if (!confession13) throw new Error('Saying 13 excerpt boundary changed');
+export const THOMAS_SAYING_13_EXCERPT = confession13;
+export const THOMAS_MANUSCRIPTS = [
+  { id:'nhc', title:'NHC II,2', language:'Coptic', date:'Fourth century commonly cited; fourth/fifth in the linked inventory', form:'Codex · pages 32–51', holdings:'Essentially the full 114-saying collection', sourceId:'thomas-nhc', thirteen:'Preserved', twentySix:'Preserved', range:'Coptic collection' },
+  { id:'oxy1', title:'P.Oxy. 1', language:'Greek', date:'Catalogue range: 151–300 CE', form:'Codex leaf · Bodleian Library', holdings:'Parts corresponding to sayings 26–30, 77b, 31–33', sourceId:'thomas-oxy1', thirteen:'Not preserved in this fragment', twentySix:'Ending only · verso lines 1–4', range:'26–30 · 77b · 31–33' },
+  { id:'oxy654', title:'P.Oxy. 654', language:'Greek', date:'Catalogue range: 250–299 CE', form:'Roll verso · British Library Papyrus 1531', holdings:'Parts of the prologue and sayings 1–7', sourceId:'thomas-oxy654', thirteen:'Not preserved in this fragment', twentySix:'Not preserved in this fragment', range:'Prologue · 1–7' },
+  { id:'oxy655', title:'P.Oxy. 655', language:'Greek', date:'Catalogue range: 200–299 CE', form:'Roll fragments · Harvard Houghton', holdings:'Parts of sayings 36–39; possible saying 24', sourceId:'thomas-oxy655', thirteen:'Not preserved in these fragments', twentySix:'Not preserved in these fragments', range:'36–39 · possible 24' },
+] as const;
 export const THOMAS_ART = {
   id: 'thomas-spatial-study', class: 'artistic-depiction', title: 'The space between', creator: 'BibleMap · original AI-assisted SVG/CSS composition', creationDate: '2026-11-05',
   sourceInstitution: 'BibleMap', sourceRecordUrl: '/human-story/thomas/#art-provenance', localPath: 'src/features/human-story/thomas/SpatialArtwork.tsx',

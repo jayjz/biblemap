@@ -1,6 +1,7 @@
 // Build-time derivatives only; generated originals remain outside the public export.
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { existsSync } from 'node:fs';
 import sharp from 'sharp';
 const root = 'artifacts/thomas/cinematic';
 await mkdir(`${root}/originals`, { recursive: true });
@@ -8,7 +9,8 @@ await mkdir('public/media/thomas', { recursive: true });
 const definitions = JSON.parse(await readFile(`${root}/art-direction.json`, 'utf8'));
 const assets = [];
 for (const definition of definitions) {
-  const original = await readFile(definition.generatedPath);
+  const retained = `${root}/originals/${definition.id}.png`;
+  const original = await readFile(existsSync(retained) ? retained : definition.generatedPath);
   await writeFile(`${root}/originals/${definition.id}.png`, original);
   for (const width of [768, 1536]) {
     const bytes = await sharp(original).resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toBuffer();
