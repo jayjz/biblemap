@@ -1,0 +1,10 @@
+import { readFile, writeFile } from 'node:fs/promises';
+const [input, output] = process.argv.slice(2);
+if (!input || !output) throw new Error('Provide log and JSON output paths');
+const bytes = await readFile(input);
+const log = bytes.toString(bytes[0] === 255 && bytes[1] === 254 ? 'utf16le' : 'utf8');
+const start = log.search(/\{\r?\n\s+"config":/);
+if (start < 0) throw new Error('JSON reporter output not found');
+const results = JSON.parse(log.slice(start));
+await writeFile(output, JSON.stringify(results, null, 2) + '\n');
+console.log(results.stats);
