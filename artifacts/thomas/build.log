@@ -2,14 +2,14 @@
 > next_temp@0.1.0 prebuild
 > node scripts/split_parquet.js && npm run validate:story
 
-node.exe : (node:19948) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
+node.exe : (node:19948) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
 file:///C:/Dev/biblemap-human-experience/scripts/split_parquet.js is not specified and it doesn't parse as CommonJS.
 At line:1 char:1
 + & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ((node:19948) [M...se as CommonJS.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
@@ -30,7 +30,7 @@ To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-exp
 ✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
 James: 3 Scripture quotations match retained publisher snapshots.
 Thomas: 19 WEB verses and saying 26 match retained public-domain source excerpts.
-(node:18732) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
+(node:18732) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
 file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
@@ -41,8 +41,8 @@ To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-exp
 > node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts
 
 ✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
-(node:8920) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
-file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as 
+(node:8920) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as
 CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
@@ -79,9 +79,9 @@ To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-exp
   Running TypeScript ...
   Collecting page data using 11 workers ...
   Generating static pages using 11 workers (0/48) ...
-  Generating static pages using 11 workers (12/48) 
-  Generating static pages using 11 workers (24/48) 
-  Generating static pages using 11 workers (36/48) 
+  Generating static pages using 11 workers (12/48)
+  Generating static pages using 11 workers (24/48)
+  Generating static pages using 11 workers (36/48)
 ✓ Generating static pages using 11 workers (48/48) in 1200.6ms
   Finalizing page optimization ...
   Collecting build traces ...
@@ -127,8 +127,8 @@ Route (app)
 > next_temp@0.1.0 validate:export
 > node --experimental-strip-types scripts/validate-visitor-export.ts
 
-(node:11956) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
-file:///C:/Dev/biblemap-human-experience/scripts/validate-visitor-export.ts is not specified and it doesn't parse as 
+(node:11956) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/scripts/validate-visitor-export.ts is not specified and it doesn't parse as
 CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.

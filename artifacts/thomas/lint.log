@@ -12,4 +12,3 @@ C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx
   669:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars
 
 ✖ 4 problems (0 errors, 4 warnings)
-
