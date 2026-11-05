@@ -8,6 +8,7 @@ import type {
 import { validateHumanGraph } from "../domain/human-story.ts";
 import { INTERIOR_SOURCES } from "./human-story-interiors.ts";
 import { ROMANUS_ENTRY, ROMANUS_SOURCES } from "./romanus.ts";
+import { JAMES_ENTRY, JAMES_SOURCES } from "./james.ts";
 import {
   WITNESS_SOURCES,
   WITNESS_ENTITIES,
@@ -50,6 +51,7 @@ const scriptureSource = (
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...JAMES_SOURCES,
   ...ROMANUS_SOURCES,
   ...INTERIOR_SOURCES,
   ...CULTURE_SOURCES,
@@ -173,6 +175,7 @@ export const HUMAN_ENTITIES: readonly HumanEntity[] = [
 ];
 
 export const HUMAN_ENTRIES: readonly HumanEntry[] = [
+  JAMES_ENTRY,
   ROMANUS_ENTRY,
   ...CULTURE_ENTRIES,
   ...SAINT_ENTRIES,
@@ -426,6 +429,16 @@ export const HUMAN_ENTRIES: readonly HumanEntry[] = [
 ];
 
 export const HUMAN_CONNECTIONS: readonly HumanConnection[] = [
+  {
+    id: "james-josephus-record", from: "james", to: "josephus-james", kind: "textual",
+    label: "A life enters Josephus’s history", note: "The James encounter reads the received death notice in Antiquities 20.200. It does not treat the notice as corroboration of later martyrdom details.",
+    sourceIds: ["james-josephus"], reviewStatus: "draft",
+  },
+  {
+    id: "james-paul-meeting", from: "james", to: "paul", kind: "context",
+    label: "Paul says he met James", note: "Galatians 1:18–19 gives Paul’s first-person report. The Paul encounter follows Acts 9, a different literary account, not a second record of that meeting.",
+    sourceIds: ["james-galatians-one", "web-acts"], reviewStatus: "draft",
+  },
   {
     id: "romanus-perpetua-memory", from: "romanus", to: "perpetua",
     label: "A life preserved by other voices", kind: "comparison",

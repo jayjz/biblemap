@@ -49,6 +49,7 @@ export default function HumanStoryHome() {
     "jonah",
     "perpetua",
     "romanus",
+    "james",
     "augustine",
     "pliny",
     "genesis-in-paint",

@@ -11,12 +11,12 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --experimental-strip-types --test src/domain/*.test.ts",
-    "validate:story": "node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media",
+    "validate:story": "node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media",
     "validate:media": "node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts",
     "validate:release": "node scripts/pin-jonah.mjs --check && node --experimental-strip-types scripts/validate-story.ts --release",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
-    "preview": "python3 -m http.server 4189 --bind 127.0.0.1 --directory out",
+    "preview": "node scripts/serve-export.mjs",
     "review:jonah": "node scripts/review-jonah.mjs"
   },
   "dependencies": {
