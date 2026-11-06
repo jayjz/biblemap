@@ -5,7 +5,7 @@ test("the homepage leads directly into both complete lives and their sources", a
   await page.goto("/");
   await page.getByRole("link", { name: "Meet Perpetua & Romanus", exact: true }).click();
   await expect(page.locator("#encounters")).toBeFocused();
-  const entrances = page.getByRole("region", { name: "Two lives. Different voices." });
+  const entrances = page.getByRole("region", { name: "Lives. Different voices." });
   await entrances.getByRole("link", { name: "Enter the encounter", exact: true }).click();
   await expect(page.locator("[data-prison-ready]")).toHaveAttribute("data-prison-ready", "true");
   const scenes = page.getByRole("navigation", { name: "Scenes in The Prison" });

@@ -1,5 +1,7 @@
 # BibleMap release-readiness audit — initial evidence review
 
+> **Supersession note — Thomas homepage integration:** The initial review below is preserved as a historical snapshot. Its open-PR descriptions, production assumption and next steps are superseded where stated by the current addendum at the end. PRs #42/#43 are merged into the consolidated preview. Production release approval remains blocked.
+
 **Date:** 2026-11-05  
 **Audit branch:** `docs/release-readiness-audit`  
 **Snapshot:** Thomas PR #42 head `6e1babad26e260597eef132f942b8f0f6b9840b2`, based on Human Story consolidation PR #41 (`2c119d9e47e96a91f3b1d4607c36c397464a04e4`).  
@@ -78,3 +80,17 @@ The consolidated `src/app/page.tsx` renders `HumanStoryHome` through `RootEntran
 - [Thomas PR #42](https://github.com/jayjz/biblemap/pull/42)
 
 **Audit completeness:** The branch/README/current component/commit claims above were inspected directly on GitHub. Historical export-leak findings, test results, CI and audit counts are sourced from checked-in reports or GitHub run records; this document is not a substitute for a newly executed end-to-end release assessment.
+
+## Current addendum — Thomas homepage integration
+
+This feature begins at `2d504aafb8f368b2e827e3e88fd251e244b4da60`, on `feat/thomas-homepage-integration`, targeting `feat/human-story-consolidated`. GitHub confirms [#43](https://github.com/jayjz/biblemap/pull/43) merged into Thomas as `f2f7891`, then [#42](https://github.com/jayjz/biblemap/pull/42) merged Thomas and that audit into consolidated as `2d504aa` (6 November UTC / 5 November US Eastern). The complete V3 runtime, artwork and sayings/manuscripts routes are present. This supersedes the initial table's open/unmerged statuses for #42/#43. Consolidation is a preview milestone, not publication approval.
+
+**Observed production/domain divergence:** read-only Vercel inspection resolves `biblemap-pink.vercel.app` to READY production-target deployment `dpl_4hQwNWXRLa2WCdSaDcBbfjnd9WFq`, [deployment inspector](https://vercel.com/elliotandersons-projects/biblemap/4hQwNWXRLa2WCdSaDcBbfjnd9WFq), commit `e92b476729303cf00cf71f409c9cc64841ddf447` on `feat/home-story-discovery`. This is an older Human Story artifact, while `origin/main:src/app/page.tsx` still defines Nineveh. The initial report's implication that the deployed entrance necessarily matches `main` is superseded. No production settings, aliases or deployments were changed by this task; neither this observation nor that older deployment supplies approval for the consolidated candidate.
+
+The homepage offers a primary cinematic Thomas invitation after Perpetua/Romanus, a distinct entrance to the separately attributed sayings collection, and Thomas among featured searchable readings after James. It reuses one V3 image pair with anonymous invented figures and accessible AI/provenance disclosure. No Thomas graph node, historical relationship or approval is fabricated. The existing hero, five worlds, threads, Jonah, Nineveh, Atlas and Exodus development remain intact.
+
+`README.md` distinguishes repository and deployment state, documents the current narratives and supported commands, and identifies generated artwork and pending review. Older reports remain historical; current-state interpretation belongs here and in the [feature verification record](../thomas-homepage-integration.md).
+
+Fresh baseline `npm run validate:release` exits **1** on Jonah's existing editorial failures. The feature does not change those inputs, approval records, validators, static params or publication policy. The export validator's passing private-probe/Scripture checks do **not** establish the absence of all drafts. Known Jonah serialization and draft reading exposure remain production blockers. Noindex does not protect them. Human theological, historical, philological and creative review, approved public scope and dependency triage remain outstanding.
+
+Final local feature checks and route-inventory comparison are recorded in the feature record; the hosted preview and live CI outcomes are reported on the draft PR. The initial report's counts are not reused as current results.

@@ -107,12 +107,13 @@
 }
 .opening {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   background: var(--blue);
   color: var(--mist);
   min-height: 680px;
 }
 .openingText {
+  min-width: 0;
   padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 5.5rem);
   display: flex;
   align-items: flex-start;
@@ -124,6 +125,7 @@
   color: #c9dedc;
 }
 .opening h1 {
+  max-width: 100%;
   font-size: clamp(4rem, 7.5vw, 8.4rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -258,6 +260,7 @@
   gap: 1.5rem;
 }
 .path {
+  min-width: 0;
   background: #dde7e9;
   padding: clamp(1.25rem, 2vw, 2rem);
   border-radius: 5px;
@@ -265,6 +268,7 @@
   flex-direction: column;
   align-items: flex-start;
 }
+.path > * { max-width: 100%; }
 .pathFeatured {
   background: var(--mineral);
 }
@@ -276,6 +280,7 @@
   margin-bottom: 1rem;
 }
 .path h3 {
+  max-width: 100%;
   font-size: clamp(1.9rem, 2.5vw, 2.8rem);
   line-height: 1.1;
   letter-spacing: -0.025em;
@@ -816,7 +821,7 @@
 }
 .artSpread {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   background: #302d3b;
   color: #f0e9ea;
 }
@@ -835,6 +840,7 @@
   margin-top: 1rem;
 }
 .artSpread > div {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -842,6 +848,7 @@
   padding: 3rem clamp(1.5rem, 4vw, 4rem) 3rem 1rem;
 }
 .artSpread h2 {
+  max-width: 100%;
   font-size: clamp(2.5rem, 4vw, 4.5rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -944,6 +951,7 @@
   margin: 0.5rem 0;
 }
 .explorerEntry h3 a {
+  overflow-wrap: anywhere;
   display: flex;
   align-items: center;
   min-height: 44px;
@@ -1233,7 +1241,7 @@
     padding-inline: 0.5rem;
   }
   .opening {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .openingText {
     padding: 2.75rem 1.5rem;
@@ -1262,7 +1270,7 @@
     margin-top: 1rem;
   }
   .pathGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
   .path {
@@ -1310,7 +1318,7 @@
     padding: 1.25rem;
   }
   .artSpread {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .artSpread > div {
     padding: 0.5rem 1.5rem 3rem;

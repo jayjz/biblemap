@@ -1,5 +1,7 @@
 # Human Story homepage release preparation
 
+> Historical preparation checkpoint. Consolidation and the merged Thomas/audit work supersede its branch, PR and verification status. See the [readiness addendum](release/readiness-audit-2026-11-05.md#current-addendum--thomas-homepage-integration) and [Thomas homepage record](thomas-homepage-integration.md). This report does not approve the consolidated candidate for production.
+
 This release task supersedes the earlier design-study restriction on preparing
 the homepage swap. It authorizes routing, technical verification, a branch commit
 and a manual preview; it does not supply the missing editorial approvals.
