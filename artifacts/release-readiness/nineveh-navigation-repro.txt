@@ -1,0 +1,106 @@
+node.exe : [WebServer] (node:17740) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:20092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (1.3s)
+(node:2296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (13.3s)
+(node:7476) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (13.3s)
+(node:2920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (1.2s)
+(node:21764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (1.2s)
+
+
+  1) [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('dialog', { name: 'The question across centuries' })
+    Expected substring: "Augustine"
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('dialog', { name: 'The question across centuries' }) with timeout 12000ms
+      - waiting for getByRole('dialog', { name: 'The question across centuries' })
+
+
+      59 |   await page.goto("/#question/voices");
+      60 |   const voices = page.getByRole("dialog", { name: "The question across centuries" });
+    > 61 |   await expect(voices).toContainText("Augustine");
+         |                        ^
+      62 |   await voices.getByRole("button", { name: "Pope Francis" }).click();
+      63 |   await expect(voices).toContainText("pastoral interpretation");
+      64 | });
+        at C:\Dev\biblemap-human-experience\tests\homepage.spec.ts:61:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('dialog', { name: 'The question across centuries' })
+    Expected substring: "Augustine"
+    Timeout: 12000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('dialog', { name: 'The question across centuries' }) with timeout 12000ms
+      - waiting for getByRole('dialog', { name: 'The question across centuries' })
+
+
+      59 |   await page.goto("/#question/voices");
+      60 |   const voices = page.getByRole("dialog", { name: "The question across centuries" });
+    > 61 |   await expect(voices).toContainText("Augustine");
+         |                        ^
+      62 |   await voices.getByRole("button", { name: "Pope Francis" }).click();
+      63 |   await expect(voices).toContainText("pastoral interpretation");
+      64 | });
+        at C:\Dev\biblemap-human-experience\tests\homepage.spec.ts:61:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat2\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat2\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat2\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\homepage-published-discove-f9b90-d-images-rights-and-context-mobile-repeat2\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context
+    [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context
+  3 passed (35.2s)

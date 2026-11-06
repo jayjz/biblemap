@@ -60,8 +60,10 @@ export function NinevehEncounter({ published = false }: { published?: boolean } 
   function closeDiscovery() {
     if (history.state?.ninevehDiscovery) history.back();
     else {
-      history.replaceState(null, "", `#${beat.id}`);
-      window.dispatchEvent(new PopStateEvent("popstate"));
+      // Closing an initial deep link changes only the native fragment. A
+      // synthetic popstate also starts a Next router restore, which can race
+      // a subsequent fragment navigation and restore the previous passage.
+      location.replace(`#${beat.id}`);
     }
   }
   const reader = beat.id === "city" || beat.id === "mercy" ? "/jonah/#jonah-3-mercy" : "/jonah/#jonah-4-anger";

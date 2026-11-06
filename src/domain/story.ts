@@ -2,6 +2,8 @@ import type { HistoricalSource } from "./historical-context.ts";
 import { isProductionReadyMedia, type CuratedMediaAsset } from "./media.ts";
 
 export type Review = { status: "draft" } | { status: "approved"; reviewedBy: string; reviewedAt: string };
+/** Maturity describes content, never the creator's release decision. */
+export type ContentMaturity = "complete" | "provisional" | "internal-draft" | "excluded-experimental";
 export type AuthoredText =
   | { status: "placeholder"; slot: string }
   | { status: "written"; text: string; authorId: string; review: Review };
@@ -39,7 +41,7 @@ export interface StoryScene {
   transition: { nextSceneId: string | null; advance: "reader"; visual: "cut" | "fade" };
   review: Review;
   /** Explicit provisional prompts; never Scripture or creator testimony. */
-  readingGuide?: { title: string; question: string; context: string; sourceId: string; locator: string; status: "provisional" };
+  readingGuide?: { title: string; question: string; context: string; sourceId: string; locator: string; status: ContentMaturity };
 }
 export interface StoryDocument {
   schemaVersion: 1; id: string; book: string; mode: "author-review" | "release";
@@ -68,7 +70,9 @@ export function sceneFromHash<T extends { id: string }>(story: { scenes: readonl
   return story.scenes.find(scene => scene.id === id) ?? story.scenes[0];
 }
 
-export function validateStory(story: StoryDocument, mode = story.mode): string[] {
+export function validateStory(story: StoryDocument, _mode = story.mode): string[] {
+  // Retain the legacy call signature; publication authorization lives in publication.ts.
+  void _mode;
   const errors: string[] = [];
   const fail = (id: string, message: string) => errors.push(`${id}: ${message}`);
   const text = (s: string) => typeof s === "string" && s.trim().length > 0;
@@ -84,11 +88,11 @@ export function validateStory(story: StoryDocument, mode = story.mode): string[]
   const checkReview = (id: string, review: Review) => {
     if (review.status === "approved") {
       if (!text(review.reviewedBy) || !Number.isFinite(Date.parse(review.reviewedAt))) fail(id, "approval requires reviewer and date");
-    } else if (review.status !== "draft" || mode === "release") fail(id, "human approval required");
+    } else if (review.status !== "draft") fail(id, "invalid review status");
   };
   const checkCopy = (id: string, copy: AuthoredText) => {
     if (copy.status === "placeholder") {
-      if (!text(copy.slot) || mode === "release") fail(id, "unfinished author slot");
+      if (!text(copy.slot)) fail(id, "unfinished author slot");
     } else {
       if (!text(copy.text) || !text(copy.authorId)) fail(id, "text and author required");
       checkReview(id, copy.review);
@@ -149,8 +153,7 @@ export function validateStory(story: StoryDocument, mode = story.mode): string[]
     if (scene.readingGuide) {
       const guide = scene.readingGuide;
       refs(scene.id, [guide.sourceId], sourceIds);
-      if (![guide.title, guide.question, guide.context, guide.locator].every(text) || guide.status !== "provisional") fail(scene.id, "incomplete reading companion");
-      if (mode === "release") fail(scene.id, "reading companion requires human approval");
+      if (![guide.title, guide.question, guide.context, guide.locator].every(text) || !["complete", "provisional", "internal-draft", "excluded-experimental"].includes(guide.status)) fail(scene.id, "incomplete reading companion");
     }
     checkReview(scene.id, scene.review);
     checkCopy(scene.id, scene.title); checkCopy(scene.id, scene.narrative);

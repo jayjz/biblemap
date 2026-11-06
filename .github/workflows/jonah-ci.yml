@@ -25,20 +25,21 @@ jobs:
       - run: npm test
       - run: npm run lint
       - run: npx tsc --noEmit
+      - name: Adversarial source-to-export publication boundary
+        run: npm run test:export-boundary
       - name: Verify ordinary export excludes experimental Nineveh media
         run: |
           npm run build
           node scripts/validate-nineveh-depth.mjs --production-export
       - name: Build opt-in Nineveh experience for browser tests
-        run: npm run build
+        run: |
+          # Review media are intentionally absent from the published export.
+          # Prepare the existing local-only browser fixture before auditing its binding.
+          cp artifacts/nineveh-depth/media/flood-tablet.webp artifacts/nineveh-review/landscape.webp
+          npm run build
         env:
           BIBLEMAP_NINEVEH_REVIEW: "1"
       - run: npx playwright install --with-deps chromium
-      - name: Prepare CI-only visual fixture for the gated Nineveh review
-        run: |
-          # The original generated landscape remains local and excluded from GitHub.
-          # Only browser interaction is tested here, not artwork accuracy or aesthetic approval.
-          cp artifacts/nineveh-depth/media/flood-tablet.webp artifacts/nineveh-review/landscape.webp
       - name: Browser tests for normal exported reader and atlas
         run: npm run test:e2e
       - name: Browser tests with the local-only Nineveh review server

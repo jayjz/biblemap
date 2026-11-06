@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { artifactMatches, classifyReleaseErrors, createInventory } from "../../scripts/release-gate-inventory.ts";
+import { artifactMatches, classifyReleaseErrors, createInventory, legacyReleaseErrors } from "../../scripts/release-gate-inventory.ts";
 import { JONAH } from "../content/jonah.ts";
 import { HUMAN_GRAPH } from "../content/human-story.ts";
 import { JONAH_PROVISIONAL_MEDIA } from "../content/jonah-media.ts";
@@ -10,7 +10,8 @@ import { validateStory } from "./story.ts";
 
 test("triage accounts for every release error, including repeated scene IDs", () => {
   const items = classifyReleaseErrors(JONAH);
-  assert.deepEqual(items.map(item => item.validationError).sort(), validateStory(JONAH, "release").sort());
+  assert.deepEqual(items.map(item => item.validationError).sort(), legacyReleaseErrors(JONAH).sort());
+  assert.equal(items.length, 68);
   assert.equal(new Set(items.map(item => item.id)).size, items.length);
   for (const scene of JONAH.scenes) {
     for (const field of ["title", "narrative", "readingGuide", "review"])
@@ -45,8 +46,8 @@ test("inventory reports actual exported routes without granting draft publicatio
   assert.ok(inventory.humanStory.entries.every(entry => entry.reviewStatus === "draft"));
 });
 
-test("full release rejects public scenes without approval and provisional companions", () => {
-  const errors = validateStory(JONAH, "release");
+test("legacy diagnostic preserves the original 68-item policy for historical comparison", () => {
+  const errors = legacyReleaseErrors(JONAH);
   for (const scene of JONAH.scenes) {
     assert.ok(errors.includes(`${scene.id}: human approval required`));
     assert.ok(errors.includes(`${scene.id}: reading companion requires human approval`));
@@ -66,8 +67,8 @@ test("full release rejects public scenes without approval and provisional compan
 test("adversarial probe: a plausible fabricated reviewer is not authenticated by validateStory", () => {
   const forged = structuredClone(JONAH);
   forged.scenes[0].review = { status: "approved", reviewedBy: "fabricated-test-reviewer-no-real-decision", reviewedAt: "2026-11-01" };
-  const errors = validateStory(forged, "release");
-  assert.equal(errors.length, validateStory(JONAH, "release").length - 1);
+  const errors = legacyReleaseErrors(forged);
+  assert.equal(errors.length, legacyReleaseErrors(JONAH).length - 1);
   assert.ok(!errors.includes(`${forged.scenes[0].id}: human approval required`));
 });
 

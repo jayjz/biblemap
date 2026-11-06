@@ -44,6 +44,24 @@ export const GROUPS = {
 } as const;
 
 type Group = keyof typeof GROUPS;
+/** Frozen legacy-policy diagnostic for comparison with the November 3 inventory.
+ * Never used as publication authorization. Technical checks now live in validateStory.
+ */
+export function legacyReleaseErrors(story: StoryDocument): string[] {
+  const errors = validateStory(story);
+  const copy = (id: string, value: AuthoredText) => {
+    if (value.status === "placeholder") errors.push(`${id}: unfinished author slot`);
+    else if (value.review.status === "draft") errors.push(`${id}: human approval required`);
+  };
+  for (const place of story.geography) copy(place.placeId, place.explanation);
+  for (const scene of story.scenes) {
+    if (scene.readingGuide?.status === "provisional") errors.push(`${scene.id}: reading companion requires human approval`);
+    if (scene.review.status === "draft") errors.push(`${scene.id}: human approval required`);
+    copy(scene.id, scene.title); copy(scene.id, scene.narrative);
+    scene.reflections.forEach(reflection => copy(reflection.id, reflection.prompt));
+  }
+  return errors;
+}
 interface InventoryItem {
   id: string;
   sourceFile: string;
@@ -57,7 +75,7 @@ interface InventoryItem {
 
 /** Preserve duplicate validator IDs by identifying the precise authored field. */
 export function classifyReleaseErrors(story: StoryDocument): InventoryItem[] {
-  const remaining = validateStory(story, "release");
+  const remaining = legacyReleaseErrors(story);
   const items: InventoryItem[] = [];
   const add = (validatorId: string, path: string, group: Group, message: string, payloadProbe: string, route: string) => {
     const validationError = `${validatorId}: ${message}`;
@@ -97,7 +115,7 @@ export function artifactMatches(artifacts: readonly PublicArtifact[], probe: str
 export function readPublicArtifacts(directory: string): PublicArtifact[] {
   const root = resolve(directory);
   const artifacts = readdirSync(root, { recursive: true, withFileTypes: true })
-    .filter(entry => entry.isFile() && /\.(?:html|txt|json|js|map|xml|svg)$/i.test(entry.name))
+    .filter(entry => entry.isFile() && /\.(?:html|txt|json|[cm]?js|map|xml|svg)$/i.test(entry.name))
     .map(entry => {
       const path = join(entry.parentPath, entry.name);
       return { path: relative(root, path).replaceAll("\\", "/"), text: readFileSync(path, "utf8") };

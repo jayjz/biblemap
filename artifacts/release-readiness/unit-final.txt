@@ -1,0 +1,149 @@
+
+> next_temp@0.1.0 test
+> node --experimental-strip-types --test src/domain/*.test.ts
+
+(node:22620) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/atlas-routing.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tracking, unknown state and editorial anchors stay on the homepage (2.6806ms)
+✔ supported atlas query selectors survive tracking parameters (2.233ms)
+✔ manifest epoch links and their book filters remain compatible (0.6083ms)
+(node:14804) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/historical-context.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ historical context validation
+  ✔ accepts a sparse approved record (3.6286ms)
+  ✔ requires uncertainty when confidence is disputed (0.5787ms)
+  ✔ requires uncertainty when confidence is traditional (0.264ms)
+  ✔ rejects an unsourced record (0.248ms)
+  ✔ rejects a draft from production rendering (0.2011ms)
+  ✔ rejects a missing narrative or empty scene list (0.2463ms)
+  ✔ rejects an oversized narrative and too many beats (0.2965ms)
+  ✔ labels claim kinds for the UI (0.2266ms)
+  ✔ labels beat kinds for the UI (0.2521ms)
+✔ historical context validation (8.7109ms)
+(node:7936) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ interior quotations resolve to an edition with a locator and reuse statement (1.527ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (24.1099ms)
+(node:20624) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/human-story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Human Story drafts retain source locators, stable entities and working connection endpoints (5.0208ms)
+✔ Human Story validation rejects unsourced claims and broken or duplicate identities (1.0426ms)
+✔ every authored path is grounded in actual, classified graph connections (0.9953ms)
+✔ each of the five worlds opens to actual readings (0.3535ms)
+(node:18400) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/james-visuals.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ James visual inventory matches the local responsive images and their recorded bytes (14.438ms)
+✔ generated James environments retain provenance, rights evidence and historical limitations (1.2654ms)
+✔ each James environment has bounded mobile and desktop derivatives (0.6328ms)
+(node:14080) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/james.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ James quotations match the publisher snapshots, including verse-ending punctuation (243.5846ms)
+✔ James claims and comparison layers retain provenance, genre, limits and draft status (1.2212ms)
+(node:19312) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/media-publication.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a license claim allows local review but cannot authorize public export (10.5813ms)
+✔ rights-cleared visuals need no creative approval, but audio retains its review gate (0.5982ms)
+✔ restricted rights do not render or publish (0.792ms)
+✔ unresolved rights may render in review and must not publish (0.7024ms)
+✔ missing source and attribution are visible as flags, not filled in (0.3671ms)
+(node:19048) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/nineveh.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Nineveh share links keep the passage and reject malformed or unknown discoveries (1.6392ms)
+✔ Nineveh local review refuses restricted, unverified, unattributed and unknown-license images (0.472ms)
+(node:19304) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/perpetua.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every prison scene retains passage evidence, separate voices and review status (1.9864ms)
+✔ shareable prison views preserve stable scenes and safely reject unrelated fragments (0.6652ms)
+(node:10604) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/publication.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ creator acceptance binds actor, date, evidence, both digests, exact scope and limitations (6.5415ms)
+✔ every companion maturity state has distinct visitor behavior without scene approval bureaucracy (10.6535ms)
+✔ source selection excludes unclassified and private entries plus orphan edges and evidence before serialization (2.4558ms)
+✔ byte inventory detects private data in all artifact types, encodings, binary media and compressed variants (51.2428ms)
+(node:21660) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/release-gate-inventory.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ triage accounts for every release error, including repeated scene IDs (18.1818ms)
+✔ artifact audit catches placeholders in markup, JSON, RSC, JS and alternate routes (1.0556ms)
+✔ inventory reports actual exported routes without granting draft publication (2.4353ms)
+✔ legacy diagnostic preserves the original 68-item policy for historical comparison (2.3569ms)
+✔ adversarial probe: a plausible fabricated reviewer is not authenticated by validateStory (4.2194ms)
+✔ adversarial probe: historical certainty is not semantically verified (2.1512ms)
+✔ source and translation rights are required; draft graph validation is not approval (3.2095ms)
+✔ rights-cleared visual media do not require an unrelated generic approval stamp (0.4338ms)
+(node:12648) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (1.7987ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (18.7962ms)
+(node:7772) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/root-routing.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ old Nineveh beats, discoveries and accessibility anchors retain their entrance (2.3383ms)
+✔ Human Story anchors, tracking and unknown fragments do not select a legacy experience (5.8219ms)
+(node:16276) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/separation-reading.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ guided moments preserve the established Wallis passage boundaries exactly (2.7186ms)
+(node:4188) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ story document keeps the three approved artworks; open images stay outside it (6.79ms)
+✔ visitor copy requires actual approval; source slots and drafts remain intact (0.4266ms)
+✔ technical integrity does not authorize publication or require excluded private slots (1.5388ms)
+✔ malformed links cannot select unintended scenes (0.4846ms)
+✔ broken content and transitions are rejected before rendering (16.7325ms)
+✔ claim evidence needs scope, uncertainty, and interpretive lens (2.5282ms)
+(node:10444) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (21.7614ms)
+(node:15084) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/thomas.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas preserves every verse of John 20:24–29 and excludes publisher footnotes (136.5752ms)
+✔ the additional saying and witness explorer keep Coptic text distinct from partial Greek survival (0.3325ms)
+✔ Thomas source distinctions, witness identities, rights and review boundary remain explicit (0.3221ms)
+(node:18876) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/visitor-story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ visitor projection preserves Scripture, provenance, companions and media while omitting author records (3.2435ms)
+✔ new private fields and written drafts fail closed at the allowlisted boundary (1.1711ms)
+✔ export verifier rejects leaks on every artifact surface, including alternate URLs (4.5459ms)
+﹣ actual generated HTML, RSC, JS and JSON exclude private source data (0.1238ms) # SKIP
+ℹ tests 63
+ℹ suites 1
+ℹ pass 62
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 884.5751

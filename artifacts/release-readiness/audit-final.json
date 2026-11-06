@@ -1,0 +1,487 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@deck.gl/geo-layers": {
+      "name": "@deck.gl/geo-layers",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@deck.gl/mesh-layers",
+        "@loaders.gl/3d-tiles",
+        "@loaders.gl/wms",
+        "@luma.gl/gltf"
+      ],
+      "effects": [],
+      "range": ">=8.9.0-alpha.2",
+      "nodes": [
+        "node_modules/@deck.gl/geo-layers"
+      ],
+      "fixAvailable": true
+    },
+    "@deck.gl/mesh-layers": {
+      "name": "@deck.gl/mesh-layers",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@loaders.gl/gltf",
+        "@luma.gl/gltf"
+      ],
+      "effects": [
+        "@deck.gl/geo-layers"
+      ],
+      "range": ">=8.6.6",
+      "nodes": [
+        "node_modules/@deck.gl/mesh-layers"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/3d-tiles": {
+      "name": "@loaders.gl/3d-tiles",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@loaders.gl/compression",
+        "@loaders.gl/gltf",
+        "@loaders.gl/zip"
+      ],
+      "effects": [
+        "@deck.gl/geo-layers"
+      ],
+      "range": ">=3.1.0-alpha.1",
+      "nodes": [
+        "node_modules/@loaders.gl/3d-tiles"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/compression": {
+      "name": "@loaders.gl/compression",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "fflate"
+      ],
+      "effects": [
+        "@loaders.gl/3d-tiles",
+        "@loaders.gl/zip"
+      ],
+      "range": "4.0.0-alpha.1 - 5.0.0-alpha.9",
+      "nodes": [
+        "node_modules/@loaders.gl/compression"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/gltf": {
+      "name": "@loaders.gl/gltf",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@loaders.gl/textures"
+      ],
+      "effects": [
+        "@deck.gl/mesh-layers",
+        "@loaders.gl/3d-tiles",
+        "@luma.gl/gltf"
+      ],
+      "range": ">=3.1.0-alpha.1",
+      "nodes": [
+        "node_modules/@loaders.gl/gltf"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/textures": {
+      "name": "@loaders.gl/textures",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "texture-compressor"
+      ],
+      "effects": [
+        "@loaders.gl/gltf",
+        "@luma.gl/gltf"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@loaders.gl/textures"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/wms": {
+      "name": "@loaders.gl/wms",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@loaders.gl/xml"
+      ],
+      "effects": [
+        "@deck.gl/geo-layers"
+      ],
+      "range": "<=4.4.0-alpha.19",
+      "nodes": [
+        "node_modules/@loaders.gl/wms"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/xml": {
+      "name": "@loaders.gl/xml",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "fast-xml-parser"
+      ],
+      "effects": [
+        "@loaders.gl/wms"
+      ],
+      "range": "<=4.4.0-alpha.19",
+      "nodes": [
+        "node_modules/@loaders.gl/xml"
+      ],
+      "fixAvailable": true
+    },
+    "@loaders.gl/zip": {
+      "name": "@loaders.gl/zip",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@loaders.gl/compression"
+      ],
+      "effects": [
+        "@loaders.gl/3d-tiles"
+      ],
+      "range": "4.0.0-alpha.1 - 5.0.0-alpha.9",
+      "nodes": [
+        "node_modules/@loaders.gl/zip"
+      ],
+      "fixAvailable": true
+    },
+    "@luma.gl/gltf": {
+      "name": "@luma.gl/gltf",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@loaders.gl/gltf",
+        "@loaders.gl/textures"
+      ],
+      "effects": [
+        "@deck.gl/geo-layers",
+        "@deck.gl/mesh-layers"
+      ],
+      "range": "<=10.0.0-alpha.4",
+      "nodes": [
+        "node_modules/@luma.gl/gltf"
+      ],
+      "fixAvailable": true
+    },
+    "@typescript-eslint/eslint-plugin": {
+      "name": "@typescript-eslint/eslint-plugin",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils"
+      ],
+      "effects": [
+        "typescript-eslint"
+      ],
+      "range": ">=6.16.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/eslint-plugin"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/parser": {
+      "name": "@typescript-eslint/parser",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin",
+        "typescript-eslint"
+      ],
+      "range": ">=6.16.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/parser"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/type-utils": {
+      "name": "@typescript-eslint/type-utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin"
+      ],
+      "range": ">=6.16.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/type-utils"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/typescript-estree": {
+      "name": "@typescript-eslint/typescript-estree",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "minimatch"
+      ],
+      "effects": [
+        "@typescript-eslint/parser",
+        "@typescript-eslint/type-utils",
+        "@typescript-eslint/utils",
+        "typescript-eslint"
+      ],
+      "range": ">=6.16.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/typescript-estree"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "@typescript-eslint/utils": {
+      "name": "@typescript-eslint/utils",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/typescript-estree"
+      ],
+      "effects": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/type-utils",
+        "typescript-eslint"
+      ],
+      "range": ">=6.16.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/utils"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "eslint-config-next": {
+      "name": "eslint-config-next",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "typescript-eslint"
+      ],
+      "effects": [],
+      "range": ">=15.6.0-canary.0",
+      "nodes": [
+        "node_modules/eslint-config-next"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "fast-xml-parser": {
+      "name": "fast-xml-parser",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1117911,
+          "name": "fast-xml-parser",
+          "dependency": "fast-xml-parser",
+          "title": "fast-xml-parser XMLBuilder: XML Comment and CDATA Injection via Unescaped Delimiters",
+          "url": "https://github.com/advisories/GHSA-gh4j-gqv2-49f6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-91"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          },
+          "range": "<5.7.0"
+        }
+      ],
+      "effects": [
+        "@loaders.gl/xml"
+      ],
+      "range": "<5.7.0",
+      "nodes": [
+        "node_modules/fast-xml-parser"
+      ],
+      "fixAvailable": true
+    },
+    "fflate": {
+      "name": "fflate",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1164783,
+          "name": "fflate",
+          "dependency": "fflate",
+          "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+          "url": "https://github.com/advisories/GHSA-px8p-9vwx-vf98",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=0.7.0 <0.7.5"
+        }
+      ],
+      "effects": [
+        "@loaders.gl/compression"
+      ],
+      "range": "0.7.0 - 0.7.4",
+      "nodes": [
+        "node_modules/fflate"
+      ],
+      "fixAvailable": true
+    },
+    "image-size": {
+      "name": "image-size",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1239766,
+          "name": "image-size",
+          "dependency": "image-size",
+          "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+          "url": "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+          "severity": "high",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=0.6.3 <=2.0.2"
+        }
+      ],
+      "effects": [
+        "texture-compressor"
+      ],
+      "range": "0.6.3 - 2.0.2",
+      "nodes": [
+        "node_modules/image-size"
+      ],
+      "fixAvailable": true
+    },
+    "minimatch": {
+      "name": "minimatch",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1244623,
+          "name": "minimatch",
+          "dependency": "minimatch",
+          "title": "minimatch has potential denial of service via globparts amplification",
+          "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-405"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=7.0.0 <11.0.1"
+        }
+      ],
+      "effects": [
+        "@typescript-eslint/typescript-estree"
+      ],
+      "range": "7.0.0 - 11.0.0",
+      "nodes": [
+        "node_modules/@typescript-eslint/typescript-estree/node_modules/minimatch"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    },
+    "texture-compressor": {
+      "name": "texture-compressor",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "image-size"
+      ],
+      "effects": [
+        "@loaders.gl/textures"
+      ],
+      "range": ">=0.3.1",
+      "nodes": [
+        "node_modules/texture-compressor"
+      ],
+      "fixAvailable": true
+    },
+    "typescript-eslint": {
+      "name": "typescript-eslint",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "@typescript-eslint/typescript-estree",
+        "@typescript-eslint/utils"
+      ],
+      "effects": [
+        "eslint-config-next"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/typescript-eslint"
+      ],
+      "fixAvailable": {
+        "name": "eslint-config-next",
+        "version": "15.5.29",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 14,
+      "high": 8,
+      "critical": 0,
+      "total": 22
+    },
+    "dependencies": {
+      "prod": 208,
+      "dev": 392,
+      "optional": 116,
+      "peer": 9,
+      "peerOptional": 0,
+      "total": 652
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import { ReadingRoom } from "@/features/human-story/ReadingRoom";
 import { PerpetuaEncounter } from "@/features/human-story/PerpetuaEncounter";
 import { RomanusEncounter } from "@/features/human-story/romanus/RomanusEncounter";

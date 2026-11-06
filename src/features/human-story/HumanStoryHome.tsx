@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import { WORLDS } from "@/features/human-story/worlds";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import { ConnectedExplorer, type ExplorerEntry } from "@/features/human-story/ConnectedExplorer";
 import { PathPreview } from "@/features/human-story/PathPreview";
 import { ArtworkImage } from "@/features/human-story/ArtworkImage";
@@ -98,9 +98,9 @@ export default function HumanStoryHome() {
           <p className={styles.sublede}>
             Explore the human story through a biblical worldview.
           </p>
-          <Link prefetch={false} className={`${styles.primaryLink} ${actions.action} ${actions.primary}`} href="#encounters">
+          <a className={`${styles.primaryLink} ${actions.action} ${actions.primary}`} href="#encounters">
             Meet Perpetua & Romanus
-          </Link>
+          </a>
           <Link
             prefetch={false}
             className={styles.quietLink}
