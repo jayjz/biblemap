@@ -1,0 +1,18 @@
+[
+  {
+    "base": "https://biblemap-jd29v7pjg-elliotandersons-projects.vercel.app",
+    "width": 1440,
+    "status": 200,
+    "noindex": true,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "base": "https://biblemap-jd29v7pjg-elliotandersons-projects.vercel.app",
+    "width": 390,
+    "status": 200,
+    "noindex": true,
+    "errors": [],
+    "overflow": false
+  }
+]

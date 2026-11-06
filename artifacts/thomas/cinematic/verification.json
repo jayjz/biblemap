@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-05",
+  "branch": "feat/thomas-doubt-and-sayings",
+  "base": "feat/human-story-consolidated",
+  "pullRequest": "https://github.com/jayjz/biblemap/pull/42",
+  "startingRevision": "0d3a85542e7963092a00c72d25a0e03965f617f1",
+  "artRevision": "bbf7c17",
+  "runtimeRevision": "8f2912543fbd6ec959351c716af642ebd1e24620",
+  "preview": {
+    "origin": "https://biblemap-jd29v7pjg-elliotandersons-projects.vercel.app",
+    "deploymentId": "dpl_4G3LqtzdFxMPKftz4Jx3Bz8A3VPW",
+    "state": "READY",
+    "production": false,
+    "httpStatus": 200,
+    "noindex": true,
+    "browserTests": { "exitCode": 0, "passed": 18, "seconds": 38.2 }
+  },
+  "checks": {
+    "install": { "exitCode": 0, "lockfileChanged": false, "existingAuditIssues": 38 },
+    "lint": { "exitCode": 0, "errors": 0, "existingWarnings": 4 },
+    "typecheck": { "exitCode": 0 },
+    "build": { "exitCode": 0, "staticRoutes": 48, "exportedArtifactsInspected": 477 },
+    "unitWithExport": { "exitCode": 0, "passed": 59, "skipped": 0 },
+    "focusedBrowser": { "exitCode": 0, "passed": 18, "seconds": 23.1 },
+    "fullBrowser": { "exitCode": 0, "passed": 207, "existingSkipped": 1, "minutes": 5.8 },
+    "release": { "exitCode": 1, "reason": "Existing Jonah human approvals and unfinished author slots; no gate bypassed" }
+  },
+  "visualEvidence": {
+    "widths": [1440, 768, 390, 320],
+    "before": "artifacts/thomas/cinematic-before",
+    "after": "artifacts/thomas/cinematic-after",
+    "proposals": "artifacts/thomas/cinematic/studies",
+    "interactions": "artifacts/thomas/cinematic/interactions",
+    "hosted": "artifacts/thomas/cinematic/hosted",
+    "normalCaptureErrors": [],
+    "documentOverflow": false,
+    "inspected": "Both generated directions desktop/mobile, full desktop/mobile journeys, representative every movement and width, native comparison and witness controls, whole saying 13, blocked/enlarged 320, all four hosted images"
+  },
+  "art": {
+    "generatedMasters": 4,
+    "selectedCompositions": 3,
+    "selectedDerivativeBytes": 707894,
+    "manifest": "public/media/thomas/manifest.json",
+    "historicalIdentitiesAsserted": false,
+    "humanApproval": "pending"
+  },
+  "sourceValidation": {
+    "webVerseRecords": 19,
+    "mattisonSayings": [13, 26],
+    "runtimeNetworkRequired": false,
+    "manuscriptPhotographsReproduced": false,
+    "independentCopticGreekCollation": false
+  },
+  "ciObservedAt": "2026-11-05T16:52:00Z",
+  "runtimeCi": {
+    "technical": "in_progress; install, sources, units, lint, types and two exports passed; browser stages running",
+    "windowsPinnedBytes": "SUCCESS",
+    "vercel": "SUCCESS",
+    "url": "https://github.com/jayjz/biblemap/actions/runs/42067819565"
+  },
+  "remaining": [
+    "Human historical, theological, philological and artistic review",
+    "Unfamiliar-reader comprehension and emotional-response study",
+    "Field performance, physical-device and assistive-technology user testing",
+    "Existing release approval gates remain active"
+  ]
+}

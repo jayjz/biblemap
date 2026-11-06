@@ -1,0 +1,415 @@
+{
+  "edition": "Thomas cinematic draft",
+  "historicalReview": "pending human review",
+  "artReferencesAreNotReusedImages": true,
+  "assets": [
+    {
+      "id": "proximity-768",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "The word of others",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "adcfaaac972fa0f43081b70d3c3fac0d04f5be7719077f1c71af327be5cee0ee",
+      "originalChecksum": "19bc93522b2ea0d9797915f1d1677e98ac958cc08b459f92da5de2f2861c269a",
+      "localPath": "/media/thomas/proximity-768.webp",
+      "fileSize": 42442,
+      "width": 768,
+      "height": 512,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Anonymous figures; no biblical identities or event are reconstructed.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "Human proximity for movement II, separate from the source’s recorded words",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Original cinematic environmental artwork for BibleMap's Thomas draft, wide landscape 3:2, photographic material realism with restrained fine film grain, not an oil painting. This is an explicitly imagined first-century eastern Mediterranean domestic space, NOT a biblical reenactment or identified room. Material context only: IAA Yardenna Alexandre Atiqot 98 (2020) abstract attests an Early Roman dwelling and domestic storage at Nazareth, not this location or plan. Composition at a seated human's eye level: in the RIGHT two thirds, three anonymous adults seen mostly from behind and in three-quarter profile, shoulder and torso scale close to the camera, sitting near each other in an intimate coarse-limestone and worn lime-plaster interior. Plain unpatterned linen/wool layers in tobacco, clay and deep slate, covered shoulders. An out-of-focus shoulder at far right gives foreground depth, the closest seated person is shown waist up, not tiny. Their hands rest naturally, no speaking mouths or narrative gestures. The LEFT third is deep quiet shadow with a rough timber post, suitable for separate website text overlay. A small open courtyard beyond gives natural indirect afternoon light on weathered plaster, fabric threads and stone, exposure remains dark and richly dimensional. Amber light, earth browns, deep indigo shadows. Sensitivity and dignity, ordinary human proximity, no spectacular beams, no fog machine. Camera 50mm, shallow but legible environmental depth. Anonymous invented figures, no identity of Thomas, Jesus, disciple or eyewitness, no halos, robes glowing white, wounds, pointing, touching, held scrolls, writing, symbols, crosses, modern furniture, glass, candles in modern holders, jewelry, text, captions or watermark. No particular artist or film imitation.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": true
+    },
+    {
+      "id": "proximity-1536",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "The word of others",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "eb32262e920710cc13e13e2f516c18325d262a3ccb7475d4fbf375535559a72e",
+      "originalChecksum": "19bc93522b2ea0d9797915f1d1677e98ac958cc08b459f92da5de2f2861c269a",
+      "localPath": "/media/thomas/proximity-1536.webp",
+      "fileSize": 134070,
+      "width": 1536,
+      "height": 1024,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Anonymous figures; no biblical identities or event are reconstructed.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "Human proximity for movement II, separate from the source’s recorded words",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Original cinematic environmental artwork for BibleMap's Thomas draft, wide landscape 3:2, photographic material realism with restrained fine film grain, not an oil painting. This is an explicitly imagined first-century eastern Mediterranean domestic space, NOT a biblical reenactment or identified room. Material context only: IAA Yardenna Alexandre Atiqot 98 (2020) abstract attests an Early Roman dwelling and domestic storage at Nazareth, not this location or plan. Composition at a seated human's eye level: in the RIGHT two thirds, three anonymous adults seen mostly from behind and in three-quarter profile, shoulder and torso scale close to the camera, sitting near each other in an intimate coarse-limestone and worn lime-plaster interior. Plain unpatterned linen/wool layers in tobacco, clay and deep slate, covered shoulders. An out-of-focus shoulder at far right gives foreground depth, the closest seated person is shown waist up, not tiny. Their hands rest naturally, no speaking mouths or narrative gestures. The LEFT third is deep quiet shadow with a rough timber post, suitable for separate website text overlay. A small open courtyard beyond gives natural indirect afternoon light on weathered plaster, fabric threads and stone, exposure remains dark and richly dimensional. Amber light, earth browns, deep indigo shadows. Sensitivity and dignity, ordinary human proximity, no spectacular beams, no fog machine. Camera 50mm, shallow but legible environmental depth. Anonymous invented figures, no identity of Thomas, Jesus, disciple or eyewitness, no halos, robes glowing white, wounds, pointing, touching, held scrolls, writing, symbols, crosses, modern furniture, glass, candles in modern holders, jewelry, text, captions or watermark. No particular artist or film imitation.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": true
+    },
+    {
+      "id": "nocturne-768",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "Alternative · the lamplit bench",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "4eb6e4a1a8af5972aa8caf2b57326887d5dcc2aa619aba60831bddf2093b3658",
+      "originalChecksum": "fa573ba041407e6552959709a32db186c52bfc84a1985aa781ed66bc956348cf",
+      "localPath": "/media/thomas/nocturne-768.webp",
+      "fileSize": 27136,
+      "width": 768,
+      "height": 512,
+      "altText": "",
+      "caption": "AI-generated interpretive study. Anonymous figures and an invented lamp; not a historical event.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "Test an enclosed lamplit alternative against daylight human proximity",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Create an ORIGINAL alternative cinematic concept frame for BibleMap, wide landscape 3:2. Direction B: a low, intimate oil-lit nocturne, almost monochrome sepia and warm charcoal, photographic film still material detail, not painterly. Imagined first-century eastern Mediterranean domestic gathering, explicitly not a reenactment of a biblical event and not an authenticated room. Camera low at the edge of an empty foreground limestone bench on the LEFT, a single anonymous seated adult's turned-away shoulder and back occupies center-left at life-size, two more indistinct anonymous adults in middle distance at right. Nobody is speaking, pointing, touching, reaching or interacting with an absent person. Ordinary coarse undyed woven clothing; no identifiable likeness. A tiny simple open clay oil bowl with one wick, placed safely on stone far right, provides warm localized light and lets the background fall into darkness; no elaborate bronze holder, no modern candle. Strong textures of coarse limestone, matte plaster, worn wood and heavy fabric. The darkness and empty foreground bench occupy half the frame; this is a visual metaphor for a place among other people. Material research is general Early Roman domestic context, not proof of any scene furnishings. No risen Jesus or embodied supernatural presence; no halo, wound, hand close-up, cross, text, fake ancient writing, museum artefact, watermark, glossy 3D surfaces. Distinct from a daylight courtyard composition: close, low, dark and intimate.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": false
+    },
+    {
+      "id": "nocturne-1536",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "Alternative · the lamplit bench",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "483ec68d7f9c5666e40d274f2456f950e9dcb7762e6c4ebf2f269c3963e5625c",
+      "originalChecksum": "fa573ba041407e6552959709a32db186c52bfc84a1985aa781ed66bc956348cf",
+      "localPath": "/media/thomas/nocturne-1536.webp",
+      "fileSize": 96368,
+      "width": 1536,
+      "height": 1024,
+      "altText": "",
+      "caption": "AI-generated interpretive study. Anonymous figures and an invented lamp; not a historical event.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "Test an enclosed lamplit alternative against daylight human proximity",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Create an ORIGINAL alternative cinematic concept frame for BibleMap, wide landscape 3:2. Direction B: a low, intimate oil-lit nocturne, almost monochrome sepia and warm charcoal, photographic film still material detail, not painterly. Imagined first-century eastern Mediterranean domestic gathering, explicitly not a reenactment of a biblical event and not an authenticated room. Camera low at the edge of an empty foreground limestone bench on the LEFT, a single anonymous seated adult's turned-away shoulder and back occupies center-left at life-size, two more indistinct anonymous adults in middle distance at right. Nobody is speaking, pointing, touching, reaching or interacting with an absent person. Ordinary coarse undyed woven clothing; no identifiable likeness. A tiny simple open clay oil bowl with one wick, placed safely on stone far right, provides warm localized light and lets the background fall into darkness; no elaborate bronze holder, no modern candle. Strong textures of coarse limestone, matte plaster, worn wood and heavy fabric. The darkness and empty foreground bench occupy half the frame; this is a visual metaphor for a place among other people. Material research is general Early Roman domestic context, not proof of any scene furnishings. No risen Jesus or embodied supernatural presence; no halo, wound, hand close-up, cross, text, fake ancient writing, museum artefact, watermark, glossy 3D surfaces. Distinct from a daylight courtyard composition: close, low, dark and intimate.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": false
+    },
+    {
+      "id": "interior-768",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "This time, with them",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "42c3a0d4ebde44edad0b849370544745aa74a33f55e2ec3fbd408e10da2d0432",
+      "originalChecksum": "cf298c7a409c9bd02f04ec5e7deb1397ef37f459c02acaadbb4fee1d2f887a68",
+      "localPath": "/media/thomas/interior-768.webp",
+      "fileSize": 58466,
+      "width": 768,
+      "height": 512,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Anonymous figures and imagined room; no appearance or touch is depicted.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "A changed camera distance and cooler light for movement III",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Original high-quality cinematic environment for BibleMap, wide 3:2, photoreal material depth and fine restrained film grain. An explicitly IMAGINED Early Roman eastern Mediterranean domestic interior, not an authenticated room and not a reenactment of John 20. Camera inside at human eye level, 35mm lens, a wider composition than a close gathering. Foreground far LEFT: only the back and shoulder of an anonymous seated adult in coarse dark undyed cloth, large human scale and softly out of focus, no face or distinctive identity. Middle distance at far left: two anonymous adults quietly seated along a low stone ledge, no narrative actions. The RIGHT two thirds opens into an intimate empty room with worn pale limestone, irregular matte lime plaster, heavy rough ceiling timbers, a simple closed dark plank door right of center, a reed mat with irregular edge on stone floor. Ordinary cool indirect daylight from a high small opening OUT OF FRAME on the left spreads across the plaster and floor; no supernatural glow, no spotlight shaped like a person. Depth through foreground shoulder, side wall, room and closed door. Blue-gray shadows, muted stone, umber fabric, a narrow warm edge of ordinary reflected light. No visible source lamp or modern architectural lighting strip. Beautiful physically photographed texture, serious historical cinema, not glossy CG, not painterly. Source context only: IAA Alexandre 2020 Nazareth Early Roman dwelling abstract supports regional domestic occupation, not this plan or place; all detailed architecture/furnishing/clothing/people are invented. No identifiable Thomas, Jesus or eyewitness, no apparition, central white-robed figure, halo, wound, hand reaching, touching, pointing, speaking mouth, symbols, cross, glass window, paper, writing, text or watermark.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": true
+    },
+    {
+      "id": "interior-1536",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "This time, with them",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "200c953da0164bdb4adff5c055788368d3b8f52fdd334d0c87f1fb7016c563dd",
+      "originalChecksum": "cf298c7a409c9bd02f04ec5e7deb1397ef37f459c02acaadbb4fee1d2f887a68",
+      "localPath": "/media/thomas/interior-1536.webp",
+      "fileSize": 214450,
+      "width": 1536,
+      "height": 1024,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Anonymous figures and imagined room; no appearance or touch is depicted.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "A changed camera distance and cooler light for movement III",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Original high-quality cinematic environment for BibleMap, wide 3:2, photoreal material depth and fine restrained film grain. An explicitly IMAGINED Early Roman eastern Mediterranean domestic interior, not an authenticated room and not a reenactment of John 20. Camera inside at human eye level, 35mm lens, a wider composition than a close gathering. Foreground far LEFT: only the back and shoulder of an anonymous seated adult in coarse dark undyed cloth, large human scale and softly out of focus, no face or distinctive identity. Middle distance at far left: two anonymous adults quietly seated along a low stone ledge, no narrative actions. The RIGHT two thirds opens into an intimate empty room with worn pale limestone, irregular matte lime plaster, heavy rough ceiling timbers, a simple closed dark plank door right of center, a reed mat with irregular edge on stone floor. Ordinary cool indirect daylight from a high small opening OUT OF FRAME on the left spreads across the plaster and floor; no supernatural glow, no spotlight shaped like a person. Depth through foreground shoulder, side wall, room and closed door. Blue-gray shadows, muted stone, umber fabric, a narrow warm edge of ordinary reflected light. No visible source lamp or modern architectural lighting strip. Beautiful physically photographed texture, serious historical cinema, not glossy CG, not painterly. Source context only: IAA Alexandre 2020 Nazareth Early Roman dwelling abstract supports regional domestic occupation, not this plan or place; all detailed architecture/furnishing/clothing/people are invented. No identifiable Thomas, Jesus or eyewitness, no apparition, central white-robed figure, halo, wound, hand reaching, touching, pointing, speaking mouth, symbols, cross, glass window, paper, writing, text or watermark.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": true
+    },
+    {
+      "id": "threshold-768",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "The place left open",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "20541034a17b9ead89352d3b67bf13d377d9df55b0d4a0347248f18802fcb728",
+      "originalChecksum": "268d3cf8fd77d222e0b9a70d7ddce2cb6385277369b724ce7fef5df607700ff2",
+      "localPath": "/media/thomas/threshold-768.webp",
+      "fileSize": 60064,
+      "width": 768,
+      "height": 512,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Unlocated threshold and invented landscape, not a recovered historical site.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "Physical absence at the opening and a wider horizon at the ending",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Create an original cinematic environmental composition for BibleMap's Thomas opening and final blessing, wide 3:2, exquisitely photographed natural materials, fine film grain, not an illustration or glossy 3D render. An imagined simple eastern Mediterranean threshold with human scale, no people or biblical reenactment. Camera low but not ground-level inside a small dark domestic space, very close uneven stone jamb at the LEFT foreground and the edge of a coarse undyed linen hanging at far RIGHT, looking out across an EMPTY modest limestone courtyard into open luminous daylight and softly blurred dry hills beyond a low wall. Foreground at lower left an unoccupied low stone sitting ledge, reed mat and a small undecorated clay storage vessel; all clearly imagined details, not archaeological evidence. No table setting that specifies who sat there. Meaningful layers: tactile deep shadow foreground, worn courtyard at middle distance, pale air and broad quiet horizon. Composition puts the broad bright courtyard/horizon in upper-right two-thirds, dark threshold on left for text. Dusty cool stone, pale warm ivory daylight, soft blue atmospheric distance, no dramatic religious sunbeam. A spare physical world left open to the reader. No named location, exact historic dwelling, temple, church, cross, domes, medieval arch, New World plants, flowers, modern furniture, lamp fixture, electric light, glass, writing, scroll, text, watermark, human silhouette, Jesus, Thomas, wounds or spectral presence. Historically informed only by general Early Roman domestic material context, not a recovered John 20 room.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": true
+    },
+    {
+      "id": "threshold-1536",
+      "eventIds": [],
+      "journeyIds": [
+        "thomas"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "The place left open",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Imagined Early Roman eastern Mediterranean setting; no identified place or event",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/thomas/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section, subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s request. No third-party images supplied or reproduced. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive environment for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "4010cd37f6fd127f99dab1b8740b510957e28e3c3cf414c7092c37a44ed83039",
+      "originalChecksum": "268d3cf8fd77d222e0b9a70d7ddce2cb6385277369b724ce7fef5df607700ff2",
+      "localPath": "/media/thomas/threshold-1536.webp",
+      "fileSize": 198402,
+      "width": 1536,
+      "height": 1024,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Unlocated threshold and invented landscape, not a recovered historical site.",
+      "historicalFit": "General material context only. Architecture, figures, textiles, objects, light and viewpoint are invented; no recovered John 20 setting.",
+      "editorialReason": "Physical absence at the opening and a wider horizon at the ending",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex · generation provenance, reuse terms and visible anachronism check; human historical/editorial review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Create an original cinematic environmental composition for BibleMap's Thomas opening and final blessing, wide 3:2, exquisitely photographed natural materials, fine film grain, not an illustration or glossy 3D render. An imagined simple eastern Mediterranean threshold with human scale, no people or biblical reenactment. Camera low but not ground-level inside a small dark domestic space, very close uneven stone jamb at the LEFT foreground and the edge of a coarse undyed linen hanging at far RIGHT, looking out across an EMPTY modest limestone courtyard into open luminous daylight and softly blurred dry hills beyond a low wall. Foreground at lower left an unoccupied low stone sitting ledge, reed mat and a small undecorated clay storage vessel; all clearly imagined details, not archaeological evidence. No table setting that specifies who sat there. Meaningful layers: tactile deep shadow foreground, worn courtyard at middle distance, pale air and broad quiet horizon. Composition puts the broad bright courtyard/horizon in upper-right two-thirds, dark threshold on left for text. Dusty cool stone, pale warm ivory daylight, soft blue atmospheric distance, no dramatic religious sunbeam. A spare physical world left open to the reader. No named location, exact historic dwelling, temple, church, cross, domes, medieval arch, New World plants, flowers, modern furniture, lamp fixture, electric light, glass, writing, scroll, text, watermark, human silhouette, Jesus, Thomas, wounds or spectral presence. Historically informed only by general Early Roman domestic material context, not a recovered John 20 room.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020)",
+          "inspected": "Abstract only, 2026-11-05",
+          "supports": "Regional domestic material context; not Jerusalem, this room, furnishings or biblical event"
+        }
+      ],
+      "knownInaccuracies": [
+        "Invented geometry, furnishings, costume, lighting and human relationships; not archaeologically validated",
+        "Anonymous interpretive figures are not Thomas, Jesus or documented witnesses",
+        "A single modern cinematic viewpoint does not reproduce a recorded encounter"
+      ],
+      "selected": true
+    }
+  ]
+}

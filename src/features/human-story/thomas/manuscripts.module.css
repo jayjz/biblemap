@@ -1,0 +1,63 @@
+.documentary.documentary { background:#e7e2d7; color:#242822; }
+.documentary>header { max-width:none; padding-block:100px; border-bottom:1px solid #b3b4a3; background:#e9e5db; }
+.documentary>header h1 { letter-spacing:-.055em; max-width:900px; }
+.documentary>header>p:not(:first-child) { margin-left:34%; }
+.documentary>header>a { margin-left:34%; }
+.documentary>header>span { margin-left:34%; }
+.chronology { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin:55px 0; border-block:1px solid #b3b4a3; padding:30px 0; }
+.chronology span { font-size:.8rem; }
+.chronology p { font-family:Georgia,serif; font-size:1.7rem; line-height:1.3; margin-top:18px!important; }
+.witnessDesk { display:grid; grid-template-columns:minmax(180px,.7fr) minmax(0,1.3fr); gap:7%; margin:70px 0; align-items:start; }
+.witnessChoices { border:0; padding:0; margin:0; min-width:0; }
+.witnessChoices legend { font-size:.85rem; margin-bottom:25px; }
+.witnessChoices label { display:flex; align-items:center; gap:16px; min-height:90px; border-top:1px solid #b3b4a3; cursor:pointer; padding:18px 0; }
+.witnessChoices label:has(input:checked) { border-color:#4e5945; font-weight:600; }
+.witnessChoices input { width:20px; height:20px; accent-color:#46543e; flex:none; }
+.witnessChoices span { display:block; font-size:1.15rem; }
+.witnessChoices small { display:block; font-size:.8rem; margin-top:5px; font-weight:400; }
+.witnessSheet { display:none; min-height:620px; padding:45px 9%; background:#f5f0e5; border:1px solid #c7c1b2; box-shadow:8px 10px 0 #d8d4c7; }
+.witnessDesk:has([id=inspect-nhc]:checked) [data-witness='nhc'],.witnessDesk:has([id=inspect-oxy1]:checked) [data-witness='oxy1'],.witnessDesk:has([id=inspect-oxy654]:checked) [data-witness='oxy654'],.witnessDesk:has([id=inspect-oxy655]:checked) [data-witness='oxy655'] { display:block; }
+.witnessSheet .materialLabel { font-size:.75rem; margin-bottom:45px; }
+.witnessSheet h3 { font-family:Georgia,serif; font-size:3rem; font-weight:400; margin-bottom:25px; }
+.witnessSheet>p { font-size:.9rem; }
+.transmitted { border-top:1px solid #c7c1b2; padding-top:25px; margin-top:30px; }
+.transmitted>span { font-size:.75rem; }
+.transmitted p { font:1.5rem/1.4 Georgia,serif; margin-top:15px!important; }
+.documentary .sayingPresence { margin:30px 0; }
+.documentary .sayingPresence>div { display:block; padding:15px 0; border-color:#c7c1b2; }
+.documentary .sayingPresence dt { font-family:inherit; font-size:.8rem; margin-bottom:10px; }
+.sayingPresence dd { font-size:.95rem; }
+.limit { border-top:1px solid #c7c1b2; padding-top:25px; margin-top:25px!important; font-size:.75rem!important; }
+.allRanges { grid-column:1/-1; font-size:.9rem; max-width:750px; }
+.comparison.comparison { background:#dedccf; border-top:1px solid #b3b4a3; }
+.comparison>div { gap:0; border:1px solid #bdbdaf; box-shadow:8px 10px 0 #cecec0; background:#f5f0e5; }
+.comparison>div>figure,.comparison>div>div { padding:45px 12%; min-width:0; }
+.comparison>div>figure { border-right:1px solid #bdbdaf; }
+.thirteen { padding:100px 8%; background:#f1eadc; border-top:1px solid #b3b4a3; }
+.thirteen h2 { margin:25px 0 40px; }
+.thirteen>p { max-width:700px; }
+.thirteen .portraits { border-block:1px solid #bdbdaf; padding-block:50px; }
+.thirteen figure>blockquote { font:clamp(1.5rem,2.3vw,2.5rem)/1.4 Georgia,serif; }
+.thirteen details figure { max-width:760px; margin-block:30px; }
+.thirteen details blockquote { font:1.25rem/1.75 Georgia,serif; }
+.criticalNote { font-size:1.05rem; margin-block:40px!important; border-left:2px solid #728268; padding-left:25px; }
+@supports not selector(:has(*)) { .witnessSheet { display:block; margin-bottom:30px; } .witnessChoices { display:none; } }
+@media(max-width:900px) { .documentary>header>p:not(:first-child),.documentary>header>a,.documentary>header>span { margin-left:0; } .witnessDesk { gap:6%; grid-template-columns:minmax(160px,.7fr) minmax(0,1.3fr); } .witnessSheet { padding:30px 8%; } }
+@media(max-width:600px) {
+  .documentary>header { padding-block:65px; }
+  .chronology { gap:25px; }
+  .chronology p { font-size:1.25rem; }
+  .witnessDesk { display:block; margin:45px 0; }
+  .witnessChoices { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; margin-bottom:35px; }
+  .witnessChoices legend { grid-column:1/-1; }
+  .witnessChoices label { gap:10px; min-width:0; }
+  .witnessChoices span { font-size:.95rem; }
+  .witnessChoices small { font-size:.7rem; }
+  .witnessSheet { min-height:0; padding:30px 24px; }
+  .witnessSheet h3 { font-size:2.7rem; }
+  .allRanges { margin-top:35px!important; }
+  .comparison>div>figure,.comparison>div>div { padding:30px 24px; }
+  .comparison>div>figure { border-right:0; margin:0; }
+  .thirteen { padding:65px 24px; }
+  .thirteen .portraits { margin-block:35px; padding-block:35px; }
+}
