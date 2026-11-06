@@ -1,5 +1,7 @@
 # Release gate triage — PR #36
 
+> Historical checkpoint, preserved without changing its results. PR #36 was superseded by consolidation #41; Thomas #42 and audit #43 are now merged into consolidated preview. See the [current release addendum](../release/readiness-audit-2026-11-05.md#current-addendum--thomas-homepage-integration). Production blockers remain unresolved.
+
 Checked 3 November 2026. **BLOCKED — HUMAN APPROVAL REQUIRED.** Neither the complete editorial release nor a homepage-only publication is approved. Technical preparation can be reviewed independently; PR #36 must remain draft and unmerged.
 
 ## Revision and authority

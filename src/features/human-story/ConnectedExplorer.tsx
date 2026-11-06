@@ -174,7 +174,7 @@ export function ConnectedExplorer({
                     .join(" / ")}
                 </span>
                 <button
-                  hidden={!hydrated}
+                  hidden={!hydrated || !connections.some(connection => connection.from === entry.id || connection.to === entry.id)}
                   type="button"
                   onClick={(event) => selectEntry(entry.id, event.currentTarget)}
                   aria-label={`Show connections for ${entry.title}`}

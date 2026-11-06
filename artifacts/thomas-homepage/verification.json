@@ -1,0 +1,62 @@
+{
+  "repository": "jayjz/biblemap",
+  "base": "2d504aafb8f368b2e827e3e88fd251e244b4da60",
+  "branch": "feat/thomas-homepage-integration",
+  "targetBranch": "feat/human-story-consolidated",
+  "publicationApproval": false,
+  "designAuthority": {
+    "skill": "frontend-design",
+    "installedPath": "C:/Users/jcoul/.agents/skills/frontend-design/SKILL.md",
+    "officialSource": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+    "license": "Apache-2.0",
+    "skillAndLicenseRead": true,
+    "installedMatchesOfficial": true,
+    "installationRequired": false
+  },
+  "selectedDirection": "A: cinematic invitation after Perpetua/Romanus; separately attributed sayings document strip",
+  "rejectedDirection": "B: source-distinguished James/Thomas editorial reading comparison; no historical relationship asserted",
+  "newMedia": false,
+  "newDependencies": false,
+  "reusedHomepageImage": {
+    "manifest": "public/media/thomas/manifest.json",
+    "id": "proximity",
+    "mobileBytes": 42442,
+    "desktopBytes": 134070,
+    "classification": "AI-generated interpretive environment; anonymous invented figures"
+  },
+  "captureWidths": [1440, 768, 390, 320],
+  "normalAnd200PercentText": {
+    "documentOverflow": false,
+    "invitationTextOutsideFrame": false,
+    "axeViolations": 0,
+    "brokenImages": 0,
+    "consoleOrPageErrors": 0,
+    "failedRequests": 0,
+    "reducedMotionRunningAnimations": 0
+  },
+  "htmlRouteInventory": { "before": 48, "after": 48, "added": [], "removed": [] },
+  "unchangedPublicationInputs": ["src/content", "public/media", "src/app", ".github", "package.json", "package-lock.json", "scripts/validate-story.ts", "scripts/validate-visitor-export.ts", "scripts/validate-nineveh-depth.mjs"],
+  "localChecks": [
+    { "command": "npm ci", "exitCode": 0, "dependencyAuditAdvisories": 38 },
+    { "command": "npm run validate:story", "exitCode": 0, "log": "checks/source-media.txt" },
+    { "command": "npm run lint", "exitCode": 0, "existingWarnings": 4, "log": "checks/lint.txt" },
+    { "command": "npx tsc --noEmit", "exitCode": 0, "log": "checks/types.txt" },
+    { "command": "npm run typecheck", "exitCode": 0 },
+    { "command": "BIBLEMAP_VERIFY_EXPORT=1 npm run test", "exitCode": 0, "passed": 59, "skipped": 0, "log": "checks/unit.txt" },
+    { "command": "npm run build", "exitCode": 0, "exportArtifactsInspected": 477, "log": "checks/build.txt" },
+    { "command": "npm run test:e2e", "exitCode": 0, "passed": 217, "skipped": 1, "duration": "6.0m", "log": "checks/e2e.txt" },
+    { "command": "npm run validate:release", "exitCode": 1, "existingJonahItems": 68, "log": "checks/release.txt" }
+  ],
+  "separateOptInNinevehLocalSuite": "Not run locally in this pass; retained CI stage reported on the draft PR",
+  "hostedAndCiResults": "Reported on the draft PR after push; not inferred from local results",
+  "readOnlyProductionObservation": {
+    "alias": "biblemap-pink.vercel.app",
+    "deploymentId": "dpl_4hQwNWXRLa2WCdSaDcBbfjnd9WFq",
+    "commit": "e92b476729303cf00cf71f409c9cc64841ddf447",
+    "branch": "feat/home-story-discovery",
+    "target": "production",
+    "settingsOrAliasesChanged": false
+  },
+  "remainingProductionBlockers": ["68 Jonah editorial release items", "Known static-export draft exposure", "Human historical, theological, philological and artistic review", "Approved public scope and dependency triage"],
+  "limits": ["No unfamiliar-reader study", "No field performance measurement", "No assistive-technology user test", "Axe results do not establish complete WCAG conformance"]
+}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import media from "@/content/human-story-interior-media.json";
 import { ROMANUS_MEDIA } from "@/content/romanus-media";
 import { ArtworkImage } from "./ArtworkImage";
+import { ThomasInvitation } from "./ThomasInvitation";
 import actions from "./action-link.module.css";
 import styles from "./discovery.module.css";
 
@@ -12,8 +13,8 @@ export function FeaturedEncounters() {
   return (
     <section id="encounters" className={styles.encounters} aria-labelledby="encounters-title" tabIndex={-1}>
       <div className={styles.heading}>
-        <h2 id="encounters-title">Two lives. Different voices.</h2>
-        <p>Meet Perpetua and Romanus through the accounts that survive.</p>
+        <h2 id="encounters-title">Lives. Different voices.</h2>
+        <p>Meet Perpetua, Romanus and Thomas through the accounts that survive.</p>
       </div>
       <div className={styles.pair}>
         <article className={styles.perpetua} aria-labelledby="perpetua-invitation">
@@ -59,6 +60,7 @@ export function FeaturedEncounters() {
           </figure>
         </article>
       </div>
+      <ThomasInvitation />
     </section>
   );
 }

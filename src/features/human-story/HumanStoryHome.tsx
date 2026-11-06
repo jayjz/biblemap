@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import { WORLDS } from "@/features/human-story/worlds";
 import { HUMAN_GRAPH } from "@/content/human-story";
-import { ConnectedExplorer } from "@/features/human-story/ConnectedExplorer";
+import { ConnectedExplorer, type ExplorerEntry } from "@/features/human-story/ConnectedExplorer";
 import { PathPreview } from "@/features/human-story/PathPreview";
 import { ArtworkImage } from "@/features/human-story/ArtworkImage";
 import { FeaturedEncounters } from "./FeaturedEncounters";
@@ -50,11 +50,33 @@ export default function HumanStoryHome() {
     "perpetua",
     "romanus",
     "james",
+    "thomas",
     "augustine",
     "pliny",
     "genesis-in-paint",
   ];
-  const entries = [...HUMAN_GRAPH.entries].sort((a, b) => {
+  // Curated destinations may stand alone; discovery must not invent graph evidence.
+  const readings: ExplorerEntry[] = HUMAN_GRAPH.entries.map((entry) => ({
+    id: entry.id,
+    title: entry.title,
+    subtitle: entry.subtitle,
+    kind: entry.kind,
+    worlds: entry.worlds,
+    era: entry.era,
+    searchText: [entry.title, entry.subtitle, entry.introduction,
+      ...entry.entityIds.map((id) => HUMAN_GRAPH.entities.find((entity) => entity.id === id)?.name ?? ""),
+    ].join(" "),
+  }));
+  readings.push({
+    id: "thomas",
+    title: "Thomas: The Witness",
+    subtitle: "John’s account of absence, testimony and encounter",
+    kind: "scripture",
+    worlds: ["stories"],
+    era: "John 20:24–29",
+    searchText: "Thomas witness John 20 absence testimony doubt encounter confession Gospel of Thomas sayings manuscripts",
+  });
+  const entries = readings.sort((a, b) => {
     const rank = (id: string) =>
       featured.includes(id) ? featured.indexOf(id) : featured.length;
     return rank(a.id) - rank(b.id);
@@ -210,24 +232,7 @@ export default function HumanStoryHome() {
           <p>Open a story, or preview where it connects.</p>
         </div>
         <ConnectedExplorer
-          entries={entries.map((entry) => ({
-            id: entry.id,
-            title: entry.title,
-            subtitle: entry.subtitle,
-            kind: entry.kind,
-            worlds: entry.worlds,
-            era: entry.era,
-            searchText: [
-              entry.title,
-              entry.subtitle,
-              entry.introduction,
-              ...entry.entityIds.map(
-                (id) =>
-                  HUMAN_GRAPH.entities.find((entity) => entity.id === id)
-                    ?.name ?? "",
-              ),
-            ].join(" "),
-          }))}
+          entries={entries}
           connections={HUMAN_GRAPH.connections.map(
             ({ id, from, to, kind, label }) => ({ id, from, to, kind, label }),
           )}
