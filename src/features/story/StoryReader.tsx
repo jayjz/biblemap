@@ -21,6 +21,7 @@ const getHash = () => window.location.hash;
 const serverHash = () => null;
 
 export function StoryReader({ story, authorReview = false, localReview = false, previewMedia = [], openMedia = [] }: { story: VisitorStory; authorReview?: boolean; localReview?: boolean; previewMedia?: readonly { sceneIds: readonly string[]; asset: VisitorMedia }[]; openMedia?: readonly { sceneIds: readonly string[]; asset: VisitorMedia }[] }) {
+  const hasProvisionalCompanions = story.scenes.some(scene => scene.readingGuide?.status === "provisional");
   const hash = useSyncExternalStore(subscribeHash, getHash, serverHash);
   const active = sceneFromHash(story, hash ?? "");
   const [reflections, setReflections] = useState<Record<string, string>>({});
@@ -83,7 +84,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
         <h1>{story.title}<span>{story.subtitle}</span></h1>
         <p className="story-invitation">A conversation. A responsibility. A truth about ourselves.</p>
         <p className="story-invitation story-recognition">Sometimes, leaving feels easier.</p>
-        <p className="story-preview-note">A reading in development. Companion titles, questions and notes are provisional commentary, awaiting human review. They are separate from the World English Bible text.</p>
+        <p className="story-preview-note">{hasProvisionalCompanions ? "A reading in development. Companion titles, questions and notes are provisional commentary, awaiting human review. They are separate from the World English Bible text." : "Companion titles, questions and notes are commentary, separate from the World English Bible text."}</p>
         <div className="story-intro-meta"><span>All four chapters</span><span>World English Bible</span><span>At your own pace · In silence</span></div>
         <a className="story-begin" href={`#${active.id}`} onClick={e => navigate(e, active.id)}>Begin reading <span aria-hidden="true">↓</span></a>
       </div>
@@ -128,11 +129,11 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
                 </section>;
               })}
               {scene.id === "jonah-3-mercy" && <a className="story-turn-link" href="#jonah-4-anger" onClick={e => navigate(e, "jonah-4-anger")}>Read Jonah’s response <span aria-hidden="true">→</span></a>}
-              {scene.id === "jonah-1-escape" && <div className="story-curiosity"><p>{scene.readingGuide?.question}</p><small>Provisional reading question</small></div>}
+              {scene.id === "jonah-1-escape" && scene.readingGuide && <div className="story-curiosity"><p>{scene.readingGuide.question}</p><small>{scene.readingGuide.status === "provisional" ? "Provisional reading question" : "Reading question"}</small></div>}
             </div>
             <aside className={`story-visual${scene.id === "jonah-4-question" && !artwork ? " story-visual--absent" : ""}`} aria-label={scene.id === "jonah-3-mercy" ? "Optional Nineveh place encounter" : authorReview ? "Scene artwork and author workspace" : "Scene artwork"}>
               {scene.id === "jonah-3-mercy" ? <CityInsideName /> : scene.id === "jonah-4-anger" && !artwork ? <div className="mercy-lettering" aria-hidden="true"><span>The prophet</span><em>angry.</em><small>Jonah 4</small></div> : <StoryArtwork key={artwork?.id ?? scene.id} sceneId={scene.id} asset={artwork} reviewOnly={!fromStory && !supplemental && Boolean(preview)} />}
-              {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p><small>Provisional reading question</small></div>}
+              {scene.readingGuide && index >= 3 && scene.id !== "jonah-3-mercy" && scene.id !== "jonah-4-anger" && scene.id !== "jonah-4-question" && scene.id !== "jonah-4-shade" && <div className="story-question"><p className="story-eyebrow">A question to carry</p><p>{scene.readingGuide.question}</p><small>{scene.readingGuide.status === "provisional" ? "Provisional reading question" : "Reading question"}</small></div>}
               {narrative && <div className="story-author-space"><p className="story-eyebrow">Author’s voice</p>
                 <p>{narrative}</p>
               </div>}
@@ -146,7 +147,7 @@ export function StoryReader({ story, authorReview = false, localReview = false, 
             <summary>Explore further <span>Sources, reading notes & private reflection</span></summary>
             <div className="story-further-content">
               {scene.passageIds.map(id => { const p = story.passages.find(p => p.id === id); return p ? <PassageSource key={id} passage={p} story={story} /> : null; })}
-              {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>Optional · provisional commentary</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>Provisional reading companion · Commentary awaiting human review, separate from Scripture</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
+              {scene.readingGuide && <details className="story-disclosure story-companion"><summary>Pause with the passage <span>{scene.readingGuide.status === "provisional" ? "Optional · provisional commentary" : "Optional · commentary"}</span></summary><div className="story-disclosure-body"><p>{scene.readingGuide.context}</p><p><small>{scene.readingGuide.status === "provisional" ? "Provisional reading companion · Commentary awaiting human review, separate from Scripture" : "Reading companion · Commentary, separate from Scripture"}</small></p><a href={story.sources.find(source => source.id === scene.readingGuide?.sourceId)?.url} target="_blank" rel="noreferrer">Read the source: {scene.readingGuide.locator} ↗</a></div></details>}
               <StoryEvidence story={story} scene={scene} authorReview={authorReview} />
 
               <details className="story-disclosure story-reflection">

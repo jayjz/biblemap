@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "BibleMap · 20s demo",
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function DemoPage() {
+  if (process.env.BIBLEMAP_INTERNAL_REVIEW !== "1") notFound();
   return (
     <main className="min-h-screen bg-[#07090f] text-[#f4ead3] flex flex-col items-center px-5 py-10">
       <p className="text-[11px] tracking-[0.22em] uppercase text-[#c5d4e8] mb-3">

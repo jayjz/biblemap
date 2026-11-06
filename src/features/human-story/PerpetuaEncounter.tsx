@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import { INTERIOR_SOURCES, INTERIOR_PASSAGES } from "@/content/human-story-interiors";
 import { PRISON_SCENES } from "@/content/perpetua-encounter";
 import { projectVisitorPrison } from "@/domain/visitor-prison";

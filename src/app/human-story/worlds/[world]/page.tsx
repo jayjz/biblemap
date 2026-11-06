@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import { WORLDS } from "@/features/human-story/worlds";
 import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import { EntryCards } from "@/features/human-story/EntryCards";

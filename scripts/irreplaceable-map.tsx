@@ -17,7 +17,8 @@ export default function Geography() {
     let timer: number | undefined;
     async function load() {
       try {
-      const { default: maplibregl } = await import('maplibre-gl');
+      const maplibregl = await import('maplibre-gl');
+      maplibregl.setWorkerUrl('/experiment/maplibre-gl-worker.mjs');
       if (disposed || !container.current) return;
       instance = new maplibregl.Map({ container: container.current, style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json', center: [place.longitude, place.latitude], zoom: 9, attributionControl: { compact: true }, interactive: false, renderWorldCopies: false });
       map.current = instance;

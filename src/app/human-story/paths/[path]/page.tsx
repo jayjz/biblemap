@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HUMAN_PATHS } from "@/content/human-story-paths";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import { CONNECTION_LABELS, EVIDENCE_LABELS } from "@/domain/human-story";
 import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import styles from "@/features/human-story/human-story.module.css";

@@ -30,7 +30,10 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 // Load the WebGL components on demand inside the client-only viewer.
 const DeckGL = React.lazy(() => import("@deck.gl/react").then(mod => ({ default: mod.default })));
-const BibleMapView = React.lazy(() => import("react-map-gl/maplibre"));
+const BibleMapView = React.lazy(async () => {
+  const [view] = await Promise.all([import("react-map-gl/maplibre"), import("@/lib/maplibre")]);
+  return view;
+});
 
 const POINTS_URL = "/bible-points.parquet?v=" + Date.now();
 const MAP_STYLE = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json";

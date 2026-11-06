@@ -5,7 +5,7 @@ import {
   EVIDENCE_LABELS,
   connectionsFor,
 } from "@/domain/human-story";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import chapter4 from "@/content/scripture/web-jonah-4.json";
 import { HumanStoryFrame } from "./HumanStoryFrame";
 import { HumanArtwork } from "./HumanArtwork";

@@ -1,0 +1,32 @@
+node.exe : [WebServer] (node:12308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:23032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline (2.6s)
+  ✓   2 [desktop] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson (1.6s)
+  ✓   3 [desktop] › tests\explorer.spec.ts:3:5 › explorer baseline: data, filters, epochs, selection, journeys and fallback (5.4s)
+  ✓   4 [desktop] › tests\routing.spec.ts:8:5 › tracking queries keep the Nineveh entrance and its section navigation (1.2s)
+  ✓   5 [desktop] › tests\routing.spec.ts:22:5 › tracking queries preserve discoveries, keyboard entry and unknown anchors (1.3s)
+  ✓   6 [desktop] › tests\routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths (3.9s)
+  ✓   7 [desktop] › tests\routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload (5.9s)
+(node:9592) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [mobile] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline (2.9s)
+  ✓   9 [mobile] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson (1.8s)
+  -  10 [mobile] › tests\explorer.spec.ts:3:5 › explorer baseline: data, filters, epochs, selection, journeys and fallback
+  ✓  11 [mobile] › tests\routing.spec.ts:8:5 › tracking queries keep the Nineveh entrance and its section navigation (1.0s)
+  ✓  12 [mobile] › tests\routing.spec.ts:22:5 › tracking queries preserve discoveries, keyboard entry and unknown anchors (1.2s)
+  ✓  13 [mobile] › tests\routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths (4.0s)
+  ✓  14 [mobile] › tests\routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload (6.3s)
+
+  1 skipped
+  13 passed (42.0s)

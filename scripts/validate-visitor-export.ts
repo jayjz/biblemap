@@ -10,6 +10,7 @@ export function privateStoryProbes(story: StoryDocument): string[] {
     ...story.scenes.flatMap(scene => [scene.title, scene.narrative, ...scene.reflections.map(r => r.prompt), ...(scene.narration ? [scene.narration.transcript] : [])].flatMap(copy)),
     ...story.geography.flatMap(place => copy(place.explanation)),
     ...story.claims.flatMap(claim => copy(claim.statement)),
+    ...story.scenes.flatMap(scene => scene.readingGuide && ["internal-draft", "excluded-experimental"].includes(scene.readingGuide.status) ? [scene.readingGuide.title, scene.readingGuide.question, scene.readingGuide.context] : []),
     '"review":{"status":"draft"}', '"mode":"author-review"', '"reviewStatus":"draft"',
     "No one dies for a lie.", "purefaith", "The father is mourning",
     "Felicity's dedication to the Spirit of God", "When I read historical accounts", "authorship in progress",
@@ -30,7 +31,7 @@ export function visitorExportErrors(artifacts: readonly PublicArtifact[], story 
   for (const passage of story.passages) for (const verse of passage.verses) {
     if (!artifactMatches(html, verse.text).length) errors.push(`No-JS Scripture missing or altered: ${passage.chapter}:${verse.number}`);
   }
-  for (const qualification of ["Companion titles, questions and notes are provisional commentary", "Commentary awaiting human review, separate from Scripture"]) {
+  for (const qualification of story.scenes.some(scene => scene.readingGuide?.status === "provisional") ? ["Companion titles, questions and notes are provisional commentary", "Commentary awaiting human review, separate from Scripture"] : ["Companion titles, questions and notes are commentary, separate from the World English Bible text"]) {
     if (!artifactMatches(html, qualification).length) errors.push(`Missing visitor qualification: ${qualification}`);
   }
   return errors;

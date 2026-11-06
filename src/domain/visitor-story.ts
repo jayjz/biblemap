@@ -80,7 +80,7 @@ export function projectVisitorStory(story: StoryDocument): VisitorStory {
         } : {}),
         ...(scene.soundscapeId ? { soundscapeId: scene.soundscapeId } : {}),
         transition: { nextSceneId: scene.transition.nextSceneId, advance: scene.transition.advance, visual: scene.transition.visual },
-        ...(scene.readingGuide ? { readingGuide: {
+        ...(scene.readingGuide && ["complete", "provisional"].includes(scene.readingGuide.status) ? { readingGuide: {
           title: scene.readingGuide.title, question: scene.readingGuide.question,
           context: scene.readingGuide.context, sourceId: scene.readingGuide.sourceId,
           locator: scene.readingGuide.locator, status: scene.readingGuide.status,

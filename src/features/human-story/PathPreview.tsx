@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HUMAN_PATHS } from "@/content/human-story-paths";
-import { HUMAN_GRAPH } from "@/content/human-story";
+import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
 import styles from "./human-story.module.css";
 import actions from "./action-link.module.css";
 
