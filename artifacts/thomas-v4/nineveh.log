@@ -8,10 +8,10 @@ At line:1 char:1
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
-[WebServer] (node:9940) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
-file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as 
+[WebServer] (node:9940) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as
 CommonJS.
 [WebServer] Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 [WebServer] To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.

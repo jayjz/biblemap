@@ -8,7 +8,7 @@ At line:1 char:1
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
 
 Running 224 tests using 1 worker
@@ -243,7 +243,7 @@ Running 224 tests using 1 worker
   x  224 [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (1.4s)
 
 
-  1) [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible 
+  1) [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
 
     Error: expect(received).toEqual(expected) // deep equality
 
@@ -333,7 +333,7 @@ Running 224 tests using 1 worker
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  2) [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible 
+  2) [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
 
     Error: expect(received).toEqual(expected) // deep equality
 
@@ -424,7 +424,7 @@ Running 224 tests using 1 worker
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
   2 failed
-    [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible 
-    [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible 
+    [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+    [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
   1 skipped
   221 passed (6.1m)

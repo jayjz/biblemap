@@ -12,14 +12,14 @@
 ✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
 James: 3 Scripture quotations match retained publisher snapshots.
 Thomas: 19 WEB verses, sayings 13/26 and the CC BY 3.0 Greek ending match retained source excerpts.
-node.exe : (node:18564) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
+node.exe : (node:18564) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
 file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
 At line:1 char:1
 + & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ((node:18564) [M...se as CommonJS.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
@@ -29,8 +29,8 @@ To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-exp
 > node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts
 
 ✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
-(node:7092) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of 
-file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as 
+(node:7092) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as
 CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.

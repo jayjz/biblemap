@@ -28,7 +28,7 @@ New [earlier voice, desktop](../artifacts/thomas-v4/after/before-thomas-1440.jpg
 
 ## Executed checks
 
-Windows, Node 24.22.2, Chrome at `C:/Program Files/Google/Chrome/Application/chrome.exe`. Browser tests use the ordinary static export; focused host checks use the exact deployment origin. Logs live under `artifacts/thomas-v4/`.
+Windows, Node 24.22.2, Chrome at `C:/Program Files/Google/Chrome/Application/chrome.exe`. Browser tests use the static export; the complete rerun follows CI's opt-in Nineveh build sequence, while focused host checks use the exact deployment origin. Logs live under `artifacts/thomas-v4/`, normalized from PowerShell UTF-16 to UTF-8 with trailing whitespace trimmed; messages and results are retained.
 
 | Command / check | Actual result |
 |---|---|
