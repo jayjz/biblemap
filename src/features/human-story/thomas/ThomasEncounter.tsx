@@ -77,8 +77,8 @@ export function ThomasEncounter({ reading = false }: { reading?: boolean }) {
       <MovementEnd movement={unless} />
     </section>
     <section id="eight-days" className={`${styles.scene} ${styles.gathering} ${reading ? '' : cinema.returned}`} tabIndex={-1} aria-labelledby="eight-title">
-      <div className={encounter.interval}><p className={styles.locator}>III · The interval</p><h2 id="eight-title">Eight days.</h2><a href="#with-them">Go directly to the return</a><p>John names the interval.<br />He gives no account of the days between.</p></div>
-      <div id="with-them" tabIndex={-1} className={styles.gatheredOpening}>{!reading && <CinematicImage image="interior" />}<div><h3 className={encounter.returnTitle}>{gathering.title}</h3><p>{gathering.note}</p></div></div>
+      <div className={reading ? undefined : encounter.interval}><p className={styles.locator}>III · The interval</p><h2 id="eight-title">Eight days.</h2><a href="#with-them">Go directly to the return</a><p>John names the interval.<br />He gives no account of the days between.</p></div>
+      <div id="with-them" tabIndex={-1} className={styles.gatheredOpening}>{!reading && <CinematicImage image="interior" />}<div><h3 className={reading ? undefined : encounter.returnTitle}>{gathering.title}</h3><p>{gathering.note}</p></div></div>
       {!reading && <CinematicDisclosure figures />}
       <div className={styles.gatheredText}><Verse id="jhn20-26" /><Verse id="jhn20-27" /><p className={styles.marginal}>An interval in the account.<br />No words are supplied for the days between.</p></div>
       <MovementEnd movement={gathering} />
@@ -90,7 +90,7 @@ export function ThomasEncounter({ reading = false }: { reading?: boolean }) {
     <section id="not-seen" className={`${styles.scene} ${styles.ending} ${reading ? '' : cinema.horizon}`} tabIndex={-1} aria-labelledby="ending-title">
       {!reading && <div className={cinema.horizonArt}><CinematicImage image="threshold" /></div>}
       <p className={styles.locator}>V · {ending.label}</p><h2 id="ending-title">{ending.title}</h2><Verse id="jhn20-29" dramatic />
-      <div className={encounter.writtenAccount}><div><h3>From an encounter<br />to a written account.</h3><p>John follows the blessing with these words about the signs and the purpose of their telling. The account moves from those who saw to those who read.</p></div><div><Verse id="jhn20-30" /><Verse id="jhn20-31" /></div></div><MovementEnd movement={ending} />
+      <div className={reading ? styles.gospelPurpose : encounter.writtenAccount}><div><h3>From an encounter<br />to a written account.</h3><p>John follows the blessing with these words about the signs and the purpose of their telling. The account moves from those who saw to those who read.</p></div><div><Verse id="jhn20-30" /><Verse id="jhn20-31" /></div></div><MovementEnd movement={ending} />
     </section>
     <section className={styles.doorway} aria-labelledby="sayings-door"><p className={styles.locator}>A different text. A separate exploration.</p><h2 id="sayings-door">Another book<br />bears his name.</h2>
       <p>The Gospel of Thomas survives as a collection of sayings attributed to Jesus. Its attribution to Didymos Judas Thomas does not establish that the apostle wrote it.</p>

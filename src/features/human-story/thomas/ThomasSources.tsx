@@ -20,6 +20,7 @@ export function ThomasSources() {
       <p>Original AI-generated interpretive environments for BibleMap, November 2026. Anonymous figures do not identify Thomas, Jesus or documented witnesses. Buildings, clothing, pottery, light and viewpoint are invented, not a recovered biblical setting.</p>
       <p>Material context: <a href="https://publications.iaa.org.il/atiqot/vol98/iss1/3/">Alexandre, Early Roman dwelling at Nazareth, Atiqot 98 (2020), abstract</a>. This regional reference does not validate a room in Jerusalem or any furnishings.</p>
       <p><a href="/media/thomas/manifest.json">Image provenance, prompts, checksums and rights</a>. Human historical and artistic review pending. No third-party image was supplied or reproduced.</p>
+      <p>Manuscript format diagrams: BibleMap, original AI-assisted SVG/CSS, 6 November 2026, repository MIT license. Conceptual reading aids only; no traced manuscript photograph, exact damage outline, lost text or scale reconstruction. Greek extract: DCLP/LDAB, CC BY 3.0; edition and selection are credited beside the text.</p>
       <p>Earlier vector study: {THOMAS_ART.title} · {THOMAS_ART.creator} · {THOMAS_ART.creationDate}. Retained in the creative record, superseded in the visual encounter.</p>
       <p>{THOMAS_REVIEW.author}. {THOMAS_REVIEW.humanReview}. This noindex prototype is a working draft, not a production release.</p>
     </details>
