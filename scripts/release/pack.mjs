@@ -36,7 +36,8 @@ export function packExport(source = 'out', target = '.vercel/output') {
   writeFileSync(join(target, 'config.json'), JSON.stringify(config) + '\n');
   // Source-build routing must not be reapplied over the complete package routes.
   // This affects only the deployment, never the Vercel project settings.
-  writeFileSync(join(target, 'client-config.json'), JSON.stringify({ framework: null }) + '\n');
+  const toolbar = { VERCEL_PREVIEW_FEEDBACK_ENABLED: '0' };
+  writeFileSync(join(target, 'client-config.json'), JSON.stringify({ framework: null, env: toolbar, build: { env: toolbar } }) + '\n');
   verifyFiles(join(target, 'static'), files, artifactDigest(files));
   return config;
 }

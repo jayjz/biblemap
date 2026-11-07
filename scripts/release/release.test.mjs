@@ -3,7 +3,8 @@ import { test } from 'node:test';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { artifactDigest, compareBuilds, fileManifest, objectDigest, policy, sha1, verifyFiles } from './artifact.mjs';
+import { execFileSync } from 'node:child_process';
+import { artifactDigest, compareBuilds, fileManifest, objectDigest, policy, sha1, sourceManifest, verifyFiles } from './artifact.mjs';
 import { authorizationErrors } from './authorization.mjs';
 import { staticConfig } from './pack.mjs';
 import { deploymentResult, verifyUpload } from './preview.mjs';
@@ -83,9 +84,29 @@ test('full prebuilt upload identity rejects missing, additional or replaced prov
     const tree = [{ name: 'src', type: 'directory', children: [{ name: '.vercel', type: 'directory', children: [{ name: 'output', type: 'directory', children: [entry, { name: 'empty', type: 'directory' }] }] }] }];
     assert.equal(verifyUpload(root, tree).fileCount, 1);
     assert.throws(() => verifyUpload(root, []));
+    tree.push({ name: 'unexpected.txt', type: 'file', uid: '1'.repeat(40) });
+    assert.throws(() => verifyUpload(root, tree));
+    tree.pop();
     entry.uid = '0'.repeat(40);
     assert.throws(() => verifyUpload(root, tree));
   } finally { rmSync(root, { recursive: true, force: true }); }
+});
+test('approval-only records do not change the raw build-input identity; source edits do', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'release-inputs-'));
+  const original = process.cwd();
+  try {
+    mkdirSync(join(directory, 'docs/release'), { recursive: true });
+    writeFileSync(join(directory, 'source.txt'), 'raw fixture\n');
+    writeFileSync(join(directory, 'docs/release/canonical-acceptance.json'), '{"status":"pending"}');
+    execFileSync('git', ['init', '--quiet'], { cwd: directory });
+    execFileSync('git', ['add', '.'], { cwd: directory });
+    process.chdir(directory);
+    const before = objectDigest(sourceManifest());
+    writeFileSync('docs/release/canonical-acceptance.json', 'detached synthetic test bytes, no approval');
+    assert.equal(objectDigest(sourceManifest()), before);
+    writeFileSync('source.txt', 'changed fixture\n');
+    assert.notEqual(objectDigest(sourceManifest()), before);
+  } finally { process.chdir(original); rmSync(directory, { recursive: true, force: true }); }
 });
 test('pinned CLI JSON result is parsed without following suggested production commands', () => {
   const result = { status: 'ok', deployment: { id: 'dpl_fixture', url: 'https://fixture.vercel.app', target: null }, next: [{ command: 'vercel deploy --prod' }] };

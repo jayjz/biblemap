@@ -98,6 +98,11 @@ It checks the existing team/project and only creates a preview. It then records:
 The packaged `client-config.json` is also hashed. It selects static hosting for this
 deployment and prevents source-build `cleanUrls`/routes from being applied a second
 time over the package's complete low-level routes. It does not edit project settings.
+It also sets the documented `VERCEL_PREVIEW_FEEDBACK_ENABLED=0` for this deployment's
+build/runtime environment. The pilot proved that Vercel otherwise appends a 288-byte
+deployment-specific toolbar script to the served webpack runtime even when the
+uploaded file is unchanged. The [per-deployment override](https://vercel.com/docs/vercel-toolbar/managing-toolbar)
+prevents that mutation without changing project-wide settings or deployment protection.
 
 The provider's source/upload tree is not an independent enumeration of the internal
 CDN filesystem. SHA1 is Vercel upload identity, not the canonical integrity digest.
@@ -145,6 +150,8 @@ Copy identities from the verified evidence, never from an unrelated preview. Pre
 previous records under `docs/release/acceptances/` and their authentic evidence. The
 agent must not fill actor/date/evidence/status on the creator's behalf. A decision-only
 commit does not build, change SEO, rename files or replace the approved artifact.
+The canonical workflow ignores changes confined to those detached decision/history
+paths. Technical/Windows compatibility checks may still run independently.
 `npm run validate:release` checks the detached package and acceptance in that checkout,
 then re-verifies the authenticated deployment and all served bytes live. Rechecks
 write a separate receipt, preserving the original evidence bound to acceptance;

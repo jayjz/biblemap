@@ -2,8 +2,16 @@ name: Canonical Linux release candidate
 
 on:
   pull_request:
+    paths-ignore:
+      - docs/release/publication-decision.json
+      - docs/release/canonical-acceptance.json
+      - docs/release/acceptances/**
   push:
     branches: [release/canonical-linux-20261107, feat/human-story-consolidated]
+    paths-ignore:
+      - docs/release/publication-decision.json
+      - docs/release/canonical-acceptance.json
+      - docs/release/acceptances/**
   workflow_dispatch:
 
 permissions:
