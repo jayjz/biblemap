@@ -11,5 +11,11 @@
   "framework": null,
   "buildCommand": "npm run build",
   "outputDirectory": "out",
-  "installCommand": "npm ci"
+  "installCommand": "npm ci",
+  "routes": [
+    {
+      "src": "^/404(?:\\.html)?/?$",
+      "status": 404
+    }
+  ]
 }
