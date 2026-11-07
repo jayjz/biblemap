@@ -1,0 +1,99 @@
+name: Canonical Linux release candidate
+
+on:
+  pull_request:
+  push:
+    branches: [release/canonical-linux-20261107, feat/human-story-consolidated]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: canonical-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Independent Linux build ${{ matrix.replica }}
+    runs-on: ubuntu-24.04
+    container: node:22.22.3-bookworm@sha256:46e94f8cf91baab69a2deb3153e74eeffd73c20c7cc1d8432f5b96469eaa0322
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        replica: [1, 2]
+    env:
+      CANONICAL_CONTAINER: node:22.22.3-bookworm@sha256:46e94f8cf91baab69a2deb3153e74eeffd73c20c7cc1d8432f5b96469eaa0322
+      CANONICAL_REPLICA: ${{ matrix.replica }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Pin npm and install the locked dependency set
+        run: |
+          npm install --global npm@10.9.8
+          npm ci --include=dev
+      - name: Clean canonical build and complete input/output manifests
+        run: node --experimental-strip-types scripts/release/build.mjs
+      - name: Preserve exact output (dotfiles and modes inside archive)
+        run: tar -czf canonical-${{ matrix.replica }}.tgz .vercel/output release-candidate
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: linux-replica-${{ matrix.replica }}-${{ github.run_attempt }}
+          path: canonical-${{ matrix.replica }}.tgz
+          if-no-files-found: error
+          retention-days: 30
+
+  compare:
+    name: Verify and attest one canonical artifact
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '22.22.3'
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          pattern: linux-replica-*-${{ github.run_attempt }}
+          path: replicas
+      - name: Compare every input and output, retain replica one only
+        run: |
+          mkdir first second
+          tar -xzf replicas/linux-replica-1-${{ github.run_attempt }}/canonical-1.tgz -C first
+          tar -xzf replicas/linux-replica-2-${{ github.run_attempt }}/canonical-2.tgz -C second
+          node scripts/release/compare.mjs first second
+          tar -czf canonical-release.tgz -C first .vercel/output release-candidate
+          sha256sum canonical-release.tgz > canonical-release.tgz.sha256
+      - uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        with:
+          subject-path: canonical-release.tgz
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: canonical-release-${{ github.run_attempt }}
+          path: |
+            canonical-release.tgz
+            canonical-release.tgz.sha256
+          if-no-files-found: error
+          retention-days: 90
+
+  regression:
+    name: Release authorization adversarial regressions
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22.22.3'
+      - run: npm ci
+      - run: npm run test:release

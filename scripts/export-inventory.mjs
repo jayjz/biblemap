@@ -57,7 +57,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     ? report.missingDependencies.filter(dependency => dependency.url === '/review-assets/nineveh-landscape.webp')
       .map(dependency => ({ ...dependency, backingFile: localReviewImage, checksum: digest(readFileSync(localReviewImage)), delivery: 'loopback-review-server-only' })) : [];
   const unresolved = report.missingDependencies.filter(dependency => !reviewDependencies.some(bound => bound.from === dependency.from && bound.url === dependency.url));
-  const destination = process.argv[2] ?? 'artifacts/release-readiness/export-inventory.json';
+  const destination = process.argv[2] ?? join(process.env.BIBLEMAP_REPORT_DIR ?? 'artifacts/release-readiness', 'export-inventory.json');
   writeFileSync(destination, `${JSON.stringify({ ...report, reviewDependencies, contentDigest: contentDigest() }, null, 2)}\n`);
   console.log(`${report.files.length} artifacts (${report.routes.length} index routes), ${unresolved.length} unresolved HTML dependencies, ${reviewDependencies.length} explicit loopback-review references; ${report.artifactDigest}`);
   if (unresolved.length) process.exitCode = 1;
