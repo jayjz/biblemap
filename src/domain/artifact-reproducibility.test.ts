@@ -23,6 +23,7 @@ test("Git checkout preserves export text, Python inputs, binaries and pinned pub
     ["scripts/epochs.py", Buffer.from("# fixture\npass\n")],
     ["src/app/layout.tsx", Buffer.from("// fixture\nexport {};\n")],
     ["src/content/scripture/web-jonah-fixture.html", Buffer.from("publisher\r\noriginal\n")],
+    ["src/content/scripture/web-rights.html", Buffer.from("publisher rights\r\noriginal\n")],
     ["src/content/scripture/james-web-fixture.html", Buffer.from("publisher\r\noriginal\n")],
     ["public/media/example/image.webp", Buffer.from([82, 73, 70, 70, 0, 13, 10, 255])],
   ]);
