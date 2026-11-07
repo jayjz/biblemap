@@ -10,5 +10,6 @@
   "cleanUrls": true,
   "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": "out"
+  "outputDirectory": "out",
+  "installCommand": "npm ci"
 }
