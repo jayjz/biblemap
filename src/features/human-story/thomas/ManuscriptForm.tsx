@@ -9,10 +9,9 @@ const descriptions: Record<WitnessId, string> = {
 };
 
 /** Original conceptual diagrams. No traced image, invented handwriting or measured outline. */
-export function ManuscriptForm({ id }: { id: WitnessId }) {
+export function ManuscriptShape({ id }: { id: WitnessId }) {
   const roll = id === 'oxy654' || id === 'oxy655';
-  return <figure className={styles.object} data-manuscript-form={id}>
-    <svg viewBox="0 0 480 280" aria-hidden="true" focusable="false">
+  return <svg viewBox="0 0 480 280" aria-hidden="true" focusable="false">
       {id === 'nhc' ? <g className={styles.papyrus}>
         <path d="M58 42 223 55 224 243 58 228Z" /><path d="M223 55 409 34 409 221 224 243Z" />
         <path d="M49 50 49 236 224 253 419 230 419 43M223 55 224 243" fill="none" />
@@ -27,7 +26,12 @@ export function ManuscriptForm({ id }: { id: WitnessId }) {
         </g>)}
       </g>
       {id === 'oxy655' && <g className={styles.loss}><path d="M166 45V220M281 40V212M48 133H422" /></g>}
-    </svg>
+    </svg>;
+}
+
+export function ManuscriptForm({ id }: { id: WitnessId }) {
+  return <figure className={styles.object} data-manuscript-form={id}>
+    <ManuscriptShape id={id} />
     <figcaption><strong>Format diagram</strong><p>{descriptions[id]}</p><small>Schematic, not a facsimile. Lines stand for writing; outlines, gaps and proportions are illustrative.</small></figcaption>
   </figure>;
 }
