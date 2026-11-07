@@ -12,12 +12,12 @@ test('Thomas preserves the whole account, source boundaries, navigation and a se
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Thomas');
   await page.getByRole('link', { name: 'Enter the account', exact: true }).click();
-  await expect(page.locator('#absent')).toBeFocused();
+  await expect(page.locator('#before-thomas')).toBeFocused();
   const nav = page.getByRole('navigation', { name: 'Thomas movements' });
   await nav.getByRole('link', { name: 'II Unless I see', exact: true }).click();
   await expect(page.locator('#unless')).toBeFocused();
   await page.goBack();
-  await expect(page).toHaveURL(/#absent$/);
+  await expect(page).toHaveURL(/#before-thomas$/);
   await page.goForward();
   await expect(page).toHaveURL(/#unless$/);
   const reveal = page.getByText('What had the others already seen?', { exact: true });

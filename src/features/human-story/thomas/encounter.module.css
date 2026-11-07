@@ -1,0 +1,26 @@
+/* V4 composes existing source-backed scenes; simple reading keeps its own layout. */
+.experience { --daylight:#f3f2ed; }
+.before { background:#262e30; color:#ede8de; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:50px 12%; }
+.before>div>p { max-width:460px; }
+.before h2 { font-size:clamp(2.7rem,4.8vw,4.8rem); }
+.earlierWords>p { font-size:.8rem; margin-bottom:25px; }
+.earlierWords>figure+p { margin-top:65px; }
+.earlierWords blockquote { font-size:clamp(1.7rem,2.6vw,2.8rem); }
+.earlierWords blockquote>span:first-child { font-size:.9rem; }
+.interval { position:relative; padding:90px 8% 70px; background:linear-gradient(100deg,#17232a 35%,#36434b); }
+.interval h2 { font-size:clamp(4rem,11vw,11rem); margin-block:35px; }
+.interval>a { display:inline-flex; min-height:48px; align-items:center; font-size:.85rem; }
+.interval>p:last-child { margin:110px 0 0 50%; max-width:430px; font-size:1rem; }
+.returnTitle { font:400 clamp(2.8rem,6vw,6rem)/1.1 Georgia,serif!important; letter-spacing:-.04em; margin:0 0 30px!important; max-width:700px; }
+.writtenAccount { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:12%; margin-top:110px; border-top:1px solid #949b99; padding-top:65px; }
+.writtenAccount h3 { font:400 clamp(2rem,3.5vw,3.5rem)/1.15 Georgia,serif; letter-spacing:-.03em; margin-bottom:30px; }
+.writtenAccount p { max-width:380px; }
+.writtenAccount figure blockquote { font-size:clamp(1.6rem,2.5vw,2.5rem); line-height:1.45; }
+@media(max-width:600px) {
+  .before { display:block; }
+  .earlierWords { margin-top:55px; }
+  .interval { padding:65px 24px; }
+  .interval>p:last-child { margin:85px 0 0 20%; }
+  .writtenAccount { display:block; margin-top:65px; padding-top:45px; }
+  .writtenAccount>div+div { margin-top:45px; }
+}
