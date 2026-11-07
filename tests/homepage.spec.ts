@@ -32,6 +32,9 @@ test("Nineveh transition uses pinned verses, preserves history, and links to the
   await page.goto("/nineveh/#question");
   await expect(page.locator('.nineveh-reading [data-reference="4:4"]')).toHaveText(chapter4.verses[3].text);
   await page.getByRole("link", { name: /Continue · Jonah 4:5–11/ }).click();
+  // SSR intentionally exposes every scene. Wait for hydration before using
+  // the interactive reader's single active scene and Continue control.
+  await expect(page.locator('[data-reader-ready=true]')).toBeVisible();
   await expect(page.locator('[data-scene="jonah-4-shade"]')).toBeVisible();
   await page.getByRole("link", { name: "Continue", exact: true }).click();
   await expect(page.locator('[data-reference="4:11"]')).toContainText(chapter4.verses[10].text);

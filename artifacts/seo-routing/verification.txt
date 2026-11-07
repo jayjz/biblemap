@@ -1574,3 +1574,224 @@ To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routi
 ℹ skipped 0
 ℹ todo 0
 ℹ duration_ms 1227.2672
+
+
+===== seo-hosted-verified.log =====
+
+> next_temp@0.1.0 audit:seo
+> node --experimental-strip-types scripts/audit-seo.mjs
+
+node.exe : (node:15568) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/seo.ts is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:15568) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+200 / noindex canonical=https://biblemap-pink.vercel.app/ incoming=43
+404 /demo/ noindex canonical= incoming=0
+404 /experiments/nineveh/ noindex canonical= incoming=0
+200 /explore/ noindex canonical=https://biblemap-pink.vercel.app/explore/ incoming=35
+200 /human-story/ noindex canonical=https://biblemap-pink.vercel.app/ incoming=1
+200 /human-story/augustine/ noindex canonical=https://biblemap-pink.vercel.app/human-story/augustine/ incoming=12
+200 /human-story/emmaus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/emmaus/ incoming=8
+200 /human-story/exodus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/exodus/ incoming=7
+200 /human-story/francis/ noindex canonical=https://biblemap-pink.vercel.app/human-story/francis/ incoming=6
+200 /human-story/genesis/ noindex canonical=https://biblemap-pink.vercel.app/human-story/genesis/ incoming=9
+200 /human-story/genesis-in-paint/ noindex canonical=https://biblemap-pink.vercel.app/human-story/genesis-in-paint/ incoming=8
+200 /human-story/james/ noindex canonical=https://biblemap-pink.vercel.app/human-story/james/ incoming=12
+200 /human-story/james/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/james/reading/ incoming=2
+200 /human-story/jerome/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jerome/ incoming=9
+200 /human-story/jonah/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jonah/ incoming=12
+200 /human-story/jonah-in-marble/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jonah-in-marble/ incoming=7
+200 /human-story/josephus-james/ noindex canonical=https://biblemap-pink.vercel.app/human-story/josephus-james/ incoming=8
+200 /human-story/mediterranean/ noindex canonical=https://biblemap-pink.vercel.app/human-story/mediterranean/ incoming=7
+200 /human-story/nineveh/ noindex canonical=https://biblemap-pink.vercel.app/human-story/nineveh/ incoming=6
+200 /human-story/paths/a-life-in-another-life/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-life-in-another-life/ incoming=3
+200 /human-story/paths/a-name-under-pressure/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-name-under-pressure/ incoming=3
+200 /human-story/paths/a-word-crosses-centuries/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-word-crosses-centuries/ incoming=3
+200 /human-story/paul/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paul/ incoming=10
+200 /human-story/perpetua/ noindex canonical=https://biblemap-pink.vercel.app/human-story/perpetua/ incoming=12
+200 /human-story/pliny/ noindex canonical=https://biblemap-pink.vercel.app/human-story/pliny/ incoming=10
+200 /human-story/rashi-radak/ noindex canonical=https://biblemap-pink.vercel.app/human-story/rashi-radak/ incoming=7
+200 /human-story/romanus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/romanus/ incoming=6
+200 /human-story/romanus/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/romanus/reading/ incoming=2
+200 /human-story/sinaiticus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/sinaiticus/ incoming=6
+200 /human-story/singing-in-milan/ noindex canonical=https://biblemap-pink.vercel.app/human-story/singing-in-milan/ incoming=8
+200 /human-story/suetonius/ noindex canonical=https://biblemap-pink.vercel.app/human-story/suetonius/ incoming=5
+200 /human-story/tacitus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/tacitus/ incoming=9
+200 /human-story/teresa/ noindex canonical=https://biblemap-pink.vercel.app/human-story/teresa/ incoming=7
+200 /human-story/testimonium/ noindex canonical=https://biblemap-pink.vercel.app/human-story/testimonium/ incoming=6
+200 /human-story/thomas/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/ incoming=5
+200 /human-story/thomas/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/reading/ incoming=2
+200 /human-story/thomas/sayings/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/sayings/ incoming=5
+200 /human-story/time-and-memory/ noindex canonical=https://biblemap-pink.vercel.app/human-story/time-and-memory/ incoming=6
+200 /human-story/worlds/atlas/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/atlas/ incoming=33
+200 /human-story/worlds/saints/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/saints/ incoming=40
+200 /human-story/worlds/stories/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/stories/ incoming=33
+200 /human-story/worlds/voices/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/voices/ incoming=33
+200 /human-story/worlds/witnesses/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/witnesses/ incoming=33
+200 /jonah/ noindex canonical=https://biblemap-pink.vercel.app/jonah/ incoming=41
+200 /nineveh/ noindex canonical=https://biblemap-pink.vercel.app/nineveh/ incoming=33
+SEO: 45 classified routes; 0 sitemap URLs; 0 errors; 8 observations.
+
+===== seo-preview-browser.log =====
+
+Running 8 tests using 1 worker
+
+node.exe : (node:19208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:19208) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › tests\jonah.spec.ts:11:5 › complete reader-controlled book, history, malformed links, and keyboard focus (13.7s)
+  ok 2 [desktop] › tests\routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths (4.7s)
+  ok 3 [desktop] › tests\routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload (6.5s)
+  ok 4 [desktop] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (3.4s)
+(node:9828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [mobile] › tests\jonah.spec.ts:11:5 › complete reader-controlled book, history, malformed links, and keyboard focus (17.0s)
+  ok 6 [mobile] › tests\routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths (5.5s)
+  ok 7 [mobile] › tests\routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload (6.6s)
+  ok 8 [mobile] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (3.3s)
+
+  8 passed (1.0m)
+
+===== seo-provenance-repeat.log =====
+node.exe : [WebServer] (node:21232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:18784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [mobile] › tests\home-discovery.spec.ts:4:5 › the homepage leads directly into both complete lives and their sources (2.0s)
+(node:13600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [mobile] › tests\home-discovery.spec.ts:4:5 › the homepage leads directly into both complete lives and their sources (2.0s)
+(node:21484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [mobile] › tests\home-discovery.spec.ts:4:5 › the homepage leads directly into both complete lives and their sources (2.0s)
+
+  3 passed (8.2s)
+
+===== seo-hydration-repeat.log =====
+node.exe : [WebServer] (node:21596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:18956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.2s)
+(node:22276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [desktop] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.3s)
+(node:22376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [desktop] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.2s)
+(node:21852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [mobile] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.3s)
+(node:19480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [mobile] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.2s)
+(node:4328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 6 [mobile] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.6s)
+
+  6 passed (12.2s)
+
+===== seo-final-contract.log =====
+
+> next_temp@0.1.0 audit:seo
+> node --experimental-strip-types scripts/audit-seo.mjs
+
+node.exe : (node:21432) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/seo.ts is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:21432) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+200 / noindex canonical=https://biblemap-pink.vercel.app/ incoming=43
+404 /demo/ noindex canonical= incoming=0
+404 /experiments/nineveh/ noindex canonical= incoming=0
+200 /explore/ noindex canonical=https://biblemap-pink.vercel.app/explore/ incoming=35
+200 /human-story/ noindex canonical=https://biblemap-pink.vercel.app/ incoming=1
+200 /human-story/augustine/ noindex canonical=https://biblemap-pink.vercel.app/human-story/augustine/ incoming=12
+200 /human-story/emmaus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/emmaus/ incoming=8
+200 /human-story/exodus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/exodus/ incoming=7
+200 /human-story/francis/ noindex canonical=https://biblemap-pink.vercel.app/human-story/francis/ incoming=6
+200 /human-story/genesis/ noindex canonical=https://biblemap-pink.vercel.app/human-story/genesis/ incoming=9
+200 /human-story/genesis-in-paint/ noindex canonical=https://biblemap-pink.vercel.app/human-story/genesis-in-paint/ incoming=8
+200 /human-story/james/ noindex canonical=https://biblemap-pink.vercel.app/human-story/james/ incoming=12
+200 /human-story/james/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/james/reading/ incoming=2
+200 /human-story/jerome/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jerome/ incoming=9
+200 /human-story/jonah/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jonah/ incoming=12
+200 /human-story/jonah-in-marble/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jonah-in-marble/ incoming=7
+200 /human-story/josephus-james/ noindex canonical=https://biblemap-pink.vercel.app/human-story/josephus-james/ incoming=8
+200 /human-story/mediterranean/ noindex canonical=https://biblemap-pink.vercel.app/human-story/mediterranean/ incoming=7
+200 /human-story/nineveh/ noindex canonical=https://biblemap-pink.vercel.app/human-story/nineveh/ incoming=6
+200 /human-story/paths/a-life-in-another-life/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-life-in-another-life/ incoming=3
+200 /human-story/paths/a-name-under-pressure/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-name-under-pressure/ incoming=3
+200 /human-story/paths/a-word-crosses-centuries/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-word-crosses-centuries/ incoming=3
+200 /human-story/paul/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paul/ incoming=10
+200 /human-story/perpetua/ noindex canonical=https://biblemap-pink.vercel.app/human-story/perpetua/ incoming=12
+200 /human-story/pliny/ noindex canonical=https://biblemap-pink.vercel.app/human-story/pliny/ incoming=10
+200 /human-story/rashi-radak/ noindex canonical=https://biblemap-pink.vercel.app/human-story/rashi-radak/ incoming=7
+200 /human-story/romanus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/romanus/ incoming=6
+200 /human-story/romanus/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/romanus/reading/ incoming=2
+200 /human-story/sinaiticus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/sinaiticus/ incoming=6
+200 /human-story/singing-in-milan/ noindex canonical=https://biblemap-pink.vercel.app/human-story/singing-in-milan/ incoming=8
+200 /human-story/suetonius/ noindex canonical=https://biblemap-pink.vercel.app/human-story/suetonius/ incoming=5
+200 /human-story/tacitus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/tacitus/ incoming=9
+200 /human-story/teresa/ noindex canonical=https://biblemap-pink.vercel.app/human-story/teresa/ incoming=7
+200 /human-story/testimonium/ noindex canonical=https://biblemap-pink.vercel.app/human-story/testimonium/ incoming=6
+200 /human-story/thomas/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/ incoming=5
+200 /human-story/thomas/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/reading/ incoming=2
+200 /human-story/thomas/sayings/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/sayings/ incoming=5
+200 /human-story/time-and-memory/ noindex canonical=https://biblemap-pink.vercel.app/human-story/time-and-memory/ incoming=6
+200 /human-story/worlds/atlas/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/atlas/ incoming=33
+200 /human-story/worlds/saints/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/saints/ incoming=40
+200 /human-story/worlds/stories/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/stories/ incoming=33
+200 /human-story/worlds/voices/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/voices/ incoming=33
+200 /human-story/worlds/witnesses/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/witnesses/ incoming=33
+200 /jonah/ noindex canonical=https://biblemap-pink.vercel.app/jonah/ incoming=41
+200 /nineveh/ noindex canonical=https://biblemap-pink.vercel.app/nineveh/ incoming=33
+SEO: 45 classified routes; 0 sitemap URLs; 0 errors; 8 observations.
+
+===== seo-final-contract-adversarial.log =====
+
+> next_temp@0.1.0 test:seo-gate
+> node scripts/test-seo-gate.mjs
+
+Rejected: canonical mismatch
+Rejected: robots mismatch
+Rejected: nonexistent/noncanonical internal destination
+Rejected: invalid XML
+Rejected: sitemap/indexability mismatch
+Rejected: invalid JSON-LD
