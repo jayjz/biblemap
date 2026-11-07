@@ -1,6 +1,6 @@
 # Thomas V4.1: sources as encounters
 
-AI-assisted editorial/design draft, 6 November 2026. Human review pending. Branch `feat/thomas-v4-source-immersion` starts at fetched V4 `42a9931e4cc28c5b7965b1b3418e223b98afc54e` and targets `feat/thomas-v4-human-encounter`. Consolidated, main, release settings and creator authorization records are outside scope. Unrelated untracked work is preserved.
+AI-assisted editorial/design draft, 7 November 2026. Human review pending. Branch `feat/thomas-v4-source-immersion` starts at fetched V4 `42a9931e4cc28c5b7965b1b3418e223b98afc54e` and targets `feat/thomas-v4-human-encounter`. Consolidated, main, release settings and creator authorization records are outside scope. Unrelated untracked work is preserved.
 
 ## Browser diagnosis and two rendered directions
 
