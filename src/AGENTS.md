@@ -4,17 +4,20 @@ These instructions extend the repository-root `AGENTS.md` for work under `src/`.
 
 ## Human Experience Goal
 
-Every interaction should answer at least one meaningful human question:
+Every interaction should serve a meaningful narrative purpose. It may answer a question, reveal a source difference, change perspective, deepen attention, or intentionally leave uncertainty unresolved.
 
-- Where did this happen?
-- What changed here?
-- Who traveled?
-- What Scripture describes it?
-- What came before and after?
-- Why does this matter within the biblical narrative?
-- What is historically supported, traditional, disputed, or unknown?
+For a human-story journey, make the person and historical setting understandable before fragmenting the account into scenes. Keep the prose, causality, and transitions coherent from opening to ending. Check whether visitors can distinguish whose voice they encounter and what is historically supported, traditional, disputed, or unknown.
 
-Do not add motion, imagery, sound, text, or controls without identifying their narrative purpose.
+Useful questions include:
+
+- Who is this person, and what can we actually know about them?
+- Where and when did this happen, and what shaped the circumstances?
+- What changed, and what led to the next event?
+- What does Scripture or the surviving primary account actually say?
+- Whose account survives, and where do later interpreters differ?
+- What remains unknown or unresolved?
+
+Do not add motion, imagery, sound, text, or controls without identifying their narrative purpose. Do not force every scene to supply a tidy answer or explanatory panel.
 
 ## Experience Architecture
 
@@ -54,26 +57,8 @@ Adapt this structure to the existing application incrementally. Do not perform a
 
 Visual Direction
 
-Use a restrained cinematic language:
+Choose color, typography, imagery and composition for each narrative. No palette, material treatment or visual medium is mandatory. Make controls legible and reachable, disclose generated imagery, and keep motion purposeful and under visitor control.
 
-Dark terrain and night-sky depth for the map
-Warm illuminated surfaces for Scripture and story panels
-Bronze or amber for active paths and meaningful highlights
-Lapis, Tyrian purple, earth, water, and stone as supporting colors
-Editorial typography that remains readable
-Subtle material texture
-Clear hierarchy between map, narrative, Scripture, and evidence
-
-Avoid:
-
-Generic SaaS dashboards
-Excessive glass panels
-Cyberpunk neon
-Constant particle noise
-Decorative animations without narrative meaning
-AI imagery presented without context
-Tiny low-contrast text
-Controls that obscure the map on mobile
 Story Flight
 
 A guided journey should behave as a sequence of authored scenes.
@@ -99,7 +84,7 @@ Do not autoplay sound before user consent.
 
 Motion
 
-Motion must communicate:
+Motion may communicate, for example:
 
 Travel
 Chronological movement
@@ -165,7 +150,7 @@ archaeological or landscape evidence
 interpretive reconstruction
 A note when the artwork was created much later than the depicted event
 
-Generated media must be labeled Interpretive reconstruction.
+Disclose generated media and its creation method. Label historically specific reconstruction as interpretive; distinguish symbolic artwork from reconstruction.
 
 Art should enhance the emotional or historical context without replacing the biblical text.
 

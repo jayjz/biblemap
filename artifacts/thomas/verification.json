@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-05",
+  "base": "2c119d9e47e96a91f3b1d4607c36c397464a04e4",
+  "runtimeCommit": "e4510b875a5f825c36358516424590a6f8180148",
+  "branch": "feat/thomas-doubt-and-sayings",
+  "preview": "https://biblemap-ltlbsy8jl-elliotandersons-projects.vercel.app/human-story/thomas/",
+  "deployment": "dpl_EKU156pQD7SUvPCd713THefYAhD6",
+  "checks": {
+    "npmCi": { "exit": 0, "lockfileChanged": false },
+    "lint": { "exit": 0, "errors": 0, "existingWarnings": 4 },
+    "typecheck": { "exit": 0 },
+    "staticBuildWithSourceMediaAndExportValidation": { "exit": 0, "routes": 48, "inspectedExportArtifacts": 476 },
+    "unitWithExportCheck": { "exit": 0, "passed": 57, "skipped": 0 },
+    "focusedLocalThomas": { "exit": 0, "passed": 14 },
+    "fullBrowserSuite": { "exit": 0, "passed": 203, "skipped": 1, "skipReason": "Existing mobile legacy explorer desktop-only baseline" },
+    "focusedHostedThomas": { "exit": 0, "passed": 14 },
+    "release": { "exit": 1, "reason": "Unchanged Jonah human-approval and unfinished-author-slot requirements; no release approval" }
+  },
+  "widths": [1440, 768, 390, 320],
+  "captureErrors": [],
+  "documentOverflow": false,
+  "review": "Historical, theological, literary, translation and artistic review pending",
+  "evidenceLimits": [
+    "Axe and browser tests are not a comprehensive accessibility-conformance certification",
+    "No reader study, Coptic/Greek collation or field Web Vitals measurement",
+    "Inline symbolic architecture does not document an ancient building",
+    "Institutional image rights were not cleared; photographs are linked only"
+  ]
+}

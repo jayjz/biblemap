@@ -41,15 +41,7 @@ Immersion must come from coherence, meaning, pacing, sound, geography, and visua
 
 ## Experience Direction
 
-The visual identity should feel like ancient material culture interpreted through a modern cinematic atlas:
-
-- Warm stone, parchment, bronze, lapis, desert night, firelight, and natural earth tones
-- Clear modern typography and navigation
-- Atmospheric depth without sacrificing readability
-- Editorial restraint rather than generic glassmorphism or cyber-neon UI
-- Motion that communicates travel, chronological change, discovery, or theological emphasis
-- Art and sound used at narratively meaningful moments
-- A contemplative pace with immediate user control
+Choose the visual language from the human situation and source material. Palette, typography, medium, composition and transitions are creative choices, not prescribed house styles. Original and generated art, photography, paintings, artifacts, sound and spatial interactions are available when they serve the encounter. Preserve readability, visitor control, provenance and clear distinctions between expression and evidence.
 
 The primary experience modes are:
 
@@ -61,7 +53,7 @@ Do not build three disconnected applications. These are layers of one coherent e
 
 ### Experience-design requirement
 
-Create an opening for recognition, then let Scripture complicate what visitors think they recognize. Recognition is invitation, not interpretation, diagnosis, or confirmation. The first viewport must not predetermine a character’s psychology or the story’s meaning. See `docs/experience-principles.md`.
+Begin with what the visitor needs to understand: the person, the setting, and the nature of the surviving account. Recognition can be a useful opening, especially in Jonah, but is not a required formula for every biblical or historical journey. Allow Scripture and other primary sources to complicate initial assumptions. Do not assign unrecorded psychology or predetermine the story's meaning. Establish a cohesive narrative before dividing it into scenes, and let each scene advance understanding rather than merely illustrate an additional event. See `docs/experience-principles.md` for the Jonah-specific recognition approach and `.agents/skills/biblemap-creative-direction/SKILL.md` for human-story guidance.
 
 ## Current Technical Context
 

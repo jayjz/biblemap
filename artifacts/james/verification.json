@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-11-05",
+  "branch": "feat/james-the-brother-who-remained",
+  "baseCommit": "e92b476729303cf00cf71f409c9cc64841ddf447",
+  "runtimeCommit": "57f30dcca3a3cd7bc2d6b583f21f34383337d6cd",
+  "draftPR": "https://github.com/jayjz/biblemap/pull/39",
+  "routes": ["/human-story/james/", "/human-story/james/reading/"],
+  "lint": { "exitCode": 0, "existingWarnings": 4 },
+  "typecheck": { "exitCode": 0 },
+  "unitTests": { "passed": 51, "skipped": 1, "failed": 0 },
+  "storyAndMediaValidation": { "exitCode": 0, "pinnedJamesQuotations": 3 },
+  "build": { "exitCode": 0, "staticExport": true, "visitorArtifactsInspected": 443 },
+  "fullBrowserSuite": { "exitCode": 0, "passed": 185, "skipped": 1, "failed": 0, "flaky": 0, "evidence": "full-browser-results.json" },
+  "previewBrowserSuite": { "exitCode": 0, "passed": 10, "failed": 0, "evidence": "preview-browser-results.json" },
+  "preview": { "url": "https://biblemap-prwl0omgy-elliotandersons-projects.vercel.app/human-story/james/", "deploymentId": "dpl_AV2dcvqE5YbBhWdhKj6P8WjATNK4", "state": "READY" },
+  "capture": { "exitCode": 0, "widths": [1440, 768, 390, 320], "height": 1000, "evidence": "browser-observations.json" },
+  "humanReview": "pending",
+  "readerComprehensionStudy": "not performed",
+  "productionPromoted": false
+}

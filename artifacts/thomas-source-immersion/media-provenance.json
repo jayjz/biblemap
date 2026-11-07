@@ -1,0 +1,26 @@
+{
+  "edition": "Thomas V4.1 source immersion draft",
+  "date": "2026-11-07",
+  "humanReview": "Historical, theological, literary and artistic review pending",
+  "existingArtwork": {
+    "composition": "interior",
+    "manifest": "public/media/thomas/manifest.json",
+    "change": "Existing derivatives reused in a new CSS crop; no image bytes or original provenance modified.",
+    "purpose": "Atmosphere beside The Voices, explicitly imagined; no speaker, author or copyist portrait, recovered room or witnessed event.",
+    "disclosure": "Visible beside the image and in the unchanged art-provenance disclosure."
+  },
+  "formatDiagrams": {
+    "original": "Thomas V4 original AI-assisted SVG/CSS code, repository MIT license",
+    "file": "src/features/human-story/thomas/ManuscriptForm.tsx",
+    "change": "Original shapes factored into a reusable pure component; no traced or new manuscript photograph.",
+    "purpose": "Codex leaf versus codex collection, not a facsimile, scale drawing, handwriting reproduction or exact loss outline."
+  },
+  "thirdPartyMediaAdded": false,
+  "newPrimaryQuotations": false,
+  "preservedRights": "V4 Greek DCLP/LDAB CC BY 3.0 attribution and English WEB/Mattison public-domain records remain unchanged in the manuscript room and offline pins.",
+  "newBibliographyEntry": {
+    "source": "https://www.nasscal.com/e-clavis-christian-apocrypha/acts-of-thomas/",
+    "author": "Jonathan Henry",
+    "use": "Linked and briefly paraphrased for narrative genre/transmission; no image or edition text imported."
+  }
+}

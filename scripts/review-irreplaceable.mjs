@@ -14,10 +14,15 @@ const bundle = await build({ entryPoints: ['scripts/irreplaceable.tsx'], bundle:
 const files = new Map(bundle.outputFiles.map(file => [`/experiment/${file.path.split(/[\\/]/).at(-1)}`, file.contents]));
 const css = readFileSync('scripts/irreplaceable.css', 'utf8') + '\n' + readFileSync('node_modules/maplibre-gl/dist/maplibre-gl.css', 'utf8');
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>BibleMap · Jonah experiment</title><link rel="stylesheet" href="/experiment/style.css"></head><body><div id="experiment-root"></div><noscript><p>These local interactions require JavaScript. <a href="/jonah/#jonah-3-mercy">Read the complete accessible Scripture reader</a>.</p></noscript><script type="module" src="/experiment/irreplaceable.js"></script></body></html>`;
-const types = { '.html': 'text/html; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.mp4': 'video/mp4' };
+const types = { '.html': 'text/html; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.mp4': 'video/mp4' };
 createServer((request, response) => {
   response.setHeader('Cache-Control', 'no-store');
   const path = new URL(request.url, `http://127.0.0.1:${port}`).pathname;
+  if (path === '/experiment/maplibre-gl-worker.mjs') {
+    response.setHeader('Content-Type', 'text/javascript');
+    response.end(readFileSync('node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs'));
+    return;
+  }
   const depthAsset = depthMedia.assets.find(asset => asset.reviewUrl === path);
   if (depthAsset) {
     // Explicit local-review allowlist. Restricted/unverified images never leave the server.

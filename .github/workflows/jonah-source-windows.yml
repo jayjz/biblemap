@@ -1,14 +1,7 @@
-name: Jonah pinned sources - Windows checkout
+name: Windows compatibility (independent of release identity)
 
 on:
   pull_request:
-    paths:
-      - ".gitattributes"
-      - "src/content/scripture/**"
-      - "artifacts/jonah-image-review/SHA256SUMS"
-      - "scripts/pin-jonah.mjs"
-      - "scripts/validate-jonah-assets.mjs"
-      - ".github/workflows/jonah-source-windows.yml"
   workflow_dispatch:
 
 permissions:
@@ -18,15 +11,25 @@ jobs:
   checkout-portability:
     name: Verify pinned bytes with core.autocrlf=true
     runs-on: windows-2022
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - name: Simulate Windows CRLF checkout defaults
         run: git config --global core.autocrlf true
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: '22.22.3'
       - name: Verify source snapshot and verse/notes extraction
         run: node scripts/pin-jonah.mjs --check
       - name: Verify approved and held artwork manifests
         run: node scripts/validate-jonah-assets.mjs
+      - run: npm ci
+      - run: npm run validate:story
+      - run: npm test
+      - run: npm run test:release
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - name: Windows application compatibility build (digest is not a release identity)
+        run: npm run build

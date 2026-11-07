@@ -1,3 +1,4 @@
+import { collectNetwork, assertNetworkHealthy } from "./network-diagnostics";
 import { test, expect } from "@playwright/test";
 import { JONAH } from "../src/content/jonah";
 import AxeBuilder from "@axe-core/playwright";
@@ -7,21 +8,12 @@ async function openFurther(page: import('@playwright/test').Page) {
   if (await details.getAttribute('open') === null) await details.locator(':scope > summary').click();
 }
 
-test("complete reader-controlled book, history, malformed links, and keyboard focus", async ({ page }, testInfo) => {
+test("complete reader-controlled book, history, malformed links, and keyboard focus", async ({ page, baseURL }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
-  const network: string[] = [];
-  const cancelledNavigations: string[] = [];
-  page.on("requestfailed", request => {
-    // Chrome cancels document navigation/Next HEAD probes when leaving a page.
-    // Record those separately; failures of scripts, CSS, imagery, or data still fail.
-    const message = `${request.method()} ${request.url()}: ${request.failure()?.errorText}`;
-    if (request.failure()?.errorText === "net::ERR_ABORTED" && (request.isNavigationRequest() || request.method() === "HEAD")) cancelledNavigations.push(message);
-    else network.push(message);
-  });
-  page.on("response", response => { if (response.status() >= 400) network.push(`${response.status()} ${response.url()}`); });
+  const { failures: network, cancellations: cancelledNavigations } = collectNetwork(page, baseURL);
   await page.goto("/");
-  await page.getByRole("link", { name: "Begin at Jonah 1:1" }).click();
+  await page.getByRole("link", { name: "Or begin with the book of Jonah" }).click();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("jonah-entry.png"), fullPage: true });
   const displayed: { reference: string; text: string }[] = [];
@@ -32,7 +24,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
     if (index < 3 || scene.id === "jonah-3-mercy" || scene.id === "jonah-4-anger" || scene.id === "jonah-4-question" || scene.id === "jonah-4-shade") {
       await expect(article.locator(".story-question")).toHaveCount(0);
     } else {
-      await expect(article.locator(".story-question")).not.toContainText("Provisional");
+      await expect(article.locator(".story-question")).toContainText("Provisional reading question");
     }
     displayed.push(...await article.locator("[data-reference]").evaluateAll(elements => elements.map(element => ({
       reference: element.getAttribute("data-reference") ?? "",
@@ -44,6 +36,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
     await openFurther(page);
     await article.getByText("Pause with the passage", { exact: false }).click();
     await expect(article.locator(".story-companion[open]")).toContainText(scene.readingGuide?.context ?? "");
+    await expect(article.locator(".story-companion[open]")).toContainText("Commentary awaiting human review, separate from Scripture");
     if (index < JONAH.scenes.length - 1) {
       const next = page.getByRole("link", { name: "Continue" });
       await next.focus(); await page.keyboard.press("Enter");
@@ -58,7 +51,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   await page.goForward(); await expect(page.locator("[data-scene=jonah-4-question]")).toBeVisible();
   await page.getByRole("link", { name: "Return to the stories" }).click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Or begin with the book of Jonah" })).toBeVisible();
   await page.goto("/jonah/#%E0%A4%A");
   await expect(page.locator("[data-scene=jonah-1-calling]")).toBeVisible();
   await page.goto("/jonah/#jonah-1-escape");
@@ -73,7 +66,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   await expect(page.locator("[data-scene=jonah-1-escape]")).toBeVisible();
   expect(errors).toEqual([]);
   await testInfo.attach("navigation-cancellations", { body: JSON.stringify(cancelledNavigations), contentType: "application/json" });
-  expect(network).toEqual([]);
+  assertNetworkHealthy(network);
 });
 
 test("reflection stays in memory and clears on reload and exit", async ({ page }) => {

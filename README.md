@@ -1,59 +1,89 @@
 # BibleMap
 
-**Ancient stories. The human condition. Questions that stay with us.**
+**Scripture. Lives. A connected world.**
 
-BibleMap is a human-authored exploration of Scripture, ancient geography, visual culture, theology and reflection. The aim is discovery rather than telling visitors what to believe.
+BibleMap explores Scripture, place, time, historical accounts and art through an immersive, human-centered experience. Authored and AI-assisted draft material supports the sources; it does not establish historical or theological consensus.
 
-## Experience
+## Production and consolidated preview
 
-- **Nineveh homepage (`/`)** — on [PR #30](https://github.com/jayjz/biblemap/pull/30) pending review: an optional four-beat encounter with Jonah 3:10–4:4, a source-disclosed illustrative city, seventh-century BCE archaeological context, early Christian artwork, and attributed theological voices. It explicitly offers the first chapter before the visitor proceeds. The city image is **interpretive**, not a documented historic view.
-- **[Jonah: The Man Who Ran](/jonah/)** — the complete 48-verse World English Bible book in 13 scenes, with contextual resources, art, accessibility and the unanswered conclusion of Jonah 4:11.
-- **[Atlas](/explore/)** — existing WebGL geographic and chronological exploration; legacy root deep links are preserved.
-- **Exodus** — unfinished development remains separate and must not be deleted.
+`main` still defines the Nineveh entrance. Deployment state must be checked separately: Vercel's latest production-target record is `e92b476` on `feat/home-story-discovery`, **not** the consolidated Thomas branch. See the [readiness addendum](docs/release/readiness-audit-2026-11-05.md#current-addendum--thomas-homepage-integration) for the current domain inspection. Do not infer the live artifact from the branch name or the old README. The public domain is [biblemap-pink.vercel.app](https://biblemap-pink.vercel.app/).
 
-The proposed Nineveh homepage is available to review at [the PR #30 Vercel preview](https://biblemap-git-feat-nineveh-defin-1a3705-elliotandersons-projects.vercel.app/). The production site remains [biblemap-pink.vercel.app](https://biblemap-pink.vercel.app/) until the new PR is approved and merged. Passing CI does not imply historical/editorial publication approval.
+`feat/human-story-consolidated` contains the unified Human Story entrance, retained Nineveh/Jonah/Atlas and draft narratives. PRs [#42](https://github.com/jayjz/biblemap/pull/42), [#43](https://github.com/jayjz/biblemap/pull/43) and the approved Thomas homepage integration [#44](https://github.com/jayjz/biblemap/pull/44) are merged into that lineage at `fbe2608f14ebc6111c71d38d9fe6c01d60170177`. This is not a production release or editorial approval.
 
-## Evidence and media boundaries
+`release/human-story-readiness` prepares an inspectable engineering checkpoint from that merge. It preserves the accepted homepage design and existing stories. See the [checkpoint](docs/release/engineering-checkpoint.md), [publication scope and pending creator decision](docs/release/publication-scope.md), [dependency assessment](docs/release/dependency-security.md) and [read-only Vercel production inspection](docs/release/vercel-production-state.md). The [homepage integration record](docs/thomas-homepage-integration.md) retains the design comparison and evidence. **Production release approval remains blocked.**
 
-The Nineveh opening distinguishes the biblical account, archaeological context, artistic reception, theological interpretation and an original stylized SVG city. Two historical/reception images are bundled for static delivery:
+## Experiences in this preview
 
-- Flood Tablet photograph by Fæ, [CC BY-SA 3.0](public/media/nineveh-depth/README.md), from Nineveh's seventh-century BCE literary culture—not evidence of Jonah's visit or a dating of the book.
-- *Jonah Under the Gourd Vine*, 280–290 CE, [Cleveland Museum of Art, CC0](https://www.clevelandart.org/art/1965.239)—later Christian reception, not Jonah's portrait.
+| Entrance | Experience |
+|---|---|
+| `/`, `/human-story/` | Human Story portal: featured encounters, reading threads, five worlds and searchable readings |
+| `/human-story/perpetua/` | *The Prison*: relationships, the surviving Passion and distinctions between its voices |
+| `/human-story/romanus/` | *The voice they could not silence*: different surviving accounts and later memory |
+| `/human-story/james/` | *The Brother Who Remained*: Jesus's brother through Paul, Acts, Josephus and later accounts |
+| `/human-story/thomas/` | Thomas V3: five cinematic movements through John 20:24–29; absence, testimony, encounter and confession |
+| `/human-story/thomas/reading/` | Complete simple Thomas reading, independent of cinematic imagery |
+| `/human-story/thomas/sayings/` | **Separate** Gospel of Thomas sayings/manuscripts exploration: NHC II,2, Greek fragments, selected sayings 13 and 26, source/dating limits and uncertain authorship. Attribution does not authenticate apostolic authorship. |
+| `/jonah/` | The complete 48-verse World English Bible book in 13 scenes, with context, art and source disclosures |
+| `/nineveh/` | Preserved Nineveh encounter: biblical text, archaeological context, later reception and interpretive city imagery |
+| `/explore/` | Deck.gl/MapLibre geographic and chronological Atlas; legacy root hash/query links remain supported |
 
-Source and reuse records: [Nineveh source ledger](docs/research/nineveh-depth-sources.md), [media manifest](src/features/nineveh/depth-media.json), [homepage code audit](docs/nineveh-homepage-audit-2026-10-25.md). Additional public-domain paintings, maps, original illustration and interpretive reconstructions are welcome when they serve the passage and have verifiable rights. Rights clearance remains a distinct requirement from creative selection.
+Other Human Story readings remain available through Stories, Witnesses, Saints, Atlas and Voices, including Augustine and Genesis in art. **Exodus is unfinished development**: its existing reading/data and source work are preserved, without implying completion or release approval.
+
+## Architecture
+
+Next.js App Router, React and TypeScript produce a static export in `out/`. `RootEntrance` selects the Human Story portal while preserving legacy Nineveh/Atlas deep links. `HumanStoryFrame` shares world navigation. `FeaturedEncounters`, curated reading threads and `ConnectedExplorer` provide entrances into the same content.
+
+`src/content/human-story.ts` assembles a typed, sourced graph validated by `src/domain/human-story.ts`. Standalone journeys can be curated destinations without invented graph entities or connections: Thomas uses this approach. Its cinematic, simple-reading and sayings routes share pinned sources but keep John's narrative distinct from the separately attributed collection. WebGL code stays in the Atlas rather than driving editorial pages.
+
+The existing Python/PostGIS ETL and versioned Parquet/Arrow assets support the Atlas. A production database is not required to build the checked-in static experiences.
+
+## Sources, media and review
+
+Scripture quotations retain translation, references, licensing and pinned source checks. Biblical text, historical evidence, reception, interpretation, disputed inference and reconstruction retain separate identities. Source records and native disclosures preserve the limits of what survives.
+
+Historical artwork, licensed images and original AI-assisted artwork coexist. Thomas V3's generated environments contain **anonymous invented figures**, not authentic portraits of Thomas, Jesus or eyewitnesses. Its [manifest](public/media/thomas/manifest.json) records exact prompts, responsive derivatives, checksums, rights and source limits. Reuse rights do not constitute historical or editorial approval. Modern typeset manuscript reading aids are labeled; they are not ancient facsimiles.
+
+Start with the [Thomas dossier](docs/research/thomas-source-dossier.md), [Human Story sources](docs/research/human-story-sources.md), [Nineveh ledger](docs/research/nineveh-depth-sources.md) and [Nineveh media records](public/media/nineveh-depth/README.md). The software license does not override upstream rights.
 
 ## Development
 
-Next.js App Router, React/TypeScript and static export, with Deck.gl/MapLibre for the existing atlas. Use Node 22 compatible with the lockfile.
+CI uses Node **22.22.3**; the homepage integration was also checked locally on Node **24.22.2**. Use the committed lockfile with npm.
 
 ```bash
 npm ci
-npm run dev
-# To test the deployable static output:
-npm run build
-npm run preview
+npm run dev             # Next.js development server
+npm run build           # source/media gates, static export, visitor-boundary validation
+npm run preview         # serve out/ on http://127.0.0.1:4189
 ```
 
-The old `/experiments/nineveh/` route remains opt-in for archival local review; its AI-generated matte painting is intentionally not part of the public static export. Do **not** enable `BIBLEMAP_NINEVEH_REVIEW=1` in production.
+`npm run start` exists but invokes `next start`, which is unsuitable for this static-export configuration; use `npm run preview` for the built artifact.
 
 ## Verification
 
 ```bash
 npm run validate:story
 npm run validate:media
-npm test
 npm run lint
-npm run typecheck
+npx tsc --noEmit        # npm run typecheck is also supported
+npm run test
 npm run build
+npm run validate:export
 npm run test:e2e
+npm run validate:release
 ```
 
-CI also runs a separate gated Nineveh review-mode build and browser suite. The normal build validates that the homepage, rights-cleared images, and exported file checksums exist without publishing the old generated artwork. `npm run validate:release` intentionally remains stricter about unfinished human-authored copy and editorial claims.
+Build before browser tests; Playwright serves `out/` automatically. Install Chromium when absent with `npx playwright install chromium`, or set `CHROME_PATH` to an installed Chrome executable. `PLAYWRIGHT_PORT` changes the local port; `PLAYWRIGHT_BASE_URL` targets an existing preview. Set `BIBLEMAP_VERIFY_EXPORT=1` before `npm run test` to enable the additional export unit check (PowerShell: `$env:BIBLEMAP_VERIFY_EXPORT='1'`).
 
-## Contributing and editorial control
+CI retains a **separate opt-in Nineveh review build and browser suite** (`BIBLEMAP_NINEVEH_REVIEW=1`, then `PLAYWRIGHT_REVIEW_SERVER=1 npm run test:e2e`). Its local-only image/CI fixture setup is in [the workflow](.github/workflows/jonah-ci.yml). Do not enable that review flag in production. Ordinary export validation excludes its experimental imagery.
 
-Start with [AGENTS.md](AGENTS.md), [experience principles](docs/experience-principles.md), and the [research](docs/research/) catalog. Preserve Exodus, the complete Jonah reader, accessibility, content provenance, and honest uncertainty. Creator authority over storytelling, theology and visual direction is final. New features should be reviewable in isolated PRs.
+Technical checks are narrower than publication approval. `validate:release` now runs source/media/visitor-boundary checks and then requires a creator-recorded decision for the exact source digest, complete artifact digest, routes and accepted limitations. It remains blocked while that decision is pending. Private Jonah author fields and unclassified graph records are excluded before rendering; `npm run test:export-boundary` injects private fixtures and scans the actual export. Complete and provisional companions have separate maturity states; internal/experimental companions cannot serialize. No scene approval or CI result supplies publication authority.
+
+The ordinary candidate still exposes the existing provisional readings, unfinished Exodus and directly retrievable media pending the creator's scope decision. **Noindex is not access control.** The [all-file export inventory](artifacts/release-readiness/export-inventory.json) records those surfaces. Production-target builds fail closed; this does not authorize promoting a review preview. The [verification history](docs/release/verification-history.md) retains actual failures and corrections. The dependency set is frozen at this checkpoint; unresolved audit findings remain documented.
+
+## Contributing
+
+Read [AGENTS.md](AGENTS.md), applicable nested instructions and [experience principles](docs/experience-principles.md). Preserve provenance, uncertainty, keyboard access, reduced motion, responsive behavior and unfinished Exodus work. Creator approval of the precise public scope remains pending. Historical reports retain their original results and are superseded explicitly.
 
 ## License
 
-See [LICENSE](LICENSE). The repository's software license does not override Scripture, artwork, historical-source or third-party data rights.
+See [LICENSE](LICENSE). Scripture, data, artwork and other sources retain their own rights and reuse requirements.

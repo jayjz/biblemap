@@ -1,0 +1,42 @@
+{
+  "license": "OFL-1.1",
+  "revision": "86aced91de05cd4f96a06838124cca45be337b2b",
+  "files": [
+    {
+      "path": "Geist.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/86aced91de05cd4f96a06838124cca45be337b2b/ofl/geist/Geist%5Bwght%5D.ttf",
+      "bytes": 169056,
+      "checksum": "sha256:73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659"
+    },
+    {
+      "path": "Geist-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/86aced91de05cd4f96a06838124cca45be337b2b/ofl/geist/OFL.txt",
+      "bytes": 4387,
+      "checksum": "sha256:1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+    },
+    {
+      "path": "GeistMono.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/86aced91de05cd4f96a06838124cca45be337b2b/ofl/geistmono/GeistMono%5Bwght%5D.ttf",
+      "bytes": 171948,
+      "checksum": "sha256:d00e590b8eb3a59acc329b2d044fd143ae935090b7da33199ebee27cc7de8196"
+    },
+    {
+      "path": "GeistMono-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/86aced91de05cd4f96a06838124cca45be337b2b/ofl/geistmono/OFL.txt",
+      "bytes": 4387,
+      "checksum": "sha256:1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+    },
+    {
+      "path": "PlayfairDisplay.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/86aced91de05cd4f96a06838124cca45be337b2b/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+      "bytes": 300724,
+      "checksum": "sha256:c40f2293766a503bc70cce9e512ef844a4ccb7cbcde792fe2ea31d191917d8d6"
+    },
+    {
+      "path": "PlayfairDisplay-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/86aced91de05cd4f96a06838124cca45be337b2b/ofl/playfairdisplay/OFL.txt",
+      "bytes": 4449,
+      "checksum": "sha256:566be814f8e96e93dfa16101331557eb6b5467e9e03f627c0910fe93ca12300e"
+    }
+  ]
+}

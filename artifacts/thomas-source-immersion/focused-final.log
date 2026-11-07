@@ -1,0 +1,49 @@
+node.exe : [WebServer] (node:12600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 32 tests using 1 worker
+
+(node:19508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\thomas-sources.spec.ts:5:5 › source encounters connect narrative, documents and later traditions without a bibliography gate (2.8s)
+  ok  2 [desktop] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text (746ms)
+  ok  3 [desktop] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 1440px (806ms)
+  ok  4 [desktop] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 768px (776ms)
+  ok  5 [desktop] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 390px (785ms)
+  ok  6 [desktop] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 320px (761ms)
+  ok  7 [desktop] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (3.2s)
+  ok  8 [desktop] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (901ms)
+  ok  9 [desktop] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (701ms)
+  ok 10 [desktop] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (792ms)
+  ok 11 [desktop] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (914ms)
+  ok 12 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 13 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 14 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 15 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok 16 [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (2.8s)
+(node:10764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 17 [mobile] › tests\thomas-sources.spec.ts:5:5 › source encounters connect narrative, documents and later traditions without a bibliography gate (2.8s)
+  ok 18 [mobile] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text (744ms)
+  ok 19 [mobile] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 1440px (996ms)
+  ok 20 [mobile] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 768px (869ms)
+  ok 21 [mobile] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 390px (782ms)
+  ok 22 [mobile] › tests\thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 320px (774ms)
+  ok 23 [mobile] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (3.2s)
+  ok 24 [mobile] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (1.1s)
+  ok 25 [mobile] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (691ms)
+  ok 26 [mobile] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (794ms)
+  ok 27 [mobile] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (938ms)
+  ok 28 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.3s)
+  ok 29 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.3s)
+  ok 30 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.5s)
+  ok 31 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.5s)
+  ok 32 [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (3.5s)
+
+  32 passed (47.3s)

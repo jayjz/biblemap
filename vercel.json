@@ -2,7 +2,21 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "feat/root-routing-explore-20261027": false
+      "main": false,
+      "feat/root-routing-explore-20261027": false,
+      "feat/human-story-portal": false
     }
-  }
+  },
+  "trailingSlash": true,
+  "cleanUrls": true,
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "out",
+  "installCommand": "npm ci",
+  "routes": [
+    {
+      "src": "^/404(?:\\.html)?/?$",
+      "status": 404
+    }
+  ]
 }

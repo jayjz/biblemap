@@ -1,0 +1,294 @@
+[
+  {
+    "width": 1440,
+    "manuscript": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "elements": []
+    },
+    "blocked": [
+      {
+        "id": "absent",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 1699.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "unless",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 1699.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "eight-days",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 1699.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "confession",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 1699.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "not-seen",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "elements": []
+      }
+    ],
+    "enlarged": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "elements": []
+    }
+  },
+  {
+    "width": 768,
+    "manuscript": {
+      "width": 768,
+      "scrollWidth": 768,
+      "elements": []
+    },
+    "blocked": [
+      {
+        "id": "absent",
+        "width": 768,
+        "scrollWidth": 768,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 906.239990234375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "unless",
+        "width": 768,
+        "scrollWidth": 768,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 906.239990234375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "eight-days",
+        "width": 768,
+        "scrollWidth": 768,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 906.239990234375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "confession",
+        "width": 768,
+        "scrollWidth": 768,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 906.239990234375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "not-seen",
+        "width": 768,
+        "scrollWidth": 768,
+        "elements": []
+      }
+    ],
+    "enlarged": {
+      "width": 768,
+      "scrollWidth": 768,
+      "elements": []
+    }
+  },
+  {
+    "width": 390,
+    "manuscript": {
+      "width": 390,
+      "scrollWidth": 390,
+      "elements": []
+    },
+    "blocked": [
+      {
+        "id": "absent",
+        "width": 390,
+        "scrollWidth": 390,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 460.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "unless",
+        "width": 390,
+        "scrollWidth": 390,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 460.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "eight-days",
+        "width": 390,
+        "scrollWidth": 390,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 460.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "confession",
+        "width": 390,
+        "scrollWidth": 390,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 460.199951171875,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "not-seen",
+        "width": 390,
+        "scrollWidth": 390,
+        "elements": []
+      }
+    ],
+    "enlarged": {
+      "width": 390,
+      "scrollWidth": 390,
+      "elements": []
+    }
+  },
+  {
+    "width": 320,
+    "manuscript": {
+      "width": 320,
+      "scrollWidth": 320,
+      "elements": []
+    },
+    "blocked": [
+      {
+        "id": "absent",
+        "width": 320,
+        "scrollWidth": 320,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 377.5999755859375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "unless",
+        "width": 320,
+        "scrollWidth": 320,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 377.5999755859375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "eight-days",
+        "width": 320,
+        "scrollWidth": 320,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 377.5999755859375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "confession",
+        "width": 320,
+        "scrollWidth": 320,
+        "elements": [
+          {
+            "tag": "IMG",
+            "class": null,
+            "width": 377.5999755859375,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "id": "not-seen",
+        "width": 320,
+        "scrollWidth": 320,
+        "elements": []
+      }
+    ],
+    "enlarged": {
+      "width": 320,
+      "scrollWidth": 320,
+      "elements": []
+    }
+  }
+]

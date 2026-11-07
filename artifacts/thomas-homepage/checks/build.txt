@@ -1,0 +1,141 @@
+
+> next_temp@0.1.0 prebuild
+> node scripts/split_parquet.js && npm run validate:story
+
+node.exe : (node:22184) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/scripts/split_parquet.js is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:22184) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)
+✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)
+✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)
+✓ epoch-3-kings.parquet: 188 rows (Exile & Return)
+✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)
+✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)
+✓ Validated 6 chunks, 2917 rows
+
+> next_temp@0.1.0 validate:story
+> node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+James: 3 Scripture quotations match retained publisher snapshots.
+Thomas: 19 WEB verses and sayings 13/26 match retained public-domain source excerpts.
+(node:7324) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Jonah content validates in author-review mode; release requires human authorship and approval
+
+> next_temp@0.1.0 validate:media
+> node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts
+
+✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
+(node:5396) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as
+CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced
+(node:8880) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ interior quotations resolve to an edition with a locator and reuse statement (1.0299ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (10.1305ms)
+(node:3600) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (1.2374ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (5.9974ms)
+(node:11040) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-human-experience/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (17.8193ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 282.7992
+
+> next_temp@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.1.6 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 5.7s
+  Running TypeScript ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/48) ...
+  Generating static pages using 11 workers (12/48)
+  Generating static pages using 11 workers (24/48)
+  Generating static pages using 11 workers (36/48)
+✓ Generating static pages using 11 workers (48/48) in 942.2ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /demo
+├ ○ /experiments/nineveh
+├ ○ /explore
+├ ○ /human-story
+├ ● /human-story/[entry]
+│ ├ /human-story/james
+│ ├ /human-story/romanus
+│ ├ /human-story/time-and-memory
+│ └ [+22 more paths]
+├ ○ /human-story/james/reading
+├ ● /human-story/paths/[path]
+│ ├ /human-story/paths/a-word-crosses-centuries
+│ ├ /human-story/paths/a-name-under-pressure
+│ └ /human-story/paths/a-life-in-another-life
+├ ○ /human-story/romanus/reading
+├ ○ /human-story/thomas
+├ ○ /human-story/thomas/reading
+├ ○ /human-story/thomas/sayings
+├ ● /human-story/worlds/[world]
+│ ├ /human-story/worlds/stories
+│ ├ /human-story/worlds/witnesses
+│ ├ /human-story/worlds/saints
+│ └ [+2 more paths]
+├ ○ /jonah
+└ ○ /nineveh
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> next_temp@0.1.0 postbuild
+> npm run validate:export
+
+
+> next_temp@0.1.0 validate:export
+> node --experimental-strip-types scripts/validate-visitor-export.ts
+
+(node:2948) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/scripts/validate-visitor-export.ts is not specified and it doesn't parse as
+CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Visitor boundary: 477 HTML/RSC/JS/JSON and alternate text artifacts inspected; private editorial probes absent; all 48 WEB verses and provisional qualifications retained. Publication approval is still required.

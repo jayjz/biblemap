@@ -1,0 +1,206 @@
+[
+  {
+    "width": 1440,
+    "url": "http://127.0.0.1:4198/human-story/perpetua/#perpetua-handover",
+    "scenes": [
+      {
+        "id": "child",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -63.8125,
+          "width": 1440,
+          "height": 1067.453125
+        }
+      },
+      {
+        "id": "tribunal",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -64.8125,
+          "width": 1440,
+          "height": 1782.53125
+        }
+      },
+      {
+        "id": "separation",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -64.8125,
+          "width": 1440,
+          "height": 1464.546875
+        }
+      },
+      {
+        "id": "vision",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -64.8125,
+          "width": 1440,
+          "height": 1788.3125
+        }
+      },
+      {
+        "id": "felicity",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -64.8125,
+          "width": 1440,
+          "height": 1365.734375
+        }
+      },
+      {
+        "id": "handover",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -64.8125,
+          "width": 1440,
+          "height": 2922.5
+        }
+      }
+    ],
+    "errors": [],
+    "failures": []
+  },
+  {
+    "width": 390,
+    "url": "http://127.0.0.1:4198/human-story/perpetua/#perpetua-handover",
+    "scenes": [
+      {
+        "id": "child",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -47.890625,
+          "width": 390,
+          "height": 1317.6875
+        }
+      },
+      {
+        "id": "tribunal",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.890625,
+          "width": 390,
+          "height": 2098.71875
+        }
+      },
+      {
+        "id": "separation",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.890625,
+          "width": 390,
+          "height": 1743.03125
+        }
+      },
+      {
+        "id": "vision",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.890625,
+          "width": 390,
+          "height": 1979.640625
+        }
+      },
+      {
+        "id": "felicity",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.890625,
+          "width": 390,
+          "height": 2071.4375
+        }
+      },
+      {
+        "id": "handover",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.890625,
+          "width": 390,
+          "height": 3145.390625
+        }
+      }
+    ],
+    "errors": [],
+    "failures": []
+  },
+  {
+    "width": 320,
+    "url": "http://127.0.0.1:4198/human-story/perpetua/#perpetua-handover",
+    "scenes": [
+      {
+        "id": "child",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -47.390625,
+          "width": 320,
+          "height": 1480.828125
+        }
+      },
+      {
+        "id": "tribunal",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.390625,
+          "width": 320,
+          "height": 2382.3125
+        }
+      },
+      {
+        "id": "separation",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.390625,
+          "width": 320,
+          "height": 1828.453125
+        }
+      },
+      {
+        "id": "vision",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.390625,
+          "width": 320,
+          "height": 2140.109375
+        }
+      },
+      {
+        "id": "felicity",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.390625,
+          "width": 320,
+          "height": 2267.015625
+        }
+      },
+      {
+        "id": "handover",
+        "overflow": false,
+        "box": {
+          "x": 0,
+          "y": -48.390625,
+          "width": 320,
+          "height": 3213.40625
+        }
+      }
+    ],
+    "errors": [],
+    "failures": []
+  }
+]

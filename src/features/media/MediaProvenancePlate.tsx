@@ -7,9 +7,11 @@ import {
   publicationFlags,
   type CuratedMediaAsset,
 } from "@/domain/media";
+import type { VisitorMedia } from "@/domain/visitor-media";
 
-export function MediaProvenancePlate({ asset }: { asset: CuratedMediaAsset }) {
+export function MediaProvenancePlate({ asset }: { asset: CuratedMediaAsset | VisitorMedia }) {
   const interpretive = isInterpretiveClass(asset.class);
+  const flags = "publication" in asset ? asset.publication.flags : publicationFlags(asset);
 
   return (
     <section
@@ -46,7 +48,7 @@ export function MediaProvenancePlate({ asset }: { asset: CuratedMediaAsset }) {
         </a> : <span>Source URL not recorded</span>}
         <span className="text-stone-500">{asset.license?.trim() || "Rights not recorded"}</span>
       </div>
-      {publicationFlags(asset).includes("license-unverified") && <p className="mt-1.5 text-[10px] leading-relaxed text-stone-500">Recorded license claim, not a verified clearance.</p>}
+      {flags.includes("license-unverified") && <p className="mt-1.5 text-[10px] leading-relaxed text-stone-500">Recorded license claim, not a verified clearance.</p>}
       <p className="mt-1.5 text-[10px] leading-relaxed text-stone-500">{asset.requiredAttribution?.trim() || "Attribution not recorded"}</p>
       {asset.rightsStatement?.trim() && <p className="mt-1.5 text-[10px] leading-relaxed text-stone-500">{asset.rightsStatement}</p>}
     </section>

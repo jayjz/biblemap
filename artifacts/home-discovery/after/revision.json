@@ -1,0 +1,18 @@
+{
+  "capturedAt": "2026-11-05T00:01:52.149Z",
+  "sourceHead": "b452100c3e14428419ab3662449794a6b312cd96",
+  "buildId": "b452100",
+  "sha256": {
+    "HumanStoryHome.tsx": "20c5e9170e8467c95c49597f3ecfcb3c978f858be73a4ab10039bd8e7c647f4d",
+    "FeaturedEncounters.tsx": "07d1b2c3cb6c7d286d2db520b183e5c28e13ff83ccdf9e291440f2270b160567",
+    "ConnectedExplorer.tsx": "265d577b68350576ddc1a15138a3b974533aaa7fccf5cd6cdcd1b9f64da7a0d4",
+    "EntryCards.tsx": "d21deb9ef50ce4cd3e354833faf9def84fbd4ac89734b1db9fb22d14bedc165f",
+    "PathPreview.tsx": "a9ee676e7acd1eac87fc9ecb495e98a450eb822681f8c928c0b294f04bc13d10",
+    "WorldOpening.tsx": "75f896693e52a14cc6faa6375db3f13fba3fe10062b633d606f129430f6d6b35",
+    "InteriorEncounters.tsx": "618f9ff5dafe5c71f244a9c79b996ef935accdf3aced43be4a9a8c312543dfe6",
+    "human-story.module.css": "f75b4293c00bab9a0d8a8cda56ed1e22837c65be4f97c6875481b57ed13ade7b",
+    "interior.module.css": "44fa8c12aa727d459146f809473b92e2ca826583278a8ed9222eafcc69b50308",
+    "discovery.module.css": "2bd02cb15f824fe4c2db88a9f42eccbae2ffe2a656d88e170a216871d5d3e3ce",
+    "action-link.module.css": "09e554736637330a10bd6b4aee906143d341b0c1e126d9fecbf2a584350ed17d"
+  }
+}

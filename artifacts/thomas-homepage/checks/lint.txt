@@ -1,0 +1,14 @@
+
+> next_temp@0.1.0 lint
+> eslint
+
+
+C:\Dev\biblemap-human-experience\scripts\validate-nineveh-depth.mjs
+  4:10  warning  'basename' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx
+   35:7   warning  'POINTS_URL' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  659:10  warning  'haversineDistance' is defined but never used     @typescript-eslint/no-unused-vars
+  669:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 4 problems (0 errors, 4 warnings)

@@ -1,0 +1,45 @@
+{
+  "reviewedBase": "207f395a669a2bf87182ef80de6d7dca669e000c",
+  "branch": "feat/human-story-portal",
+  "scope": "Human Story world interiors, selected Perpetua scene, Pliny and Augustine encounters, source and image records; homepage source files unchanged",
+  "checks": [
+    { "command": "npm ci", "exitCode": 0, "result": "554 packages installed; 45 existing dependency advisories reported; no dependency or lockfile changes" },
+    { "command": "npm run lint", "exitCode": 0, "result": "0 errors; 4 existing warnings in unchanged DataLoader.tsx and validate-nineveh-depth.mjs" },
+    { "command": "npm run typecheck", "exitCode": 0 },
+    { "command": "npm run build", "exitCode": 0, "result": "40 static pages generated; pinned Scripture and existing/new media checks passed" },
+    { "command": "npm run test", "exitCode": 0, "passed": 33, "failed": 0 },
+    { "command": "CHROME_PATH=<installed Chrome> npm run test:e2e", "exitCode": 0, "passed": 111, "skipped": 1, "failed": 0, "duration": "3.4 minutes", "projects": ["desktop", "mobile"] },
+    { "command": "node scripts/validate-nineveh-depth.mjs --production-export", "exitCode": 0, "result": "Ordinary export/media boundaries preserved; experimental image excluded" },
+    { "command": "node artifacts/human-story-interiors/tour.mjs", "exitCode": 0, "result": "11 visits; 5 in-place interaction observations; zero console/page errors, failed requests, HTTP errors or recorded overflows" },
+    { "command": "git diff --check", "exitCode": 0 }
+  ],
+  "newBehaviorCoverage": [
+    "Keyboard-operated Pliny/Trajan comparison retains focus and page location",
+    "Perpetua sections 3 and 6 compare without changing scene/hash",
+    "New comparisons and image-source details work with JavaScript disabled",
+    "Blocked Augustine image retains reading, caption and provenance",
+    "Axe WCAG 2.2-tagged checks, 320px layout, reduced motion",
+    "Existing all-world 200% text and reading-room checks",
+    "Existing Perpetua deep links, history/focus, relationships and no-JS reading"
+  ],
+  "sourceVerification": {
+    "method": "Compare displayed historical excerpts with independently retrieved edition text after whitespace normalization and removal of footnote markers",
+    "matched": ["pliny", "trajan", "trajanRepentance", "augustine", "childEarlier", "childSeparation"],
+    "disclosedCorrection": "Wallis electronic transcription: no long -> no [longer]"
+  },
+  "preservedUserFile": {
+    "path": "next-env.d.ts",
+    "sha256BeforeAndAfter": "4e4da12aa061aac172fb1bcb48e9b6e4b293080d2f494327925fdba8f39632ac"
+  },
+  "notClaimed": [
+    "Empirical reader engagement or emotional outcomes",
+    "Human approval of new editorial copy",
+    "Production deployment or merge",
+    "Opt-in experimental Nineveh browser suite (unchanged and outside this enhancement)"
+  ],
+  "executionNotes": [
+    "Windows sandbox blocked some Node/browser subprocesses with EPERM; affected checks were rerun with authorized process permissions and passed",
+    "Focused development check found a duplicate Perpetua text locator; redundant summary wording was removed before the successful full regression run",
+    "Browser capture helper converted to ES module after lint flagged CommonJS imports; final lint and the saved helper both passed"
+  ]
+}

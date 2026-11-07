@@ -1,0 +1,13 @@
+{
+  "skipFocused": true,
+  "mainFocused": true,
+  "focus": {
+    "visible": true,
+    "outline": "rgb(255, 255, 255) solid 3px",
+    "shadow": "rgb(21, 52, 73) 0px 0px 0px 7px"
+  },
+  "selectionFocused": true,
+  "selectionRestored": true,
+  "emptyVisible": true,
+  "fallbackCount": 2
+}

@@ -1,0 +1,13 @@
+{
+  "installed": "6.16.0",
+  "locked": "6.16.0",
+  "modules": [
+    {
+      "path": "_next/static/media/maplibre-gl-worker.fef80f35.mjs",
+      "bytes": 519372,
+      "checksum": "sha256:0bf06492bdb7ba3d4132b78e435621bfba60d5250967991c02b1a73affea8cd5",
+      "imports": []
+    }
+  ],
+  "limitation": "Static module dependency closure; optional nonliteral worker plugin imports are not used by BibleMap. Browser tests separately exercise source processing and network responses."
+}

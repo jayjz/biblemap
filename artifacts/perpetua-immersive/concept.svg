@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Facing passages: a contemporary reading surface</title>
+  <desc id="desc">Design sketch. A dark plum margin holds the scene title and source attribution. A pale lilac reading area brings the earlier and later passages together. This is a UI concept, not a manuscript facsimile.</desc>
+  <rect width="1200" height="640" fill="#291c32"/>
+  <rect x="445" y="28" width="727" height="584" rx="2" fill="#ede8f0"/>
+  <g fill="#ede8f0" font-family="Arial, sans-serif" font-size="16">
+    <text x="52" y="74">The Prison</text><text x="52" y="145">Account attributed to Perpetua</text>
+    <text x="52" y="427">Passion §6, after the sentence</text>
+    <text x="52" y="460">Inspect this passage</text>
+  </g>
+  <g fill="#f9f6fa" font-family="Georgia, serif" font-size="68">
+    <text x="52" y="230">She asks</text><text x="52" y="305">for her child.</text>
+  </g>
+  <g fill="#35243f" font-family="Arial, sans-serif" font-size="16">
+    <text x="492" y="83">Earlier · §3</text><text x="492" y="282">After the sentence · §6</text>
+    <text x="492" y="545">Read the earlier passage alongside this one</text>
+    <text x="492" y="584">R. E. Wallis, 1885 · public domain</text>
+  </g>
+  <g fill="#35243f" font-family="Georgia, serif" font-size="25">
+    <text x="492" y="133">“…I obtained for my infant to remain</text>
+    <text x="492" y="172">in the dungeon with me…”</text>
+    <text x="492" y="333">“…I send Pomponius the deacon to my</text>
+    <text x="492" y="372">father to ask for the infant, but my father</text>
+    <text x="492" y="411">would not give it him.”</text>
+    <text x="492" y="475">“And even as God willed it…”</text>
+  </g>
+  <path d="M492 221h630" stroke="#665471"/>
+  <text x="52" y="580" fill="#c5ac73" font-family="Arial, sans-serif" font-size="15">Modern composition sketch · excerpts abbreviated here</text>
+</svg>

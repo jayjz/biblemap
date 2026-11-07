@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "container": "node:22.22.3-bookworm@sha256:46e94f8cf91baab69a2deb3153e74eeffd73c20c7cc1d8432f5b96469eaa0322",
+  "node": "v22.22.3",
+  "npm": "10.9.8",
+  "platform": "linux",
+  "architecture": "x64",
+  "repository": "jayjz/biblemap",
+  "workflow": ".github/workflows/canonical-release.yml",
+  "projectId": "prj_xKJkC8WBUusxhsDXO4jjcJ7zlc2m",
+  "teamId": "team_xtntWPJwjGlK9FNNQy9sGESp",
+  "vercelCli": "65.2.0",
+  "environment": {
+    "NODE_ENV": "production",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "TZ": "UTC",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "BIBLEMAP_PUBLICATION_MODE": "review",
+    "BIBLEMAP_REPORT_DIR": "release-candidate/reports"
+  }
+}

@@ -298,7 +298,7 @@ export function mediaClassLabel(mediaClass: MediaClass): string {
  * A later painting can illuminate reception history. It cannot establish
  * what an ancient event looked like.
  */
-export function laterCreationDisclaimer(asset: CuratedMediaAsset): string | null {
+export function laterCreationDisclaimer(asset: Pick<CuratedMediaAsset, "class" | "creationDate" | "depictedPeriod">): string | null {
   if (!isInterpretiveClass(asset.class)) return null;
   return `Created ${asset.creationDate}; depicts ${asset.depictedPeriod}. This is ${mediaClassLabel(asset.class).toLowerCase()}, not archaeological evidence of the event.`;
 }

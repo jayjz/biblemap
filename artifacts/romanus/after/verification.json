@@ -1,0 +1,47 @@
+{
+  "head": "d0709d20440d0d15213df654228233587ce237d0",
+  "buildId": "d0709d2",
+  "sourceHashes": {
+    "src/content/romanus.ts": "bfc6a88525a608050ececd8196de5340fa83aef16f464fc6e14f60b63545635a",
+    "src/features/human-story/romanus/RomanusEncounter.tsx": "d30dd7d0bf25b7a06825348bd42d99f74440e516c02345dedc31e405e7f7ef83",
+    "src/features/human-story/romanus/romanus.module.css": "876452c825f4ca266307586518b1a1d16768e6899554858c97935379a40550b6"
+  },
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4199/media/romanus/daphne-mosaic.webp",
+          "loaded": true
+        }
+      ],
+      "contrast": {
+        "color": "rgb(48, 39, 53)",
+        "background": "rgb(239, 237, 241)"
+      },
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4199/media/romanus/daphne-mosaic-small.webp",
+          "loaded": true
+        }
+      ],
+      "contrast": {
+        "color": "rgb(48, 39, 53)",
+        "background": "rgb(239, 237, 241)"
+      },
+      "errors": [],
+      "failures": []
+    }
+  ]
+}

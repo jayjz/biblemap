@@ -1,0 +1,24 @@
+[
+  {
+    "width": 1440,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "errors": [
+      "http://127.0.0.1:4197/human-story/james/?_rsc=1fvgy: net::ERR_ABORTED"
+    ],
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "errors": [],
+    "overflow": false
+  }
+]

@@ -18,6 +18,9 @@ node_modules/
 # Build outputs
 .next/
 out/
+.vercel/
+release-candidate/
+canonical-release.tgz*
 dist/
 build/
 *.tsbuildinfo

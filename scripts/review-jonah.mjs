@@ -10,7 +10,7 @@ const root = new URL("../", import.meta.url);
 const port = Number(process.env.JONAH_REVIEW_PORT ?? 4190);
 const host = process.env.JONAH_REVIEW_HOST ?? "127.0.0.1";
 if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error("Invalid JONAH_REVIEW_PORT");
-if (host !== "127.0.0.1" && host !== "::1" && host !== "0.0.0.0") throw new Error("JONAH_REVIEW_HOST must be loopback, or 0.0.0.0 for an explicit local preview");
+if (host !== "127.0.0.1" && host !== "::1") throw new Error("JONAH_REVIEW_HOST must be loopback; this workspace has no access control for network publication");
 const bundle = await build({ entryPoints: [fileURLToPath(new URL("scripts/jonah-review.tsx", root))], bundle: true, write: false, jsx: "automatic", define: { "process.env.NODE_ENV": '"production"', "process.env": "{}" } });
 const escapeHtml = value => String(value).replace(/[&<>"\']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
 const localCss = `body{margin:0;background:#131d20;color:#f1eadb;font:18px/1.6 Georgia,serif}a{color:#d8be8b}.local-review-banner{padding:1rem 4%;font:14px/1.6 Arial;background:#352f23}main.gallery{max-width:1100px;margin:auto;padding:2rem} .gallery figure{margin:3rem 0;padding:1rem;border-top:1px solid #65716a}.gallery img{display:block;max-width:100%;max-height:75vh;object-fit:contain;margin:auto}.gallery figcaption{padding:1rem 0}.gallery small{display:block}.gallery code{overflow-wrap:anywhere;font-size:12px}`;

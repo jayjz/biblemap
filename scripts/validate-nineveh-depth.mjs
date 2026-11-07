@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { basename } from 'node:path';
 import { mayReviewDepthImage } from '../src/domain/nineveh-depth-media.ts';
 
 // 2026-10-25: Verify identical, rights-cleared image bytes in research and public export.
@@ -31,8 +30,9 @@ if (process.argv.includes('--production-export')) {
   }
   assert.ok(!exported.some(file => /nineveh-landscape|review-assets/.test(file)), 'Unreviewed landscape or review assets reached public export');
   const homepage = readFileSync('out/index.html', 'utf8');
-  assert.ok(homepage.includes('nineveh-heading'), 'Public homepage must contain the Nineveh encounter');
-  const experiment = readFileSync('out/experiments/nineveh/index.html', 'utf8');
-  assert.ok(!experiment.includes('nineveh-heading'), 'Ordinary build must keep the old experiment gated');
+  assert.ok(homepage.includes('id="portal-title"'), 'Homepage must contain the Human Story entrance');
+  const nineveh = readFileSync('out/nineveh/index.html', 'utf8');
+  assert.ok(nineveh.includes('nineveh-heading') && nineveh.includes('data-published="true"'), 'Dedicated Nineveh route must preserve the published encounter');
+  assert.ok(!existsSync('out/experiments/nineveh/index.html'), 'Ordinary export must omit the excluded experimental route, not serve a soft-404 HTML file');
 }
-console.log(`✓ Nineveh: ${manifest.assets.length} rights-verified images in static media; checksums and original/reproduction separation enforced${process.argv.includes('--production-export') ? '; homepage active; experimental image excluded' : ''}`);
+console.log(`✓ Nineveh: ${manifest.assets.length} rights-verified images in static media; checksums and original/reproduction separation enforced${process.argv.includes('--production-export') ? '; Human Story homepage and Nineveh route active; experimental image excluded' : ''}`);

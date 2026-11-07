@@ -1,0 +1,32 @@
+[
+  {
+    "id": "family",
+    "reference": "Mark 6:3",
+    "text": "Isn’t this the carpenter, the son of Mary and brother of James, Joses, Judah, and Simon? Aren’t his sisters here with us?” So they were offended at him.",
+    "file": "james-web-mark-6.html",
+    "sourceUrl": "https://ebible.org/engwebp/MRK06.htm",
+    "sourceVersion": "engwebp publisher snapshot 2026-11-04",
+    "rights": "Public domain",
+    "checksum": "sha256:e3acfc5fa3bcf98a0a972ff7135d0ddd36241681dcb7101b9d70a6ceda6b3614"
+  },
+  {
+    "id": "meeting",
+    "reference": "Galatians 1:19",
+    "text": "But of the other apostles I saw no one except James, the Lord’s brother.",
+    "file": "james-web-galatians-1.html",
+    "sourceUrl": "https://ebible.org/engwebp/GAL01.htm",
+    "sourceVersion": "engwebp publisher snapshot 2026-11-04",
+    "rights": "Public domain",
+    "checksum": "sha256:44b23fee510de39c3df7011574858678d722ecf2cf86cb7dcf9e5419e01c2212"
+  },
+  {
+    "id": "appearance",
+    "reference": "1 Corinthians 15:7",
+    "text": "Then he appeared to James, then to all the apostles,",
+    "file": "james-web-corinthians-15.html",
+    "sourceUrl": "https://ebible.org/engwebp/1CO15.htm",
+    "sourceVersion": "engwebp publisher snapshot 2026-11-04",
+    "rights": "Public domain",
+    "checksum": "sha256:375be9302be57a27b0da9581566e7957c69a9c8fb3fb42fda1c66f8877244538"
+  }
+]

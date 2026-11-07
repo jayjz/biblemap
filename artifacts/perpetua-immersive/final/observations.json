@@ -1,0 +1,255 @@
+{
+  "phase": "final",
+  "sourceHead": "79320cc8b5db00974bfd1af3521995ab72a281ea",
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "overflow": false,
+      "readingStates": {
+        "initial": {
+          "x": 0,
+          "y": -103.03125,
+          "width": 1440,
+          "height": 1126.765625
+        },
+        "refusal": {
+          "x": 0,
+          "y": -222.03125,
+          "width": 1440,
+          "height": 1126.765625
+        },
+        "interpretation": {
+          "x": 0,
+          "y": -127.03125,
+          "width": 1440,
+          "height": 1233.265625
+        }
+      },
+      "completeSceneBox": {
+        "x": 0,
+        "y": -178.03125,
+        "width": 1440,
+        "height": 1615.671875
+      },
+      "sourceAssets": [
+        {
+          "url": "/_next/static/css/87fa3cf5013c7bb6.css",
+          "bytes": 44367
+        },
+        {
+          "url": "/_next/static/css/db3061b72b16a407.css",
+          "bytes": 49350
+        },
+        {
+          "url": "/_next/static/chunks/webpack-ac747b21221ec8cb.js",
+          "bytes": 5382
+        },
+        {
+          "url": "/_next/static/chunks/4bd1b696-b4ae08e3569d8f9c.js",
+          "bytes": 198491
+        },
+        {
+          "url": "/_next/static/chunks/main-app-c4f74cb8b27e5e0c.js",
+          "bytes": 526
+        },
+        {
+          "url": "/_next/static/chunks/794-ee60e279c4b7cb99.js",
+          "bytes": 189155
+        },
+        {
+          "url": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fc2e644afe92b28e.js",
+          "bytes": 20732
+        },
+        {
+          "url": "/_next/static/chunks/772-af3873ebd5e9c346.js",
+          "bytes": 14357
+        },
+        {
+          "url": "/_next/static/chunks/500-3f91014625dccb18.js",
+          "bytes": 8745
+        },
+        {
+          "url": "/_next/static/media/22a5144ee8d83bca-s.p.woff2",
+          "bytes": 29288
+        },
+        {
+          "url": "/_next/static/media/eaead17c7dbfcd5d-s.p.woff2",
+          "bytes": 38460
+        }
+      ],
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "readingStates": {
+        "initial": {
+          "x": 0,
+          "y": -46.78125,
+          "width": 390,
+          "height": 1269.53125
+        },
+        "refusal": {
+          "x": 0,
+          "y": -325.78125,
+          "width": 390,
+          "height": 1286.328125
+        },
+        "interpretation": {
+          "x": 0,
+          "y": -308.78125,
+          "width": 390,
+          "height": 1512.890625
+        }
+      },
+      "completeSceneBox": {
+        "x": 0,
+        "y": -264.78125,
+        "width": 390,
+        "height": 1913.0625
+      },
+      "sourceAssets": [
+        {
+          "url": "/_next/static/css/87fa3cf5013c7bb6.css",
+          "bytes": 44367
+        },
+        {
+          "url": "/_next/static/css/db3061b72b16a407.css",
+          "bytes": 49350
+        },
+        {
+          "url": "/_next/static/chunks/webpack-ac747b21221ec8cb.js",
+          "bytes": 5382
+        },
+        {
+          "url": "/_next/static/chunks/main-app-c4f74cb8b27e5e0c.js",
+          "bytes": 526
+        },
+        {
+          "url": "/_next/static/chunks/500-3f91014625dccb18.js",
+          "bytes": 8745
+        },
+        {
+          "url": "/_next/static/chunks/794-ee60e279c4b7cb99.js",
+          "bytes": 189155
+        },
+        {
+          "url": "/_next/static/chunks/4bd1b696-b4ae08e3569d8f9c.js",
+          "bytes": 198491
+        },
+        {
+          "url": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fc2e644afe92b28e.js",
+          "bytes": 20732
+        },
+        {
+          "url": "/_next/static/chunks/772-af3873ebd5e9c346.js",
+          "bytes": 14357
+        },
+        {
+          "url": "/_next/static/media/22a5144ee8d83bca-s.p.woff2",
+          "bytes": 29288
+        },
+        {
+          "url": "/_next/static/media/eaead17c7dbfcd5d-s.p.woff2",
+          "bytes": 38460
+        }
+      ],
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "height": 760,
+      "overflow": false,
+      "readingStates": {
+        "initial": {
+          "x": 0,
+          "y": -46.390625,
+          "width": 320,
+          "height": 1457.828125
+        },
+        "refusal": {
+          "x": 0,
+          "y": -326.390625,
+          "width": 320,
+          "height": 1424.84375
+        },
+        "interpretation": {
+          "x": 0,
+          "y": -326.390625,
+          "width": 320,
+          "height": 1722.609375
+        }
+      },
+      "completeSceneBox": {
+        "x": 0,
+        "y": -0.390625,
+        "width": 320,
+        "height": 2279.5625
+      },
+      "sourceAssets": [
+        {
+          "url": "/_next/static/css/87fa3cf5013c7bb6.css",
+          "bytes": 44367
+        },
+        {
+          "url": "/_next/static/css/db3061b72b16a407.css",
+          "bytes": 49350
+        },
+        {
+          "url": "/_next/static/chunks/webpack-ac747b21221ec8cb.js",
+          "bytes": 5382
+        },
+        {
+          "url": "/_next/static/chunks/4bd1b696-b4ae08e3569d8f9c.js",
+          "bytes": 198491
+        },
+        {
+          "url": "/_next/static/chunks/794-ee60e279c4b7cb99.js",
+          "bytes": 189155
+        },
+        {
+          "url": "/_next/static/chunks/main-app-c4f74cb8b27e5e0c.js",
+          "bytes": 526
+        },
+        {
+          "url": "/_next/static/chunks/500-3f91014625dccb18.js",
+          "bytes": 8745
+        },
+        {
+          "url": "/_next/static/chunks/772-af3873ebd5e9c346.js",
+          "bytes": 14357
+        },
+        {
+          "url": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fc2e644afe92b28e.js",
+          "bytes": 20732
+        },
+        {
+          "url": "/_next/static/media/22a5144ee8d83bca-s.p.woff2",
+          "bytes": 29288
+        },
+        {
+          "url": "/_next/static/media/eaead17c7dbfcd5d-s.p.woff2",
+          "bytes": 38460
+        }
+      ],
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "buildId": "79320cc",
+  "runtimeSourceSha256": {
+    "src/features/human-story/SeparationReading.tsx": "7437d7a5e19336774d1906dcd861a812a09ac311be3bac301f092eeb74ed8af2",
+    "src/features/human-story/separation.module.css": "686f66b5c12977771598c6a47c9ca12e24ff65af457c6483d13826e1b83017e8",
+    "src/features/human-story/PrisonStage.tsx": "c4e3b306346a3436e2f788d13c43b4eca9efd61b9e647bbe0bf03776cfd70740",
+    "src/features/human-story/prison.module.css": "30820f3c787c0ffa7f905cc32a8826d5eb7d18cdc050aabe8e33a65f53a76893",
+    "src/features/human-story/PerpetuaEncounter.tsx": "89984531949b23e77acb46a732f4f1625a4a27bdba8ccb9c41e34825f248b71d",
+    "src/features/human-story/SourcePassage.tsx": "cae7804d602e1162cc64f8f2c4455f8571cd595a8b932b1bf833267053111997"
+  }
+}

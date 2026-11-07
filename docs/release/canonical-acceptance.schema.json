@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Detached BibleMap canonical candidate acceptance",
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "workflow", "runId", "runAttempt", "replica"],
+      "properties": {
+        "repository": { "const": "jayjz/biblemap" },
+        "workflow": { "const": ".github/workflows/canonical-release.yml" },
+        "runId": { "type": "string", "pattern": "^[0-9]+$" },
+        "runAttempt": { "type": "string", "pattern": "^[0-9]+$" },
+        "replica": { "const": "1" }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "status"],
+      "properties": { "schemaVersion": { "const": 2 }, "status": { "const": "pending" } }
+    },
+    {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "status", "actor", "decidedAt", "evidence", "sourceCommit", "sourceInputDigest", "artifactDigest", "outputDigest", "manifestDigest", "scopeDigest", "previewDeploymentId", "verificationDigest", "build", "routes", "acceptedLimitations"],
+      "properties": {
+        "schemaVersion": { "const": 2 }, "status": { "const": "accepted" },
+        "actor": { "type": "string", "minLength": 1 },
+        "decidedAt": { "type": "string", "format": "date-time", "pattern": "Z$" },
+        "evidence": { "type": "string", "minLength": 1 },
+        "sourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "sourceInputDigest": { "$ref": "#/$defs/digest" },
+        "artifactDigest": { "$ref": "#/$defs/digest" },
+        "outputDigest": { "$ref": "#/$defs/digest" },
+        "manifestDigest": { "$ref": "#/$defs/digest" },
+        "scopeDigest": { "$ref": "#/$defs/digest" },
+        "verificationDigest": { "$ref": "#/$defs/digest" },
+        "previewDeploymentId": { "type": "string", "pattern": "^dpl_[A-Za-z0-9]+$" },
+        "build": { "$ref": "#/$defs/build" },
+        "routes": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^/(?:[a-z0-9-]+/)*$" } },
+        "acceptedLimitations": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+      }
+    }
+  ]
+}

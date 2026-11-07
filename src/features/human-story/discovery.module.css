@@ -1,0 +1,149 @@
+.encounters {
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 5vw, 5.5rem);
+  background: #e3eaea;
+}
+.heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 1.75rem;
+}
+.heading h2 {
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+.heading > p {
+  max-width: 38ch;
+  font-size: 0.95rem;
+}
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.pair > article {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: start;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  color: #f0eaf3;
+}
+.perpetua { background: #302335; }
+.romanus { background: #263b3b; }
+.invitation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+.invitation h3 {
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.storySubtitle { display: block; }
+.invitation p {
+  max-width: 38ch;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-block: 1.25rem 1.5rem;
+}
+.invitation > a { margin-top: auto; }
+.pair figure { min-width: 0; }
+.pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+}
+.pair figcaption {
+  font-size: 0.75rem;
+  line-height: 1.65;
+  padding-top: 0.75rem;
+  color: #dce4e3;
+}
+.pair details { margin-top: 0.5rem; }
+.pair details p { margin-bottom: 0.75rem; }
+.thomas {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  margin-top: 2rem;
+  background: #2c211c;
+  color: #f3e9dc;
+}
+.thomasCopy {
+  overflow-wrap: anywhere;
+  padding: clamp(1.5rem, 3.4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.thomasName { font-size: 1rem; color: #dcc4a7; }
+.thomasCopy h3 {
+  font-size: clamp(2.25rem, 4.2vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  max-width: min(12ch, 100%);
+  text-wrap: initial;
+}
+.thomasCopy > p:last-of-type { max-width: 32ch; font-size: 1rem; line-height: 1.75; }
+.thomasAction { background: #dcc4a7; border-color: #dcc4a7; color: #2c211c !important; overflow-wrap: anywhere; }
+.thomasFigure { min-width: 0; display: flex; flex-direction: column; }
+.thomasArt { position: relative; min-height: 350px; flex: 1; }
+.thomas .thomasArt img { object-position: 66% center; }
+.thomasArt [data-media-state="unavailable"]::after {
+  content: "The artwork is unavailable. Continue with Thomas’s story and its sources.";
+  position: absolute;
+  inset: auto 1.5rem 1.5rem;
+  max-width: 32ch;
+}
+.thomasFigure figcaption { padding: 0.25rem 1.5rem; background: #241c18; font-size: 0.8rem; line-height: 1.7; }
+.thomasFigure summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; }
+.thomasFigure summary::before { content: "+"; margin-right: 0.6rem; }
+.thomasFigure details[open] summary::before { content: "−"; }
+.thomasFigure details p { margin-block: 0.75rem; }
+.thomasFigure details a { display: inline-block; padding-block: 0.5rem; }
+.thomasDocuments {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  padding: 1.5rem clamp(1.5rem, 3.4vw, 3rem);
+  background: #dcc4a7;
+  color: #2c211c;
+}
+.thomasDocuments > div { flex: 1 1 22rem; }
+.thomasDocuments h4 { margin: 0 0 0.35rem; font: 400 1.5rem/1.3 var(--font-playfair), Georgia, serif; }
+.thomasDocuments p { font-size: 0.875rem; max-width: 55ch; }
+.thomasDocuments > a { flex-shrink: 0; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .thomas { grid-template-columns: minmax(0, 1fr); }
+  .thomasCopy h3 { max-width: min(14ch, 100%); }
+  .thomasCopy, .thomasDocuments { padding: 24px; }
+  .thomasArt { min-height: 0; aspect-ratio: 3 / 2; }
+  .thomasDocuments > a { flex-shrink: 1; }
+}
+@media (max-width: 1100px) {
+  .pair { grid-template-columns: 1fr; }
+  .pair > article { grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr); }
+  .heading { display: block; }
+  .heading > p { margin-top: 1rem; }
+}
+@media (max-width: 540px) {
+  .pair > article { grid-template-columns: minmax(0, 1fr) 96px; gap: 1rem; }
+  .invitation, .pair figure { display: contents; }
+  .pair img { grid-column: 2; grid-row: 1; max-height: 140px; }
+  .invitation h3 { grid-column: 1; grid-row: 1; font-size: 2rem; }
+  .storySubtitle { font-size: 1.4rem; line-height: 1.3; margin-top: 0.5rem; }
+  .invitation p { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+  .invitation > a { grid-column: 1 / -1; grid-row: 3; width: 100%; justify-content: center; }
+  .pair figcaption { grid-column: 1 / -1; grid-row: 4; padding: 0; }
+}

@@ -1,0 +1,192 @@
+{
+  "base": "86b2c5d9eae789a2202c4a423a4318595ce51c84",
+  "branch": "feat/james-cinematic-human-experience",
+  "target": "feat/james-the-brother-who-remained",
+  "runtime": "62eda24f5f5f7a43de53dd91c6ee9a5a4691177b",
+  "date": "2026-11-05",
+  "checksums": {
+    "src/features/human-story/james/cinematic.module.css": "361808f3d820d02d694654ed5635351e9c5e1381c779dab9faad5cbc462b2c53",
+    "src/features/human-story/james/james.module.css": "c47b42402ba459889e64a322957fc230683251a8a501dcd3f982081a193ea8ec",
+    "src/features/human-story/james/JamesCinematic.tsx": "95445c58a5acfeaef1b3be29e297f5e1a915efd412d5652568df77038f5d7a23",
+    "src/features/human-story/james/JamesEncounter.tsx": "ec7d5e5259978f71b2e25ef5a7df952ac040e67157d00f03e1ff59ea00fcf5b7",
+    "src/features/human-story/james/JamesExperience.tsx": "b62f588ba107adfa28b46607e237eff0767230f41f42cfd13ea104bc5dc44e5f",
+    "src/features/human-story/james/JamesNarrative.tsx": "944f759f330fbe2aa4bcd923ab34cd13667602670c5702fd4c4cc14281150c3a",
+    "src/features/human-story/james/JamesSources.tsx": "cdd78e8e1ee122c16621a166f3af51b9f8f93a7ae2ba58d720c36953fd0b2340",
+    "src/features/human-story/james/JerusalemRelationships.tsx": "afb994d0ff15b71dd5cdc51adb5e802bd17893e38e2561bca8bea6123c1b65d8",
+    "src/features/human-story/james/Palimpsest.tsx": "a903dfb984f2e6c9f157c566bd0a41659e7c0a51375619ac50f9fade2f76ae89",
+    "src/features/human-story/james/SceneEnvironment.tsx": "c4389e90c701ae7f1702f023e3268196575a11081d76eac8717703ae371931a0",
+    "src/content/james.ts": "f01f8b322d2a307844ae1f3bbb1c3cbfd9595dd91e0de87453fdf541a0a72ac2",
+    "public/media/james/manifest.json": "f88990cd5ac5930632210dd13dbac26818cc13e528fa8ca3ffb77e102bdd7d80"
+  },
+  "checks": [
+    {
+      "command": "npm ci",
+      "exit": 0,
+      "note": "Pinned graph unchanged; 38 inherited installer audit advisories"
+    },
+    {
+      "command": "npm run lint",
+      "exit": 0,
+      "note": "Four inherited warnings, zero errors"
+    },
+    {
+      "command": "npm run typecheck",
+      "exit": 0
+    },
+    {
+      "command": "npm run test",
+      "exit": 0,
+      "passed": 54,
+      "skipped": 1,
+      "failed": 0
+    },
+    {
+      "command": "npm run build",
+      "exit": 0,
+      "note": "Includes pinned Scripture, historical/media validation, static export and 444-artifact boundary validation"
+    },
+    {
+      "command": "npm run test:e2e -- --reporter=line,json",
+      "exit": 0,
+      "stats": {
+        "startTime": "2026-11-05T14:16:39.514Z",
+        "duration": 319996.213,
+        "expected": 189,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "runtime": "064858c646e3733a5ad1a6b3e6d24d6acdc301ab",
+      "note": "Second full run, after scene selection fix and before final neutral fallback text"
+    },
+    {
+      "command": "npm run test:e2e -- tests/james.spec.ts --reporter=line,json",
+      "exit": 0,
+      "stats": {
+        "startTime": "2026-11-05T14:31:49.892Z",
+        "duration": 29022.865999999998,
+        "expected": 14,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "runtime": "62eda24f5f5f7a43de53dd91c6ee9a5a4691177b"
+    },
+    {
+      "command": "npm run test:e2e -- tests/james.spec.ts --output=test-results-james-v2-preview --reporter=line,json",
+      "exit": 0,
+      "stats": {
+        "startTime": "2026-11-05T14:34:25.706Z",
+        "duration": 34146.422,
+        "expected": 14,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "runtime": "62eda24f5f5f7a43de53dd91c6ee9a5a4691177b",
+      "baseURL": "https://biblemap-mx2ms9cng-elliotandersons-projects.vercel.app"
+    },
+    {
+      "command": "node scripts/capture-james-v2.mjs after",
+      "exit": 0,
+      "observations": [
+        {
+          "width": 1440,
+          "errors": [],
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "errors": [],
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "errors": [],
+          "overflow": false
+        },
+        {
+          "width": 320,
+          "errors": [],
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "command": "node scripts/review-james-v2.mjs",
+      "exit": 0,
+      "observations": [
+        {
+          "width": 1440,
+          "enlargedText": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "elements": []
+          }
+        },
+        {
+          "width": 768,
+          "enlargedText": {
+            "width": 768,
+            "scrollWidth": 768,
+            "elements": []
+          }
+        },
+        {
+          "width": 390,
+          "enlargedText": {
+            "width": 390,
+            "scrollWidth": 390,
+            "elements": []
+          }
+        },
+        {
+          "width": 320,
+          "enlargedText": {
+            "width": 320,
+            "scrollWidth": 320,
+            "elements": []
+          }
+        }
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0
+    }
+  ],
+  "verifiedFlows": [
+    "all five movements and anchors",
+    "keyboard, Escape and focus restoration",
+    "touch selection",
+    "history Back and direct fragments",
+    "native no-JS Record disclosures and all relationship perspectives",
+    "companion simple reading",
+    "reduced motion",
+    "blocked image fallback",
+    "200% text at four widths",
+    "320px reflow",
+    "responsive local image selection",
+    "source comparison including empty witness layers",
+    "axe checks on all scene states and dialog",
+    "static export editorial boundary"
+  ],
+  "corrections": [
+    "320px and 768px enlarged-text overflow",
+    "sticky offset and maximum control height",
+    "visible movement selection after reflow",
+    "heading whitespace",
+    "numbered summary test selectors",
+    "JS-disabled CSS-injection test harness hang",
+    "case-sensitive artistic-reference assertion",
+    "lazy-image capture timing and premature unavailable label"
+  ],
+  "limitations": [
+    "AI-assisted draft, human historical/theological/literary review pending",
+    "No reader study; no emotional or comprehension outcome claimed",
+    "Interpretive environments with invented layouts, garments, vegetation, people and viewpoints",
+    "Chromium browser coverage; no claim of full WCAG conformance or field performance",
+    "One inherited mobile Atlas skip and one inherited opt-in unit skip",
+    "No production deployment or release approval"
+  ]
+}

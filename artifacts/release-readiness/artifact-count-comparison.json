@@ -1,0 +1,18 @@
+{
+  "before": {
+    "total": 562,
+    "html": 48,
+    "rscText": 372,
+    "javascript": 50,
+    "indexRoutes": 47
+  },
+  "after": {
+    "total": 376,
+    "html": 48,
+    "rscText": 184,
+    "javascript": 52,
+    "indexRoutes": 47
+  },
+  "missingBeforeRoutes": [],
+  "note": "Before 477 was the text-only validator count; before full byte inventory was562. Interim adversarial all-file count377; final376. No index route paths removed; demo and experiment ordinary HTML are 404 stubs."
+}
