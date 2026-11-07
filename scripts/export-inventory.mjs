@@ -12,7 +12,7 @@ export function filesUnder(directory) {
 }
 export function contentDigest() {
   const paths = ['src', 'scripts', 'public', 'tests', '.github'].flatMap(root => filesUnder(root).map(path => `${root}/${path}`));
-  paths.push('package.json', 'package-lock.json', 'next.config.mjs', 'tsconfig.json', 'postcss.config.mjs', 'eslint.config.mjs', 'vercel.json', 'docs/release/publication-scope.json');
+  paths.push('.gitattributes', 'package.json', 'package-lock.json', 'next.config.mjs', 'tsconfig.json', 'postcss.config.mjs', 'eslint.config.mjs', 'vercel.json', 'docs/release/publication-scope.json');
   return digest(JSON.stringify(paths.sort().map(path => {
     const bytes = readFileSync(path);
     const normalized = /\.(?:[cm]?[jt]sx?|json|css|md|yml|html|svg)$/.test(path) ? Buffer.from(bytes.toString('utf8').replaceAll('\r\n', '\n')) : bytes;
