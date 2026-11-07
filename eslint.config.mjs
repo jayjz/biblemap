@@ -10,6 +10,8 @@ const eslintConfig = defineConfig([
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
+    // The canonical deployment package contains the same generated bundles as out/.
+    ".vercel/output/**",
     "build/**",
     "next-env.d.ts",
     "playwright-report/**",

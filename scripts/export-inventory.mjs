@@ -12,7 +12,7 @@ export function filesUnder(directory) {
 }
 export function contentDigest() {
   const paths = ['src', 'scripts', 'public', 'tests', '.github'].flatMap(root => filesUnder(root).map(path => `${root}/${path}`));
-  paths.push('package.json', 'package-lock.json', 'next.config.mjs', 'tsconfig.json', 'postcss.config.mjs', 'eslint.config.mjs', 'vercel.json', 'docs/release/publication-scope.json');
+  paths.push('.gitattributes', 'package.json', 'package-lock.json', 'next.config.mjs', 'tsconfig.json', 'postcss.config.mjs', 'eslint.config.mjs', 'vercel.json', 'docs/release/publication-scope.json');
   return digest(JSON.stringify(paths.sort().map(path => {
     const bytes = readFileSync(path);
     const normalized = /\.(?:[cm]?[jt]sx?|json|css|md|yml|html|svg)$/.test(path) ? Buffer.from(bytes.toString('utf8').replaceAll('\r\n', '\n')) : bytes;
@@ -57,7 +57,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     ? report.missingDependencies.filter(dependency => dependency.url === '/review-assets/nineveh-landscape.webp')
       .map(dependency => ({ ...dependency, backingFile: localReviewImage, checksum: digest(readFileSync(localReviewImage)), delivery: 'loopback-review-server-only' })) : [];
   const unresolved = report.missingDependencies.filter(dependency => !reviewDependencies.some(bound => bound.from === dependency.from && bound.url === dependency.url));
-  const destination = process.argv[2] ?? 'artifacts/release-readiness/export-inventory.json';
+  const destination = process.argv[2] ?? join(process.env.BIBLEMAP_REPORT_DIR ?? 'artifacts/release-readiness', 'export-inventory.json');
   writeFileSync(destination, `${JSON.stringify({ ...report, reviewDependencies, contentDigest: contentDigest() }, null, 2)}\n`);
   console.log(`${report.files.length} artifacts (${report.routes.length} index routes), ${unresolved.length} unresolved HTML dependencies, ${reviewDependencies.length} explicit loopback-review references; ${report.artifactDigest}`);
   if (unresolved.length) process.exitCode = 1;

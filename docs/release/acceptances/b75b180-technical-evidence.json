@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-release-technical-evidence-not-creator-acceptance",
+  "sourceCommit": "b75b18001b2ac50c6e48c8bf7fc935fad3c4d3ff",
+  "sourceInputDigest": "sha256:6e4edf3977584b4ff94febb6c4d57b92229e415531b313c51a6606dfb3cc8cfa",
+  "artifactDigest": "sha256:38df37e25342b26a65e15ff1594900a79ceeb978c1a1459863dc6b68c7402569",
+  "artifactCount": 354,
+  "outputDigest": "sha256:3a74aa94f55eb892a851720e44026cd28ce8979884a0d4404875e247802ccf5f",
+  "manifestDigest": "sha256:2fd55517ddf4b2b6e2da77942cda4d8f20391be0c7728238fb56053d60a36c43",
+  "scopeDigest": "sha256:10eb82f910c113d21f44ecd10ee60ca3601e42991ecd5876ca727b3112d163f5",
+  "build": {
+    "repository": "jayjz/biblemap",
+    "workflow": ".github/workflows/canonical-release.yml",
+    "runId": "42413903152",
+    "runAttempt": "1",
+    "replica": "1"
+  },
+  "builtAt": "2026-11-07T21:04:20.803Z",
+  "container": "node:22.22.3-bookworm@sha256:46e94f8cf91baab69a2deb3153e74eeffd73c20c7cc1d8432f5b96469eaa0322",
+  "toolchain": {
+    "node": "v22.22.3",
+    "npm": "10.9.8",
+    "next": "16.4.5"
+  },
+  "canonicalRun": "https://github.com/jayjz/biblemap/actions/runs/42413903152",
+  "ciArtifact": {
+    "id": 13590368537,
+    "name": "canonical-release-1",
+    "digest": "sha256:75922ea5b51c8fc55f7c7050c75953782e76e7ab515e392018c8a7062c8424bd",
+    "expiresAt": "2027-02-05T21:02:14Z",
+    "archiveDigest": "sha256:fbf536f62a76a70e7dacc793d42cf693aa3a82a72b6e152c5d07a748ee1f4528"
+  },
+  "deployment": {
+    "id": "dpl_6fGD5o1RwaxeTAD3RTGJqNPnswmu",
+    "projectId": "prj_xKJkC8WBUusxhsDXO4jjcJ7zlc2m",
+    "teamId": "team_xtntWPJwjGlK9FNNQy9sGESp",
+    "readyState": "READY",
+    "target": null,
+    "url": "biblemap-9qyvb03s0-elliotandersons-projects.vercel.app",
+    "meta": {
+      "canonicalArtifact": "sha256:38df37e25342b26a65e15ff1594900a79ceeb978c1a1459863dc6b68c7402569",
+      "canonicalManifest": "sha256:2fd55517ddf4b2b6e2da77942cda4d8f20391be0c7728238fb56053d60a36c43",
+      "canonicalOutput": "sha256:3a74aa94f55eb892a851720e44026cd28ce8979884a0d4404875e247802ccf5f",
+      "canonicalSource": "b75b18001b2ac50c6e48c8bf7fc935fad3c4d3ff",
+      "canonicalRun": "42413903152/1"
+    }
+  },
+  "previewURL": "https://biblemap-9qyvb03s0-elliotandersons-projects.vercel.app",
+  "verificationDigest": "sha256:d25425bcd7631e9fb277b70501124a2d1c0cb69a92fa8aaee410a82c0eec3780",
+  "verification": {
+    "upload": {
+      "fileCount": 356,
+      "digest": "sha256:7ab1068a7f07ae26e1a5bf2c10fc38a932ff90f4d6e97196a3a374ebcd3925ec",
+      "reportedSizes": 0,
+      "limitation": "Vercel v6 tree wraps prebuilt uploads in src/ and may omit lengths; complete path/SHA1 identities are verified, with lengths checked when exposed. This is upload identity, not CDN byte enumeration."
+    },
+    "httpFiles": 354,
+    "httpResultsDigest": "sha256:df4bf658a006e3b053d3582772a80342e75ebea88ea705727b38b90f4f47dddc",
+    "productionIsolation": {
+      "status": "verified",
+      "productionTargetId": "dpl_4hQwNWXRLa2WCdSaDcBbfjnd9WFq",
+      "productionDomains": [
+        {
+          "domain": "biblemap-pink.vercel.app",
+          "deploymentId": "dpl_4hQwNWXRLa2WCdSaDcBbfjnd9WFq"
+        }
+      ]
+    },
+    "trustBoundary": "Vercel authenticated API upload identity and prebuilt semantics; SHA1 is provider upload identity, SHA256 protects local bytes. CDN internals and generated metadata are trusted, not fully remotely enumerated."
+  },
+  "tests": {
+    "technicalRun": "https://github.com/jayjz/biblemap/actions/runs/42413907362",
+    "windowsRun": "https://github.com/jayjz/biblemap/actions/runs/42413907371",
+    "technicalConclusion": "success",
+    "windowsConclusion": "success",
+    "releaseRegressions": {
+      "passed": 27,
+      "failed": 0
+    },
+    "sourceTests": {
+      "passed": 67,
+      "skipped": 1,
+      "failed": 0
+    },
+    "ordinaryBrowserTests": {
+      "passed": 237,
+      "skipped": 1,
+      "failed": 0
+    },
+    "reviewBrowserTests": {
+      "passed": 22,
+      "failed": 0
+    },
+    "adversarialExport": "passed; all 354 files scanned",
+    "seo": "passed; 45 classified routes, 0 errors",
+    "lint": "exit 0; three existing DataLoader warnings",
+    "typecheck": "exit 0",
+    "pendingPublicationGate": {
+      "exitCode": 1,
+      "soleBlocker": "Creator acceptance pending"
+    },
+    "browser": [
+      {
+        "name": "desktop",
+        "status": 200,
+        "state": {
+          "title": "The Human Story — BibleMap",
+          "horizontalOverflow": false,
+          "fonts": [
+            {
+              "family": "geistSans",
+              "status": "loaded"
+            },
+            {
+              "family": "playfair",
+              "status": "loaded"
+            }
+          ],
+          "focus": "#main",
+          "reducedMotion": true
+        },
+        "errors": [],
+        "failed": []
+      },
+      {
+        "name": "mobile",
+        "status": 200,
+        "state": {
+          "title": "The Human Story — BibleMap",
+          "horizontalOverflow": false,
+          "fonts": [
+            {
+              "family": "geistSans",
+              "status": "loaded"
+            },
+            {
+              "family": "geistSans Fallback",
+              "status": "loaded"
+            },
+            {
+              "family": "playfair",
+              "status": "loaded"
+            }
+          ],
+          "focus": "#main",
+          "reducedMotion": true
+        },
+        "errors": [],
+        "failed": []
+      }
+    ]
+  },
+  "creatorAcceptance": {
+    "status": "pending",
+    "decisionPath": "docs/release/canonical-acceptance.json",
+    "humanAcceptanceRecorded": false
+  },
+  "productionPublished": false
+}

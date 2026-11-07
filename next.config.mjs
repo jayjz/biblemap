@@ -1,5 +1,6 @@
 import { assertBuildPublication } from './scripts/publication-gate.mjs';
 import { contentDigest } from './scripts/export-inventory.mjs';
+import { StableInitialChunksPlugin } from './scripts/release/stable-initial-chunks.mjs';
 
 // Also guards direct `next build`, independent of npm lifecycle scripts.
 assertBuildPublication();
@@ -14,6 +15,7 @@ const nextConfig = {
   images: { unoptimized: true },
 
   webpack(config, { isServer, dev }) {
+    if (!isServer && !dev) config.plugins.push(new StableInitialChunksPlugin());
     // This upstream worker is already minified. Preserve its pinned bytes and
     // embedded BSD notice instead of running Next's JS minifier over the asset.
     config.plugins.push({

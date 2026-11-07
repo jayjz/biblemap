@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import rawScope from "../../docs/release/publication-scope.json";
-import decision from "../../docs/release/publication-decision.json";
 import { indexingPolicy, contentMaturity, type PublicationScope } from "../domain/publication";
 import { canonicalURL, routePolicy } from "../domain/seo";
 
@@ -9,8 +8,9 @@ export const seoScope: PublicationScope = {
   entries: Object.fromEntries(Object.entries(rawScope.entries).map(([id, maturity]) => [id, contentMaturity(maturity)])),
   routes: rawScope.routes.map(route => ({ ...route, maturity: contentMaturity(route.maturity), indexing: indexingPolicy(route.indexing) })),
 };
-// Parsed through the existing publication contract; production builds validate digests.
-export const seoDecision = decision;
+// Approval is detached from build inputs. This candidate retains noindex even
+// after acceptance. An indexing change requires a new verified/accepted build.
+export const seoDecision = { status: "pending" } as const;
 export const isPreview = process.env.VERCEL_ENV === "preview";
 export function routeMetadata(path: string, title: string, description: string): Metadata {
   const policy = routePolicy(path, seoScope, seoDecision, isPreview);

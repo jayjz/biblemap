@@ -36,5 +36,5 @@ for (const worker of workers) {
   await visit(worker);
 }
 const report = { installed: installed.version, locked: lock.packages['node_modules/maplibre-gl'].version, modules, limitation: 'Static module dependency closure; optional nonliteral worker plugin imports are not used by BibleMap. Browser tests separately exercise source processing and network responses.' };
-writeFileSync('artifacts/release-readiness/maplibre-worker-export.json', `${JSON.stringify(report, null, 2)}\n`);
+writeFileSync(join(process.env.BIBLEMAP_REPORT_DIR ?? 'artifacts/release-readiness', 'maplibre-worker-export.json'), `${JSON.stringify(report, null, 2)}\n`);
 console.log(`MapLibre ${installed.version}: ${workers.length} worker artifact(s), ${modules.length} module(s); every required static import is present and worker bytes match the lockfile package.`);

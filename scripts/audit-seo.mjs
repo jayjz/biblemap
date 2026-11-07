@@ -8,7 +8,7 @@ import { CANONICAL_ORIGIN, routePolicy } from '../src/domain/seo.ts';
 
 const read = path => JSON.parse(readFileSync(path, 'utf8'));
 const scope = read('docs/release/publication-scope.json');
-const decision = read('docs/release/publication-decision.json');
+const decision = { status: 'pending' }; // Same frozen candidate SEO policy as src/lib/seo.ts.
 const preview = process.env.VERCEL_ENV === 'preview';
 const sourceManifest = read('.next/server/app-paths-manifest.json');
 const prerender = read('.next/prerender-manifest.json');
