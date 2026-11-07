@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { THOMAS_ROUTES, THOMAS_SAYING, THOMAS_SAYINGS, THOMAS_SAYING_13_EXCERPT } from '@/content/thomas';
+import { THOMAS_SAYING, THOMAS_SAYINGS, THOMAS_SAYING_13_EXCERPT } from '@/content/thomas';
 import { ThomasShell } from '@/features/human-story/thomas/ThomasShell';
 import { SourceLinks, ThomasSources } from '@/features/human-story/thomas/ThomasSources';
 import { Verse } from '@/features/human-story/thomas/ThomasEncounter';
@@ -39,7 +38,5 @@ export default function ThomasSayingsPage() {
       <p className={manuscript.criticalNote}>The saying reports three things spoken aside but does not give their content. Nothing here reveals or reconstructs those unreported words.</p>
       <details><summary>What can this contrast establish?</summary><p>It shows different ways these texts portray Thomas’s speech. It does not establish which author knew the other, the historical apostle’s authorship, or independently authenticated speech. Mattison notes that “three things” can also be translated “three words.” Neither rendering supplies them.</p><SourceLinks ids={['thomas-mattison','thomas-john20','thomas-nhc']} /></details>
     </section>
-    <section className={styles.laterNames}><h2>A name travels<br />beyond one Gospel.</h2><p>John calls Thomas Didymus, with the sense “Twin,” but does not name his twin. The sayings prologue adds Judas. Eusebius transmits a Parthian mission tradition. The Acts of Thomas tells an India mission and martyrdom story. These later traditions are distinct sources, not missing scenes recovered from John.</p>
-      <p>Thomas is not James, the brother of Jesus. The sayings collection itself names James the Just and Thomas separately.</p><SourceLinks ids={['thomas-john20','thomas-mattison','thomas-eusebius','thomas-acts']} /><Link className={styles.primary} href={THOMAS_ROUTES.encounter + '#not-seen'} prefetch={false}>Return to John’s ending</Link></section>
-    </div><ThomasSources /></ThomasShell>;
+    </div><ThomasSources sayings /></ThomasShell>;
 }
