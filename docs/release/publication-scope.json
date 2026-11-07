@@ -61,7 +61,9 @@
       "maturity": "provisional",
       "limitations": [
         "candidate-editorial-review"
-      ]
+      ],
+      "indexing": "noindex",
+      "canonicalRoute": "/"
     },
     {
       "route": "/human-story/augustine/",

@@ -1,3 +1,4 @@
+import { routeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -18,10 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { path: id } = await params;
   const path = HUMAN_PATHS.find((candidate) => candidate.id === id);
-  return {
-    title: `${path?.title ?? "A thread"} — BibleMap`,
-    description: path?.description,
-  };
+  if (!path) notFound();
+  return routeMetadata(`/human-story/paths/${id}/`, `${path.title} — BibleMap`, path.description);
 }
 export default async function HumanStoryPath({
   params,
@@ -34,7 +33,7 @@ export default async function HumanStoryPath({
   return (
     <HumanStoryFrame>
       <header className={styles.worldHeader}>
-        <Link prefetch={false} href="/human-story/#paths">
+        <Link prefetch={false} href="/#paths">
           All threads
         </Link>
         <h1>{path.title}</h1>
@@ -121,7 +120,7 @@ export default async function HumanStoryPath({
         })}
       </ol>
       <div className={styles.pathReturn}>
-        <Link prefetch={false} href="/human-story/#paths">
+        <Link prefetch={false} href="/#paths">
           Choose another thread
         </Link>
         <Link prefetch={false} href="/jonah/#jonah-1-calling">

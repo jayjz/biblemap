@@ -6,7 +6,7 @@
     "dev": "next dev --webpack",
     "prebuild": "node --experimental-strip-types scripts/publication-gate.mjs --build && node scripts/split_parquet.js && npm run validate:story",
     "build": "next build --webpack",
-    "postbuild": "npm run validate:export && node scripts/export-inventory.mjs && node scripts/validate-maplibre-export.mjs && node --experimental-strip-types scripts/publication-gate.mjs --postbuild",
+    "postbuild": "node scripts/finalize-export.mjs && npm run validate:export && node scripts/export-inventory.mjs && node scripts/validate-maplibre-export.mjs && node --experimental-strip-types scripts/publication-gate.mjs --postbuild",
     "validate:export": "node --experimental-strip-types scripts/validate-visitor-export.ts",
     "start": "next start",
     "lint": "eslint",
@@ -19,7 +19,9 @@
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "preview": "node scripts/serve-export.mjs",
-    "review:jonah": "node scripts/review-jonah.mjs"
+    "review:jonah": "node scripts/review-jonah.mjs",
+    "audit:seo": "node --experimental-strip-types scripts/audit-seo.mjs",
+    "test:seo-gate": "node scripts/test-seo-gate.mjs"
   },
   "dependencies": {
     "@deck.gl/core": "^9.2.11",

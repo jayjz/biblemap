@@ -1,3 +1,4 @@
+import { routeMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
@@ -17,10 +18,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { entry: id } = await params;
   const entry = HUMAN_GRAPH.entries.find((candidate) => candidate.id === id);
-  return {
-    title: `${entry?.title ?? "Reading"} — BibleMap`,
-    description: entry?.subtitle,
-  };
+  if (!entry) notFound();
+  return routeMetadata(`/human-story/${id}/`, `${entry.title} — BibleMap`, entry.subtitle);
 }
 export default async function HumanStoryReading({
   params,

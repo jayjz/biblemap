@@ -4,7 +4,7 @@ import type { HumanGraph } from "./human-story.ts";
 export interface PublicationScope {
   schemaVersion: 1;
   entries: Record<string, ContentMaturity>;
-  routes: readonly { route: string; maturity: ContentMaturity; limitations: readonly string[] }[];
+  routes: readonly { route: string; maturity: ContentMaturity; limitations: readonly string[]; indexing?: "noindex"; canonicalRoute?: string }[];
 }
 export type PublicationDecision = { status: "pending" } | {
   status: "accepted";
@@ -16,6 +16,11 @@ export type PublicationDecision = { status: "pending" } | {
   routes: readonly string[];
   acceptedLimitations: readonly string[];
 };
+
+export function indexingPolicy(value: string | undefined): "noindex" | undefined {
+  if (value === undefined || value === "noindex") return value;
+  throw new Error(`Unknown indexing policy: ${value}`);
+}
 
 export const visitorMaturity = (maturity: ContentMaturity) => maturity === "complete" || maturity === "provisional";
 
@@ -60,6 +65,10 @@ export function publicationErrors(scope: PublicationScope, decision: Publication
   const routes = scope.routes.filter(route => visitorMaturity(route.maturity));
   if (scope.schemaVersion !== 1 || !routes.length) errors.push("Invalid or empty publication scope");
   if (new Set(scope.routes.map(route => route.route)).size !== scope.routes.length || scope.routes.some(route => !/^\/(?:[a-z0-9-]+\/)*$/.test(route.route) || !["complete", "provisional", "internal-draft", "excluded-experimental"].includes(route.maturity))) errors.push("Invalid, duplicate or unclassified route");
+  for (const route of scope.routes) {
+    if (route.indexing !== undefined && route.indexing !== "noindex") errors.push(`Invalid indexing policy: ${route.route}`);
+    if (route.canonicalRoute !== undefined && (!scope.routes.some(candidate => candidate.route === route.canonicalRoute && visitorMaturity(candidate.maturity) && !candidate.canonicalRoute) || route.indexing !== "noindex")) errors.push(`Invalid canonical alias: ${route.route}`);
+  }
   if (decision.status !== "accepted") return [...errors, "Creator publication decision pending: exact candidate, routes, assets and limitations require acceptance"];
   if (!decision.actor?.trim() || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(decision.decidedAt) || !Number.isFinite(Date.parse(decision.decidedAt)) || !decision.evidence?.trim()) errors.push("Creator decision requires an actor, UTC decision date and auditable evidence");
   for (const [name, actual, expected] of [["content", decision.contentDigest, contentDigest], ["artifact", decision.artifactDigest, artifactDigest]]) {

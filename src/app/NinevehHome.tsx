@@ -8,7 +8,7 @@ import "@/features/nineveh/nineveh.css";
 
 // Shared by /nineveh/ and recognized legacy root links.
 // The dedicated /explore/ route remains the canonical entry for new map links.
-const Atlas = dynamic(() => import("./explore/page"), { ssr: false });
+const Atlas = dynamic(() => import("@/features/explorer/ExploreClient"), { ssr: false });
 const subscribe = (callback: () => void) => {
   window.addEventListener("hashchange", callback);
   window.addEventListener("popstate", callback);

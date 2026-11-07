@@ -1,3 +1,4 @@
+import { routeMetadata } from "@/lib/seo";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -26,10 +27,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { world: id } = await params;
   const world = WORLDS.find((candidate) => candidate.id === id);
-  return {
-    title: `${world?.name ?? "Explore"} — The Human Story — BibleMap`,
-    description: world?.description,
-  };
+  if (!world) notFound();
+  return routeMetadata(`/human-story/worlds/${id}/`, `${world.name} — The Human Story — BibleMap`, world.description);
 }
 export default async function HumanStoryWorld({
   params,
@@ -76,7 +75,7 @@ export default async function HumanStoryWorld({
           Each reading opens into other worlds. Follow its connections to a
           person, a place, another text or a later work.
         </p>
-        <Link prefetch={false} href="/human-story/#paths">
+        <Link prefetch={false} href="/#paths">
           Explore paths across the five worlds
         </Link>
       </section>

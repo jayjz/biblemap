@@ -1,3 +1,4 @@
+import { collectNetwork, assertNetworkHealthy } from "./network-diagnostics";
 import { test, expect } from "@playwright/test";
 import { JONAH } from "../src/content/jonah";
 import AxeBuilder from "@axe-core/playwright";
@@ -7,19 +8,10 @@ async function openFurther(page: import('@playwright/test').Page) {
   if (await details.getAttribute('open') === null) await details.locator(':scope > summary').click();
 }
 
-test("complete reader-controlled book, history, malformed links, and keyboard focus", async ({ page }, testInfo) => {
+test("complete reader-controlled book, history, malformed links, and keyboard focus", async ({ page, baseURL }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
-  const network: string[] = [];
-  const cancelledNavigations: string[] = [];
-  page.on("requestfailed", request => {
-    // Chrome cancels document navigation/Next HEAD probes when leaving a page.
-    // Record those separately; failures of scripts, CSS, imagery, or data still fail.
-    const message = `${request.method()} ${request.url()}: ${request.failure()?.errorText}`;
-    if (request.failure()?.errorText === "net::ERR_ABORTED" && (request.isNavigationRequest() || request.method() === "HEAD")) cancelledNavigations.push(message);
-    else network.push(message);
-  });
-  page.on("response", response => { if (response.status() >= 400) network.push(`${response.status()} ${response.url()}`); });
+  const { failures: network, cancellations: cancelledNavigations } = collectNetwork(page, baseURL);
   await page.goto("/");
   await page.getByRole("link", { name: "Or begin with the book of Jonah" }).click();
   await expect(page.locator("[data-reader-ready=true]")).toBeVisible();
@@ -74,7 +66,7 @@ test("complete reader-controlled book, history, malformed links, and keyboard fo
   await expect(page.locator("[data-scene=jonah-1-escape]")).toBeVisible();
   expect(errors).toEqual([]);
   await testInfo.attach("navigation-cancellations", { body: JSON.stringify(cancelledNavigations), contentType: "application/json" });
-  expect(network).toEqual([]);
+  assertNetworkHealthy(network);
 });
 
 test("reflection stays in memory and clears on reload and exit", async ({ page }) => {

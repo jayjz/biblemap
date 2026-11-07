@@ -65,7 +65,7 @@ export function RomanusEncounter({ reading = false }: { reading?: boolean }) {
   return <div className={`${styles.page} ${reading ? styles.reading : ""}`}>
     <a className={styles.skip} href="#romanus-main">Skip to the story</a>
     <header className={styles.masthead}>
-      <Link prefetch={false} href="/human-story/" className={styles.brand}>BibleMap<span>The human story</span></Link>
+      <Link prefetch={false} href="/" className={styles.brand}>BibleMap<span>The human story</span></Link>
       <div><Link prefetch={false} href={reading ? "/human-story/romanus/" : "/human-story/romanus/reading/"}>{reading ? "Illustrated journey" : "Simple reading"}</Link><a href="#romanus-research">Sources</a></div>
     </header>
     <main id="romanus-main" tabIndex={-1}>

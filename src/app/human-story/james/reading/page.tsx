@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
+import { routeMetadata } from "@/lib/seo";
 import { JamesEncounter } from "@/features/human-story/james/JamesEncounter";
 
-export const metadata: Metadata = { title: "James — simple reading — BibleMap", robots: { index: false, follow: false } };
+export const metadata = routeMetadata("/human-story/james/reading/", "James — simple reading — BibleMap", "Read the accounts of James with source notes and distinctions between ancient testimony and later tradition in a simple reading.");
 export default function JamesReading() { return <JamesEncounter reading />; }

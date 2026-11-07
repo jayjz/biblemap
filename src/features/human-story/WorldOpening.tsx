@@ -22,7 +22,7 @@ export function WorldOpening({
   return (
     <header className={`${styles.worldOpening} ${styles[world.id]}`}>
       <div className={styles.worldHeading}>
-        <Link prefetch={false} href="/human-story/">
+        <Link prefetch={false} href="/">
           The human story
         </Link>
         <h1>{world.name}</h1>

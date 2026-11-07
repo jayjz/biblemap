@@ -19,6 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "BibleMap",
   description: "Ancient stories, geography, art and questions that stay with us.",
   openGraph: {

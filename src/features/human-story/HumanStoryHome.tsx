@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { HumanStoryFrame } from "@/features/human-story/HumanStoryFrame";
 import { WORLDS } from "@/features/human-story/worlds";
 import { VISITOR_HUMAN_GRAPH as HUMAN_GRAPH } from "@/content/visitor-human-story";
@@ -18,31 +17,6 @@ const collectionInvitations = {
   voices: { description: "Theology, philosophy, language and art in conversation.", action: "Meet the interpreters" },
 };
 
-export const humanStoryMetadata: Metadata = {
-  title: "The Human Story — BibleMap",
-  description:
-    "Follow Scripture into a connected world of human lives, places, historical witnesses, art and ideas.",
-  robots: { index: false, follow: false },
-  alternates: { canonical: "https://biblemap-pink.vercel.app/" },
-  openGraph: {
-    title: "The Human Story — BibleMap",
-    description: "Follow Scripture into a connected world of human lives, places, historical witnesses, art and ideas.",
-    type: "website",
-    url: "https://biblemap-pink.vercel.app/",
-    images: [{
-      url: "https://biblemap-pink.vercel.app/media/nineveh-depth/jonah-vine.webp",
-      width: 749,
-      height: 579,
-      alt: "Jonah Under the Gourd Vine. Later Christian art, Cleveland Museum of Art, CC0.",
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "The Human Story — BibleMap",
-    description: "Follow Scripture into a connected world of human lives, places, historical witnesses, art and ideas.",
-    images: ["https://biblemap-pink.vercel.app/media/nineveh-depth/jonah-vine.webp"],
-  },
-};
 
 export default function HumanStoryHome() {
   const featured = [

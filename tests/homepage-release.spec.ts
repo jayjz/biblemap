@@ -8,12 +8,12 @@ test("both entrances render Human Story with canonical social metadata and publi
     expect((await page.goto(path))?.status()).toBe(200);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("The humanstory.");
     await expect(page.locator(".nineveh")).toHaveCount(0);
-    await expect(page).toHaveTitle("The Human Story — BibleMap");
+    await expect(page).toHaveTitle(path === "/human-story/" ? "Explore The Human Story — BibleMap" : "The Human Story — BibleMap");
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://biblemap-pink.vercel.app/");
-    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", "The Human Story — BibleMap");
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", path === "/human-story/" ? "Explore The Human Story — BibleMap" : "The Human Story — BibleMap");
     await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", "https://biblemap-pink.vercel.app/");
-    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", "The Human Story — BibleMap");
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
+    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute("content", path === "/human-story/" ? "Explore The Human Story — BibleMap" : "The Human Story — BibleMap");
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, follow");
   }
 });
 
@@ -129,7 +129,7 @@ test("static export includes all published routes and server-rendered entrance m
     expect(html).toContain("<html");
     if (path === "" || path === "human-story/") {
       expect(html).toContain('<h1 id="portal-title">');
-      expect(html).toContain('<meta name="robots" content="noindex, nofollow"');
+      expect(html).toContain('<meta name="robots" content="noindex, follow"');
       expect(html).toContain('<link rel="canonical" href="https://biblemap-pink.vercel.app/"');
     }
     if (path === "nineveh/") expect(html).toContain('data-published="true"');

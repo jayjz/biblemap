@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { routeMetadata } from "@/lib/seo";
 import { THOMAS_SAYING, THOMAS_SAYINGS, THOMAS_SAYING_13_EXCERPT } from '@/content/thomas';
 import { ThomasShell } from '@/features/human-story/thomas/ThomasShell';
 import { SourceLinks, ThomasSources } from '@/features/human-story/thomas/ThomasSources';
@@ -6,7 +6,7 @@ import { Verse } from '@/features/human-story/thomas/ThomasEncounter';
 import styles from '@/features/human-story/thomas/thomas.module.css';
 import manuscript from '@/features/human-story/thomas/manuscripts.module.css';
 import { ManuscriptWitnesses } from '@/features/human-story/thomas/ManuscriptWitnesses';
-export const metadata: Metadata = { title: 'The Gospel of Thomas · physical witnesses and two sayings · BibleMap', robots: { index: false, follow: false } };
+export const metadata = routeMetadata("/human-story/thomas/sayings/", "The Gospel of Thomas · physical witnesses and two sayings — BibleMap", "Compare physical witnesses to the noncanonical Gospel of Thomas and explore two sayings with manuscript images, translation notes and source distinctions.");
 
 export default function ThomasSayingsPage() {
   return <ThomasShell sayings><div className={`${styles.sayings} ${manuscript.documentary}`}>

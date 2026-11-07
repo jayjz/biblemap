@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
+import { routeMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "BibleMap · 20s demo",
-  description: "A twenty-second look at BibleMap journeys and the world around the story.",
-};
+export const metadata = routeMetadata("/demo/", "BibleMap · 20s demo", "A twenty-second look at BibleMap journeys and the world around the story.");
 
 export default function DemoPage() {
   if (process.env.BIBLEMAP_INTERNAL_REVIEW !== "1") notFound();

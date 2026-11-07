@@ -29,7 +29,7 @@ export function ReadingRoom({ entry }: { entry: HumanEntry }) {
       <article className={styles.reading} data-entry={entry.id}>
         <header className={styles.readingHeader}>
           <nav aria-label="Reading location" className={styles.breadcrumb}>
-            <Link prefetch={false} href="/human-story/">
+            <Link prefetch={false} href="/">
               The human story
             </Link>
             <span aria-hidden="true">/</span>

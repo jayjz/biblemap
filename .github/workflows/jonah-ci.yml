@@ -27,10 +27,13 @@ jobs:
       - run: npx tsc --noEmit
       - name: Adversarial source-to-export publication boundary
         run: npm run test:export-boundary
+      - run: npx playwright install --with-deps chromium
       - name: Verify ordinary export excludes experimental Nineveh media
         run: |
           npm run build
           node scripts/validate-nineveh-depth.mjs --production-export
+      - name: Publication-aware route SEO and HTTP gate
+        run: npm run audit:seo && npm run test:seo-gate
       - name: Build opt-in Nineveh experience for browser tests
         run: |
           # Review media are intentionally absent from the published export.
@@ -39,7 +42,6 @@ jobs:
           npm run build
         env:
           BIBLEMAP_NINEVEH_REVIEW: "1"
-      - run: npx playwright install --with-deps chromium
       - name: Browser tests for normal exported reader and atlas
         run: npm run test:e2e
       - name: Browser tests with the local-only Nineveh review server
@@ -52,6 +54,7 @@ jobs:
         with:
           name: playwright-evidence
           path: |
+            artifacts/seo-routing/
             playwright-report/
             test-results/
             playwright-report-nineveh/

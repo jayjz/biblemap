@@ -5,5 +5,7 @@
       "feat/root-routing-explore-20261027": false,
       "feat/human-story-portal": false
     }
-  }
+  },
+  "trailingSlash": true,
+  "cleanUrls": true
 }
