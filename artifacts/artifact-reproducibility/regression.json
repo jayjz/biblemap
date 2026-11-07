@@ -1,0 +1,5 @@
+{
+  "command": "node --experimental-strip-types --test src/domain/artifact-reproducibility.test.ts",
+  "beforeExitCode": 1,
+  "afterExitCode": 0
+}

@@ -1,0 +1,2985 @@
+{
+  "gitContentDigest": "sha256:6bb8fc9eaa0c026e9219364b72b61bee3625b964a12859cc0f4a29eb90301bfc",
+  "differences": [
+    {
+      "path": ".github/workflows/jonah-ci.yml",
+      "gitBytes": 2053,
+      "git": "sha256:661f900b1deb7f31e4c2ddde57cb71e72749dfbdab5b420ae853606d61ecb271",
+      "checkout": {
+        "path": ".github/workflows/jonah-ci.yml",
+        "bytes": 2115,
+        "checksum": "sha256:88a5b701d15f55e592f5e05a0c076e0d95c45572ff43ccc36eed49a23a33dbe1"
+      }
+    },
+    {
+      "path": ".github/workflows/jonah-release.yml",
+      "gitBytes": 407,
+      "git": "sha256:e3215c787cb21eb1ecb3716451523905b4c27e6c501b5451a7c29c1076ea2fd0",
+      "checkout": {
+        "path": ".github/workflows/jonah-release.yml",
+        "bytes": 428,
+        "checksum": "sha256:6b5888bcb789c887563bd67c6bf37c28b6c23fb1a5934234998d0343203b929a"
+      }
+    },
+    {
+      "path": ".github/workflows/jonah-source-windows.yml",
+      "gitBytes": 960,
+      "git": "sha256:6f1547f454dd7746e09d58058809c74c647a42751576c1acfe97b94c5595ce27",
+      "checkout": {
+        "path": ".github/workflows/jonah-source-windows.yml",
+        "bytes": 992,
+        "checksum": "sha256:c790459056ff2fd0927ab830299a908c89f61e7ef527a022a3c9718fbc785851"
+      }
+    },
+    {
+      "path": "docs/release/publication-scope.json",
+      "gitBytes": 7985,
+      "git": "sha256:5765f4c51ee330653eb3e366a4bc9ad85e75e43a33391a6d4e0a5673c6d72001",
+      "checkout": {
+        "path": "docs/release/publication-scope.json",
+        "bytes": 8335,
+        "checksum": "sha256:bd0df84748188d4ca41f869a7abe3eb342a63f90c5e806cfee6a6caf4eec88a5"
+      }
+    },
+    {
+      "path": "eslint.config.mjs",
+      "gitBytes": 516,
+      "git": "sha256:ce51331ac3643082d0827028bb6062087e996e066e4a35ff2f5e1f9076331323",
+      "checkout": {
+        "path": "eslint.config.mjs",
+        "bytes": 536,
+        "checksum": "sha256:1a2f481dcada37d2d9eb8ad4faefe1ffc13bb4011be3a1f89c4f7b2fcd52486f"
+      }
+    },
+    {
+      "path": "next.config.mjs",
+      "gitBytes": 2728,
+      "git": "sha256:f2cb12c60b9310825d7100be9899f14d23c93dba5071e4374f521fc987663318",
+      "checkout": {
+        "path": "next.config.mjs",
+        "bytes": 2815,
+        "checksum": "sha256:bac54a1f82dd279975d322a1d74b4cac62b592af19c9e83d4300fe255e5b0de3"
+      }
+    },
+    {
+      "path": "package-lock.json",
+      "gitBytes": 328826,
+      "git": "sha256:4ca26a84aa9239945ec81ec276bfbf282327b4b7282c28eb9f415ebb9b75e070",
+      "checkout": {
+        "path": "package-lock.json",
+        "bytes": 338130,
+        "checksum": "sha256:40e9b9e87a9c3850f445566c7f695e2e7216af47996784c55eaa57bcb3fae704"
+      }
+    },
+    {
+      "path": "package.json",
+      "gitBytes": 2637,
+      "git": "sha256:2f27fb5e4c8577ad4aa45c994a262d9b18f04c66e54949a296ac69a47f27165a",
+      "checkout": {
+        "path": "package.json",
+        "bytes": 2692,
+        "checksum": "sha256:17aa1931bd8564a8028b184742e3987459c549fde44704a2fd9abc6e570896d7"
+      }
+    },
+    {
+      "path": "postcss.config.mjs",
+      "gitBytes": 94,
+      "git": "sha256:dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "checkout": {
+        "path": "postcss.config.mjs",
+        "bytes": 101,
+        "checksum": "sha256:7b299d3d3b16699ddda397c0b2373b3af4f25f8fc9ccc9b3d9e64ef083bc1c21"
+      }
+    },
+    {
+      "path": "public/audio/README.md",
+      "gitBytes": 40,
+      "git": "sha256:48b67e49513e6858981f624177dc06d2f3a08e6a339463f91093c07f2cd9c1e0",
+      "checkout": {
+        "path": "public/audio/README.md",
+        "bytes": 41,
+        "checksum": "sha256:787712c10ffb91ba69b6cba8fc673ce21f87eb1cf9eee53a581c889d6f3430f7"
+      }
+    },
+    {
+      "path": "public/media/AGENTS.md",
+      "gitBytes": 6653,
+      "git": "sha256:6156f5e8d518a26deaafa75a572443b4d5a70d6ec9de9de33ddf8f1b1d8fe310",
+      "checkout": {
+        "path": "public/media/AGENTS.md",
+        "bytes": 6849,
+        "checksum": "sha256:6cd48fc263e1dd470cbabf2a7e7fcc2f52caa762167ca2733802643f3dbcb936"
+      }
+    },
+    {
+      "path": "public/media/approved/.gitkeep",
+      "gitBytes": 145,
+      "git": "sha256:b47cd6a440a3f81c86cb2251b2ec52a61294bd78deb8592a1b0426603742bd70",
+      "checkout": {
+        "path": "public/media/approved/.gitkeep",
+        "bytes": 147,
+        "checksum": "sha256:9755c12fe7b20da3753c5de0f48f82ca4ab14e29dc45bd372bddbaeeb3d15419"
+      }
+    },
+    {
+      "path": "public/media/james/manifest.json",
+      "gitBytes": 20718,
+      "git": "sha256:f88990cd5ac5930632210dd13dbac26818cc13e528fa8ca3ffb77e102bdd7d80",
+      "checkout": {
+        "path": "public/media/james/manifest.json",
+        "bytes": 20957,
+        "checksum": "sha256:81601bba4912f50208a13b1e5ff312ad452df984ff2efa3d780a10b707e0a983"
+      }
+    },
+    {
+      "path": "public/media/nineveh-depth/README.md",
+      "gitBytes": 1514,
+      "git": "sha256:df6b321ed16a73dc114e1ef4963b8b4bf6312eb64cbd36d06c25331b932e3828",
+      "checkout": {
+        "path": "public/media/nineveh-depth/README.md",
+        "bytes": 1524,
+        "checksum": "sha256:4baf9bc2bc7dc6697ba5a425f7472356de70031d93f8d1e5c3ca65a36a432feb"
+      }
+    },
+    {
+      "path": "public/media/thomas/manifest.json",
+      "gitBytes": 36974,
+      "git": "sha256:8643264d66083533a4e50f1e89c3e8c40b02346ab659cad4b0423236df579a2e",
+      "checkout": {
+        "path": "public/media/thomas/manifest.json",
+        "bytes": 37389,
+        "checksum": "sha256:d809000ade1bcb5974a836c4035690c5d4ae34ad81445ed013196a37f820d09e"
+      }
+    },
+    {
+      "path": "scripts/AGENTS.md",
+      "gitBytes": 5455,
+      "git": "sha256:03c5ceeadc06a4a08a86293b5ee80a61509f4dbef6a6a18221f3bdca1faf4475",
+      "checkout": {
+        "path": "scripts/AGENTS.md",
+        "bytes": 5655,
+        "checksum": "sha256:9642835aa49084dd468ff760308a1aabf23664f543454ddef127ba9d519ac18d"
+      }
+    },
+    {
+      "path": "scripts/acquire-jonah-art.mjs",
+      "gitBytes": 2947,
+      "git": "sha256:e1164f246536e876823d4f7c2bd732a07ebaf0741a98a75c1c7d284baf5b068d",
+      "checkout": {
+        "path": "scripts/acquire-jonah-art.mjs",
+        "bytes": 2985,
+        "checksum": "sha256:9da1cb7aad8568c15406bc3d1b582568bbb3f6e2720b8d0748bae5c1be247285"
+      }
+    },
+    {
+      "path": "scripts/acquire-thomas.mjs",
+      "gitBytes": 2495,
+      "git": "sha256:0e834e4a171598c0c2ffb41b1d0e49499f2441a23ccf122c301b1a156d8ddeca",
+      "checkout": {
+        "path": "scripts/acquire-thomas.mjs",
+        "bytes": 2522,
+        "checksum": "sha256:c602ab612222441ef72bd124569f43b8ecbc4b9979adbe6a5b75aad76b1bbd5e"
+      }
+    },
+    {
+      "path": "scripts/audit-seo.mjs",
+      "gitBytes": 13758,
+      "git": "sha256:a6e79958d3eb550186872c3949593e56bf34477c5d337c2560320da4cdf082bb",
+      "checkout": {
+        "path": "scripts/audit-seo.mjs",
+        "bytes": 13929,
+        "checksum": "sha256:af19960cedcc08eb4456552db8cc1d560a21afbfc7f1c17d381ae7ce3852b7f9"
+      }
+    },
+    {
+      "path": "scripts/author-story.ts",
+      "gitBytes": 1188,
+      "git": "sha256:8785be6d23c5f1353919d91d72bffa29dab5de8f79b1ddd4031bbfe1e5d61303",
+      "checkout": {
+        "path": "scripts/author-story.ts",
+        "bytes": 1211,
+        "checksum": "sha256:eb52414622d71ee08e659477cb8b8d77e7605c7f1716d40fdf4cef3fe2495b6c"
+      }
+    },
+    {
+      "path": "scripts/capture-human-story.mjs",
+      "gitBytes": 7804,
+      "git": "sha256:0ec2a71fa9751a4185ccc673fc2a8b0fd82f9c8ca492ca1b12dafb7fb87e5136",
+      "checkout": {
+        "path": "scripts/capture-human-story.mjs",
+        "bytes": 8033,
+        "checksum": "sha256:dc0095613d53e58a125a8901019174cc590473775032141ef00d90075c04bbb6"
+      }
+    },
+    {
+      "path": "scripts/capture-james-v2.mjs",
+      "gitBytes": 1940,
+      "git": "sha256:589b92b7a5cbd61d8d10d2bea955609d7aab47e98e8c9d4cf505a113fdee9b76",
+      "checkout": {
+        "path": "scripts/capture-james-v2.mjs",
+        "bytes": 1969,
+        "checksum": "sha256:030c4e7dce19cf61bd26e2df1fe5f51c2010ba470e74819c72173d68aa2d202e"
+      }
+    },
+    {
+      "path": "scripts/capture-james.mjs",
+      "gitBytes": 3776,
+      "git": "sha256:5277349becfaca64358a29d63e5657bad405b8aa9057e0bb7554697084841052",
+      "checkout": {
+        "path": "scripts/capture-james.mjs",
+        "bytes": 3829,
+        "checksum": "sha256:e022816ec10c7b255877a0d06e4231c6617b8081e710553a6ccd42a2edbdc818"
+      }
+    },
+    {
+      "path": "scripts/capture-jonah.mjs",
+      "gitBytes": 4324,
+      "git": "sha256:b2e7912dd2d51678bdfb4dcc4ff73ca7e995d9ea82f44c28aeebc744a9022cc0",
+      "checkout": {
+        "path": "scripts/capture-jonah.mjs",
+        "bytes": 4377,
+        "checksum": "sha256:b4fb20dd628a7d3ddfbe43cab33dccafebd9a74d24c1c0275ab8d4d2cdf29238"
+      }
+    },
+    {
+      "path": "scripts/capture-nineveh-depth.mjs",
+      "gitBytes": 3624,
+      "git": "sha256:2a18a28af50f7c3dd2aff486940783f985778dc3f90a3545ddf8ef490a906930",
+      "checkout": {
+        "path": "scripts/capture-nineveh-depth.mjs",
+        "bytes": 3677,
+        "checksum": "sha256:64af1f0f8ae77020f3f19d2244730c229e2978f3d3b0145fbe5da9f02c038952"
+      }
+    },
+    {
+      "path": "scripts/capture-nineveh.mjs",
+      "gitBytes": 4961,
+      "git": "sha256:836cf81e163be1da2ff8b2a8a246994107c5b7d68d0b06884e134ce4030a1495",
+      "checkout": {
+        "path": "scripts/capture-nineveh.mjs",
+        "bytes": 4999,
+        "checksum": "sha256:4039e4e5c5b1b32cb48f19b0e286c1e77c14536a1269742d10f17ff09edcda6a"
+      }
+    },
+    {
+      "path": "scripts/capture-perpetua-journey.mjs",
+      "gitBytes": 4967,
+      "git": "sha256:7979fda978746d8ec399e525202bd54840cee9226d05b35383718a0fdf42aa0b",
+      "checkout": {
+        "path": "scripts/capture-perpetua-journey.mjs",
+        "bytes": 5036,
+        "checksum": "sha256:e579bc2079656aa0875bfc8a9daaf554b42d903f2cb3003308ab213550bbeac0"
+      }
+    },
+    {
+      "path": "scripts/capture-perpetua.mjs",
+      "gitBytes": 8009,
+      "git": "sha256:0b16bb78585ea32f5707e7bf353324e3520227a80e48a6cfd3ef20a146b604cd",
+      "checkout": {
+        "path": "scripts/capture-perpetua.mjs",
+        "bytes": 8111,
+        "checksum": "sha256:101b439ec7369456082d84346b5e973fcf597a74ad4ee2327a8d375b379dc33d"
+      }
+    },
+    {
+      "path": "scripts/capture-thomas-hosted.mjs",
+      "gitBytes": 2624,
+      "git": "sha256:e631b497f67ce5ed8e1c0c18636ceb48a347340351bb87db13a5447245c69d12",
+      "checkout": {
+        "path": "scripts/capture-thomas-hosted.mjs",
+        "bytes": 2660,
+        "checksum": "sha256:32ba39fca94a3c16bf461c12b7f9f7542251733d39058bf226e153c7683f0e85"
+      }
+    },
+    {
+      "path": "scripts/capture-thomas-sources.mjs",
+      "gitBytes": 2226,
+      "git": "sha256:9ad0b183d45e9b80a516f7e82c0da00769c37610aff3225b9f33b111b05319ca",
+      "checkout": {
+        "path": "scripts/capture-thomas-sources.mjs",
+        "bytes": 2247,
+        "checksum": "sha256:eb6a09482c09dc912a1830ad4e0ee101f77c9fe43df88adee19cf2db0fe0155c"
+      }
+    },
+    {
+      "path": "scripts/capture-thomas-studies.mjs",
+      "gitBytes": 1007,
+      "git": "sha256:78a0bbf5f9a40cad621ba7d7490c5d89913510bf51203011216d9c78c4dec474",
+      "checkout": {
+        "path": "scripts/capture-thomas-studies.mjs",
+        "bytes": 1025,
+        "checksum": "sha256:dffd4d1aada6d618fc3147de7898d7d12218ea113667a8d7165f80f4c88405b9"
+      }
+    },
+    {
+      "path": "scripts/capture-thomas-v4.mjs",
+      "gitBytes": 2850,
+      "git": "sha256:5a4079e8e5e2aae2144a7bebde5aeb730bed5c1e70351c118d0ccc7e05813941",
+      "checkout": {
+        "path": "scripts/capture-thomas-v4.mjs",
+        "bytes": 2894,
+        "checksum": "sha256:22431d0215d9083b38bb5ac2a67e70424d551134f52ec94c5b4137b56683f071"
+      }
+    },
+    {
+      "path": "scripts/capture-thomas.mjs",
+      "gitBytes": 3283,
+      "git": "sha256:4fdbf5952c5fc44503c20fa4ecd7f95ff6244d4acdf97776d1f5bba67193f454",
+      "checkout": {
+        "path": "scripts/capture-thomas.mjs",
+        "bytes": 3333,
+        "checksum": "sha256:3af0275733d8f82772b587614b8c7d4cf3a2415f6527d811ebe064d4a6cc2ddf"
+      }
+    },
+    {
+      "path": "scripts/epochs.py",
+      "gitBytes": 1105,
+      "git": "sha256:8315de322d8f90ce2cde96ebbf42148a9a595b77a6398769e85281f4cc0a4c64",
+      "checkout": {
+        "path": "scripts/epochs.py",
+        "bytes": 1131,
+        "checksum": "sha256:39a510d2b41184973db7945a1e2eac5ba27bf9b0b57e670a2f5976850e61a3e8"
+      }
+    },
+    {
+      "path": "scripts/export-inventory.mjs",
+      "gitBytes": 4986,
+      "git": "sha256:35d04bb92ad71cf8747c9eaeaf2b0b4bc4b2cf1f5de8960921f62167bff2e830",
+      "checkout": {
+        "path": "scripts/export-inventory.mjs",
+        "bytes": 5050,
+        "checksum": "sha256:9bc0848fdd4ecdfe2117f15382dd2504d053d6cf9991a18ba197becf75712249"
+      }
+    },
+    {
+      "path": "scripts/finalize-export.mjs",
+      "gitBytes": 1269,
+      "git": "sha256:2d1e7b7b112cc4ad5caf198a4f7fb196c587f9c451588d1e7a515c67c7eae423",
+      "checkout": {
+        "path": "scripts/finalize-export.mjs",
+        "bytes": 1289,
+        "checksum": "sha256:7abb11c8a0be0fb579f550690ff09b479387a9a3d6b1267d3500f8b5e378a426"
+      }
+    },
+    {
+      "path": "scripts/inspect-baseline.mjs",
+      "gitBytes": 5374,
+      "git": "sha256:32eb6ed0fb51dc7ad5763b458cac1824d8e06786e2535c063b5290301478de62",
+      "checkout": {
+        "path": "scripts/inspect-baseline.mjs",
+        "bytes": 5441,
+        "checksum": "sha256:73b7dd5df3210f211cad1fbb39812740a4b14c4b2bed46acaa489efe8c5fb762"
+      }
+    },
+    {
+      "path": "scripts/irreplaceable-map.tsx",
+      "gitBytes": 4663,
+      "git": "sha256:e2874cb898c29416df17cab77ae504c1fac0ae7509e501bd305a29199db7cd85",
+      "checkout": {
+        "path": "scripts/irreplaceable-map.tsx",
+        "bytes": 4726,
+        "checksum": "sha256:c4ccabaff8c50d3e07546b92f8b4a0e7f8c33550ee223b06c10bef7ba99754ee"
+      }
+    },
+    {
+      "path": "scripts/irreplaceable.css",
+      "gitBytes": 7216,
+      "git": "sha256:393fc69ce4472a482ab15b9c5626c595b57805f1c900b392d05ca779f8547134",
+      "checkout": {
+        "path": "scripts/irreplaceable.css",
+        "bytes": 7220,
+        "checksum": "sha256:776213fdd1a14224b48a36dc557470e553b82ef7d563d55485d0ca8dd5d8016d"
+      }
+    },
+    {
+      "path": "scripts/irreplaceable.tsx",
+      "gitBytes": 9987,
+      "git": "sha256:ae0fe3d92402eb8340787cdb48cfc060c0b5e8f7a9f6fc58484d0400239d253c",
+      "checkout": {
+        "path": "scripts/irreplaceable.tsx",
+        "bytes": 10104,
+        "checksum": "sha256:135c3142bcc191573182a4d877df63393e6fcc91a3eb44125389f0d766d47512"
+      }
+    },
+    {
+      "path": "scripts/jonah-review.tsx",
+      "gitBytes": 1335,
+      "git": "sha256:ca5946538a24982fb4bd625c08853210c80bc4c6e07a74d2e23dadbdab811ff7",
+      "checkout": {
+        "path": "scripts/jonah-review.tsx",
+        "bytes": 1351,
+        "checksum": "sha256:236441166270077dddf414f4b6f2aa0bca108242a8208a0bafad46f85a22ee02"
+      }
+    },
+    {
+      "path": "scripts/pin-james.mjs",
+      "gitBytes": 1726,
+      "git": "sha256:d3ea47e74c686a220c6a320465aeefcda30ec399e996e1ccd82be01da4e95646",
+      "checkout": {
+        "path": "scripts/pin-james.mjs",
+        "bytes": 1748,
+        "checksum": "sha256:a664d28b2d158777ccac3a2825d203fa4f4a0c8af9ed1c11aa4cfc49fce05f36"
+      }
+    },
+    {
+      "path": "scripts/pin-jonah.mjs",
+      "gitBytes": 2021,
+      "git": "sha256:b7a02a19e56de2cd2993a7ca39ff576f41f99cb356f7157556530d40f01f3f5b",
+      "checkout": {
+        "path": "scripts/pin-jonah.mjs",
+        "bytes": 2054,
+        "checksum": "sha256:34a5d610f8065431a20f6d547b45f3c8118eb6fc8673767affeae3cd405ea09d"
+      }
+    },
+    {
+      "path": "scripts/pin-thomas.mjs",
+      "gitBytes": 3178,
+      "git": "sha256:0960ac5176c8a7af062f93111be876d29776689b91dfc20672cdd0fc5b818dab",
+      "checkout": {
+        "path": "scripts/pin-thomas.mjs",
+        "bytes": 3210,
+        "checksum": "sha256:7dd25bbedf8b52b2cf065aa9bf231f181f4844454d4ca0f549c4b773a3a7e08e"
+      }
+    },
+    {
+      "path": "scripts/prepare-perpetua-recovery.mjs",
+      "gitBytes": 6021,
+      "git": "sha256:46003a6f38523956b580ebfd21a70676da8a247b1468a4f3b26b188006c6810f",
+      "checkout": {
+        "path": "scripts/prepare-perpetua-recovery.mjs",
+        "bytes": 6079,
+        "checksum": "sha256:e99d05adb33e5df43f833f2f04793634cca95ec4938ce5c3b1a92f2eaddeae9c"
+      }
+    },
+    {
+      "path": "scripts/prepare-thomas-art.mjs",
+      "gitBytes": 3796,
+      "git": "sha256:f756c7fa19890364d678da10d3568ec912097ae53cbb823098512fc326a922a7",
+      "checkout": {
+        "path": "scripts/prepare-thomas-art.mjs",
+        "bytes": 3832,
+        "checksum": "sha256:729f61405cc72eb8606dc340630baacc1f87f3d4a9f1764e95566ac5245ecbb5"
+      }
+    },
+    {
+      "path": "scripts/publication-gate.mjs",
+      "gitBytes": 2580,
+      "git": "sha256:5970fadf07550124d87f4ca13d0e1248c8ab5a28545a46bab48a8ae36e63e6a7",
+      "checkout": {
+        "path": "scripts/publication-gate.mjs",
+        "bytes": 2619,
+        "checksum": "sha256:004bb8ef5151f349db741190a67b857855cf39b9c8b85505c89c5e38c80f7eb6"
+      }
+    },
+    {
+      "path": "scripts/release-gate-inventory.ts",
+      "gitBytes": 11559,
+      "git": "sha256:a7d27c964259f9efefe331bc68f3167b2a28750330cbf813bcd2af17427c5130",
+      "checkout": {
+        "path": "scripts/release-gate-inventory.ts",
+        "bytes": 11729,
+        "checksum": "sha256:2d812a7c71fef17a2643e39a1089fa0015e0486fc60c5eae0de6e11cb2c53165"
+      }
+    },
+    {
+      "path": "scripts/review-home-discovery.mjs",
+      "gitBytes": 8584,
+      "git": "sha256:3fb55ef2d02325fa2b8ff8de89ce39a8997154c2559f3ef98bec77544b849f8c",
+      "checkout": {
+        "path": "scripts/review-home-discovery.mjs",
+        "bytes": 8680,
+        "checksum": "sha256:849c45c8b8f9580fb9252deb7a16345f338e67ee9a4d857dfc5ac49f2e0ebae4"
+      }
+    },
+    {
+      "path": "scripts/review-irreplaceable.mjs",
+      "gitBytes": 5616,
+      "git": "sha256:4b176109e5563a4dc422f1e24494435fc984c9e060e1b710527ad1681e207958",
+      "checkout": {
+        "path": "scripts/review-irreplaceable.mjs",
+        "bytes": 5676,
+        "checksum": "sha256:5eda951455ee41ee7b35085260cbc451b4b59966a3b09143db667aa63e6cb777"
+      }
+    },
+    {
+      "path": "scripts/review-james-v2.mjs",
+      "gitBytes": 3584,
+      "git": "sha256:3b27fe4d4fe43f1493c9cb42baba24c4126e699cabd5185ca992de8167d1e28a",
+      "checkout": {
+        "path": "scripts/review-james-v2.mjs",
+        "bytes": 3629,
+        "checksum": "sha256:01b1608e3d85514bbc03e0fddf834bee85533882e220f62759efdefb0269e4b7"
+      }
+    },
+    {
+      "path": "scripts/review-jonah.mjs",
+      "gitBytes": 7117,
+      "git": "sha256:662c3b4a88c269424eb6ab80a247c6314110279f9cb8f18aa0622de9dd8697ec",
+      "checkout": {
+        "path": "scripts/review-jonah.mjs",
+        "bytes": 7199,
+        "checksum": "sha256:d0b1c89836899d77eb7beec2f1c4f323d67fce7df3173d9795687988d7d054ae"
+      }
+    },
+    {
+      "path": "scripts/review-thomas-cinematic.mjs",
+      "gitBytes": 2858,
+      "git": "sha256:1a3303f66d1848c1917258660c0db712a968a10a0d3f307413e3eebf1d577957",
+      "checkout": {
+        "path": "scripts/review-thomas-cinematic.mjs",
+        "bytes": 2898,
+        "checksum": "sha256:84f7c54c0eddd3d52bfd1357f6a6fa6a4b673706fd19e5d8dafb3ea6687a3ee2"
+      }
+    },
+    {
+      "path": "scripts/review-thomas-homepage.mjs",
+      "gitBytes": 6825,
+      "git": "sha256:b0f37a79030a124b341040112dbe4c1b001986c37ff42558de9e7a9e2ddafb59",
+      "checkout": {
+        "path": "scripts/review-thomas-homepage.mjs",
+        "bytes": 6912,
+        "checksum": "sha256:a113219e5ce3c69295a5fa4f6ae446054045ac18186c97bf2717a9cde0e3baed"
+      }
+    },
+    {
+      "path": "scripts/review-thomas-sources.mjs",
+      "gitBytes": 1713,
+      "git": "sha256:ee2f9a8696e03ea5c84669b1feb6dcd84ce52f8ad64a197ba4476fad54eb40fa",
+      "checkout": {
+        "path": "scripts/review-thomas-sources.mjs",
+        "bytes": 1734,
+        "checksum": "sha256:383bab89aef3b9aec6074d05ca3e7c8828b611afa7c31f1a15a845796f779a5f"
+      }
+    },
+    {
+      "path": "scripts/review-thomas-v4.mjs",
+      "gitBytes": 2947,
+      "git": "sha256:c1ca0f84370ec3da7fc51eff8744aee219b4cf38478766a89bf402f39b66293c",
+      "checkout": {
+        "path": "scripts/review-thomas-v4.mjs",
+        "bytes": 2994,
+        "checksum": "sha256:c4fcbf78103e36e38426b0ada1307c457d04724742b8a1d654b56b41b441837b"
+      }
+    },
+    {
+      "path": "scripts/review-thomas.mjs",
+      "gitBytes": 2088,
+      "git": "sha256:ec6eb9ccd7d50a9642716d2006f1a08b8682d08a6a95de2f1fd997972a95376f",
+      "checkout": {
+        "path": "scripts/review-thomas.mjs",
+        "bytes": 2115,
+        "checksum": "sha256:7c5aa1964acbf6a755edc582e10c091f75237353a9dd11c6fc79f219f9543caf"
+      }
+    },
+    {
+      "path": "scripts/serve-export.mjs",
+      "gitBytes": 2427,
+      "git": "sha256:0d67eff6c436d9bfc6a8e3dcf6188c1cec1a5dd17728b79051efb8ee5159c3ca",
+      "checkout": {
+        "path": "scripts/serve-export.mjs",
+        "bytes": 2458,
+        "checksum": "sha256:7892c7862ae8aaef3e35db4f2591d93e529968f758f9c4e9c46932faedbf6ceb"
+      }
+    },
+    {
+      "path": "scripts/split_parquet.js",
+      "gitBytes": 1544,
+      "git": "sha256:1799aef08b20a54b6c2dc34359be58f9bf909933b39cf4f4590faf3b513e6988",
+      "checkout": {
+        "path": "scripts/split_parquet.js",
+        "bytes": 1568,
+        "checksum": "sha256:ac9bb20379ba3b4e29fc10678497ca26c108fc6cf7d5cbc5b01f1a0d63ac967c"
+      }
+    },
+    {
+      "path": "scripts/split_parquet.py",
+      "gitBytes": 1960,
+      "git": "sha256:1f853f087a29c5a8415508d74a3a9c839ba4b230f74fd523a616c418afde6060",
+      "checkout": {
+        "path": "scripts/split_parquet.py",
+        "bytes": 2010,
+        "checksum": "sha256:18141816094587dddbec658af7da68753183681688133c1231946a8d6aff27f7"
+      }
+    },
+    {
+      "path": "scripts/test-export-boundary.mjs",
+      "gitBytes": 2626,
+      "git": "sha256:792e6a3d8fbc424b80f101110cdd4e760bb0e1c217df284860e2eaeb86ec88cd",
+      "checkout": {
+        "path": "scripts/test-export-boundary.mjs",
+        "bytes": 2653,
+        "checksum": "sha256:8daa737a5c63773f562987af6e01a0c794408c485a719d0bc85561d00badfbb6"
+      }
+    },
+    {
+      "path": "scripts/test-seo-gate.mjs",
+      "gitBytes": 1777,
+      "git": "sha256:7fe756e7da97aea30ef8780c2152835a178559d522b1fcd115dffba9962d4b45",
+      "checkout": {
+        "path": "scripts/test-seo-gate.mjs",
+        "bytes": 1801,
+        "checksum": "sha256:c44bbb2eacdc7f89a20239516881acc6ea913f3332cc25a2112ede055ba8a0c4"
+      }
+    },
+    {
+      "path": "scripts/thomas-source-studies.mjs",
+      "gitBytes": 5863,
+      "git": "sha256:db5819c2c05a576cdff6a9c8c6ec2540ad802df4302017d6098de3517ae9cb9c",
+      "checkout": {
+        "path": "scripts/thomas-source-studies.mjs",
+        "bytes": 5880,
+        "checksum": "sha256:d0f94d7e3557dca3471d8016ce4e65caf64b692a201979672694a4e9940fb0ad"
+      }
+    },
+    {
+      "path": "scripts/thomas-v4-proposals.mjs",
+      "gitBytes": 5665,
+      "git": "sha256:5d1572e21e5d80affcd0d6301077bf22488cc92b2f29bbb4bbeba4bf0199a5b4",
+      "checkout": {
+        "path": "scripts/thomas-v4-proposals.mjs",
+        "bytes": 5706,
+        "checksum": "sha256:40dccc0dfa3dcf1901efdeec4c976d3993451247f4997d3f393200e0dce0f2be"
+      }
+    },
+    {
+      "path": "scripts/validate-jonah-assets.mjs",
+      "gitBytes": 4819,
+      "git": "sha256:346ebe6b63488a7a6c11e763357e282e065d4d4ee8ca080a11664a14189e0b18",
+      "checkout": {
+        "path": "scripts/validate-jonah-assets.mjs",
+        "bytes": 4887,
+        "checksum": "sha256:1a76b4efd827eb59852e51c6b02209955ba74532d3b9c9d71b6baa2cc8f2736e"
+      }
+    },
+    {
+      "path": "scripts/validate-maplibre-export.mjs",
+      "gitBytes": 2807,
+      "git": "sha256:fca4174abb698f6f25471f0b91f488cd259f284dca82a1b57b85a4e71f7999aa",
+      "checkout": {
+        "path": "scripts/validate-maplibre-export.mjs",
+        "bytes": 2847,
+        "checksum": "sha256:429ec182c0ee88e989647686a6a2e6fb3f4919c8735b06804ccaf570429a505b"
+      }
+    },
+    {
+      "path": "scripts/validate-nineveh-depth.mjs",
+      "gitBytes": 3071,
+      "git": "sha256:3e920075599d37de16529ed3dff60d923ff7b82693809e3c49b9d16b46327d3e",
+      "checkout": {
+        "path": "scripts/validate-nineveh-depth.mjs",
+        "bytes": 3109,
+        "checksum": "sha256:7585892a3b967aa72aab292ae4adcae27a7b9ffdb16c59a469476032cbcb725b"
+      }
+    },
+    {
+      "path": "scripts/validate-story.ts",
+      "gitBytes": 2230,
+      "git": "sha256:767f1f11c4a5f4a2c7f815bc29dd16f16ea0b121fde4c249dd343b0ef836ca41",
+      "checkout": {
+        "path": "scripts/validate-story.ts",
+        "bytes": 2259,
+        "checksum": "sha256:f5c500e7144555b47dd11a3ba788a3f9d573c471e90b487951d9ee5003fa7117"
+      }
+    },
+    {
+      "path": "scripts/validate-visitor-export.ts",
+      "gitBytes": 3631,
+      "git": "sha256:a891d741e5870c6821845c79252e12e2f2c0726381e2e9d0e0298230fcde80bd",
+      "checkout": {
+        "path": "scripts/validate-visitor-export.ts",
+        "bytes": 3676,
+        "checksum": "sha256:29dca83983dbd2390bd7a952bfab5ae25b6c2e69e1df5bff9be905f34bffb015"
+      }
+    },
+    {
+      "path": "scripts/validate_epochs.mjs",
+      "gitBytes": 1929,
+      "git": "sha256:c065e1c6a5ae12d16ad8e3f0295a5898c9591e011b19285e7fbaec5614a89c27",
+      "checkout": {
+        "path": "scripts/validate_epochs.mjs",
+        "bytes": 1963,
+        "checksum": "sha256:4402c53f9e4a8e834eb98b63e65c30cc9fe6af3a343f46d451fe69901e39055f"
+      }
+    },
+    {
+      "path": "scripts/verify-irreplaceable.mjs",
+      "gitBytes": 16297,
+      "git": "sha256:db497a0411549d9fd50806e269329862384f344716c913716e2bb3d97d0decb4",
+      "checkout": {
+        "path": "scripts/verify-irreplaceable.mjs",
+        "bytes": 16458,
+        "checksum": "sha256:0650961b599f14ea9536b2eadea83f141dcd9d318d0cc1dd37cab74b30d13307"
+      }
+    },
+    {
+      "path": "src/AGENTS.md",
+      "gitBytes": 6585,
+      "git": "sha256:e308cad388012cfc1ea294a6d139458e499ef6f6becab89ee8596a3f615373e5",
+      "checkout": {
+        "path": "src/AGENTS.md",
+        "bytes": 6802,
+        "checksum": "sha256:30c05d90edd26dea4197153a52d04eea5f573562cb2120730bc8fbde3d70c06d"
+      }
+    },
+    {
+      "path": "src/app/NinevehHome.tsx",
+      "gitBytes": 1071,
+      "git": "sha256:25eb166640ec7b1b3e3dde64f7e13e97df3cfb5cd94c1f16a4bcebc6e767318d",
+      "checkout": {
+        "path": "src/app/NinevehHome.tsx",
+        "bytes": 1098,
+        "checksum": "sha256:55c56c151cbd3c4eb401655ff4020a09d549002c962af79e40e9fce01e837960"
+      }
+    },
+    {
+      "path": "src/app/RootEntrance.tsx",
+      "gitBytes": 1066,
+      "git": "sha256:4bbc16997098d02df81f0023a8e2d9bdfdc77e6f25ba745f36e713b3bacbefb7",
+      "checkout": {
+        "path": "src/app/RootEntrance.tsx",
+        "bytes": 1090,
+        "checksum": "sha256:7f469ce09c87c225bbe4bd4dce14398b7512b31ccf8302aff5a10af52a7a129f"
+      }
+    },
+    {
+      "path": "src/app/demo/page.tsx",
+      "gitBytes": 2286,
+      "git": "sha256:5ac733b1604afcf58f1c8979f169328f02cac79350339d30feb82a218596e15c",
+      "checkout": {
+        "path": "src/app/demo/page.tsx",
+        "bytes": 2346,
+        "checksum": "sha256:cbd47d22ca2f6f3ed115ef3d79aad7249e19dfb57f8ed718ce064abc74ea64bf"
+      }
+    },
+    {
+      "path": "src/app/experiments/nineveh/page.tsx",
+      "gitBytes": 601,
+      "git": "sha256:3f2b21dcf87ab9b0e1b5ebccd5f690e1e6a4dab2ff2e733e8fa079b37125a69b",
+      "checkout": {
+        "path": "src/app/experiments/nineveh/page.tsx",
+        "bytes": 613,
+        "checksum": "sha256:b6c7b8ea8837937447ed3693dd167f786b6ffdbb7cc29b576152cfedef2cde9e"
+      }
+    },
+    {
+      "path": "src/app/explore/explore.css",
+      "gitBytes": 544,
+      "git": "sha256:fe5fd3ba5ed44e3c3236b1f7b4ab3279e6b1e7bc25df6cc820b360fd2fa17e55",
+      "checkout": {
+        "path": "src/app/explore/explore.css",
+        "bytes": 548,
+        "checksum": "sha256:e5ad37aad6f917e9e6e0a186d7c5c8eb65e1d63e74b3ee34e79ab8cbcdeb62d7"
+      }
+    },
+    {
+      "path": "src/app/explore/page.tsx",
+      "gitBytes": 720,
+      "git": "sha256:5b2df980fc24e07e7f21ff4af19b1d068749fc8b36e4bfd339d10d0bf56cc411",
+      "checkout": {
+        "path": "src/app/explore/page.tsx",
+        "bytes": 728,
+        "checksum": "sha256:a1539aa2a723519829e5c7dc78c90b9dc7c092f541a6ef7a52b6b2254c7729c9"
+      }
+    },
+    {
+      "path": "src/app/globals.css",
+      "gitBytes": 749,
+      "git": "sha256:8e7ae938f5ef7b5e5fa27a9bb9d40ee3e87d784a26cd252f797bca2a1e0f2d7c",
+      "checkout": {
+        "path": "src/app/globals.css",
+        "bytes": 786,
+        "checksum": "sha256:33d944fbc74678f8e7890e544347b6944e06dfb04ffc9de57905c71df485e978"
+      }
+    },
+    {
+      "path": "src/app/home.css",
+      "gitBytes": 5969,
+      "git": "sha256:5038c2480aecc9dff2094b3bb152108ae619bef9b877f79584b8133e031e413c",
+      "checkout": {
+        "path": "src/app/home.css",
+        "bytes": 5992,
+        "checksum": "sha256:2308e5eb44fdad3e2f42c1a8793268a830b4c1ffa7b78195f5596fd3d164d4bc"
+      }
+    },
+    {
+      "path": "src/app/human-story/[entry]/page.tsx",
+      "gitBytes": 1468,
+      "git": "sha256:2e119339624f5c13dec79c7082cfe4cd7e37697b15e7a0782457e6397ae947b2",
+      "checkout": {
+        "path": "src/app/human-story/[entry]/page.tsx",
+        "bytes": 1504,
+        "checksum": "sha256:a8e50ff20fedda2eb68a70237a3ea21e2cfe3a4ea6a5847a3889b225d068a053"
+      }
+    },
+    {
+      "path": "src/app/human-story/james/reading/page.tsx",
+      "gitBytes": 443,
+      "git": "sha256:d81d60f9d974899d063d6ad6068a1497c8af6a887de3473db62f9f5dd8eff291",
+      "checkout": {
+        "path": "src/app/human-story/james/reading/page.tsx",
+        "bytes": 448,
+        "checksum": "sha256:32303c38f55b2cede05a1317ca95317b8bb9535cdc2a038d6a4070d5446a2518"
+      }
+    },
+    {
+      "path": "src/app/human-story/layout.tsx",
+      "gitBytes": 150,
+      "git": "sha256:ef5823ac2b606267487ae93cf921e719e57e0453707d9ca7703e6a691bd93ea1",
+      "checkout": {
+        "path": "src/app/human-story/layout.tsx",
+        "bytes": 159,
+        "checksum": "sha256:c322e38673aef517de663ca07fff21657f56447916ff997f516aa8b77696f1ee"
+      }
+    },
+    {
+      "path": "src/app/human-story/page.tsx",
+      "gitBytes": 425,
+      "git": "sha256:28f4269bc9644c1a7c14f6c23c90a0537e2473d8505729b485ffc3da527b1fc3",
+      "checkout": {
+        "path": "src/app/human-story/page.tsx",
+        "bytes": 433,
+        "checksum": "sha256:5bf7dda6b761caaf51ee6abcc0ad6a44525576e46076c2cd285ac77ebc9403e4"
+      }
+    },
+    {
+      "path": "src/app/human-story/paths/[path]/page.tsx",
+      "gitBytes": 4838,
+      "git": "sha256:8d9d3330ceab2d6d3159ff9966d6a07c9fb222e9cabd1749e2ccb5a42bb4d171",
+      "checkout": {
+        "path": "src/app/human-story/paths/[path]/page.tsx",
+        "bytes": 4970,
+        "checksum": "sha256:be40d060fa926b4fa5a03a1bb5a78086d2a38c15ed4a94ee34bc104cb8fe42e2"
+      }
+    },
+    {
+      "path": "src/app/human-story/romanus/reading/page.tsx",
+      "gitBytes": 456,
+      "git": "sha256:fce1d5cf4148ef050ce68aee29d5570c92b80663c2d00a2639d1e6b682edef6d",
+      "checkout": {
+        "path": "src/app/human-story/romanus/reading/page.tsx",
+        "bytes": 464,
+        "checksum": "sha256:2a17db9d1a24df9c2fcdae6e769f0e8de3bcf392ca30a47d4f22f46754b44d2f"
+      }
+    },
+    {
+      "path": "src/app/human-story/thomas/page.tsx",
+      "gitBytes": 435,
+      "git": "sha256:0cc65c86cdbab30dcaed7d6d617a62c7a9d77b43e4492282e241843f5ac6a831",
+      "checkout": {
+        "path": "src/app/human-story/thomas/page.tsx",
+        "bytes": 439,
+        "checksum": "sha256:7dd9a2dcce360ab24fefe7a9449e77c30bbd0ddac8a0a7e91e1d7ebe1581ff41"
+      }
+    },
+    {
+      "path": "src/app/human-story/thomas/reading/page.tsx",
+      "gitBytes": 442,
+      "git": "sha256:d84ad44f4290de7e0f70cdfc73eeb051b405b8473b0c7dc02346871ed918cdab",
+      "checkout": {
+        "path": "src/app/human-story/thomas/reading/page.tsx",
+        "bytes": 446,
+        "checksum": "sha256:be78a7476c8e9cddad7721e37bcbb388d78027d6935e175ffcef88032ee76137"
+      }
+    },
+    {
+      "path": "src/app/human-story/thomas/sayings/page.tsx",
+      "gitBytes": 7503,
+      "git": "sha256:0a55825f84c8ef1b15c9df732efb06bf9d92e5baa9316853e8c20dcc4876836d",
+      "checkout": {
+        "path": "src/app/human-story/thomas/sayings/page.tsx",
+        "bytes": 7545,
+        "checksum": "sha256:9a2beb3e05ddde00b0ccfb4b5f4c0fd8599ed3c339a208979bbddc3560c60fcc"
+      }
+    },
+    {
+      "path": "src/app/human-story/worlds/[world]/page.tsx",
+      "gitBytes": 3140,
+      "git": "sha256:18d6163a525cadd295964bd84e7249830bb3c29ad0cd26e55401a12af8a9b2e6",
+      "checkout": {
+        "path": "src/app/human-story/worlds/[world]/page.tsx",
+        "bytes": 3224,
+        "checksum": "sha256:d8fad1cc363f57cf0e59094cfe24b5c451bd3a780effe48085dd07393d57cd2f"
+      }
+    },
+    {
+      "path": "src/app/jonah/page.tsx",
+      "gitBytes": 910,
+      "git": "sha256:fd9a0c0e4fcd95a75c5fe7a9a5a64189bc9cfb04db52e0c6d0ac4005679863e3",
+      "checkout": {
+        "path": "src/app/jonah/page.tsx",
+        "bytes": 926,
+        "checksum": "sha256:47e05432085e6a93c49fc4f7b548625e1ec126efbbf7c53c026a8993d45f079b"
+      }
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "gitBytes": 1253,
+      "git": "sha256:6a92cf3b5db17b023679a38de65d0d49832d9a8bd5d65130a60e3563f511caf8",
+      "checkout": {
+        "path": "src/app/layout.tsx",
+        "bytes": 1303,
+        "checksum": "sha256:f4a4eabf8d8138ebd85e48be198a3d23da8577947706ae1956a2ffcceb3de23a"
+      }
+    },
+    {
+      "path": "src/app/nineveh/page.tsx",
+      "gitBytes": 403,
+      "git": "sha256:03c2021dcdc122ca564b43b6e7976b6bec1d89cce86caec10601ebb2cb0778b8",
+      "checkout": {
+        "path": "src/app/nineveh/page.tsx",
+        "bytes": 411,
+        "checksum": "sha256:b75fb9ae178a8a60f7ab74d6e2d977a3e901fbace7578f2f31ad5897636ef67b"
+      }
+    },
+    {
+      "path": "src/app/page.tsx",
+      "gitBytes": 850,
+      "git": "sha256:fa0d2782679e09377a6a1753cc8677096a9f97f701bc70ce70abe709db715aa6",
+      "checkout": {
+        "path": "src/app/page.tsx",
+        "bytes": 861,
+        "checksum": "sha256:ebfaa8a0c38100e468bb521a08b478dd118271dc51b8deb3722e072a41873ad0"
+      }
+    },
+    {
+      "path": "src/app/robots.ts",
+      "gitBytes": 372,
+      "git": "sha256:d0daa542af46886bb69ad315487d846cb950be97e87d45b5b82c5cce4462fc8e",
+      "checkout": {
+        "path": "src/app/robots.ts",
+        "bytes": 380,
+        "checksum": "sha256:2db877027938acae62ee29cdb68566cf909ef5019e0577f5ea5f006b888b9c99"
+      }
+    },
+    {
+      "path": "src/app/sitemap.ts",
+      "gitBytes": 439,
+      "git": "sha256:67bd4580c559b30fc0f9c09eb1119d2362234baedce38eec47c61da5b02e9542",
+      "checkout": {
+        "path": "src/app/sitemap.ts",
+        "bytes": 450,
+        "checksum": "sha256:b752b87f31ac49a211eee9bfc3e17d7954402dbf2781992936a72bb5aa4089c6"
+      }
+    },
+    {
+      "path": "src/components/DataLoader.tsx",
+      "gitBytes": 107324,
+      "git": "sha256:d6e751ee10c4e05b0dc52dfc209e047ed5d0c0eb960f6b7ac265aebe89456d16",
+      "checkout": {
+        "path": "src/components/DataLoader.tsx",
+        "bytes": 109622,
+        "checksum": "sha256:faa81936eb38f96465c1d0549856cb83bc804e292db126f6a5b9f0608331be20"
+      }
+    },
+    {
+      "path": "src/components/ErrorBoundary.tsx",
+      "gitBytes": 4885,
+      "git": "sha256:290e96bde064177c0e77779377d9c46c8effaeee30787ceed55a473a429e43a9",
+      "checkout": {
+        "path": "src/components/ErrorBoundary.tsx",
+        "bytes": 5022,
+        "checksum": "sha256:89eab96728ef479f36e09c72d6ca2c173fce6f486321375023943678d8bdd974"
+      }
+    },
+    {
+      "path": "src/content/AGENTS.md",
+      "gitBytes": 2781,
+      "git": "sha256:af47351f94d31cbac131608a1b0b5e1d75c59311d8c49b18ad4935582a7c57cf",
+      "checkout": {
+        "path": "src/content/AGENTS.md",
+        "bytes": 2811,
+        "checksum": "sha256:cb8700303c0e9cc020989bd1d83a9656400b37003ac015ddaa935c162dc99566"
+      }
+    },
+    {
+      "path": "src/content/historical-contexts.ts",
+      "gitBytes": 32853,
+      "git": "sha256:eeb246c40251eb400a05879845120c5cd3723919130b1c8c01afd3110b7582bb",
+      "checkout": {
+        "path": "src/content/historical-contexts.ts",
+        "bytes": 33446,
+        "checksum": "sha256:4a91c211e86724f18cd9d5b4bff089d5bcb8b868f5fc54553ac043ffad206bd4"
+      }
+    },
+    {
+      "path": "src/content/historical-sources.ts",
+      "gitBytes": 14686,
+      "git": "sha256:b950280d47d472349b57ca01c4e1d11fa7b8c6db7edd923d8444a9bd26f4d959",
+      "checkout": {
+        "path": "src/content/historical-sources.ts",
+        "bytes": 15014,
+        "checksum": "sha256:f1fdac8240eb65385aaa9f248f5c8c7a946afc376c48c9ba2dee1d7a28855d6f"
+      }
+    },
+    {
+      "path": "src/content/human-story-culture.ts",
+      "gitBytes": 27340,
+      "git": "sha256:f6383a8c1725ab27efa01c1417309a4ff7afef823b81456651495181ba322132",
+      "checkout": {
+        "path": "src/content/human-story-culture.ts",
+        "bytes": 27920,
+        "checksum": "sha256:05d0425579403631a55b375f5e5063d2fb14382dd2f456c5ce30db344f6bdb73"
+      }
+    },
+    {
+      "path": "src/content/human-story-interior-media.json",
+      "gitBytes": 17577,
+      "git": "sha256:9b64c6a5d1896e9803341cf7b629671328c25bf4695b27fe63dc401ce82a90db",
+      "checkout": {
+        "path": "src/content/human-story-interior-media.json",
+        "bytes": 17813,
+        "checksum": "sha256:40bcb2e8510a5da3109ca6811ed46f8631a0e58d820f4dd8efcd22d6c87d66a4"
+      }
+    },
+    {
+      "path": "src/content/human-story-interiors.ts",
+      "gitBytes": 4638,
+      "git": "sha256:726717ef8bb22da51780aae01cbe94ee7092e896f52f1e8bf22df976541d5aea",
+      "checkout": {
+        "path": "src/content/human-story-interiors.ts",
+        "bytes": 4707,
+        "checksum": "sha256:21206088cc0527bbaedef3a83bca6d9243a4dcd71bec0896e54160bc58aebef9"
+      }
+    },
+    {
+      "path": "src/content/human-story-paths.ts",
+      "gitBytes": 3075,
+      "git": "sha256:cb9026ec232fd766d38927c51590ccac7bae7158e1d3c2e3d6df86c2ef13208c",
+      "checkout": {
+        "path": "src/content/human-story-paths.ts",
+        "bytes": 3173,
+        "checksum": "sha256:c21544b0e1316b5a0ed5eb3bfe11eb8c70e870c2be1969bc041939fb7f2060af"
+      }
+    },
+    {
+      "path": "src/content/human-story-saints.ts",
+      "gitBytes": 17621,
+      "git": "sha256:0a60c9419bfc82345839003e1364ffdae841046346e42c93337fc656545cb785",
+      "checkout": {
+        "path": "src/content/human-story-saints.ts",
+        "bytes": 17988,
+        "checksum": "sha256:3cbebe2a6b464875df8873e083d52d8b48dd80e8cbe9e800df05ebbfe1066d34"
+      }
+    },
+    {
+      "path": "src/content/human-story-witnesses.ts",
+      "gitBytes": 18471,
+      "git": "sha256:24fce28ca3b37004e5689b49b229d78c6544f27c05e6ffad101e61685b684ad1",
+      "checkout": {
+        "path": "src/content/human-story-witnesses.ts",
+        "bytes": 18879,
+        "checksum": "sha256:79f67996d4363642bf5aaba324e53b994ea6e9ddcd494bfc90bde79580b3ceb3"
+      }
+    },
+    {
+      "path": "src/content/human-story.ts",
+      "gitBytes": 20321,
+      "git": "sha256:8e5f1405789d89eb6018968de708ca4b6be737c54fd5a6c1837e366b2f62870c",
+      "checkout": {
+        "path": "src/content/human-story.ts",
+        "bytes": 20842,
+        "checksum": "sha256:62bdddd6e1d72fe97a3e2fe2a9657dcd30a414b650ebd62ceadf14b9cb038d5e"
+      }
+    },
+    {
+      "path": "src/content/james.ts",
+      "gitBytes": 20401,
+      "git": "sha256:1226c53c26799eceb4100675d2695064b734011b21d80aab89dab7399c123157",
+      "checkout": {
+        "path": "src/content/james.ts",
+        "bytes": 20552,
+        "checksum": "sha256:f01f8b322d2a307844ae1f3bbb1c3cbfd9595dd91e0de87453fdf541a0a72ac2"
+      }
+    },
+    {
+      "path": "src/content/jonah-discoveries.ts",
+      "gitBytes": 2922,
+      "git": "sha256:57f72f3958add178294d0613a3f829f44d064ebad08bda1162f53b2c27305658",
+      "checkout": {
+        "path": "src/content/jonah-discoveries.ts",
+        "bytes": 2961,
+        "checksum": "sha256:1830b71b5c0c4f894a19cf729b6ec1ea9f0103785c16ac846d480aca24865800"
+      }
+    },
+    {
+      "path": "src/content/jonah-media.ts",
+      "gitBytes": 12016,
+      "git": "sha256:86ec747d1e59ce041ed0a44fd5f5efb6dbae0b9789ab173a904cdcb4ef4c9931",
+      "checkout": {
+        "path": "src/content/jonah-media.ts",
+        "bytes": 12169,
+        "checksum": "sha256:f9c48506dd34a49c2ae55180cc859f1de6bc09867c7ccc3c4940b11d75a8b93d"
+      }
+    },
+    {
+      "path": "src/content/jonah-visual-review.ts",
+      "gitBytes": 4847,
+      "git": "sha256:2745f3525d7eb28d12ee56bdb20ae74170b366b376d3f9f53794e838b8e6fd54",
+      "checkout": {
+        "path": "src/content/jonah-visual-review.ts",
+        "bytes": 4909,
+        "checksum": "sha256:85bdc3b510ef46a2c7755c98f6055a57633cee1bcc809da144153f59ed86bbfb"
+      }
+    },
+    {
+      "path": "src/content/jonah.ts",
+      "gitBytes": 8085,
+      "git": "sha256:2957abab1f3ba56ff0f3a4a1e4be3efe0f520dfb4b274ef31306554254eee62a",
+      "checkout": {
+        "path": "src/content/jonah.ts",
+        "bytes": 8187,
+        "checksum": "sha256:cc8e41c3f6685abfb14525c0e2a12bee8932b8a81ac27ecdb01c11b30d857cb9"
+      }
+    },
+    {
+      "path": "src/content/nineveh-depth.ts",
+      "gitBytes": 3629,
+      "git": "sha256:68bd1627068969212e37a5787ccb575cd90b7abc77ea78801a856cb1fac88fb2",
+      "checkout": {
+        "path": "src/content/nineveh-depth.ts",
+        "bytes": 3659,
+        "checksum": "sha256:076cd56232522b2310186dbb031e2d76b2e93a6eac4e392c05db1ee25075885c"
+      }
+    },
+    {
+      "path": "src/content/perpetua-encounter.ts",
+      "gitBytes": 14601,
+      "git": "sha256:e787cb5dd902c7b3c8db84bef104cd5f2379e2dc731e8acbe4408d7f474925df",
+      "checkout": {
+        "path": "src/content/perpetua-encounter.ts",
+        "bytes": 14902,
+        "checksum": "sha256:c8f640a893cc4131fef04a9738e86cc78aa7d23fb800dcd5e4c11dbce0927550"
+      }
+    },
+    {
+      "path": "src/content/perpetua-passages.ts",
+      "gitBytes": 3589,
+      "git": "sha256:dd6cf003696b54cd779955c1c0659ef8f3a2481201835f14172250a93ebe3a53",
+      "checkout": {
+        "path": "src/content/perpetua-passages.ts",
+        "bytes": 3668,
+        "checksum": "sha256:87130f584ed3e1a56d2890681fc88e84707dd618101b9ab49aa81e6d95b5d04c"
+      }
+    },
+    {
+      "path": "src/content/romanus-media.ts",
+      "gitBytes": 2343,
+      "git": "sha256:a2c7a35e120966f760c42955b2531eeba347433a2eb1f79141070275757415d6",
+      "checkout": {
+        "path": "src/content/romanus-media.ts",
+        "bytes": 2370,
+        "checksum": "sha256:8e14bb7304aeb0f3baf0067e6c8cdc2b9fa3f786c695ea8ae7f3e9360cc9b496"
+      }
+    },
+    {
+      "path": "src/content/romanus.ts",
+      "gitBytes": 17811,
+      "git": "sha256:bfc6a88525a608050ececd8196de5340fa83aef16f464fc6e14f60b63545635a",
+      "checkout": {
+        "path": "src/content/romanus.ts",
+        "bytes": 17970,
+        "checksum": "sha256:a0533ee6131ec87264afed84f24b7cc6ff8af5eb411f50cecf8f3fb8fd697c92"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-13.html",
+      "gitBytes": 1633,
+      "git": "sha256:3fd1c77a6ffca9e925863325b6bc4b3641fe448cbc047e761e7fe2c828afd610",
+      "checkout": {
+        "path": "src/content/scripture/thomas-mattison-13.html",
+        "bytes": 1636,
+        "checksum": "sha256:ac72aef35e027a5a524bb17a32124a7175bcbf443cdecb1290b20487c6f319bc"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-13.json",
+      "gitBytes": 1059,
+      "git": "sha256:33bd82a4d5849f57f1cf70c53f5e4c94379b16b81990998c215cfda72b630e80",
+      "checkout": {
+        "path": "src/content/scripture/thomas-mattison-13.json",
+        "bytes": 1068,
+        "checksum": "sha256:22edb51af548f9e442a9f282f133b0e3bb7c1659da0530209b6876775755ee7a"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-26.html",
+      "gitBytes": 889,
+      "git": "sha256:dba008ab84f248215a4398ecb2e47b9f30b9d8b9f5203dc13186ed8ae5c6b7ce",
+      "checkout": {
+        "path": "src/content/scripture/thomas-mattison-26.html",
+        "bytes": 892,
+        "checksum": "sha256:d2fab887ad07f083a927fb14b59b1acff9b791608fcbfb18bdb14d34cb2c3574"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-26.json",
+      "gitBytes": 573,
+      "git": "sha256:801a4138946a90637dc715e177c627e2b2a269661cdac4856f48fc3b1ad9f8e1",
+      "checkout": {
+        "path": "src/content/scripture/thomas-mattison-26.json",
+        "bytes": 582,
+        "checksum": "sha256:0271bdaf24b95beff815e7b8414b9b5fa2241e5ef8c20cda0cdd454a22ece778"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-oxy1-26.html",
+      "gitBytes": 637,
+      "git": "sha256:c4ac88f3965ebfa7150874f8b1cb54b80b5107ee34fe905d8775cb0959bbd18c",
+      "checkout": {
+        "path": "src/content/scripture/thomas-oxy1-26.html",
+        "bytes": 645,
+        "checksum": "sha256:dca92ccbeba1e7f7393c988ab652cce8099aa117a19a125cab76963f556868a1"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-oxy1-26.json",
+      "gitBytes": 848,
+      "git": "sha256:8fd8305304d1b9c1af47140dad4a6f703b19bc452d62843f632a300b4abee72e",
+      "checkout": {
+        "path": "src/content/scripture/thomas-oxy1-26.json",
+        "bytes": 859,
+        "checksum": "sha256:a924a6320d59b38c79fa8dede22c0ebe1052e346eff4e193543a9996a2e39349"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-quotes.json",
+      "gitBytes": 9527,
+      "git": "sha256:bb73242401c4279b1f78b5923b1c27f4ad27575981fef5832c4174d91531070f",
+      "checkout": {
+        "path": "src/content/scripture/thomas-quotes.json",
+        "bytes": 9738,
+        "checksum": "sha256:59fe21ec070f415fa9280de9cdb70d38bdf045b10e6c0030c3db113c5b63bd87"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-act01.html",
+      "gitBytes": 7444,
+      "git": "sha256:7d97c60fcd47e9d18c394d5e70a75c8fae86bd3b72de1e4c4d4f00c299be7673",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-act01.html",
+        "bytes": 7485,
+        "checksum": "sha256:4ed63be0a44a177f1015c7075431f469d91780197bc74fcd99d3f8a12554b32f"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn11.html",
+      "gitBytes": 12108,
+      "git": "sha256:b50fad0b883b88cb38d452741f23a0ba65842d1ae296fa04138ed0b7999c6a23",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-jhn11.html",
+        "bytes": 12149,
+        "checksum": "sha256:fb017b15caa12453f7fa2079dafbf31d24888d2e6de53ea76d5cad4a57b82307"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn14.html",
+      "gitBytes": 7617,
+      "git": "sha256:22f3cd937229cfc8a4b4dedb84189555d58a2b44b71d10ad194be42758443a57",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-jhn14.html",
+        "bytes": 7654,
+        "checksum": "sha256:fcad275c48c76baf68a47ef7e5c9f8868ab1d27080f99f6bdba0818ee6b098a6"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn20.html",
+      "gitBytes": 8425,
+      "git": "sha256:12795753543a5d9c697331e7b02f866b02cb441b50eea9980c81340307a7f1bb",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-jhn20.html",
+        "bytes": 8468,
+        "checksum": "sha256:6b293c206efb6f8c3531948d7fd1be55b30f61e23964e62b47cd3ba2b7d17724"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn21.html",
+      "gitBytes": 8127,
+      "git": "sha256:29a41052b8349b961e9113cd20fc191057787a22c44f88c64f7ea829d04d51fc",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-jhn21.html",
+        "bytes": 8168,
+        "checksum": "sha256:195748ab9e7870b7a7ce4764ba18ac56e3678c43d3b2aa4fa748e957b9b93431"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-luk06.html",
+      "gitBytes": 12631,
+      "git": "sha256:d2494d58588c4cc852ceae988b23da8e6ba862598d627011837a9bc4f5fdf73b",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-luk06.html",
+        "bytes": 12672,
+        "checksum": "sha256:3ea39b351bd3a347c216072c44943d96c2793487134ef9b511ebfbfd2393fa5c"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-mat10.html",
+      "gitBytes": 10953,
+      "git": "sha256:5ef572e917ed7f0c6535f1f8f4299fa28bc7e1ac31bc60829ab3457a1d12725d",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-mat10.html",
+        "bytes": 11000,
+        "checksum": "sha256:f49684f86003fab54454169f5529a566a8622a60a1485a21a9491409c4a3778a"
+      }
+    },
+    {
+      "path": "src/content/scripture/thomas-web-mrk03.html",
+      "gitBytes": 7493,
+      "git": "sha256:4d0091abc92a3d99f6a9642614e8589ad359cfafea983fbdea6db70bd4722c64",
+      "checkout": {
+        "path": "src/content/scripture/thomas-web-mrk03.html",
+        "bytes": 7532,
+        "checksum": "sha256:f5cfd5230ec5c7994b0e14377b1da49f97d2c2933cf63dd40bc8876bf849b60f"
+      }
+    },
+    {
+      "path": "src/content/thomas-evidence.ts",
+      "gitBytes": 5665,
+      "git": "sha256:3a547ac0999d6bb98c0283fb094cd7aa07b018b33bcd0997752697fefcb390e1",
+      "checkout": {
+        "path": "src/content/thomas-evidence.ts",
+        "bytes": 5690,
+        "checksum": "sha256:32dddd76306662ca72d28ea470664a5a08db90d4559805c8dd2f118a35938e2d"
+      }
+    },
+    {
+      "path": "src/content/thomas.ts",
+      "gitBytes": 14347,
+      "git": "sha256:6c78ad6811d5a2bfdb567a8b0b90ee9a6d6d0a01be09120b6313f84ad19a41b1",
+      "checkout": {
+        "path": "src/content/thomas.ts",
+        "bytes": 14410,
+        "checksum": "sha256:d836824f82320b350464999316e5a3f7e0d0b7d229a429b6f9f892822cdbdb7f"
+      }
+    },
+    {
+      "path": "src/content/visitor-human-story.ts",
+      "gitBytes": 738,
+      "git": "sha256:43fad816e94848129b77f9220edb780a1ac1212ef7ae38afd43f2f0502044ccc",
+      "checkout": {
+        "path": "src/content/visitor-human-story.ts",
+        "bytes": 749,
+        "checksum": "sha256:58000fa6878f334e7dd94badce032744ff312cc542574628fe7c1dbbba7e2fa0"
+      }
+    },
+    {
+      "path": "src/domain/atlas-routing.test.ts",
+      "gitBytes": 1462,
+      "git": "sha256:c20a998a31377a90ed997e486f697fb842c05ed0fdaed8e6891748ca92e67cd1",
+      "checkout": {
+        "path": "src/domain/atlas-routing.test.ts",
+        "bytes": 1487,
+        "checksum": "sha256:55853d7fc2e3506a6d2d1efb568ac1be68c4de6e880a9508d7643bfc01223d42"
+      }
+    },
+    {
+      "path": "src/domain/atlas-routing.ts",
+      "gitBytes": 1043,
+      "git": "sha256:d43e6a804403ac729d8de8be38d16f57a44521ae5e9e4677db4de1b1618e8edf",
+      "checkout": {
+        "path": "src/domain/atlas-routing.ts",
+        "bytes": 1062,
+        "checksum": "sha256:ca0e9ffefd2670e99a6313f14ee8e93aa4350832c32677a5392174e0dc6708ce"
+      }
+    },
+    {
+      "path": "src/domain/epochs.json",
+      "gitBytes": 1744,
+      "git": "sha256:8ce13cd83c8f39ccca107c7f2872f180004229900e635e59941163ca7ede3b10",
+      "checkout": {
+        "path": "src/domain/epochs.json",
+        "bytes": 1800,
+        "checksum": "sha256:605fe673c3dfee806bd13a55e97eec2bd4aa43dca596532069551b01b41050ce"
+      }
+    },
+    {
+      "path": "src/domain/historical-context.test.ts",
+      "gitBytes": 3139,
+      "git": "sha256:6976cc9c79e8f03c26897b2f541c2cd73b12a64bc242258a3982132d8beed1b7",
+      "checkout": {
+        "path": "src/domain/historical-context.test.ts",
+        "bytes": 3229,
+        "checksum": "sha256:a89309036358ee8446d236b65a48d20b7d3d6fd24594420413b4a674b751564f"
+      }
+    },
+    {
+      "path": "src/domain/historical-context.ts",
+      "gitBytes": 6892,
+      "git": "sha256:4b3713b347e187bf22c2841584e51fb176d68d2d9728a63f8e74c24b92b6c801",
+      "checkout": {
+        "path": "src/domain/historical-context.ts",
+        "bytes": 7112,
+        "checksum": "sha256:e1344c8a4f4c2a2f917c3a2201812bab043ccbe524d542dc926aac146d07ae49"
+      }
+    },
+    {
+      "path": "src/domain/human-story-interiors.test.ts",
+      "gitBytes": 2103,
+      "git": "sha256:d2ff2869f06160cb615c286be822627035bdac1a788139259dbdc37698ad4dab",
+      "checkout": {
+        "path": "src/domain/human-story-interiors.test.ts",
+        "bytes": 2169,
+        "checksum": "sha256:836639710b64474e9787a1fb6a457b63e605e125f73ca6da1f80466b6430ef99"
+      }
+    },
+    {
+      "path": "src/domain/human-story.test.ts",
+      "gitBytes": 2446,
+      "git": "sha256:ba1c5f762387ede34fa29d29ac48f289c92a1f5fe8feae2d70e3f211f9dcac2f",
+      "checkout": {
+        "path": "src/domain/human-story.test.ts",
+        "bytes": 2522,
+        "checksum": "sha256:fd7bdc52c5e89d6e67eed07eed6e4474cb117c3d1dfa4d6e607604938bf89afe"
+      }
+    },
+    {
+      "path": "src/domain/human-story.ts",
+      "gitBytes": 5294,
+      "git": "sha256:82752c9f06c490e408efc15740c1de6fa1b2e758f2f681601c1c18280da9e8c1",
+      "checkout": {
+        "path": "src/domain/human-story.ts",
+        "bytes": 5473,
+        "checksum": "sha256:bbfb81d3d7032622d152282cd56001f87aa803492a0aaffb280c550338b9b149"
+      }
+    },
+    {
+      "path": "src/domain/james-visuals.test.ts",
+      "gitBytes": 5903,
+      "git": "sha256:40fda63a40b2d2b29f12e11850608935bfa51d7915d2f768a67ed6db405199c9",
+      "checkout": {
+        "path": "src/domain/james-visuals.test.ts",
+        "bytes": 6034,
+        "checksum": "sha256:e347e0cfb92984ce437bb67cf6b0d66a2fedae3a91d29277055f8a53b2a453f6"
+      }
+    },
+    {
+      "path": "src/domain/james.test.ts",
+      "gitBytes": 2152,
+      "git": "sha256:bd73a5e2c2b6a96c477530092336b6e83fe08714d3d695cd583b2fa971965aec",
+      "checkout": {
+        "path": "src/domain/james.test.ts",
+        "bytes": 2190,
+        "checksum": "sha256:57623461a659e50256fff264c4a22150bc73f0a8234a99ea25865c2af34e023e"
+      }
+    },
+    {
+      "path": "src/domain/media-catalog.ts",
+      "gitBytes": 22995,
+      "git": "sha256:e8d72974688730cff5664c2c2c2ef3726bef542de0d70b933af896b42c79eb6b",
+      "checkout": {
+        "path": "src/domain/media-catalog.ts",
+        "bytes": 23387,
+        "checksum": "sha256:143cf9cf9fae279ab5ef42369776dfb8f47f0abff2bdee94bf0c193fe14986f7"
+      }
+    },
+    {
+      "path": "src/domain/media-publication.test.ts",
+      "gitBytes": 4447,
+      "git": "sha256:40d8f676082943abdba7cf4c05d036c993098e21da34ede0cdc8e81640e99164",
+      "checkout": {
+        "path": "src/domain/media-publication.test.ts",
+        "bytes": 4518,
+        "checksum": "sha256:b91d36af6bf0516418bb6b5b4becc8e4b0c5899f5e60c43ec21f1a0109865773"
+      }
+    },
+    {
+      "path": "src/domain/media.ts",
+      "gitBytes": 10718,
+      "git": "sha256:37c54dc9d97835cade8e32e58bd35712b51d3aa594f2898aa773a18eab1b7ee4",
+      "checkout": {
+        "path": "src/domain/media.ts",
+        "bytes": 11051,
+        "checksum": "sha256:8683a2b67a492b0d04e31db6b5f2a256171ff7d1a3f16f302171e4a18bc353f5"
+      }
+    },
+    {
+      "path": "src/domain/network-diagnostics.test.ts",
+      "gitBytes": 1004,
+      "git": "sha256:55262e1820a5760408838bc127459f733c51edcce248e0777ac736e5ee583e46",
+      "checkout": {
+        "path": "src/domain/network-diagnostics.test.ts",
+        "bytes": 1019,
+        "checksum": "sha256:3768ceb107a8322323c341898f7d5e0204d25a060d0b1c1137a81bc38f435f73"
+      }
+    },
+    {
+      "path": "src/domain/network-diagnostics.ts",
+      "gitBytes": 695,
+      "git": "sha256:611d9196fe47c291365af176e10e9f42cb3d497b85a97c2c1ed9a279c5913616",
+      "checkout": {
+        "path": "src/domain/network-diagnostics.ts",
+        "bytes": 712,
+        "checksum": "sha256:61d5930564372dc09b18185aed78cc24ae6e323682cf5797eb875c602579c345"
+      }
+    },
+    {
+      "path": "src/domain/nineveh-depth-media.ts",
+      "gitBytes": 548,
+      "git": "sha256:03d8c4cd994ae430813ca5d6ad15e30d715c4e9799f82fa5646801b30fe72a7c",
+      "checkout": {
+        "path": "src/domain/nineveh-depth-media.ts",
+        "bytes": 560,
+        "checksum": "sha256:838189833d7a335b8c07e211d9f30057a89d0b64f74b3f8ebce60f9cf9bfbc29"
+      }
+    },
+    {
+      "path": "src/domain/nineveh-navigation.ts",
+      "gitBytes": 812,
+      "git": "sha256:45ed765a3043560eb8bebbe51dab6193813bc02f4b307e79fcf90aab41a8cb28",
+      "checkout": {
+        "path": "src/domain/nineveh-navigation.ts",
+        "bytes": 827,
+        "checksum": "sha256:dcb06df2d7058d41c56ecd014d06b5cc422a82a91cf8da40237c5987b99c70b9"
+      }
+    },
+    {
+      "path": "src/domain/nineveh.test.ts",
+      "gitBytes": 1288,
+      "git": "sha256:4aeff0c1bcffada82ac42db03d13f17d1690ab212cfe4d0ca84496db1ca47bf1",
+      "checkout": {
+        "path": "src/domain/nineveh.test.ts",
+        "bytes": 1309,
+        "checksum": "sha256:592ec8b2aa3de01260da25d82af684f0725b13075181fe12ead8a0e022abfb67"
+      }
+    },
+    {
+      "path": "src/domain/perpetua.test.ts",
+      "gitBytes": 1838,
+      "git": "sha256:2a7bcc54a232357de7a81582acb74b229d87ede7b494543553ec3f46ff1129cc",
+      "checkout": {
+        "path": "src/domain/perpetua.test.ts",
+        "bytes": 1887,
+        "checksum": "sha256:622a13d60ab2488889c8cdc695d74fd060b3cc85e682a989b86e5bfc1de31136"
+      }
+    },
+    {
+      "path": "src/domain/publication.test.ts",
+      "gitBytes": 5916,
+      "git": "sha256:1ae2d7121915cbe713524f9a2857d73a6caca4c13ffdffef2f831794ea92d8d0",
+      "checkout": {
+        "path": "src/domain/publication.test.ts",
+        "bytes": 6000,
+        "checksum": "sha256:639c12a60aab07249680b2f3d0f92aa41813ea919f6be3248a9879124a1a1d11"
+      }
+    },
+    {
+      "path": "src/domain/publication.ts",
+      "gitBytes": 6154,
+      "git": "sha256:f478dc4745f74f1909f4d4fc183057c68b2e8186aa8b0442de7953e759c8f53c",
+      "checkout": {
+        "path": "src/domain/publication.ts",
+        "bytes": 6237,
+        "checksum": "sha256:b1039c95d11b13f518774a8c4deeebbe61d90184a792fcebdad6eb11c41845ed"
+      }
+    },
+    {
+      "path": "src/domain/release-gate-inventory.test.ts",
+      "gitBytes": 6180,
+      "git": "sha256:240f4fd133564299732c8fea7bad291a4eef001fc8b9bfb97b177de84692405b",
+      "checkout": {
+        "path": "src/domain/release-gate-inventory.test.ts",
+        "bytes": 6286,
+        "checksum": "sha256:112e1bcc3afd9b649e5c82b97e93dc15c2cff6860fdf5a94a1e919bdf0fc0117"
+      }
+    },
+    {
+      "path": "src/domain/romanus.test.ts",
+      "gitBytes": 1850,
+      "git": "sha256:35998cf3481e664b3b96b63105c4d80e675649f4a77d3ff398cc3dcad2a3d4f4",
+      "checkout": {
+        "path": "src/domain/romanus.test.ts",
+        "bytes": 1885,
+        "checksum": "sha256:b06981a73e7a977deeaeac026824d962583a773dbddd02bf622ab604e759159f"
+      }
+    },
+    {
+      "path": "src/domain/root-routing.test.ts",
+      "gitBytes": 1126,
+      "git": "sha256:a40be7b59cbf4b691b3235559f6a38020bb757027e91e4adb81da650e5de4fc2",
+      "checkout": {
+        "path": "src/domain/root-routing.test.ts",
+        "bytes": 1149,
+        "checksum": "sha256:4f0545264e4c8883c33b9731d4667a81291250ae9810b6627a642ea971dfcb55"
+      }
+    },
+    {
+      "path": "src/domain/root-routing.ts",
+      "gitBytes": 580,
+      "git": "sha256:2a4404ff92322f03d25c70cc972f16e74daa543a064b511198e31aed2627cc48",
+      "checkout": {
+        "path": "src/domain/root-routing.ts",
+        "bytes": 590,
+        "checksum": "sha256:7a5d778fddd0b22b7d30ae66ac772d501eead8cd6b151f9b1871c5472c381498"
+      }
+    },
+    {
+      "path": "src/domain/seo.test.ts",
+      "gitBytes": 1612,
+      "git": "sha256:f080de252f5a96cc1f5e51fa0a01a1d607628e38e08e14a284924dfce9cfcb35",
+      "checkout": {
+        "path": "src/domain/seo.test.ts",
+        "bytes": 1633,
+        "checksum": "sha256:bbc4b2fd11e1d5d0e137b7cf177eaeb81666ad336c46beb3da6cc6b5d8333ce2"
+      }
+    },
+    {
+      "path": "src/domain/seo.ts",
+      "gitBytes": 1013,
+      "git": "sha256:a8bfe6ac8c43ac662799f67f974c5d393165f99c952a453fd922b152b3578bdd",
+      "checkout": {
+        "path": "src/domain/seo.ts",
+        "bytes": 1027,
+        "checksum": "sha256:a25a076a12f6589171cea914d83e94625cbbbb936beb826d251586d39deff42c"
+      }
+    },
+    {
+      "path": "src/domain/separation-reading.test.ts",
+      "gitBytes": 941,
+      "git": "sha256:ba2658359ce1d77d1439b857b1e247d9f446b08f1a6f91cde2cf1c8b0954582a",
+      "checkout": {
+        "path": "src/domain/separation-reading.test.ts",
+        "bytes": 955,
+        "checksum": "sha256:30877dbccacc1ea57e4a790b2e85ff9d7fabe1e77d8cd61d310a4888c2e3518c"
+      }
+    },
+    {
+      "path": "src/domain/separation-reading.ts",
+      "gitBytes": 571,
+      "git": "sha256:7a9c24ea16a64ff476e1da870f4ee033862e0e0c5ca56eacc77e7b1df1402256",
+      "checkout": {
+        "path": "src/domain/separation-reading.ts",
+        "bytes": 583,
+        "checksum": "sha256:4f81c6fb603a8545d6123c54ca355cf56581ba10774b080250a04f573b714804"
+      }
+    },
+    {
+      "path": "src/domain/story.test.ts",
+      "gitBytes": 6244,
+      "git": "sha256:47dbc12b8217310f6a661a306a4ecd0114f1b1cf923c37b3ca2ff2e7c3328ad4",
+      "checkout": {
+        "path": "src/domain/story.test.ts",
+        "bytes": 6345,
+        "checksum": "sha256:a6798fe54a6af3c7e6ee2b962a4ec33a4c573632ad3436bdb93b28810b4f9c9f"
+      }
+    },
+    {
+      "path": "src/domain/story.ts",
+      "gitBytes": 11254,
+      "git": "sha256:a705ce0a1ec8d0ba165a7161d3c85f5b86916ffbf544bcaba12984eaa577d875",
+      "checkout": {
+        "path": "src/domain/story.ts",
+        "bytes": 11430,
+        "checksum": "sha256:8f5287a881b24647f1b6d65ce56f46a76cd63381183c312d7a3f856a8dd3d3c1"
+      }
+    },
+    {
+      "path": "src/domain/thomas-evidence.test.ts",
+      "gitBytes": 1136,
+      "git": "sha256:9d581f79ef818f0d7909b6856c19047f3f71f32fedbbeb7650ab665a8f65576a",
+      "checkout": {
+        "path": "src/domain/thomas-evidence.test.ts",
+        "bytes": 1151,
+        "checksum": "sha256:c4217effa48852b7e69c6364e1c989ccd04f36a1b7c92543b1a0fd1328b16d0f"
+      }
+    },
+    {
+      "path": "src/domain/thomas-media.test.ts",
+      "gitBytes": 1971,
+      "git": "sha256:177b5780d6c50a5a0934e4b65690f0a5dd7fa1e9de9aef9e66a7aa015214ee6f",
+      "checkout": {
+        "path": "src/domain/thomas-media.test.ts",
+        "bytes": 1999,
+        "checksum": "sha256:3734c4526e4ffc63a6aa539a39b2922807f6a50e5fd118dec7b17c4c1b1c3dc3"
+      }
+    },
+    {
+      "path": "src/domain/thomas.test.ts",
+      "gitBytes": 2826,
+      "git": "sha256:4c934ef1e9936adffb77dcd73529ca47d9caa2c0e3cd2b09c8034e26dc3e1fb4",
+      "checkout": {
+        "path": "src/domain/thomas.test.ts",
+        "bytes": 2865,
+        "checksum": "sha256:0eb1805ac9127ee18f4e1a2276c2abe6ac84345d022115e4dfabc81cb43c74b1"
+      }
+    },
+    {
+      "path": "src/domain/visitor-media.ts",
+      "gitBytes": 1648,
+      "git": "sha256:9bca3773de531066d1540082e115f421370bbff5c45c92c1e6a2ee0959e6c52e",
+      "checkout": {
+        "path": "src/domain/visitor-media.ts",
+        "bytes": 1687,
+        "checksum": "sha256:37a5df7a2c446cf747248f0cd9fd414439df1ab90453b83c988d78ab4e7e6625"
+      }
+    },
+    {
+      "path": "src/domain/visitor-prison.ts",
+      "gitBytes": 1735,
+      "git": "sha256:71059ad2b5a12728655cf6a480039b5c3e768bb02609b9db69dd1fe394ba7d87",
+      "checkout": {
+        "path": "src/domain/visitor-prison.ts",
+        "bytes": 1761,
+        "checksum": "sha256:480b9ff96a0dece37690160cb867b113cacea101a3d7af9668320482b1ce3ed3"
+      }
+    },
+    {
+      "path": "src/domain/visitor-story.test.ts",
+      "gitBytes": 3746,
+      "git": "sha256:3970e235436af47b4022ea03f8f1e7da338b4e3706bf3c1e1b4b04a80fd43de4",
+      "checkout": {
+        "path": "src/domain/visitor-story.test.ts",
+        "bytes": 3802,
+        "checksum": "sha256:eb07ed6bca9a1323be89970e5acff71168ad33b735c9338c3549fa88a2a5b05b"
+      }
+    },
+    {
+      "path": "src/domain/visitor-story.ts",
+      "gitBytes": 5343,
+      "git": "sha256:7909c9bfb6f416dfaec5078689842f081708926d8a620d7ac9fba680f03a8ef0",
+      "checkout": {
+        "path": "src/domain/visitor-story.ts",
+        "bytes": 5452,
+        "checksum": "sha256:cb496abf66ae320ac375b9b2115b35d937cf8606747208c4c5a610b8811d9138"
+      }
+    },
+    {
+      "path": "src/features/context/WorldAround.tsx",
+      "gitBytes": 3764,
+      "git": "sha256:971fdba460a8e6077be940f9716dc144fd8fa62ddff0be4d9d71059e53f7eaf2",
+      "checkout": {
+        "path": "src/features/context/WorldAround.tsx",
+        "bytes": 3889,
+        "checksum": "sha256:28d7d21906386ae4ca23b243dfda32d1cfe8d09fda4ee6fe11d51725ffa156a1"
+      }
+    },
+    {
+      "path": "src/features/context/world-around.css",
+      "gitBytes": 4918,
+      "git": "sha256:304c7c986225db78c7445821d3de587b1ba06efa4b64acb3502cbc5f19216ccc",
+      "checkout": {
+        "path": "src/features/context/world-around.css",
+        "bytes": 5180,
+        "checksum": "sha256:922379a21ef0f5dda710ec7c3b0c56db1efa804950d31de07f7a13bd0c76354b"
+      }
+    },
+    {
+      "path": "src/features/explorer/ExploreClient.tsx",
+      "gitBytes": 1628,
+      "git": "sha256:de0ee41950c9b7cd6fb14c3cf7c9cb959dc7ec415e586de6bcdaa6e29e38d1c5",
+      "checkout": {
+        "path": "src/features/explorer/ExploreClient.tsx",
+        "bytes": 1663,
+        "checksum": "sha256:ebe519c2a75163f3bb90ab623642ef06cebf7df1dfbf50f7eca0daa94cc0fe1a"
+      }
+    },
+    {
+      "path": "src/features/explorer/StoryPlacePanel.tsx",
+      "gitBytes": 3269,
+      "git": "sha256:43c3ce3da12025a17ff1f8bed18834d3a01b129ddd9e5d6b5ba24779b4df9657",
+      "checkout": {
+        "path": "src/features/explorer/StoryPlacePanel.tsx",
+        "bytes": 3302,
+        "checksum": "sha256:43b53787fe1a36936feccd7e0a54e9453a468c9eaa5a2ffb581cccd36c74e9f6"
+      }
+    },
+    {
+      "path": "src/features/explorer/story-place.css",
+      "gitBytes": 2637,
+      "git": "sha256:0a3e1895dd616e23a31968fd361867ee68f1851bc0e5b7bec164ae178cf515ed",
+      "checkout": {
+        "path": "src/features/explorer/story-place.css",
+        "bytes": 2667,
+        "checksum": "sha256:c1f63b8353e25e85840e420f6478c5ceee544cb42b843121b2e07cf32746f7dc"
+      }
+    },
+    {
+      "path": "src/features/human-story/ArtworkImage.tsx",
+      "gitBytes": 874,
+      "git": "sha256:c5eea156ab93e6e4a87ae57277d6c1d52d162384cf16f410bf82407cace808e9",
+      "checkout": {
+        "path": "src/features/human-story/ArtworkImage.tsx",
+        "bytes": 912,
+        "checksum": "sha256:ecb4ef99edc9cb691ba459d9a607020e4af09204bfb99c2bcf868ace955d629c"
+      }
+    },
+    {
+      "path": "src/features/human-story/AtlasConnections.tsx",
+      "gitBytes": 2481,
+      "git": "sha256:f7ae757dbf42de86df9102209666adf541ccceb5cc6d888bcd3893aa44878432",
+      "checkout": {
+        "path": "src/features/human-story/AtlasConnections.tsx",
+        "bytes": 2558,
+        "checksum": "sha256:a82aa60cb6ef429ef9275493077f100ed358c0cf922dc86416f0b318e9b9802a"
+      }
+    },
+    {
+      "path": "src/features/human-story/ConnectedExplorer.tsx",
+      "gitBytes": 8828,
+      "git": "sha256:08e1aa3ba1c36e25aa6785f011b682abaad1afd62ff61346059043717eb9877c",
+      "checkout": {
+        "path": "src/features/human-story/ConnectedExplorer.tsx",
+        "bytes": 9086,
+        "checksum": "sha256:ca013f98638403c35ba56d7428a419b50a32917cbf21c1409ece307562bd2a64"
+      }
+    },
+    {
+      "path": "src/features/human-story/EntryCards.tsx",
+      "gitBytes": 1198,
+      "git": "sha256:d21deb9ef50ce4cd3e354833faf9def84fbd4ac89734b1db9fb22d14bedc165f",
+      "checkout": {
+        "path": "src/features/human-story/EntryCards.tsx",
+        "bytes": 1230,
+        "checksum": "sha256:3c31e2384c90000d548665daa05e276ad07b7d55c1dbd1a4e18d780701f71c7c"
+      }
+    },
+    {
+      "path": "src/features/human-story/FeaturedEncounters.tsx",
+      "gitBytes": 3341,
+      "git": "sha256:475a82740e1186673ffc93487af81044c5c5a0bbfd44b651a83e76067fee639b",
+      "checkout": {
+        "path": "src/features/human-story/FeaturedEncounters.tsx",
+        "bytes": 3407,
+        "checksum": "sha256:3dd45244c93f8c07599569c3868f5f38111e8a1c4b63a9506aefbb1b8c033ad9"
+      }
+    },
+    {
+      "path": "src/features/human-story/HumanArtwork.tsx",
+      "gitBytes": 2217,
+      "git": "sha256:9a9b9bf8594d1f4711ff1a62fa09a0343c2e455c936c46b3146179ac85f73cf1",
+      "checkout": {
+        "path": "src/features/human-story/HumanArtwork.tsx",
+        "bytes": 2287,
+        "checksum": "sha256:eca7a949d30c2d16e22f868f9ede86c69b7e668feec6c3a53a31d290e43b8def"
+      }
+    },
+    {
+      "path": "src/features/human-story/HumanStoryFrame.tsx",
+      "gitBytes": 2277,
+      "git": "sha256:c560c781c5c8b68033270a64999b2b76920e964f25a90da404232283c55346fc",
+      "checkout": {
+        "path": "src/features/human-story/HumanStoryFrame.tsx",
+        "bytes": 2346,
+        "checksum": "sha256:f96387193c0ac03c8902b6d07358518d3b2b02d669eb74ede88bc2a9053f79e0"
+      }
+    },
+    {
+      "path": "src/features/human-story/HumanStoryHome.tsx",
+      "gitBytes": 9328,
+      "git": "sha256:b8bed8fb282be12de27bfafe8d4e259a90ed9de65a49c3727f1a84e3e9acd98a",
+      "checkout": {
+        "path": "src/features/human-story/HumanStoryHome.tsx",
+        "bytes": 9567,
+        "checksum": "sha256:760ae12575bc955100e6b44a26860b758368212e56ec513eb11135d513a6927a"
+      }
+    },
+    {
+      "path": "src/features/human-story/InteriorArtwork.tsx",
+      "gitBytes": 1548,
+      "git": "sha256:d33550722fb9168d7f088238f60f26fb04140ccc1a21be14d225996c597f5eba",
+      "checkout": {
+        "path": "src/features/human-story/InteriorArtwork.tsx",
+        "bytes": 1602,
+        "checksum": "sha256:2eb97493fa9cd49b22ead0c32735de6701715e03dba57f8ee0cf56bd73de561c"
+      }
+    },
+    {
+      "path": "src/features/human-story/InteriorEncounters.tsx",
+      "gitBytes": 4818,
+      "git": "sha256:96cf4f2861d7473178fede40f15ecf2cc20282317bb0b9fa61897cb5d7abb230",
+      "checkout": {
+        "path": "src/features/human-story/InteriorEncounters.tsx",
+        "bytes": 4959,
+        "checksum": "sha256:618f9ff5dafe5c71f244a9c79b996ef935accdf3aced43be4a9a8c312543dfe6"
+      }
+    },
+    {
+      "path": "src/features/human-story/PathPreview.tsx",
+      "gitBytes": 1817,
+      "git": "sha256:af0f2d3ef55ddf6c1985dbfb51f0169f6a0f3872ce7669bb17abb91527aaf8f9",
+      "checkout": {
+        "path": "src/features/human-story/PathPreview.tsx",
+        "bytes": 1864,
+        "checksum": "sha256:cc31e56087b9c87024599e6f9a417e161e023198c9d3f4f0a44058cb6c41defd"
+      }
+    },
+    {
+      "path": "src/features/human-story/PerpetuaContext.tsx",
+      "gitBytes": 5372,
+      "git": "sha256:bfd561c634a99e66c2cbe7008f05c551674eee8f50edaf3b1c04261d2e24c39a",
+      "checkout": {
+        "path": "src/features/human-story/PerpetuaContext.tsx",
+        "bytes": 5402,
+        "checksum": "sha256:e6a0e27f799665bd23b4be503c56dd2c6b240f237310913a12974b7f5e0d6563"
+      }
+    },
+    {
+      "path": "src/features/human-story/PerpetuaEncounter.tsx",
+      "gitBytes": 10899,
+      "git": "sha256:700f442b78204242b0bee310ca459caad54a4f6527e8977ff44250a8d8bf6b8c",
+      "checkout": {
+        "path": "src/features/human-story/PerpetuaEncounter.tsx",
+        "bytes": 11082,
+        "checksum": "sha256:61219c3facd097f2e3dedd69f88426a9b1380b1a9d6c6339cfc0846d72c0e0c2"
+      }
+    },
+    {
+      "path": "src/features/human-story/PerpetuaMovements.tsx",
+      "gitBytes": 4731,
+      "git": "sha256:97fb1ddf99b6cabb61fb4088db79719ef0110aa714809a9e1bf74bad589ea273",
+      "checkout": {
+        "path": "src/features/human-story/PerpetuaMovements.tsx",
+        "bytes": 4795,
+        "checksum": "sha256:3c28f935cb96687a4224b16536e71890ac9db2f7c8facad285b882cdd3867212"
+      }
+    },
+    {
+      "path": "src/features/human-story/PerpetuaVision.tsx",
+      "gitBytes": 3377,
+      "git": "sha256:55e3ca1d5f7c3479f5af3c7cbfc92394dc906c27e6ce0b93c229567e2f738d2e",
+      "checkout": {
+        "path": "src/features/human-story/PerpetuaVision.tsx",
+        "bytes": 3427,
+        "checksum": "sha256:d8da8476dfc159621054b91116cf8504ab372d710acf41403211c0b88b53d149"
+      }
+    },
+    {
+      "path": "src/features/human-story/PrisonDiagram.tsx",
+      "gitBytes": 2917,
+      "git": "sha256:614f3252c5f457e6afc94b2d5e135b3017323caf620ecefc5d78accc11f305ec",
+      "checkout": {
+        "path": "src/features/human-story/PrisonDiagram.tsx",
+        "bytes": 3006,
+        "checksum": "sha256:128143258cb89adb3289cf5ccbfcc187b16ac25d75000dc19b8dd86ffcfb03a9"
+      }
+    },
+    {
+      "path": "src/features/human-story/PrisonStage.tsx",
+      "gitBytes": 11322,
+      "git": "sha256:820c1396ce9fb0e0d9563cb74e4263e260f29af1fa4bd8f471a578292f6f792a",
+      "checkout": {
+        "path": "src/features/human-story/PrisonStage.tsx",
+        "bytes": 11639,
+        "checksum": "sha256:85fe3404534d725d477731642b3854dae0264aed65b86d01d8e89ad52052331a"
+      }
+    },
+    {
+      "path": "src/features/human-story/ReadingRoom.tsx",
+      "gitBytes": 8084,
+      "git": "sha256:38267d55cd3b8ccf0f81e9c4c99bf7f84d3330b1ad27432cd5564846f485fa8b",
+      "checkout": {
+        "path": "src/features/human-story/ReadingRoom.tsx",
+        "bytes": 8293,
+        "checksum": "sha256:657493390914fc8ade95dc7d0df3b316909f8a5b1cb2bfd163ff67be5e227d17"
+      }
+    },
+    {
+      "path": "src/features/human-story/SeparationReading.tsx",
+      "gitBytes": 5620,
+      "git": "sha256:c8101c9284f8ec4a121cbfef847acb627eeef8a85b9be67a0e3c3cb709117f0b",
+      "checkout": {
+        "path": "src/features/human-story/SeparationReading.tsx",
+        "bytes": 5694,
+        "checksum": "sha256:28bd219bb74c3cf21c31ed32def96abe2440df4d4eb7b8d40a2b0bf4850f8aea"
+      }
+    },
+    {
+      "path": "src/features/human-story/SourcePassage.tsx",
+      "gitBytes": 1298,
+      "git": "sha256:cae7804d602e1162cc64f8f2c4455f8571cd595a8b932b1bf833267053111997",
+      "checkout": {
+        "path": "src/features/human-story/SourcePassage.tsx",
+        "bytes": 1326,
+        "checksum": "sha256:b7adef76d3274b8e73e68565783d535e80671706d1744306b14f37edb6834a32"
+      }
+    },
+    {
+      "path": "src/features/human-story/ThomasInvitation.tsx",
+      "gitBytes": 2083,
+      "git": "sha256:69231136d5895a3bb7eb84422fea1eeffb66aabf3bc222a9d93853b852b2393b",
+      "checkout": {
+        "path": "src/features/human-story/ThomasInvitation.tsx",
+        "bytes": 2127,
+        "checksum": "sha256:42fe13f8cb272192c9f07058969f52e5c806039d8d3f5c8002a73f877eaf4f7a"
+      }
+    },
+    {
+      "path": "src/features/human-story/WitnessComparison.tsx",
+      "gitBytes": 2403,
+      "git": "sha256:c3be8af3424e440ece0cb562fa564991b011325c099b33fb9aa05c018e47d8bf",
+      "checkout": {
+        "path": "src/features/human-story/WitnessComparison.tsx",
+        "bytes": 2486,
+        "checksum": "sha256:fa60bd1d0439a7c69e2a69eec70443047078f6e43648d2cd91df0e2161f094a8"
+      }
+    },
+    {
+      "path": "src/features/human-story/WorldOpening.tsx",
+      "gitBytes": 1996,
+      "git": "sha256:0c6db04a8a8433bc44f44b9aac27e803c2222e00cc4049d96bae2614894409da",
+      "checkout": {
+        "path": "src/features/human-story/WorldOpening.tsx",
+        "bytes": 2046,
+        "checksum": "sha256:9bfaef3e2b5581122651b4eb5b19bb3395d749643eb4e57c9fa9fd6dc3fc2e19"
+      }
+    },
+    {
+      "path": "src/features/human-story/action-link.module.css",
+      "gitBytes": 832,
+      "git": "sha256:09e554736637330a10bd6b4aee906143d341b0c1e126d9fecbf2a584350ed17d",
+      "checkout": {
+        "path": "src/features/human-story/action-link.module.css",
+        "bytes": 872,
+        "checksum": "sha256:55831bc352d9f9af8f26554f2c46a16f5447ddf164553df6eb5145affb59c9c6"
+      }
+    },
+    {
+      "path": "src/features/human-story/discovery.module.css",
+      "gitBytes": 4718,
+      "git": "sha256:1169974edbd2fdb7396d346f60ceef3a18c07cdc3a72e21a49cdc1c555748768",
+      "checkout": {
+        "path": "src/features/human-story/discovery.module.css",
+        "bytes": 4867,
+        "checksum": "sha256:794238bf31964341cbeb05c6a4d09e326ccb26313c47528052e10daade2aa5fc"
+      }
+    },
+    {
+      "path": "src/features/human-story/human-story.module.css",
+      "gitBytes": 26523,
+      "git": "sha256:b6114ff253c898d76269948248b586ab6bc3c9d9569690edec2bb1eb9fcb4403",
+      "checkout": {
+        "path": "src/features/human-story/human-story.module.css",
+        "bytes": 27907,
+        "checksum": "sha256:5e9bf09e7314254b43d99fb14b28f487514c99e8c246f94ba13773cfca587fd8"
+      }
+    },
+    {
+      "path": "src/features/human-story/interior.module.css",
+      "gitBytes": 7270,
+      "git": "sha256:44fa8c12aa727d459146f809473b92e2ca826583278a8ed9222eafcc69b50308",
+      "checkout": {
+        "path": "src/features/human-story/interior.module.css",
+        "bytes": 7661,
+        "checksum": "sha256:884ecca226ff93742161a62cc861928e93021f34cc004e5dc56f2d81053d73c8"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/JamesCinematic.tsx",
+      "gitBytes": 6418,
+      "git": "sha256:95445c58a5acfeaef1b3be29e297f5e1a915efd412d5652568df77038f5d7a23",
+      "checkout": {
+        "path": "src/features/human-story/james/JamesCinematic.tsx",
+        "bytes": 6495,
+        "checksum": "sha256:072f67cdbb49de92cc977b49de64b85d5e016f47c8a8394ef4684f933a2a40f1"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/JamesEncounter.tsx",
+      "gitBytes": 3326,
+      "git": "sha256:f8b81979bf4a06a033042f69d2cc4a6c748b75e592d14d07091f303657c5cf45",
+      "checkout": {
+        "path": "src/features/human-story/james/JamesEncounter.tsx",
+        "bytes": 3366,
+        "checksum": "sha256:ec7d5e5259978f71b2e25ef5a7df952ac040e67157d00f03e1ff59ea00fcf5b7"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/JamesExperience.tsx",
+      "gitBytes": 5344,
+      "git": "sha256:a3b7c226e82530cecb5dc38b4c92a32d0cdd2f819e692d2f2d17d88bcdcbb581",
+      "checkout": {
+        "path": "src/features/human-story/james/JamesExperience.tsx",
+        "bytes": 5440,
+        "checksum": "sha256:b62f588ba107adfa28b46607e237eff0767230f41f42cfd13ea104bc5dc44e5f"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/JamesNarrative.tsx",
+      "gitBytes": 2284,
+      "git": "sha256:1dfb2cc186ee7f6f815c4e347b0d2f0bb8fe0eafc5dc463295bcdb9c66d99909",
+      "checkout": {
+        "path": "src/features/human-story/james/JamesNarrative.tsx",
+        "bytes": 2315,
+        "checksum": "sha256:944f759f330fbe2aa4bcd923ab34cd13667602670c5702fd4c4cc14281150c3a"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/JamesSources.tsx",
+      "gitBytes": 5453,
+      "git": "sha256:10163ef4f08aed4304a9883346a2b6dc4d2fb868acbaf3466a291dedbf5284f8",
+      "checkout": {
+        "path": "src/features/human-story/james/JamesSources.tsx",
+        "bytes": 5512,
+        "checksum": "sha256:cdd78e8e1ee122c16621a166f3af51b9f8f93a7ae2ba58d720c36953fd0b2340"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/JerusalemRelationships.tsx",
+      "gitBytes": 3192,
+      "git": "sha256:afb994d0ff15b71dd5cdc51adb5e802bd17893e38e2561bca8bea6123c1b65d8",
+      "checkout": {
+        "path": "src/features/human-story/james/JerusalemRelationships.tsx",
+        "bytes": 3224,
+        "checksum": "sha256:2fdd287fbfb0f0301ae2fe432809fc5c733e209beb6aac31679fc2e62650b9a9"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/Palimpsest.tsx",
+      "gitBytes": 3576,
+      "git": "sha256:42807b67989d80b59a8ddfb9775e91b9475abadf80f1a066ee81c01a19fc1d20",
+      "checkout": {
+        "path": "src/features/human-story/james/Palimpsest.tsx",
+        "bytes": 3619,
+        "checksum": "sha256:a903dfb984f2e6c9f157c566bd0a41659e7c0a51375619ac50f9fade2f76ae89"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/SceneEnvironment.tsx",
+      "gitBytes": 1153,
+      "git": "sha256:c4389e90c701ae7f1702f023e3268196575a11081d76eac8717703ae371931a0",
+      "checkout": {
+        "path": "src/features/human-story/james/SceneEnvironment.tsx",
+        "bytes": 1173,
+        "checksum": "sha256:e697f27e317c519bb97f9f09bbfddacedf4d640fcf1947ad75745a75744707d6"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/cinematic.module.css",
+      "gitBytes": 13314,
+      "git": "sha256:361808f3d820d02d694654ed5635351e9c5e1381c779dab9faad5cbc462b2c53",
+      "checkout": {
+        "path": "src/features/human-story/james/cinematic.module.css",
+        "bytes": 13504,
+        "checksum": "sha256:bb9dbd0e559ab6af825794dc2383f86f4c8a1c1eb6ea4bfbc3d6f5450a7a8c5e"
+      }
+    },
+    {
+      "path": "src/features/human-story/james/james.module.css",
+      "gitBytes": 16395,
+      "git": "sha256:536cdd1b5add65597d9965fee206770cf172ee4a7da66c7effc7f3a76e7677e4",
+      "checkout": {
+        "path": "src/features/human-story/james/james.module.css",
+        "bytes": 16618,
+        "checksum": "sha256:c47b42402ba459889e64a322957fc230683251a8a501dcd3f982081a193ea8ec"
+      }
+    },
+    {
+      "path": "src/features/human-story/prison.module.css",
+      "gitBytes": 17501,
+      "git": "sha256:1168b7ef903fd559834d851ede1dd49511db5ea4900d76932efa700af416fc38",
+      "checkout": {
+        "path": "src/features/human-story/prison.module.css",
+        "bytes": 17757,
+        "checksum": "sha256:12c4964fd7f66d40a122f200060a9446e1badf454622e09cac3006e606c5d8e3"
+      }
+    },
+    {
+      "path": "src/features/human-story/romanus/RomanusArtwork.tsx",
+      "gitBytes": 1031,
+      "git": "sha256:7a5f505ed95c3b0951699418c7c508b47a19c72d814b80616cf22ed245888a53",
+      "checkout": {
+        "path": "src/features/human-story/romanus/RomanusArtwork.tsx",
+        "bytes": 1047,
+        "checksum": "sha256:94dc762687c8f0fa30984f73f3680bed09df8867d4f299af2c32e4cbb34fb1bd"
+      }
+    },
+    {
+      "path": "src/features/human-story/romanus/RomanusEncounter.tsx",
+      "gitBytes": 10966,
+      "git": "sha256:c328e5c2b4c2024e8d85cc2240798dfa11b24801426c9d53e208a626bb88a229",
+      "checkout": {
+        "path": "src/features/human-story/romanus/RomanusEncounter.tsx",
+        "bytes": 11088,
+        "checksum": "sha256:416e7cab4ec8b6c93ce00177b36a522c2ee6ed7a8149e70c647d4207a4676852"
+      }
+    },
+    {
+      "path": "src/features/human-story/romanus/RomanusSources.tsx",
+      "gitBytes": 4993,
+      "git": "sha256:1ed29254da47519bae5c1c4b7dfc82138985597749de0ec0b3d5fec88bac4ad2",
+      "checkout": {
+        "path": "src/features/human-story/romanus/RomanusSources.tsx",
+        "bytes": 5043,
+        "checksum": "sha256:171258836ea44210a7b02797a26c54db971472325efff21ee84634d409fe3c9b"
+      }
+    },
+    {
+      "path": "src/features/human-story/romanus/romanus.module.css",
+      "gitBytes": 11799,
+      "git": "sha256:876452c825f4ca266307586518b1a1d16768e6899554858c97935379a40550b6",
+      "checkout": {
+        "path": "src/features/human-story/romanus/romanus.module.css",
+        "bytes": 11975,
+        "checksum": "sha256:1edc6c2f2c525c0d80651eb66e99bae31dc713dc11417f6d46bb1297e59784c4"
+      }
+    },
+    {
+      "path": "src/features/human-story/separation.module.css",
+      "gitBytes": 6012,
+      "git": "sha256:6e4fb1b6d188628cc5a866fb9c83adace538d3b488e7bf73c814af7b3d026337",
+      "checkout": {
+        "path": "src/features/human-story/separation.module.css",
+        "bytes": 6151,
+        "checksum": "sha256:2a0dd1fba3d0b98b6bc2267046a5f46642035e4eacd923eb510df47b0ba4a32c"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/CinematicDisclosure.tsx",
+      "gitBytes": 634,
+      "git": "sha256:ed877ebe2b1048f892cc0013a44f4723d72ad2b2ef9c72a49cec6e9ae96f27ca",
+      "checkout": {
+        "path": "src/features/human-story/thomas/CinematicDisclosure.tsx",
+        "bytes": 641,
+        "checksum": "sha256:6f7b9ff985b78aa19817ecc46268f12bd010c8ac4ee82df2aaab1bc942f75719"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/CinematicImage.tsx",
+      "gitBytes": 1052,
+      "git": "sha256:f8807415a4170bfa13349b6224a336ed0c8e6a56082940d37d20ced26e48bb67",
+      "checkout": {
+        "path": "src/features/human-story/thomas/CinematicImage.tsx",
+        "bytes": 1071,
+        "checksum": "sha256:681a4c0eb65ab854d247ada3ff6c9ce0f23505d158cdd65e6cba904f3730e55a"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/GreekEnding.tsx",
+      "gitBytes": 1841,
+      "git": "sha256:fbdc773bcf36066fa8afcc7990a6b67a2c5b3c97914e2e4ccff9308d98679fd3",
+      "checkout": {
+        "path": "src/features/human-story/thomas/GreekEnding.tsx",
+        "bytes": 1860,
+        "checksum": "sha256:1adb8c6942e459c5b53004587bdd3f95d3e3137925457817884a50b5a5021197"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ManuscriptForm.tsx",
+      "gitBytes": 2256,
+      "git": "sha256:58295e4f2b2c580d0d74d1df0f8ed4f88ca931626d9a6327e38460dc898be525",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ManuscriptForm.tsx",
+        "bytes": 2293,
+        "checksum": "sha256:2b13ee9f54b88b7cdde7c455c9456f7a73a0aa2c239f05f6ee4fde2cb5345701"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ManuscriptWitnesses.tsx",
+      "gitBytes": 2206,
+      "git": "sha256:34437c6ac81a7ff192cff631ad355c6cca3d8cef8dbad72ed2989afa2d3e8899",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ManuscriptWitnesses.tsx",
+        "bytes": 2229,
+        "checksum": "sha256:a2513b2016f0b735446aa9d0970b5c0728f15aed3ea83614551a321b60528a90"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/SpatialArtwork.tsx",
+      "gitBytes": 2750,
+      "git": "sha256:f240c189f94cec53b07515ae26165087f441c0c2499d8ee280c9fcdd28f160e4",
+      "checkout": {
+        "path": "src/features/human-story/thomas/SpatialArtwork.tsx",
+        "bytes": 2791,
+        "checksum": "sha256:cf9bedc482df34ce00ff05555472916c5d3eca7882f35ba2b55adf25abf68858"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasEncounter.tsx",
+      "gitBytes": 9885,
+      "git": "sha256:ecbaa5c95b1a8eb701ec25fda4f1abdafa7bcfa1b3528742f23284e381250646",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ThomasEncounter.tsx",
+        "bytes": 9983,
+        "checksum": "sha256:5a53c382220a2c2ac1a530f168f5f8cbefa1e6e162e7f8016bbdf76c098301e1"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasEvidence.tsx",
+      "gitBytes": 6616,
+      "git": "sha256:bdbdf64479aac79e8248cac33f70044a9009084e59616c071dae7d1e040f4ba3",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ThomasEvidence.tsx",
+        "bytes": 6672,
+        "checksum": "sha256:185726f1a2641f8a40d9f46ef3889f8fc86a615e87e8d0d1c2451da8c1c2e8da"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasReferences.tsx",
+      "gitBytes": 785,
+      "git": "sha256:4d4421c93259fdfffb3f251df0c01ab2790c282fd96b269d844dee101652629e",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ThomasReferences.tsx",
+        "bytes": 801,
+        "checksum": "sha256:22628409f56c9ac0bec595536a437043b735a56adefa252a9af644199aed979d"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasShell.tsx",
+      "gitBytes": 1296,
+      "git": "sha256:bb461a2f3aa1affffae72416f144760db1efc4e0b362a43a8c90fdca4f8b9b34",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ThomasShell.tsx",
+        "bytes": 1313,
+        "checksum": "sha256:0958e6ca98f4b2b6a1662497a026150023641063fce20bb2c8b263f9f2349fa6"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasSources.tsx",
+      "gitBytes": 3199,
+      "git": "sha256:ea03eda45be6a85cd609ab573fea3ddbbe289cae301932e60dc42fc4b0fc8bae",
+      "checkout": {
+        "path": "src/features/human-story/thomas/ThomasSources.tsx",
+        "bytes": 3224,
+        "checksum": "sha256:e525a30ba713bc53af6eedd6eb2010dedeeeed521db735078bd6791681f1297e"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/cinema.module.css",
+      "gitBytes": 7620,
+      "git": "sha256:7ecb70154a6bb982f57ac4628c1e155908f66b907390a54ce5e3dd21422bec13",
+      "checkout": {
+        "path": "src/features/human-story/thomas/cinema.module.css",
+        "bytes": 7725,
+        "checksum": "sha256:1544cc083c954cf4eda06548bbc745101d38b9ea4a0757d75dbf76258f594d4d"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/encounter.module.css",
+      "gitBytes": 1781,
+      "git": "sha256:69109139cc436b76170986dd7231e0504906fcd079d2f9b201d31efac618417d",
+      "checkout": {
+        "path": "src/features/human-story/thomas/encounter.module.css",
+        "bytes": 1807,
+        "checksum": "sha256:4eb5f80c1107f61aef86dfc6a01e1f2e379ec3a049797fdda1bea5eddf9b2b86"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/manuscripts.module.css",
+      "gitBytes": 6370,
+      "git": "sha256:4e7115e9eaacfd6479402f3d5df7c47985cc11bd32fe2444096c6927d2daef3f",
+      "checkout": {
+        "path": "src/features/human-story/thomas/manuscripts.module.css",
+        "bytes": 6457,
+        "checksum": "sha256:83274395fc9fb7e373a4967f935624823fd31881b2d31ce793c0869cb29497c0"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/sources.module.css",
+      "gitBytes": 6871,
+      "git": "sha256:ffd68793c7f3ba0d8ce15e244e245faad5d326addd57da4a97f7a23c665d6fe8",
+      "checkout": {
+        "path": "src/features/human-story/thomas/sources.module.css",
+        "bytes": 6963,
+        "checksum": "sha256:92f49e7913391ba41f77dee3f2d86f9104cea0bbaaedfffa342f639104e1ca3d"
+      }
+    },
+    {
+      "path": "src/features/human-story/thomas/thomas.module.css",
+      "gitBytes": 14859,
+      "git": "sha256:a680bc1ba6a251a206201d264789527490a547cb34b766072d471203cd464ee1",
+      "checkout": {
+        "path": "src/features/human-story/thomas/thomas.module.css",
+        "bytes": 14879,
+        "checksum": "sha256:77f0d5d8ddd3918291244e48be9c2fe2b70ee76ab31a7f6e80f4b07dd73b9685"
+      }
+    },
+    {
+      "path": "src/features/human-story/worlds.ts",
+      "gitBytes": 1055,
+      "git": "sha256:cdebc85d5f4a3eda0464ca6ce2e13511d4998ce9ab5a85e65067f3f91751f815",
+      "checkout": {
+        "path": "src/features/human-story/worlds.ts",
+        "bytes": 1086,
+        "checksum": "sha256:da6b3a7a827122bb2fd5b1fa9e36e55fb41534685cedb9ccf33d929b6cb028aa"
+      }
+    },
+    {
+      "path": "src/features/media/CinematicCanvas.tsx",
+      "gitBytes": 15003,
+      "git": "sha256:2a305f7b726c7a6ae00f7301ac172208f4816c317ed43b914eb1024c967156b8",
+      "checkout": {
+        "path": "src/features/media/CinematicCanvas.tsx",
+        "bytes": 15440,
+        "checksum": "sha256:7bfb251f7812028e2fdb2f5a6a75c9992c093afe736fe0b985bce2c4ddf45375"
+      }
+    },
+    {
+      "path": "src/features/media/MediaProvenancePlate.tsx",
+      "gitBytes": 2627,
+      "git": "sha256:8c040e13f50d1a5d10021367220a738c039fd8d0cf409b82c957a5baa10c52f9",
+      "checkout": {
+        "path": "src/features/media/MediaProvenancePlate.tsx",
+        "bytes": 2683,
+        "checksum": "sha256:01f1a294c59d2a78978b8060a3c6ed03318fbc25bb7d964d3f5735cf42f92006"
+      }
+    },
+    {
+      "path": "src/features/media/cinematic.css",
+      "gitBytes": 12770,
+      "git": "sha256:bcc3baf0e2ee0a33e60ff9eaa19df198e7a3f8495e9b34504c8352dea836cd80",
+      "checkout": {
+        "path": "src/features/media/cinematic.css",
+        "bytes": 13370,
+        "checksum": "sha256:8ee6bb469a27fa632ddf0ba04a52752dfa8fc368f11347452959fc3deadac9b7"
+      }
+    },
+    {
+      "path": "src/features/media/usePrefersReducedMotion.ts",
+      "gitBytes": 458,
+      "git": "sha256:7dcbf6546e4a067056862b414f19bd0f8f31c019ceb8957a3b45425a47071340",
+      "checkout": {
+        "path": "src/features/media/usePrefersReducedMotion.ts",
+        "bytes": 475,
+        "checksum": "sha256:397f75c01ae7b1566e0dc7b560dd59345704c0576be34253d8677ba4f4f7ef59"
+      }
+    },
+    {
+      "path": "src/features/navigation/leaveLegacyRoot.ts",
+      "gitBytes": 487,
+      "git": "sha256:ddf2216529e4fd81b076ee41ffa6bfbfbab8e0cc9725a83be4ccc8a1670e6693",
+      "checkout": {
+        "path": "src/features/navigation/leaveLegacyRoot.ts",
+        "bytes": 497,
+        "checksum": "sha256:0dd8675708856b075eb3b67af845e351288bc31a1ddb95f46d3b661768a68010"
+      }
+    },
+    {
+      "path": "src/features/nineveh/NinevehDiscovery.tsx",
+      "gitBytes": 11137,
+      "git": "sha256:45c49d110148c177b1e793d79e061d335689d49d8868a7321fce161d44c2d608",
+      "checkout": {
+        "path": "src/features/nineveh/NinevehDiscovery.tsx",
+        "bytes": 11272,
+        "checksum": "sha256:70c1578ec515e90439498455819907b7dcfd9beab56c41c2fe29d7df5004f5d8"
+      }
+    },
+    {
+      "path": "src/features/nineveh/NinevehEncounter.tsx",
+      "gitBytes": 11163,
+      "git": "sha256:4e47fc5a8b3a25ce8ae3ce9001386d58257dec9c5925712dd5649a939e2cb523",
+      "checkout": {
+        "path": "src/features/nineveh/NinevehEncounter.tsx",
+        "bytes": 11276,
+        "checksum": "sha256:4e90b0f70803fecca0940e745c1c7fc96256459d9095a0a387b963165f8ddb3e"
+      }
+    },
+    {
+      "path": "src/features/nineveh/NinevehEnvironment.tsx",
+      "gitBytes": 6042,
+      "git": "sha256:cfd4c7af28ab172d68067f8b45c97dd7ff0442036504f7aaf316c6d3ebcfb8b3",
+      "checkout": {
+        "path": "src/features/nineveh/NinevehEnvironment.tsx",
+        "bytes": 6135,
+        "checksum": "sha256:c991c7432e2cc50e6bbfd0482f0d8aaccd8b04a34ffb845be0502a3f87bbfb56"
+      }
+    },
+    {
+      "path": "src/features/nineveh/artwork.json",
+      "gitBytes": 3736,
+      "git": "sha256:cf95ac5a8c3e2fc320838cd91d66a9791555e18015e743a5b0d7892f59928309",
+      "checkout": {
+        "path": "src/features/nineveh/artwork.json",
+        "bytes": 3766,
+        "checksum": "sha256:57eab824f1c976013d62460c3f4366062dc58aa60a66156b4cefd421d93c035c"
+      }
+    },
+    {
+      "path": "src/features/nineveh/depth-media.json",
+      "gitBytes": 4632,
+      "git": "sha256:88cacb715ecae7e402b1ba7be071ea9343be83e11f680dc9cd48e783ed080d5d",
+      "checkout": {
+        "path": "src/features/nineveh/depth-media.json",
+        "bytes": 4698,
+        "checksum": "sha256:11b58b297e3da0a04057824806a380b4e2f1235b3c1008e7083a06fe25e13e55"
+      }
+    },
+    {
+      "path": "src/features/nineveh/nineveh.css",
+      "gitBytes": 18769,
+      "git": "sha256:a0c21212e781b9f97578019fbd24cadf444fa8d218486343b51e0e56311b09da",
+      "checkout": {
+        "path": "src/features/nineveh/nineveh.css",
+        "bytes": 18985,
+        "checksum": "sha256:2380c631a11534c456ab8e2dea044bf559f391cdc7f09a937effc0ba6226e9be"
+      }
+    },
+    {
+      "path": "src/features/story/AquinasMercyPerspective.tsx",
+      "gitBytes": 1126,
+      "git": "sha256:c757aa4253efb07fdc33d8705ef84d2b4d244d455c7aa688393faa69c7108b0a",
+      "checkout": {
+        "path": "src/features/story/AquinasMercyPerspective.tsx",
+        "bytes": 1139,
+        "checksum": "sha256:5a82f6469a92ea0ea95adb161a593d96d70b926d86952624455f7e10fc4711d7"
+      }
+    },
+    {
+      "path": "src/features/story/CityInsideName.tsx",
+      "gitBytes": 5574,
+      "git": "sha256:81bffdabf4846e31f4da075cd755753df1ac39372f00c53aa87ad9797a14cacb",
+      "checkout": {
+        "path": "src/features/story/CityInsideName.tsx",
+        "bytes": 5643,
+        "checksum": "sha256:2dc4aa3adae8a9e579e7b947a9413ef1765cd9aec55b10309e5fdadbcb39d7d9"
+      }
+    },
+    {
+      "path": "src/features/story/FirstEncounter.tsx",
+      "gitBytes": 1439,
+      "git": "sha256:26bf071fb189b67a45dd4a4306cb2e5197e9e05521a7650570e37cf83a8227da",
+      "checkout": {
+        "path": "src/features/story/FirstEncounter.tsx",
+        "bytes": 1456,
+        "checksum": "sha256:7426ba84b61b11ba8a20a3c64c76c85697fe6b9a59cd3b9db4fdd5762d0830a0"
+      }
+    },
+    {
+      "path": "src/features/story/InterpretationNotes.tsx",
+      "gitBytes": 3011,
+      "git": "sha256:3545fd171a25da275b2fcc84b995da31b05e07e95ddfe7245dc19ab9c0fdcc6a",
+      "checkout": {
+        "path": "src/features/story/InterpretationNotes.tsx",
+        "bytes": 3051,
+        "checksum": "sha256:8485966de3127e43e5b09620b0707de1e992dadfb376dea778bc24e27eb196fe"
+      }
+    },
+    {
+      "path": "src/features/story/SceneDiscovery.tsx",
+      "gitBytes": 3644,
+      "git": "sha256:fdd389280c65019f34fdae7a8481bd945906ce4e5813ea4403fb88bf18560415",
+      "checkout": {
+        "path": "src/features/story/SceneDiscovery.tsx",
+        "bytes": 3678,
+        "checksum": "sha256:12b4284d355f54d6aa74a81abd4bdbf80bcd743c0cc4605419b0bab844f610e6"
+      }
+    },
+    {
+      "path": "src/features/story/StoryEvidence.tsx",
+      "gitBytes": 4605,
+      "git": "sha256:92c24aa65265fe08f334dda9767e4d6fdf8bdb513269bb584f4202496d930ccb",
+      "checkout": {
+        "path": "src/features/story/StoryEvidence.tsx",
+        "bytes": 4660,
+        "checksum": "sha256:40a83768b68989ce0f598a1252f9a19c7d1f2741179c3e4f0a23ca1d8604f986"
+      }
+    },
+    {
+      "path": "src/features/story/StoryMedia.tsx",
+      "gitBytes": 8974,
+      "git": "sha256:fe4ec149cc19d36976c04844c7d34ce484b9b3f6056f1d2530ee473894b449aa",
+      "checkout": {
+        "path": "src/features/story/StoryMedia.tsx",
+        "bytes": 9099,
+        "checksum": "sha256:a569920c7a38d081678a1447cfa2e7b88d0183db49a1cdf93afc9c1412220153"
+      }
+    },
+    {
+      "path": "src/features/story/StoryReader.tsx",
+      "gitBytes": 15277,
+      "git": "sha256:d4ead18a205752d11c9832153bb25cb475f912ab4b07143deada0cd47bbba64b",
+      "checkout": {
+        "path": "src/features/story/StoryReader.tsx",
+        "bytes": 15458,
+        "checksum": "sha256:c0fdca45c6ba1f32e71c0a2041e018b4c502175ea38aabde875c87c4ab29bf91"
+      }
+    },
+    {
+      "path": "src/features/story/story.css",
+      "gitBytes": 30759,
+      "git": "sha256:93425090e2bc70d3db554472542849c443c1d0aac2ea607d80ef22e9177845df",
+      "checkout": {
+        "path": "src/features/story/story.css",
+        "bytes": 31107,
+        "checksum": "sha256:335a85d880cad26092881e36a00b35b8bb0e5105510d42b0fe766f1428fad397"
+      }
+    },
+    {
+      "path": "src/lib/biblemap-inspector.ts",
+      "gitBytes": 1613,
+      "git": "sha256:7c33ba7c23528ac172881acffdbe085341559c6c6e7e2ff825b37f5e439d26e1",
+      "checkout": {
+        "path": "src/lib/biblemap-inspector.ts",
+        "bytes": 1672,
+        "checksum": "sha256:828127344c1274b5a01bf9242b70a3f9af34ec211483c8defdc113599094a664"
+      }
+    },
+    {
+      "path": "src/lib/maplibre.ts",
+      "gitBytes": 323,
+      "git": "sha256:7f3b9cea38000e4391aaa0aa69deff5503261a32387cfa5ec87152484329ce84",
+      "checkout": {
+        "path": "src/lib/maplibre.ts",
+        "bytes": 330,
+        "checksum": "sha256:4f92c19d724438bf26197343ffa8658755bbfbf0347e6a5dc4925cedd0c7f177"
+      }
+    },
+    {
+      "path": "src/lib/seo.ts",
+      "gitBytes": 1690,
+      "git": "sha256:c8efe3342a9afc26b6f1528577f86245347c4f38df6b006dfcf22c701ad33f10",
+      "checkout": {
+        "path": "src/lib/seo.ts",
+        "bytes": 1718,
+        "checksum": "sha256:d07c5966afe0a9ba7a57e7f9870a86be8f5f271c5a4a11658d0e3f27436d8734"
+      }
+    },
+    {
+      "path": "src/scenes/journeyScenes.ts",
+      "gitBytes": 10683,
+      "git": "sha256:a24cbd1dc9450dac63458ee31d3708ace99ba914887bc86194e02b02408ac26c",
+      "checkout": {
+        "path": "src/scenes/journeyScenes.ts",
+        "bytes": 11040,
+        "checksum": "sha256:46749cf006ef6996b3434a990327559c54736213942debe83910975ac4cf772f"
+      }
+    },
+    {
+      "path": "src/scenes/motion.ts",
+      "gitBytes": 853,
+      "git": "sha256:cfe70d36b7b04a2364ccc8fd8b915f1660d47a89f17365cfb4bdb90cb11f7983",
+      "checkout": {
+        "path": "src/scenes/motion.ts",
+        "bytes": 893,
+        "checksum": "sha256:f6df7c54129ee849be17578a2eb3ab4987994fa0f8534800493433c11171ecaa"
+      }
+    },
+    {
+      "path": "src/scenes/orchestrateScene.ts",
+      "gitBytes": 4388,
+      "git": "sha256:c760442c97cfd8212dc1adfcdf9412023d41d2b0d361c6fb5df6551d7f430aeb",
+      "checkout": {
+        "path": "src/scenes/orchestrateScene.ts",
+        "bytes": 4555,
+        "checksum": "sha256:1af287953231d41d0cfad27a72214846dafaed0bc54c7cde94b94e989c339459"
+      }
+    },
+    {
+      "path": "src/scenes/useSceneOrchestrator.ts",
+      "gitBytes": 7991,
+      "git": "sha256:81954f4a39ed6f12deed5b9b1e5e93c147ddf95ce0a1e015c6a712c01a7901aa",
+      "checkout": {
+        "path": "src/scenes/useSceneOrchestrator.ts",
+        "bytes": 8253,
+        "checksum": "sha256:08405a6fbf62390ee1157289c0b4604d4a73a2567cc3e87404644c77eb0e1947"
+      }
+    },
+    {
+      "path": "tests/atlas-security.spec.ts",
+      "gitBytes": 3523,
+      "git": "sha256:a3aa9bf57a70bbe25c780d58e88a26c2e6709024811f5a8920f06b34603fda26",
+      "checkout": {
+        "path": "tests/atlas-security.spec.ts",
+        "bytes": 3562,
+        "checksum": "sha256:9717b3dd9691e72fb0e717ece69bbbe7d29db18b1cedffc708ea0f30aa5b948d"
+      }
+    },
+    {
+      "path": "tests/authorship-harness.tsx",
+      "gitBytes": 1563,
+      "git": "sha256:ea695733e020ab8d59d65a94f827b061790fa1bb67b7e0ea501ab989513027d7",
+      "checkout": {
+        "path": "tests/authorship-harness.tsx",
+        "bytes": 1588,
+        "checksum": "sha256:2f194ab719472a2bbfb60269c9e9c3123a8825b84e8b7c7b1a5aaa51fef09bf1"
+      }
+    },
+    {
+      "path": "tests/authorship.spec.ts",
+      "gitBytes": 1622,
+      "git": "sha256:100609b70a82ed7db36974ad8015d1a6e445ecec8817306a6ed9a808fc42bc29",
+      "checkout": {
+        "path": "tests/authorship.spec.ts",
+        "bytes": 1644,
+        "checksum": "sha256:9354d4aee9562966e713dea786c224d385a74b640bfce8a6e3015846bd076ab5"
+      }
+    },
+    {
+      "path": "tests/city-inside-name.spec.ts",
+      "gitBytes": 3855,
+      "git": "sha256:b9752b3127ccf2b644bae9fe94adfe26b45fb836a4fd517a6246bc5dc4316d76",
+      "checkout": {
+        "path": "tests/city-inside-name.spec.ts",
+        "bytes": 3919,
+        "checksum": "sha256:2845cdd689575777173e9ed7c2d4d048ed0cfe8eab2ed47ac6d084006aa129c8"
+      }
+    },
+    {
+      "path": "tests/discovery.spec.ts",
+      "gitBytes": 7543,
+      "git": "sha256:d599da8555440ea00acd514778b8154b18de9ef1961a4ed8815b4a58009c0e69",
+      "checkout": {
+        "path": "tests/discovery.spec.ts",
+        "bytes": 7657,
+        "checksum": "sha256:b219d742c06905eac018349e99cae63ea2556ee31e357dd037d06e45110ccc12"
+      }
+    },
+    {
+      "path": "tests/explorer.spec.ts",
+      "gitBytes": 2946,
+      "git": "sha256:ed3adf3c55d21aee229a5a32206048379764d1568849508b80a88ead96f4610a",
+      "checkout": {
+        "path": "tests/explorer.spec.ts",
+        "bytes": 2986,
+        "checksum": "sha256:012e6ce588177a67f0a35b67f01b50178f7a0d3a6bad1a96065faee2f3a11208"
+      }
+    },
+    {
+      "path": "tests/first-encounter.spec.ts",
+      "gitBytes": 4581,
+      "git": "sha256:3639fe7a3a63de274265d5816172e68d2d7081477854a0ee80a83ac65d87f6cb",
+      "checkout": {
+        "path": "tests/first-encounter.spec.ts",
+        "bytes": 4643,
+        "checksum": "sha256:ed28f45e5a0de2910b998862369d68578bb5a661b37e256f97b37a148660e010"
+      }
+    },
+    {
+      "path": "tests/home-discovery.spec.ts",
+      "gitBytes": 5557,
+      "git": "sha256:d5141594486381c16e93f0dead9597a138a7b8a075650c83de45bb1ae8293059",
+      "checkout": {
+        "path": "tests/home-discovery.spec.ts",
+        "bytes": 5649,
+        "checksum": "sha256:829cfed05f9d74094f0d0413db42cb68268d719790bc7b48a9d42c3adc6ea402"
+      }
+    },
+    {
+      "path": "tests/homepage-release.spec.ts",
+      "gitBytes": 9415,
+      "git": "sha256:3082bffaeef0329d8e3ae02b2c37d64eb23e0f61aa16d23746a9b44e00a5b20c",
+      "checkout": {
+        "path": "tests/homepage-release.spec.ts",
+        "bytes": 9552,
+        "checksum": "sha256:ad1612a21b11679e4a0a02f3b5e0fd4823f702b04fe88a5b040fc5ff5f517a40"
+      }
+    },
+    {
+      "path": "tests/homepage.spec.ts",
+      "gitBytes": 6981,
+      "git": "sha256:a452f3ca6389249c568c95aafdc7fcd873dd3581c5c06c14816f4d278c8cf286",
+      "checkout": {
+        "path": "tests/homepage.spec.ts",
+        "bytes": 7096,
+        "checksum": "sha256:c4e9f0d77263f18ab5f4b209d3fd59e0f4b830b08d66a1bfc412810fd19c28a1"
+      }
+    },
+    {
+      "path": "tests/human-story-interiors.spec.ts",
+      "gitBytes": 4142,
+      "git": "sha256:512a40eecf5f91e5eab6372a31b1c0ffc2f045d697a8e8582376b75f1647e661",
+      "checkout": {
+        "path": "tests/human-story-interiors.spec.ts",
+        "bytes": 4254,
+        "checksum": "sha256:a79e28b7c845884ee5a73d3c767a242f9152d894bd62dfda484ce07fb5655823"
+      }
+    },
+    {
+      "path": "tests/human-story-qa.spec.ts",
+      "gitBytes": 5520,
+      "git": "sha256:652e4f45006f730843306337e816ec961050378e6b8e1f4ee15c61c8c5f16846",
+      "checkout": {
+        "path": "tests/human-story-qa.spec.ts",
+        "bytes": 5677,
+        "checksum": "sha256:de751ee2f4224f35342e6f382e43f15bb6269e1f5057fdc21add5eb72e123b0d"
+      }
+    },
+    {
+      "path": "tests/human-story.spec.ts",
+      "gitBytes": 8601,
+      "git": "sha256:9011a5d55d201db35639f00af75058cea6e808da6e212d63736d38f40baea80b",
+      "checkout": {
+        "path": "tests/human-story.spec.ts",
+        "bytes": 8858,
+        "checksum": "sha256:0cc9de73c48d256784277356947012d98b801ca2a095b95b665e2c8988d0b065"
+      }
+    },
+    {
+      "path": "tests/james.spec.ts",
+      "gitBytes": 11034,
+      "git": "sha256:278f90b40dde98c2c236f021306465d010796ec8cdb5a726b9d1d7bb690da8c7",
+      "checkout": {
+        "path": "tests/james.spec.ts",
+        "bytes": 11199,
+        "checksum": "sha256:f3b32249101e89a7e2d34809a1dd69b667c8ca37c1974baa7732074f842b2a2e"
+      }
+    },
+    {
+      "path": "tests/jonah-mercy-turn.spec.ts",
+      "gitBytes": 2560,
+      "git": "sha256:f544c8c24a85ae4814b44b0b926aa957c70967576d961d7ba02796a7f0e2bee8",
+      "checkout": {
+        "path": "tests/jonah-mercy-turn.spec.ts",
+        "bytes": 2598,
+        "checksum": "sha256:7949fa1767ebc94d3da5e0c50ed6688ad0a0c80873125a4a99fc54810194f32e"
+      }
+    },
+    {
+      "path": "tests/jonah.spec.ts",
+      "gitBytes": 10415,
+      "git": "sha256:3dab1694f29c6568cd148d5fb5f37e23a80f95d20251cd3a7597da16bc383fea",
+      "checkout": {
+        "path": "tests/jonah.spec.ts",
+        "bytes": 10566,
+        "checksum": "sha256:4fbacf76b7ee20ec8158ccdea35035832f580efd9f56868c9dc53eeb27e80f2e"
+      }
+    },
+    {
+      "path": "tests/media-harness.tsx",
+      "gitBytes": 2823,
+      "git": "sha256:dd1e7315fecb030a91476bb5d9e96f060a5cd1d30dae0dff1d0a50a1f8baf1b6",
+      "checkout": {
+        "path": "tests/media-harness.tsx",
+        "bytes": 2857,
+        "checksum": "sha256:50b64e066710cdc10b85fce88e4b32d70ed0a0a39e060a0b1a8272e81bc21669"
+      }
+    },
+    {
+      "path": "tests/media.spec.ts",
+      "gitBytes": 11337,
+      "git": "sha256:6af4a15947a14f0679b2db8a6809b288cf9fb41f67a0c10fdd9295c827855087",
+      "checkout": {
+        "path": "tests/media.spec.ts",
+        "bytes": 11491,
+        "checksum": "sha256:3039ca6e4930d4a4044ce0cb45863c01eab0ba3b562bd67d7397911f6688f02e"
+      }
+    },
+    {
+      "path": "tests/network-diagnostics.ts",
+      "gitBytes": 1039,
+      "git": "sha256:1fcf4494c78806120dbe063034180b110bf975f41a2756265e61e6dae9e39e72",
+      "checkout": {
+        "path": "tests/network-diagnostics.ts",
+        "bytes": 1059,
+        "checksum": "sha256:456299a87bccd196f8edb566f9982da2c8d1f06e869a8c216f37ae5f40450b79"
+      }
+    },
+    {
+      "path": "tests/network-regression.spec.ts",
+      "gitBytes": 1062,
+      "git": "sha256:acfd0b4db78732f10560aa68d75a8a9cc4a45d3d7d225ddb5d02718bbabeef76",
+      "checkout": {
+        "path": "tests/network-regression.spec.ts",
+        "bytes": 1078,
+        "checksum": "sha256:541f628d7b0aaefb8d422f4bfbdda0abbe3dedd46b2fa3253ccb6e1a80592378"
+      }
+    },
+    {
+      "path": "tests/nineveh-depth.spec.ts",
+      "gitBytes": 8168,
+      "git": "sha256:be972763667ec86a342c83367735e0c67954253cc1fdb74229372dcbf2675473",
+      "checkout": {
+        "path": "tests/nineveh-depth.spec.ts",
+        "bytes": 8304,
+        "checksum": "sha256:16e6e12cfe65fe71bf139fe585b6dd18025ca250670b4fc0559ac2ff157933cf"
+      }
+    },
+    {
+      "path": "tests/nineveh.spec.ts",
+      "gitBytes": 9606,
+      "git": "sha256:951df1e30beb03cd332df2df75faa5d50249df3da69d2023131569626e9d4136",
+      "checkout": {
+        "path": "tests/nineveh.spec.ts",
+        "bytes": 9746,
+        "checksum": "sha256:e0025e165343ab8d5b970ca5a2fa54686cf1d774378ad3216c1e69a86b586b9f"
+      }
+    },
+    {
+      "path": "tests/perpetua-reading.spec.ts",
+      "gitBytes": 8071,
+      "git": "sha256:af272f0e6200387ccdaa2dc137e0eb5c3fdb302c922bc004031367ba7fa352ce",
+      "checkout": {
+        "path": "tests/perpetua-reading.spec.ts",
+        "bytes": 8182,
+        "checksum": "sha256:55d4e5e1711ee108ced801569c72cb577e5c77c1e7787357f6a305199b8dead8"
+      }
+    },
+    {
+      "path": "tests/perpetua-recovery.spec.ts",
+      "gitBytes": 4475,
+      "git": "sha256:9c4e2b4d006b3a07b15126dba4821cdeb59b7b01e1d46e356f33a77d81e50285",
+      "checkout": {
+        "path": "tests/perpetua-recovery.spec.ts",
+        "bytes": 4542,
+        "checksum": "sha256:ccf904147432f09a0e7558b1e4cc044161098ecd8d41d19db1d4fe77ddb33ce0"
+      }
+    },
+    {
+      "path": "tests/perpetua.spec.ts",
+      "gitBytes": 9147,
+      "git": "sha256:aa10d36f64eca9c073d5f251b41775dac9b8e40a9c344ee1e64c38ddc03dd22d",
+      "checkout": {
+        "path": "tests/perpetua.spec.ts",
+        "bytes": 9377,
+        "checksum": "sha256:412b39ea668133a6d518ff85143616c20c1d2da3781daad7cbfef6a1936e11e8"
+      }
+    },
+    {
+      "path": "tests/romanus.spec.ts",
+      "gitBytes": 5838,
+      "git": "sha256:ee41a452a2dd8cb2ab27fa18cb9df99b0860765f3e9bdfe460ed87518522e97b",
+      "checkout": {
+        "path": "tests/romanus.spec.ts",
+        "bytes": 5924,
+        "checksum": "sha256:cf09e356676e1185f6401189791c533f6497eab104a5f2b2f204dc360c1f4183"
+      }
+    },
+    {
+      "path": "tests/routing.spec.ts",
+      "gitBytes": 5698,
+      "git": "sha256:97836e0e86ca07711485fe25197ab8c5667b507257ae84f8bd27a6c0aec5f775",
+      "checkout": {
+        "path": "tests/routing.spec.ts",
+        "bytes": 5786,
+        "checksum": "sha256:62d3bd32a0a5dfb944791e2bd342e91ba35425524e2f218fcd447885c5805f44"
+      }
+    },
+    {
+      "path": "tests/thomas-homepage.spec.ts",
+      "gitBytes": 7502,
+      "git": "sha256:d26129bceef13bafe9ede618aea9760452c790eb7d1a21248856f90a2995890f",
+      "checkout": {
+        "path": "tests/thomas-homepage.spec.ts",
+        "bytes": 7624,
+        "checksum": "sha256:4bafeb87aa15c3094e9d77cd356982456950cef5df166392730d49ee3ccc75d6"
+      }
+    },
+    {
+      "path": "tests/thomas-sources.spec.ts",
+      "gitBytes": 4975,
+      "git": "sha256:c029a11cf8ba30dd3e27fd633789745654d4c8f94c8a9af1536c32fe325da34e",
+      "checkout": {
+        "path": "tests/thomas-sources.spec.ts",
+        "bytes": 5044,
+        "checksum": "sha256:b82fbd272c082afd527a59981db01ceba6787c33eb820a6e4ede3b016cc124cf"
+      }
+    },
+    {
+      "path": "tests/thomas.spec.ts",
+      "gitBytes": 12233,
+      "git": "sha256:d0cbe27ccbb520ad4a43d5ef385fe0ec0a34392cc7650fd6702420d882cc0672",
+      "checkout": {
+        "path": "tests/thomas.spec.ts",
+        "bytes": 12411,
+        "checksum": "sha256:59114a5ffc30391d5e7b3ca7ee183131e28fb3b87808cd75d355ac4217ff5750"
+      }
+    },
+    {
+      "path": "tsconfig.json",
+      "gitBytes": 710,
+      "git": "sha256:b53b3180947a68a9d69521b5185b2081afc33658acfbf91fa154f7456fcf74f6",
+      "checkout": {
+        "path": "tsconfig.json",
+        "bytes": 745,
+        "checksum": "sha256:e984cddd504bf482ba8a4f587f848bc40ba2ee6564a688d6672597455d61685d"
+      }
+    },
+    {
+      "path": "vercel.json",
+      "gitBytes": 444,
+      "git": "sha256:543dbe4ef84b2c6e0b27d34e806e31ef85c5c1256155e840fbf32fdb1624f678",
+      "checkout": {
+        "path": "vercel.json",
+        "bytes": 465,
+        "checksum": "sha256:5f4e56aba25885d236c7c528395de9ef68f93dc7678f65448a95b728895de3d5"
+      }
+    }
+  ]
+}

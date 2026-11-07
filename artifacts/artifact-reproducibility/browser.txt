@@ -1,0 +1,19 @@
+
+Running 8 tests using 1 worker
+
+  ok 1 [desktop] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline (2.6s)
+  ok 2 [desktop] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson (2.4s)
+  ok 3 [desktop] › tests\homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards (1.1s)
+  ok 4 [desktop] › tests\homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions (2.9s)
+  ok 5 [mobile] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline (2.9s)
+  ok 6 [mobile] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson (2.9s)
+  ok 7 [mobile] › tests\homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards (1.0s)
+  ok 8 [mobile] › tests\homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions (3.8s)
+
+  8 passed (22.1s)
+[WebServer] (node:4832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:6184) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

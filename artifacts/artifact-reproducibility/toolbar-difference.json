@@ -1,0 +1,16 @@
+{
+  "consolidated": {
+    "path": "_next/static/chunks/main-app-1fff53b126da2273.js",
+    "bytes": 769,
+    "checksum": "sha256:c72b4b08ef25d832493656947ab1925e18befac8d50a0962d1d05fd719f493f8",
+    "injectedDeploymentId": "dpl_5YTNVB4YVmojSFJjKTC365gnyLY2"
+  },
+  "approval": {
+    "path": "_next/static/chunks/main-app-1668d0cd9522f2b1.js",
+    "bytes": 769,
+    "checksum": "sha256:c8e2eb379d4dd7b549550bb0afc2e34aa4038a30d6068418f04d2d6b9c9fedd3",
+    "injectedDeploymentId": "dpl_ERMob58BAWS67Ep1ptLVqCpHJqev"
+  },
+  "rootHtmlIdenticalExceptMainAppHash": true,
+  "rootRscIdentical": true
+}

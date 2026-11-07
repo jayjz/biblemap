@@ -1,0 +1,68 @@
+
+> next_temp@0.1.0 validate:release
+> npm run validate:story && npm run validate:export && node --experimental-strip-types scripts/publication-gate.mjs
+
+
+> next_temp@0.1.0 validate:story
+> node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+James: 3 Scripture quotations match retained publisher snapshots.
+Thomas: 19 WEB verses, sayings 13/26 and the CC BY 3.0 Greek ending match retained source excerpts.
+✓ Jonah technical integrity validates; publication authorization is checked separately by validate:release
+
+> next_temp@0.1.0 validate:media
+> node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts
+
+✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
+✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced
+(node:2116) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ interior quotations resolve to an edition with a locator and reuse statement (0.9215ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (8.5035ms)
+(node:13536) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (1.2518ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (4.241ms)
+(node:19048) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (11.9957ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 243.6319
+
+> next_temp@0.1.0 validate:export
+> node --experimental-strip-types scripts/validate-visitor-export.ts
+
+Visitor boundary: 280 HTML/RSC/JS/JSON and alternate text artifacts inspected; private editorial probes absent; all 48 WEB verses and provisional qualifications retained. Publication approval is still required.
+(node:15876) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18588) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6900) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/scripts/validate-visitor-export.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10412) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Creator publication decision pending: exact candidate, routes, assets and limitations require acceptance

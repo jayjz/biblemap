@@ -1,0 +1,3426 @@
+{
+  "host": "biblemap-od6a9rf59-elliotandersons-projects.vercel.app",
+  "buildId": "candidate-6fc612189894f6c26242",
+  "records": [
+    {
+      "path": "404.html",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/404/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "404/index.html",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/404/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "__next.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/__next.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 41970,
+      "checksum": "sha256:4c14002b9751a10a29f403871fed84401c621f838b79592a05e42c001e209850",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 42854,
+      "checksum": "sha256:4cd6a624eb3752145525e84b3f12c6330400c55142254131121c20ae06daee54",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 581,
+      "checksum": "sha256:355909de1fa3c26f95d7f274318d388700b3ff52f5e4f481f6d9cc93ad2b654c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/candidate-6fc612189894f6c26242/_buildManifest.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/candidate-6fc612189894f6c26242/_buildManifest.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 1092,
+      "checksum": "sha256:521e49c4b260200167bded28839dbd249822ec4d30568d223d2cef7715f5ff18",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/candidate-6fc612189894f6c26242/_ssgManifest.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/candidate-6fc612189894f6c26242/_ssgManifest.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 200,
+      "checksum": "sha256:fd7449f947c6a196662c55cc136eedbd9c7c824c8e90bd9df3f0ad8377593eb6",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/1023.773bb7357759ac4d.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/1023.773bb7357759ac4d.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 258,
+      "checksum": "sha256:f5c69041f9c9de42905ffd7e1921b1e5cc25355f8d6418bce5284a331af27855",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/1966.b8f83f7ba376c962.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/1966.b8f83f7ba376c962.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/2385.34aa8403f9559c4c.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/2385.34aa8403f9559c4c.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 4116,
+      "checksum": "sha256:bbe72da6a00d953759286cec2053ce46250d3223ff3f2ec293e393ca9178c5c7",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/3067.1ef445ebd4be6f42.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/3067.1ef445ebd4be6f42.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 167461,
+      "checksum": "sha256:45479155e6e43942243c2bb91439823ae5e2f4dc16df19162dcf18d8106b4742",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/341.a21bf965830afe9d.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/341.a21bf965830afe9d.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 140313,
+      "checksum": "sha256:55f3ff0f8ccbe911f7e4c7ff34320414a103ae5962cdf433315acfc5d62820fe",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/3640-f0ec7c9b53cb939a.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/3640-f0ec7c9b53cb939a.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 12892,
+      "checksum": "sha256:a8c0c9b7e6e6bc3549ba7294e8e9dbbbeb9909f338a7d3802900dc4af557646d",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/3794-1030b64c98e94946.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/3794-1030b64c98e94946.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 242889,
+      "checksum": "sha256:d8f036d5beed44892780159fa0d2711e938cd8e52b46c18551ae8e381311bc8e",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/3899.d4d0ae202f418161.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/3899.d4d0ae202f418161.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 203727,
+      "checksum": "sha256:898c71c4da75489e3cf225ab3cd3d44d6232a491ee816510ba79b6e3ac17885e",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/5297.5aa084d6934fb103.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/5297.5aa084d6934fb103.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 21876,
+      "checksum": "sha256:1522a13738434307a7127a5a88f43fa7c6230f4f22e6d2d518463277fc28af5f",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/7256-0d8b1f6f4932b794.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 31546,
+      "checksum": "sha256:2b55be504bf241900871ed9be7382d4a6dfdc93ecbdfa3a419a69cf771949d9a",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/7492-e3ae289aae1e34f8.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/7492-e3ae289aae1e34f8.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 38262,
+      "checksum": "sha256:d736abbbfd3e8516e850d10935df86e9736d62180c07b1a6473fcb48516dff48",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/7502.afd906c51c75d9cb.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/7502.afd906c51c75d9cb.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 699920,
+      "checksum": "sha256:b7750484b4f69fa753f05e10faf2f1119c065a96717d2c91403135f04707ee52",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/7521.48a3ebfd8102c04c.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/7521.48a3ebfd8102c04c.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 697,
+      "checksum": "sha256:ef8ebb1670f6deccbc3cf1a170a1beb65984396bb81948df468a02ccbbca7084",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/7680.a9bc71995f420569.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/7680.a9bc71995f420569.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 34152,
+      "checksum": "sha256:098c5363d975e16620b63fc7c6e2218b53c5b107a1bf3f340384230451afad5d",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/8437-b674990ba6ab658f.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/8437-b674990ba6ab658f.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 14428,
+      "checksum": "sha256:1a2dd92d66232629562dd75ec48b39ca4d594436d9eaac78695fe63bb6233781",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/8500-63a4afbeacab3b52.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/8500-63a4afbeacab3b52.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 7674,
+      "checksum": "sha256:e9e3789b345383b6ee0699fa833512feeee835a9160d431225a7ed138045d27e",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/8601.7181b848a4a1d6d1.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/8601.7181b848a4a1d6d1.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 5200,
+      "checksum": "sha256:b48addce6127e804263cab8aaf0955d7edde07f2fa43fd50cb45d8811c2cf3ee",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/app/_global-error/page-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/_global-error/page-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/_not-found/page-000f5a09abb3009c.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/_not-found/page-000f5a09abb3009c.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/demo/page-1804aab6625b86b8.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/demo/page-1804aab6625b86b8.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/experiments/nineveh/page-7e82cd360c81db05.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/experiments/nineveh/page-7e82cd360c81db05.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/explore/page-d3a05e070adb2a1d.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/explore/page-d3a05e070adb2a1d.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 8168,
+      "checksum": "sha256:8a99521257f78f2646f1ec40043b1230583af361481c6e07d3d0d566d4484863",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/explore/page-e9c29b35ba32f1f3.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/explore/page-e9c29b35ba32f1f3.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/[entry]/page-6c686c1608647c53.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/[entry]/page-6c686c1608647c53.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/[entry]/page-ab29b42bf3f03d2e.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/[entry]/page-ab29b42bf3f03d2e.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 42011,
+      "checksum": "sha256:4460cc10634b778fb52fd5496b18c77a4462add8676e250965c37baaff73b5ec",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/james/reading/page-824604a05cd7f12a.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/james/reading/page-824604a05cd7f12a.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/james/reading/page-8c2158044e8f102b.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/james/reading/page-8c2158044e8f102b.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 421,
+      "checksum": "sha256:3cb4591b3dc423a23e13510fa8af6ba1f3df049d30326e7a1ce3483fe3b26a47",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/layout-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/layout-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/page-0447571d4a9d44d9.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/page-0447571d4a9d44d9.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/page-9244b20e3758e162.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/page-9244b20e3758e162.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 465,
+      "checksum": "sha256:75ff78ee828e448ff7ca0ec7f1a75abfada39d0363c015f6971c29d383f7efa3",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/paths/[path]/page-bfd4432d21e2067e.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/paths/[path]/page-bfd4432d21e2067e.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/paths/[path]/page-fc483db9af08a847.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/paths/[path]/page-fc483db9af08a847.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 4035,
+      "checksum": "sha256:4c1951906914c2c365f511fde8ccb5aef5b5869877071d0e0a4d92dbacf06ccf",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/romanus/reading/page-5e696ab4dae13797.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/romanus/reading/page-5e696ab4dae13797.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/romanus/reading/page-9f7d275fd624d4a5.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/romanus/reading/page-9f7d275fd624d4a5.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 3652,
+      "checksum": "sha256:8c8829ab3728143ece040361237b3a2f62266322d944de00d775d2c06315a9dd",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/thomas/page-424244ef299ed4de.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/thomas/page-424244ef299ed4de.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/thomas/page-995be100e8918312.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/thomas/page-995be100e8918312.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 6495,
+      "checksum": "sha256:8788b2859caec4c7d2838f00357c7d2790a51ef7e3b3444fd4a472b1f4cc064c",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/thomas/reading/page-424244ef299ed4de.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/thomas/reading/page-424244ef299ed4de.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/thomas/reading/page-995be100e8918312.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/thomas/reading/page-995be100e8918312.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 6495,
+      "checksum": "sha256:8788b2859caec4c7d2838f00357c7d2790a51ef7e3b3444fd4a472b1f4cc064c",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/thomas/sayings/page-59913c8247393a5e.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/thomas/sayings/page-59913c8247393a5e.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/thomas/sayings/page-f8d11c51f9f0aa16.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/thomas/sayings/page-f8d11c51f9f0aa16.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 6490,
+      "checksum": "sha256:db673d2b27114ab47bd546a1ad7b86a0614d44842beaf22ca28f33b57feb9781",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/worlds/[world]/page-cd66046d07e8383b.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/worlds/[world]/page-cd66046d07e8383b.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 6550,
+      "checksum": "sha256:437ba5d703ae72b9585867d06c629f2edd96a85321a9cec34f63dd0022667eb3",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/human-story/worlds/[world]/page-dcf6464e86f872ea.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/human-story/worlds/[world]/page-dcf6464e86f872ea.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/jonah/page-116d543500c442f3.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/jonah/page-116d543500c442f3.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/jonah/page-b2c30d37a5b76895.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/jonah/page-b2c30d37a5b76895.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 46372,
+      "checksum": "sha256:23388659b773fb4b68590e8c4af36ecd029eee4e7ed4acd901e60d11edb8f882",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/layout-0648fdc852d92714.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/layout-0648fdc852d92714.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/nineveh/page-9724a6002de51d3a.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/nineveh/page-9724a6002de51d3a.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/nineveh/page-bfa02ae378b77ecd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/nineveh/page-bfa02ae378b77ecd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 6977,
+      "checksum": "sha256:7331db5d67a2f23a7c10f3bf17cf2112fcbdd4fb410cc285be941e55f458ba28",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/page-1335247d8a5d23fa.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/page-1335247d8a5d23fa.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/page-974bb1cf06d3dae5.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/page-974bb1cf06d3dae5.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 7135,
+      "checksum": "sha256:ec5afd84d0d511ead92a9ff4c8921d099d590d9888053ef8ec8cf38c12f81bdc",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/app/robots.txt/route-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/robots.txt/route-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/app/sitemap.xml/route-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/app/sitemap.xml/route-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/ca4dcb09.2faa5822ef221030.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/ca4dcb09.2faa5822ef221030.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 1094416,
+      "checksum": "sha256:585fc012f9db4d84208b54ea996ea46317432f9e2e58453b252e729eb146fb11",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/ca4dcb09.8d5ecba676b5fd70.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/ca4dcb09.8d5ecba676b5fd70.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/d5ad3d22.4b8a08bbd5b58884.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/d5ad3d22.4b8a08bbd5b58884.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 192624,
+      "checksum": "sha256:c25415fcca1aba7f160e6f7b85c3d342e2eb4bc6d4fdc87db575f46680a4fd8f",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/chunks/framework-16eb040a850c1f4a.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/framework-16eb040a850c1f4a.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 189686,
+      "checksum": "sha256:84dc4e497430e47a979a7651d70e69e25cb4e144cf730c6eddab37d39536874a",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/main-4a6b70e0e43ab717.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/main-4a6b70e0e43ab717.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/main-app-35c0edc4b3d5d1d2.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/main-app-35c0edc4b3d5d1d2.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/main-app-8778ace6d789c83c.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/main-app-8778ace6d789c83c.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 529,
+      "checksum": "sha256:ec2136662586181828d9b68aed8cdc3d9dab97356bfecf6fde35fe11e9d0676a",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/next/dist/client/components/builtin/app-error-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/next/dist/client/components/builtin/app-error-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/next/dist/client/components/builtin/forbidden-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/next/dist/client/components/builtin/forbidden-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/next/dist/client/components/builtin/global-error-449f9045e1c95b25.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/next/dist/client/components/builtin/global-error-449f9045e1c95b25.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/next/dist/client/components/builtin/not-found-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/next/dist/client/components/builtin/not-found-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/next/dist/client/components/builtin/unauthorized-19b0bda638e0f8fd.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/next/dist/client/components/builtin/unauthorized-19b0bda638e0f8fd.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 172,
+      "checksum": "sha256:9fe21f260959aa0dfdf817c9a0715b7949ab565f40c6ac811197677dfa925548",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 112594,
+      "checksum": "sha256:0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/chunks/webpack-8042c06578bd8047.js",
+      "status": 404,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/webpack-8042c06578bd8047.js",
+      "type": "text/html; charset=utf-8",
+      "bytes": 8322,
+      "checksum": "sha256:f2c597c52318501528f8bfc0890645c6af1043fa93c2032022585228eb5dc2fc",
+      "origin": "local-chunk-probe"
+    },
+    {
+      "path": "_next/static/chunks/webpack-e836afbe516c9d7b.js",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/chunks/webpack-e836afbe516c9d7b.js",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 5428,
+      "checksum": "sha256:76c993626add8ed3529a3e17fd7d0c46c0c84443b5ed80b1f084478c2bdfe67d",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/437d5bf4c3cceca4.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/437d5bf4c3cceca4.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 16242,
+      "checksum": "sha256:48a9b91c87fb420b4e020e6f0c1b8290fd5cf63e10b6a650bcc7d3769b2cf577",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/760470ae7a2fb53c.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/760470ae7a2fb53c.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 37612,
+      "checksum": "sha256:65568bb4b1b10382d9e147b0a903f4b860b9b38792606d3e69b305181aeb5415",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/a94c11cae57efb89.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/a94c11cae57efb89.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 44531,
+      "checksum": "sha256:526d1912fa96432cae6ac368f88b357c74731da2472d384797443ec8ba7532d0",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/aa70628962f87ab8.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/aa70628962f87ab8.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 26849,
+      "checksum": "sha256:522fcf0c4c2160d8c8ecf947cdbb3a29df02761e04d0d19cfec2818b31372fbc",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/b8ecd3428db58721.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/b8ecd3428db58721.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 488,
+      "checksum": "sha256:d3c17f162ef0e0fb0cd5a5792f3c116f3653ea992d1da8c41d467974640d4e1f",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/b929557758205abd.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/b929557758205abd.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 71558,
+      "checksum": "sha256:7a7d1370a57bb082f8b142b5bd0d960b35a3f62c49185c03d6a9a0b0c0a67a7f",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/css/bf1e764ab15f3e39.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/bf1e764ab15f3e39.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 16840,
+      "checksum": "sha256:cc6e74b9974006a108fdf989016a81aa2b4f84dc65d27f35af4b1a27384e074c",
+      "origin": "discovered-assets"
+    },
+    {
+      "path": "_next/static/css/d8138072d92d59b1.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/d8138072d92d59b1.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 13488,
+      "checksum": "sha256:c43ddfb12bd6d9b127fe08714983f564f14b41fe156b095b7c96b7b8ea0c5a46",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/ecd7374f3040fab1.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/ecd7374f3040fab1.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 88154,
+      "checksum": "sha256:3bf0495295aeff3a3339a4f7ccc3e1e100b159d27322ba74377da109201b69a4",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/css/f881bef4fe56b732.css",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/css/f881bef4fe56b732.css",
+      "type": "text/css; charset=utf-8",
+      "bytes": 20093,
+      "checksum": "sha256:fb94fd0821e3a306cc8c51cf2beb48d15d840ed400c06aad2175a9fc9c501265",
+      "origin": "rendered-reference"
+    },
+    {
+      "path": "_next/static/media/013b72fa676f92e0-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/013b72fa676f92e0-s.woff2",
+      "type": "font/woff2",
+      "bytes": 6204,
+      "checksum": "sha256:e27f657e38d52887baa3b6b2f812bef93dfdd356f0810e40edd4ee284cc7e9f6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/22a5144ee8d83bca-s.p.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/22a5144ee8d83bca-s.p.woff2",
+      "type": "font/woff2",
+      "bytes": 29288,
+      "checksum": "sha256:9b6f5ff45b278c744b5f379a2c4ecbaf858a842b8eaf82ac8d21b699ca16c608",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/28a2004cf8372660-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/28a2004cf8372660-s.woff2",
+      "type": "font/woff2",
+      "bytes": 20980,
+      "checksum": "sha256:5628567856d60d714e7a35bcac9e3de08b336d63b12138f61b970990a1ee9547",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/2b5b02fc7e511755-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/2b5b02fc7e511755-s.woff2",
+      "type": "font/woff2",
+      "bytes": 14712,
+      "checksum": "sha256:745994b5cd950ec201b66526375f057d540847cccfc70f4f24f5f571d26d3923",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/47f136985ef5b5cb-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/47f136985ef5b5cb-s.woff2",
+      "type": "font/woff2",
+      "bytes": 21144,
+      "checksum": "sha256:d7f9db9b1034978ebebdf7312aa4aee55dff3ef6039e7ff71413780bd4a05558",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/4ead58c4dcc3f285-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/4ead58c4dcc3f285-s.woff2",
+      "type": "font/woff2",
+      "bytes": 9056,
+      "checksum": "sha256:8fa67d5f0ab2a1d0b924729a0411a069b384d7a236edd96a6767ef342a6d048f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/65f03d54ccadf4a8-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/65f03d54ccadf4a8-s.woff2",
+      "type": "font/woff2",
+      "bytes": 5892,
+      "checksum": "sha256:d67e4a94ba498635f764ddca7d1ec4271f5642f032eb24b426764480f66f8497",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/7d4881bb7e1bf84d-s.p.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/7d4881bb7e1bf84d-s.p.woff2",
+      "type": "font/woff2",
+      "bytes": 23108,
+      "checksum": "sha256:5f3d6ad60f29d6cb708414ec6887163d63bf197377ef5417d2483ff31ace6c3b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/9766a7e9e2e0ad5a-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/9766a7e9e2e0ad5a-s.woff2",
+      "type": "font/woff2",
+      "bytes": 14900,
+      "checksum": "sha256:6129fc8571c3e0cb0a4c41f5160c974a843b055009dc4ad8858bd808e18a2d86",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/aa016aab0e6d1295-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/aa016aab0e6d1295-s.woff2",
+      "type": "font/woff2",
+      "bytes": 16540,
+      "checksum": "sha256:58a6b173d5ca1dec92166ea3c6cb1a84a4144556d10928ac14e8e6b40e4787bd",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/b66cf8e69499582a-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/b66cf8e69499582a-s.woff2",
+      "type": "font/woff2",
+      "bytes": 7968,
+      "checksum": "sha256:f689f638f29fff460a2d5749edb5d5c38d7bef0389f32032d871f23fc6ebb008",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/b9408752a0c24fb9-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/b9408752a0c24fb9-s.woff2",
+      "type": "font/woff2",
+      "bytes": 12872,
+      "checksum": "sha256:75b3bedbebc35f347c0ae3b416aa871941555357e7b0f83767eb5987875589ed",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/e038a29029a234f2-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/e038a29029a234f2-s.woff2",
+      "type": "font/woff2",
+      "bytes": 7728,
+      "checksum": "sha256:16e1d48b6dd29eb240aec5db36184eb182933c082cd43de7f35af686d58087d2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/eaead17c7dbfcd5d-s.p.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/eaead17c7dbfcd5d-s.p.woff2",
+      "type": "font/woff2",
+      "bytes": 38460,
+      "checksum": "sha256:5d91eb5d522a03081946c44c8ca17c902230dfed5f0f9b5014262135d47b15b2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/f639721981034f88-s.woff2",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/f639721981034f88-s.woff2",
+      "type": "font/woff2",
+      "bytes": 7252,
+      "checksum": "sha256:b7a545bbb08256bd809f11cfe66d88da3e22d169ea4407737b1ef0ec1ed3d791",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/maplibre-gl-worker.fef80f35.mjs",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/maplibre-gl-worker.fef80f35.mjs",
+      "type": "application/javascript; charset=utf-8",
+      "bytes": 519372,
+      "checksum": "sha256:0bf06492bdb7ba3d4132b78e435621bfba60d5250967991c02b1a73affea8cd5",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "_next/static/media/parquet_wasm_bg.bd23c1a3.wasm",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/_next/static/media/parquet_wasm_bg.bd23c1a3.wasm",
+      "type": "application/wasm",
+      "bytes": 6626292,
+      "checksum": "sha256:e705bcfeecb5cb3cab61833692b7ebd4d019989b75951c35b2e5b0e49bb2779e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "audio/README.md",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/audio/README.md",
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 40,
+      "checksum": "sha256:48b67e49513e6858981f624177dc06d2f3a08e6a339463f91093c07f2cd9c1e0",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "bible-journeys.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/bible-journeys.parquet",
+      "type": "application/octet-stream",
+      "bytes": 3782,
+      "checksum": "sha256:ad1d70fd1b7d7e4f7cd39643b674bf0adb43864f715d17c42e4460e298c6bd81",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "bible-points.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/bible-points.parquet",
+      "type": "application/octet-stream",
+      "bytes": 2504171,
+      "checksum": "sha256:2cbee4bae8263470a6ee4136b2a4316a5a996c3488d0f4134694f6a4b201e150",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "data/epoch-0-creation.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/data/epoch-0-creation.parquet",
+      "type": "application/octet-stream",
+      "bytes": 35299,
+      "checksum": "sha256:1ac3ef67e4882523d3461815176947c34bda650eb39abd09a2cf3e5bf95f4f40",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "data/epoch-1-patriarchs.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/data/epoch-1-patriarchs.parquet",
+      "type": "application/octet-stream",
+      "bytes": 51379,
+      "checksum": "sha256:52a9bf98666f8e451119d7dbe21579d3a8f41610fb817fffcf5d03a37ca0da9b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "data/epoch-2-exodus.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/data/epoch-2-exodus.parquet",
+      "type": "application/octet-stream",
+      "bytes": 35740,
+      "checksum": "sha256:bf3c0a0e72d23188fe82b0f3ee53b4c397b9cb3ce2b64405c88a2a6abc85c7d3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "data/epoch-3-kings.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/data/epoch-3-kings.parquet",
+      "type": "application/octet-stream",
+      "bytes": 110339,
+      "checksum": "sha256:01dbde8a4b3aba37c56ca927b49a66afa2ca20ee62cf70ba70ef4c6fa84e11fe",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "data/epoch-4-exile.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/data/epoch-4-exile.parquet",
+      "type": "application/octet-stream",
+      "bytes": 729841,
+      "checksum": "sha256:f65414aaf30405661d1fe0d6ca88a87acbd98f83fe32c4ecf012e50941f085b3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "data/epoch-5-intertestamental.parquet",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/data/epoch-5-intertestamental.parquet",
+      "type": "application/octet-stream",
+      "bytes": 643401,
+      "checksum": "sha256:ac7b2a671377ced3faf6d9f2cb44386b280852cb8cf3b368be20fed3c6e8e1c4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "explore/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/explore/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 5886,
+      "checksum": "sha256:c72c0740830dab470571e3c7cbd99db4ee882884b94c0b73161b679a9543adcf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "explore/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/explore/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 577,
+      "checksum": "sha256:11577b5b682b62b3a7f5a6b7917dc06c65c674e4dc93e18bb44e976bb156ce83",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "explore/__next.explore.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/explore/__next.explore.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 5002,
+      "checksum": "sha256:7d9af4c6c62c0ced1ecd5c3fc6dcb6feeb1aa7343ec77894e2f98034a311bb8d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "explore/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/explore/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 10200,
+      "checksum": "sha256:7e0741786b41d0e0a296f26eeb9380283b04631e6c5ce27e1ff1fe1e39507015",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "explore/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/explore/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 5886,
+      "checksum": "sha256:c72c0740830dab470571e3c7cbd99db4ee882884b94c0b73161b679a9543adcf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "favicon.ico",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/favicon.ico",
+      "type": "image/vnd.microsoft.icon",
+      "bytes": 25931,
+      "checksum": "sha256:2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "file.svg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/file.svg",
+      "type": "image/svg+xml",
+      "bytes": 391,
+      "checksum": "sha256:2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "globe.svg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/globe.svg",
+      "type": "image/svg+xml",
+      "bytes": 1035,
+      "checksum": "sha256:b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 43011,
+      "checksum": "sha256:5dfa4ef383dfd78158c2bf2672c08dd641e28d41d7d34461ab373f1718961e40",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 635,
+      "checksum": "sha256:124e04564b10f7cfde389a14d66a5d551d1233113a912e92efc38ebcac5351cb",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/__next.human-story.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/__next.human-story.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 41984,
+      "checksum": "sha256:0a937c8e9bd04eb8b83770c9cd39ec8932ae347f473a77e3ae25c0a4587f8f66",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/augustine/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/augustine/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 29231,
+      "checksum": "sha256:6d4eda65fe5ec91274b7276ce55493f67224ee78f0255e9ae9a95bc701ac8424",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/augustine/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/augustine/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 774,
+      "checksum": "sha256:fe674e1a04a9db96f8086d6993f9ab43cc9c20bc925511d07403d2e34a738912",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/augustine/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/augustine/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 27948,
+      "checksum": "sha256:a2df03c4c5e2d4c8d7994e1be0596de0388bcb3a10258d98fbfc0c65d15b54e8",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/augustine/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/augustine/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 52265,
+      "checksum": "sha256:df4dae0ac48978753d6b16c2e225dda95935135e2b48bc0db369b266c16a6e20",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/augustine/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/augustine/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 29231,
+      "checksum": "sha256:6d4eda65fe5ec91274b7276ce55493f67224ee78f0255e9ae9a95bc701ac8424",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/emmaus/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/emmaus/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19249,
+      "checksum": "sha256:bb151fe6168aae4911387d5b1a8e81c69a4a23fb16c96adb501cf50b771fd15c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/emmaus/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/emmaus/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 771,
+      "checksum": "sha256:33b109150c68641e744e7ca55c68def5bbc7752540973d30471cde5c0c7ca3a8",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/emmaus/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/emmaus/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17973,
+      "checksum": "sha256:697b449a58de8ed0e1694971ab785c8b0832df164e4879c3d10c5101a09363ba",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/emmaus/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/emmaus/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 33761,
+      "checksum": "sha256:12e2ea183454a4f0f82624a15b80c340271e8396048e34593fa01ad5c069f2ef",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/emmaus/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/emmaus/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19249,
+      "checksum": "sha256:bb151fe6168aae4911387d5b1a8e81c69a4a23fb16c96adb501cf50b771fd15c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/exodus/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/exodus/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17620,
+      "checksum": "sha256:54ff14c26e97094ac9a88c53393984b25595e989204ce41694e3fa6be6a2925d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/exodus/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/exodus/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 771,
+      "checksum": "sha256:7c711214d09023dded6e4ae769c234b53219f4ec3338496eff6d21a892b92a07",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/exodus/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/exodus/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16344,
+      "checksum": "sha256:8d9febe3f5e38e93c0e2ad36a050e75cf7354ef8c11ce927272d841156f362ff",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/exodus/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/exodus/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 30766,
+      "checksum": "sha256:7f20c6056db563fa461cafa9e1017da941d26ac54fcd14348037de7f1176b79a",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/exodus/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/exodus/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17620,
+      "checksum": "sha256:54ff14c26e97094ac9a88c53393984b25595e989204ce41694e3fa6be6a2925d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/francis/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/francis/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 18047,
+      "checksum": "sha256:979d9fb60580291b67f7290ebbfb3cdfe3cb982b6c2edc31ab03c5c100fca221",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/francis/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/francis/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 772,
+      "checksum": "sha256:83682acce34ffad36e0d7cbe1f3cdebd6651c8d27bca475f90422a58987261b4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/francis/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/francis/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16760,
+      "checksum": "sha256:7e95c5a7af229addf74ca4d27f65e378a539db7b433662a4c604be7ee734cc8f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/francis/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/francis/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 31777,
+      "checksum": "sha256:b4dd30393e50d1805fb1d264b4657fcd04443eb2d4281cd729154389eb973b40",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/francis/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/francis/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 18047,
+      "checksum": "sha256:979d9fb60580291b67f7290ebbfb3cdfe3cb982b6c2edc31ab03c5c100fca221",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis-in-paint/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis-in-paint/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22153,
+      "checksum": "sha256:ac80920463cc401855e38ee816deef3e9997396b366ea56c1c82f29a44bf5e33",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis-in-paint/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis-in-paint/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 781,
+      "checksum": "sha256:2c5f38a1eb55a8b3dc659c7eee19b6469d7aa43c0ba93d0b0561d7def8be3d47",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis-in-paint/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis-in-paint/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 20913,
+      "checksum": "sha256:111d4e72dd5d9328db36cbff4ce80bc98feab3e2076963623be3672a3e7550b6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis-in-paint/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis-in-paint/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 39340,
+      "checksum": "sha256:2a02f3e470e1a2f8c7de56ee727898cc418a9f05f5f0d972e774b5fd72dd13d1",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis-in-paint/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis-in-paint/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22153,
+      "checksum": "sha256:ac80920463cc401855e38ee816deef3e9997396b366ea56c1c82f29a44bf5e33",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21736,
+      "checksum": "sha256:735233841dac7c6b0434f1ae696e0d579e3b45fa4bc3ea28ab8d2de1b36444e1",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 772,
+      "checksum": "sha256:ba5bbf98ed805dd2a12580789c20db27075cd21830091fcf856663c4a551cfbe",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 20489,
+      "checksum": "sha256:b47615499d7751a47173342d68a78fc4810d51ecc1173044deed9ae9d57ee0e1",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 38334,
+      "checksum": "sha256:5885ef05c41231f2d47a29897ceb1261a37be33c312bb798c9df8d4b5d6d2051",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/genesis/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/genesis/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21736,
+      "checksum": "sha256:735233841dac7c6b0434f1ae696e0d579e3b45fa4bc3ea28ab8d2de1b36444e1",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 82939,
+      "checksum": "sha256:c8df4b17fba9db7f78322bbe19acf83f6c9441b471b91fe3574953219ddbd0ef",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 43011,
+      "checksum": "sha256:5dfa4ef383dfd78158c2bf2672c08dd641e28d41d7d34461ab373f1718961e40",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 78362,
+      "checksum": "sha256:58061456a79474149f03c03e62df2f9e570aba565805b15e21713deee30a1885",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 770,
+      "checksum": "sha256:be2b86fc9d0e3170d911012d9965eca2ff3239fc3e1532156ad67d8dee4242b1",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 77246,
+      "checksum": "sha256:4ae85c7e07da2b65c53776d55b2497d81573741ccbb669091506355ca76fb172",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 150780,
+      "checksum": "sha256:2bf4e831b1037f9b701903ce0dfd38d7d75dab031f4eb423a1add482eeb0e632",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 78362,
+      "checksum": "sha256:58061456a79474149f03c03e62df2f9e570aba565805b15e21713deee30a1885",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/reading/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/reading/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 62341,
+      "checksum": "sha256:be2b24d1c42587ea56d74709eeaaf7fbc6f6da7f72a373c08b556d09ed4bea9c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/reading/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/reading/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 679,
+      "checksum": "sha256:93447d80147233bfd561477b6be5369beb5c3b009ebc74a42e70845ab9eeac3e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/reading/__next.human-story.james.reading.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/reading/__next.human-story.james.reading.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 61007,
+      "checksum": "sha256:cd37dbeb0f00b3bcc12e9908be7daf18b3861e6f472e8f437d70902ff0c7dab2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/reading/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/reading/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 111993,
+      "checksum": "sha256:b592bac65776020d1f04d00f8430bf95bc61ac5050237dd95be3e013bb8ed033",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/james/reading/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/james/reading/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 62341,
+      "checksum": "sha256:be2b24d1c42587ea56d74709eeaaf7fbc6f6da7f72a373c08b556d09ed4bea9c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jerome/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jerome/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 25992,
+      "checksum": "sha256:af657be96c85650468d6eec9b6fbc6d547f15100b0ee2742e801ee7eeb4086ea",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jerome/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jerome/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 771,
+      "checksum": "sha256:120fcaa4fc01632cc6b0d6eb4f89a5ac0611b750a38e3a005fea931833f96c97",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jerome/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jerome/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 24726,
+      "checksum": "sha256:8e18b41638554f3a83e523864ef535da24a3e14ead66660d9f2b948846d2cc98",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jerome/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jerome/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 46247,
+      "checksum": "sha256:19cd8239a6b5fde076d1d812177f1726eef88911afa468b755d41b47c4b37a4c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jerome/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jerome/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 25992,
+      "checksum": "sha256:af657be96c85650468d6eec9b6fbc6d547f15100b0ee2742e801ee7eeb4086ea",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah-in-marble/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah-in-marble/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19532,
+      "checksum": "sha256:3c5eb7012ab6053b15da6de9e7c86c213f0b8264e66381db6e25fbda8f0c6289",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah-in-marble/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah-in-marble/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 780,
+      "checksum": "sha256:c28c124eb1c4f482a75e11a9df26da410003aa82909772338d9c3be5a1f4290e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah-in-marble/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah-in-marble/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 18243,
+      "checksum": "sha256:c04b332b8b6bf3969aa5e293778f69edf55af231873b3bd63ada982a18b3db03",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah-in-marble/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah-in-marble/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 34480,
+      "checksum": "sha256:9e809f5725d028288d77d7e8899e5c20b9da1a833bad916c18bd45a5f455a4f3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah-in-marble/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah-in-marble/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19532,
+      "checksum": "sha256:3c5eb7012ab6053b15da6de9e7c86c213f0b8264e66381db6e25fbda8f0c6289",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 33298,
+      "checksum": "sha256:22d5c1a851854de0554c1a7b4d57430f0b4b6c0a8ccd229fc556330f5812c050",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 770,
+      "checksum": "sha256:437dbb36b4724befd76192889caddc03a1306a09dc1cb00a5277f826ed7d759c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 31999,
+      "checksum": "sha256:85d75c25f6d63fc85f6e41d2ffb1c68bdfe13029eeb83c4e48d8323bee2a92c3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 59611,
+      "checksum": "sha256:c38a1ad3140fc6726e16684c05ced3813d92f406a8360f2fe6fbf8131bd01b02",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/jonah/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/jonah/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 33298,
+      "checksum": "sha256:22d5c1a851854de0554c1a7b4d57430f0b4b6c0a8ccd229fc556330f5812c050",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/josephus-james/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/josephus-james/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21745,
+      "checksum": "sha256:3f3fb317de510600f0b4dee0ce0f3de9a56edc3bebb3dd23775ed93387277ce2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/josephus-james/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/josephus-james/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 779,
+      "checksum": "sha256:3999bb98d7ef2c66466fdffa78a283a0767630c92c79729ab04c7dec8413fe45",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/josephus-james/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/josephus-james/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 20471,
+      "checksum": "sha256:44583ebb96f924ee69752015a695c11da9264aa21dd85286b90229e018b9e489",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/josephus-james/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/josephus-james/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 38441,
+      "checksum": "sha256:1ffa342e5c07b0be19fcc43b22798ddb2f3c9a887765a969920d8ce9acde3a7d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/josephus-james/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/josephus-james/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21745,
+      "checksum": "sha256:3f3fb317de510600f0b4dee0ce0f3de9a56edc3bebb3dd23775ed93387277ce2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/mediterranean/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/mediterranean/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 23366,
+      "checksum": "sha256:c37be6fac9d05ba0ed030623a16f854168e2230605128f8bbfd56ff6fbe3fc5f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/mediterranean/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/mediterranean/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 778,
+      "checksum": "sha256:8e926f9fa3ef1d929aa65992142269acf6e369fea326433013534c9b83eae153",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/mediterranean/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/mediterranean/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22083,
+      "checksum": "sha256:d5ca09327babda736add47c60f286efed44100a6b26cfb7e05aa4639c0e97855",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/mediterranean/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/mediterranean/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 41513,
+      "checksum": "sha256:24e4559ef08975bc06f9ef00857f22fc6622f26a6558e724dffc5d420dbf6326",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/mediterranean/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/mediterranean/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 23366,
+      "checksum": "sha256:c37be6fac9d05ba0ed030623a16f854168e2230605128f8bbfd56ff6fbe3fc5f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/nineveh/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/nineveh/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17748,
+      "checksum": "sha256:ecb1cc2fa21130365fae01ced9e2fd296d0f4381bf97333bda6bcdc46d2c2be0",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/nineveh/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/nineveh/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 772,
+      "checksum": "sha256:47768d51148b121a16e16e2ec95ffa00eb4ceb636ddace7a3f8ea76daea9f0e7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/nineveh/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/nineveh/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16467,
+      "checksum": "sha256:7ba35c74845a9555abc138355e48b3262c2dbad7060e3f4268171a716a77ed52",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/nineveh/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/nineveh/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 31283,
+      "checksum": "sha256:7e9c488a226c1ea3333625827d749391d6438d39ea29a94b7158110690fd6c32",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/nineveh/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/nineveh/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17748,
+      "checksum": "sha256:ecb1cc2fa21130365fae01ced9e2fd296d0f4381bf97333bda6bcdc46d2c2be0",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-life-in-another-life/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-life-in-another-life/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15629,
+      "checksum": "sha256:29fdad83c625d937c7e8afbf4ae5d966a92484e0d033a9e3d67259d96d003275",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-life-in-another-life/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-life-in-another-life/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 741,
+      "checksum": "sha256:2004eeb9e37fc4e46efb8f71a6ba6a1b6a08456597e897b971e1fccbc8091aa1",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-life-in-another-life/__next.human-story.paths.$d$path.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-life-in-another-life/__next.human-story.paths.$d$path.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 14164,
+      "checksum": "sha256:d38e2c4afa23863dcb11f955132c90cb8c0ea3ae116fa1136b5ba33cdaf3bb03",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-life-in-another-life/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-life-in-another-life/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 27030,
+      "checksum": "sha256:ea27b3b081ff3e4039e7e34a6efeecbcb00d781f7cff111d52fe034f22b34df6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-life-in-another-life/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-life-in-another-life/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15629,
+      "checksum": "sha256:29fdad83c625d937c7e8afbf4ae5d966a92484e0d033a9e3d67259d96d003275",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-name-under-pressure/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-name-under-pressure/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17397,
+      "checksum": "sha256:08f7d13a1e81586a45ad843173c65ead906e5ad26b4c7abd504871b5e391ca67",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-name-under-pressure/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-name-under-pressure/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 740,
+      "checksum": "sha256:edc6d97ad5d88bb9830890e36925f35150db776fee6f56d05b922d2498da2081",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-name-under-pressure/__next.human-story.paths.$d$path.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-name-under-pressure/__next.human-story.paths.$d$path.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15953,
+      "checksum": "sha256:068fd593dfae29461822b6f8828e3a9d20fb40ef8d8577ddce69996146f52943",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-name-under-pressure/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-name-under-pressure/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 30406,
+      "checksum": "sha256:4094240f34257f6630049447593c24aa5bae47cc436eadd79c4bee3e106a325c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-name-under-pressure/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-name-under-pressure/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17397,
+      "checksum": "sha256:08f7d13a1e81586a45ad843173c65ead906e5ad26b4c7abd504871b5e391ca67",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-word-crosses-centuries/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-word-crosses-centuries/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17347,
+      "checksum": "sha256:263ab1e6c182c24f53454a305c1eb89d5edc2d7d9bae193afbb46fcde46d9ae7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-word-crosses-centuries/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-word-crosses-centuries/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 743,
+      "checksum": "sha256:093dbe5a821f2aea6c678a4216400294db48402462db3417559507212157c390",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-word-crosses-centuries/__next.human-story.paths.$d$path.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-word-crosses-centuries/__next.human-story.paths.$d$path.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15900,
+      "checksum": "sha256:d7d465357e0452d825cf37dc558b26481a535b51b6c460c23997ce7b8fd83458",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-word-crosses-centuries/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-word-crosses-centuries/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 30165,
+      "checksum": "sha256:2fe22353ec69dbb926d1b1728e587df9f1b367113a64649d718ae28442387f67",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paths/a-word-crosses-centuries/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paths/a-word-crosses-centuries/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17347,
+      "checksum": "sha256:263ab1e6c182c24f53454a305c1eb89d5edc2d7d9bae193afbb46fcde46d9ae7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paul/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paul/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21025,
+      "checksum": "sha256:8228ff2a17cc5002ba2c4f0343142d240ee25837677eb8ab4cf56bea6f0d1856",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paul/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paul/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 769,
+      "checksum": "sha256:7cf6094a74be7f5246530be728b2115d1f51b178a1ed8e73ed3a825142fac947",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paul/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paul/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19771,
+      "checksum": "sha256:80d25e10db696e761db554dd6af6e33eea1d7762df11b058a3633c85bfa1fd72",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paul/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paul/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 36919,
+      "checksum": "sha256:66bcaac091e8e02faddf31792519c02291f849aaba73ddbcfb8d2ad89f4060fb",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/paul/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/paul/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21025,
+      "checksum": "sha256:8228ff2a17cc5002ba2c4f0343142d240ee25837677eb8ab4cf56bea6f0d1856",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/perpetua/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/perpetua/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 40562,
+      "checksum": "sha256:cd764e881632dac1e8464764deaf99703976c35ec5294c9d00fa2d7475b6eea2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/perpetua/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/perpetua/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 773,
+      "checksum": "sha256:c0f0be102a0972f9d50813efdd890986ab6b1ddf5a3ab3c6f0bb5e9134cc8212",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/perpetua/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/perpetua/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 39320,
+      "checksum": "sha256:eac3e43fca5a76f37427454431ab48bfc4cfbbfe43613f36ed7343bd70e7368b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/perpetua/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/perpetua/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 109153,
+      "checksum": "sha256:c93b3e0e699507f4966aaa42b08149a5e2e693cc3a7fd1d4628ff311d39f5fdc",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/perpetua/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/perpetua/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 40562,
+      "checksum": "sha256:cd764e881632dac1e8464764deaf99703976c35ec5294c9d00fa2d7475b6eea2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/pliny/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/pliny/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 26414,
+      "checksum": "sha256:98b8f5f241e01916d97a790587dc0bb4328b399242b86971387089d1f4277b96",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/pliny/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/pliny/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 770,
+      "checksum": "sha256:4d8adc11391d5953a3d495333b57df78b3715d83a67369d447cb8cda4520a4cf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/pliny/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/pliny/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 25129,
+      "checksum": "sha256:a9756dda72beaf851666ee9e0751a77d7ec77879d2ef097518fdd85f05b569e4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/pliny/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/pliny/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 47357,
+      "checksum": "sha256:0872cf3c11bcee3861ae32e298c714636ca75bae1e21300d814e832a59c80446",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/pliny/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/pliny/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 26414,
+      "checksum": "sha256:98b8f5f241e01916d97a790587dc0bb4328b399242b86971387089d1f4277b96",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/rashi-radak/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/rashi-radak/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 20464,
+      "checksum": "sha256:49291e0b1597c54cc1eac57409bd870f58dea2c4f4fb92d9fff24d22172ba060",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/rashi-radak/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/rashi-radak/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 776,
+      "checksum": "sha256:ba13305b2762f27d96d237dc8036f7779f008d3303a4cd4c8b94322b70c13c92",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/rashi-radak/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/rashi-radak/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19203,
+      "checksum": "sha256:6f315c95816c14e69309672ea27815ce82a0e15a20652bc63ad1814c273c8739",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/rashi-radak/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/rashi-radak/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 36073,
+      "checksum": "sha256:12d331c533b1d1cef2ff9f43c6ba2ac4a7185656116fc2e7aad90a27fe0165b4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/rashi-radak/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/rashi-radak/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 20464,
+      "checksum": "sha256:49291e0b1597c54cc1eac57409bd870f58dea2c4f4fb92d9fff24d22172ba060",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 49706,
+      "checksum": "sha256:322bfe40530e3a9b56886317d2d38fcedd66995e650167dd159a22df4614eef6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 772,
+      "checksum": "sha256:4bb30187a4bfc3bf2e41ec7fd39f8e878a3b737ad02c39f7a1713dee93bfdbc8",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 48745,
+      "checksum": "sha256:81d58af143078d9bacfb24cb7e115211bcbc05b552c7834b0a59f08873980f0d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 88892,
+      "checksum": "sha256:9b27540a105ff9e2da4a54de0f9d10b1dea7866d9fb1cfc24aa20dade2cce1f7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 49706,
+      "checksum": "sha256:322bfe40530e3a9b56886317d2d38fcedd66995e650167dd159a22df4614eef6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/reading/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/reading/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 47385,
+      "checksum": "sha256:ada943be5d1fb9581c4532e9b5e409dd5ee0e7f2dc54a1f784a44ad476c5f6d6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/reading/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/reading/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 681,
+      "checksum": "sha256:e00e69748913c6ad63681ab6aba732fd314611fb7c2ed72ef605de951d297a07",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/reading/__next.human-story.romanus.reading.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/reading/__next.human-story.romanus.reading.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 46096,
+      "checksum": "sha256:c9aeae295ffcfcf4545749ab826c02d41e39822bc86659c8a84c881d73c65f5a",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/reading/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/reading/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 83773,
+      "checksum": "sha256:fd5d56b1556125ffe329b3d3108e427a9f73130b3b0afe3703f3c7193597c293",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/romanus/reading/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/romanus/reading/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 47385,
+      "checksum": "sha256:ada943be5d1fb9581c4532e9b5e409dd5ee0e7f2dc54a1f784a44ad476c5f6d6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/sinaiticus/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/sinaiticus/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16285,
+      "checksum": "sha256:5f504078faeb005a93c1a9e85db1cbfee97c40ecca2ddf46ddb36383b8784514",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/sinaiticus/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/sinaiticus/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 775,
+      "checksum": "sha256:92823b9be112066e7f73ca66739962a4b222ccdc2c26fa0f8276990516549625",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/sinaiticus/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/sinaiticus/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 14995,
+      "checksum": "sha256:f567ab37f412d7c9cff3a5f5019cb440277a0ded0ca3228bf45b166047c10bb8",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/sinaiticus/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/sinaiticus/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 28509,
+      "checksum": "sha256:4740a0acf44a698d4784eb956fd571294bb7ceeb24515be039f548587f5c9538",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/sinaiticus/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/sinaiticus/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16285,
+      "checksum": "sha256:5f504078faeb005a93c1a9e85db1cbfee97c40ecca2ddf46ddb36383b8784514",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/singing-in-milan/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/singing-in-milan/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17834,
+      "checksum": "sha256:877438eb1414e838de76e270c4874af1624d389fcef37a997bcd50c42e5fd2e5",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/singing-in-milan/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/singing-in-milan/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 781,
+      "checksum": "sha256:d8ba018518df453720c880e5844483803aa96ae984639be9121f02406ac70c99",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/singing-in-milan/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/singing-in-milan/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16528,
+      "checksum": "sha256:908e84e948ca57270f205a909e557067e6bebe430e83f1ed554981ad4bf76062",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/singing-in-milan/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/singing-in-milan/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 31229,
+      "checksum": "sha256:3e00cf7a8565e5cdb26a00f8a2f49e6c332430a7c373937962819e4934168b73",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/singing-in-milan/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/singing-in-milan/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17834,
+      "checksum": "sha256:877438eb1414e838de76e270c4874af1624d389fcef37a997bcd50c42e5fd2e5",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/suetonius/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/suetonius/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17134,
+      "checksum": "sha256:0495d10c557b864917ad8aa81d6a54abbb3c36a81142b0616815d8cae31a23b7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/suetonius/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/suetonius/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 774,
+      "checksum": "sha256:a2868d2860e8d240713ced07d4c315af74f8f6863f12fd3311dcbcfddc5eedd7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/suetonius/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/suetonius/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15835,
+      "checksum": "sha256:637671cbdb03a2f706319d11a078cba2fa4bd19b85ee887f93244a1d8373c641",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/suetonius/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/suetonius/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 29990,
+      "checksum": "sha256:2e68ad3c2bbfedd5630748ed0e7489737c1fd395d5afaa1fd5f599d68f0e58eb",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/suetonius/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/suetonius/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17134,
+      "checksum": "sha256:0495d10c557b864917ad8aa81d6a54abbb3c36a81142b0616815d8cae31a23b7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/tacitus/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/tacitus/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 23744,
+      "checksum": "sha256:ed07e46dc14e8dfa0eca814f14598c504e41d4828b5b38cf0528850773992669",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/tacitus/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/tacitus/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 772,
+      "checksum": "sha256:aeb967e24de8ff584ffc5c05ecc3778f5b1c4ec410eeb843a996716cb030d4da",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/tacitus/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/tacitus/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22487,
+      "checksum": "sha256:bc64133e9a4efd3151229b506ba5d7596c2463497f3ccb80bc6bac0a08e02f2d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/tacitus/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/tacitus/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 42036,
+      "checksum": "sha256:5652acb2efe3205e90fcd39881836121f631f398291ddd6291eb1d088b49fb4f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/tacitus/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/tacitus/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 23744,
+      "checksum": "sha256:ed07e46dc14e8dfa0eca814f14598c504e41d4828b5b38cf0528850773992669",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/teresa/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/teresa/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17100,
+      "checksum": "sha256:d7a4fb0a13c2391c744c9b2da5d14e4ecbadfb4aed85021f4ffb05dd14116972",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/teresa/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/teresa/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 771,
+      "checksum": "sha256:f4220090b28ad65d6a74691b3f5101f398445565c7af7d6477bf426d0202ac2e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/teresa/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/teresa/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15814,
+      "checksum": "sha256:3198575aa613fc15b387f752fc02b2db673dbc4b846a2120507b7d72af59bbcf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/teresa/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/teresa/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 30046,
+      "checksum": "sha256:b88309eeb5114e62770bea39d0f87feba26964ac26a2468c2ec4f4c2b2443cab",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/teresa/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/teresa/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17100,
+      "checksum": "sha256:d7a4fb0a13c2391c744c9b2da5d14e4ecbadfb4aed85021f4ffb05dd14116972",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/testimonium/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/testimonium/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17922,
+      "checksum": "sha256:e45bfafdc91e33a49177f4c195fb44ab87077532ccc5853fa767580f8690cae9",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/testimonium/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/testimonium/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 776,
+      "checksum": "sha256:49f0926956bcd3f3c1de6bccb304e9b7c6b62679d777cfd6d10e8b94b741f859",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/testimonium/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/testimonium/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16631,
+      "checksum": "sha256:d8e70b45866f81d026ea2c917302803b1e5ace4baa8ca5baa05dfc6ae3d23d22",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/testimonium/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/testimonium/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 31559,
+      "checksum": "sha256:e78cc6eddc7e89b1f5d7c1e3b8ab70e385374b14fa8fa453b1a8eb7cdac10e36",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/testimonium/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/testimonium/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17922,
+      "checksum": "sha256:e45bfafdc91e33a49177f4c195fb44ab87077532ccc5853fa767580f8690cae9",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 62865,
+      "checksum": "sha256:e1560d0d8a6d02eb5ca22f35098f84a2850b5ece8ab8d6cad39ef083b9d8a4f6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 684,
+      "checksum": "sha256:c033fefb2e8241a15c57a477560f64e8235db47e9bb291c3a70acc29894ded8b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/__next.human-story.thomas.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/__next.human-story.thomas.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 61705,
+      "checksum": "sha256:df5ac75dee99305bb54e2a8be5848530c4ea4bb786276d3ab04137855e66245d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 118090,
+      "checksum": "sha256:e0766f3fdef1a6329e4699b187874701fa0487e4c2411e58e493ddcf066c3ac8",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 62865,
+      "checksum": "sha256:e1560d0d8a6d02eb5ca22f35098f84a2850b5ece8ab8d6cad39ef083b9d8a4f6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/reading/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/reading/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 60894,
+      "checksum": "sha256:2b713afe110cacfdb249a81ade4f1eec3f5f6d72b2e9f8986632fece0507cc0b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/reading/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/reading/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 734,
+      "checksum": "sha256:f5df9af7ebb787b6c7a9ab56c89e020b72059ebe8491a4a659cf8db03143d055",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/reading/__next.human-story.thomas.reading.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/reading/__next.human-story.thomas.reading.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 59361,
+      "checksum": "sha256:1fde96b8d68de4b1599259d30d8e81793d256484275bca9a94ac6d33ac02d695",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/reading/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/reading/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 111481,
+      "checksum": "sha256:0c9276689047f225f42eb9fdbebc48517567b38668bb5f221b7e0d0f26b62faf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/reading/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/reading/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 60894,
+      "checksum": "sha256:2b713afe110cacfdb249a81ade4f1eec3f5f6d72b2e9f8986632fece0507cc0b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/sayings/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/sayings/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 74412,
+      "checksum": "sha256:3acaa6f020fdb3e6caf49985d96f5266c9d4e5f980e8d3a321f3e7029ca0bc12",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/sayings/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/sayings/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 734,
+      "checksum": "sha256:4abe0f7838e8a3f0fd23eca31bc8fb29b57c719feba6e3c1b3dbd3ba1f1d32f9",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/sayings/__next.human-story.thomas.sayings.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/sayings/__next.human-story.thomas.sayings.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 73020,
+      "checksum": "sha256:c1aea08da669bebfa59bc39223f7a61c204cd4a7e3fd064f5b25a6e11a768aaf",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/sayings/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/sayings/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 137599,
+      "checksum": "sha256:a1a05f9eb55a9db1433c5f37572af96666ec980f575d8d3ef047257b74eb2607",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/thomas/sayings/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/thomas/sayings/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 74412,
+      "checksum": "sha256:3acaa6f020fdb3e6caf49985d96f5266c9d4e5f980e8d3a321f3e7029ca0bc12",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/time-and-memory/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/time-and-memory/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15607,
+      "checksum": "sha256:6aa00873de1c714dbf4403f6fdea6d0341bca6d1a51e6ce38cc8c6c64546cdec",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/time-and-memory/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/time-and-memory/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 780,
+      "checksum": "sha256:996e4ba1242e2361299308eee6b2175accd11d642ed79837af3fb718c7090aba",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/time-and-memory/__next.human-story.$d$entry.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/time-and-memory/__next.human-story.$d$entry.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 14292,
+      "checksum": "sha256:60151e78504dd01dc1fe3e0255a67bd038745753e327cd5935aeb09b06e1f53e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/time-and-memory/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/time-and-memory/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 27128,
+      "checksum": "sha256:b9b8c522b88c4581c47c4f0cead018d424eb3261bff5d486d7a7e012d99ac483",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/time-and-memory/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/time-and-memory/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 15607,
+      "checksum": "sha256:6aa00873de1c714dbf4403f6fdea6d0341bca6d1a51e6ce38cc8c6c64546cdec",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/atlas/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/atlas/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 18045,
+      "checksum": "sha256:e7228379e6411a6545b906fb5d4dcf6006f5fffef29a951ea8eff4856e69a680",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/atlas/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/atlas/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 726,
+      "checksum": "sha256:d2a4b60f50e3e9eb8ed8a0f08cf928ef12f71ff8421dd953fb1e6e673df3e50c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/atlas/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/atlas/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16672,
+      "checksum": "sha256:6f6fb09f280398ab35b9ecb91403fb8abf5aed2431db23112bbfbb700c57593a",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/atlas/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/atlas/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 31502,
+      "checksum": "sha256:0d14a8ea958329f4f1435ed3ed64a6bb83c7cadc5f4cf2edc10f000ff17f6d6f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/atlas/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/atlas/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 18045,
+      "checksum": "sha256:e7228379e6411a6545b906fb5d4dcf6006f5fffef29a951ea8eff4856e69a680",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/saints/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/saints/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19854,
+      "checksum": "sha256:e145b6d970d1723785198b6b20b7165747d5346a7fa3cde1cf11f0d81b8757ae",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/saints/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/saints/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 727,
+      "checksum": "sha256:4f8413de53704e010c032344b4e51e21c22b641773fa82220fd7f937a3ba211c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/saints/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/saints/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 18480,
+      "checksum": "sha256:95f7a5a02b80889b25025abe22e42385036b527f4a7ee5b434be6f36d9ce8cc3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/saints/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/saints/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 34999,
+      "checksum": "sha256:df2eabee6b218084066965bd8b845b21ffe2a3d61b5fd6e9ae9b3fd1f653a398",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/saints/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/saints/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 19854,
+      "checksum": "sha256:e145b6d970d1723785198b6b20b7165747d5346a7fa3cde1cf11f0d81b8757ae",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/stories/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/stories/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16285,
+      "checksum": "sha256:957a2d4eb12679342273e31a7269dc17685e55c62b5c87a3bbb7c32cf5f36a2d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/stories/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/stories/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 728,
+      "checksum": "sha256:c4496b961730cac7eca15f1ef52bcdec3ef94ccadc9368e3523c274d6fc118c7",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/stories/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/stories/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 14920,
+      "checksum": "sha256:1c7bd17e4cc0a88e7b7b65b0e25b2943a54b3774c09dc06bf357811dd393602b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/stories/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/stories/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 28229,
+      "checksum": "sha256:f9772d627165c43064f0e15ff7a4013976a4f417d9ac204cc48e86f538861fe2",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/stories/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/stories/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 16285,
+      "checksum": "sha256:957a2d4eb12679342273e31a7269dc17685e55c62b5c87a3bbb7c32cf5f36a2d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/voices/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/voices/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22336,
+      "checksum": "sha256:d1b8a496a436637a040b1244db3859b333e1000e903094cb8cf06cf70d8fbcf9",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/voices/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/voices/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 727,
+      "checksum": "sha256:ff9a38e8729931644be50e2f5b15121b3621a3c357d516a7d971c0e36a9e6062",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/voices/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/voices/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 20962,
+      "checksum": "sha256:268346df7e1c6880c090ac2cdfca3669c4c2fdf8dbbdd1ae848fcdfb4f6d40ff",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/voices/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/voices/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 39223,
+      "checksum": "sha256:19c47f6673b702d7f0eec5c5c9237a7a31724cc791baeef441fa230c6778d3ca",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/voices/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/voices/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22336,
+      "checksum": "sha256:d1b8a496a436637a040b1244db3859b333e1000e903094cb8cf06cf70d8fbcf9",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/witnesses/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/witnesses/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 23634,
+      "checksum": "sha256:259f66a13e6ec5528c1aeea68077e8227846b92bbd86cf8f8300282d9539b550",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/witnesses/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/witnesses/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 730,
+      "checksum": "sha256:7e7db7ba5fdb63b8870da73f311d56d334153e14e274ea0219b2d6c6d696aa1d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/witnesses/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/witnesses/__next.human-story.worlds.$d$world.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 22257,
+      "checksum": "sha256:81595dce602a0968af68d36b01abc6294ef4537d3a3baf998fa07c978fba84c3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/witnesses/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/witnesses/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 41706,
+      "checksum": "sha256:6f257b29c2e8dc66108014692e7c653ad5fbb1831abfe44a0d0a3c3f9dea95fb",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "human-story/worlds/witnesses/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/human-story/worlds/witnesses/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 23634,
+      "checksum": "sha256:259f66a13e6ec5528c1aeea68077e8227846b92bbd86cf8f8300282d9539b550",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 82873,
+      "checksum": "sha256:6bf0fa818d5cf5232890ae535fd329167272511344d8bb9bf4a61c0f834fc76c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 42854,
+      "checksum": "sha256:4cd6a624eb3752145525e84b3f12c6330400c55142254131121c20ae06daee54",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "jonah/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/jonah/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 43671,
+      "checksum": "sha256:bcf15926ad4f0920a64c3778911f66566662b718128d0febd475cf3ec282ce40",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "jonah/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/jonah/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 575,
+      "checksum": "sha256:069cd7c0d840b0087e5d8a86750e35a54edb37fad6483d1dcbeb4aeeca0bb6ea",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "jonah/__next.jonah.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/jonah/__next.jonah.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 42788,
+      "checksum": "sha256:18d17ecd2773f0e36a8713e584e2191599f81e637b681f09592b3e3ca0b086da",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "jonah/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/jonah/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 151655,
+      "checksum": "sha256:180dc13cbf030aaf315a8d94b9499da1951faa8d70a0898eb978d275fa6f0604",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "jonah/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/jonah/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 43671,
+      "checksum": "sha256:bcf15926ad4f0920a64c3778911f66566662b718128d0febd475cf3ec282ce40",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/AGENTS.md",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/AGENTS.md",
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 6653,
+      "checksum": "sha256:6156f5e8d518a26deaafa75a572443b4d5a70d6ec9de9de33ddf8f1b1d8fe310",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/.gitkeep",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/.gitkeep",
+      "type": "application/octet-stream",
+      "bytes": 145,
+      "checksum": "sha256:b47cd6a440a3f81c86cb2251b2ec52a61294bd78deb8592a1b0426603742bd70",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/caravaggio-conversion-damascus.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/caravaggio-conversion-damascus.jpg",
+      "type": "image/jpeg",
+      "bytes": 564017,
+      "checksum": "sha256:bf5644b230a19cc32c6154e4133cbd3b31ed4301a2e79ab5f06f854825d1973d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/caravaggio-david-goliath.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/caravaggio-david-goliath.jpg",
+      "type": "image/jpeg",
+      "bytes": 229770,
+      "checksum": "sha256:7b9dd671d32623cf626cd32e16f74511fac33d4824d78e41d783dfdc7c38536f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/giotto-nativity.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/giotto-nativity.jpg",
+      "type": "image/jpeg",
+      "bytes": 159303,
+      "checksum": "sha256:10646087f8a791a0b358fe089517a0c4a90c9e9bb3fef4442aaa5129a80d4ed3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/met-lamassu.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/met-lamassu.jpg",
+      "type": "image/jpeg",
+      "bytes": 152945,
+      "checksum": "sha256:903a3129921e57914d2f2019a5d131fee1c796dbdbe190b11c06fd79828d3d9b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/michelangelo-creation-of-adam.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/michelangelo-creation-of-adam.jpg",
+      "type": "image/jpeg",
+      "bytes": 357444,
+      "checksum": "sha256:f3dc7d3d1b63acfc1f4902fe52f2d2896835c1fc6b2c9153b667ac22f0b759c0",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/piero-resurrection.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/piero-resurrection.jpg",
+      "type": "image/jpeg",
+      "bytes": 299340,
+      "checksum": "sha256:e09592efb93ce6eb5d2d3bbcd275565b145aaa946f869e7ed3a516832326dfe3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/poussin-crossing-red-sea.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/poussin-crossing-red-sea.jpg",
+      "type": "image/jpeg",
+      "bytes": 238476,
+      "checksum": "sha256:c95f1dc97146fb43de410ad0f98dc9b977171d476f78b451c639a78ce4ea9064",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/rembrandt-moses-tablets.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/rembrandt-moses-tablets.jpg",
+      "type": "image/jpeg",
+      "bytes": 541030,
+      "checksum": "sha256:63200b860f9633f0c0cb3bb0ed7a51008ba8ba0da74ee53f18bbf9d6f4ae0c1d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/roberts-jerusalem-olives.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/roberts-jerusalem-olives.jpg",
+      "type": "image/jpeg",
+      "bytes": 140517,
+      "checksum": "sha256:fe8c05978b0d0d5540e04fee9c41041e8424c255e96123a54ee1c0f927898325",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/tintoretto-last-supper.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/tintoretto-last-supper.jpg",
+      "type": "image/jpeg",
+      "bytes": 287639,
+      "checksum": "sha256:09ba0214c1a0a1659933e76d1e41bc31ffed116caa0be513ff16cabc9a86a0f4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/approved/velazquez-christ-crucified.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/approved/velazquez-christ-crucified.jpg",
+      "type": "image/jpeg",
+      "bytes": 439114,
+      "checksum": "sha256:1bac9eff947514915e554fac9ba30b916a6994562fdd6cf40184f98c6360b14d",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/demo/biblemap-demo-20s-1080p.mp4",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/demo/biblemap-demo-20s-1080p.mp4",
+      "type": "video/mp4",
+      "bytes": 18035073,
+      "checksum": "sha256:2fc8a577c6d3c1a7b9638a4f40d93df3837c23156544c7503aa616a03562be7c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/demo/biblemap-demo-20s.mp4",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/demo/biblemap-demo-20s.mp4",
+      "type": "video/mp4",
+      "bytes": 4525878,
+      "checksum": "sha256:6449d97c1ed4f7635fd0688fc5c9a9180c7d6ae86654e8c6ae1727baf21bf451",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/demo/poster.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/demo/poster.jpg",
+      "type": "image/jpeg",
+      "bytes": 74289,
+      "checksum": "sha256:848b5246cc3ec0c03c69f3cd4980d840ade6557d7587fee709402f96ddcc9de5",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/augustine-painting.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/augustine-painting.webp",
+      "type": "image/webp",
+      "bytes": 98242,
+      "checksum": "sha256:52b3906698e459e8ed0201c1904f9f024d194b7f6eb3e7ef35b4be510adc0320",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/cassatt-kiss.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/cassatt-kiss.webp",
+      "type": "image/webp",
+      "bytes": 176816,
+      "checksum": "sha256:6cb1dd5aace098e580be3c2e11fe8ab46033a05785f26ab54cc19f32906b3c07",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/felicitas-mosaic.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/felicitas-mosaic.webp",
+      "type": "image/webp",
+      "bytes": 273384,
+      "checksum": "sha256:2f4e9dff8f612022e91dcdd8357db4af9caf2653e722aaf79f72a1256614e7b3",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/kollwitz-mothers.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/kollwitz-mothers.webp",
+      "type": "image/webp",
+      "bytes": 48320,
+      "checksum": "sha256:2c4d01b092d90a8f179a7e7fb50d67a89d2ec3d23897a4bd705e5169cbd36b10",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/perpetua-mosaic.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/perpetua-mosaic.webp",
+      "type": "image/webp",
+      "bytes": 72584,
+      "checksum": "sha256:7c277c97adf48dafe7794b23a1061c2a2ca969b8514378290ad02c66fc688f0b",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/perpetua-vision.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/perpetua-vision.webp",
+      "type": "image/webp",
+      "bytes": 187718,
+      "checksum": "sha256:1c77209895201db3c6a2e070013af96128c799763ca21f851a0e91cfedecd444",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/human-story/rome-forum.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/human-story/rome-forum.webp",
+      "type": "image/webp",
+      "bytes": 285628,
+      "checksum": "sha256:48e63039c731fb0d1246c732beb2b16f29876e05c42232a89f56a724355fa2cc",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/james/galilee-1536.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/james/galilee-1536.webp",
+      "type": "image/webp",
+      "bytes": 272782,
+      "checksum": "sha256:5006f1ac895be499512f5e046e8acc90cbf6315205850f62ef1a8c447fa90398",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/james/galilee-768.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/james/galilee-768.webp",
+      "type": "image/webp",
+      "bytes": 95970,
+      "checksum": "sha256:effbe1db00629d4c5ac992e79789a5c6b05ab2bd6c34f66a0aed7898474e2a59",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/james/jerusalem-1536.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/james/jerusalem-1536.webp",
+      "type": "image/webp",
+      "bytes": 381026,
+      "checksum": "sha256:38691c8bd960dcf50eddc491f0629e2d70f83998e86f86e81964c3ae77bd43fe",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/james/jerusalem-768.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/james/jerusalem-768.webp",
+      "type": "image/webp",
+      "bytes": 111778,
+      "checksum": "sha256:43399ba82fa5f0ee0370a32b6e32d76d3e916577afa811aed4536c1f055e0cd9",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/james/manifest.json",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/james/manifest.json",
+      "type": "application/json; charset=utf-8",
+      "bytes": 20718,
+      "checksum": "sha256:f88990cd5ac5930632210dd13dbac26818cc13e528fa8ca3ffb77e102bdd7d80",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/cma-backhuysen-storm.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/cma-backhuysen-storm.jpg",
+      "type": "image/jpeg",
+      "bytes": 244840,
+      "checksum": "sha256:89ca0afdfe25de0b34f521663aec9534661c83863706ffd24ff2818d57690add",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/cma-jonah-gourd-vine.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/cma-jonah-gourd-vine.jpg",
+      "type": "image/jpeg",
+      "bytes": 85395,
+      "checksum": "sha256:72ba05c2edb73e04a6cc9d48020dc25ee8b5565377c6baadf1752ff9b70fd030",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/cma-roberts-jaffa.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/cma-roberts-jaffa.jpg",
+      "type": "image/jpeg",
+      "bytes": 133973,
+      "checksum": "sha256:52baee579b5e5d4012dad95c47fc4ac4d16300a5de0b8975e607db4730069a24",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/commons-nineveh-gardens.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/commons-nineveh-gardens.jpg",
+      "type": "image/jpeg",
+      "bytes": 249032,
+      "checksum": "sha256:6fd1fcef47ab57099a584c7e2bcb77ea910ce66f7088c9bcd98f2c34869fa9b0",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/met-gassel-ship-jonah.jpeg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/met-gassel-ship-jonah.jpeg",
+      "type": "image/jpeg",
+      "bytes": 337787,
+      "checksum": "sha256:c151174d777f9ae412a3d0b5d58e164375b09b19d636974d2304e13d4137802c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/met-rosselli-prophet-jonah.jpeg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/met-rosselli-prophet-jonah.jpeg",
+      "type": "image/jpeg",
+      "bytes": 174011,
+      "checksum": "sha256:aec8b6e372470ac3554e9729ad72ff2167f7e3fab6809b47e168a1e61418fe9f",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/nga-raphael-hosea-jonah.jpeg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/nga-raphael-hosea-jonah.jpeg",
+      "type": "image/jpeg",
+      "bytes": 144468,
+      "checksum": "sha256:e26bc6e475600c441ea1530cb297539f6d826eab190eafefdd697466feaf2810",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/jonah/nga-sadeler-jonah-storm.jpg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/jonah/nga-sadeler-jonah-storm.jpg",
+      "type": "image/jpeg",
+      "bytes": 517634,
+      "checksum": "sha256:74cb543bc0d90e3cc29e857ee74ed54a363e13bddd293f5dc971d6e22e7dc96c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/nineveh-depth/README.md",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/nineveh-depth/README.md",
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 1514,
+      "checksum": "sha256:df6b321ed16a73dc114e1ef4963b8b4bf6312eb64cbd36d06c25331b932e3828",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/nineveh-depth/flood-tablet.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/nineveh-depth/flood-tablet.webp",
+      "type": "image/webp",
+      "bytes": 429540,
+      "checksum": "sha256:f2e59cc33c59076ee9b3ae565cf30a652952492c6ff06c73976a73b5b8ed7ab8",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/nineveh-depth/jonah-vine.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/nineveh-depth/jonah-vine.webp",
+      "type": "image/webp",
+      "bytes": 27808,
+      "checksum": "sha256:58fdeb7d8d241e57d303c89d5bd66fb06e25f2b6b221ece6cdca89fb4e3f83c5",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/romanus/daphne-mosaic-small.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/romanus/daphne-mosaic-small.webp",
+      "type": "image/webp",
+      "bytes": 179846,
+      "checksum": "sha256:6d16e9f83686a6092bb7d10f9c5b3cbbfa1ac6d26e83e3fa77f15ff83530f62c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/romanus/daphne-mosaic.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/romanus/daphne-mosaic.webp",
+      "type": "image/webp",
+      "bytes": 866968,
+      "checksum": "sha256:fc26b88bc57f5dfa873e49bb20a4c48f7055e801de2c625d3635161db6bf88a6",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/interior-1536.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/interior-1536.webp",
+      "type": "image/webp",
+      "bytes": 214450,
+      "checksum": "sha256:200c953da0164bdb4adff5c055788368d3b8f52fdd334d0c87f1fb7016c563dd",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/interior-768.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/interior-768.webp",
+      "type": "image/webp",
+      "bytes": 58466,
+      "checksum": "sha256:42c3a0d4ebde44edad0b849370544745aa74a33f55e2ec3fbd408e10da2d0432",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/manifest.json",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/manifest.json",
+      "type": "application/json; charset=utf-8",
+      "bytes": 36974,
+      "checksum": "sha256:8643264d66083533a4e50f1e89c3e8c40b02346ab659cad4b0423236df579a2e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/nocturne-1536.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/nocturne-1536.webp",
+      "type": "image/webp",
+      "bytes": 96368,
+      "checksum": "sha256:483ec68d7f9c5666e40d274f2456f950e9dcb7762e6c4ebf2f269c3963e5625c",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/nocturne-768.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/nocturne-768.webp",
+      "type": "image/webp",
+      "bytes": 27136,
+      "checksum": "sha256:4eb6e4a1a8af5972aa8caf2b57326887d5dcc2aa619aba60831bddf2093b3658",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/proximity-1536.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/proximity-1536.webp",
+      "type": "image/webp",
+      "bytes": 134070,
+      "checksum": "sha256:eb32262e920710cc13e13e2f516c18325d262a3ccb7475d4fbf375535559a72e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/proximity-768.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/proximity-768.webp",
+      "type": "image/webp",
+      "bytes": 42442,
+      "checksum": "sha256:adcfaaac972fa0f43081b70d3c3fac0d04f5be7719077f1c71af327be5cee0ee",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/threshold-1536.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/threshold-1536.webp",
+      "type": "image/webp",
+      "bytes": 198402,
+      "checksum": "sha256:4010cd37f6fd127f99dab1b8740b510957e28e3c3cf414c7092c37a44ed83039",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "media/thomas/threshold-768.webp",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/media/thomas/threshold-768.webp",
+      "type": "image/webp",
+      "bytes": 60064,
+      "checksum": "sha256:20541034a17b9ead89352d3b67bf13d377d9df55b0d4a0347248f18802fcb728",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "next.svg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/next.svg",
+      "type": "image/svg+xml",
+      "bytes": 1375,
+      "checksum": "sha256:55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "nineveh/__next._full.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/nineveh/__next._full.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 5577,
+      "checksum": "sha256:42fc83ca2aec70d93d9fa9b53908c714aaf546bea5b20c85b469ef9363e8218e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "nineveh/__next._tree.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/nineveh/__next._tree.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 577,
+      "checksum": "sha256:6d75f7fc697832cba6016a5f1470b102e73c5347615b583719e975f43b1f9416",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "nineveh/__next.nineveh.__PAGE__.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/nineveh/__next.nineveh.__PAGE__.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 4693,
+      "checksum": "sha256:67684c4ced5b8df5c646d4058ae0721a4e32c728bee4d4b7cf3dc9bf20f638ed",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "nineveh/index.html",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/nineveh/",
+      "type": "text/html; charset=utf-8",
+      "bytes": 18497,
+      "checksum": "sha256:010be199ef55914cfd3b70cf433bd7fcf02940a0b2a3de7d2483231defea41fe",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "nineveh/index.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/nineveh/index.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 5577,
+      "checksum": "sha256:42fc83ca2aec70d93d9fa9b53908c714aaf546bea5b20c85b469ef9363e8218e",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "robots.txt",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/robots.txt",
+      "type": "text/plain; charset=utf-8",
+      "bytes": 78,
+      "checksum": "sha256:cbbd78f4d6a4c5bc3f5c43605b74e613da40a907000d377a8b8f78cd3d087fed",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "sitemap.xml",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/sitemap.xml",
+      "type": "application/xml",
+      "bytes": 110,
+      "checksum": "sha256:1214c52cace28c40b45da48b46ef96fe9ad1bb0584cde1ba6f66c9a70a5ed5df",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "vercel.svg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/vercel.svg",
+      "type": "image/svg+xml",
+      "bytes": 128,
+      "checksum": "sha256:f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4",
+      "origin": "local-structural-counterpart"
+    },
+    {
+      "path": "window.svg",
+      "status": 200,
+      "url": "https://biblemap-od6a9rf59-elliotandersons-projects.vercel.app/window.svg",
+      "type": "image/svg+xml",
+      "bytes": 385,
+      "checksum": "sha256:644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1",
+      "origin": "local-structural-counterpart"
+    }
+  ]
+}

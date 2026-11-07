@@ -1,0 +1,77 @@
+[
+  {
+    "label": "install",
+    "command": "npm ci",
+    "commit": "95dd340e590b6c8c3385afea2538dffb09070001",
+    "exitCode": 0,
+    "node": "v24.22.2",
+    "npm": "11.19.1",
+    "result": "551 packages installed; 22 advisories (14 moderate, 8 high); no dependency upgrades"
+  },
+  {
+    "label": "units",
+    "command": "npm.cmd run test",
+    "commit": "95dd340e590b6c8c3385afea2538dffb09070001",
+    "exitCode": 0
+  },
+  {
+    "label": "export-units",
+    "command": "npm.cmd run test",
+    "commit": "ce85c4e43d80d08f819ebfad7795bb36c478a594",
+    "exitCode": 0
+  },
+  {
+    "label": "lint",
+    "command": "npm.cmd run lint",
+    "commit": "95dd340e590b6c8c3385afea2538dffb09070001",
+    "exitCode": 0
+  },
+  {
+    "label": "final-lint",
+    "command": "npm.cmd run lint",
+    "commit": "00a6f6812d0cb33adc08fc16fefbb69c64527443",
+    "exitCode": 1
+  },
+  {
+    "label": "lint-corrected",
+    "command": "npm.cmd run lint",
+    "commit": "00a6f6812d0cb33adc08fc16fefbb69c64527443",
+    "exitCode": 0
+  },
+  {
+    "label": "types",
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "commit": "95dd340e590b6c8c3385afea2538dffb09070001",
+    "exitCode": 0
+  },
+  {
+    "label": "final-types",
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "commit": "00a6f6812d0cb33adc08fc16fefbb69c64527443",
+    "exitCode": 0
+  },
+  {
+    "label": "boundary",
+    "command": "npm.cmd run test:export-boundary",
+    "commit": "95dd340e590b6c8c3385afea2538dffb09070001",
+    "exitCode": 0
+  },
+  {
+    "label": "browser",
+    "command": "node node_modules/@playwright/test/cli.js test tests/atlas-security.spec.ts tests/homepage-release.spec.ts --grep Atlas preserves attribution|both entrances render|keyboard entry, motion preference",
+    "commit": "ce85c4e43d80d08f819ebfad7795bb36c478a594",
+    "exitCode": 0
+  },
+  {
+    "label": "release",
+    "command": "npm.cmd run validate:release",
+    "commit": "ce85c4e43d80d08f819ebfad7795bb36c478a594",
+    "exitCode": 1
+  },
+  {
+    "label": "production-guard",
+    "command": "node --experimental-strip-types scripts/publication-gate.mjs --build",
+    "commit": "ce85c4e43d80d08f819ebfad7795bb36c478a594",
+    "exitCode": 1
+  }
+]

@@ -1,0 +1,231 @@
+{
+  "scope": "bounded API log page, not complete log",
+  "events": [
+    {
+      "date": 1793970166524,
+      "type": "stdout",
+      "text": "Build cache uploaded: 4.294s"
+    },
+    {
+      "date": 1793970162230,
+      "type": "stdout",
+      "text": "Uploading build cache [235.16 MB]"
+    },
+    {
+      "date": 1793970162230,
+      "type": "stdout",
+      "text": "Created build cache: 17s"
+    },
+    {
+      "date": 1793970145191,
+      "type": "stdout",
+      "text": "Creating build cache..."
+    },
+    {
+      "date": 1793970145184,
+      "type": "stdout",
+      "text": "Deployment completed"
+    },
+    {
+      "date": 1793970143240,
+      "type": "stdout",
+      "text": "Deploying outputs..."
+    },
+    {
+      "date": 1793970143216,
+      "type": "stderr",
+      "text": "Build Completed in /vercel/output [1m]"
+    },
+    {
+      "date": 1793970142938,
+      "type": "stdout",
+      "text": "Review artifact only; creator publication acceptance remains separate."
+    },
+    {
+      "date": 1793970142938,
+      "type": "stderr",
+      "text": "(Use `node --trace-warnings ...` to show where the warning was created)"
+    },
+    {
+      "date": 1793970142938,
+      "type": "stderr",
+      "text": "To eliminate this warning, add \"type\": \"module\" to /vercel/path0/package.json."
+    },
+    {
+      "date": 1793970142937,
+      "type": "stderr",
+      "text": "Reparsing as ES module because module syntax was detected. This incurs a performance overhead."
+    },
+    {
+      "date": 1793970142937,
+      "type": "stderr",
+      "text": "(node:230) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///vercel/path0/src/domain/publication.ts is not specified and it doesn't parse as CommonJS."
+    },
+    {
+      "date": 1793970142808,
+      "type": "stdout",
+      "text": "MapLibre 6.16.0: 1 worker artifact(s), 1 module(s); every required static import is present and worker bytes match the lockfile package."
+    },
+    {
+      "date": 1793970142537,
+      "type": "stdout",
+      "text": "374 artifacts (47 index routes), 0 unresolved HTML dependencies, 0 explicit loopback-review references; sha256:f553dd9af0508e3b36b38ca375732cb2a01a642107fec9951900a44b6af7aa98"
+    },
+    {
+      "date": 1793970141401,
+      "type": "stdout",
+      "text": "Visitor boundary: 289 HTML/RSC/JS/JSON and alternate text artifacts inspected; private editorial probes absent; all 48 WEB verses and provisional qualifications retained. Publication approval is still required."
+    },
+    {
+      "date": 1793970141053,
+      "type": "stderr",
+      "text": "(Use `node --trace-warnings ...` to show where the warning was created)"
+    },
+    {
+      "date": 1793970141053,
+      "type": "stderr",
+      "text": "To eliminate this warning, add \"type\": \"module\" to /vercel/path0/package.json."
+    },
+    {
+      "date": 1793970141052,
+      "type": "stderr",
+      "text": "Reparsing as ES module because module syntax was detected. This incurs a performance overhead."
+    },
+    {
+      "date": 1793970141050,
+      "type": "stderr",
+      "text": "(node:242) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///vercel/path0/scripts/validate-visitor-export.ts is not specified and it doesn't parse as CommonJS."
+    },
+    {
+      "date": 1793970140842,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140842,
+      "type": "stdout",
+      "text": "> node --experimental-strip-types scripts/validate-visitor-export.ts"
+    },
+    {
+      "date": 1793970140842,
+      "type": "stdout",
+      "text": "> next_temp@0.1.0 validate:export"
+    },
+    {
+      "date": 1793970140842,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140820,
+      "type": "stderr",
+      "text": "npm warn Unknown env config \"cache-dir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
+    },
+    {
+      "date": 1793970140701,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140701,
+      "type": "stdout",
+      "text": "> npm run validate:export && node scripts/export-inventory.mjs && node scripts/validate-maplibre-export.mjs && node --experimental-strip-types scripts/publication-gate.mjs --postbuild"
+    },
+    {
+      "date": 1793970140701,
+      "type": "stdout",
+      "text": "> next_temp@0.1.0 postbuild"
+    },
+    {
+      "date": 1793970140701,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140612,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140612,
+      "type": "stdout",
+      "text": "●  (SSG)     prerendered as static HTML (uses generateStaticParams)"
+    },
+    {
+      "date": 1793970140612,
+      "type": "stdout",
+      "text": "○  (Static)  prerendered as static content"
+    },
+    {
+      "date": 1793970140612,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "└ ○ /nineveh"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "├ ○ /jonah"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "│ └ ● [+2 more paths]"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "│ ├ ● /human-story/worlds/saints"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "│ ├ ● /human-story/worlds/witnesses"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "│ ├ ● /human-story/worlds/stories"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "├   /human-story/worlds/[world]"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "├ ○ /human-story/thomas/sayings"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "├ ○ /human-story/thomas/reading"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "├ ○ /human-story/thomas"
+    },
+    {
+      "date": 1793970140611,
+      "type": "stdout",
+      "text": "├ ○ /human-story/romanus/reading"
+    },
+    {
+      "date": 1793970140610,
+      "type": "stdout",
+      "text": "│ └ ● /human-story/paths/a-life-in-another-life"
+    }
+  ],
+  "truncation": null
+}

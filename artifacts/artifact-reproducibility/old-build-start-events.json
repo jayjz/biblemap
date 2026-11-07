@@ -1,0 +1,256 @@
+{
+  "scope": "bounded API log page, not complete log",
+  "events": [
+    {
+      "date": 1793975607528,
+      "type": "stdout",
+      "text": "Running build in Washington, D.C., USA (East) – iad1"
+    },
+    {
+      "date": 1793975607529,
+      "type": "stdout",
+      "text": "Build machine configuration: 2 cores, 8 GB"
+    },
+    {
+      "date": 1793975607664,
+      "type": "stdout",
+      "text": "Cloning github.com/jayjz/biblemap (Branch: feat/human-story-consolidated, Commit: 0e762f9)"
+    },
+    {
+      "date": 1793975615570,
+      "type": "stdout",
+      "text": "Cloning completed: 7.905s"
+    },
+    {
+      "date": 1793975615691,
+      "type": "stdout",
+      "text": "Restored build cache from previous deployment (8qmmBGb6akAYziqzHYnqmPXqbGmB)"
+    },
+    {
+      "date": 1793975616272,
+      "type": "stdout",
+      "text": "Running \"vercel build\""
+    },
+    {
+      "date": 1793975616281,
+      "type": "stderr",
+      "text": "Vercel CLI 65.11.0"
+    },
+    {
+      "date": 1793975616744,
+      "type": "stdout",
+      "text": "Installing dependencies..."
+    },
+    {
+      "date": 1793975617306,
+      "type": "stderr",
+      "text": "npm warn Unknown env config \"cache-dir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
+    },
+    {
+      "date": 1793975625485,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793975625485,
+      "type": "stdout",
+      "text": "added 4 packages, removed 10 packages, and changed 61 packages in 9s"
+    },
+    {
+      "date": 1793975625485,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793975625485,
+      "type": "stdout",
+      "text": "155 packages are looking for funding"
+    },
+    {
+      "date": 1793975625485,
+      "type": "stdout",
+      "text": "  run `npm fund` for details"
+    },
+    {
+      "date": 1793975625486,
+      "type": "stderr",
+      "text": "npm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:"
+    },
+    {
+      "date": 1793975625487,
+      "type": "stderr",
+      "text": "npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)"
+    },
+    {
+      "date": 1793975625487,
+      "type": "stderr",
+      "text": "npm warn install-scripts   unrs-resolver@1.11.1 (postinstall: napi-postinstall unrs-resolver 1.11.1 check)"
+    },
+    {
+      "date": 1793975625487,
+      "type": "stderr",
+      "text": "npm warn install-scripts"
+    },
+    {
+      "date": 1793975625488,
+      "type": "stderr",
+      "text": "npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow."
+    },
+    {
+      "date": 1793975625538,
+      "type": "stdout",
+      "text": "Detected Next.js version: 16.4.5"
+    },
+    {
+      "date": 1793975625547,
+      "type": "stdout",
+      "text": "Running \"npm run build\""
+    },
+    {
+      "date": 1793975625664,
+      "type": "stderr",
+      "text": "npm warn Unknown env config \"cache-dir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
+    },
+    {
+      "date": 1793975625687,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793975625687,
+      "type": "stdout",
+      "text": "> next_temp@0.1.0 prebuild"
+    },
+    {
+      "date": 1793975625687,
+      "type": "stdout",
+      "text": "> node --experimental-strip-types scripts/publication-gate.mjs --build && node scripts/split_parquet.js && npm run validate:story"
+    },
+    {
+      "date": 1793975625687,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793975625796,
+      "type": "stderr",
+      "text": "(node:66) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///vercel/path0/src/domain/publication.ts is not specified and it doesn't parse as CommonJS."
+    },
+    {
+      "date": 1793975625797,
+      "type": "stderr",
+      "text": "Reparsing as ES module because module syntax was detected. This incurs a performance overhead."
+    },
+    {
+      "date": 1793975625797,
+      "type": "stderr",
+      "text": "To eliminate this warning, add \"type\": \"module\" to /vercel/path0/package.json."
+    },
+    {
+      "date": 1793975625797,
+      "type": "stderr",
+      "text": "(Use `node --trace-warnings ...` to show where the warning was created)"
+    },
+    {
+      "date": 1793975625965,
+      "type": "stderr",
+      "text": "(node:73) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///vercel/path0/scripts/split_parquet.js is not specified and it doesn't parse as CommonJS."
+    },
+    {
+      "date": 1793975625965,
+      "type": "stderr",
+      "text": "Reparsing as ES module because module syntax was detected. This incurs a performance overhead."
+    },
+    {
+      "date": 1793975625965,
+      "type": "stderr",
+      "text": "To eliminate this warning, add \"type\": \"module\" to /vercel/path0/package.json."
+    },
+    {
+      "date": 1793975625965,
+      "type": "stderr",
+      "text": "(Use `node --trace-warnings ...` to show where the warning was created)"
+    },
+    {
+      "date": 1793975626126,
+      "type": "stdout",
+      "text": "✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)"
+    },
+    {
+      "date": 1793975626140,
+      "type": "stdout",
+      "text": "✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)"
+    },
+    {
+      "date": 1793975626141,
+      "type": "stdout",
+      "text": "✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)"
+    },
+    {
+      "date": 1793975626141,
+      "type": "stdout",
+      "text": "✓ epoch-3-kings.parquet: 188 rows (Exile & Return)"
+    },
+    {
+      "date": 1793975626190,
+      "type": "stdout",
+      "text": "✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)"
+    },
+    {
+      "date": 1793975626218,
+      "type": "stdout",
+      "text": "✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)"
+    },
+    {
+      "date": 1793975626218,
+      "type": "stdout",
+      "text": "✓ Validated 6 chunks, 2917 rows"
+    },
+    {
+      "date": 1793975626670,
+      "type": "stderr",
+      "text": "npm warn Unknown env config \"cache-dir\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options."
+    },
+    {
+      "date": 1793975626693,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793975626693,
+      "type": "stdout",
+      "text": "> next_temp@0.1.0 validate:story"
+    },
+    {
+      "date": 1793975626693,
+      "type": "stdout",
+      "text": "> node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media"
+    },
+    {
+      "date": 1793975626693,
+      "type": "stdout",
+      "text": ""
+    },
+    {
+      "date": 1793975626742,
+      "type": "stdout",
+      "text": "✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot"
+    },
+    {
+      "date": 1793975626743,
+      "type": "stdout",
+      "text": "✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot"
+    },
+    {
+      "date": 1793975626743,
+      "type": "stdout",
+      "text": "✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot"
+    },
+    {
+      "date": 1793975626743,
+      "type": "stdout",
+      "text": "✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot"
+    }
+  ],
+  "truncation": null
+}

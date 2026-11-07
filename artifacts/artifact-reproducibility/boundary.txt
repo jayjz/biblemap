@@ -1,0 +1,158 @@
+
+> next_temp@0.1.0 test:export-boundary
+> node --experimental-strip-types scripts/test-export-boundary.mjs
+
+
+> next_temp@0.1.0 prebuild
+> node --experimental-strip-types scripts/publication-gate.mjs --build && node scripts/split_parquet.js && npm run validate:story
+
+✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)
+✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)
+✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)
+✓ epoch-3-kings.parquet: 188 rows (Exile & Return)
+✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)
+✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)
+✓ Validated 6 chunks, 2917 rows
+
+> next_temp@0.1.0 validate:story
+> node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+James: 3 Scripture quotations match retained publisher snapshots.
+Thomas: 19 WEB verses, sayings 13/26 and the CC BY 3.0 Greek ending match retained source excerpts.
+✓ Jonah technical integrity validates; publication authorization is checked separately by validate:release
+
+> next_temp@0.1.0 validate:media
+> node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts
+
+✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
+✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced
+(node:23372) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ interior quotations resolve to an edition with a locator and reuse statement (1.0462ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (7.5173ms)
+(node:20748) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (0.8649ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (4.2747ms)
+(node:17008) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (12.3814ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 244.0783
+
+> next_temp@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.5 (webpack)
+✓ Running next.config.mjs took 54ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 16.0s
+  Running TypeScript ...
+  Finished TypeScript in 4.5s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/50) ...
+  Generating static pages using 11 workers (12/50) 
+  Generating static pages using 11 workers (24/50) 
+  Generating static pages using 11 workers (37/50) 
+✓ Generating static pages using 11 workers (50/50) in 902ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /demo
+├ ○ /experiments/nineveh
+├ ○ /explore
+├ ○ /human-story
+├   /human-story/[entry]
+│ ├ ● /human-story/james
+│ ├ ● /human-story/romanus
+│ ├ ● /human-story/time-and-memory
+│ └ ● [+22 more paths]
+├ ○ /human-story/james/reading
+├   /human-story/paths/[path]
+│ ├ ● /human-story/paths/a-word-crosses-centuries
+│ ├ ● /human-story/paths/a-name-under-pressure
+│ └ ● /human-story/paths/a-life-in-another-life
+├ ○ /human-story/romanus/reading
+├ ○ /human-story/thomas
+├ ○ /human-story/thomas/reading
+├ ○ /human-story/thomas/sayings
+├   /human-story/worlds/[world]
+│ ├ ● /human-story/worlds/stories
+│ ├ ● /human-story/worlds/witnesses
+│ ├ ● /human-story/worlds/saints
+│ └ ● [+2 more paths]
+├ ○ /jonah
+├ ○ /nineveh
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> next_temp@0.1.0 postbuild
+> node scripts/finalize-export.mjs && npm run validate:export && node scripts/export-inventory.mjs && node scripts/validate-maplibre-export.mjs && node --experimental-strip-types scripts/publication-gate.mjs --postbuild
+
+Excluded static route: /demo/
+Excluded static route: /experiments/nineveh/
+
+> next_temp@0.1.0 validate:export
+> node --experimental-strip-types scripts/validate-visitor-export.ts
+
+Visitor boundary: 280 HTML/RSC/JS/JSON and alternate text artifacts inspected; private editorial probes absent; all 48 WEB verses and provisional qualifications retained. Publication approval is still required.
+363 artifacts (44 index routes), 0 unresolved HTML dependencies, 0 explicit loopback-review references; sha256:6c9b31d76d4748146805bfaefa633267c9197dd8fe25dd2d2ce7dcf7fbbdcf57
+MapLibre 6.16.0: 1 worker artifact(s), 1 module(s); every required static import is present and worker bytes match the lockfile package.
+Review artifact only; creator publication acceptance remains separate.
+Adversarial export: 363 artifacts scanned; injected private author, companion, geography, media metadata, future field and unselected reading absent.
+Source fixtures restored. Rebuild the ordinary candidate before release checks or browser tests.
+(node:1576) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20216) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/scripts/split_parquet.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22856) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21064) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19676) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23316) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/scripts/validate-visitor-export.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23160) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19228) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)

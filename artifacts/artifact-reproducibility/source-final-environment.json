@@ -1,0 +1,1901 @@
+{
+  "commit": "00a6f6812d0cb33adc08fc16fefbb69c64527443",
+  "node": "v24.22.2",
+  "npm": "11.19.1",
+  "platform": "win32",
+  "arch": "x64",
+  "command": "npm run build",
+  "cleanDirectories": [
+    ".next",
+    "out"
+  ],
+  "contentDigest": "sha256:7aa7caec49fee460dfc43b40db3afe5bd3b051880806842eb62c42af1e74b964",
+  "lockfile": "sha256:4ca26a84aa9239945ec81ec276bfbf282327b4b7282c28eb9f415ebb9b75e070",
+  "environment": {
+    "NODE_ENV": null,
+    "TZ": null,
+    "CI": null,
+    "VERCEL": null,
+    "VERCEL_ENV": null,
+    "NOW_BUILDER": null,
+    "BIBLEMAP_PUBLICATION_MODE": null,
+    "BIBLEMAP_NINEVEH_REVIEW": null,
+    "BIBLEMAP_INTERNAL_REVIEW": null,
+    "BIBLEMAP_PUBLICATION_CANARY": null,
+    "NEXT_TELEMETRY_DISABLED": null,
+    "SOURCE_DATE_EPOCH": null
+  },
+  "nextDeploymentIdPresent": false,
+  "nextHashSaltPresent": false,
+  "inputFiles": [
+    {
+      "path": ".gitattributes",
+      "bytes": 653,
+      "checksum": "sha256:fcc0f489ca7f356fcc828232aab049711f62ba61f6c807ba63fe528ed32d0017"
+    },
+    {
+      "path": ".github/workflows/jonah-ci.yml",
+      "bytes": 2053,
+      "checksum": "sha256:661f900b1deb7f31e4c2ddde57cb71e72749dfbdab5b420ae853606d61ecb271"
+    },
+    {
+      "path": ".github/workflows/jonah-release.yml",
+      "bytes": 407,
+      "checksum": "sha256:e3215c787cb21eb1ecb3716451523905b4c27e6c501b5451a7c29c1076ea2fd0"
+    },
+    {
+      "path": ".github/workflows/jonah-source-windows.yml",
+      "bytes": 960,
+      "checksum": "sha256:6f1547f454dd7746e09d58058809c74c647a42751576c1acfe97b94c5595ce27"
+    },
+    {
+      "path": "docs/release/publication-decision.json",
+      "bytes": 29,
+      "checksum": "sha256:f0a57c14aecb174fab93a66075577dfdc6b6cf18bac16e5061d2e58aab084925"
+    },
+    {
+      "path": "docs/release/publication-scope.json",
+      "bytes": 7985,
+      "checksum": "sha256:5765f4c51ee330653eb3e366a4bc9ad85e75e43a33391a6d4e0a5673c6d72001"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "bytes": 516,
+      "checksum": "sha256:ce51331ac3643082d0827028bb6062087e996e066e4a35ff2f5e1f9076331323"
+    },
+    {
+      "path": "next.config.mjs",
+      "bytes": 2728,
+      "checksum": "sha256:f2cb12c60b9310825d7100be9899f14d23c93dba5071e4374f521fc987663318"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 328826,
+      "checksum": "sha256:4ca26a84aa9239945ec81ec276bfbf282327b4b7282c28eb9f415ebb9b75e070"
+    },
+    {
+      "path": "package.json",
+      "bytes": 2637,
+      "checksum": "sha256:2f27fb5e4c8577ad4aa45c994a262d9b18f04c66e54949a296ac69a47f27165a"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "bytes": 94,
+      "checksum": "sha256:dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde"
+    },
+    {
+      "path": "public/audio/README.md",
+      "bytes": 40,
+      "checksum": "sha256:48b67e49513e6858981f624177dc06d2f3a08e6a339463f91093c07f2cd9c1e0"
+    },
+    {
+      "path": "public/bible-journeys.parquet",
+      "bytes": 3782,
+      "checksum": "sha256:ad1d70fd1b7d7e4f7cd39643b674bf0adb43864f715d17c42e4460e298c6bd81"
+    },
+    {
+      "path": "public/bible-points.parquet",
+      "bytes": 2504171,
+      "checksum": "sha256:2cbee4bae8263470a6ee4136b2a4316a5a996c3488d0f4134694f6a4b201e150"
+    },
+    {
+      "path": "public/data/epoch-0-creation.parquet",
+      "bytes": 35299,
+      "checksum": "sha256:1ac3ef67e4882523d3461815176947c34bda650eb39abd09a2cf3e5bf95f4f40"
+    },
+    {
+      "path": "public/data/epoch-1-patriarchs.parquet",
+      "bytes": 51379,
+      "checksum": "sha256:52a9bf98666f8e451119d7dbe21579d3a8f41610fb817fffcf5d03a37ca0da9b"
+    },
+    {
+      "path": "public/data/epoch-2-exodus.parquet",
+      "bytes": 35740,
+      "checksum": "sha256:bf3c0a0e72d23188fe82b0f3ee53b4c397b9cb3ce2b64405c88a2a6abc85c7d3"
+    },
+    {
+      "path": "public/data/epoch-3-kings.parquet",
+      "bytes": 110339,
+      "checksum": "sha256:01dbde8a4b3aba37c56ca927b49a66afa2ca20ee62cf70ba70ef4c6fa84e11fe"
+    },
+    {
+      "path": "public/data/epoch-4-exile.parquet",
+      "bytes": 729841,
+      "checksum": "sha256:f65414aaf30405661d1fe0d6ca88a87acbd98f83fe32c4ecf012e50941f085b3"
+    },
+    {
+      "path": "public/data/epoch-5-intertestamental.parquet",
+      "bytes": 643401,
+      "checksum": "sha256:ac7b2a671377ced3faf6d9f2cb44386b280852cb8cf3b368be20fed3c6e8e1c4"
+    },
+    {
+      "path": "public/file.svg",
+      "bytes": 391,
+      "checksum": "sha256:2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4"
+    },
+    {
+      "path": "public/globe.svg",
+      "bytes": 1035,
+      "checksum": "sha256:b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf"
+    },
+    {
+      "path": "public/media/AGENTS.md",
+      "bytes": 6653,
+      "checksum": "sha256:6156f5e8d518a26deaafa75a572443b4d5a70d6ec9de9de33ddf8f1b1d8fe310"
+    },
+    {
+      "path": "public/media/approved/.gitkeep",
+      "bytes": 145,
+      "checksum": "sha256:b47cd6a440a3f81c86cb2251b2ec52a61294bd78deb8592a1b0426603742bd70"
+    },
+    {
+      "path": "public/media/approved/caravaggio-conversion-damascus.jpg",
+      "bytes": 564017,
+      "checksum": "sha256:bf5644b230a19cc32c6154e4133cbd3b31ed4301a2e79ab5f06f854825d1973d"
+    },
+    {
+      "path": "public/media/approved/caravaggio-david-goliath.jpg",
+      "bytes": 229770,
+      "checksum": "sha256:7b9dd671d32623cf626cd32e16f74511fac33d4824d78e41d783dfdc7c38536f"
+    },
+    {
+      "path": "public/media/approved/giotto-nativity.jpg",
+      "bytes": 159303,
+      "checksum": "sha256:10646087f8a791a0b358fe089517a0c4a90c9e9bb3fef4442aaa5129a80d4ed3"
+    },
+    {
+      "path": "public/media/approved/met-lamassu.jpg",
+      "bytes": 152945,
+      "checksum": "sha256:903a3129921e57914d2f2019a5d131fee1c796dbdbe190b11c06fd79828d3d9b"
+    },
+    {
+      "path": "public/media/approved/michelangelo-creation-of-adam.jpg",
+      "bytes": 357444,
+      "checksum": "sha256:f3dc7d3d1b63acfc1f4902fe52f2d2896835c1fc6b2c9153b667ac22f0b759c0"
+    },
+    {
+      "path": "public/media/approved/piero-resurrection.jpg",
+      "bytes": 299340,
+      "checksum": "sha256:e09592efb93ce6eb5d2d3bbcd275565b145aaa946f869e7ed3a516832326dfe3"
+    },
+    {
+      "path": "public/media/approved/poussin-crossing-red-sea.jpg",
+      "bytes": 238476,
+      "checksum": "sha256:c95f1dc97146fb43de410ad0f98dc9b977171d476f78b451c639a78ce4ea9064"
+    },
+    {
+      "path": "public/media/approved/rembrandt-moses-tablets.jpg",
+      "bytes": 541030,
+      "checksum": "sha256:63200b860f9633f0c0cb3bb0ed7a51008ba8ba0da74ee53f18bbf9d6f4ae0c1d"
+    },
+    {
+      "path": "public/media/approved/roberts-jerusalem-olives.jpg",
+      "bytes": 140517,
+      "checksum": "sha256:fe8c05978b0d0d5540e04fee9c41041e8424c255e96123a54ee1c0f927898325"
+    },
+    {
+      "path": "public/media/approved/tintoretto-last-supper.jpg",
+      "bytes": 287639,
+      "checksum": "sha256:09ba0214c1a0a1659933e76d1e41bc31ffed116caa0be513ff16cabc9a86a0f4"
+    },
+    {
+      "path": "public/media/approved/velazquez-christ-crucified.jpg",
+      "bytes": 439114,
+      "checksum": "sha256:1bac9eff947514915e554fac9ba30b916a6994562fdd6cf40184f98c6360b14d"
+    },
+    {
+      "path": "public/media/demo/biblemap-demo-20s-1080p.mp4",
+      "bytes": 18035073,
+      "checksum": "sha256:2fc8a577c6d3c1a7b9638a4f40d93df3837c23156544c7503aa616a03562be7c"
+    },
+    {
+      "path": "public/media/demo/biblemap-demo-20s.mp4",
+      "bytes": 4525878,
+      "checksum": "sha256:6449d97c1ed4f7635fd0688fc5c9a9180c7d6ae86654e8c6ae1727baf21bf451"
+    },
+    {
+      "path": "public/media/demo/poster.jpg",
+      "bytes": 74289,
+      "checksum": "sha256:848b5246cc3ec0c03c69f3cd4980d840ade6557d7587fee709402f96ddcc9de5"
+    },
+    {
+      "path": "public/media/human-story/augustine-painting.webp",
+      "bytes": 98242,
+      "checksum": "sha256:52b3906698e459e8ed0201c1904f9f024d194b7f6eb3e7ef35b4be510adc0320"
+    },
+    {
+      "path": "public/media/human-story/cassatt-kiss.webp",
+      "bytes": 176816,
+      "checksum": "sha256:6cb1dd5aace098e580be3c2e11fe8ab46033a05785f26ab54cc19f32906b3c07"
+    },
+    {
+      "path": "public/media/human-story/felicitas-mosaic.webp",
+      "bytes": 273384,
+      "checksum": "sha256:2f4e9dff8f612022e91dcdd8357db4af9caf2653e722aaf79f72a1256614e7b3"
+    },
+    {
+      "path": "public/media/human-story/kollwitz-mothers.webp",
+      "bytes": 48320,
+      "checksum": "sha256:2c4d01b092d90a8f179a7e7fb50d67a89d2ec3d23897a4bd705e5169cbd36b10"
+    },
+    {
+      "path": "public/media/human-story/perpetua-mosaic.webp",
+      "bytes": 72584,
+      "checksum": "sha256:7c277c97adf48dafe7794b23a1061c2a2ca969b8514378290ad02c66fc688f0b"
+    },
+    {
+      "path": "public/media/human-story/perpetua-vision.webp",
+      "bytes": 187718,
+      "checksum": "sha256:1c77209895201db3c6a2e070013af96128c799763ca21f851a0e91cfedecd444"
+    },
+    {
+      "path": "public/media/human-story/rome-forum.webp",
+      "bytes": 285628,
+      "checksum": "sha256:48e63039c731fb0d1246c732beb2b16f29876e05c42232a89f56a724355fa2cc"
+    },
+    {
+      "path": "public/media/james/galilee-1536.webp",
+      "bytes": 272782,
+      "checksum": "sha256:5006f1ac895be499512f5e046e8acc90cbf6315205850f62ef1a8c447fa90398"
+    },
+    {
+      "path": "public/media/james/galilee-768.webp",
+      "bytes": 95970,
+      "checksum": "sha256:effbe1db00629d4c5ac992e79789a5c6b05ab2bd6c34f66a0aed7898474e2a59"
+    },
+    {
+      "path": "public/media/james/jerusalem-1536.webp",
+      "bytes": 381026,
+      "checksum": "sha256:38691c8bd960dcf50eddc491f0629e2d70f83998e86f86e81964c3ae77bd43fe"
+    },
+    {
+      "path": "public/media/james/jerusalem-768.webp",
+      "bytes": 111778,
+      "checksum": "sha256:43399ba82fa5f0ee0370a32b6e32d76d3e916577afa811aed4536c1f055e0cd9"
+    },
+    {
+      "path": "public/media/james/manifest.json",
+      "bytes": 20718,
+      "checksum": "sha256:f88990cd5ac5930632210dd13dbac26818cc13e528fa8ca3ffb77e102bdd7d80"
+    },
+    {
+      "path": "public/media/jonah/cma-backhuysen-storm.jpg",
+      "bytes": 244840,
+      "checksum": "sha256:89ca0afdfe25de0b34f521663aec9534661c83863706ffd24ff2818d57690add"
+    },
+    {
+      "path": "public/media/jonah/cma-jonah-gourd-vine.jpg",
+      "bytes": 85395,
+      "checksum": "sha256:72ba05c2edb73e04a6cc9d48020dc25ee8b5565377c6baadf1752ff9b70fd030"
+    },
+    {
+      "path": "public/media/jonah/cma-roberts-jaffa.jpg",
+      "bytes": 133973,
+      "checksum": "sha256:52baee579b5e5d4012dad95c47fc4ac4d16300a5de0b8975e607db4730069a24"
+    },
+    {
+      "path": "public/media/jonah/commons-nineveh-gardens.jpg",
+      "bytes": 249032,
+      "checksum": "sha256:6fd1fcef47ab57099a584c7e2bcb77ea910ce66f7088c9bcd98f2c34869fa9b0"
+    },
+    {
+      "path": "public/media/jonah/met-gassel-ship-jonah.jpeg",
+      "bytes": 337787,
+      "checksum": "sha256:c151174d777f9ae412a3d0b5d58e164375b09b19d636974d2304e13d4137802c"
+    },
+    {
+      "path": "public/media/jonah/met-rosselli-prophet-jonah.jpeg",
+      "bytes": 174011,
+      "checksum": "sha256:aec8b6e372470ac3554e9729ad72ff2167f7e3fab6809b47e168a1e61418fe9f"
+    },
+    {
+      "path": "public/media/jonah/nga-raphael-hosea-jonah.jpeg",
+      "bytes": 144468,
+      "checksum": "sha256:e26bc6e475600c441ea1530cb297539f6d826eab190eafefdd697466feaf2810"
+    },
+    {
+      "path": "public/media/jonah/nga-sadeler-jonah-storm.jpg",
+      "bytes": 517634,
+      "checksum": "sha256:74cb543bc0d90e3cc29e857ee74ed54a363e13bddd293f5dc971d6e22e7dc96c"
+    },
+    {
+      "path": "public/media/nineveh-depth/README.md",
+      "bytes": 1514,
+      "checksum": "sha256:df6b321ed16a73dc114e1ef4963b8b4bf6312eb64cbd36d06c25331b932e3828"
+    },
+    {
+      "path": "public/media/nineveh-depth/flood-tablet.webp",
+      "bytes": 429540,
+      "checksum": "sha256:f2e59cc33c59076ee9b3ae565cf30a652952492c6ff06c73976a73b5b8ed7ab8"
+    },
+    {
+      "path": "public/media/nineveh-depth/jonah-vine.webp",
+      "bytes": 27808,
+      "checksum": "sha256:58fdeb7d8d241e57d303c89d5bd66fb06e25f2b6b221ece6cdca89fb4e3f83c5"
+    },
+    {
+      "path": "public/media/romanus/daphne-mosaic-small.webp",
+      "bytes": 179846,
+      "checksum": "sha256:6d16e9f83686a6092bb7d10f9c5b3cbbfa1ac6d26e83e3fa77f15ff83530f62c"
+    },
+    {
+      "path": "public/media/romanus/daphne-mosaic.webp",
+      "bytes": 866968,
+      "checksum": "sha256:fc26b88bc57f5dfa873e49bb20a4c48f7055e801de2c625d3635161db6bf88a6"
+    },
+    {
+      "path": "public/media/thomas/interior-1536.webp",
+      "bytes": 214450,
+      "checksum": "sha256:200c953da0164bdb4adff5c055788368d3b8f52fdd334d0c87f1fb7016c563dd"
+    },
+    {
+      "path": "public/media/thomas/interior-768.webp",
+      "bytes": 58466,
+      "checksum": "sha256:42c3a0d4ebde44edad0b849370544745aa74a33f55e2ec3fbd408e10da2d0432"
+    },
+    {
+      "path": "public/media/thomas/manifest.json",
+      "bytes": 36974,
+      "checksum": "sha256:8643264d66083533a4e50f1e89c3e8c40b02346ab659cad4b0423236df579a2e"
+    },
+    {
+      "path": "public/media/thomas/nocturne-1536.webp",
+      "bytes": 96368,
+      "checksum": "sha256:483ec68d7f9c5666e40d274f2456f950e9dcb7762e6c4ebf2f269c3963e5625c"
+    },
+    {
+      "path": "public/media/thomas/nocturne-768.webp",
+      "bytes": 27136,
+      "checksum": "sha256:4eb6e4a1a8af5972aa8caf2b57326887d5dcc2aa619aba60831bddf2093b3658"
+    },
+    {
+      "path": "public/media/thomas/proximity-1536.webp",
+      "bytes": 134070,
+      "checksum": "sha256:eb32262e920710cc13e13e2f516c18325d262a3ccb7475d4fbf375535559a72e"
+    },
+    {
+      "path": "public/media/thomas/proximity-768.webp",
+      "bytes": 42442,
+      "checksum": "sha256:adcfaaac972fa0f43081b70d3c3fac0d04f5be7719077f1c71af327be5cee0ee"
+    },
+    {
+      "path": "public/media/thomas/threshold-1536.webp",
+      "bytes": 198402,
+      "checksum": "sha256:4010cd37f6fd127f99dab1b8740b510957e28e3c3cf414c7092c37a44ed83039"
+    },
+    {
+      "path": "public/media/thomas/threshold-768.webp",
+      "bytes": 60064,
+      "checksum": "sha256:20541034a17b9ead89352d3b67bf13d377d9df55b0d4a0347248f18802fcb728"
+    },
+    {
+      "path": "public/next.svg",
+      "bytes": 1375,
+      "checksum": "sha256:55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc"
+    },
+    {
+      "path": "public/vercel.svg",
+      "bytes": 128,
+      "checksum": "sha256:f081337b2fee635b455b63275406a3e7f39d6a014e25ad90dab5a67e62a12ac4"
+    },
+    {
+      "path": "public/window.svg",
+      "bytes": 385,
+      "checksum": "sha256:644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1"
+    },
+    {
+      "path": "scripts/AGENTS.md",
+      "bytes": 5455,
+      "checksum": "sha256:03c5ceeadc06a4a08a86293b5ee80a61509f4dbef6a6a18221f3bdca1faf4475"
+    },
+    {
+      "path": "scripts/acquire-jonah-art.mjs",
+      "bytes": 2947,
+      "checksum": "sha256:e1164f246536e876823d4f7c2bd732a07ebaf0741a98a75c1c7d284baf5b068d"
+    },
+    {
+      "path": "scripts/acquire-thomas.mjs",
+      "bytes": 2495,
+      "checksum": "sha256:0e834e4a171598c0c2ffb41b1d0e49499f2441a23ccf122c301b1a156d8ddeca"
+    },
+    {
+      "path": "scripts/audit-seo.mjs",
+      "bytes": 13758,
+      "checksum": "sha256:a6e79958d3eb550186872c3949593e56bf34477c5d337c2560320da4cdf082bb"
+    },
+    {
+      "path": "scripts/author-story.ts",
+      "bytes": 1188,
+      "checksum": "sha256:8785be6d23c5f1353919d91d72bffa29dab5de8f79b1ddd4031bbfe1e5d61303"
+    },
+    {
+      "path": "scripts/capture-human-story.mjs",
+      "bytes": 7804,
+      "checksum": "sha256:0ec2a71fa9751a4185ccc673fc2a8b0fd82f9c8ca492ca1b12dafb7fb87e5136"
+    },
+    {
+      "path": "scripts/capture-james-v2.mjs",
+      "bytes": 1940,
+      "checksum": "sha256:589b92b7a5cbd61d8d10d2bea955609d7aab47e98e8c9d4cf505a113fdee9b76"
+    },
+    {
+      "path": "scripts/capture-james.mjs",
+      "bytes": 3776,
+      "checksum": "sha256:5277349becfaca64358a29d63e5657bad405b8aa9057e0bb7554697084841052"
+    },
+    {
+      "path": "scripts/capture-jonah.mjs",
+      "bytes": 4324,
+      "checksum": "sha256:b2e7912dd2d51678bdfb4dcc4ff73ca7e995d9ea82f44c28aeebc744a9022cc0"
+    },
+    {
+      "path": "scripts/capture-nineveh-depth.mjs",
+      "bytes": 3624,
+      "checksum": "sha256:2a18a28af50f7c3dd2aff486940783f985778dc3f90a3545ddf8ef490a906930"
+    },
+    {
+      "path": "scripts/capture-nineveh.mjs",
+      "bytes": 4961,
+      "checksum": "sha256:836cf81e163be1da2ff8b2a8a246994107c5b7d68d0b06884e134ce4030a1495"
+    },
+    {
+      "path": "scripts/capture-perpetua-journey.mjs",
+      "bytes": 4967,
+      "checksum": "sha256:7979fda978746d8ec399e525202bd54840cee9226d05b35383718a0fdf42aa0b"
+    },
+    {
+      "path": "scripts/capture-perpetua.mjs",
+      "bytes": 8009,
+      "checksum": "sha256:0b16bb78585ea32f5707e7bf353324e3520227a80e48a6cfd3ef20a146b604cd"
+    },
+    {
+      "path": "scripts/capture-thomas-hosted.mjs",
+      "bytes": 2624,
+      "checksum": "sha256:e631b497f67ce5ed8e1c0c18636ceb48a347340351bb87db13a5447245c69d12"
+    },
+    {
+      "path": "scripts/capture-thomas-sources.mjs",
+      "bytes": 2226,
+      "checksum": "sha256:9ad0b183d45e9b80a516f7e82c0da00769c37610aff3225b9f33b111b05319ca"
+    },
+    {
+      "path": "scripts/capture-thomas-studies.mjs",
+      "bytes": 1007,
+      "checksum": "sha256:78a0bbf5f9a40cad621ba7d7490c5d89913510bf51203011216d9c78c4dec474"
+    },
+    {
+      "path": "scripts/capture-thomas-v4.mjs",
+      "bytes": 2850,
+      "checksum": "sha256:5a4079e8e5e2aae2144a7bebde5aeb730bed5c1e70351c118d0ccc7e05813941"
+    },
+    {
+      "path": "scripts/capture-thomas.mjs",
+      "bytes": 3283,
+      "checksum": "sha256:4fdbf5952c5fc44503c20fa4ecd7f95ff6244d4acdf97776d1f5bba67193f454"
+    },
+    {
+      "path": "scripts/epochs.py",
+      "bytes": 1105,
+      "checksum": "sha256:8315de322d8f90ce2cde96ebbf42148a9a595b77a6398769e85281f4cc0a4c64"
+    },
+    {
+      "path": "scripts/export-inventory.mjs",
+      "bytes": 5004,
+      "checksum": "sha256:1b2afd1700778aa0660534a388201fb8480aba4908bd8b505be6bd2dd706b1ec"
+    },
+    {
+      "path": "scripts/finalize-export.mjs",
+      "bytes": 1269,
+      "checksum": "sha256:2d1e7b7b112cc4ad5caf198a4f7fb196c587f9c451588d1e7a515c67c7eae423"
+    },
+    {
+      "path": "scripts/inspect-baseline.mjs",
+      "bytes": 5374,
+      "checksum": "sha256:32eb6ed0fb51dc7ad5763b458cac1824d8e06786e2535c063b5290301478de62"
+    },
+    {
+      "path": "scripts/irreplaceable-map.tsx",
+      "bytes": 4663,
+      "checksum": "sha256:e2874cb898c29416df17cab77ae504c1fac0ae7509e501bd305a29199db7cd85"
+    },
+    {
+      "path": "scripts/irreplaceable.css",
+      "bytes": 7216,
+      "checksum": "sha256:393fc69ce4472a482ab15b9c5626c595b57805f1c900b392d05ca779f8547134"
+    },
+    {
+      "path": "scripts/irreplaceable.tsx",
+      "bytes": 9987,
+      "checksum": "sha256:ae0fe3d92402eb8340787cdb48cfc060c0b5e8f7a9f6fc58484d0400239d253c"
+    },
+    {
+      "path": "scripts/jonah-review.tsx",
+      "bytes": 1335,
+      "checksum": "sha256:ca5946538a24982fb4bd625c08853210c80bc4c6e07a74d2e23dadbdab811ff7"
+    },
+    {
+      "path": "scripts/pin-james.mjs",
+      "bytes": 1726,
+      "checksum": "sha256:d3ea47e74c686a220c6a320465aeefcda30ec399e996e1ccd82be01da4e95646"
+    },
+    {
+      "path": "scripts/pin-jonah.mjs",
+      "bytes": 2021,
+      "checksum": "sha256:b7a02a19e56de2cd2993a7ca39ff576f41f99cb356f7157556530d40f01f3f5b"
+    },
+    {
+      "path": "scripts/pin-thomas.mjs",
+      "bytes": 3178,
+      "checksum": "sha256:0960ac5176c8a7af062f93111be876d29776689b91dfc20672cdd0fc5b818dab"
+    },
+    {
+      "path": "scripts/prepare-perpetua-recovery.mjs",
+      "bytes": 6021,
+      "checksum": "sha256:46003a6f38523956b580ebfd21a70676da8a247b1468a4f3b26b188006c6810f"
+    },
+    {
+      "path": "scripts/prepare-thomas-art.mjs",
+      "bytes": 3796,
+      "checksum": "sha256:f756c7fa19890364d678da10d3568ec912097ae53cbb823098512fc326a922a7"
+    },
+    {
+      "path": "scripts/publication-gate.mjs",
+      "bytes": 2580,
+      "checksum": "sha256:5970fadf07550124d87f4ca13d0e1248c8ab5a28545a46bab48a8ae36e63e6a7"
+    },
+    {
+      "path": "scripts/release-gate-inventory.ts",
+      "bytes": 11559,
+      "checksum": "sha256:a7d27c964259f9efefe331bc68f3167b2a28750330cbf813bcd2af17427c5130"
+    },
+    {
+      "path": "scripts/review-home-discovery.mjs",
+      "bytes": 8584,
+      "checksum": "sha256:3fb55ef2d02325fa2b8ff8de89ce39a8997154c2559f3ef98bec77544b849f8c"
+    },
+    {
+      "path": "scripts/review-irreplaceable.mjs",
+      "bytes": 5616,
+      "checksum": "sha256:4b176109e5563a4dc422f1e24494435fc984c9e060e1b710527ad1681e207958"
+    },
+    {
+      "path": "scripts/review-james-v2.mjs",
+      "bytes": 3584,
+      "checksum": "sha256:3b27fe4d4fe43f1493c9cb42baba24c4126e699cabd5185ca992de8167d1e28a"
+    },
+    {
+      "path": "scripts/review-jonah.mjs",
+      "bytes": 7117,
+      "checksum": "sha256:662c3b4a88c269424eb6ab80a247c6314110279f9cb8f18aa0622de9dd8697ec"
+    },
+    {
+      "path": "scripts/review-thomas-cinematic.mjs",
+      "bytes": 2858,
+      "checksum": "sha256:1a3303f66d1848c1917258660c0db712a968a10a0d3f307413e3eebf1d577957"
+    },
+    {
+      "path": "scripts/review-thomas-homepage.mjs",
+      "bytes": 6825,
+      "checksum": "sha256:b0f37a79030a124b341040112dbe4c1b001986c37ff42558de9e7a9e2ddafb59"
+    },
+    {
+      "path": "scripts/review-thomas-sources.mjs",
+      "bytes": 1713,
+      "checksum": "sha256:ee2f9a8696e03ea5c84669b1feb6dcd84ce52f8ad64a197ba4476fad54eb40fa"
+    },
+    {
+      "path": "scripts/review-thomas-v4.mjs",
+      "bytes": 2947,
+      "checksum": "sha256:c1ca0f84370ec3da7fc51eff8744aee219b4cf38478766a89bf402f39b66293c"
+    },
+    {
+      "path": "scripts/review-thomas.mjs",
+      "bytes": 2088,
+      "checksum": "sha256:ec6eb9ccd7d50a9642716d2006f1a08b8682d08a6a95de2f1fd997972a95376f"
+    },
+    {
+      "path": "scripts/serve-export.mjs",
+      "bytes": 2427,
+      "checksum": "sha256:0d67eff6c436d9bfc6a8e3dcf6188c1cec1a5dd17728b79051efb8ee5159c3ca"
+    },
+    {
+      "path": "scripts/split_parquet.js",
+      "bytes": 1544,
+      "checksum": "sha256:1799aef08b20a54b6c2dc34359be58f9bf909933b39cf4f4590faf3b513e6988"
+    },
+    {
+      "path": "scripts/split_parquet.py",
+      "bytes": 1960,
+      "checksum": "sha256:1f853f087a29c5a8415508d74a3a9c839ba4b230f74fd523a616c418afde6060"
+    },
+    {
+      "path": "scripts/test-export-boundary.mjs",
+      "bytes": 2626,
+      "checksum": "sha256:792e6a3d8fbc424b80f101110cdd4e760bb0e1c217df284860e2eaeb86ec88cd"
+    },
+    {
+      "path": "scripts/test-seo-gate.mjs",
+      "bytes": 1777,
+      "checksum": "sha256:7fe756e7da97aea30ef8780c2152835a178559d522b1fcd115dffba9962d4b45"
+    },
+    {
+      "path": "scripts/thomas-source-studies.mjs",
+      "bytes": 5863,
+      "checksum": "sha256:db5819c2c05a576cdff6a9c8c6ec2540ad802df4302017d6098de3517ae9cb9c"
+    },
+    {
+      "path": "scripts/thomas-v4-proposals.mjs",
+      "bytes": 5665,
+      "checksum": "sha256:5d1572e21e5d80affcd0d6301077bf22488cc92b2f29bbb4bbeba4bf0199a5b4"
+    },
+    {
+      "path": "scripts/validate-jonah-assets.mjs",
+      "bytes": 4819,
+      "checksum": "sha256:346ebe6b63488a7a6c11e763357e282e065d4d4ee8ca080a11664a14189e0b18"
+    },
+    {
+      "path": "scripts/validate-maplibre-export.mjs",
+      "bytes": 2807,
+      "checksum": "sha256:fca4174abb698f6f25471f0b91f488cd259f284dca82a1b57b85a4e71f7999aa"
+    },
+    {
+      "path": "scripts/validate-nineveh-depth.mjs",
+      "bytes": 3071,
+      "checksum": "sha256:3e920075599d37de16529ed3dff60d923ff7b82693809e3c49b9d16b46327d3e"
+    },
+    {
+      "path": "scripts/validate-story.ts",
+      "bytes": 2230,
+      "checksum": "sha256:767f1f11c4a5f4a2c7f815bc29dd16f16ea0b121fde4c249dd343b0ef836ca41"
+    },
+    {
+      "path": "scripts/validate-visitor-export.ts",
+      "bytes": 3631,
+      "checksum": "sha256:a891d741e5870c6821845c79252e12e2f2c0726381e2e9d0e0298230fcde80bd"
+    },
+    {
+      "path": "scripts/validate_epochs.mjs",
+      "bytes": 1929,
+      "checksum": "sha256:c065e1c6a5ae12d16ad8e3f0295a5898c9591e011b19285e7fbaec5614a89c27"
+    },
+    {
+      "path": "scripts/verify-irreplaceable.mjs",
+      "bytes": 16297,
+      "checksum": "sha256:db497a0411549d9fd50806e269329862384f344716c913716e2bb3d97d0decb4"
+    },
+    {
+      "path": "src/AGENTS.md",
+      "bytes": 6585,
+      "checksum": "sha256:e308cad388012cfc1ea294a6d139458e499ef6f6becab89ee8596a3f615373e5"
+    },
+    {
+      "path": "src/app/NinevehHome.tsx",
+      "bytes": 1071,
+      "checksum": "sha256:25eb166640ec7b1b3e3dde64f7e13e97df3cfb5cd94c1f16a4bcebc6e767318d"
+    },
+    {
+      "path": "src/app/RootEntrance.tsx",
+      "bytes": 1066,
+      "checksum": "sha256:4bbc16997098d02df81f0023a8e2d9bdfdc77e6f25ba745f36e713b3bacbefb7"
+    },
+    {
+      "path": "src/app/demo/page.tsx",
+      "bytes": 2286,
+      "checksum": "sha256:5ac733b1604afcf58f1c8979f169328f02cac79350339d30feb82a218596e15c"
+    },
+    {
+      "path": "src/app/experiments/nineveh/page.tsx",
+      "bytes": 601,
+      "checksum": "sha256:3f2b21dcf87ab9b0e1b5ebccd5f690e1e6a4dab2ff2e733e8fa079b37125a69b"
+    },
+    {
+      "path": "src/app/explore/explore.css",
+      "bytes": 544,
+      "checksum": "sha256:fe5fd3ba5ed44e3c3236b1f7b4ab3279e6b1e7bc25df6cc820b360fd2fa17e55"
+    },
+    {
+      "path": "src/app/explore/page.tsx",
+      "bytes": 720,
+      "checksum": "sha256:5b2df980fc24e07e7f21ff4af19b1d068749fc8b36e4bfd339d10d0bf56cc411"
+    },
+    {
+      "path": "src/app/favicon.ico",
+      "bytes": 25931,
+      "checksum": "sha256:2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932"
+    },
+    {
+      "path": "src/app/globals.css",
+      "bytes": 749,
+      "checksum": "sha256:8e7ae938f5ef7b5e5fa27a9bb9d40ee3e87d784a26cd252f797bca2a1e0f2d7c"
+    },
+    {
+      "path": "src/app/home.css",
+      "bytes": 5969,
+      "checksum": "sha256:5038c2480aecc9dff2094b3bb152108ae619bef9b877f79584b8133e031e413c"
+    },
+    {
+      "path": "src/app/human-story/[entry]/page.tsx",
+      "bytes": 1468,
+      "checksum": "sha256:2e119339624f5c13dec79c7082cfe4cd7e37697b15e7a0782457e6397ae947b2"
+    },
+    {
+      "path": "src/app/human-story/james/reading/page.tsx",
+      "bytes": 443,
+      "checksum": "sha256:d81d60f9d974899d063d6ad6068a1497c8af6a887de3473db62f9f5dd8eff291"
+    },
+    {
+      "path": "src/app/human-story/layout.tsx",
+      "bytes": 150,
+      "checksum": "sha256:ef5823ac2b606267487ae93cf921e719e57e0453707d9ca7703e6a691bd93ea1"
+    },
+    {
+      "path": "src/app/human-story/page.tsx",
+      "bytes": 425,
+      "checksum": "sha256:28f4269bc9644c1a7c14f6c23c90a0537e2473d8505729b485ffc3da527b1fc3"
+    },
+    {
+      "path": "src/app/human-story/paths/[path]/page.tsx",
+      "bytes": 4838,
+      "checksum": "sha256:8d9d3330ceab2d6d3159ff9966d6a07c9fb222e9cabd1749e2ccb5a42bb4d171"
+    },
+    {
+      "path": "src/app/human-story/romanus/reading/page.tsx",
+      "bytes": 456,
+      "checksum": "sha256:fce1d5cf4148ef050ce68aee29d5570c92b80663c2d00a2639d1e6b682edef6d"
+    },
+    {
+      "path": "src/app/human-story/thomas/page.tsx",
+      "bytes": 435,
+      "checksum": "sha256:0cc65c86cdbab30dcaed7d6d617a62c7a9d77b43e4492282e241843f5ac6a831"
+    },
+    {
+      "path": "src/app/human-story/thomas/reading/page.tsx",
+      "bytes": 442,
+      "checksum": "sha256:d84ad44f4290de7e0f70cdfc73eeb051b405b8473b0c7dc02346871ed918cdab"
+    },
+    {
+      "path": "src/app/human-story/thomas/sayings/page.tsx",
+      "bytes": 7503,
+      "checksum": "sha256:0a55825f84c8ef1b15c9df732efb06bf9d92e5baa9316853e8c20dcc4876836d"
+    },
+    {
+      "path": "src/app/human-story/worlds/[world]/page.tsx",
+      "bytes": 3140,
+      "checksum": "sha256:18d6163a525cadd295964bd84e7249830bb3c29ad0cd26e55401a12af8a9b2e6"
+    },
+    {
+      "path": "src/app/jonah/page.tsx",
+      "bytes": 910,
+      "checksum": "sha256:fd9a0c0e4fcd95a75c5fe7a9a5a64189bc9cfb04db52e0c6d0ac4005679863e3"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "bytes": 1253,
+      "checksum": "sha256:6a92cf3b5db17b023679a38de65d0d49832d9a8bd5d65130a60e3563f511caf8"
+    },
+    {
+      "path": "src/app/nineveh/page.tsx",
+      "bytes": 403,
+      "checksum": "sha256:03c2021dcdc122ca564b43b6e7976b6bec1d89cce86caec10601ebb2cb0778b8"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "bytes": 850,
+      "checksum": "sha256:fa0d2782679e09377a6a1753cc8677096a9f97f701bc70ce70abe709db715aa6"
+    },
+    {
+      "path": "src/app/robots.ts",
+      "bytes": 372,
+      "checksum": "sha256:d0daa542af46886bb69ad315487d846cb950be97e87d45b5b82c5cce4462fc8e"
+    },
+    {
+      "path": "src/app/sitemap.ts",
+      "bytes": 439,
+      "checksum": "sha256:67bd4580c559b30fc0f9c09eb1119d2362234baedce38eec47c61da5b02e9542"
+    },
+    {
+      "path": "src/components/DataLoader.tsx",
+      "bytes": 107324,
+      "checksum": "sha256:d6e751ee10c4e05b0dc52dfc209e047ed5d0c0eb960f6b7ac265aebe89456d16"
+    },
+    {
+      "path": "src/components/ErrorBoundary.tsx",
+      "bytes": 4885,
+      "checksum": "sha256:290e96bde064177c0e77779377d9c46c8effaeee30787ceed55a473a429e43a9"
+    },
+    {
+      "path": "src/content/AGENTS.md",
+      "bytes": 2781,
+      "checksum": "sha256:af47351f94d31cbac131608a1b0b5e1d75c59311d8c49b18ad4935582a7c57cf"
+    },
+    {
+      "path": "src/content/historical-contexts.ts",
+      "bytes": 32853,
+      "checksum": "sha256:eeb246c40251eb400a05879845120c5cd3723919130b1c8c01afd3110b7582bb"
+    },
+    {
+      "path": "src/content/historical-sources.ts",
+      "bytes": 14686,
+      "checksum": "sha256:b950280d47d472349b57ca01c4e1d11fa7b8c6db7edd923d8444a9bd26f4d959"
+    },
+    {
+      "path": "src/content/human-story-culture.ts",
+      "bytes": 27340,
+      "checksum": "sha256:f6383a8c1725ab27efa01c1417309a4ff7afef823b81456651495181ba322132"
+    },
+    {
+      "path": "src/content/human-story-interior-media.json",
+      "bytes": 17577,
+      "checksum": "sha256:9b64c6a5d1896e9803341cf7b629671328c25bf4695b27fe63dc401ce82a90db"
+    },
+    {
+      "path": "src/content/human-story-interiors.ts",
+      "bytes": 4638,
+      "checksum": "sha256:726717ef8bb22da51780aae01cbe94ee7092e896f52f1e8bf22df976541d5aea"
+    },
+    {
+      "path": "src/content/human-story-paths.ts",
+      "bytes": 3075,
+      "checksum": "sha256:cb9026ec232fd766d38927c51590ccac7bae7158e1d3c2e3d6df86c2ef13208c"
+    },
+    {
+      "path": "src/content/human-story-saints.ts",
+      "bytes": 17621,
+      "checksum": "sha256:0a60c9419bfc82345839003e1364ffdae841046346e42c93337fc656545cb785"
+    },
+    {
+      "path": "src/content/human-story-witnesses.ts",
+      "bytes": 18471,
+      "checksum": "sha256:24fce28ca3b37004e5689b49b229d78c6544f27c05e6ffad101e61685b684ad1"
+    },
+    {
+      "path": "src/content/human-story.ts",
+      "bytes": 20321,
+      "checksum": "sha256:8e5f1405789d89eb6018968de708ca4b6be737c54fd5a6c1837e366b2f62870c"
+    },
+    {
+      "path": "src/content/james.ts",
+      "bytes": 20401,
+      "checksum": "sha256:1226c53c26799eceb4100675d2695064b734011b21d80aab89dab7399c123157"
+    },
+    {
+      "path": "src/content/jonah-discoveries.ts",
+      "bytes": 2922,
+      "checksum": "sha256:57f72f3958add178294d0613a3f829f44d064ebad08bda1162f53b2c27305658"
+    },
+    {
+      "path": "src/content/jonah-media.ts",
+      "bytes": 12016,
+      "checksum": "sha256:86ec747d1e59ce041ed0a44fd5f5efb6dbae0b9789ab173a904cdcb4ef4c9931"
+    },
+    {
+      "path": "src/content/jonah-visual-review.ts",
+      "bytes": 4847,
+      "checksum": "sha256:2745f3525d7eb28d12ee56bdb20ae74170b366b376d3f9f53794e838b8e6fd54"
+    },
+    {
+      "path": "src/content/jonah.ts",
+      "bytes": 8085,
+      "checksum": "sha256:2957abab1f3ba56ff0f3a4a1e4be3efe0f520dfb4b274ef31306554254eee62a"
+    },
+    {
+      "path": "src/content/nineveh-depth.ts",
+      "bytes": 3629,
+      "checksum": "sha256:68bd1627068969212e37a5787ccb575cd90b7abc77ea78801a856cb1fac88fb2"
+    },
+    {
+      "path": "src/content/perpetua-encounter.ts",
+      "bytes": 14601,
+      "checksum": "sha256:e787cb5dd902c7b3c8db84bef104cd5f2379e2dc731e8acbe4408d7f474925df"
+    },
+    {
+      "path": "src/content/perpetua-passages.ts",
+      "bytes": 3589,
+      "checksum": "sha256:dd6cf003696b54cd779955c1c0659ef8f3a2481201835f14172250a93ebe3a53"
+    },
+    {
+      "path": "src/content/romanus-media.ts",
+      "bytes": 2343,
+      "checksum": "sha256:a2c7a35e120966f760c42955b2531eeba347433a2eb1f79141070275757415d6"
+    },
+    {
+      "path": "src/content/romanus.ts",
+      "bytes": 17811,
+      "checksum": "sha256:bfc6a88525a608050ececd8196de5340fa83aef16f464fc6e14f60b63545635a"
+    },
+    {
+      "path": "src/content/scripture/james-quotes.json",
+      "bytes": 1374,
+      "checksum": "sha256:51a73a0dd2c2575e17d15d05913ac238ef9cbb8ba878c39c213ff41ef992f163"
+    },
+    {
+      "path": "src/content/scripture/james-web-corinthians-15.html",
+      "bytes": 13062,
+      "checksum": "sha256:5521863c0de3e8b270dbbcf2f6b783d44c780f70274e4045d9bf0fe0d78e5b6c"
+    },
+    {
+      "path": "src/content/scripture/james-web-galatians-1.html",
+      "bytes": 6457,
+      "checksum": "sha256:5577cd55079b75d1fa3a841e00862f79dd23a64facc1654113d6377d596e7498"
+    },
+    {
+      "path": "src/content/scripture/james-web-mark-6.html",
+      "bytes": 12810,
+      "checksum": "sha256:e79a52ed705010454c0e62e5dbb51a99980ba077d7059ce21e22b2627a13402f"
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-13.html",
+      "bytes": 1633,
+      "checksum": "sha256:3fd1c77a6ffca9e925863325b6bc4b3641fe448cbc047e761e7fe2c828afd610"
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-13.json",
+      "bytes": 1059,
+      "checksum": "sha256:33bd82a4d5849f57f1cf70c53f5e4c94379b16b81990998c215cfda72b630e80"
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-26.html",
+      "bytes": 889,
+      "checksum": "sha256:dba008ab84f248215a4398ecb2e47b9f30b9d8b9f5203dc13186ed8ae5c6b7ce"
+    },
+    {
+      "path": "src/content/scripture/thomas-mattison-26.json",
+      "bytes": 573,
+      "checksum": "sha256:801a4138946a90637dc715e177c627e2b2a269661cdac4856f48fc3b1ad9f8e1"
+    },
+    {
+      "path": "src/content/scripture/thomas-oxy1-26.html",
+      "bytes": 637,
+      "checksum": "sha256:c4ac88f3965ebfa7150874f8b1cb54b80b5107ee34fe905d8775cb0959bbd18c"
+    },
+    {
+      "path": "src/content/scripture/thomas-oxy1-26.json",
+      "bytes": 848,
+      "checksum": "sha256:8fd8305304d1b9c1af47140dad4a6f703b19bc452d62843f632a300b4abee72e"
+    },
+    {
+      "path": "src/content/scripture/thomas-quotes.json",
+      "bytes": 9527,
+      "checksum": "sha256:bb73242401c4279b1f78b5923b1c27f4ad27575981fef5832c4174d91531070f"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-act01.html",
+      "bytes": 7444,
+      "checksum": "sha256:7d97c60fcd47e9d18c394d5e70a75c8fae86bd3b72de1e4c4d4f00c299be7673"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn11.html",
+      "bytes": 12108,
+      "checksum": "sha256:b50fad0b883b88cb38d452741f23a0ba65842d1ae296fa04138ed0b7999c6a23"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn14.html",
+      "bytes": 7617,
+      "checksum": "sha256:22f3cd937229cfc8a4b4dedb84189555d58a2b44b71d10ad194be42758443a57"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn20.html",
+      "bytes": 8425,
+      "checksum": "sha256:12795753543a5d9c697331e7b02f866b02cb441b50eea9980c81340307a7f1bb"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-jhn21.html",
+      "bytes": 8127,
+      "checksum": "sha256:29a41052b8349b961e9113cd20fc191057787a22c44f88c64f7ea829d04d51fc"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-luk06.html",
+      "bytes": 12631,
+      "checksum": "sha256:d2494d58588c4cc852ceae988b23da8e6ba862598d627011837a9bc4f5fdf73b"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-mat10.html",
+      "bytes": 10953,
+      "checksum": "sha256:5ef572e917ed7f0c6535f1f8f4299fa28bc7e1ac31bc60829ab3457a1d12725d"
+    },
+    {
+      "path": "src/content/scripture/thomas-web-mrk03.html",
+      "bytes": 7493,
+      "checksum": "sha256:4d0091abc92a3d99f6a9642614e8589ad359cfafea983fbdea6db70bd4722c64"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-1.html",
+      "bytes": 6295,
+      "checksum": "sha256:b1cac2286c9c5179f5fcd27860d841d20d5e9db50837ac198aa4a513b651466d"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-1.json",
+      "bytes": 4028,
+      "checksum": "sha256:ae2408f0afb31a460edde7d0e7d0329e3785e053f9f80682a706ce3e74dd1a7e"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-2.html",
+      "bytes": 3842,
+      "checksum": "sha256:1bcd52364356d93bfd3478eed5541506de7f41df9b6a4b0d3af917a77382aa0c"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-2.json",
+      "bytes": 1870,
+      "checksum": "sha256:b1de6d112a0f5dceb81119a6151b6a759b88949a40b821cc3e5af7e576894992"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-3.html",
+      "bytes": 3375,
+      "checksum": "sha256:374d84920ab2fe3e16f5ac779498d2b9a03ae86dd07f57ce6ed4dbfda8129875"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-3.json",
+      "bytes": 2088,
+      "checksum": "sha256:43eb955092db04432e7b054e67fda8172ab1a6b8013f190d3463e8c95d4cb1b2"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-4.html",
+      "bytes": 3792,
+      "checksum": "sha256:dd2a40a6048a520e77daed73bacd6c9d8baadebccd86167a7e8ba50b357527af"
+    },
+    {
+      "path": "src/content/scripture/web-jonah-4.json",
+      "bytes": 2464,
+      "checksum": "sha256:a21feb285dc2dd4e244821922eb6f1d96f102c01b99b140d0f43ec8d9baf846e"
+    },
+    {
+      "path": "src/content/scripture/web-rights.html",
+      "bytes": 3134,
+      "checksum": "sha256:2a154eaf1897d8300f4f602a4dd3705c048cb0e3f4fed220a96413c3d14482f5"
+    },
+    {
+      "path": "src/content/thomas-evidence.ts",
+      "bytes": 5665,
+      "checksum": "sha256:3a547ac0999d6bb98c0283fb094cd7aa07b018b33bcd0997752697fefcb390e1"
+    },
+    {
+      "path": "src/content/thomas.ts",
+      "bytes": 14347,
+      "checksum": "sha256:6c78ad6811d5a2bfdb567a8b0b90ee9a6d6d0a01be09120b6313f84ad19a41b1"
+    },
+    {
+      "path": "src/content/visitor-human-story.ts",
+      "bytes": 738,
+      "checksum": "sha256:43fad816e94848129b77f9220edb780a1ac1212ef7ae38afd43f2f0502044ccc"
+    },
+    {
+      "path": "src/domain/artifact-reproducibility.test.ts",
+      "bytes": 3545,
+      "checksum": "sha256:21ac76f9372e0ff95d2a4b683d4520196a60194882b8eabfafbba07e3dfe7554"
+    },
+    {
+      "path": "src/domain/atlas-routing.test.ts",
+      "bytes": 1462,
+      "checksum": "sha256:c20a998a31377a90ed997e486f697fb842c05ed0fdaed8e6891748ca92e67cd1"
+    },
+    {
+      "path": "src/domain/atlas-routing.ts",
+      "bytes": 1043,
+      "checksum": "sha256:d43e6a804403ac729d8de8be38d16f57a44521ae5e9e4677db4de1b1618e8edf"
+    },
+    {
+      "path": "src/domain/epochs.json",
+      "bytes": 1744,
+      "checksum": "sha256:8ce13cd83c8f39ccca107c7f2872f180004229900e635e59941163ca7ede3b10"
+    },
+    {
+      "path": "src/domain/historical-context.test.ts",
+      "bytes": 3139,
+      "checksum": "sha256:6976cc9c79e8f03c26897b2f541c2cd73b12a64bc242258a3982132d8beed1b7"
+    },
+    {
+      "path": "src/domain/historical-context.ts",
+      "bytes": 6892,
+      "checksum": "sha256:4b3713b347e187bf22c2841584e51fb176d68d2d9728a63f8e74c24b92b6c801"
+    },
+    {
+      "path": "src/domain/human-story-interiors.test.ts",
+      "bytes": 2103,
+      "checksum": "sha256:d2ff2869f06160cb615c286be822627035bdac1a788139259dbdc37698ad4dab"
+    },
+    {
+      "path": "src/domain/human-story.test.ts",
+      "bytes": 2446,
+      "checksum": "sha256:ba1c5f762387ede34fa29d29ac48f289c92a1f5fe8feae2d70e3f211f9dcac2f"
+    },
+    {
+      "path": "src/domain/human-story.ts",
+      "bytes": 5294,
+      "checksum": "sha256:82752c9f06c490e408efc15740c1de6fa1b2e758f2f681601c1c18280da9e8c1"
+    },
+    {
+      "path": "src/domain/james-visuals.test.ts",
+      "bytes": 5903,
+      "checksum": "sha256:40fda63a40b2d2b29f12e11850608935bfa51d7915d2f768a67ed6db405199c9"
+    },
+    {
+      "path": "src/domain/james.test.ts",
+      "bytes": 2152,
+      "checksum": "sha256:bd73a5e2c2b6a96c477530092336b6e83fe08714d3d695cd583b2fa971965aec"
+    },
+    {
+      "path": "src/domain/media-catalog.ts",
+      "bytes": 22995,
+      "checksum": "sha256:e8d72974688730cff5664c2c2c2ef3726bef542de0d70b933af896b42c79eb6b"
+    },
+    {
+      "path": "src/domain/media-publication.test.ts",
+      "bytes": 4447,
+      "checksum": "sha256:40d8f676082943abdba7cf4c05d036c993098e21da34ede0cdc8e81640e99164"
+    },
+    {
+      "path": "src/domain/media.ts",
+      "bytes": 10718,
+      "checksum": "sha256:37c54dc9d97835cade8e32e58bd35712b51d3aa594f2898aa773a18eab1b7ee4"
+    },
+    {
+      "path": "src/domain/network-diagnostics.test.ts",
+      "bytes": 1004,
+      "checksum": "sha256:55262e1820a5760408838bc127459f733c51edcce248e0777ac736e5ee583e46"
+    },
+    {
+      "path": "src/domain/network-diagnostics.ts",
+      "bytes": 695,
+      "checksum": "sha256:611d9196fe47c291365af176e10e9f42cb3d497b85a97c2c1ed9a279c5913616"
+    },
+    {
+      "path": "src/domain/nineveh-depth-media.ts",
+      "bytes": 548,
+      "checksum": "sha256:03d8c4cd994ae430813ca5d6ad15e30d715c4e9799f82fa5646801b30fe72a7c"
+    },
+    {
+      "path": "src/domain/nineveh-navigation.ts",
+      "bytes": 812,
+      "checksum": "sha256:45ed765a3043560eb8bebbe51dab6193813bc02f4b307e79fcf90aab41a8cb28"
+    },
+    {
+      "path": "src/domain/nineveh.test.ts",
+      "bytes": 1288,
+      "checksum": "sha256:4aeff0c1bcffada82ac42db03d13f17d1690ab212cfe4d0ca84496db1ca47bf1"
+    },
+    {
+      "path": "src/domain/perpetua.test.ts",
+      "bytes": 1838,
+      "checksum": "sha256:2a7bcc54a232357de7a81582acb74b229d87ede7b494543553ec3f46ff1129cc"
+    },
+    {
+      "path": "src/domain/publication.test.ts",
+      "bytes": 5916,
+      "checksum": "sha256:1ae2d7121915cbe713524f9a2857d73a6caca4c13ffdffef2f831794ea92d8d0"
+    },
+    {
+      "path": "src/domain/publication.ts",
+      "bytes": 6154,
+      "checksum": "sha256:f478dc4745f74f1909f4d4fc183057c68b2e8186aa8b0442de7953e759c8f53c"
+    },
+    {
+      "path": "src/domain/release-gate-inventory.test.ts",
+      "bytes": 6180,
+      "checksum": "sha256:240f4fd133564299732c8fea7bad291a4eef001fc8b9bfb97b177de84692405b"
+    },
+    {
+      "path": "src/domain/romanus.test.ts",
+      "bytes": 1850,
+      "checksum": "sha256:35998cf3481e664b3b96b63105c4d80e675649f4a77d3ff398cc3dcad2a3d4f4"
+    },
+    {
+      "path": "src/domain/root-routing.test.ts",
+      "bytes": 1126,
+      "checksum": "sha256:a40be7b59cbf4b691b3235559f6a38020bb757027e91e4adb81da650e5de4fc2"
+    },
+    {
+      "path": "src/domain/root-routing.ts",
+      "bytes": 580,
+      "checksum": "sha256:2a4404ff92322f03d25c70cc972f16e74daa543a064b511198e31aed2627cc48"
+    },
+    {
+      "path": "src/domain/seo.test.ts",
+      "bytes": 1612,
+      "checksum": "sha256:f080de252f5a96cc1f5e51fa0a01a1d607628e38e08e14a284924dfce9cfcb35"
+    },
+    {
+      "path": "src/domain/seo.ts",
+      "bytes": 1013,
+      "checksum": "sha256:a8bfe6ac8c43ac662799f67f974c5d393165f99c952a453fd922b152b3578bdd"
+    },
+    {
+      "path": "src/domain/separation-reading.test.ts",
+      "bytes": 941,
+      "checksum": "sha256:ba2658359ce1d77d1439b857b1e247d9f446b08f1a6f91cde2cf1c8b0954582a"
+    },
+    {
+      "path": "src/domain/separation-reading.ts",
+      "bytes": 571,
+      "checksum": "sha256:7a9c24ea16a64ff476e1da870f4ee033862e0e0c5ca56eacc77e7b1df1402256"
+    },
+    {
+      "path": "src/domain/story.test.ts",
+      "bytes": 6244,
+      "checksum": "sha256:47dbc12b8217310f6a661a306a4ecd0114f1b1cf923c37b3ca2ff2e7c3328ad4"
+    },
+    {
+      "path": "src/domain/story.ts",
+      "bytes": 11254,
+      "checksum": "sha256:a705ce0a1ec8d0ba165a7161d3c85f5b86916ffbf544bcaba12984eaa577d875"
+    },
+    {
+      "path": "src/domain/thomas-evidence.test.ts",
+      "bytes": 1136,
+      "checksum": "sha256:9d581f79ef818f0d7909b6856c19047f3f71f32fedbbeb7650ab665a8f65576a"
+    },
+    {
+      "path": "src/domain/thomas-media.test.ts",
+      "bytes": 1971,
+      "checksum": "sha256:177b5780d6c50a5a0934e4b65690f0a5dd7fa1e9de9aef9e66a7aa015214ee6f"
+    },
+    {
+      "path": "src/domain/thomas.test.ts",
+      "bytes": 2826,
+      "checksum": "sha256:4c934ef1e9936adffb77dcd73529ca47d9caa2c0e3cd2b09c8034e26dc3e1fb4"
+    },
+    {
+      "path": "src/domain/visitor-media.ts",
+      "bytes": 1648,
+      "checksum": "sha256:9bca3773de531066d1540082e115f421370bbff5c45c92c1e6a2ee0959e6c52e"
+    },
+    {
+      "path": "src/domain/visitor-prison.ts",
+      "bytes": 1735,
+      "checksum": "sha256:71059ad2b5a12728655cf6a480039b5c3e768bb02609b9db69dd1fe394ba7d87"
+    },
+    {
+      "path": "src/domain/visitor-story.test.ts",
+      "bytes": 3746,
+      "checksum": "sha256:3970e235436af47b4022ea03f8f1e7da338b4e3706bf3c1e1b4b04a80fd43de4"
+    },
+    {
+      "path": "src/domain/visitor-story.ts",
+      "bytes": 5343,
+      "checksum": "sha256:7909c9bfb6f416dfaec5078689842f081708926d8a620d7ac9fba680f03a8ef0"
+    },
+    {
+      "path": "src/features/context/WorldAround.tsx",
+      "bytes": 3764,
+      "checksum": "sha256:971fdba460a8e6077be940f9716dc144fd8fa62ddff0be4d9d71059e53f7eaf2"
+    },
+    {
+      "path": "src/features/context/world-around.css",
+      "bytes": 4918,
+      "checksum": "sha256:304c7c986225db78c7445821d3de587b1ba06efa4b64acb3502cbc5f19216ccc"
+    },
+    {
+      "path": "src/features/explorer/ExploreClient.tsx",
+      "bytes": 1628,
+      "checksum": "sha256:de0ee41950c9b7cd6fb14c3cf7c9cb959dc7ec415e586de6bcdaa6e29e38d1c5"
+    },
+    {
+      "path": "src/features/explorer/StoryPlacePanel.tsx",
+      "bytes": 3269,
+      "checksum": "sha256:43c3ce3da12025a17ff1f8bed18834d3a01b129ddd9e5d6b5ba24779b4df9657"
+    },
+    {
+      "path": "src/features/explorer/story-place.css",
+      "bytes": 2637,
+      "checksum": "sha256:0a3e1895dd616e23a31968fd361867ee68f1851bc0e5b7bec164ae178cf515ed"
+    },
+    {
+      "path": "src/features/human-story/ArtworkImage.tsx",
+      "bytes": 874,
+      "checksum": "sha256:c5eea156ab93e6e4a87ae57277d6c1d52d162384cf16f410bf82407cace808e9"
+    },
+    {
+      "path": "src/features/human-story/AtlasConnections.tsx",
+      "bytes": 2481,
+      "checksum": "sha256:f7ae757dbf42de86df9102209666adf541ccceb5cc6d888bcd3893aa44878432"
+    },
+    {
+      "path": "src/features/human-story/ConnectedExplorer.tsx",
+      "bytes": 8828,
+      "checksum": "sha256:08e1aa3ba1c36e25aa6785f011b682abaad1afd62ff61346059043717eb9877c"
+    },
+    {
+      "path": "src/features/human-story/EntryCards.tsx",
+      "bytes": 1198,
+      "checksum": "sha256:d21deb9ef50ce4cd3e354833faf9def84fbd4ac89734b1db9fb22d14bedc165f"
+    },
+    {
+      "path": "src/features/human-story/FeaturedEncounters.tsx",
+      "bytes": 3341,
+      "checksum": "sha256:475a82740e1186673ffc93487af81044c5c5a0bbfd44b651a83e76067fee639b"
+    },
+    {
+      "path": "src/features/human-story/HumanArtwork.tsx",
+      "bytes": 2217,
+      "checksum": "sha256:9a9b9bf8594d1f4711ff1a62fa09a0343c2e455c936c46b3146179ac85f73cf1"
+    },
+    {
+      "path": "src/features/human-story/HumanStoryFrame.tsx",
+      "bytes": 2277,
+      "checksum": "sha256:c560c781c5c8b68033270a64999b2b76920e964f25a90da404232283c55346fc"
+    },
+    {
+      "path": "src/features/human-story/HumanStoryHome.tsx",
+      "bytes": 9328,
+      "checksum": "sha256:b8bed8fb282be12de27bfafe8d4e259a90ed9de65a49c3727f1a84e3e9acd98a"
+    },
+    {
+      "path": "src/features/human-story/InteriorArtwork.tsx",
+      "bytes": 1548,
+      "checksum": "sha256:d33550722fb9168d7f088238f60f26fb04140ccc1a21be14d225996c597f5eba"
+    },
+    {
+      "path": "src/features/human-story/InteriorEncounters.tsx",
+      "bytes": 4818,
+      "checksum": "sha256:96cf4f2861d7473178fede40f15ecf2cc20282317bb0b9fa61897cb5d7abb230"
+    },
+    {
+      "path": "src/features/human-story/PathPreview.tsx",
+      "bytes": 1817,
+      "checksum": "sha256:af0f2d3ef55ddf6c1985dbfb51f0169f6a0f3872ce7669bb17abb91527aaf8f9"
+    },
+    {
+      "path": "src/features/human-story/PerpetuaContext.tsx",
+      "bytes": 5372,
+      "checksum": "sha256:bfd561c634a99e66c2cbe7008f05c551674eee8f50edaf3b1c04261d2e24c39a"
+    },
+    {
+      "path": "src/features/human-story/PerpetuaEncounter.tsx",
+      "bytes": 10899,
+      "checksum": "sha256:700f442b78204242b0bee310ca459caad54a4f6527e8977ff44250a8d8bf6b8c"
+    },
+    {
+      "path": "src/features/human-story/PerpetuaMovements.tsx",
+      "bytes": 4731,
+      "checksum": "sha256:97fb1ddf99b6cabb61fb4088db79719ef0110aa714809a9e1bf74bad589ea273"
+    },
+    {
+      "path": "src/features/human-story/PerpetuaVision.tsx",
+      "bytes": 3377,
+      "checksum": "sha256:55e3ca1d5f7c3479f5af3c7cbfc92394dc906c27e6ce0b93c229567e2f738d2e"
+    },
+    {
+      "path": "src/features/human-story/PrisonDiagram.tsx",
+      "bytes": 2917,
+      "checksum": "sha256:614f3252c5f457e6afc94b2d5e135b3017323caf620ecefc5d78accc11f305ec"
+    },
+    {
+      "path": "src/features/human-story/PrisonStage.tsx",
+      "bytes": 11322,
+      "checksum": "sha256:820c1396ce9fb0e0d9563cb74e4263e260f29af1fa4bd8f471a578292f6f792a"
+    },
+    {
+      "path": "src/features/human-story/ReadingRoom.tsx",
+      "bytes": 8084,
+      "checksum": "sha256:38267d55cd3b8ccf0f81e9c4c99bf7f84d3330b1ad27432cd5564846f485fa8b"
+    },
+    {
+      "path": "src/features/human-story/SeparationReading.tsx",
+      "bytes": 5620,
+      "checksum": "sha256:c8101c9284f8ec4a121cbfef847acb627eeef8a85b9be67a0e3c3cb709117f0b"
+    },
+    {
+      "path": "src/features/human-story/SourcePassage.tsx",
+      "bytes": 1298,
+      "checksum": "sha256:cae7804d602e1162cc64f8f2c4455f8571cd595a8b932b1bf833267053111997"
+    },
+    {
+      "path": "src/features/human-story/ThomasInvitation.tsx",
+      "bytes": 2083,
+      "checksum": "sha256:69231136d5895a3bb7eb84422fea1eeffb66aabf3bc222a9d93853b852b2393b"
+    },
+    {
+      "path": "src/features/human-story/WitnessComparison.tsx",
+      "bytes": 2403,
+      "checksum": "sha256:c3be8af3424e440ece0cb562fa564991b011325c099b33fb9aa05c018e47d8bf"
+    },
+    {
+      "path": "src/features/human-story/WorldOpening.tsx",
+      "bytes": 1996,
+      "checksum": "sha256:0c6db04a8a8433bc44f44b9aac27e803c2222e00cc4049d96bae2614894409da"
+    },
+    {
+      "path": "src/features/human-story/action-link.module.css",
+      "bytes": 832,
+      "checksum": "sha256:09e554736637330a10bd6b4aee906143d341b0c1e126d9fecbf2a584350ed17d"
+    },
+    {
+      "path": "src/features/human-story/discovery.module.css",
+      "bytes": 4718,
+      "checksum": "sha256:1169974edbd2fdb7396d346f60ceef3a18c07cdc3a72e21a49cdc1c555748768"
+    },
+    {
+      "path": "src/features/human-story/human-story.module.css",
+      "bytes": 26523,
+      "checksum": "sha256:b6114ff253c898d76269948248b586ab6bc3c9d9569690edec2bb1eb9fcb4403"
+    },
+    {
+      "path": "src/features/human-story/interior.module.css",
+      "bytes": 7270,
+      "checksum": "sha256:44fa8c12aa727d459146f809473b92e2ca826583278a8ed9222eafcc69b50308"
+    },
+    {
+      "path": "src/features/human-story/james/JamesCinematic.tsx",
+      "bytes": 6418,
+      "checksum": "sha256:95445c58a5acfeaef1b3be29e297f5e1a915efd412d5652568df77038f5d7a23"
+    },
+    {
+      "path": "src/features/human-story/james/JamesEncounter.tsx",
+      "bytes": 3326,
+      "checksum": "sha256:f8b81979bf4a06a033042f69d2cc4a6c748b75e592d14d07091f303657c5cf45"
+    },
+    {
+      "path": "src/features/human-story/james/JamesExperience.tsx",
+      "bytes": 5344,
+      "checksum": "sha256:a3b7c226e82530cecb5dc38b4c92a32d0cdd2f819e692d2f2d17d88bcdcbb581"
+    },
+    {
+      "path": "src/features/human-story/james/JamesNarrative.tsx",
+      "bytes": 2284,
+      "checksum": "sha256:1dfb2cc186ee7f6f815c4e347b0d2f0bb8fe0eafc5dc463295bcdb9c66d99909"
+    },
+    {
+      "path": "src/features/human-story/james/JamesSources.tsx",
+      "bytes": 5453,
+      "checksum": "sha256:10163ef4f08aed4304a9883346a2b6dc4d2fb868acbaf3466a291dedbf5284f8"
+    },
+    {
+      "path": "src/features/human-story/james/JerusalemRelationships.tsx",
+      "bytes": 3192,
+      "checksum": "sha256:afb994d0ff15b71dd5cdc51adb5e802bd17893e38e2561bca8bea6123c1b65d8"
+    },
+    {
+      "path": "src/features/human-story/james/Palimpsest.tsx",
+      "bytes": 3576,
+      "checksum": "sha256:42807b67989d80b59a8ddfb9775e91b9475abadf80f1a066ee81c01a19fc1d20"
+    },
+    {
+      "path": "src/features/human-story/james/SceneEnvironment.tsx",
+      "bytes": 1153,
+      "checksum": "sha256:c4389e90c701ae7f1702f023e3268196575a11081d76eac8717703ae371931a0"
+    },
+    {
+      "path": "src/features/human-story/james/cinematic.module.css",
+      "bytes": 13314,
+      "checksum": "sha256:361808f3d820d02d694654ed5635351e9c5e1381c779dab9faad5cbc462b2c53"
+    },
+    {
+      "path": "src/features/human-story/james/james.module.css",
+      "bytes": 16395,
+      "checksum": "sha256:536cdd1b5add65597d9965fee206770cf172ee4a7da66c7effc7f3a76e7677e4"
+    },
+    {
+      "path": "src/features/human-story/prison.module.css",
+      "bytes": 17501,
+      "checksum": "sha256:1168b7ef903fd559834d851ede1dd49511db5ea4900d76932efa700af416fc38"
+    },
+    {
+      "path": "src/features/human-story/romanus/RomanusArtwork.tsx",
+      "bytes": 1031,
+      "checksum": "sha256:7a5f505ed95c3b0951699418c7c508b47a19c72d814b80616cf22ed245888a53"
+    },
+    {
+      "path": "src/features/human-story/romanus/RomanusEncounter.tsx",
+      "bytes": 10966,
+      "checksum": "sha256:c328e5c2b4c2024e8d85cc2240798dfa11b24801426c9d53e208a626bb88a229"
+    },
+    {
+      "path": "src/features/human-story/romanus/RomanusSources.tsx",
+      "bytes": 4993,
+      "checksum": "sha256:1ed29254da47519bae5c1c4b7dfc82138985597749de0ec0b3d5fec88bac4ad2"
+    },
+    {
+      "path": "src/features/human-story/romanus/romanus.module.css",
+      "bytes": 11799,
+      "checksum": "sha256:876452c825f4ca266307586518b1a1d16768e6899554858c97935379a40550b6"
+    },
+    {
+      "path": "src/features/human-story/separation.module.css",
+      "bytes": 6012,
+      "checksum": "sha256:6e4fb1b6d188628cc5a866fb9c83adace538d3b488e7bf73c814af7b3d026337"
+    },
+    {
+      "path": "src/features/human-story/thomas/CinematicDisclosure.tsx",
+      "bytes": 634,
+      "checksum": "sha256:ed877ebe2b1048f892cc0013a44f4723d72ad2b2ef9c72a49cec6e9ae96f27ca"
+    },
+    {
+      "path": "src/features/human-story/thomas/CinematicImage.tsx",
+      "bytes": 1052,
+      "checksum": "sha256:f8807415a4170bfa13349b6224a336ed0c8e6a56082940d37d20ced26e48bb67"
+    },
+    {
+      "path": "src/features/human-story/thomas/GreekEnding.tsx",
+      "bytes": 1841,
+      "checksum": "sha256:fbdc773bcf36066fa8afcc7990a6b67a2c5b3c97914e2e4ccff9308d98679fd3"
+    },
+    {
+      "path": "src/features/human-story/thomas/ManuscriptForm.tsx",
+      "bytes": 2256,
+      "checksum": "sha256:58295e4f2b2c580d0d74d1df0f8ed4f88ca931626d9a6327e38460dc898be525"
+    },
+    {
+      "path": "src/features/human-story/thomas/ManuscriptWitnesses.tsx",
+      "bytes": 2206,
+      "checksum": "sha256:34437c6ac81a7ff192cff631ad355c6cca3d8cef8dbad72ed2989afa2d3e8899"
+    },
+    {
+      "path": "src/features/human-story/thomas/SpatialArtwork.tsx",
+      "bytes": 2750,
+      "checksum": "sha256:f240c189f94cec53b07515ae26165087f441c0c2499d8ee280c9fcdd28f160e4"
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasEncounter.tsx",
+      "bytes": 9885,
+      "checksum": "sha256:ecbaa5c95b1a8eb701ec25fda4f1abdafa7bcfa1b3528742f23284e381250646"
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasEvidence.tsx",
+      "bytes": 6616,
+      "checksum": "sha256:bdbdf64479aac79e8248cac33f70044a9009084e59616c071dae7d1e040f4ba3"
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasReferences.tsx",
+      "bytes": 785,
+      "checksum": "sha256:4d4421c93259fdfffb3f251df0c01ab2790c282fd96b269d844dee101652629e"
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasShell.tsx",
+      "bytes": 1296,
+      "checksum": "sha256:bb461a2f3aa1affffae72416f144760db1efc4e0b362a43a8c90fdca4f8b9b34"
+    },
+    {
+      "path": "src/features/human-story/thomas/ThomasSources.tsx",
+      "bytes": 3199,
+      "checksum": "sha256:ea03eda45be6a85cd609ab573fea3ddbbe289cae301932e60dc42fc4b0fc8bae"
+    },
+    {
+      "path": "src/features/human-story/thomas/cinema.module.css",
+      "bytes": 7620,
+      "checksum": "sha256:7ecb70154a6bb982f57ac4628c1e155908f66b907390a54ce5e3dd21422bec13"
+    },
+    {
+      "path": "src/features/human-story/thomas/encounter.module.css",
+      "bytes": 1781,
+      "checksum": "sha256:69109139cc436b76170986dd7231e0504906fcd079d2f9b201d31efac618417d"
+    },
+    {
+      "path": "src/features/human-story/thomas/manuscripts.module.css",
+      "bytes": 6370,
+      "checksum": "sha256:4e7115e9eaacfd6479402f3d5df7c47985cc11bd32fe2444096c6927d2daef3f"
+    },
+    {
+      "path": "src/features/human-story/thomas/sources.module.css",
+      "bytes": 6871,
+      "checksum": "sha256:ffd68793c7f3ba0d8ce15e244e245faad5d326addd57da4a97f7a23c665d6fe8"
+    },
+    {
+      "path": "src/features/human-story/thomas/thomas.module.css",
+      "bytes": 14859,
+      "checksum": "sha256:a680bc1ba6a251a206201d264789527490a547cb34b766072d471203cd464ee1"
+    },
+    {
+      "path": "src/features/human-story/worlds.ts",
+      "bytes": 1055,
+      "checksum": "sha256:cdebc85d5f4a3eda0464ca6ce2e13511d4998ce9ab5a85e65067f3f91751f815"
+    },
+    {
+      "path": "src/features/media/CinematicCanvas.tsx",
+      "bytes": 15003,
+      "checksum": "sha256:2a305f7b726c7a6ae00f7301ac172208f4816c317ed43b914eb1024c967156b8"
+    },
+    {
+      "path": "src/features/media/MediaProvenancePlate.tsx",
+      "bytes": 2627,
+      "checksum": "sha256:8c040e13f50d1a5d10021367220a738c039fd8d0cf409b82c957a5baa10c52f9"
+    },
+    {
+      "path": "src/features/media/cinematic.css",
+      "bytes": 12770,
+      "checksum": "sha256:bcc3baf0e2ee0a33e60ff9eaa19df198e7a3f8495e9b34504c8352dea836cd80"
+    },
+    {
+      "path": "src/features/media/usePrefersReducedMotion.ts",
+      "bytes": 458,
+      "checksum": "sha256:7dcbf6546e4a067056862b414f19bd0f8f31c019ceb8957a3b45425a47071340"
+    },
+    {
+      "path": "src/features/navigation/leaveLegacyRoot.ts",
+      "bytes": 487,
+      "checksum": "sha256:ddf2216529e4fd81b076ee41ffa6bfbfbab8e0cc9725a83be4ccc8a1670e6693"
+    },
+    {
+      "path": "src/features/nineveh/NinevehDiscovery.tsx",
+      "bytes": 11137,
+      "checksum": "sha256:45c49d110148c177b1e793d79e061d335689d49d8868a7321fce161d44c2d608"
+    },
+    {
+      "path": "src/features/nineveh/NinevehEncounter.tsx",
+      "bytes": 11163,
+      "checksum": "sha256:4e47fc5a8b3a25ce8ae3ce9001386d58257dec9c5925712dd5649a939e2cb523"
+    },
+    {
+      "path": "src/features/nineveh/NinevehEnvironment.tsx",
+      "bytes": 6042,
+      "checksum": "sha256:cfd4c7af28ab172d68067f8b45c97dd7ff0442036504f7aaf316c6d3ebcfb8b3"
+    },
+    {
+      "path": "src/features/nineveh/artwork.json",
+      "bytes": 3736,
+      "checksum": "sha256:cf95ac5a8c3e2fc320838cd91d66a9791555e18015e743a5b0d7892f59928309"
+    },
+    {
+      "path": "src/features/nineveh/depth-media.json",
+      "bytes": 4632,
+      "checksum": "sha256:88cacb715ecae7e402b1ba7be071ea9343be83e11f680dc9cd48e783ed080d5d"
+    },
+    {
+      "path": "src/features/nineveh/nineveh.css",
+      "bytes": 18769,
+      "checksum": "sha256:a0c21212e781b9f97578019fbd24cadf444fa8d218486343b51e0e56311b09da"
+    },
+    {
+      "path": "src/features/story/AquinasMercyPerspective.tsx",
+      "bytes": 1126,
+      "checksum": "sha256:c757aa4253efb07fdc33d8705ef84d2b4d244d455c7aa688393faa69c7108b0a"
+    },
+    {
+      "path": "src/features/story/CityInsideName.tsx",
+      "bytes": 5574,
+      "checksum": "sha256:81bffdabf4846e31f4da075cd755753df1ac39372f00c53aa87ad9797a14cacb"
+    },
+    {
+      "path": "src/features/story/FirstEncounter.tsx",
+      "bytes": 1439,
+      "checksum": "sha256:26bf071fb189b67a45dd4a4306cb2e5197e9e05521a7650570e37cf83a8227da"
+    },
+    {
+      "path": "src/features/story/InterpretationNotes.tsx",
+      "bytes": 3011,
+      "checksum": "sha256:3545fd171a25da275b2fcc84b995da31b05e07e95ddfe7245dc19ab9c0fdcc6a"
+    },
+    {
+      "path": "src/features/story/SceneDiscovery.tsx",
+      "bytes": 3644,
+      "checksum": "sha256:fdd389280c65019f34fdae7a8481bd945906ce4e5813ea4403fb88bf18560415"
+    },
+    {
+      "path": "src/features/story/StoryEvidence.tsx",
+      "bytes": 4605,
+      "checksum": "sha256:92c24aa65265fe08f334dda9767e4d6fdf8bdb513269bb584f4202496d930ccb"
+    },
+    {
+      "path": "src/features/story/StoryMedia.tsx",
+      "bytes": 8974,
+      "checksum": "sha256:fe4ec149cc19d36976c04844c7d34ce484b9b3f6056f1d2530ee473894b449aa"
+    },
+    {
+      "path": "src/features/story/StoryReader.tsx",
+      "bytes": 15277,
+      "checksum": "sha256:d4ead18a205752d11c9832153bb25cb475f912ab4b07143deada0cd47bbba64b"
+    },
+    {
+      "path": "src/features/story/story.css",
+      "bytes": 30759,
+      "checksum": "sha256:93425090e2bc70d3db554472542849c443c1d0aac2ea607d80ef22e9177845df"
+    },
+    {
+      "path": "src/lib/biblemap-inspector.ts",
+      "bytes": 1613,
+      "checksum": "sha256:7c33ba7c23528ac172881acffdbe085341559c6c6e7e2ff825b37f5e439d26e1"
+    },
+    {
+      "path": "src/lib/maplibre.ts",
+      "bytes": 323,
+      "checksum": "sha256:7f3b9cea38000e4391aaa0aa69deff5503261a32387cfa5ec87152484329ce84"
+    },
+    {
+      "path": "src/lib/seo.ts",
+      "bytes": 1690,
+      "checksum": "sha256:c8efe3342a9afc26b6f1528577f86245347c4f38df6b006dfcf22c701ad33f10"
+    },
+    {
+      "path": "src/scenes/journeyScenes.ts",
+      "bytes": 10683,
+      "checksum": "sha256:a24cbd1dc9450dac63458ee31d3708ace99ba914887bc86194e02b02408ac26c"
+    },
+    {
+      "path": "src/scenes/motion.ts",
+      "bytes": 853,
+      "checksum": "sha256:cfe70d36b7b04a2364ccc8fd8b915f1660d47a89f17365cfb4bdb90cb11f7983"
+    },
+    {
+      "path": "src/scenes/orchestrateScene.ts",
+      "bytes": 4388,
+      "checksum": "sha256:c760442c97cfd8212dc1adfcdf9412023d41d2b0d361c6fb5df6551d7f430aeb"
+    },
+    {
+      "path": "src/scenes/useSceneOrchestrator.ts",
+      "bytes": 7991,
+      "checksum": "sha256:81954f4a39ed6f12deed5b9b1e5e93c147ddf95ce0a1e015c6a712c01a7901aa"
+    },
+    {
+      "path": "tests/atlas-security.spec.ts",
+      "bytes": 3523,
+      "checksum": "sha256:a3aa9bf57a70bbe25c780d58e88a26c2e6709024811f5a8920f06b34603fda26"
+    },
+    {
+      "path": "tests/authorship-harness.tsx",
+      "bytes": 1563,
+      "checksum": "sha256:ea695733e020ab8d59d65a94f827b061790fa1bb67b7e0ea501ab989513027d7"
+    },
+    {
+      "path": "tests/authorship.spec.ts",
+      "bytes": 1622,
+      "checksum": "sha256:100609b70a82ed7db36974ad8015d1a6e445ecec8817306a6ed9a808fc42bc29"
+    },
+    {
+      "path": "tests/city-inside-name.spec.ts",
+      "bytes": 3855,
+      "checksum": "sha256:b9752b3127ccf2b644bae9fe94adfe26b45fb836a4fd517a6246bc5dc4316d76"
+    },
+    {
+      "path": "tests/discovery.spec.ts",
+      "bytes": 7543,
+      "checksum": "sha256:d599da8555440ea00acd514778b8154b18de9ef1961a4ed8815b4a58009c0e69"
+    },
+    {
+      "path": "tests/explorer.spec.ts",
+      "bytes": 2946,
+      "checksum": "sha256:ed3adf3c55d21aee229a5a32206048379764d1568849508b80a88ead96f4610a"
+    },
+    {
+      "path": "tests/first-encounter.spec.ts",
+      "bytes": 4581,
+      "checksum": "sha256:3639fe7a3a63de274265d5816172e68d2d7081477854a0ee80a83ac65d87f6cb"
+    },
+    {
+      "path": "tests/home-discovery.spec.ts",
+      "bytes": 5557,
+      "checksum": "sha256:d5141594486381c16e93f0dead9597a138a7b8a075650c83de45bb1ae8293059"
+    },
+    {
+      "path": "tests/homepage-release.spec.ts",
+      "bytes": 9415,
+      "checksum": "sha256:3082bffaeef0329d8e3ae02b2c37d64eb23e0f61aa16d23746a9b44e00a5b20c"
+    },
+    {
+      "path": "tests/homepage.spec.ts",
+      "bytes": 6981,
+      "checksum": "sha256:a452f3ca6389249c568c95aafdc7fcd873dd3581c5c06c14816f4d278c8cf286"
+    },
+    {
+      "path": "tests/human-story-interiors.spec.ts",
+      "bytes": 4142,
+      "checksum": "sha256:512a40eecf5f91e5eab6372a31b1c0ffc2f045d697a8e8582376b75f1647e661"
+    },
+    {
+      "path": "tests/human-story-qa.spec.ts",
+      "bytes": 5520,
+      "checksum": "sha256:652e4f45006f730843306337e816ec961050378e6b8e1f4ee15c61c8c5f16846"
+    },
+    {
+      "path": "tests/human-story.spec.ts",
+      "bytes": 8601,
+      "checksum": "sha256:9011a5d55d201db35639f00af75058cea6e808da6e212d63736d38f40baea80b"
+    },
+    {
+      "path": "tests/james.spec.ts",
+      "bytes": 11034,
+      "checksum": "sha256:278f90b40dde98c2c236f021306465d010796ec8cdb5a726b9d1d7bb690da8c7"
+    },
+    {
+      "path": "tests/jonah-mercy-turn.spec.ts",
+      "bytes": 2560,
+      "checksum": "sha256:f544c8c24a85ae4814b44b0b926aa957c70967576d961d7ba02796a7f0e2bee8"
+    },
+    {
+      "path": "tests/jonah.spec.ts",
+      "bytes": 10415,
+      "checksum": "sha256:3dab1694f29c6568cd148d5fb5f37e23a80f95d20251cd3a7597da16bc383fea"
+    },
+    {
+      "path": "tests/media-harness.tsx",
+      "bytes": 2823,
+      "checksum": "sha256:dd1e7315fecb030a91476bb5d9e96f060a5cd1d30dae0dff1d0a50a1f8baf1b6"
+    },
+    {
+      "path": "tests/media.spec.ts",
+      "bytes": 11337,
+      "checksum": "sha256:6af4a15947a14f0679b2db8a6809b288cf9fb41f67a0c10fdd9295c827855087"
+    },
+    {
+      "path": "tests/network-diagnostics.ts",
+      "bytes": 1039,
+      "checksum": "sha256:1fcf4494c78806120dbe063034180b110bf975f41a2756265e61e6dae9e39e72"
+    },
+    {
+      "path": "tests/network-regression.spec.ts",
+      "bytes": 1062,
+      "checksum": "sha256:acfd0b4db78732f10560aa68d75a8a9cc4a45d3d7d225ddb5d02718bbabeef76"
+    },
+    {
+      "path": "tests/nineveh-depth.spec.ts",
+      "bytes": 8168,
+      "checksum": "sha256:be972763667ec86a342c83367735e0c67954253cc1fdb74229372dcbf2675473"
+    },
+    {
+      "path": "tests/nineveh.spec.ts",
+      "bytes": 9606,
+      "checksum": "sha256:951df1e30beb03cd332df2df75faa5d50249df3da69d2023131569626e9d4136"
+    },
+    {
+      "path": "tests/perpetua-reading.spec.ts",
+      "bytes": 8071,
+      "checksum": "sha256:af272f0e6200387ccdaa2dc137e0eb5c3fdb302c922bc004031367ba7fa352ce"
+    },
+    {
+      "path": "tests/perpetua-recovery.spec.ts",
+      "bytes": 4475,
+      "checksum": "sha256:9c4e2b4d006b3a07b15126dba4821cdeb59b7b01e1d46e356f33a77d81e50285"
+    },
+    {
+      "path": "tests/perpetua.spec.ts",
+      "bytes": 9147,
+      "checksum": "sha256:aa10d36f64eca9c073d5f251b41775dac9b8e40a9c344ee1e64c38ddc03dd22d"
+    },
+    {
+      "path": "tests/romanus.spec.ts",
+      "bytes": 5838,
+      "checksum": "sha256:ee41a452a2dd8cb2ab27fa18cb9df99b0860765f3e9bdfe460ed87518522e97b"
+    },
+    {
+      "path": "tests/routing.spec.ts",
+      "bytes": 5698,
+      "checksum": "sha256:97836e0e86ca07711485fe25197ab8c5667b507257ae84f8bd27a6c0aec5f775"
+    },
+    {
+      "path": "tests/thomas-homepage.spec.ts",
+      "bytes": 7502,
+      "checksum": "sha256:d26129bceef13bafe9ede618aea9760452c790eb7d1a21248856f90a2995890f"
+    },
+    {
+      "path": "tests/thomas-sources.spec.ts",
+      "bytes": 4975,
+      "checksum": "sha256:c029a11cf8ba30dd3e27fd633789745654d4c8f94c8a9af1536c32fe325da34e"
+    },
+    {
+      "path": "tests/thomas.spec.ts",
+      "bytes": 12233,
+      "checksum": "sha256:d0cbe27ccbb520ad4a43d5ef385fe0ec0a34392cc7650fd6702420d882cc0672"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 710,
+      "checksum": "sha256:b53b3180947a68a9d69521b5185b2081afc33658acfbf91fa154f7456fcf74f6"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 444,
+      "checksum": "sha256:543dbe4ef84b2c6e0b27d34e806e31ef85c5c1256155e840fbf32fdb1624f678"
+    }
+  ],
+  "exitCode": 0,
+  "postbuildContentDigest": "sha256:7aa7caec49fee460dfc43b40db3afe5bd3b051880806842eb62c42af1e74b964",
+  "artifactDigest": "sha256:31990ac6e2af1c5cd28282ca4dffd239bc207419635067c3650e08bbd1018a73",
+  "artifactCount": 364
+}

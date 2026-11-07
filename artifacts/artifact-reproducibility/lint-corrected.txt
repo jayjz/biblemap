@@ -1,0 +1,12 @@
+
+> next_temp@0.1.0 lint
+> eslint
+
+
+C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\src\components\DataLoader.tsx
+   38:7   warning  'POINTS_URL' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  662:10  warning  'haversineDistance' is defined but never used     @typescript-eslint/no-unused-vars
+  672:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 3 problems (0 errors, 3 warnings)
+

@@ -1,0 +1,76 @@
+(node:9436) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/artifact-reproducibility.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ Git checkout preserves export text, Python inputs, binaries and pinned publisher bytes with autocrlf enabled (189.9846ms)
+✖ content identity includes the checkout policy (120.5182ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 416.4035
+
+✖ failing tests:
+
+test at src\domain\artifact-reproducibility.test.ts:12:1
+✖ Git checkout preserves export text, Python inputs, binaries and pinned publisher bytes with autocrlf enabled (189.9846ms)
+  AssertionError [ERR_ASSERTION]: public/media/approved/.gitkeep
+  + actual - expected
+  ... Skipped lines
+  
+  + Buffer(22) [Uint8Array] [
+  - Buffer(20) [Uint8Array] [
+      102,
+      105,
+      120,
+      116,
+      117,
+      114,
+      101,
+  +   13,
+      10,
+      115,
+      101,
+      99,
+      111,
+  ...
+      101,
+  +   13,
+      10
+    ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/artifact-reproducibility.test.ts:40:50)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: <Buffer 66 69 78 74 75 72 65 0d 0a 73 65 63 6f 6e 64 20 6c 69 6e 65 0d 0a>,
+    expected: <Buffer 66 69 78 74 75 72 65 0a 73 65 63 6f 6e 64 20 6c 69 6e 65 0a>,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at src\domain\artifact-reproducibility.test.ts:44:1
+✖ content identity includes the checkout policy (120.5182ms)
+  AssertionError [ERR_ASSERTION]: checkout policy must invalidate content acceptance
+      at TestContext.<anonymous> (file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/artifact-reproducibility.test.ts:58:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'sha256:f0991cf4e186959093af653f258af2811ed161d31427c93525ba2760d22e9868',
+    expected: 'sha256:f0991cf4e186959093af653f258af2811ed161d31427c93525ba2760d22e9868',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
