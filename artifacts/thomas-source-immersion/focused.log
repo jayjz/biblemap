@@ -1,0 +1,211 @@
+node.exe : [WebServer] (node:22156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 32 tests using 1 worker
+
+(node:22232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\thomas-sources.spec.ts:5:5 › source encounters connect narrative, documents and later traditions without a bibliography gate (3.2s)
+  x   2 [desktop] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text (45.0s)
+(node:22104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  3 [desktop] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 1440px (1.3s)
+  ok  4 [desktop] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 768px (892ms)
+  ok  5 [desktop] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 390px (840ms)
+  x   6 [desktop] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 320px (971ms)
+(node:22464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  7 [desktop] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (4.2s)
+  ok  8 [desktop] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (1.0s)
+  ok  9 [desktop] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (755ms)
+  ok 10 [desktop] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (839ms)
+  ok 11 [desktop] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (1.1s)
+  ok 12 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.4s)
+  ok 13 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 14 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  x  15 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.1s)
+(node:14012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  16 [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (3.5s)
+(node:23244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 17 [mobile] › tests\thomas-sources.spec.ts:5:5 › source encounters connect narrative, documents and later traditions without a bibliography gate (2.9s)
+  x  18 [mobile] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text (45.1s)
+(node:20040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 19 [mobile] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 1440px (1.2s)
+  ok 20 [mobile] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 768px (991ms)
+  ok 21 [mobile] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 390px (950ms)
+  ok 22 [mobile] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 320px (917ms)
+  ok 23 [mobile] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (3.4s)
+  ok 24 [mobile] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (1.1s)
+  ok 25 [mobile] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (748ms)
+  ok 26 [mobile] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (838ms)
+  ok 27 [mobile] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (1.1s)
+  ok 28 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.4s)
+  ok 29 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.3s)
+  ok 30 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 31 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 32 [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (2.9s)
+
+
+  1) [desktop] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text
+
+    Test timeout of 45000ms exceeded.
+
+    Error: page.addStyleTag: Test ended.
+
+      45 |   await page.goto(`${baseURL}/human-story/thomas/reading/#thomas-sources`);
+      46 |   await expect(page.locator('#thomas-sources img')).toHaveCount(0);
+    > 47 |   await page.addStyleTag({content:'p, a, summary, blockquote, dt, h3 {font-size:200% !important}'});
+         |              ^
+      48 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      49 |   await context.close();
+      50 | });
+        at C:\Dev\biblemap-human-experience\tests\thomas-sources.spec.ts:47:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 320px
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      59 |   }
+      60 |   await page.addStyleTag({content:'p, a, summary, blockquote, dt, h3 {font-size:200% !important}'});
+    > 61 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+         |                                                                                     ^
+      62 |   await expect(page.locator('#source-witnesses')).toContainText('beginning is not preserved');
+      63 |   await expect(page.locator('#source-questions')).toContainText('does not establish dependence');
+      64 | });
+        at C:\Dev\biblemap-human-experience\tests\thomas-sources.spec.ts:61:85
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-sources-source-enco-c80e1-ith-failed-imagery-at-320px-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-source-immersion\thomas-sources-source-enco-c80e1-ith-failed-imagery-at-320px-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-sources-source-enco-c80e1-ith-failed-imagery-at-320px-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-source-immersion\thomas-sources-source-enco-c80e1-ith-failed-imagery-at-320px-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      149 |   await page.getByText('Thomas before this moment', { exact: true }).click();
+      150 |   await page.getByText('Sources, editions and limits', { exact: true }).click();
+    > 151 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+          |                                                                                         ^
+      152 |   await page.goto('/human-story/thomas/sayings/#comparison');
+      153 |   await page.addStyleTag({ content: 'p, a, summary, blockquote { font-size: 200% !important; }' });
+      154 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        at C:\Dev\biblemap-human-experience\tests\thomas.spec.ts:151:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-Thomas-reflows-at-3-9f2a1-ion-and-unavailable-imagery-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-source-immersion\thomas-Thomas-reflows-at-3-9f2a1-ion-and-unavailable-imagery-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-Thomas-reflows-at-3-9f2a1-ion-and-unavailable-imagery-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-source-immersion\thomas-Thomas-reflows-at-3-9f2a1-ion-and-unavailable-imagery-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      175 |   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
+      176 |   await page.addStyleTag({content:'p, a, summary, blockquote { font-size:200% !important; }'});
+    > 177 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+          |                                                                                       ^
+      178 | });
+      179 |
+        at C:\Dev\biblemap-human-experience\tests\thomas.spec.ts:177:87
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-source-immersion\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-source-immersion\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [mobile] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text
+
+    Test timeout of 45000ms exceeded.
+
+    Error: page.addStyleTag: Test ended.
+
+      45 |   await page.goto(`${baseURL}/human-story/thomas/reading/#thomas-sources`);
+      46 |   await expect(page.locator('#thomas-sources img')).toHaveCount(0);
+    > 47 |   await page.addStyleTag({content:'p, a, summary, blockquote, dt, h3 {font-size:200% !important}'});
+         |              ^
+      48 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      49 |   await context.close();
+      50 | });
+        at C:\Dev\biblemap-human-experience\tests\thomas-sources.spec.ts:47:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-source-immersion\thomas-sources-source-expl-af74e-ed-motion-and-enlarged-text-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [desktop] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text
+    [desktop] › tests\thomas-sources.spec.ts:52:44 › source encounters reflow and retain all evidence with failed imagery at 320px
+    [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery
+    [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+    [mobile] › tests\thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text
+  27 passed (2.4m)

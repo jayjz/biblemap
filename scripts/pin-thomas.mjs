@@ -1,5 +1,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+const greekHtml = readFileSync('src/content/scripture/thomas-oxy1-26.html', 'utf8').replace(/\r\n/g, '\n');
+const greek = JSON.parse(readFileSync('src/content/scripture/thomas-oxy1-26.json', 'utf8'));
+const greekExcerpt = greekHtml.match(/<!-- greek-start -->([\s\S]*?)<!-- greek-end -->/)?.[1];
+if (greek.lines.join('\n') !== greekExcerpt || !greekHtml.includes('CC BY 3.0') || !greek.rights.includes('Attribution 3.0')) throw new Error('Thomas Greek ending differs from its retained licensed transcription excerpt');
 for (const number of [13,26]) {
 const sayingHtml = readFileSync(`src/content/scripture/thomas-mattison-${number}.html`, 'utf8').replace(/\r\n/g, '\n');
 const sayingBody = sayingHtml.match(/<!-- saying-start -->([\s\S]*?)<!-- saying-end -->/)?.[1];
@@ -24,5 +28,5 @@ const serialized = JSON.stringify(records, null, 2) + '\n';
 const target = 'src/content/scripture/thomas-quotes.json';
 if (process.argv.includes('--check')) {
   if (readFileSync(target, 'utf8').replace(/\r\n/g, '\n') !== serialized) throw new Error('Thomas quotation snapshot mismatch');
-  console.log(`Thomas: ${records.length} WEB verses and sayings 13/26 match retained public-domain source excerpts.`);
+  console.log(`Thomas: ${records.length} WEB verses, sayings 13/26 and the CC BY 3.0 Greek ending match retained source excerpts.`);
 } else writeFileSync(target, serialized);

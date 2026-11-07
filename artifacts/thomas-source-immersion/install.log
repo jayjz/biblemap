@@ -1,0 +1,40 @@
+node.exe : npm error code EPERM
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm error code EPERM:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+npm error syscall spawn
+npm error errno -4048
+npm error Error: spawn EPERM
+npm error     at ChildProcess.spawn (node:internal/child_process:487:11)
+npm error     at spawn (node:child_process:813:9)
+npm error     at promiseSpawn (C:\Program
+Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:39:16)
+npm error     at spawnWithShell (C:\Program
+Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:124:10)
+npm error     at promiseSpawn (C:\Program
+Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:12:12)
+npm error     at runScriptPkg (C:\Program
+Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\run-script-pkg.js:79:13)
+npm error     at runScript (C:\Program
+Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\run-script.js:9:12)
+npm error     at C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\rebuild.js:348:17
+npm error     at run (C:\Program
+Files\nodejs\node_modules\npm\node_modules\promise-call-limit\dist\commonjs\index.js:67:22)
+npm error     at C:\Program Files\nodejs\node_modules\npm\node_modules\promise-call-limit\dist\commonjs\index.js:84:9 {
+npm error   errno: -4048,
+npm error   code: 'EPERM',
+npm error   syscall: 'spawn'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It's possible that the file was already in use (by a text editor or antivirus), or that you lack permissions
+to access it.
+npm error
+npm error If you believe this might be a permissions issue, please double-check the permissions of the file and its
+containing directories, or try running the command again as root/Administrator.
+npm error Log files were not written due to an error writing to the directory:
+C:\Users\jcoul\AppData\Local\npm-cache\_logs
+npm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal

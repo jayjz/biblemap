@@ -5,7 +5,7 @@ import { THOMAS_MOVEMENTS, THOMAS_REVIEW, THOMAS_SOURCES, THOMAS_SAYING, THOMAS_
 
 test('Thomas preserves every verse of John 20:24–29 and excludes publisher footnotes', () => {
   execFileSync(process.execPath, ['scripts/pin-thomas.mjs', '--check']);
-  assert.deepEqual(THOMAS_MOVEMENTS.flatMap(m => [...m.verseIds]), ['jhn20-24','jhn20-25','jhn20-26','jhn20-27','jhn20-28','jhn20-29']);
+  assert.deepEqual(THOMAS_MOVEMENTS.flatMap(m => [...m.verseIds]), ['jhn20-24','jhn20-25','jhn20-26','jhn20-27','jhn20-28','jhn20-29','jhn20-30','jhn20-31']);
   assert.equal(thomasVerse('jhn20-24').text, 'But Thomas, one of the twelve, called Didymus, wasn’t with them when Jesus came.');
   assert.equal(thomasVerse('jhn20-29').text, 'Jesus said to him, “Because you have seen me, you have believed. Blessed are those who have not seen and have believed.”');
   for (const m of THOMAS_MOVEMENTS) for (const id of m.verseIds) assert.doesNotMatch(thomasVerse(id).text, /or, Twin|TR adds|[†§]/);

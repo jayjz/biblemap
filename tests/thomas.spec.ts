@@ -12,12 +12,15 @@ test('Thomas preserves the whole account, source boundaries, navigation and a se
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Thomas');
   await page.getByRole('link', { name: 'Enter the account', exact: true }).click();
-  await expect(page.locator('#absent')).toBeFocused();
+  await expect(page.locator('#before-thomas')).toBeFocused();
+  await expect(page.locator('[data-verse="jhn11-16"]')).toBeVisible();
+  await expect(page.locator('[data-verse="jhn14-5"]')).toBeVisible();
+  await expect(page.locator('#not-seen [data-verse="jhn20-31"]')).toBeVisible();
   const nav = page.getByRole('navigation', { name: 'Thomas movements' });
   await nav.getByRole('link', { name: 'II Unless I see', exact: true }).click();
   await expect(page.locator('#unless')).toBeFocused();
   await page.goBack();
-  await expect(page).toHaveURL(/#absent$/);
+  await expect(page).toHaveURL(/#before-thomas$/);
   await page.goForward();
   await expect(page).toHaveURL(/#unless$/);
   const reveal = page.getByText('What had the others already seen?', { exact: true });
@@ -34,6 +37,7 @@ test('Thomas preserves the whole account, source boundaries, navigation and a se
   await page.getByRole('radio',{name:/P.Oxy. 654 Greek/}).check();
   await expect(page.locator('[data-witness="oxy654"]')).toBeVisible();
   await expect(page.locator('#witnesses')).toContainText('250–299 CE');
+  await expect(page.locator('[data-manuscript-form="oxy654"]')).toBeVisible();
   await expect(page.locator('[data-thomas-saying="26"]')).toContainText('Coptic NHC II,2');
   await page.getByText('What does the surviving Greek actually preserve?', { exact: true }).click();
   await expect(page.locator('#comparison')).toContainText('does not survive on this leaf');
@@ -59,6 +63,10 @@ test('native voice comparison and manuscript exploration preserve source text wi
   await expect(page.locator('[data-witness="oxy1"]')).toBeVisible();
   await expect(page.locator('[data-witness="oxy1"]')).toContainText('Ending only');
   await expect(page.locator('[data-witness="oxy1"]')).toContainText('Not preserved in this fragment');
+  await page.getByText('Inspect the surviving ending of saying 26', { exact:true }).click();
+  await expect(page.locator('[lang="grc"]')).toBeVisible();
+  await expect(page.locator('[data-witness="oxy1"]')).toContainText('Beginning not preserved here');
+  await expect(page.locator('[data-witness="oxy1"]')).toContainText('CC BY 3.0');
   await page.goto(`${baseURL}/human-story/thomas/sayings/#saying-13`);
   await page.getByText('Read the whole preserved saying 13',{exact:true}).click();
   await expect(page.locator('[data-thomas-full-saying="13"]')).toContainText('told him three things');
@@ -144,4 +152,27 @@ for (const width of [1440,768,390,320]) test(`Thomas reflows at ${width}px with 
   await page.goto('/human-story/thomas/sayings/#comparison');
   await page.addStyleTag({ content: 'p, a, summary, blockquote { font-size: 200% !important; }' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('V4 interval, complete ending and expanded physical evidence remain accessible', async ({ page }) => {
+  await page.setViewportSize({width:320,height:900});
+  await page.goto('/human-story/thomas/#eight-days');
+  await page.getByRole('link',{name:'Go directly to the return',exact:true}).click();
+  await expect(page.locator('#with-them')).toBeFocused();
+  await page.goBack();
+  await expect(page).toHaveURL(/#eight-days$/);
+  await page.goto('/human-story/thomas/reading/');
+  await expect(page.locator('[data-verse="jhn20-31"]')).toBeVisible();
+  expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
+  await page.goto('/human-story/thomas/sayings/#witnesses');
+  for (const id of ['nhc','oxy1','oxy654','oxy655']) {
+    await page.locator(`#inspect-${id}`).focus();
+    await page.keyboard.press('Space');
+    await expect(page.locator(`[data-manuscript-form="${id}"]`)).toBeVisible();
+  }
+  await page.locator('#inspect-oxy1').check();
+  await page.getByText('Inspect the surviving ending of saying 26',{exact:true}).click();
+  expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
+  await page.addStyleTag({content:'p, a, summary, blockquote { font-size:200% !important; }'});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

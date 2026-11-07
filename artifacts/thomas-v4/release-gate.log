@@ -1,0 +1,105 @@
+
+> next_temp@0.1.0 validate:release
+> npm run validate:story && npm run validate:export && node --experimental-strip-types scripts/publication-gate.mjs
+
+
+> next_temp@0.1.0 validate:story
+> node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+James: 3 Scripture quotations match retained publisher snapshots.
+Thomas: 19 WEB verses, sayings 13/26 and the CC BY 3.0 Greek ending match retained source excerpts.
+node.exe : (node:18564) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:18564) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Jonah technical integrity validates; publication authorization is checked separately by validate:release
+
+> next_temp@0.1.0 validate:media
+> node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts
+
+✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
+(node:7092) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-human-experience/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as
+CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-human-experience\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced
+✖ src\domain\human-story-interiors.test.ts (10.6761ms)
+✖ src\domain\romanus.test.ts (6.3667ms)
+✖ src\domain\thomas-media.test.ts (4.6123ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24.5641
+
+✖ failing tests:
+
+test at src\domain\human-story-interiors.test.ts:1:1
+✖ src\domain\human-story-interiors.test.ts (10.6761ms)
+  Error: spawn EPERM
+      at ChildProcess.spawn (node:internal/child_process:487:11)
+      at spawn (node:child_process:813:9)
+      at TestContext.<anonymous> (node:internal/test_runner/runner:529:19)
+      at FileTest.runInAsyncScope (node:async_hooks:227:14)
+      at FileTest.run (node:internal/test_runner/test:1402:25)
+      at FileTest.start (node:internal/test_runner/test:1262:17)
+      at runTestFile (node:internal/test_runner/runner:611:32)
+      at node:internal/test_runner/runner:1033:25
+      at node:internal/per_context/primordials:599:37
+      at new Promise (<anonymous>) {
+    errno: -4048,
+    code: 'EPERM',
+    syscall: 'spawn'
+  }
+
+test at src\domain\romanus.test.ts:1:1
+✖ src\domain\romanus.test.ts (6.3667ms)
+  Error: spawn EPERM
+      at ChildProcess.spawn (node:internal/child_process:487:11)
+      at spawn (node:child_process:813:9)
+      at TestContext.<anonymous> (node:internal/test_runner/runner:529:19)
+      at FileTest.runInAsyncScope (node:async_hooks:227:14)
+      at FileTest.run (node:internal/test_runner/test:1402:25)
+      at FileTest.start (node:internal/test_runner/test:1262:17)
+      at runTestFile (node:internal/test_runner/runner:611:32)
+      at node:internal/test_runner/runner:1033:25
+      at node:internal/per_context/primordials:599:37
+      at new Promise (<anonymous>) {
+    errno: -4048,
+    code: 'EPERM',
+    syscall: 'spawn'
+  }
+
+test at src\domain\thomas-media.test.ts:1:1
+✖ src\domain\thomas-media.test.ts (4.6123ms)
+  Error: spawn EPERM
+      at ChildProcess.spawn (node:internal/child_process:487:11)
+      at spawn (node:child_process:813:9)
+      at TestContext.<anonymous> (node:internal/test_runner/runner:529:19)
+      at FileTest.runInAsyncScope (node:async_hooks:227:14)
+      at FileTest.run (node:internal/test_runner/test:1402:25)
+      at FileTest.start (node:internal/test_runner/test:1262:17)
+      at runTestFile (node:internal/test_runner/runner:611:32)
+      at node:internal/test_runner/runner:1033:25
+      at node:internal/per_context/primordials:599:37
+      at new Promise (<anonymous>) {
+    errno: -4048,
+    code: 'EPERM',
+    syscall: 'spawn'
+  }

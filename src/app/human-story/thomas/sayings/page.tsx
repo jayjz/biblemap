@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { THOMAS_ROUTES, THOMAS_SAYING, THOMAS_SAYINGS, THOMAS_SAYING_13_EXCERPT } from '@/content/thomas';
+import { THOMAS_SAYING, THOMAS_SAYINGS, THOMAS_SAYING_13_EXCERPT } from '@/content/thomas';
 import { ThomasShell } from '@/features/human-story/thomas/ThomasShell';
 import { SourceLinks, ThomasSources } from '@/features/human-story/thomas/ThomasSources';
 import { Verse } from '@/features/human-story/thomas/ThomasEncounter';
@@ -16,8 +15,9 @@ export default function ThomasSayingsPage() {
       <p>Here we leave John’s narrative. These manuscripts do not continue the encounter in the room.</p><a className={styles.primary} href="#witnesses">Meet the manuscript witnesses</a><SourceLinks ids={['thomas-mattison','thomas-nhc']} /></header>
     <section className={styles.witnesses} id="witnesses" tabIndex={-1} aria-labelledby="witness-title"><h2 id="witness-title">Copies survive.<br />The origin remains debated.</h2>
       <p>A physical copy has a date. The composition it preserves may be older. Neither date authenticates an apostle’s handwriting.</p>
-      <div className={manuscript.chronology} aria-label="Physical witnesses in broad chronological groups"><div><span>Second / third centuries</span><p>Greek fragments<br />P.Oxy. 1 · 654 · 655</p></div><div><span>Fourth / fifth century inventory</span><p>Coptic codex<br />NHC II,2</p></div></div>
+      <p className={manuscript.deskInvitation}>Choose an object. Notice its form, then ask how much of either saying it actually preserves.</p>
       <ManuscriptWitnesses />
+      <details><summary>Why do the manuscript dates differ between catalogues?</summary><p>The ranges here follow DCLP for the Greek witnesses. NASSCAL lists narrower or different estimates for P.Oxy. 1 and 654; the Smithsonian exhibition describes P.Oxy. 1 as third century. For the Coptic codex, SCRIPTORIUM gives 301–400, while the linked Mattison inventory allows the fourth or fifth century. These estimates concern physical copies, not a settled date for composing the collection.</p><SourceLinks ids={['thomas-nasscal','thomas-smithsonian','thomas-scriptorium']} /></details>
       <details><summary>See the manuscript photograph at its institution</summary><p>Claremont’s record shows the beginning of Thomas on codex page 32 together with page 111, which belongs to another text. Its photograph dates to 1975; that is not the date of the papyrus. Copyright is retained, so we link to the image rather than reproduce it.</p><SourceLinks ids={['thomas-claremont']} /></details>
       <details><summary>Why the Greek and Coptic cannot be collapsed</summary><p>The Greek fragments differ from the Coptic in wording and arrangement. Material alongside saying 30 in P.Oxy. 1 appears with saying 77 in the Coptic collection. They witness transmission, not an unchanged recording.</p><SourceLinks ids={['thomas-hurtado','thomas-oxy1']} /></details>
     </section>
@@ -29,7 +29,7 @@ export default function ThomasSayingsPage() {
       <details><summary>Two approaches to the collection’s history</summary><p>April DeConick argues for a developing collection that includes early traditions. A later-dating approach, presented by Simeon Burke in discussion of Goodacre and Gathercole, sees knowledge of the Synoptic Gospels. These are competing explanations, not verdicts supplied by this comparison.</p><SourceLinks ids={['thomas-deconick','thomas-dating']} /></details>
     </section>
     <section id="saying-13" className={manuscript.thirteen} tabIndex={-1} aria-labelledby="thirteen-title"><p className={styles.locator}>A different portrayal · saying 13</p><h2 id="thirteen-title">Thomas speaks.<br />The texts differ.</h2>
-      <p>In John, Thomas addresses Jesus with a confession. In this saying, the character Thomas says he cannot supply a comparison; the narrative then gives him a private exchange. Read these as different literary portrayals, without supplying a missing conversation between them.</p>
+      <p>In John, Thomas’s answer is spoken to Jesus in the gathered encounter. Saying 13 begins with a request for comparison: Peter and Matthew offer images; Thomas says he cannot. Its private exchange is part of this separate text’s portrayal, not additional testimony about John’s room.</p>
       <div className={`${styles.comparisonTexts} ${manuscript.portraits}`}>
         <figure data-thomas-saying="13"><h3>Gospel of Thomas · saying 13, excerpt</h3><blockquote>{THOMAS_SAYING_13_EXCERPT}</blockquote><figcaption><a href={THOMAS_SAYINGS[13].sourceUrl}>Mark M. Mattison · public-domain translation</a><br />Coptic NHC II,2. Not preserved in P.Oxy. 1, 654 or 655.</figcaption></figure>
         <div><h3>John · 20:28</h3><Verse id="jhn20-28" /></div>
@@ -38,7 +38,5 @@ export default function ThomasSayingsPage() {
       <p className={manuscript.criticalNote}>The saying reports three things spoken aside but does not give their content. Nothing here reveals or reconstructs those unreported words.</p>
       <details><summary>What can this contrast establish?</summary><p>It shows different ways these texts portray Thomas’s speech. It does not establish which author knew the other, the historical apostle’s authorship, or independently authenticated speech. Mattison notes that “three things” can also be translated “three words.” Neither rendering supplies them.</p><SourceLinks ids={['thomas-mattison','thomas-john20','thomas-nhc']} /></details>
     </section>
-    <section className={styles.laterNames}><h2>A name travels<br />beyond one Gospel.</h2><p>John calls Thomas Didymus, with the sense “Twin,” but does not name his twin. The sayings prologue adds Judas. Eusebius transmits a Parthian mission tradition. The Acts of Thomas tells an India mission and martyrdom story. These later traditions are distinct sources, not missing scenes recovered from John.</p>
-      <p>Thomas is not James, the brother of Jesus. The sayings collection itself names James the Just and Thomas separately.</p><SourceLinks ids={['thomas-john20','thomas-mattison','thomas-eusebius','thomas-acts']} /><Link className={styles.primary} href={THOMAS_ROUTES.encounter + '#not-seen'} prefetch={false}>Return to John’s ending</Link></section>
-    </div><ThomasSources /></ThomasShell>;
+    </div><ThomasSources sayings /></ThomasShell>;
 }
