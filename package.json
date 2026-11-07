@@ -13,7 +13,7 @@
     "test": "node --experimental-strip-types --test src/domain/*.test.ts",
     "validate:story": "node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media",
     "validate:media": "node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts",
-    "validate:release": "npm run validate:story && node --experimental-strip-types scripts/publication-gate.mjs",
+    "validate:release": "npm run validate:story && node --experimental-strip-types scripts/release/authorize.mjs",
     "audit:export": "node scripts/export-inventory.mjs",
     "test:export-boundary": "node --experimental-strip-types scripts/test-export-boundary.mjs",
     "test:release": "node --experimental-strip-types --test scripts/release/*.test.mjs",

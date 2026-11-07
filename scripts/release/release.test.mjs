@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { artifactDigest, compareBuilds, fileManifest, objectDigest, policy, sha1, verifyFiles } from './artifact.mjs';
 import { authorizationErrors } from './authorization.mjs';
 import { staticConfig } from './pack.mjs';
-import { verifyUpload } from './preview.mjs';
+import { deploymentResult, verifyUpload } from './preview.mjs';
 import { assertBuildPublication, candidateErrors } from '../publication-gate.mjs';
 
 const scope = { schemaVersion: 1, entries: {}, routes: [{ route: '/', maturity: 'provisional', limitations: ['synthetic-fixture'] }] };
@@ -24,7 +24,7 @@ function fixture() {
   const proof = { status: 'verified', sourceCommit: source, sourceInputDigest: manifest.sourceInputDigest, artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, build: manifest.build, manifests: [objectDigest(manifest), objectDigest({ ...manifest, build: { ...manifest.build, replica: '2' } })], independentReplicas: ['1', '2'] };
   const deployment = { id: 'dpl_fixture', projectId: policy.projectId, teamId: policy.teamId, target: null, readyState: 'READY', url: 'synthetic-fixture.vercel.app', meta: { canonicalArtifact: manifest.artifactDigest, canonicalManifest: objectDigest(manifest), canonicalOutput: manifest.outputDigest, canonicalSource: source, canonicalRun: '123/1' } };
   const results = [{ path: 'index.html', checksum: manifest.files[0].checksum }];
-  const receipt = { schemaVersion: 1, status: 'verified', manifestDigest: objectDigest(manifest), deploymentId: deployment.id, deploymentUrl: deployment.url, artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, uploadIdentity: 'complete-prebuilt-file-tree-sha1-size', http: { status: 'verified', verifiedFiles: 1, results, resultsDigest: objectDigest(results) } };
+  const receipt = { schemaVersion: 1, status: 'verified', manifestDigest: objectDigest(manifest), deploymentId: deployment.id, deploymentUrl: deployment.url, artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, uploadIdentity: 'complete-prebuilt-file-tree-sha1', http: { status: 'verified', verifiedFiles: 1, results, resultsDigest: objectDigest(results) } };
   const acceptance = { schemaVersion: 2, status: 'accepted', actor: 'SYNTHETIC-TEST-ONLY', decidedAt: '2026-11-07T00:00:00Z', evidence: 'in-memory unit fixture, no human approval', sourceCommit: source, sourceInputDigest: manifest.sourceInputDigest, artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, manifestDigest: objectDigest(manifest), scopeDigest: manifest.scopeDigest, previewDeploymentId: deployment.id, verificationDigest: objectDigest(receipt), build: manifest.build, routes: ['/'], acceptedLimitations: ['synthetic-fixture'] };
   return structuredClone({ manifest, proof, deployment, receipt, scope, acceptance, sourceInputDigest: manifest.sourceInputDigest });
 }
@@ -80,12 +80,18 @@ test('full prebuilt upload identity rejects missing, additional or replaced prov
   try {
     writeFileSync(join(root, 'config.json'), '{"version":3}');
     const entry = { name: 'config.json', type: 'file', size: 13, uid: sha1(readFileSync(join(root, 'config.json'))) };
-    const tree = [{ name: '.vercel', type: 'directory', children: [{ name: 'output', type: 'directory', children: [entry] }] }];
+    const tree = [{ name: 'src', type: 'directory', children: [{ name: '.vercel', type: 'directory', children: [{ name: 'output', type: 'directory', children: [entry, { name: 'empty', type: 'directory' }] }] }] }];
     assert.equal(verifyUpload(root, tree).fileCount, 1);
     assert.throws(() => verifyUpload(root, []));
     entry.uid = '0'.repeat(40);
     assert.throws(() => verifyUpload(root, tree));
   } finally { rmSync(root, { recursive: true, force: true }); }
+});
+test('pinned CLI JSON result is parsed without following suggested production commands', () => {
+  const result = { status: 'ok', deployment: { id: 'dpl_fixture', url: 'https://fixture.vercel.app', target: null }, next: [{ command: 'vercel deploy --prod' }] };
+  assert.equal(deploymentResult(JSON.stringify(result)).id, 'dpl_fixture');
+  result.deployment.target = 'production';
+  assert.throws(() => deploymentResult(JSON.stringify(result)));
 });
 test('Linux replicas must match full inputs, toolchain, output and configuration', () => {
   const first = fixture().manifest, second = structuredClone(first);

@@ -89,9 +89,15 @@ It checks the existing team/project and only creates a preview. It then records:
 1. Complete local static and package SHA-256 verification.
 2. Authenticated Vercel deployment ID, READY preview target and package metadata.
 3. [Complete prebuilt upload file tree](https://vercel.com/docs/rest-api/deployments/list-deployment-files),
-   matching provider SHA1 identifiers, paths and lengths with local upload bytes.
+   matching every provider path and SHA1 identifier with local upload bytes. The
+   observed API wraps paths in `src/` and omits lengths; lengths are checked when
+   present, and complete local/HTTP verification independently checks byte lengths.
 4. HTTP SHA-256 of **every known static file**, including HTML (via its route), JS,
    CSS, fonts, media and RSC, plus redirect/404/prohibited-route assertions.
+
+The packaged `client-config.json` is also hashed. It selects static hosting for this
+deployment and prevents source-build `cleanUrls`/routes from being applied a second
+time over the package's complete low-level routes. It does not edit project settings.
 
 The provider's source/upload tree is not an independent enumeration of the internal
 CDN filesystem. SHA1 is Vercel upload identity, not the canonical integrity digest.
@@ -139,7 +145,9 @@ Copy identities from the verified evidence, never from an unrelated preview. Pre
 previous records under `docs/release/acceptances/` and their authentic evidence. The
 agent must not fill actor/date/evidence/status on the creator's behalf. A decision-only
 commit does not build, change SEO, rename files or replace the approved artifact.
-`npm run validate:release` checks the detached package and acceptance in that checkout;
+`npm run validate:release` checks the detached package and acceptance in that checkout,
+then re-verifies the authenticated deployment and all served bytes live. Rechecks
+write a separate receipt, preserving the original evidence bound to acceptance;
 missing evidence, changed inputs/scope, different build or deployment fail closed.
 The approval metadata alone does not cryptographically authenticate an actor; creator
 identity and explicit publication authority require review/protected credentials.

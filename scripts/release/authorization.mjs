@@ -36,7 +36,7 @@ export function authorizationErrors({ manifest, proof, receipt, deployment, scop
     assert.equal(receipt.deploymentUrl, deployment.url);
     assert.equal(receipt.artifactDigest, manifest.artifactDigest);
     assert.equal(receipt.outputDigest, manifest.outputDigest);
-    assert.equal(receipt.uploadIdentity, 'complete-prebuilt-file-tree-sha1-size');
+    assert.equal(receipt.uploadIdentity, 'complete-prebuilt-file-tree-sha1');
     assert.equal(receipt.http.status, 'verified');
     assert.equal(objectDigest(receipt.http.results), receipt.http.resultsDigest);
     assert.equal(receipt.http.verifiedFiles, manifest.artifactCount);

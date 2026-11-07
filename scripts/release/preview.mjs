@@ -12,16 +12,34 @@ import { candidateErrors } from '../publication-gate.mjs';
 
 export function flattenTree(tree, prefix = '') {
   assert.ok(Array.isArray(tree), 'Deployment file tree unavailable');
-  return tree.flatMap(entry => entry.type === 'directory' ? flattenTree(entry.children, prefix + entry.name + '/') : [{ path: prefix + entry.name, size: entry.size, sha: entry.uid }]);
+  return tree.flatMap(entry => {
+    if (entry.type === 'directory') return flattenTree(entry.children ?? [], prefix + entry.name + '/');
+    assert.equal(entry.type, 'file', 'Unknown provider file type');
+    return [{ path: prefix + entry.name, ...(entry.size === undefined ? {} : { size: entry.size }), sha: entry.uid }];
+  });
 }
 export function verifyUpload(outputRoot, tree) {
-  const expected = fileManifest(outputRoot).map(file => ({ path: '.vercel/output/' + file.path, size: file.bytes, sha: sha1(readFileSync(join(outputRoot, file.path))) }));
+  const expected = fileManifest(outputRoot).map(file => ({ path: 'src/.vercel/output/' + file.path, size: file.bytes, sha: sha1(readFileSync(join(outputRoot, file.path))) }));
   const actual = flattenTree(tree).sort((a, b) => a.path < b.path ? -1 : a.path > b.path ? 1 : 0);
-  assert.deepEqual(actual, expected, 'Remote prebuilt upload tree differs; do not infer remote byte equality');
-  return { fileCount: actual.length, digest: objectDigest(actual) };
+  assert.deepEqual(actual.map(({ path, sha }) => ({ path, sha })), expected.map(({ path, sha }) => ({ path, sha })), 'Remote prebuilt upload tree differs; do not infer remote byte equality');
+  for (let i = 0; i < actual.length; i++) if (actual[i].size !== undefined) assert.equal(actual[i].size, expected[i].size);
+  return { fileCount: actual.length, digest: objectDigest(actual), reportedSizes: actual.filter(file => file.size !== undefined).length, limitation: 'Vercel v6 tree wraps prebuilt uploads in src/ and may omit lengths; complete path/SHA1 identities are verified, with lengths checked when exposed. This is upload identity, not CDN byte enumeration.' };
 }
 const runCLI = args => execFileSync(process.execPath, [process.env.VERCEL_CLI_ENTRY, ...args], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
 const api = path => JSON.parse(runCLI(['api', path, '--scope', 'elliotandersons-projects']));
+const deploymentIdentity = deployment => ({
+  id: deployment.id, projectId: deployment.projectId, teamId: deployment.teamId ?? deployment.ownerId,
+  readyState: deployment.readyState, target: deployment.target, url: deployment.url,
+  meta: Object.fromEntries(['canonicalArtifact', 'canonicalManifest', 'canonicalOutput', 'canonicalSource', 'canonicalRun'].map(key => [key, deployment.meta?.[key]])),
+});
+export function deploymentResult(stdout) {
+  const result = JSON.parse(stdout);
+  assert.equal(result.status, 'ok');
+  assert.match(result.deployment.id, /^dpl_[A-Za-z0-9]+$/);
+  assert.match(result.deployment.url, /^https:\/\/[a-z0-9-]+\.vercel\.app$/);
+  assert.ok(result.deployment.target === null || result.deployment.target === 'preview');
+  return result.deployment;
+}
 
 export function verifyProvenance(manifest, archive = 'canonical-release.tgz') {
   // The signed archive, its workflow/source identity, and extracted bytes must
@@ -51,7 +69,7 @@ export async function verifyHTTP(manifest, origin) {
     const route = html ? '/' + file.path.slice(0, -'index.html'.length) : '/' + file.path;
     const response = await fetch(origin + route, { redirect: 'manual', headers: { 'Accept-Encoding': 'identity' }, signal: AbortSignal.timeout(30000) });
     const bytes = Buffer.from(await response.arrayBuffer());
-    assert.equal(response.status, file.path === '404.html' ? 404 : 200, `${route}: HTTP ${response.status}`);
+    assert.equal(response.status, ['404.html', '404/index.html'].includes(file.path) ? 404 : 200, `${route}: HTTP ${response.status}`);
     assert.equal(bytes.length, file.bytes, `${route}: served byte length changed`);
     assert.equal(digest(bytes), file.checksum, `${route}: served bytes changed`);
     results.push({ path: file.path, route, status: response.status, checksum: digest(bytes), contentType: response.headers.get('content-type'), contentEncoding: response.headers.get('content-encoding') });
@@ -93,24 +111,28 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   let deployment;
   if (process.argv[2] === 'deploy') {
     assert.ok(!existsSync('release-candidate/deployment.json'), 'Candidate already deployed; refusing replacement');
-    const args = ['deploy', '--prebuilt', '--yes', '--skip-domain', '--scope', 'elliotandersons-projects'];
+    const args = ['deploy', '--prebuilt', '--yes', '--json', '--environment', 'preview', '--local-config', '.vercel/output/client-config.json', '--scope', 'elliotandersons-projects'];
     for (const [key, value] of Object.entries({ canonicalArtifact: manifest.artifactDigest, canonicalManifest: objectDigest(manifest), canonicalOutput: manifest.outputDigest, canonicalSource: manifest.sourceCommit, canonicalRun: `${manifest.build.runId}/${manifest.build.runAttempt}` })) args.push('--meta', `${key}=${value}`);
-    const url = runCLI(args).trim();
-    assert.match(url, /^https:\/\/[a-z0-9-]+\.vercel\.app$/);
-    deployment = api(`/v13/deployments/${new URL(url).hostname}?teamId=${policy.teamId}`);
+    const result = deploymentResult(runCLI(args));
+    deployment = api(`/v13/deployments/${result.id}?teamId=${policy.teamId}`);
     verifyDeployment(manifest, deployment);
-    writeFileSync('release-candidate/deployment.json', jsonBytes(deployment));
+    writeFileSync('release-candidate/deployment.json', jsonBytes(deploymentIdentity(deployment)));
   } else {
-    const saved = readJSON('release-candidate/deployment.json');
+    const requestedId = process.argv[3];
+    if (requestedId) assert.match(requestedId, /^dpl_[A-Za-z0-9]+$/);
+    const saved = existsSync('release-candidate/deployment.json') ? readJSON('release-candidate/deployment.json') : { id: requestedId };
+    assert.ok(saved.id, 'Saved deployment or explicit interrupted-preview ID required');
     deployment = api(`/v13/deployments/${saved.id}?teamId=${policy.teamId}`);
     assert.equal(deployment.id, saved.id);
+    verifyDeployment(manifest, deployment);
+    if (!existsSync('release-candidate/deployment.json')) writeFileSync('release-candidate/deployment.json', jsonBytes(deploymentIdentity(deployment)));
   }
   verifyDeployment(manifest, deployment);
   verifyManifest(manifest, '.vercel/output/static', '.vercel/output');
   const tree = api(`/v6/deployments/${deployment.id}/files?teamId=${policy.teamId}`);
   const upload = verifyUpload('.vercel/output', tree);
   const http = await verifyHTTP(manifest, 'https://' + deployment.url);
-  const receipt = { schemaVersion: 1, status: 'verified', checkedAt: new Date().toISOString(), manifestDigest: objectDigest(manifest), artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, deploymentId: deployment.id, deploymentUrl: deployment.url, uploadIdentity: 'complete-prebuilt-file-tree-sha1-size', provenance, upload, http, trustBoundary: 'Vercel authenticated API upload identity and prebuilt semantics; SHA1 is provider upload identity, SHA256 protects local bytes. CDN internals and generated metadata are trusted, not fully remotely enumerated.' };
+  const receipt = { schemaVersion: 1, status: 'verified', checkedAt: new Date().toISOString(), manifestDigest: objectDigest(manifest), artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, deploymentId: deployment.id, deploymentUrl: deployment.url, uploadIdentity: 'complete-prebuilt-file-tree-sha1', provenance, upload, http, trustBoundary: 'Vercel authenticated API upload identity and prebuilt semantics; SHA1 is provider upload identity, SHA256 protects local bytes. CDN internals and generated metadata are trusted, not fully remotely enumerated.' };
   const receiptPath = existsSync('release-candidate/verification.json') ? 'release-candidate/verification-recheck.json' : 'release-candidate/verification.json';
   writeFileSync(receiptPath, jsonBytes(receipt));
   console.log(JSON.stringify({ status: receipt.status, deploymentId: deployment.id, url: 'https://' + deployment.url, artifactDigest: manifest.artifactDigest, verifiedFiles: http.verifiedFiles, verificationDigest: objectDigest(receipt) }));
