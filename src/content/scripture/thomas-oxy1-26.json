@@ -1,0 +1,11 @@
+{
+  "id": "thomas-oxy1-26-ending",
+  "sourceUrl": "https://papyri.info/dclp/62838",
+  "edition": "DCLP 62838, P.Oxy. 1, verso lines 1–4",
+  "checkedAt": "2026-11-06",
+  "rights": "DCLP/LDAB transcription, Creative Commons Attribution 3.0",
+  "rightsUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "lines": ["καὶ τότε διαβλέψεις", "ἐκβαλεῖν τὸ κάρφος", "τὸ ἐν τῷ ὀφθαλμῷ", "τοῦ ἀδελφοῦ σου"],
+  "selection": "Line breaks retained. The next saying's opening λέγει at the end of line 4 is excluded. No missing beginning supplied, no abbreviation expanded, no damaged letters restored in this selected passage.",
+  "review": "Human philological review pending. Beside the existing English translation of Coptic, not a new Greek translation or critical collation."
+}

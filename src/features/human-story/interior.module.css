@@ -1,0 +1,391 @@
+.worldOpening {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  background: #153449;
+  color: #edf2f3;
+}
+.worldHeading {
+  padding: clamp(2rem, 5vw, 5rem);
+  align-self: center;
+}
+.worldHeading > a:first-child {
+  font-size: 0.85rem;
+  text-underline-offset: 0.3em;
+}
+.worldHeading h1 {
+  font-size: clamp(3.5rem, 6.5vw, 7rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  margin: 2rem 0 1.5rem;
+}
+.worldHeading .worldInvitation {
+  font:
+    clamp(1.5rem, 2.5vw, 2.4rem) / 1.35 var(--font-playfair),
+    Georgia,
+    serif;
+  max-width: 25ch;
+}
+.worldHeading .worldDescription {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+  max-width: 48ch;
+}
+.startHere {
+  margin-top: 1.5rem;
+}
+.worldImage {
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  background: #102b3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.worldImage > figure {
+  width: 100%;
+  max-width: 640px;
+}
+.worldImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+}
+.worldImage figcaption {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  padding-top: 1rem;
+}
+.worldImage figcaption > p {
+  margin: 0;
+}
+.worldImage details {
+  border-top: 1px solid #708b99;
+  margin-top: 0.75rem;
+}
+.worldImage details p {
+  margin-block: 0.75rem;
+}
+.worldImage a {
+  color: inherit;
+}
+.saints {
+  background: #302335;
+}
+.saints .worldImage {
+  background: #241c28;
+}
+.saints .worldImage img {
+  max-height: 430px;
+}
+.voices .worldImage {
+  background: #233c47;
+}
+.artwork {
+  min-width: 0;
+}
+.artwork img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.artwork figcaption {
+  padding-top: 0.85rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.artwork details {
+  margin-top: 0.5rem;
+}
+.artwork details p {
+  margin-block: 0.8rem;
+}
+.artwork a {
+  color: inherit;
+  text-underline-offset: 0.25em;
+}
+.artwork summary,
+.reply > summary,
+.earlierPassage > summary,
+.imageReading > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.imageLink {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+.readings {
+  padding: clamp(2rem, 5vw, 5rem);
+  background: #edf2f3;
+}
+.readings > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 1rem;
+}
+.readingIndex {
+  margin: 2rem 0;
+  border-top: 1px solid #8caaa9;
+}
+.indexHeading {
+  font-size: 2rem;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem !important;
+}
+.readingRow {
+  border-bottom: 1px solid #aabdc2;
+}
+.readingDestination {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 0.7fr);
+  gap: 0.5rem 2rem;
+  padding: 1.25rem 0.75rem;
+  align-items: baseline;
+  text-decoration: none;
+}
+.readingDestination:hover {
+  background: #dce8e3;
+}
+.readingDestination:hover h3 {
+  text-decoration-thickness: 2px;
+}
+.readingAction {
+  grid-column: 2;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.readingRow h3 {
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+  line-height: 1.3;
+}
+.readingRow h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.readingDestination > p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  max-width: 58ch;
+}
+.readingRow .entryMeta {
+  font-size: 0.75rem;
+  line-height: 1.8;
+}
+.entryMeta span {
+  display: block;
+}
+.eyebrow {
+  font:
+    0.75rem/1.7 var(--font-geist-sans),
+    Arial,
+    sans-serif;
+  letter-spacing: 0.035em;
+  margin-bottom: 1rem !important;
+}
+.encounterIntro {
+  max-width: 70ch;
+  margin-bottom: 2rem;
+}
+.encounterIntro h2,
+.saintsEncounter h2,
+.augustineEncounter h2 {
+  font-size: clamp(2rem, 3.7vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+}
+.encounterIntro > p:last-child {
+  line-height: 1.8;
+  max-width: 60ch;
+}
+.letterEncounter {
+  padding-bottom: 2rem;
+}
+.accountTable {
+  border-block: 1px solid #8caaa9;
+  margin-block: 1rem 2rem;
+}
+.accountTable > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 1rem;
+  font-size: 1rem;
+}
+.letterPair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.letterPair > div,
+.reply {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  background: #dde8e6;
+  border-top: 3px solid #668a84;
+}
+.letterPair h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.letterPair .reply {
+  background: #153449;
+  color: #edf2f3;
+  border-color: #b9d7cc;
+}
+.reply > summary {
+  font-size: 1.1rem;
+}
+.passage {
+  margin-block: 1rem;
+}
+.passage blockquote {
+  margin: 0;
+  font:
+    clamp(1.1rem, 1.55vw, 1.4rem) / 1.75 var(--font-playfair),
+    Georgia,
+    serif;
+}
+.passage figcaption {
+  font-size: 0.75rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+.passage a {
+  color: inherit;
+  text-underline-offset: 0.25em;
+}
+.prompt {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-top: 1.5rem !important;
+  border-top: 1px solid #7d969f;
+  padding-top: 1rem;
+}
+.sourceNote {
+  font:
+    0.75rem/1.8 var(--font-geist-sans),
+    Arial,
+    sans-serif;
+  margin-top: 1.5rem !important;
+  max-width: 95ch;
+}
+.saintsEncounter {
+  padding-bottom: 2rem;
+}
+.saintVoices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-top: 2.5rem;
+}
+.saintVoices article {
+  border-top: 1px solid #8caaa9;
+  padding-top: 1.5rem;
+}
+.saintVoices h3 {
+  font-size: 1.6rem;
+  line-height: 1.35;
+}
+.saintVoices article > p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+.saintVoices article > a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+.augustineEncounter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(2rem, 5vw, 5rem);
+  background: #e2e9e3;
+}
+.augustineEncounter .artwork {
+  max-width: 450px;
+  justify-self: center;
+}
+.imageReading {
+  margin-top: 2rem;
+  border-top: 1px solid #809a90;
+}
+.imageReading p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.separationPassage {
+  margin-top: 1.75rem;
+}
+.separationPassage .passage blockquote {
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  line-height: 1.75;
+}
+.separationPassage .eyebrow {
+  color: #e7b6c5;
+}
+.earlierPassage {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #a58baa;
+}
+.separationPassage .sourceNote {
+  color: #dacddd;
+}
+.collectionNote {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 70ch;
+}
+@media (max-width: 800px) {
+  .worldOpening,
+  .letterPair,
+  .saintVoices,
+  .augustineEncounter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .worldHeading h1 {
+    margin-top: 1.5rem;
+  }
+  .worldImage {
+    padding: 1.5rem;
+  }
+  .worldImage img {
+    max-height: 350px;
+  }
+  .worldImage > figure {
+    max-width: 520px;
+  }
+  .saints .worldImage img {
+    max-height: 350px;
+  }
+  .readingDestination {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+  .readingAction { grid-column: 1; }
+  .entryMeta span {
+    display: inline;
+  }
+  .entryMeta span + span::before {
+    content: " · ";
+  }
+  .augustineEncounter .artwork {
+    max-width: 400px;
+  }
+}

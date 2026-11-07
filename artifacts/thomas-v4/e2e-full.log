@@ -1,0 +1,430 @@
+
+> next_temp@0.1.0 test:e2e
+> playwright test
+
+node.exe : [WebServer] (node:13520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 224 tests using 1 worker
+
+(node:1844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok   1 [desktop] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline (2.7s)
+  ok   2 [desktop] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson (1.6s)
+  ok   3 [desktop] › tests\authorship.spec.ts:4:5 › visitor DOM omits slots and written drafts while author workspace retains them (971ms)
+  ok   4 [desktop] › tests\city-inside-name.spec.ts:4:5 › Nineveh encounter unfolds from Scripture to later context and back to verses (2.4s)
+  ok   5 [desktop] › tests\city-inside-name.spec.ts:42:5 › the encounter reads without JavaScript or image loading (748ms)
+  ok   6 [desktop] › tests\city-inside-name.spec.ts:56:5 › reduced motion retains the same stages (717ms)
+  ok   7 [desktop] › tests\discovery.spec.ts:4:5 › sculpture study preserves the passage, traps focus, and returns on Escape (1.7s)
+  ok   8 [desktop] › tests\discovery.spec.ts:31:5 › three discoveries preserve Scripture, disclose sources, and remain readable at 320px (4.9s)
+  ok   9 [desktop] › tests\discovery.spec.ts:60:5 › passage opens Nineveh in the existing atlas and returns to the same passage (3.2s)
+  ok  10 [desktop] › tests\discovery.spec.ts:93:5 › discovery artwork failure preserves passage and connections (772ms)
+  ok  11 [desktop] › tests\discovery.spec.ts:104:5 › Joppa link and missing basemap retain sourced places and return navigation (1.9s)
+  ok  12 [desktop] › tests\explorer.spec.ts:3:5 › explorer baseline: data, filters, epochs, selection, journeys and fallback (5.7s)
+  ok  13 [desktop] › tests\first-encounter.spec.ts:4:5 › Nineveh gateway leads to the first calling and curiosity before optional research (3.9s)
+  ok  14 [desktop] › tests\first-encounter.spec.ts:53:5 › first encounter remains available without JavaScript (757ms)
+  ok  15 [desktop] › tests\home-discovery.spec.ts:4:5 › the homepage leads directly into both complete lives and their sources (2.1s)
+  ok  16 [desktop] › tests\home-discovery.spec.ts:31:5 › discovery actions have measured contrast, large targets and visible keyboard focus (4.6s)
+  ok  17 [desktop] › tests\home-discovery.spec.ts:66:5 › collection rows are full links; discovery survives enlarged text, missing images and no JavaScript (1.8s)
+  ok  18 [desktop] › tests\homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards (1.1s)
+  ok  19 [desktop] › tests\homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions (2.8s)
+  ok  20 [desktop] › tests\homepage-release.spec.ts:48:5 › five worlds and both principal lives remain reachable through the entrance (1.7s)
+  ok  21 [desktop] › tests\homepage-release.spec.ts:68:5 › legacy Nineveh fragments preserve discoveries, focus, reload and Back/Forward (1.1s)
+  ok  22 [desktop] › tests\homepage-release.spec.ts:88:5 › root content and Scripture navigation survive absent or failed JavaScript (1.6s)
+  ok  23 [desktop] › tests\homepage-release.spec.ts:103:7 › release route / has no unexpected errors, broken images or overflow (757ms)
+  ok  24 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /human-story/ has no unexpected errors, broken images or overflow (775ms)
+  ok  25 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /nineveh/ has no unexpected errors, broken images or overflow (445ms)
+  ok  26 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /jonah/ has no unexpected errors, broken images or overflow (739ms)
+  ok  27 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /explore/ has no unexpected errors, broken images or overflow (1.5s)
+  ok  28 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /human-story/perpetua/ has no unexpected errors, broken images or overflow (702ms)
+  ok  29 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /human-story/augustine/ has no unexpected errors, broken images or overflow (593ms)
+  ok  30 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /human-story/worlds/witnesses/ has no unexpected errors, broken images or overflow (636ms)
+  ok  31 [desktop] › tests\homepage-release.spec.ts:103:7 › release route /human-story/worlds/saints/ has no unexpected errors, broken images or overflow (549ms)
+  ok  32 [desktop] › tests\homepage-release.spec.ts:126:5 › static export includes all published routes and server-rendered entrance metadata (15ms)
+  ok  33 [desktop] › tests\homepage.spec.ts:8:5 › Nineveh entrance retains real Scripture and a full-book entry (591ms)
+  ok  34 [desktop] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.1s)
+  ok  35 [desktop] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (841ms)
+  ok  36 [desktop] › tests\homepage.spec.ts:66:5 › homepage remains readable at 320px and with reduced motion (1.4s)
+  ok  37 [desktop] › tests\homepage.spec.ts:79:5 › homepage keyboard skip-link and reader entry remain accessible (908ms)
+  ok  38 [desktop] › tests\homepage.spec.ts:91:5 › no JavaScript still shows Nineveh Scripture and the whole-book exit (828ms)
+  ok  39 [desktop] › tests\homepage.spec.ts:102:5 › legacy root map links still load the atlas rather than hijacking the Nineveh hash (1.5s)
+  ok  40 [desktop] › tests\homepage.spec.ts:108:5 › legacy skip fragment is treated as a homepage anchor (622ms)
+  ok  41 [desktop] › tests\human-story-interiors.spec.ts:4:5 › a reader can compare the governor and emperor in place with the keyboard (1.1s)
+  ok  42 [desktop] › tests\human-story-interiors.spec.ts:27:5 › the separation holds two source moments together without changing scenes (1.3s)
+  ok  43 [desktop] › tests\human-story-interiors.spec.ts:61:5 › new comparisons and image sources remain available without JavaScript (662ms)
+  ok  44 [desktop] › tests\human-story-interiors.spec.ts:94:5 › a failed new image preserves the source, caption and reading (562ms)
+  ok  45 [desktop] › tests\human-story-qa.spec.ts:6:5 › all static reading rooms and paths load with provenance, local links and no page errors (4.8s)
+  ok  46 [desktop] › tests\human-story-qa.spec.ts:62:5 › five world destinations remain accessible and fit narrow and enlarged text layouts (3.5s)
+  ok  47 [desktop] › tests\human-story-qa.spec.ts:95:5 › keyboard selection exposes its connections, keeps focus visible and returns to a real card (703ms)
+  ok  48 [desktop] › tests\human-story-qa.spec.ts:136:5 › no-JS exploration includes all readings, sources, artwork and authored paths (817ms)
+  ok  49 [desktop] › tests\human-story.spec.ts:4:5 › human story entrance has five worlds, Scripture access and an accessible reading order (1.2s)
+  ok  50 [desktop] › tests\human-story.spec.ts:31:5 › human story remains readable without JavaScript and at 320px (906ms)
+  ok  51 [desktop] › tests\human-story.spec.ts:57:5 › Scripture rooms retain exact Jonah, disclose source limits and connect into the Atlas (1.1s)
+  ok  52 [desktop] › tests\human-story.spec.ts:89:5 › witnesses distinguish disputed wording, James and scholarly transmission (840ms)
+  ok  53 [desktop] › tests\human-story.spec.ts:124:5 › saints keep autobiographical voice, editorial framing and legend distinct (1.0s)
+  ok  54 [desktop] › tests\human-story.spec.ts:163:5 › connected exploration searches, recovers from an empty result and previews relationships (718ms)
+  ok  55 [desktop] › tests\human-story.spec.ts:210:5 › authored threads cross worlds and retain historical limits (754ms)
+  ok  56 [desktop] › tests\human-story.spec.ts:236:5 › rights-cleared media retains a useful fallback and attribution (540ms)
+  ok  57 [desktop] › tests\james.spec.ts:4:5 › James is discoverable and the five movements retain source distinctions (2.7s)
+  ok  58 [desktop] › tests\james.spec.ts:48:5 › keyboard-only comparison returns focus and narrative position (781ms)
+  ok  59 [desktop] › tests\james.spec.ts:72:5 › tablet pointer comparison preserves the selected movement and scroll position (803ms)
+  ok  60 [desktop] › tests\james.spec.ts:90:5 › 320px no-JS reading preserves every movement and comparison (756ms)
+  ok  61 [desktop] › tests\james.spec.ts:107:5 › reduced motion, unavailable images and enlarged text preserve the reading (730ms)
+  ok  62 [desktop] › tests\james.spec.ts:123:5 › cinematic scenes retain distinct settings, political consequences and accessible evidence (4.8s)
+  ok  63 [desktop] › tests\james.spec.ts:154:5 › responsive local art and no-JS scene controls (625ms)
+  ok  64 [desktop] › tests\jonah-mercy-turn.spec.ts:4:5 › Nineveh's repentance leads into Jonah's anger without pre-explaining it (1.9s)
+  ok  65 [desktop] › tests\jonah.spec.ts:10:5 › complete reader-controlled book, history, malformed links, and keyboard focus (8.7s)
+  ok  66 [desktop] › tests\jonah.spec.ts:80:5 › reflection stays in memory and clears on reload and exit (2.0s)
+  ok  67 [desktop] › tests\jonah.spec.ts:118:5 › accessible reduced-motion reader with no WebGL or third-party requests (1.7s)
+  ok  68 [desktop] › tests\jonah.spec.ts:149:5 › without JavaScript all 48 verses and anchor navigation remain readable (788ms)
+  ok  69 [desktop] › tests\media.spec.ts:7:5 › static export excludes held reproductions and local review routes (22ms)
+  ok  70 [desktop] › tests\media.spec.ts:22:5 › media failure preserves fallback; audio requires action and pauses on scene exit (604ms)
+  ok  71 [desktop] › tests\media.spec.ts:49:5 › rejected playback remains recoverable without synthesis (461ms)
+  ok  72 [desktop] › tests\media.spec.ts:61:5 › restricted media makes no image request; approved fixture preserves composition and provenance after failure (1.4s)
+  ok  73 [desktop] › tests\media.spec.ts:90:5 › normal Jonah route keeps approved art and labels open images as provisional (4.5s)
+  ok  74 [desktop] › tests\media.spec.ts:147:5 › normal reader recovers from a missing approved artwork (808ms)
+  ok  75 [desktop] › tests\perpetua-reading.spec.ts:8:5 › the new entrance labels its artistic parallel and survives missing artwork (568ms)
+  ok  76 [desktop] › tests\perpetua-reading.spec.ts:20:5 › the reader discovers presence, refusal and interpretation without a fictional reunion (987ms)
+  ok  77 [desktop] › tests\perpetua-reading.spec.ts:73:5 › every source moment remains accessible at 320px with motion reduced (2.0s)
+  ok  78 [desktop] › tests\perpetua-reading.spec.ts:86:5 › without scripts the complete source passages and reception details remain available (544ms)
+  ok  79 [desktop] › tests\perpetua-reading.spec.ts:102:5 › optional reception art can fail without changing the source reading (654ms)
+  ok  80 [desktop] › tests\perpetua-recovery.spec.ts:4:5 › vision reading keeps seeing, changed body and waking interpretation distinct (780ms)
+  ok  81 [desktop] › tests\perpetua-recovery.spec.ts:17:5 › source links open the ending research without hiding it and restore scene history (719ms)
+  ok  82 [desktop] › tests\perpetua-recovery.spec.ts:30:5 › the last reading frame is the unanswered question, after research and controls (588ms)
+  ok  83 [desktop] › tests\perpetua-recovery.spec.ts:44:5 › new artworks can fail while the vision and narrated childbirth remain readable (640ms)
+  ok  84 [desktop] › tests\perpetua-recovery.spec.ts:58:5 › the reported vision has all three passages when JavaScript is disabled (515ms)
+  ok  85 [desktop] › tests\perpetua.spec.ts:5:5 › the prison encounter exposes human stakes and the changing source voice (1.1s)
+  ok  86 [desktop] › tests\perpetua.spec.ts:80:5 › scene links, history, keyboard relationships and full reading retain control (1.0s)
+  ok  87 [desktop] › tests\perpetua.spec.ts:130:5 › every scene supports reduced motion, narrow layouts, enlarged text and accessible controls (4.3s)
+  ok  88 [desktop] › tests\perpetua.spec.ts:172:5 › without JavaScript all scenes, people, provenance and onward routes remain available (879ms)
+  ok  89 [desktop] › tests\perpetua.spec.ts:208:5 › a failed script load retains the complete source-bounded reading (572ms)
+  ok  90 [desktop] › tests\romanus.spec.ts:4:5 › Romanus introduces the person and provides the complete source-separated journey (1.5s)
+  ok  91 [desktop] › tests\romanus.spec.ts:50:5 › the story and its source comparison work without JavaScript at 320px (582ms)
+  ok  92 [desktop] › tests\romanus.spec.ts:69:5 › reduced motion and missing artwork preserve the narrative, controls and ending (506ms)
+  ok  93 [desktop] › tests\romanus.spec.ts:82:5 › the Saints collection gives Romanus a discoverable entrance (560ms)
+  ok  94 [desktop] › tests\routing.spec.ts:8:5 › tracking queries keep the Nineveh entrance and its section navigation (1.0s)
+  ok  95 [desktop] › tests\routing.spec.ts:22:5 › tracking queries preserve discoveries, keyboard entry and unknown anchors (1.1s)
+  ok  96 [desktop] › tests\routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths (3.5s)
+  ok  97 [desktop] › tests\routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload (5.7s)
+  ok  98 [desktop] › tests\thomas-homepage.spec.ts:5:5 › Thomas has distinct narrative and sayings entrances without an invented graph entry (970ms)
+  ok  99 [desktop] › tests\thomas-homepage.spec.ts:21:5 › Thomas is a featured searchable reading; existing stories and discovery still work (1.0s)
+  ok 100 [desktop] › tests\thomas-homepage.spec.ts:42:5 › Thomas reflows at four widths, uses mobile artwork and retains accessible keyboard navigation (3.8s)
+  ok 101 [desktop] › tests\thomas-homepage.spec.ts:85:5 › both Thomas entrances work without JavaScript or when scripts fail (1.9s)
+  ok 102 [desktop] › tests\thomas-homepage.spec.ts:102:5 › delayed and missing invitation artwork preserves navigation and layout (1.2s)
+  ok 103 [desktop] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (2.5s)
+  ok 104 [desktop] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (845ms)
+  ok 105 [desktop] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (658ms)
+  ok 106 [desktop] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (737ms)
+  ok 107 [desktop] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (866ms)
+  ok 108 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 109 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok 110 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok 111 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  x  112 [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (1.4s)
+(node:17620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 113 [mobile] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline (2.8s)
+  ok 114 [mobile] › tests\atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson (1.7s)
+  ok 115 [mobile] › tests\authorship.spec.ts:4:5 › visitor DOM omits slots and written drafts while author workspace retains them (906ms)
+  ok 116 [mobile] › tests\city-inside-name.spec.ts:4:5 › Nineveh encounter unfolds from Scripture to later context and back to verses (3.3s)
+  ok 117 [mobile] › tests\city-inside-name.spec.ts:42:5 › the encounter reads without JavaScript or image loading (899ms)
+  ok 118 [mobile] › tests\city-inside-name.spec.ts:56:5 › reduced motion retains the same stages (758ms)
+  ok 119 [mobile] › tests\discovery.spec.ts:4:5 › sculpture study preserves the passage, traps focus, and returns on Escape (1.9s)
+  ok 120 [mobile] › tests\discovery.spec.ts:31:5 › three discoveries preserve Scripture, disclose sources, and remain readable at 320px (6.3s)
+  ok 121 [mobile] › tests\discovery.spec.ts:60:5 › passage opens Nineveh in the existing atlas and returns to the same passage (3.4s)
+  ok 122 [mobile] › tests\discovery.spec.ts:93:5 › discovery artwork failure preserves passage and connections (905ms)
+  ok 123 [mobile] › tests\discovery.spec.ts:104:5 › Joppa link and missing basemap retain sourced places and return navigation (2.0s)
+  -  124 [mobile] › tests\explorer.spec.ts:3:5 › explorer baseline: data, filters, epochs, selection, journeys and fallback
+  ok 125 [mobile] › tests\first-encounter.spec.ts:4:5 › Nineveh gateway leads to the first calling and curiosity before optional research (5.2s)
+  ok 126 [mobile] › tests\first-encounter.spec.ts:53:5 › first encounter remains available without JavaScript (897ms)
+  ok 127 [mobile] › tests\home-discovery.spec.ts:4:5 › the homepage leads directly into both complete lives and their sources (2.1s)
+  ok 128 [mobile] › tests\home-discovery.spec.ts:31:5 › discovery actions have measured contrast, large targets and visible keyboard focus (5.4s)
+  ok 129 [mobile] › tests\home-discovery.spec.ts:66:5 › collection rows are full links; discovery survives enlarged text, missing images and no JavaScript (2.2s)
+  ok 130 [mobile] › tests\homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards (1.2s)
+  ok 131 [mobile] › tests\homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions (3.5s)
+  ok 132 [mobile] › tests\homepage-release.spec.ts:48:5 › five worlds and both principal lives remain reachable through the entrance (2.1s)
+  ok 133 [mobile] › tests\homepage-release.spec.ts:68:5 › legacy Nineveh fragments preserve discoveries, focus, reload and Back/Forward (1.2s)
+  ok 134 [mobile] › tests\homepage-release.spec.ts:88:5 › root content and Scripture navigation survive absent or failed JavaScript (2.4s)
+  ok 135 [mobile] › tests\homepage-release.spec.ts:103:7 › release route / has no unexpected errors, broken images or overflow (1.1s)
+  ok 136 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /human-story/ has no unexpected errors, broken images or overflow (1.1s)
+  ok 137 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /nineveh/ has no unexpected errors, broken images or overflow (705ms)
+  ok 138 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /jonah/ has no unexpected errors, broken images or overflow (899ms)
+  ok 139 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /explore/ has no unexpected errors, broken images or overflow (1.8s)
+  ok 140 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /human-story/perpetua/ has no unexpected errors, broken images or overflow (818ms)
+  ok 141 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /human-story/augustine/ has no unexpected errors, broken images or overflow (774ms)
+  ok 142 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /human-story/worlds/witnesses/ has no unexpected errors, broken images or overflow (692ms)
+  ok 143 [mobile] › tests\homepage-release.spec.ts:103:7 › release route /human-story/worlds/saints/ has no unexpected errors, broken images or overflow (683ms)
+  ok 144 [mobile] › tests\homepage-release.spec.ts:126:5 › static export includes all published routes and server-rendered entrance metadata (15ms)
+  ok 145 [mobile] › tests\homepage.spec.ts:8:5 › Nineveh entrance retains real Scripture and a full-book entry (728ms)
+  ok 146 [mobile] › tests\homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending (1.2s)
+  ok 147 [mobile] › tests\homepage.spec.ts:40:5 › published discoveries contain locally served images, rights and context (1.0s)
+  ok 148 [mobile] › tests\homepage.spec.ts:66:5 › homepage remains readable at 320px and with reduced motion (2.5s)
+  ok 149 [mobile] › tests\homepage.spec.ts:79:5 › homepage keyboard skip-link and reader entry remain accessible (970ms)
+  ok 150 [mobile] › tests\homepage.spec.ts:91:5 › no JavaScript still shows Nineveh Scripture and the whole-book exit (914ms)
+  ok 151 [mobile] › tests\homepage.spec.ts:102:5 › legacy root map links still load the atlas rather than hijacking the Nineveh hash (1.5s)
+  ok 152 [mobile] › tests\homepage.spec.ts:108:5 › legacy skip fragment is treated as a homepage anchor (600ms)
+  ok 153 [mobile] › tests\human-story-interiors.spec.ts:4:5 › a reader can compare the governor and emperor in place with the keyboard (1.1s)
+  ok 154 [mobile] › tests\human-story-interiors.spec.ts:27:5 › the separation holds two source moments together without changing scenes (1.4s)
+  ok 155 [mobile] › tests\human-story-interiors.spec.ts:61:5 › new comparisons and image sources remain available without JavaScript (915ms)
+  ok 156 [mobile] › tests\human-story-interiors.spec.ts:94:5 › a failed new image preserves the source, caption and reading (595ms)
+  ok 157 [mobile] › tests\human-story-qa.spec.ts:6:5 › all static reading rooms and paths load with provenance, local links and no page errors (5.2s)
+  ok 158 [mobile] › tests\human-story-qa.spec.ts:62:5 › five world destinations remain accessible and fit narrow and enlarged text layouts (3.9s)
+  ok 159 [mobile] › tests\human-story-qa.spec.ts:95:5 › keyboard selection exposes its connections, keeps focus visible and returns to a real card (815ms)
+  ok 160 [mobile] › tests\human-story-qa.spec.ts:136:5 › no-JS exploration includes all readings, sources, artwork and authored paths (977ms)
+  ok 161 [mobile] › tests\human-story.spec.ts:4:5 › human story entrance has five worlds, Scripture access and an accessible reading order (1.3s)
+  ok 162 [mobile] › tests\human-story.spec.ts:31:5 › human story remains readable without JavaScript and at 320px (1.0s)
+  ok 163 [mobile] › tests\human-story.spec.ts:57:5 › Scripture rooms retain exact Jonah, disclose source limits and connect into the Atlas (1.2s)
+  ok 164 [mobile] › tests\human-story.spec.ts:89:5 › witnesses distinguish disputed wording, James and scholarly transmission (854ms)
+  ok 165 [mobile] › tests\human-story.spec.ts:124:5 › saints keep autobiographical voice, editorial framing and legend distinct (1.1s)
+  ok 166 [mobile] › tests\human-story.spec.ts:163:5 › connected exploration searches, recovers from an empty result and previews relationships (720ms)
+  ok 167 [mobile] › tests\human-story.spec.ts:210:5 › authored threads cross worlds and retain historical limits (887ms)
+  ok 168 [mobile] › tests\human-story.spec.ts:236:5 › rights-cleared media retains a useful fallback and attribution (601ms)
+  ok 169 [mobile] › tests\james.spec.ts:4:5 › James is discoverable and the five movements retain source distinctions (2.9s)
+  ok 170 [mobile] › tests\james.spec.ts:48:5 › keyboard-only comparison returns focus and narrative position (889ms)
+  ok 171 [mobile] › tests\james.spec.ts:72:5 › tablet pointer comparison preserves the selected movement and scroll position (1.8s)
+  ok 172 [mobile] › tests\james.spec.ts:90:5 › 320px no-JS reading preserves every movement and comparison (881ms)
+  ok 173 [mobile] › tests\james.spec.ts:107:5 › reduced motion, unavailable images and enlarged text preserve the reading (962ms)
+  ok 174 [mobile] › tests\james.spec.ts:123:5 › cinematic scenes retain distinct settings, political consequences and accessible evidence (5.3s)
+  ok 175 [mobile] › tests\james.spec.ts:154:5 › responsive local art and no-JS scene controls (703ms)
+  ok 176 [mobile] › tests\jonah-mercy-turn.spec.ts:4:5 › Nineveh's repentance leads into Jonah's anger without pre-explaining it (2.5s)
+  ok 177 [mobile] › tests\jonah.spec.ts:10:5 › complete reader-controlled book, history, malformed links, and keyboard focus (14.5s)
+  ok 178 [mobile] › tests\jonah.spec.ts:80:5 › reflection stays in memory and clears on reload and exit (2.1s)
+  ok 179 [mobile] › tests\jonah.spec.ts:118:5 › accessible reduced-motion reader with no WebGL or third-party requests (2.3s)
+  ok 180 [mobile] › tests\jonah.spec.ts:149:5 › without JavaScript all 48 verses and anchor navigation remain readable (927ms)
+  ok 181 [mobile] › tests\media.spec.ts:7:5 › static export excludes held reproductions and local review routes (21ms)
+  ok 182 [mobile] › tests\media.spec.ts:22:5 › media failure preserves fallback; audio requires action and pauses on scene exit (675ms)
+  ok 183 [mobile] › tests\media.spec.ts:49:5 › rejected playback remains recoverable without synthesis (544ms)
+  ok 184 [mobile] › tests\media.spec.ts:61:5 › restricted media makes no image request; approved fixture preserves composition and provenance after failure (1.9s)
+  ok 185 [mobile] › tests\media.spec.ts:90:5 › normal Jonah route keeps approved art and labels open images as provisional (4.5s)
+  ok 186 [mobile] › tests\media.spec.ts:147:5 › normal reader recovers from a missing approved artwork (890ms)
+  ok 187 [mobile] › tests\perpetua-reading.spec.ts:8:5 › the new entrance labels its artistic parallel and survives missing artwork (604ms)
+  ok 188 [mobile] › tests\perpetua-reading.spec.ts:20:5 › the reader discovers presence, refusal and interpretation without a fictional reunion (1.1s)
+  ok 189 [mobile] › tests\perpetua-reading.spec.ts:73:5 › every source moment remains accessible at 320px with motion reduced (2.2s)
+  ok 190 [mobile] › tests\perpetua-reading.spec.ts:86:5 › without scripts the complete source passages and reception details remain available (709ms)
+  ok 191 [mobile] › tests\perpetua-reading.spec.ts:102:5 › optional reception art can fail without changing the source reading (656ms)
+  ok 192 [mobile] › tests\perpetua-recovery.spec.ts:4:5 › vision reading keeps seeing, changed body and waking interpretation distinct (885ms)
+  ok 193 [mobile] › tests\perpetua-recovery.spec.ts:17:5 › source links open the ending research without hiding it and restore scene history (858ms)
+  ok 194 [mobile] › tests\perpetua-recovery.spec.ts:30:5 › the last reading frame is the unanswered question, after research and controls (590ms)
+  ok 195 [mobile] › tests\perpetua-recovery.spec.ts:44:5 › new artworks can fail while the vision and narrated childbirth remain readable (679ms)
+  ok 196 [mobile] › tests\perpetua-recovery.spec.ts:58:5 › the reported vision has all three passages when JavaScript is disabled (718ms)
+  ok 197 [mobile] › tests\perpetua.spec.ts:5:5 › the prison encounter exposes human stakes and the changing source voice (1.2s)
+  ok 198 [mobile] › tests\perpetua.spec.ts:80:5 › scene links, history, keyboard relationships and full reading retain control (1.3s)
+  ok 199 [mobile] › tests\perpetua.spec.ts:130:5 › every scene supports reduced motion, narrow layouts, enlarged text and accessible controls (4.6s)
+  ok 200 [mobile] › tests\perpetua.spec.ts:172:5 › without JavaScript all scenes, people, provenance and onward routes remain available (977ms)
+  ok 201 [mobile] › tests\perpetua.spec.ts:208:5 › a failed script load retains the complete source-bounded reading (596ms)
+  ok 202 [mobile] › tests\romanus.spec.ts:4:5 › Romanus introduces the person and provides the complete source-separated journey (1.6s)
+  ok 203 [mobile] › tests\romanus.spec.ts:50:5 › the story and its source comparison work without JavaScript at 320px (643ms)
+  ok 204 [mobile] › tests\romanus.spec.ts:69:5 › reduced motion and missing artwork preserve the narrative, controls and ending (613ms)
+  ok 205 [mobile] › tests\romanus.spec.ts:82:5 › the Saints collection gives Romanus a discoverable entrance (646ms)
+  ok 206 [mobile] › tests\routing.spec.ts:8:5 › tracking queries keep the Nineveh entrance and its section navigation (911ms)
+  ok 207 [mobile] › tests\routing.spec.ts:22:5 › tracking queries preserve discoveries, keyboard entry and unknown anchors (1.2s)
+  ok 208 [mobile] › tests\routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths (4.2s)
+  ok 209 [mobile] › tests\routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload (6.2s)
+  ok 210 [mobile] › tests\thomas-homepage.spec.ts:5:5 › Thomas has distinct narrative and sayings entrances without an invented graph entry (1.0s)
+  ok 211 [mobile] › tests\thomas-homepage.spec.ts:21:5 › Thomas is a featured searchable reading; existing stories and discovery still work (1.1s)
+  ok 212 [mobile] › tests\thomas-homepage.spec.ts:42:5 › Thomas reflows at four widths, uses mobile artwork and retains accessible keyboard navigation (3.7s)
+  ok 213 [mobile] › tests\thomas-homepage.spec.ts:85:5 › both Thomas entrances work without JavaScript or when scripts fail (2.1s)
+  ok 214 [mobile] › tests\thomas-homepage.spec.ts:102:5 › delayed and missing invitation artwork preserves navigation and layout (1.3s)
+  ok 215 [mobile] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (2.6s)
+  ok 216 [mobile] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (1.2s)
+  ok 217 [mobile] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (626ms)
+  ok 218 [mobile] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (781ms)
+  ok 219 [mobile] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (883ms)
+  ok 220 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.3s)
+  ok 221 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.3s)
+  ok 222 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 223 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  x  224 [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible (1.4s)
+
+
+  1) [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#eee9df",
+    +               "contrastRatio": 1.42,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#c7c5bf",
+    +               "fontSize": "10.8pt (14.4px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 1.42 (foreground color: #c7c5bf, background color: #eee9df, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section id=\"not-seen\" class=\"thomas_scene__cxZHs thomas_ending__vDKKS \" tabindex=\"-1\" aria-labelledby=\"ending-title\">",
+    +                 "target": Array [
+    +                   "#not-seen",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 1.42 (foreground color: #c7c5bf, background color: #eee9df, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span class=\"thomas_speaker__V6KTa\">Jesus said to him, </span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "figure[data-verse=\"jhn20-29\"] > blockquote > .thomas_speaker__V6KTa",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      164 |   await page.goto('/human-story/thomas/reading/');
+      165 |   await expect(page.locator('[data-verse="jhn20-31"]')).toBeVisible();
+    > 166 |   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
+          |                                                                                                                    ^
+      167 |   await page.goto('/human-story/thomas/sayings/#witnesses');
+      168 |   for (const id of ['nhc','oxy1','oxy654','oxy655']) {
+      169 |     await page.locator(`#inspect-${id}`).focus();
+        at C:\Dev\biblemap-human-experience\tests\thomas.spec.ts:166:116
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#eee9df",
+    +               "contrastRatio": 1.42,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#c7c5bf",
+    +               "fontSize": "10.8pt (14.4px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 1.42 (foreground color: #c7c5bf, background color: #eee9df, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section id=\"not-seen\" class=\"thomas_scene__cxZHs thomas_ending__vDKKS \" tabindex=\"-1\" aria-labelledby=\"ending-title\">",
+    +                 "target": Array [
+    +                   "#not-seen",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 1.42 (foreground color: #c7c5bf, background color: #eee9df, font size: 10.8pt (14.4px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<span class=\"thomas_speaker__V6KTa\">Jesus said to him, </span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "figure[data-verse=\"jhn20-29\"] > blockquote > .thomas_speaker__V6KTa",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      164 |   await page.goto('/human-story/thomas/reading/');
+      165 |   await expect(page.locator('[data-verse="jhn20-31"]')).toBeVisible();
+    > 166 |   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze()).violations).toEqual([]);
+          |                                                                                                                    ^
+      167 |   await page.goto('/human-story/thomas/sayings/#witnesses');
+      168 |   for (const id of ['nhc','oxy1','oxy654','oxy655']) {
+      169 |     await page.locator(`#inspect-${id}`).focus();
+        at C:\Dev\biblemap-human-experience\tests\thomas.spec.ts:166:116
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\thomas-V4-interval-complet-227af--evidence-remain-accessible-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+    [mobile] › tests\thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+  1 skipped
+  221 passed (6.1m)

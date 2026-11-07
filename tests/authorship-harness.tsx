@@ -4,6 +4,8 @@ import { useState } from "react";
 import { JONAH } from "../src/content/jonah";
 import { StoryReader } from "../src/features/story/StoryReader";
 import type { AuthoredText } from "../src/domain/story";
+import { projectVisitorStory } from "../src/domain/visitor-story";
+import { projectLocalAuthorStory } from "../scripts/author-story";
 
 const draft = (text: string): AuthoredText => ({ status: "written", text, authorId: "test-fixture-only", review: { status: "draft" } });
 const story = structuredClone(JONAH);
@@ -16,7 +18,7 @@ story.scenes[0].claimIds = ["draft-claim"];
 
 function Harness() {
   const [authorReview, setAuthorReview] = useState(false);
-  return <><button onClick={() => setAuthorReview(value => !value)}>Toggle author workspace</button><StoryReader story={story} authorReview={authorReview} /></>;
+  return <><button onClick={() => setAuthorReview(value => !value)}>Toggle author workspace</button><StoryReader story={authorReview ? projectLocalAuthorStory(story) : projectVisitorStory(story)} authorReview={authorReview} /></>;
 }
 const root = document.getElementById("test-root");
 if (!root) throw new Error("Test root missing");

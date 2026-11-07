@@ -1,0 +1,152 @@
+{
+  "capturedAt": "2026-11-06T00:38:01.855Z",
+  "buildId": "2d504aa",
+  "sourceHashes": {
+    "src/features/human-story/HumanStoryHome.tsx": "6ff13179b16f32058d1c7e0a98a848d70478d2a1f1642995c333bbc355e9fa73",
+    "src/features/human-story/FeaturedEncounters.tsx": "475a82740e1186673ffc93487af81044c5c5a0bbfd44b651a83e76067fee639b",
+    "src/features/human-story/ThomasInvitation.tsx": "69231136d5895a3bb7eb84422fea1eeffb66aabf3bc222a9d93853b852b2393b",
+    "src/features/human-story/ConnectedExplorer.tsx": "08e1aa3ba1c36e25aa6785f011b682abaad1afd62ff61346059043717eb9877c",
+    "src/features/human-story/discovery.module.css": "1169974edbd2fdb7396d346f60ceef3a18c07cdc3a72e21a49cdc1c555748768",
+    "src/features/human-story/human-story.module.css": "9b25ee2c1804460777ca7249e5fa4f11deb5673af49fb5626c12f806910f7977"
+  },
+  "htmlRoutes": [
+    "404.html",
+    "404\\index.html",
+    "_not-found\\index.html",
+    "demo\\index.html",
+    "experiments\\nineveh\\index.html",
+    "explore\\index.html",
+    "human-story\\augustine\\index.html",
+    "human-story\\emmaus\\index.html",
+    "human-story\\exodus\\index.html",
+    "human-story\\francis\\index.html",
+    "human-story\\genesis-in-paint\\index.html",
+    "human-story\\genesis\\index.html",
+    "human-story\\index.html",
+    "human-story\\james\\index.html",
+    "human-story\\james\\reading\\index.html",
+    "human-story\\jerome\\index.html",
+    "human-story\\jonah-in-marble\\index.html",
+    "human-story\\jonah\\index.html",
+    "human-story\\josephus-james\\index.html",
+    "human-story\\mediterranean\\index.html",
+    "human-story\\nineveh\\index.html",
+    "human-story\\paths\\a-life-in-another-life\\index.html",
+    "human-story\\paths\\a-name-under-pressure\\index.html",
+    "human-story\\paths\\a-word-crosses-centuries\\index.html",
+    "human-story\\paul\\index.html",
+    "human-story\\perpetua\\index.html",
+    "human-story\\pliny\\index.html",
+    "human-story\\rashi-radak\\index.html",
+    "human-story\\romanus\\index.html",
+    "human-story\\romanus\\reading\\index.html",
+    "human-story\\sinaiticus\\index.html",
+    "human-story\\singing-in-milan\\index.html",
+    "human-story\\suetonius\\index.html",
+    "human-story\\tacitus\\index.html",
+    "human-story\\teresa\\index.html",
+    "human-story\\testimonium\\index.html",
+    "human-story\\thomas\\index.html",
+    "human-story\\thomas\\reading\\index.html",
+    "human-story\\thomas\\sayings\\index.html",
+    "human-story\\time-and-memory\\index.html",
+    "human-story\\worlds\\atlas\\index.html",
+    "human-story\\worlds\\saints\\index.html",
+    "human-story\\worlds\\stories\\index.html",
+    "human-story\\worlds\\voices\\index.html",
+    "human-story\\worlds\\witnesses\\index.html",
+    "index.html",
+    "jonah\\index.html",
+    "nineveh\\index.html"
+  ],
+  "observations": [
+    {
+      "width": 1440,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": false,
+      "violations": [],
+      "overflow": false,
+      "documentWidth": 1440,
+      "invitationTextOverflow": [],
+      "overflowingElements": [],
+      "overflowingText": [],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-1536.webp",
+          "width": 745,
+          "height": 350,
+          "objectPosition": "66% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    },
+    {
+      "width": 768,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": false,
+      "violations": [],
+      "overflow": false,
+      "documentWidth": 768,
+      "invitationTextOverflow": [],
+      "overflowingElements": [],
+      "overflowingText": [],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-1536.webp",
+          "width": 396,
+          "height": 350,
+          "objectPosition": "66% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    },
+    {
+      "width": 390,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": false,
+      "violations": [],
+      "overflow": false,
+      "documentWidth": 390,
+      "invitationTextOverflow": [],
+      "overflowingElements": [],
+      "overflowingText": [],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-768.webp",
+          "width": 310,
+          "height": 207,
+          "objectPosition": "66% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    },
+    {
+      "width": 320,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": false,
+      "violations": [],
+      "overflow": false,
+      "documentWidth": 320,
+      "invitationTextOverflow": [],
+      "overflowingElements": [],
+      "overflowingText": [],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-768.webp",
+          "width": 240,
+          "height": 160,
+          "objectPosition": "66% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    }
+  ]
+}

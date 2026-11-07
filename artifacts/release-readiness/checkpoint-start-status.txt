@@ -1,0 +1,211 @@
+Branch: release/human-story-readiness
+HEAD: fbe2608f14ebc6111c71d38d9fe6c01d60170177
+git status --short:
+ M .github/workflows/jonah-ci.yml
+ M next-env.d.ts
+ M next.config.mjs
+ M package-lock.json
+ M package.json
+ M scripts/irreplaceable-map.tsx
+ M scripts/release-gate-inventory.ts
+ M scripts/review-irreplaceable.mjs
+ M scripts/serve-export.mjs
+ M scripts/validate-story.ts
+ M scripts/validate-visitor-export.ts
+ M src/app/demo/page.tsx
+ M src/app/human-story/[entry]/page.tsx
+ M src/app/human-story/paths/[path]/page.tsx
+ M src/app/human-story/worlds/[world]/page.tsx
+ M src/components/DataLoader.tsx
+ M src/content/AGENTS.md
+ M src/domain/release-gate-inventory.test.ts
+ M src/domain/story.test.ts
+ M src/domain/story.ts
+ M src/domain/visitor-story.ts
+ M src/features/human-story/HumanStoryHome.tsx
+ M src/features/human-story/PathPreview.tsx
+ M src/features/human-story/PerpetuaEncounter.tsx
+ M src/features/human-story/ReadingRoom.tsx
+ M src/features/story/StoryReader.tsx
+?? artifacts/home-discovery/after/directory-1440.jpg
+?? artifacts/home-discovery/after/directory-320.jpg
+?? artifacts/home-discovery/after/directory-768.jpg
+?? artifacts/home-discovery/after/encounters-320.jpg
+?? artifacts/home-discovery/after/encounters-768.jpg
+?? artifacts/home-discovery/after/opening-1440.jpg
+?? artifacts/home-discovery/after/opening-320.jpg
+?? artifacts/home-discovery/after/opening-390.jpg
+?? artifacts/home-discovery/after/opening-768.jpg
+?? artifacts/home-discovery/after/saints-1440.jpg
+?? artifacts/home-discovery/after/saints-320.jpg
+?? artifacts/home-discovery/after/saints-768.jpg
+?? artifacts/home-discovery/after/threads-320.jpg
+?? artifacts/home-discovery/after/threads-390.jpg
+?? artifacts/home-discovery/after/threads-768.jpg
+?? artifacts/home-discovery/after/viewport-1440.jpg
+?? artifacts/home-discovery/after/viewport-390.jpg
+?? artifacts/home-discovery/after/worlds-1440.jpg
+?? artifacts/home-discovery/after/worlds-320.jpg
+?? artifacts/home-discovery/after/worlds-390.jpg
+?? artifacts/home-discovery/before/directory-1440.jpg
+?? artifacts/home-discovery/before/directory-320.jpg
+?? artifacts/home-discovery/before/directory-768.jpg
+?? artifacts/home-discovery/before/encounters-320.jpg
+?? artifacts/home-discovery/before/encounters-768.jpg
+?? artifacts/home-discovery/before/opening-1440.jpg
+?? artifacts/home-discovery/before/opening-320.jpg
+?? artifacts/home-discovery/before/opening-390.jpg
+?? artifacts/home-discovery/before/opening-768.jpg
+?? artifacts/home-discovery/before/saints-1440.jpg
+?? artifacts/home-discovery/before/saints-320.jpg
+?? artifacts/home-discovery/before/saints-768.jpg
+?? artifacts/home-discovery/before/threads-320.jpg
+?? artifacts/home-discovery/before/threads-390.jpg
+?? artifacts/home-discovery/before/threads-768.jpg
+?? artifacts/home-discovery/before/worlds-1440.jpg
+?? artifacts/home-discovery/before/worlds-320.jpg
+?? artifacts/home-discovery/before/worlds-390.jpg
+?? artifacts/release-readiness/
+?? artifacts/thomas/cinematic-pilot/
+?? docs/release/publication-decision.json
+?? docs/release/publication-scope.json
+?? docs/release/publication-scope.md
+?? scripts/export-inventory.mjs
+?? scripts/publication-gate.mjs
+?? scripts/test-export-boundary.mjs
+?? src/content/visitor-human-story.ts
+?? src/domain/publication.test.ts
+?? src/domain/publication.ts
+?? src/lib/maplibre.ts
+?? test-results-james-v2-preview/
+?? tests/atlas-security.spec.ts
+
+All untracked paths:
+ M .github/workflows/jonah-ci.yml
+ M next-env.d.ts
+ M next.config.mjs
+ M package-lock.json
+ M package.json
+ M scripts/irreplaceable-map.tsx
+ M scripts/release-gate-inventory.ts
+ M scripts/review-irreplaceable.mjs
+ M scripts/serve-export.mjs
+ M scripts/validate-story.ts
+ M scripts/validate-visitor-export.ts
+ M src/app/demo/page.tsx
+ M src/app/human-story/[entry]/page.tsx
+ M src/app/human-story/paths/[path]/page.tsx
+ M src/app/human-story/worlds/[world]/page.tsx
+ M src/components/DataLoader.tsx
+ M src/content/AGENTS.md
+ M src/domain/release-gate-inventory.test.ts
+ M src/domain/story.test.ts
+ M src/domain/story.ts
+ M src/domain/visitor-story.ts
+ M src/features/human-story/HumanStoryHome.tsx
+ M src/features/human-story/PathPreview.tsx
+ M src/features/human-story/PerpetuaEncounter.tsx
+ M src/features/human-story/ReadingRoom.tsx
+ M src/features/story/StoryReader.tsx
+?? artifacts/home-discovery/after/directory-1440.jpg
+?? artifacts/home-discovery/after/directory-320.jpg
+?? artifacts/home-discovery/after/directory-768.jpg
+?? artifacts/home-discovery/after/encounters-320.jpg
+?? artifacts/home-discovery/after/encounters-768.jpg
+?? artifacts/home-discovery/after/opening-1440.jpg
+?? artifacts/home-discovery/after/opening-320.jpg
+?? artifacts/home-discovery/after/opening-390.jpg
+?? artifacts/home-discovery/after/opening-768.jpg
+?? artifacts/home-discovery/after/saints-1440.jpg
+?? artifacts/home-discovery/after/saints-320.jpg
+?? artifacts/home-discovery/after/saints-768.jpg
+?? artifacts/home-discovery/after/threads-320.jpg
+?? artifacts/home-discovery/after/threads-390.jpg
+?? artifacts/home-discovery/after/threads-768.jpg
+?? artifacts/home-discovery/after/viewport-1440.jpg
+?? artifacts/home-discovery/after/viewport-390.jpg
+?? artifacts/home-discovery/after/worlds-1440.jpg
+?? artifacts/home-discovery/after/worlds-320.jpg
+?? artifacts/home-discovery/after/worlds-390.jpg
+?? artifacts/home-discovery/before/directory-1440.jpg
+?? artifacts/home-discovery/before/directory-320.jpg
+?? artifacts/home-discovery/before/directory-768.jpg
+?? artifacts/home-discovery/before/encounters-320.jpg
+?? artifacts/home-discovery/before/encounters-768.jpg
+?? artifacts/home-discovery/before/opening-1440.jpg
+?? artifacts/home-discovery/before/opening-320.jpg
+?? artifacts/home-discovery/before/opening-390.jpg
+?? artifacts/home-discovery/before/opening-768.jpg
+?? artifacts/home-discovery/before/saints-1440.jpg
+?? artifacts/home-discovery/before/saints-320.jpg
+?? artifacts/home-discovery/before/saints-768.jpg
+?? artifacts/home-discovery/before/threads-320.jpg
+?? artifacts/home-discovery/before/threads-390.jpg
+?? artifacts/home-discovery/before/threads-768.jpg
+?? artifacts/home-discovery/before/worlds-1440.jpg
+?? artifacts/home-discovery/before/worlds-320.jpg
+?? artifacts/home-discovery/before/worlds-390.jpg
+?? artifacts/release-readiness/adversarial.txt
+?? artifacts/release-readiness/atlas-security-after-first.txt
+?? artifacts/release-readiness/atlas-security-before.txt
+?? artifacts/release-readiness/audit-after.json
+?? artifacts/release-readiness/audit-before.json
+?? artifacts/release-readiness/build-before.txt
+?? artifacts/release-readiness/build-first.txt
+?? artifacts/release-readiness/dependency-install.txt
+?? artifacts/release-readiness/dependency-leaves.txt
+?? artifacts/release-readiness/dependency-tree.json
+?? artifacts/release-readiness/eslint-compatibility.txt
+?? artifacts/release-readiness/export-before.json
+?? artifacts/release-readiness/export-inventory.json
+?? artifacts/release-readiness/lint-first.txt
+?? artifacts/release-readiness/lint.txt
+?? artifacts/release-readiness/lock-before.json
+?? artifacts/release-readiness/map-sanitizer-hardening.txt
+?? artifacts/release-readiness/map-security-install.txt
+?? artifacts/release-readiness/npm-ci-final.txt
+?? artifacts/release-readiness/npm-ci.txt
+?? artifacts/release-readiness/release-before.txt
+?? artifacts/release-readiness/types-first.txt
+?? artifacts/release-readiness/unit-first.txt
+?? artifacts/thomas/cinematic-pilot/absent-1440.jpg
+?? artifacts/thomas/cinematic-pilot/absent-320.jpg
+?? artifacts/thomas/cinematic-pilot/absent-390.jpg
+?? artifacts/thomas/cinematic-pilot/absent-768.jpg
+?? artifacts/thomas/cinematic-pilot/comparison-1440.jpg
+?? artifacts/thomas/cinematic-pilot/comparison-320.jpg
+?? artifacts/thomas/cinematic-pilot/comparison-390.jpg
+?? artifacts/thomas/cinematic-pilot/comparison-768.jpg
+?? artifacts/thomas/cinematic-pilot/confession-1440.jpg
+?? artifacts/thomas/cinematic-pilot/confession-320.jpg
+?? artifacts/thomas/cinematic-pilot/confession-390.jpg
+?? artifacts/thomas/cinematic-pilot/confession-768.jpg
+?? artifacts/thomas/cinematic-pilot/eight-days-1440.jpg
+?? artifacts/thomas/cinematic-pilot/eight-days-320.jpg
+?? artifacts/thomas/cinematic-pilot/eight-days-390.jpg
+?? artifacts/thomas/cinematic-pilot/eight-days-768.jpg
+?? artifacts/thomas/cinematic-pilot/not-seen-1440.jpg
+?? artifacts/thomas/cinematic-pilot/not-seen-320.jpg
+?? artifacts/thomas/cinematic-pilot/not-seen-390.jpg
+?? artifacts/thomas/cinematic-pilot/not-seen-768.jpg
+?? artifacts/thomas/cinematic-pilot/observations.json
+?? artifacts/thomas/cinematic-pilot/opening-1440.jpg
+?? artifacts/thomas/cinematic-pilot/opening-320.jpg
+?? artifacts/thomas/cinematic-pilot/opening-390.jpg
+?? artifacts/thomas/cinematic-pilot/opening-768.jpg
+?? artifacts/thomas/cinematic-pilot/unless-1440.jpg
+?? artifacts/thomas/cinematic-pilot/unless-320.jpg
+?? artifacts/thomas/cinematic-pilot/unless-390.jpg
+?? artifacts/thomas/cinematic-pilot/unless-768.jpg
+?? docs/release/publication-decision.json
+?? docs/release/publication-scope.json
+?? docs/release/publication-scope.md
+?? scripts/export-inventory.mjs
+?? scripts/publication-gate.mjs
+?? scripts/test-export-boundary.mjs
+?? src/content/visitor-human-story.ts
+?? src/domain/publication.test.ts
+?? src/domain/publication.ts
+?? src/lib/maplibre.ts
+?? test-results-james-v2-preview/.last-run.json
+?? tests/atlas-security.spec.ts

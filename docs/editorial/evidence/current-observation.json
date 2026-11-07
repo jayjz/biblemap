@@ -1,0 +1,34 @@
+{
+  "observedAt": "2026-11-01T22:13:37.749Z",
+  "method": "Playwright interaction in real Chrome plus rendered screenshot inspection and source comparison; Codex editorial review, no human participants",
+  "branch": "feat/human-story-portal",
+  "startingLocalAndRemoteSha": "dbcafa918123d90665f5f265195caa036aa5f676",
+  "preview": {
+    "deploymentId": "dpl_6YQFHwFbeyfviHZ6UhcG6AMy43P5",
+    "status": "READY",
+    "sha": "38613d51b52f44158caad828a85f02cca0ff571d",
+    "verification": "Vercel read-only deployment metadata, githubCommitSha"
+  },
+  "initialPr": { "number": 36, "state": "OPEN", "draft": true, "headSha": "dbcafa918123d90665f5f265195caa036aa5f676", "technicalCheck": "IN_PROGRESS" },
+  "visits": [
+    { "url": "https://biblemap-77tu3jrrw-elliotandersons-projects.vercel.app/human-story/", "status": 200 },
+    { "url": "https://biblemap-77tu3jrrw-elliotandersons-projects.vercel.app/human-story/perpetua/", "status": 200 },
+    { "url": "https://biblemap-77tu3jrrw-elliotandersons-projects.vercel.app/human-story/worlds/saints/", "status": 200 },
+    { "url": "https://biblemap-77tu3jrrw-elliotandersons-projects.vercel.app/human-story/worlds/witnesses/", "status": 200 },
+    { "url": "https://biblemap-pink.vercel.app/", "status": 200 },
+    { "url": "https://biblemap-pink.vercel.app/jonah/", "status": 200 }
+  ],
+  "interactions": [
+    "Traverse all six Perpetua scenes with Continue links",
+    "Opening: select family, deacons, child",
+    "Separation: select father, open passage disclosure, select interpretation",
+    "Read all six scenes",
+    "Mobile: open separation deep link and inspect composition"
+  ],
+  "viewports": [ { "width": 1440, "height": 1000 }, { "width": 390, "height": 844 } ],
+  "mobileSeparationOverflow": false,
+  "pageAndConsoleErrors": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "scopeLimit": "Bounded editorial tour; no current history-focus defect inferred from the older preview; no renewed app regression certification"
+}

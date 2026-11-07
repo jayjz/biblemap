@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-11-01T22:31:46.140Z",
+  "artifact": "docs/editorial/perpetua-separation-proof.html",
+  "errors": [],
+  "failedRequests": [],
+  "httpRequests": [],
+  "checks": [
+    {
+      "width": 1440,
+      "keyboard": "skip, Enter, Space, retained focus, source disclosure",
+      "closedAxe": 0,
+      "openAxe": 0,
+      "overflow": false,
+      "focus": {
+        "outline": "solid",
+        "height": 49.59375
+      }
+    },
+    {
+      "width": 390,
+      "keyboard": "skip, Enter, Space, retained focus, source disclosure",
+      "closedAxe": 0,
+      "openAxe": 0,
+      "overflow": false,
+      "focus": {
+        "outline": "solid",
+        "height": 49.59375
+      }
+    },
+    {
+      "width": 320,
+      "keyboard": "skip, Enter, Space, retained focus, source disclosure",
+      "closedAxe": 0,
+      "openAxe": 0,
+      "overflow": false,
+      "focus": {
+        "outline": "solid",
+        "height": 49.59375
+      }
+    },
+    {
+      "textEnlargement": "200% at 640px",
+      "overflow": false,
+      "reducedMotion": "no animations"
+    },
+    {
+      "noJavaScript": "main text, comparison and source note pass",
+      "offline": "same content passes without network"
+    }
+  ]
+}

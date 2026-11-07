@@ -26,4 +26,4 @@ for (const asset of JONAH.media) {
   if (asset.checksum !== `sha256:${createHash("sha256").update(file).digest("hex")}`) errors.push(`${asset.id}: media checksum mismatch`);
 }
 if (errors.length) throw new Error(errors.join("\n"));
-console.log(`✓ Jonah content validates in ${JONAH.mode} mode; release requires human authorship and approval`);
+console.log("✓ Jonah technical integrity validates; publication authorization is checked separately by validate:release");

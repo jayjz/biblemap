@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "james": "provisional",
+    "romanus": "provisional",
+    "time-and-memory": "provisional",
+    "sinaiticus": "provisional",
+    "jerome": "provisional",
+    "rashi-radak": "provisional",
+    "singing-in-milan": "provisional",
+    "genesis-in-paint": "provisional",
+    "mediterranean": "provisional",
+    "perpetua": "provisional",
+    "augustine": "provisional",
+    "teresa": "provisional",
+    "francis": "provisional",
+    "tacitus": "provisional",
+    "pliny": "provisional",
+    "josephus-james": "provisional",
+    "testimonium": "provisional",
+    "suetonius": "provisional",
+    "genesis": "provisional",
+    "exodus": "provisional",
+    "jonah": "provisional",
+    "emmaus": "provisional",
+    "paul": "provisional",
+    "nineveh": "provisional",
+    "jonah-in-marble": "provisional"
+  },
+  "routes": [
+    {
+      "route": "/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/demo/",
+      "maturity": "internal-draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/experiments/nineveh/",
+      "maturity": "excluded-experimental",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/explore/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "noindex",
+      "canonicalRoute": "/"
+    },
+    {
+      "route": "/human-story/augustine/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/emmaus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/exodus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review",
+        "exodus-unfinished"
+      ]
+    },
+    {
+      "route": "/human-story/francis/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/genesis/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/genesis-in-paint/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/james/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/james/reading/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/jerome/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/jonah/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/jonah-in-marble/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/josephus-james/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/mediterranean/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/nineveh/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/paths/a-life-in-another-life/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/paths/a-name-under-pressure/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/paths/a-word-crosses-centuries/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/paul/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/perpetua/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/pliny/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/rashi-radak/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/romanus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/romanus/reading/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/sinaiticus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/singing-in-milan/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/suetonius/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/tacitus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/teresa/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/testimonium/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/thomas/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/thomas/reading/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/thomas/sayings/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/time-and-memory/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/worlds/atlas/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/worlds/saints/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/worlds/stories/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/worlds/voices/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/human-story/worlds/witnesses/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/jonah/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    },
+    {
+      "route": "/nineveh/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ]
+    }
+  ]
+}

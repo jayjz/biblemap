@@ -1,0 +1,256 @@
+﻿.encounter { --night:#182d40; --paper:#e3dac9; --quiet:#c1cfd5; --accent:#cfb379; color:#f3eadb; background:var(--night); }
+.encounter [hidden] { display:none !important; }
+.encounter a { color:inherit; text-underline-offset:.25em; }
+.encounter :focus-visible { outline:3px solid currentColor; outline-offset:5px; }
+.encounter :focus,.encounter :target { scroll-margin-block:1.5rem; }
+.encounter summary { cursor:pointer; min-height:44px; padding:.65rem 0; font-size:.85rem; }
+.encounter details p { margin:.8rem 0; font-size:.9rem; line-height:1.75; }
+.encounter figure { min-width:0; }
+.encounter figcaption { font-size:.72rem; line-height:1.7; }
+.encounter img { display:block; max-width:100%; }
+/* Entrance and first movement share a print; later movements alter the register. */
+.entrance { position:relative; min-height:850px; padding:4rem 6vw; isolation:isolate; overflow:clip; }
+.entranceArt { position:absolute; right:5vw; top:2rem; width:55%; height:750px; z-index:-1; }
+.entranceArt img { width:100%; height:100%; object-fit:contain; }
+.entranceCopy { max-width:52%; }
+.entranceName { font:clamp(5rem,10vw,10rem)/1 var(--font-playfair),Georgia,serif; letter-spacing:-.06em; }
+.entrance h1 { font:1.5rem/1.4 var(--font-geist-sans),sans-serif; margin-top:1.5rem; }
+.entranceSubtitle { margin:5rem 0 0; font:clamp(1.6rem,2.8vw,2.8rem)/1.35 Georgia,serif; max-width:19ch; }
+.entranceSubtitle cite { display:block; font:normal .75rem/1.7 var(--font-geist-sans),sans-serif; margin-top:1.5rem; color:var(--quiet); }
+.enterStory { display:inline-flex; align-items:center; gap:2.5rem; min-height:48px; margin-top:2rem; border-bottom:1px solid var(--accent); text-decoration:none; }
+.entrancePlace { margin-top:2rem; font-size:.75rem; line-height:1.8; color:var(--quiet); }
+.entranceCredit { position:absolute; bottom:1.5rem; right:6vw; max-width:40ch; font-size:.7rem; line-height:1.7; }
+.reviewNotice { padding:.8rem 5vw; color:var(--quiet); max-width:100ch; }
+.sceneBar { display:flex; justify-content:space-between; gap:1rem; padding:1rem 5vw; background:#21394b; }
+.sceneBar nav { display:flex; gap:.25rem 1.5rem; flex-wrap:wrap; }
+.sceneBar a { display:inline-flex; align-items:center; gap:.6rem; font-size:.8rem; min-height:44px; text-decoration:none; }
+.sceneBar a[aria-current] { color:#f3d397; text-decoration:underline; text-decoration-thickness:2px; }
+.sceneBar a span { font-size:.7rem; }
+.sceneBar .readAll { text-decoration:underline; white-space:nowrap; }
+.scene { --scene-quiet:#c1cfd5; --scene-accent:#cfb379; background:var(--night); color:#f3eadb; }
+.scene + .scene { border-top:1px solid #657780; }
+.sceneLayout { max-width:1600px; margin:auto; padding:3rem 6vw 2rem; }
+.sceneCopy { min-width:0; }
+.movementNumber { display:flex; align-items:center; gap:1rem; font-size:.75rem; color:var(--scene-quiet); margin-bottom:2rem; }
+.movementNumber span { border-left:1px solid currentColor; padding-left:1rem; }
+.position { font-size:.8rem; color:var(--scene-quiet); margin-bottom:1rem; }
+.encounter .sceneTitle { font:clamp(2.8rem,5.2vw,5.5rem)/1.07 var(--font-playfair),Georgia,serif; letter-spacing:-.045em; max-width:22ch; margin:0 0 2.5rem; text-wrap:balance; }
+.narrative { font-size:1.05rem; line-height:1.85; max-width:52ch; }
+.narrative p + p { margin-top:1.2rem; }
+.sceneEvidence { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2rem 5vw; border-top:1px solid #71808a; margin-top:3.5rem; padding-top:1.5rem; }
+.relationships { min-width:0; }
+.relationshipControl > p,.fallbackRelations > p { font-size:.75rem; color:var(--scene-quiet); margin-bottom:.75rem; }
+.relationshipControl [role="group"] { display:flex; gap:.5rem; flex-wrap:wrap; }
+.relationshipControl button { font:inherit; font-size:.8rem; min-height:44px; padding:.5rem .8rem; color:inherit; background:transparent; border:1px solid #81919b; cursor:pointer; }
+.relationshipControl button[aria-pressed="true"] { background:#f3eadb; color:#182d40; border-color:#f3eadb; }
+.observation { margin-top:1.25rem; max-width:57ch; }
+.encounter .observation h3 { font:600 .8rem/1.5 var(--font-geist-sans),sans-serif; margin-bottom:.5rem; }
+.observation p { font-size:.85rem; line-height:1.75; }
+.sourceRegister { min-width:0; }
+.sourceRegister > p,.summaryNote { font-size:.75rem; color:var(--scene-quiet); }
+.sourceRegister a { display:inline-flex; align-items:center; min-height:44px; }
+.limit { border-left:2px solid var(--scene-accent); padding-left:1rem; }
+.sceneNavigation { grid-column:1 / -1; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+.sceneNavigation a { min-height:48px; display:inline-flex; align-items:center; font-size:.85rem; }
+.sceneNavigation span { font-size:.75rem; color:var(--scene-quiet); }
+.sceneNavigation .continue { border-bottom:1px solid var(--scene-accent); text-decoration:none; }
+.allHeading,.noScript { padding:2rem 6vw; max-width:80ch; line-height:1.7; }
+.allHeading h2 { font-size:2rem; margin-bottom:1rem; }
+.reception { margin-bottom:1rem; }
+.reception figure { max-width:300px; }
+/* 1. Contact: complete print and ordinary physical needs. */
+.childComposition { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:7vw; align-items:center; }
+.childArt { margin:0; }
+.childArt img { width:100%; height:570px; object-fit:contain; background:#e3dac9; }
+.childArt figcaption { margin-top:.85rem; color:var(--scene-quiet); }
+.sourceLead { font:clamp(2rem,3.2vw,3.2rem)/1.35 Georgia,serif; letter-spacing:-.025em; }
+.quoteCredit { font-size:.72rem; margin:1.5rem 0 2rem; color:var(--scene-quiet); }
+/* 2. Opposing appeals in one field, not an invented transcript. */
+.scene[data-scene="tribunal"] { background:#e3dac9; color:#283747; --scene-quiet:#485563; --scene-accent:#566a7b; }
+.hearingComposition { display:grid; grid-template-columns:1fr 1fr; gap:2rem 8vw; padding:2rem 0 1rem; }
+.testimony { margin:0; }
+.testimony blockquote { font:clamp(1.65rem,2.6vw,2.8rem)/1.4 Georgia,serif; letter-spacing:-.025em; margin:0; }
+.testimony figcaption { color:var(--scene-quiet); margin-top:1.4rem; }
+.testimony figcaption span { display:block; }
+.fatherAppeal { max-width:22rem; }
+.fatherAppeal blockquote { font-size:clamp(2.5rem,4.3vw,4.5rem); }
+.officialAppeal { padding-top:4rem; }
+.officialAppeal blockquote { font-size:clamp(1.7rem,2.4vw,2.5rem); }
+.daughterReply { grid-column:1 / -1; padding:3rem 0 0 16%; }
+.daughterReply blockquote { font:clamp(3.5rem,7vw,7rem)/1.15 var(--font-playfair),Georgia,serif; letter-spacing:-.04em; }
+.hearingLimit { grid-column:1 / -1; font-size:.75rem; color:var(--scene-quiet); line-height:1.8; padding:1rem 0 0 16%; }
+.hearingReading { margin:3rem 0 0 auto; width:65%; }
+/* 3. The reader-controlled covering remains a source encounter. */
+.scene[data-scene="separation"] .sceneLayout { padding-inline:5vw; }
+.separationLeaf { margin-top:1rem; min-width:0; }
+.separationLeaf [data-passage] blockquote { font:1.5rem/1.7 Georgia,serif; color:#f3eadb; }
+.separationLeaf [data-passage] figcaption,.separationLeaf [data-passage] p { color:#c1cfd5; }
+/* 4. Imagery of a vision, distinct from external events. */
+.scene[data-scene="vision"] { background:#142b30; --scene-quiet:#c2d0c8; }
+.visionComposition { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1fr); align-items:center; gap:6vw; }
+.branch { margin:0; align-self:stretch; }
+.branch svg { width:100%; height:600px; display:block; }
+.branch figcaption { color:var(--scene-quiet); margin-top:1rem; }
+.registerChange { font-size:.8rem; color:var(--scene-accent); margin-bottom:1.5rem; }
+.visionReading .testimony { padding-bottom:2.5rem; }
+.visionReading .testimony blockquote { font-size:clamp(2rem,3vw,3.2rem); }
+/* 5. A later face and words preserved through another writer. */
+.scene[data-scene="felicity"] { background:#382b38; --scene-quiet:#dbcbd6; --scene-accent:#e1bf9a; }
+.felicityComposition { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:6vw; align-items:start; }
+.felicityArt { margin:0; padding-top:1rem; }
+.felicityArt img { width:100%; height:auto; }
+.felicityArt figcaption { margin-top:1rem; color:var(--scene-quiet); }
+.felicityReading .testimony blockquote { font-size:clamp(1.8rem,2.6vw,2.7rem); }
+.felicityReading > .narrative { margin-top:2.5rem; }
+.daughterCare { margin-top:3rem; border-left:2px solid #b19baf; padding-left:1.5rem; }
+.daughterCare .testimony blockquote { font-size:1.4rem; }
+/* 6. Blank space marks the boundary before another voice enters. */
+.scene[data-scene="handover"] { background:#202e3a; }
+.lastWords { max-width:950px; margin:4rem auto 0; }
+.lastWords .testimony blockquote { font-size:clamp(2.25rem,4.1vw,4.5rem); line-height:1.35; }
+.handoverBreak { margin:4rem 0 5rem; padding-bottom:3rem; border-bottom:1px solid #8b989e; font-size:.75rem; color:var(--scene-quiet); text-align:center; }
+.afterWriting { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:9vw; max-width:1100px; margin:auto; }
+.remembranceArt { margin:0; }
+.remembranceArt img { width:100%; height:600px; object-fit:contain; }
+.remembranceArt figcaption { margin-top:1.25rem; color:var(--scene-quiet); }
+.finalQuestion { max-width:980px; margin:7rem auto 3rem; }
+.encounter .finalQuestion h3 { font:clamp(2.5rem,4.7vw,5rem)/1.2 var(--font-playfair),Georgia,serif; letter-spacing:-.04em; text-wrap:balance; }
+.finalQuestion a { display:inline-flex; min-height:48px; align-items:center; margin-top:2rem; font-size:.85rem; }
+.beyond { display:grid; grid-template-columns:1fr .8fr; gap:8vw; padding:4rem 6vw; background:#d9e1e1; color:#283747; }
+.beyond h2 { font:2.5rem/1.2 var(--font-playfair),Georgia,serif; margin:1rem 0; }
+.beyond p { max-width:55ch; font-size:.9rem; line-height:1.8; margin:1rem 0; }
+.beyond a { display:inline-flex; align-items:center; min-height:44px; }
+.beyond .small { font-size:.75rem; }
+.outward > a { font:1.65rem/1.4 var(--font-playfair),Georgia,serif; }
+.evidence { padding:3rem 6vw; color:#283747; background:#e6e9e5; }
+.evidence h2 { font-size:2rem; line-height:1.3; }
+.evidence > p { max-width:80ch; font-size:.9rem; line-height:1.8; margin:1.5rem 0; }
+.evidence details { max-width:90ch; border-top:1px solid #829097; }
+.evidence details figure { max-width:440px; }
+.evidence details img { height:auto; }
+@media(max-width:1000px) {
+ .sceneBar { flex-wrap:wrap; gap:.2rem 1rem; }
+ .sceneBar nav { gap:.2rem 1rem; }
+ .entrance { min-height:800px; }
+ .entranceArt { top:4rem; height:640px; }
+ .entranceSubtitle { margin-top:4rem; }
+}
+@media(max-width:720px) {
+ .entrance { display:flex; flex-direction:column; gap:1rem; padding:2rem 1.25rem; min-height:0; }
+ .entranceCopy { display:contents; }
+ .entranceName { order:1; font-size:20vw; }
+ .entrance h1 { order:2; margin:0; }
+ .entranceArt { order:3; position:static; width:100%; height:auto; }
+ .entranceArt img { height:420px; }
+ .entranceCredit { order:4; position:static; max-width:none; }
+ .entranceSubtitle { order:5; margin:1rem 0 0; font-size:1.65rem; max-width:none; }
+ .enterStory { order:6; margin:.5rem 0 0; align-self:start; }
+ .entrancePlace { order:7; margin:0; }
+ .sceneLayout,.scene[data-scene="separation"] .sceneLayout { padding:2rem 1.25rem; }
+ .sceneBar { padding-inline:1.25rem; }
+ .movementNumber { margin-bottom:1.5rem; }
+ .encounter .sceneTitle { font-size:clamp(2.5rem,10vw,4rem); margin-bottom:2rem; }
+ .childComposition,.visionComposition,.felicityComposition,.afterWriting { display:flex; flex-direction:column; gap:2rem; align-items:stretch; }
+ .childArt img { height:400px; }
+ .sourceLead { font-size:2rem; }
+ .narrative { font-size:1rem; line-height:1.8; }
+ .sceneEvidence { grid-template-columns:minmax(0,1fr); gap:2rem; margin-top:2.5rem; }
+ .sceneNavigation { margin-top:0; }
+ .sceneNavigation span { width:100%; }
+ .hearingComposition { display:block; padding-top:0; }
+ .fatherAppeal { max-width:90%; }
+ .fatherAppeal blockquote { font-size:2.7rem; }
+ .officialAppeal { padding:3rem 0 0 15%; }
+ .officialAppeal blockquote { font-size:1.6rem; }
+ .daughterReply { padding:4rem 0 0; }
+ .daughterReply blockquote { font-size:clamp(3rem,13vw,5rem); }
+ .hearingLimit { padding:2rem 0 0; }
+ .hearingReading { margin-top:2rem; width:100%; }
+ .branch svg { height:420px; }
+ .branch { max-width:90%; align-self:center; }
+ .visionReading .testimony blockquote { font-size:2rem; }
+ .felicityReading .testimony blockquote { font-size:1.8rem; }
+ .daughterCare .testimony blockquote { font-size:1.3rem; }
+ .lastWords { margin-top:2rem; }
+ .lastWords .testimony blockquote { font-size:2.1rem; }
+ .handoverBreak { margin:3rem 0; padding-bottom:2rem; text-align:left; }
+ .remembranceArt img { width:100%; height:auto; max-height:480px; }
+ .finalQuestion { margin:4rem 0 2rem; }
+ .encounter .finalQuestion h3 { font-size:2.6rem; }
+ .beyond { display:block; padding:3rem 1.25rem; }
+ .beyond h2 { font-size:2rem; }
+ .outward { margin-top:3rem; }
+ .evidence { padding:3rem 1.25rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .encounter *,.encounter *::before,.encounter *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+
+/* The recovered movements: reported bodies, conflicting claims and a quiet last frame. */
+.fatherAppeal { max-width:none; }
+.fatherAppeal blockquote,.officialAppeal blockquote,.daughterReply blockquote { font:clamp(1.8rem,2.8vw,3rem)/1.4 Georgia,serif; letter-spacing:-.025em; }
+.fatherGesture { margin-top:2rem; }
+.fatherGesture blockquote { font-size:1.2rem; }
+.officialAppeal { padding-top:3rem; }
+.daughterReply { padding:1rem 0 0; grid-column:2; }
+.hearingLimit { padding-left:0; }
+.hearingGrief { max-width:850px; margin:3rem auto 0; border-top:1px solid #7d8790; padding-top:2rem; }
+.hearingGrief .testimony blockquote { font-size:clamp(1.8rem,3vw,3rem); }
+.hearingReading { width:100%; max-width:850px; margin:2.5rem auto 0; }
+.culturalContext { max-width:70ch; margin:2rem 0 0; border-top:1px solid #85949d; }
+.culturalContext p { max-width:65ch; }
+.editorialLabel { font-size:.72rem; line-height:1.7; color:var(--scene-quiet); }
+.encounter .culturalContext .editorialLabel { font-size:.72rem; }
+.sceneEvidence { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:start; gap:1rem 3rem; margin-top:2rem; }
+.relationships,.sourceRegister { flex:1 1 20rem; min-width:0; }
+.sceneNavigation { width:100%; margin-top:.5rem; }
+.sceneEvidence summary { font-size:.78rem; }
+.sceneEvidence .sourceRegister > p { margin:.4rem 0; }
+.visionEncounter { position:relative; isolation:isolate; }
+.visionField { margin:0; }
+.visionField img { width:100%; height:650px; object-fit:cover; object-position:center; }
+.visionField figcaption { margin-top:.8rem; color:var(--scene-quiet); }
+.visionText { position:relative; background:#152d39; margin:-12rem 2rem 0 40%; padding:2rem; color:#f3eadb; border-top:1px solid #b3a184; }
+.visionText nav { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1.75rem; }
+.visionText button { min-height:44px; font:inherit; font-size:.78rem; background:transparent; color:inherit; border:1px solid #9dabb0; padding:.6rem .75rem; cursor:pointer; }
+.visionText button[aria-current] { color:#182d40; background:#e3dac9; }
+.encounter .visionText h3 { font:.8rem/1.6 var(--font-geist-sans),sans-serif; color:#dfcc9c; margin-bottom:1.25rem; }
+.visionText blockquote { font:clamp(1.6rem,2.5vw,2.5rem)/1.45 Georgia,serif; margin:0; }
+.visionNote { font-size:.95rem; line-height:1.8; margin-top:1.5rem; max-width:50ch; }
+.visionText .visionNext { margin-top:1.25rem; border:0; border-bottom:1px solid #cfb379; padding-left:0; }
+.visionText .editorialLabel { margin-top:1rem; }
+.visionText .quoteCredit { margin:1rem 0 0; }
+.visionAfter { max-width:70ch; margin:2.5rem auto 0; }
+.visionText [data-vision-passage] + [data-vision-passage] { margin-top:2rem; }
+.visionText [data-vision-passage][hidden] + [data-vision-passage] { margin-top:0; }
+.felicityArt { position:sticky; top:2rem; }
+.artConversation { font:1.55rem/1.5 Georgia,serif; margin:2rem 0; }
+.felicityReply { margin-top:2.5rem; }
+.felicityReading .narrative p + p { margin-top:1rem; }
+.afterWriting .narrative { margin-top:2rem; }
+.afterWriting .testimony blockquote { font-size:1.7rem; }
+.endingComposition > .culturalContext { max-width:75ch; margin:3rem auto; }
+.endingNotes { margin:3rem 0 0; }
+.researchDesk { border-top:1px solid #85949d; padding-top:.5rem; }
+.researchDesk > summary { font-size:.85rem; }
+.researchDesk .beyond,.researchDesk .evidence { padding:2rem; }
+.finalQuestion { min-height:100svh; margin:0 auto; display:flex; align-items:center; justify-content:center; padding-block:6rem; }
+.endingComposition { padding-bottom:0; }
+@media(max-width:720px) {
+ .officialAppeal { padding:2rem 0 0 10%; }
+ .daughterReply { padding:2rem 0 0; }
+ .hearingComposition blockquote { font-size:1.85rem; }
+ .fatherGesture blockquote { font-size:1.15rem; }
+ .hearingGrief { margin-top:2rem; }
+ .hearingGrief .testimony blockquote { font-size:1.8rem; }
+ .visionField img { height:390px; object-position:37% center; }
+ .visionText { margin:1rem 0 0; padding:1.25rem; }
+ .visionText blockquote { font-size:1.6rem; }
+ .visionText nav { gap:.4rem; }
+ .visionText nav button { text-align:left; }
+ .visionNote { font-size:.9rem; }
+ .felicityArt { position:static; }
+ .artConversation { font-size:1.3rem; }
+ .researchDesk .beyond,.researchDesk .evidence { padding:1.25rem; }
+ .finalQuestion { padding-block:4rem; min-height:100svh; }
+}

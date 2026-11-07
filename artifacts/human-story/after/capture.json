@@ -1,0 +1,144 @@
+{
+  "phase": "after",
+  "checks": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/child",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/tribunal",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/separation",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/vision",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/felicity",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/handover",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/child",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/tribunal",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/separation",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/vision",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/felicity",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/handover",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/child",
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/tribunal",
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/separation",
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/vision",
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/felicity",
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/handover",
+      "width": 820,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/child",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/tribunal",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/separation",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/vision",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/felicity",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "perpetua/handover",
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "httpErrors": []
+}

@@ -24,3 +24,7 @@ These instructions extend the repository-root and `src/AGENTS.md` files for work
 Sourced editorial experiments may render in a no-index reader or draft PR when the user requests implementation for review. Record their draft status in source and the PR; do not claim human approval or change existing production/release gates. Attribution, exact Scripture, rights verification, and explicit uncertainty remain mandatory.
 
 Reader-facing source links and limitations may use progressive disclosure. Internal approval state belongs in the review record or artwork details, not in the narrative foreground.
+
+## Creator-controlled publication
+
+For the Human Story release candidate, technical integrity, content maturity and publication authorization are separate. `docs/release/publication-scope.json` selects candidate records before export; `publication-decision.json` records only a real creator decision tied to the exact content and artifact digests. Placeholder author fields and unreviewed authored text are omitted before serialization. Per-scene draft review records are historical workflow metadata, not redundant release permissions. Complete/provisional companion states do not authorize publication; internal/experimental companions are excluded. No passing check, Git identity or homepage design acceptance supplies the creator's release decision. Historical contexts, claims, source/rights review and audio retain their substantive requirements.

@@ -1,0 +1,48 @@
+{
+  "phase": "pilot-v1",
+  "sourceHead": "97da651cc0a0ee79462ee0b43e8b7d2f03b0d273",
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "overflow": false,
+      "sceneBox": {
+        "x": 0,
+        "y": -0.40625,
+        "width": 1440,
+        "height": 1359.328125
+      },
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "sceneBox": {
+        "x": 0,
+        "y": 0.234375,
+        "width": 390,
+        "height": 2083.09375
+      },
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "height": 760,
+      "overflow": false,
+      "sceneBox": {
+        "x": 0,
+        "y": 0.234375,
+        "width": 320,
+        "height": 2456.953125
+      },
+      "errors": [],
+      "failures": []
+    }
+  ]
+}

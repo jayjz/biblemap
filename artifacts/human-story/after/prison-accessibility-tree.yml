@@ -1,0 +1,67 @@
+- main:
+  - article:
+    - paragraph: Perpetua & Felicity
+    - heading "The Prison" [level=1]
+    - paragraph: Carthage · traditionally dated 203 CE An encounter with the transmitted Passion
+    - navigation "Scenes in The Prison":
+      - link "The child":
+        - /url: "#perpetua-child"
+      - link "The hearing":
+        - /url: "#perpetua-tribunal"
+      - link "The separation":
+        - /url: "#perpetua-separation"
+      - link "The vision":
+        - /url: "#perpetua-vision"
+      - link "Felicity":
+        - /url: "#perpetua-felicity"
+      - link "The ending":
+        - /url: "#perpetua-handover"
+    - link "Read all six scenes":
+      - /url: "#perpetua-all"
+    - region "A child in the prison.":
+      - paragraph: Account attributed to Perpetua
+      - heading "A child in the prison." [level=2]
+      - paragraph: "The prison is crowded and hot. In the account attributed to her, Perpetua fears its darkness. Her account keeps returning to someone else: her nursing child."
+      - paragraph: The deacons obtain a respite. She nurses the hungry child. Later, he is allowed to stay with her. A place of confinement becomes, in her telling, a palace.
+      - figure "Perpetua & her child Original relationship drawing. Not historical architecture.":
+        - 'img "The child: a relationship in the account Two nested forms stand for Perpetua and her child, with a continuous line for the contact narrated in section 3. Original modern abstraction, not a portrait or a plan of the prison."'
+        - text: Perpetua & her child Original relationship drawing. Not historical architecture.
+      - paragraph: Follow a relationship
+      - group "Follow a relationship":
+        - button "Her child" [pressed]
+        - button "Her family"
+        - button "The deacons"
+      - heading "A nursing infant" [level=3]
+      - paragraph: Her care for him gives the prison account its immediate bodily stakes. His hunger and presence are described by her; his own experience does not reach us in a separate voice.
+      - paragraph: Passion §3; attribution introduced in §2
+      - group: Inspect this passage
+      - navigation "Continue from The child":
+        - text: Begin with the surviving account.
+        - 'link "Continue: The hearing"':
+          - /url: "#perpetua-tribunal"
+    - region "Carthage is a city. This is one surviving story.":
+      - paragraph: Place the account
+      - heading "Carthage is a city. This is one surviving story." [level=2]
+      - paragraph: The Atlas can orient us to Carthage. It does not establish the prison’s location or appearance, or independently verify this account.
+      - link "Orient to Carthage in the Atlas":
+        - /url: /explore/?lat=36.85306&lng=10.32306&zoom=6
+      - paragraph:
+        - text: "City reference:"
+        - link "Pleiades contributors, Carthago 314921":
+          - /url: https://pleiades.stoa.org/places/314921
+        - text: ", CC BY 3.0. Modern city-scale orientation; no ancient route or exact site implied."
+      - paragraph: Other ways of telling
+      - link "Pliny writes to an emperor":
+        - /url: /human-story/pliny/
+      - paragraph: A Roman official’s correspondence, from another time and region. An editorial comparison, not the cause of this trial.
+      - 'link "Augustine: a life reread"':
+        - /url: /human-story/augustine/
+      - paragraph: A different first-person work, addressed to God. Compare how a life reaches its reader.
+      - 'link "Return to Scripture: read Jonah"':
+        - /url: /jonah/#jonah-1-calling
+      - paragraph: The biblical narrative retains its own voice. This return does not assert a direct dependence of the Passion on Jonah.
+    - region "The work that carries these voices.":
+      - heading "The work that carries these voices." [level=2]
+      - paragraph: The Passion’s frame attributes §§3–10 to Perpetua and §§11–13 to Saturus. A narrator introduces the prisoners and tells the ending. These are parts of one transmitted work, not a collection of independently recovered testimonies.
+      - group: Edition, provenance & limits
+      - group: About the drawing and this encounter

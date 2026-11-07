@@ -1,0 +1,280 @@
+
+> next_temp@0.1.0 lint
+> eslint
+
+
+C:\Dev\biblemap-human-experience\scripts\validate-nineveh-depth.mjs
+  4:10  warning  'basename' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx
+    38:7   warning  'POINTS_URL' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+   662:10  warning  'haversineDistance' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+   672:16  warning  'fetchAndUnpackEvents' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   824:57  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:824:57
+  822 |   const mapRef     = useRef<MapRef>(null);
+  823 |   const maxYearRef = useRef<number>(0);
+> 824 |   const randomQuote = useRef(BIBLICAL_QUOTES[Math.floor(Math.random() * BIBLICAL_QUOTES.length)]);
+      |                                                         ^^^^^^^^^^^^^ Cannot call impure function
+  825 |
+  826 |   const uniqueBooks = useMemo(() => {
+  827 |     if (!arrowTable) return ["All"];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/purity
+   893:42  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:893:42
+  891 |
+  892 |   useEffect(() => {
+> 893 |     if (arrowTable && currentYear === 0) setCurrentYear(minYear);
+      |                                          ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  894 |   }, [arrowTable, minYear, currentYear]);
+  895 |
+  896 |   const MAX_CHUNKS_IN_MEMORY = 3;                                                                                                                                                                                                                                                                                                                                                       react-hooks/set-state-in-effect
+   957:26  error    Error: Cannot access variable before it is declared
+
+`loadChunk` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:957:26
+  955 |       if (retry < 3) {
+  956 |         const delay = Math.pow(2, retry) * 1000;
+> 957 |         setTimeout(() => loadChunk(epochId, retry + 1), delay);
+      |                          ^^^^^^^^^ `loadChunk` accessed before it is declared
+  958 |         setRetryCount(prev => new Map(prev).set(epochId, retry + 1));
+  959 |       }
+  960 |     } finally {
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:916:3
+  914 |   }, []);
+  915 |
+> 916 |   const loadChunk = useCallback(async (epochId: number, retry = 0) => {
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 917 |     if (loadedChunks.has(epochId) || loadingChunks.has(epochId)) return;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 918 |
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 966 |     }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 967 |   }, [loadedChunks, loadingChunks]);
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `loadChunk` is declared here
+  968 |
+  969 |   useEffect(() => {
+  970 |     loadChunk(activeEpochId);  react-hooks/immutability
+   977:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:977:5
+  975 |
+  976 |   useEffect(() => {
+> 977 |     evictOldChunks(activeEpochId);
+      |     ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  978 |   }, [activeEpochId, evictOldChunks]);
+  979 |
+  980 |   const activeTable = useMemo(() => {                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/set-state-in-effect
+   989:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:989:7
+  987 |   useEffect(() => {
+  988 |     if (activeTable) {
+> 989 |       setArrowTable(activeTable);
+      |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  990 |       setLoading(false);
+  991 |     }
+  992 |   }, [activeTable]);                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/set-state-in-effect
+   997:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:997:5
+   995 |     fetchAndUnpackJourneys("/bible-journeys.parquet?v=" + Date.now()).then(setJourneys);
+   996 |
+>  997 |     setLoadProgress({ stage: "Loading Creation era...", percent: 0, loaded: 0, total: 0 });
+       |     ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+   998 |
+   999 |     const hash = window.location.hash;
+  1000 |     const epochFound = EPOCHS.find((ep) => hash.startsWith(ep.hash));                                                                                                                                                                                                                                                react-hooks/set-state-in-effect
+  1051:11  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1051:11
+  1049 |             verse_reference: String(cols.vr?.get(i) ?? ""),
+  1050 |           };
+> 1051 |           setSelectedEvent(eventData);
+       |           ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  1052 |           setActiveEpochId(eventData.epoch_id);
+  1053 |           setCurrentYear(eventData.ussher_year);
+  1054 |           break;                                                                                                                                                                                                                                                                                                            react-hooks/set-state-in-effect
+  1096:7   error    Error: This value cannot be modified
+
+Modifying a value returned from 'useState()', which should not be modified directly. Use the setter function to update instead.
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1096:7
+  1094 |     if (audioElement) {
+  1095 |       audioElement.pause();
+> 1096 |       audioElement.currentTime = 0;
+       |       ^^^^^^^^^^^^ `audioElement` cannot be modified
+  1097 |     }
+  1098 |
+  1099 |     const sanitizedId = eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/immutability
+  1150:7   error    Error: This value cannot be modified
+
+Modifying a value returned from 'useState()', which should not be modified directly. Use the setter function to update instead.
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1150:7
+  1148 |     if (audioElement) {
+  1149 |       audioElement.pause();
+> 1150 |       audioElement.currentTime = 0;
+       |       ^^^^^^^^^^^^ `audioElement` cannot be modified
+  1151 |       setAudioElement(null);
+  1152 |     }
+  1153 |     if ('speechSynthesis' in window) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/immutability
+  1228:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1228:7
+  1226 |       ambient.loop = true;
+  1227 |       ambient.volume = 0.15;
+> 1228 |       setAmbientAudio(ambient);
+       |       ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  1229 |     } else if (!ambientEnabled && ambientAudio) {
+  1230 |       ambientAudio.pause();
+  1231 |     }                                                                                                                                                                                                                                                                                                                                                                        react-hooks/set-state-in-effect
+  1236:25  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1236:25
+  1234 |   useEffect(() => {
+  1235 |     if (!scene.journeyId || scene.beatCount === 0) {
+> 1236 |       if (!journeyMode) setJourneyProgress(0);
+       |                         ^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  1237 |       return;
+  1238 |     }
+  1239 |     setJourneyProgress((scene.beatIndex + 1) / scene.beatCount);                                                                                                                                                                                                                                                                                                                 react-hooks/set-state-in-effect
+  1374:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1374:7
+  1372 |   useEffect(() => {
+  1373 |     if (!selectedEvent || !arrowTable) {
+> 1374 |       setRelatedEvents({ before: [], after: [], nearby: [] });
+       |       ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  1375 |       return;
+  1376 |     }
+  1377 |                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/set-state-in-effect
+  1536:34  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1536:34
+  1534 |         getFillColor: [255, 180, 50, 220],
+  1535 |         getLineColor: [255, 220, 150, 255],
+> 1536 |         getRadius: 18 + Math.sin(Date.now() / 300) * 4,
+       |                                  ^^^^^^^^^^ Cannot call impure function
+  1537 |         radiusUnits: "pixels",
+  1538 |         stroked: true,
+  1539 |         filled: true,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/purity
+  1548:34  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1548:34
+  1546 |         getPosition: (d: Waypoint) => [d.lon, d.lat],
+  1547 |         getFillColor: [255, 160, 0, 40],
+> 1548 |         getRadius: 45 + Math.sin(Date.now() / 500) * 10,
+       |                                  ^^^^^^^^^^ Cannot call impure function
+  1549 |         radiusUnits: "pixels",
+  1550 |         stroked: false,
+  1551 |         filled: true,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/purity
+  1576:32  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1576:32
+  1574 |       getRadius: (idx: number) => {
+  1575 |         const baseRadius = 40;
+> 1576 |         const pulse = Math.sin(Date.now() / 800 + idx * 0.1) * 8;
+       |                                ^^^^^^^^^^ Cannot call impure function
+  1577 |         const mouseInfluence = Math.sin(Date.now() / 2000) * 5;
+  1578 |         return baseRadius + pulse + mouseInfluence;
+  1579 |       },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/purity
+  1577:41  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1577:41
+  1575 |         const baseRadius = 40;
+  1576 |         const pulse = Math.sin(Date.now() / 800 + idx * 0.1) * 8;
+> 1577 |         const mouseInfluence = Math.sin(Date.now() / 2000) * 5;
+       |                                         ^^^^^^^^^^ Cannot call impure function
+  1578 |         return baseRadius + pulse + mouseInfluence;
+  1579 |       },
+  1580 |       radiusUnits: "pixels",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react-hooks/purity
+  1743:19  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:1743:19
+  1741 |         <div className="text-[11px] text-slate-600 uppercase tracking-widest mb-3">Scripture</div>
+  1742 |         <div className="text-sm text-slate-500 italic leading-relaxed">
+> 1743 |           &ldquo;{randomQuote.current}&rdquo;
+       |                   ^^^^^^^^^^^^^^^^^^^ Cannot access ref value during render
+  1744 |         </div>
+  1745 |       </div>
+  1746 |       <div className="mt-8 text-[10px] text-slate-700 uppercase tracking-wider">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/refs
+  2248:31  error    Error: This value cannot be modified
+
+Modifying a value returned from 'useState()', which should not be modified directly. Use the setter function to update instead.
+
+C:\Dev\biblemap-human-experience\src\components\DataLoader.tsx:2248:31
+  2246 |           onVolumeChange={(vol) => {
+  2247 |             setAudioVolume(vol);
+> 2248 |             if (audioElement) audioElement.volume = vol;
+       |                               ^^^^^^^^^^^^ `audioElement` cannot be modified
+  2249 |           }}
+  2250 |           relatedEvents={[
+  2251 |             ...relatedEvents.before.slice(-2).reverse(),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/immutability
+
+✖ 22 problems (18 errors, 4 warnings)

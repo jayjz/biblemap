@@ -1,0 +1,291 @@
+{
+  "capturedAt": "2026-11-06T00:28:02.019Z",
+  "buildId": "2d504aa",
+  "sourceHashes": {
+    "src/features/human-story/HumanStoryHome.tsx": "6ff13179b16f32058d1c7e0a98a848d70478d2a1f1642995c333bbc355e9fa73",
+    "src/features/human-story/FeaturedEncounters.tsx": "475a82740e1186673ffc93487af81044c5c5a0bbfd44b651a83e76067fee639b",
+    "src/features/human-story/ConnectedExplorer.tsx": "08e1aa3ba1c36e25aa6785f011b682abaad1afd62ff61346059043717eb9877c",
+    "src/features/human-story/discovery.module.css": "555665871d197f91b5307a669e497eb790865ed03fcc001ca4bddd74ed1d8633"
+  },
+  "htmlRoutes": [
+    "404.html",
+    "404\\index.html",
+    "_not-found\\index.html",
+    "demo\\index.html",
+    "experiments\\nineveh\\index.html",
+    "explore\\index.html",
+    "human-story\\augustine\\index.html",
+    "human-story\\emmaus\\index.html",
+    "human-story\\exodus\\index.html",
+    "human-story\\francis\\index.html",
+    "human-story\\genesis-in-paint\\index.html",
+    "human-story\\genesis\\index.html",
+    "human-story\\index.html",
+    "human-story\\james\\index.html",
+    "human-story\\james\\reading\\index.html",
+    "human-story\\jerome\\index.html",
+    "human-story\\jonah-in-marble\\index.html",
+    "human-story\\jonah\\index.html",
+    "human-story\\josephus-james\\index.html",
+    "human-story\\mediterranean\\index.html",
+    "human-story\\nineveh\\index.html",
+    "human-story\\paths\\a-life-in-another-life\\index.html",
+    "human-story\\paths\\a-name-under-pressure\\index.html",
+    "human-story\\paths\\a-word-crosses-centuries\\index.html",
+    "human-story\\paul\\index.html",
+    "human-story\\perpetua\\index.html",
+    "human-story\\pliny\\index.html",
+    "human-story\\rashi-radak\\index.html",
+    "human-story\\romanus\\index.html",
+    "human-story\\romanus\\reading\\index.html",
+    "human-story\\sinaiticus\\index.html",
+    "human-story\\singing-in-milan\\index.html",
+    "human-story\\suetonius\\index.html",
+    "human-story\\tacitus\\index.html",
+    "human-story\\teresa\\index.html",
+    "human-story\\testimonium\\index.html",
+    "human-story\\thomas\\index.html",
+    "human-story\\thomas\\reading\\index.html",
+    "human-story\\thomas\\sayings\\index.html",
+    "human-story\\time-and-memory\\index.html",
+    "human-story\\worlds\\atlas\\index.html",
+    "human-story\\worlds\\saints\\index.html",
+    "human-story\\worlds\\stories\\index.html",
+    "human-story\\worlds\\voices\\index.html",
+    "human-story\\worlds\\witnesses\\index.html",
+    "index.html",
+    "jonah\\index.html",
+    "nineveh\\index.html"
+  ],
+  "observations": [
+    {
+      "width": 1440,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": false,
+      "violations": [],
+      "overflow": false,
+      "overflowingElements": [],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-1536.webp",
+          "width": 745,
+          "height": 350,
+          "objectPosition": "50% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    },
+    {
+      "width": 768,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": true,
+      "violations": [],
+      "overflow": true,
+      "overflowingElements": [
+        {
+          "tag": "H3",
+          "class": "",
+          "text": "A life in another life",
+          "right": 773.734375
+        }
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-1536.webp",
+          "width": 396,
+          "height": 350,
+          "objectPosition": "50% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    },
+    {
+      "width": 390,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": true,
+      "violations": [],
+      "overflow": true,
+      "overflowingElements": [
+        {
+          "tag": "DIV",
+          "class": "human-story_openingText___Z4HU",
+          "text": "Scripture. Lives. A connected world.The humanstory.An ancient story opens onto a",
+          "right": 473.46875
+        },
+        {
+          "tag": "P",
+          "class": "human-story_intro__n9XNU",
+          "text": "Scripture. Lives. A connected world.",
+          "right": 425.46875
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "text": "The humanstory.",
+          "right": 425.46875
+        },
+        {
+          "tag": "BR",
+          "class": "",
+          "text": "",
+          "right": 425.46875
+        },
+        {
+          "tag": "P",
+          "class": "human-story_lede__1WKVU",
+          "text": "An ancient story opens onto a city. A city leads to a life. A life leaves a ques",
+          "right": 425.46875
+        },
+        {
+          "tag": "P",
+          "class": "human-story_sublede__1Zkhl",
+          "text": "Explore the human story through a biblical worldview.",
+          "right": 425.46875
+        },
+        {
+          "tag": "A",
+          "class": "human-story_primaryLink__13gJt action-link_action__oS50E action-link_primary__BB9Qy",
+          "text": "Meet Perpetua & Romanus",
+          "right": 425.46875
+        },
+        {
+          "tag": "A",
+          "class": "human-story_quietLink__hhkDv",
+          "text": "Or begin with the book of Jonah",
+          "right": 425.46875
+        },
+        {
+          "tag": "DIV",
+          "class": "human-story_weave__WLQ0m",
+          "text": "One story, many afterlivesJonah Under the Gourd Vine280–290 CE. Later Christian ",
+          "right": 473.46875
+        },
+        {
+          "tag": "svg",
+          "class": {},
+          "text": "",
+          "right": 473.46875
+        },
+        {
+          "tag": "path",
+          "class": {},
+          "text": "",
+          "right": 439.64956283569336
+        },
+        {
+          "tag": "P",
+          "class": "human-story_weaveLabel__Sv0ZO",
+          "text": "One story, many afterlives",
+          "right": 425.46875
+        }
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-768.webp",
+          "width": 310,
+          "height": 207,
+          "objectPosition": "50% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    },
+    {
+      "width": 320,
+      "errors": [],
+      "failures": [],
+      "overflowWithoutInvitation": true,
+      "violations": [],
+      "overflow": true,
+      "overflowingElements": [
+        {
+          "tag": "DIV",
+          "class": "human-story_openingText___Z4HU",
+          "text": "Scripture. Lives. A connected world.The humanstory.An ancient story opens onto a",
+          "right": 473.46875
+        },
+        {
+          "tag": "P",
+          "class": "human-story_intro__n9XNU",
+          "text": "Scripture. Lives. A connected world.",
+          "right": 425.46875
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "text": "The humanstory.",
+          "right": 425.46875
+        },
+        {
+          "tag": "BR",
+          "class": "",
+          "text": "",
+          "right": 425.46875
+        },
+        {
+          "tag": "P",
+          "class": "human-story_lede__1WKVU",
+          "text": "An ancient story opens onto a city. A city leads to a life. A life leaves a ques",
+          "right": 425.46875
+        },
+        {
+          "tag": "P",
+          "class": "human-story_sublede__1Zkhl",
+          "text": "Explore the human story through a biblical worldview.",
+          "right": 425.46875
+        },
+        {
+          "tag": "A",
+          "class": "human-story_primaryLink__13gJt action-link_action__oS50E action-link_primary__BB9Qy",
+          "text": "Meet Perpetua & Romanus",
+          "right": 425.46875
+        },
+        {
+          "tag": "A",
+          "class": "human-story_quietLink__hhkDv",
+          "text": "Or begin with the book of Jonah",
+          "right": 425.46875
+        },
+        {
+          "tag": "DIV",
+          "class": "human-story_weave__WLQ0m",
+          "text": "One story, many afterlivesJonah Under the Gourd Vine280–290 CE. Later Christian ",
+          "right": 473.46875
+        },
+        {
+          "tag": "svg",
+          "class": {},
+          "text": "",
+          "right": 473.46875
+        },
+        {
+          "tag": "path",
+          "class": {},
+          "text": "",
+          "right": 439.64956283569336
+        },
+        {
+          "tag": "circle",
+          "class": {},
+          "text": "",
+          "right": 388.9207458496094
+        }
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4189/media/thomas/proximity-768.webp",
+          "width": 240,
+          "height": 160,
+          "objectPosition": "50% 50%"
+        }
+      ],
+      "runningAnimations": 0
+    }
+  ]
+}

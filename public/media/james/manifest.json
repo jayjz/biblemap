@@ -1,0 +1,239 @@
+{
+  "edition": "James cinematic draft V2",
+  "historicalReview": "pending human review",
+  "artReferencesAreNotReusedImages": true,
+  "assets": [
+    {
+      "id": "james-galilee-1536",
+      "eventIds": [],
+      "journeyIds": [
+        "james"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "A Galilean domestic horizon — 1536px",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Interpretation of a first-century setting; no exact year",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/james/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section; output ownership subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s express request. No third-party images supplied or reproduced; historical reference pages were consulted as information only. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive painting for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "5006f1ac895be499512f5e046e8acc90cbf6315205850f62ef1a8c447fa90398",
+      "localPath": "/media/james/galilee-1536.webp",
+      "fileSize": 272782,
+      "width": 1536,
+      "height": 1024,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Buildings, people and viewpoint are imagined.",
+      "historicalFit": "General landscape and material context only. Not a likeness, identified home, meeting place or exact plan.",
+      "editorialReason": "Establish domestic scale and regional setting before the title of leader",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex — generation provenance and reuse terms checked; historical/editorial human review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Create an original environmental matte painting for BibleMap, wide landscape 3:2. First-century Galilean hill-country village, evocative painted film background, mineral pigments, deep blue-gray shadows and sunlit pale limestone, soft muted olive green, dusty rose distant hills. View from an irregular limestone doorway/terrace looking across a small inhabited village toward rounded Galilean hills. Modest one-storey rough limestone houses, flat roofs, a courtyard, stone cistern opening, a few very small anonymous people in plain undyed clothing far away for human scale, no recognizable face. Strong physical depth: close shadowed left wall and olive tree, middle sunlit courtyard and rooftops, distant rolling hills with atmospheric haze. This is deliberately interpretive art, NOT an archaeological reconstruction of an identified dwelling, NOT a likeness of James or Jesus, no biblical episode, no interaction claimed from history. Archaeological reference constraints: Israel Antiquities Authority Yardenna Alexandre Nazareth dwelling publication Atiqot 98 reports late Hellenistic/Early Roman domestic remains and subterranean pits/silos; use general limestone domestic environment only. No medieval domes, no churches, no crosses, no modern objects, no grand Roman colonnades, no visible text, no scroll or paper shapes, no image border. Cinematic generous environment, quiet ordinary life. Upper third broad atmospheric hills/sky suitable for separate overlaid website title. Original painterly treatment, not a photograph and not in any named artist's style.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Nazareth settlement history, Atiqot 98 (2020)",
+          "inspected": "Abstract only; full PDF returned 403",
+          "supports": "Early Roman dwelling and subterranean storage; no identified James dwelling"
+        }
+      ],
+      "knownInaccuracies": [
+        "Detailed architecture, clothing, vegetation, human activity and viewpoint are invented, not archaeologically validated",
+        "No particular Nazareth dwelling or James family scene is identified",
+        "Initial cactus anachronism removed by generation edit"
+      ],
+      "editPrompt": "Edit this Galilean village painting. Remove ALL prickly pear cactus pads visible immediately to the left of the central courtyard person and any other cactus anywhere in image. Replace them with small ordinary Mediterranean shrubs, olive saplings and exposed limestone. Cactus is a New World plant and an anachronism. Preserve all other composition, people, houses, light, painted texture, olive tree, hills and atmosphere exactly as closely as possible. No text. This remains original interpretive art, not evidence.",
+      "artisticReferences": [
+        {
+          "url": "https://nazarethvillage.com/about/research-and-archaeology/the-houses/",
+          "title": "Nazareth Village — houses",
+          "inspected": "Modern reconstruction project page",
+          "supports": "Artistic context for limestone domestic courts; not surviving complete ancient buildings"
+        }
+      ]
+    },
+    {
+      "id": "james-galilee-768",
+      "eventIds": [],
+      "journeyIds": [
+        "james"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "A Galilean domestic horizon — 768px",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Interpretation of a first-century setting; no exact year",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/james/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section; output ownership subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s express request. No third-party images supplied or reproduced; historical reference pages were consulted as information only. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive painting for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "effbe1db00629d4c5ac992e79789a5c6b05ab2bd6c34f66a0aed7898474e2a59",
+      "localPath": "/media/james/galilee-768.webp",
+      "fileSize": 95970,
+      "width": 768,
+      "height": 512,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Buildings, people and viewpoint are imagined.",
+      "historicalFit": "General landscape and material context only. Not a likeness, identified home, meeting place or exact plan.",
+      "editorialReason": "Establish domestic scale and regional setting before the title of leader",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex — generation provenance and reuse terms checked; historical/editorial human review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case: historical-scene. Create an original environmental matte painting for BibleMap, wide landscape 3:2. First-century Galilean hill-country village, evocative painted film background, mineral pigments, deep blue-gray shadows and sunlit pale limestone, soft muted olive green, dusty rose distant hills. View from an irregular limestone doorway/terrace looking across a small inhabited village toward rounded Galilean hills. Modest one-storey rough limestone houses, flat roofs, a courtyard, stone cistern opening, a few very small anonymous people in plain undyed clothing far away for human scale, no recognizable face. Strong physical depth: close shadowed left wall and olive tree, middle sunlit courtyard and rooftops, distant rolling hills with atmospheric haze. This is deliberately interpretive art, NOT an archaeological reconstruction of an identified dwelling, NOT a likeness of James or Jesus, no biblical episode, no interaction claimed from history. Archaeological reference constraints: Israel Antiquities Authority Yardenna Alexandre Nazareth dwelling publication Atiqot 98 reports late Hellenistic/Early Roman domestic remains and subterranean pits/silos; use general limestone domestic environment only. No medieval domes, no churches, no crosses, no modern objects, no grand Roman colonnades, no visible text, no scroll or paper shapes, no image border. Cinematic generous environment, quiet ordinary life. Upper third broad atmospheric hills/sky suitable for separate overlaid website title. Original painterly treatment, not a photograph and not in any named artist's style.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://publications.iaa.org.il/atiqot/vol98/iss1/3/",
+          "title": "Alexandre, Nazareth settlement history, Atiqot 98 (2020)",
+          "inspected": "Abstract only; full PDF returned 403",
+          "supports": "Early Roman dwelling and subterranean storage; no identified James dwelling"
+        }
+      ],
+      "knownInaccuracies": [
+        "Detailed architecture, clothing, vegetation, human activity and viewpoint are invented, not archaeologically validated",
+        "No particular Nazareth dwelling or James family scene is identified",
+        "Initial cactus anachronism removed by generation edit"
+      ],
+      "editPrompt": "Edit this Galilean village painting. Remove ALL prickly pear cactus pads visible immediately to the left of the central courtyard person and any other cactus anywhere in image. Replace them with small ordinary Mediterranean shrubs, olive saplings and exposed limestone. Cactus is a New World plant and an anachronism. Preserve all other composition, people, houses, light, painted texture, olive tree, hills and atmosphere exactly as closely as possible. No text. This remains original interpretive art, not evidence.",
+      "artisticReferences": [
+        {
+          "url": "https://nazarethvillage.com/about/research-and-archaeology/the-houses/",
+          "title": "Nazareth Village — houses",
+          "inspected": "Modern reconstruction project page",
+          "supports": "Artistic context for limestone domestic courts; not surviving complete ancient buildings"
+        }
+      ]
+    },
+    {
+      "id": "james-jerusalem-1536",
+      "eventIds": [],
+      "journeyIds": [
+        "james"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "Jerusalem from an imagined threshold — 1536px",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Interpretation of a first-century setting; no exact year",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/james/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section; output ownership subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s express request. No third-party images supplied or reproduced; historical reference pages were consulted as information only. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive painting for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "38691c8bd960dcf50eddc491f0629e2d70f83998e86f86e81964c3ae77bd43fe",
+      "localPath": "/media/james/jerusalem-1536.webp",
+      "fileSize": 381026,
+      "width": 1536,
+      "height": 1024,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Buildings, people and viewpoint are imagined.",
+      "historicalFit": "General landscape and material context only. Not a likeness, identified home, meeting place or exact plan.",
+      "editorialReason": "Place the community within a living city before exploring textual relationships",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex — generation provenance and reuse terms checked; historical/editorial human review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case historical-scene. Original painterly environmental matte painting for BibleMap website, wide landscape 3:2, physical depth and ordinary human life in an interpreted first-century Jerusalem setting. View from inside a shadowed limestone domestic threshold down stepped narrow lanes across dense irregular flat-roofed pale limestone dwellings and courtyards toward the monumental elevated Temple precinct in far distance, dusty Judean hills beyond. Near foreground dark blue-gray stone doorway at right, middle scene inhabited warm limestone street with a handful of very small anonymous people in simple undyed garments, no identifiable faces or biblical characters, no staged specific historical event. Late afternoon shafts of sunlight through dusty air, restrained rose limestone and mineral ochre highlights, charcoal and indigo shadows, pale desaturated sky. Hand-painted gouache/oil texture coherent with a quiet Galilean village painting. Historical reference constraints: IAA Hagbi/Uziel Western Wall Foundations report 2015 supports first-century stone courses, street-retaining walls and elevation near southwest Temple Mount; Israel Museum Jerusalem model represents 66 CE and supplies only broad contrast of monumental precinct and domestic roofs, NOT exact setting of James's community. All detailed layout imagined. Temple far away simple rectilinear precinct and sanctuary, NO modern golden Dome of the Rock, no domes, minarets, church, crosses or modern objects. NO cactus or New World plants. Do not reproduce archaeological model or existing artwork. No scrolls, paper, words, pseudo-Hebrew, labels or borders. Strong horizontal composition with city and lived street filling most of image; do not leave generic empty sky. Express environment, not a reenactment or authenticated reconstruction.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://hadashot.iaa.org.il/Report_Detail_Eng.aspx?id=15729&print=nopic",
+          "title": "Hagbi and Uziel, Western Wall Foundations (IAA, 2015)",
+          "inspected": "Excavation report",
+          "supports": "First-century retaining walls, stone courses and changing elevation at southwest Temple Mount only"
+        }
+      ],
+      "knownInaccuracies": [
+        "Detailed architecture, clothing, vegetation, human activity and viewpoint are invented, not archaeologically validated",
+        "Temple proportions and city arrangement are not a surveyed reconstruction",
+        "Museum model reference depicts 66 CE, not a precise James-era view"
+      ],
+      "editPrompt": null,
+      "artisticReferences": [
+        {
+          "url": "https://www.imj.org.il/ar/node/104",
+          "title": "Israel Museum — Jerusalem model",
+          "inspected": "Collection page",
+          "supports": "Artistic reference: monumental precinct and dense domestic roofs; represents 66 CE, later than central James scenes"
+        }
+      ]
+    },
+    {
+      "id": "james-jerusalem-768",
+      "eventIds": [],
+      "journeyIds": [
+        "james"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "Jerusalem from an imagined threshold — 768px",
+      "creator": "BibleMap / OpenAI built-in image generation, directed by Codex",
+      "creationDate": "2026-11-05",
+      "depictedPeriod": "Interpretation of a first-century setting; no exact year",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "/media/james/manifest.json",
+      "originalAssetUrl": null,
+      "license": "Original AI-generated output; OpenAI Terms of Use, Content section; output ownership subject to applicable law",
+      "rightsStatement": "Generated for this project at the user’s express request. No third-party images supplied or reproduced; historical reference pages were consulted as information only. No exclusive copyright or historical authenticity claimed.",
+      "rightsEvidence": "https://openai.com/policies/terms-of-use/",
+      "requiredAttribution": "AI-generated interpretive painting for BibleMap, November 2026",
+      "downloadedAt": "2026-11-05",
+      "checksum": "43399ba82fa5f0ee0370a32b6e32d76d3e916577afa811aed4536c1f055e0cd9",
+      "localPath": "/media/james/jerusalem-768.webp",
+      "fileSize": 111778,
+      "width": 768,
+      "height": 512,
+      "altText": "",
+      "caption": "AI-generated interpretive environment. Buildings, people and viewpoint are imagined.",
+      "historicalFit": "General landscape and material context only. Not a likeness, identified home, meeting place or exact plan.",
+      "editorialReason": "Place the community within a living city before exploring textual relationships",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex — generation provenance and reuse terms checked; historical/editorial human review pending",
+      "generator": "Built-in image_gen.imagegen",
+      "model": "Not exposed by built-in tool",
+      "generatedAt": "2026-11-05",
+      "prompt": "Use case historical-scene. Original painterly environmental matte painting for BibleMap website, wide landscape 3:2, physical depth and ordinary human life in an interpreted first-century Jerusalem setting. View from inside a shadowed limestone domestic threshold down stepped narrow lanes across dense irregular flat-roofed pale limestone dwellings and courtyards toward the monumental elevated Temple precinct in far distance, dusty Judean hills beyond. Near foreground dark blue-gray stone doorway at right, middle scene inhabited warm limestone street with a handful of very small anonymous people in simple undyed garments, no identifiable faces or biblical characters, no staged specific historical event. Late afternoon shafts of sunlight through dusty air, restrained rose limestone and mineral ochre highlights, charcoal and indigo shadows, pale desaturated sky. Hand-painted gouache/oil texture coherent with a quiet Galilean village painting. Historical reference constraints: IAA Hagbi/Uziel Western Wall Foundations report 2015 supports first-century stone courses, street-retaining walls and elevation near southwest Temple Mount; Israel Museum Jerusalem model represents 66 CE and supplies only broad contrast of monumental precinct and domestic roofs, NOT exact setting of James's community. All detailed layout imagined. Temple far away simple rectilinear precinct and sanctuary, NO modern golden Dome of the Rock, no domes, minarets, church, crosses or modern objects. NO cactus or New World plants. Do not reproduce archaeological model or existing artwork. No scrolls, paper, words, pseudo-Hebrew, labels or borders. Strong horizontal composition with city and lived street filling most of image; do not leave generic empty sky. Express environment, not a reenactment or authenticated reconstruction.",
+      "referenceAssetIds": [],
+      "historicalSources": [
+        {
+          "url": "https://hadashot.iaa.org.il/Report_Detail_Eng.aspx?id=15729&print=nopic",
+          "title": "Hagbi and Uziel, Western Wall Foundations (IAA, 2015)",
+          "inspected": "Excavation report",
+          "supports": "First-century retaining walls, stone courses and changing elevation at southwest Temple Mount only"
+        }
+      ],
+      "knownInaccuracies": [
+        "Detailed architecture, clothing, vegetation, human activity and viewpoint are invented, not archaeologically validated",
+        "Temple proportions and city arrangement are not a surveyed reconstruction",
+        "Museum model reference depicts 66 CE, not a precise James-era view"
+      ],
+      "editPrompt": null,
+      "artisticReferences": [
+        {
+          "url": "https://www.imj.org.il/ar/node/104",
+          "title": "Israel Museum — Jerusalem model",
+          "inspected": "Collection page",
+          "supports": "Artistic reference: monumental precinct and dense domestic roofs; represents 66 CE, later than central James scenes"
+        }
+      ]
+    }
+  ]
+}

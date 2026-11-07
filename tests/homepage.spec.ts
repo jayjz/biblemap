@@ -3,12 +3,12 @@ import AxeBuilder from "@axe-core/playwright";
 import chapter3 from "../src/content/scripture/web-jonah-3.json";
 import chapter4 from "../src/content/scripture/web-jonah-4.json";
 
-// 2026-10-25: "/" now opens the contextual Nineveh encounter, not the retired question-selector UI.
+// The preserved Nineveh entrance retains its original Scripture and interaction.
 // Tests prove that visitors can still begin at Jonah 1:1 and finish at 4:11.
-test("public homepage begins in Nineveh with real Scripture and a full-book entry", async ({ page }, testInfo) => {
+test("Nineveh entrance retains real Scripture and a full-book entry", async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
-  await page.goto("/");
+  await page.goto("/nineveh/");
   const landing = page.locator(".nineveh");
   await expect(landing).toHaveAttribute("data-published", "true");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Nineveh");
@@ -22,16 +22,19 @@ test("public homepage begins in Nineveh with real Scripture and a full-book entr
 });
 
 test("Nineveh transition uses pinned verses, preserves history, and links to the ending", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/nineveh/");
   await page.locator('.nineveh-beats a[href="#mercy"]').click();
   await expect(page.locator('.nineveh-reading [data-reference="3:10"]')).toHaveText(chapter3.verses[9].text);
   await page.locator('.nineveh-beats a[href="#anger"]').click();
   await expect(page.locator('.nineveh-reading [data-reference="4:2"]')).toHaveText(chapter4.verses[1].text);
   await page.goBack();
   await expect(page.locator(".nineveh")).toHaveAttribute("data-beat", "mercy");
-  await page.goto("/#question");
+  await page.goto("/nineveh/#question");
   await expect(page.locator('.nineveh-reading [data-reference="4:4"]')).toHaveText(chapter4.verses[3].text);
   await page.getByRole("link", { name: /Continue · Jonah 4:5–11/ }).click();
+  // SSR intentionally exposes every scene. Wait for hydration before using
+  // the interactive reader's single active scene and Continue control.
+  await expect(page.locator('[data-reader-ready=true]')).toBeVisible();
   await expect(page.locator('[data-scene="jonah-4-shade"]')).toBeVisible();
   await page.getByRole("link", { name: "Continue", exact: true }).click();
   await expect(page.locator('[data-reference="4:11"]')).toContainText(chapter4.verses[10].text);
@@ -65,7 +68,7 @@ test("published discoveries contain locally served images, rights and context", 
 
 test("homepage remains readable at 320px and with reduced motion", async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
+  await page.goto("/nineveh/");
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 840 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -77,7 +80,7 @@ test("homepage remains readable at 320px and with reduced motion", async ({ page
 });
 
 test("homepage keyboard skip-link and reader entry remain accessible", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/nineveh/");
   await page.keyboard.press("Tab");
   await expect(page.locator(".nineveh-skip")).toBeFocused();
   await page.keyboard.press("Enter");
@@ -91,7 +94,7 @@ test("homepage keyboard skip-link and reader entry remain accessible", async ({ 
 test("no JavaScript still shows Nineveh Scripture and the whole-book exit", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto(`${baseURL}/`);
+  await page.goto(`${baseURL}/nineveh/`);
   await expect(page.locator(".nineveh-noscript [data-reference]")).toHaveCount(5);
   await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
   await page.getByRole("link", { name: "Begin at Jonah 1:1" }).click();

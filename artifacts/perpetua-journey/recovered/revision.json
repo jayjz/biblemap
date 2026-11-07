@@ -1,0 +1,16 @@
+{
+  "capturedAt": "2026-11-04T21:59:41.052Z",
+  "sourceHead": "6a3f043b525476de37786be00d4caa3819600df1",
+  "buildId": "6a3f043",
+  "sha256": {
+    "src/features/human-story/PerpetuaMovements.tsx": "3c28f935cb96687a4224b16536e71890ac9db2f7c8facad285b882cdd3867212",
+    "src/features/human-story/PerpetuaVision.tsx": "55e3ca1d5f7c3479f5af3c7cbfc92394dc906c27e6ce0b93c229567e2f738d2e",
+    "src/features/human-story/PerpetuaContext.tsx": "bfd561c634a99e66c2cbe7008f05c551674eee8f50edaf3b1c04261d2e24c39a",
+    "src/features/human-story/PrisonStage.tsx": "85fe3404534d725d477731642b3854dae0264aed65b86d01d8e89ad52052331a",
+    "src/features/human-story/PerpetuaEncounter.tsx": "212dc387e66689e24a5ed62d2ee62dce43188cb76a6b60cc82bd083c75eedeee",
+    "src/features/human-story/prison.module.css": "99b83142335ba53250cca1da7961ef76d625e4ab2816102dd4dc97513743e03b",
+    "src/content/perpetua-passages.ts": "dd6cf003696b54cd779955c1c0659ef8f3a2481201835f14172250a93ebe3a53",
+    "src/content/perpetua-encounter.ts": "e787cb5dd902c7b3c8db84bef104cd5f2379e2dc731e8acbe4408d7f474925df",
+    "src/content/human-story-interior-media.json": "9b64c6a5d1896e9803341cf7b629671328c25bf4695b27fe63dc401ce82a90db"
+  }
+}

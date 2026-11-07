@@ -1,0 +1,30 @@
+[
+  {
+    "base": "http://127.0.0.1:4197",
+    "width": 1440,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  },
+  {
+    "base": "http://127.0.0.1:4197",
+    "width": 768,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  },
+  {
+    "base": "http://127.0.0.1:4197",
+    "width": 390,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  },
+  {
+    "base": "http://127.0.0.1:4197",
+    "width": 320,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  }
+]

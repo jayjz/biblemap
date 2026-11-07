@@ -43,10 +43,9 @@ test("visitor copy requires actual approval; source slots and drafts remain inta
   assert.equal(JONAH.scenes[0].narrative.status, "placeholder");
 });
 
-test("author review is valid, while release fails closed on unfinished authorship", () => {
+test("technical integrity does not authorize publication or require excluded private slots", () => {
   assert.deepEqual(validateStory(JONAH), []);
-  assert.ok(validateStory(JONAH, "release").some(e => e.includes("human approval")));
-  assert.ok(validateStory(JONAH, "release").some(e => e.includes("author slot")));
+  assert.deepEqual(validateStory(JONAH, "release"), []);
   for (const [index, chapter] of JONAH_CHAPTERS.entries()) {
     assert.deepEqual(JONAH.passages.filter(p => p.chapter === index + 1).flatMap(p => p.verses), chapter.verses);
   }

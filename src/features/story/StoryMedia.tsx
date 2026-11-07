@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { canRenderMedia, mayPublishMedia, isInterpretiveClass, isProductionReadyMedia, mediaClassLabel, publicationFlags, type CuratedMediaAsset } from "@/domain/media";
+import { isInterpretiveClass, mediaClassLabel, type CuratedMediaAsset } from "@/domain/media";
+import { projectVisitorMedia, type VisitorMedia } from "@/domain/visitor-media";
 import { MediaProvenancePlate } from "@/features/media/MediaProvenancePlate";
 
 const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
@@ -20,14 +21,15 @@ const ATMOSPHERES: Record<string, { label: string; reference: string }> = {
   "jonah-4-question": { label: "An open horizon beneath a quiet sky", reference: "Jonah 4:11" },
 };
 
-export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset; sceneId?: string; reviewOnly?: boolean }) {
+export function StoryArtwork({ asset: sourceAsset, sceneId, reviewOnly = false }: { asset?: CuratedMediaAsset | VisitorMedia; sceneId?: string; reviewOnly?: boolean }) {
+  const asset = sourceAsset && ("publication" in sourceAsset ? sourceAsset : projectVisitorMedia(sourceAsset));
   const study = useRef<HTMLDialogElement>(null);
   const studyTrigger = useRef<HTMLButtonElement>(null);
   const [studyOpen, setStudyOpen] = useState(false);
   const [failedPath, setFailedPath] = useState<string | null>(null);
   const failed = Boolean(asset && failedPath === asset.localPath);
   const atmosphere = ATMOSPHERES[sceneId ?? ""];
-  const visible = Boolean(asset && (reviewOnly ? canRenderMedia(asset) : mayPublishMedia(asset)) && !failed);
+  const visible = Boolean(asset && (reviewOnly ? asset.publication.renderable : asset.publication.publishable) && !failed);
   if (!visible) {
     if ((sceneId === "jonah-4-question" || sceneId === "jonah-1-storm-lots") && !asset) return null;
     return <figure className="story-atmosphere-frame">
@@ -42,8 +44,8 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
     </figure>;
   }
   // Rights-cleared visual publication is distinct from editorial endorsement.
-  const ready = asset!.reviewStatus === "approved" && isProductionReadyMedia(asset!);
-  const unresolved = publicationFlags(asset!).includes("unresolved-rights");
+  const ready = !asset!.publication.provisional && asset!.publication.ready;
+  const unresolved = asset!.publication.flags.includes("unresolved-rights");
   const kind = isInterpretiveClass(asset!.class) ? "not archaeological evidence" : "contextual image, not a depiction of Jonah";
   return <figure className={`story-artwork${ready ? "" : " story-artwork--provisional"}${sceneId === "jonah-4-question" ? " story-artwork--quiet" : ""}`}>
     {/* Local file only. No remote substitution on failure. */}
@@ -76,7 +78,8 @@ export function StoryArtwork({ asset, sceneId, reviewOnly = false }: { asset?: C
   </figure>;
 }
 
-export function AudioTrack({ asset, label, transcript }: { asset: CuratedMediaAsset; label: string; transcript?: string }) {
+export function AudioTrack({ asset: sourceAsset, label, transcript }: { asset: CuratedMediaAsset | VisitorMedia; label: string; transcript?: string }) {
+  const asset = "publication" in sourceAsset ? sourceAsset : projectVisitorMedia(sourceAsset);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -94,7 +97,7 @@ export function AudioTrack({ asset, label, transcript }: { asset: CuratedMediaAs
       window.removeEventListener("pagehide", pause);
     };
   }, []);
-  if (!isProductionReadyMedia(asset)) return null;
+  if (!asset.publication.ready) return null;
   const play = async (replay = false) => {
     const audio = audioRef.current;
     if (!audio) return;

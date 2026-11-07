@@ -1,0 +1,79 @@
+{
+  "branch": "release/human-story-readiness",
+  "base": "fbe2608f14ebc6111c71d38d9fe6c01d60170177",
+  "runtime": "Node24.22.2 / installed Chrome",
+  "contentDigest": "sha256:abee9b52e533763fbd32962cbc71179cab8a66963cd352cb83060edd33ea5c5e",
+  "artifactDigest": "sha256:1fc35178fcafd5b5077f70c3b7a3ed24f37720ea80b6793db9bd7780141c2c2f",
+  "artifactCount": 376,
+  "indexRoutes": 47,
+  "mediaFiles": 50,
+  "allBaselineMediaChecksumsPreserved": true,
+  "checks": [
+    {
+      "command": "npm ci",
+      "exit": 0
+    },
+    {
+      "command": "npm run lint",
+      "exit": 0,
+      "warnings": 4
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "exit": 0
+    },
+    {
+      "command": "BIBLEMAP_VERIFY_EXPORT=1 npm run test",
+      "exit": 0,
+      "passed": 63
+    },
+    {
+      "command": "npm run build (ordinary restore)",
+      "exit": 0
+    },
+    {
+      "command": "npm run test:export-boundary",
+      "exit": 0,
+      "artifacts": 376
+    },
+    {
+      "command": "npm run test:e2e (full)",
+      "exit": 0,
+      "passed": 221,
+      "skipped": 1
+    },
+    {
+      "command": "Nineveh review build and separate browser suite",
+      "exit": 0,
+      "passed": 22
+    },
+    {
+      "command": "Restored ordinary Atlas/navigation smoke",
+      "exit": 0,
+      "passed": 8
+    },
+    {
+      "command": "npm audit --json",
+      "exit": 1,
+      "moderate": 14,
+      "high": 8,
+      "critical": 0
+    },
+    {
+      "command": "npm run validate:release",
+      "exit": 1,
+      "reason": "Creator publication decision pending"
+    },
+    {
+      "command": "VERCEL_ENV=production prebuild guard",
+      "exit": 1,
+      "reason": "Creator publication decision pending"
+    }
+  ],
+  "limitations": [
+    "Existing mobile Atlas controls test skipped",
+    "Provisional candidate readings and media remain public in review artifacts",
+    "Full security assessment and production smoke tests not performed",
+    "Creator publication acceptance remains pending"
+  ]
+}

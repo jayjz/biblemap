@@ -13,7 +13,7 @@ test("Nineveh gateway leads to the first calling and curiosity before optional r
   });
   page.on("response", response => { if (response.status() >= 400) failures.push(`${response.status()} ${response.url()}`); });
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
+  await page.goto("/nineveh/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Nineveh");
   await expect(page.getByRole("link", { name: "Begin at Jonah 1:1" })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath("home-recognition.png"), fullPage: true });
@@ -29,7 +29,8 @@ test("Nineveh gateway leads to the first calling and curiosity before optional r
   await page.getByRole("link", { name: "Continue" }).click();
   await expect(page.locator("[data-scene='jonah-1-escape'] [data-verse='3']")).toBeVisible();
   await expect(page.locator(".story-first-perspectives")).toBeVisible();
-  await expect(page.locator(".story-curiosity")).toHaveText("But what was Jonah really running from?");
+  await expect(page.locator(".story-curiosity > p")).toHaveText("But what was Jonah really running from?");
+  await expect(page.locator(".story-curiosity > small")).toHaveText("Provisional reading question");
   const verse = await page.locator("[data-scene='jonah-1-escape'] .story-verses").boundingBox();
   const question = await page.locator(".story-curiosity").boundingBox();
   expect(verse && question && question.y >= verse.y + verse.height).toBeTruthy();
@@ -54,7 +55,8 @@ test("first encounter remains available without JavaScript", async ({ browser, b
   const page = await context.newPage();
   await page.goto(`${baseURL}/jonah/`);
   await expect(page.getByText("Sometimes, leaving feels easier.")).toBeVisible();
-  await expect(page.locator(".story-curiosity")).toHaveText("But what was Jonah really running from?");
+  await expect(page.locator(".story-curiosity > p")).toHaveText("But what was Jonah really running from?");
+  await expect(page.locator(".story-curiosity > small")).toHaveText("Provisional reading question");
   await expect(page.locator("[data-verse]")).toHaveCount(48);
   await context.close();
 });

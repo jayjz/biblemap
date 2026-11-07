@@ -1,0 +1,85 @@
+{
+  "method": "Single unthrottled loopback Chromium sample; reduced motion; 1.5 seconds after load; not field data; no INP measurement.",
+  "rows": [
+    {
+      "width": 1440,
+      "path": "/",
+      "lcpMs": 132,
+      "cls": 0.00002894091194058642,
+      "transferredScriptBytes": 491366,
+      "documentBytes": 82113,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 1440,
+      "path": "/jonah/",
+      "lcpMs": 128,
+      "cls": 0.0000990232449336634,
+      "transferredScriptBytes": 502689,
+      "documentBytes": 151197,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 1440,
+      "path": "/human-story/thomas/",
+      "lcpMs": 116,
+      "cls": 0,
+      "transferredScriptBytes": 477541,
+      "documentBytes": 117718,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 1440,
+      "path": "/nineveh/",
+      "lcpMs": 76,
+      "cls": 0.03016372472190072,
+      "transferredScriptBytes": 522084,
+      "documentBytes": 17996,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "path": "/",
+      "lcpMs": 100,
+      "cls": 0,
+      "transferredScriptBytes": 491366,
+      "documentBytes": 82113,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "path": "/jonah/",
+      "lcpMs": 136,
+      "cls": 0.0004092764225229503,
+      "transferredScriptBytes": 502689,
+      "documentBytes": 151197,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "path": "/human-story/thomas/",
+      "lcpMs": 104,
+      "cls": 0,
+      "transferredScriptBytes": 477541,
+      "documentBytes": 117718,
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "path": "/nineveh/",
+      "lcpMs": 68,
+      "cls": 0.252902662037037,
+      "transferredScriptBytes": 522084,
+      "documentBytes": 17996,
+      "failures": [],
+      "consoleErrors": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "edition": "Thomas V4 human encounter draft",
+  "checkedAt": "2026-11-06",
+  "humanReview": "pending historical, theological, translation and artistic review",
+  "existingBitmaps": {
+    "manifest": "public/media/thomas/manifest.json",
+    "compositions": ["threshold", "proximity", "interior"],
+    "change": "Reused with existing derivatives, checksums, prompts, rights statements and AI-generation disclosures unchanged. No new bitmap generated or acquired."
+  },
+  "formatDiagrams": {
+    "creator": "BibleMap / Codex, original AI-assisted SVG and CSS",
+    "createdAt": "2026-11-06",
+    "files": ["src/features/human-story/thomas/ManuscriptForm.tsx", "src/features/human-story/thomas/manuscripts.module.css"],
+    "license": "Repository MIT license",
+    "classification": "Conceptual format diagrams, not historical artifacts or manuscript facsimiles",
+    "references": ["https://papyri.info/dclp/62838", "https://papyri.info/dclp/62840", "https://papyri.info/dclp/62839", "https://data.copticscriptorium.org/texts/thomasgospel/gospel-of-thomas/", "https://asia-archive.si.edu/exhibition/logia-jesou-thomas/"],
+    "limits": "No third-party image, traced outline, recreated handwriting, exact proportion or restored lost text. Lines and gaps are schematic. Human editorial review pending."
+  },
+  "greekExtract": {
+    "source": "https://papyri.info/dclp/62838",
+    "edition": "DCLP/LDAB 62838, P.Oxy. 1, verso 1–4, end of saying 26 only",
+    "license": "CC BY 3.0",
+    "rightsUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "files": ["src/content/scripture/thomas-oxy1-26.html", "src/content/scripture/thomas-oxy1-26.json"],
+    "modification": "Selected bounded passage, line breaks retained; next saying's formula excluded from line 4. No restored beginning or expanded abbreviation.",
+    "english": "Existing pinned Mark M. Mattison public-domain translation of Coptic, excerpted for correspondence; not presented as a Greek translation."
+  },
+  "excluded": "Institutional manuscript photographs, SCRIPTORIUM edition text, NASSCAL text and Smithsonian image were not copied. Source access does not establish reproduction rights."
+}

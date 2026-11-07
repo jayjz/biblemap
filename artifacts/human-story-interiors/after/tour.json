@@ -1,0 +1,82 @@
+{
+  "base": "207f395a669a2bf87182ef80de6d7dca669e000c",
+  "capturedAt": "2026-11-01T23:22:58.254Z",
+  "errors": [],
+  "failed": [],
+  "httpErrors": [],
+  "visits": [
+    {
+      "url": "/human-story/worlds/stories/",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/worlds/witnesses/",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/worlds/saints/",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/worlds/atlas/",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/worlds/voices/",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/pliny/",
+      "width": 1440,
+      "images": 0,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/augustine/",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/perpetua/#perpetua-separation",
+      "width": 1440,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/worlds/saints/",
+      "width": 390,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/augustine/",
+      "width": 390,
+      "images": 1,
+      "overflow": false
+    },
+    {
+      "url": "/human-story/perpetua/#perpetua-separation",
+      "width": 390,
+      "images": 1,
+      "overflow": false
+    }
+  ],
+  "interactions": [
+    "Keyboard: Pliny and Trajan compared inline",
+    "Pliny reading room: reply opened without navigation",
+    "Augustine: text and later painting compared",
+    "Perpetua: sections 3 and 6 held together in the same scene",
+    "Perpetua: father relationship and later-image provenance opened"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "phase": "before",
+  "sourceHead": "a6737e293ae77e7e64af25ad37b8fc27e8c3950e",
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "overflow": false,
+      "sceneBox": {
+        "x": 0,
+        "y": -0.40625,
+        "width": 1440,
+        "height": 1238.609375
+      },
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "sceneBox": {
+        "x": 0,
+        "y": 0.234375,
+        "width": 390,
+        "height": 1872.046875
+      },
+      "errors": [],
+      "failures": []
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "height": 760,
+      "overflow": false,
+      "sceneBox": {
+        "x": 0,
+        "y": 0.234375,
+        "width": 320,
+        "height": 2077.890625
+      },
+      "errors": [],
+      "failures": []
+    }
+  ]
+}

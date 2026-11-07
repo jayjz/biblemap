@@ -2,4 +2,6 @@
 # JSON and generated checksum manifests retain LF across checkouts.
 src/content/scripture/web-jonah-*.html -text
 src/content/scripture/web-jonah-*.json text eol=lf
+src/content/scripture/james-web-*.html -text
+src/content/scripture/james-quotes.json text eol=lf
 artifacts/jonah-image-review/SHA256SUMS text eol=lf
