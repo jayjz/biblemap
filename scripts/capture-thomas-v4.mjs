@@ -19,7 +19,8 @@ try {
     await page.evaluate(() => document.fonts.ready);
     await page.locator('img').first().evaluate(img => img.decode());
     await page.screenshot({ path: `${folder}/opening-${width}.jpg`, quality: 82 });
-    for (const id of ['absent', 'unless', 'eight-days', 'confession', 'not-seen']) {
+    for (const id of ['before-thomas', 'absent', 'unless', 'eight-days', 'confession', 'not-seen']) {
+      if (phase === 'before' && id === 'before-thomas') continue;
       await page.locator(`#${id}`).scrollIntoViewIfNeeded();
       await page.locator(`#${id} img`).evaluateAll(imgs => Promise.all(imgs.map(img => img.decode())));
       await page.locator(`#${id}`).screenshot({ path: `${folder}/${id}-${width}.jpg`, quality: 80 });
@@ -29,6 +30,12 @@ try {
     await page.goto(`${base}/human-story/thomas/sayings/#witnesses`);
     await page.getByRole('radio', { name: /P.Oxy. 1 Greek/ }).check();
     await page.locator('#witnesses').screenshot({ path: `${folder}/witnesses-${width}.jpg`, quality: 82 });
+    if (phase !== 'before' && phase !== 'narrative') {
+      await page.getByText('Inspect the surviving ending of saying 26', { exact:true }).click();
+      await page.locator('[data-witness="oxy1"]').screenshot({ path: `${folder}/greek-${width}.jpg`, quality:82 });
+      await page.getByRole('radio', {name:/P.Oxy. 654 Greek/}).check();
+      await page.locator('[data-witness="oxy654"]').screenshot({ path: `${folder}/roll-${width}.jpg`, quality:82 });
+    }
     observations.push({ base, width, errors, readingOverflow, overflow: await page.evaluate(() => document.documentElement.scrollWidth > innerWidth) });
     await page.close();
   }

@@ -1,0 +1,35 @@
+node.exe : [WebServer] (node:14844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:6448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (2.7s)
+  ok  2 [desktop] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (876ms)
+  ok  3 [desktop] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (660ms)
+  ok  4 [desktop] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (718ms)
+  ok  5 [desktop] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (892ms)
+  ok  6 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok  7 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok  8 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok  9 [desktop] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.1s)
+(node:18568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 [mobile] › tests\thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway (2.7s)
+  ok 11 [mobile] › tests\thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript (1.2s)
+  ok 12 [mobile] › tests\thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination (714ms)
+  ok 13 [mobile] › tests\thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available (762ms)
+  ok 14 [mobile] › tests\thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px (871ms)
+  ok 15 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery (1.3s)
+  ok 16 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery (1.2s)
+  ok 17 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery (1.1s)
+  ok 18 [mobile] › tests\thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery (1.1s)
+
+  18 passed (23.8s)
