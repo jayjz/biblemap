@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "base": "http://127.0.0.1:62027",
+  "base": "http://127.0.0.1:52650",
   "canonicalOrigin": "https://biblemap-pink.vercel.app",
   "publicationDecision": "pending",
   "preview": false,

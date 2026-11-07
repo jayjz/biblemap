@@ -1148,3 +1148,429 @@ Reparsing as ES module because module syntax was detected. This incurs a perform
 To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 Creator publication decision pending: exact candidate, routes, assets and limitations require acceptance
+
+
+===== seo-hosting-build.log =====
+
+> next_temp@0.1.0 prebuild
+> node --experimental-strip-types scripts/publication-gate.mjs --build && node scripts/split_parquet.js && npm run validate:story
+
+node.exe : (node:15656) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:15656) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2180) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/scripts/split_parquet.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ epoch-0-creation.parquet: 38 rows (Creation & Patriarchs)
+✓ epoch-1-patriarchs.parquet: 71 rows (Exodus & Conquest)
+✓ epoch-2-exodus.parquet: 55 rows (Judges & Kings)
+✓ epoch-3-kings.parquet: 188 rows (Exile & Return)
+✓ epoch-4-exile.parquet: 1334 rows (Intertestamental)
+✓ epoch-5-intertestamental.parquet: 1231 rows (Jesus & Early Church)
+✓ Validated 6 chunks, 2917 rows
+
+> next_temp@0.1.0 validate:story
+> node scripts/pin-jonah.mjs --check && node scripts/pin-james.mjs --check && node scripts/pin-thomas.mjs --check && node --experimental-strip-types scripts/validate-story.ts && npm run validate:media
+
+✓ Jonah 1: all 17 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 2: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 3: all 10 verses and translator notes match the pinned publisher snapshot
+✓ Jonah 4: all 11 verses and translator notes match the pinned publisher snapshot
+James: 3 Scripture quotations match retained publisher snapshots.
+Thomas: 19 WEB verses, sayings 13/26 and the CC BY 3.0 Greek ending match retained source excerpts.
+(node:6396) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/scripts/validate-story.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Jonah technical integrity validates; publication authorization is checked separately by validate:release
+
+> next_temp@0.1.0 validate:media
+> node scripts/validate-jonah-assets.mjs && node scripts/validate-nineveh-depth.mjs && node --experimental-strip-types --test src/domain/human-story-interiors.test.ts src/domain/romanus.test.ts src/domain/thomas-media.test.ts
+
+✓ 6 distinct Jonah acquisition records; available originals and held copies verified; public files require verified image rights separately from editorial approval
+(node:1960) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/nineveh-depth-media.ts is not specified and it doesn't parse as
+CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Nineveh: 2 rights-verified images in static media; checksums and original/reproduction separation enforced
+(node:13704) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ interior quotations resolve to an edition with a locator and reuse statement (0.9334ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (17.3943ms)
+(node:7888) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (1.576ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (8.3105ms)
+(node:21872) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (21.5072ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 487.1237
+
+> next_temp@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.5 (webpack)
+✓ Running next.config.mjs took 65ms
+(node:3676) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.7s
+  Running TypeScript ...
+  Finished TypeScript in 3.3s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/50) ...
+  Generating static pages using 11 workers (12/50)
+  Generating static pages using 11 workers (24/50)
+  Generating static pages using 11 workers (37/50)
+✓ Generating static pages using 11 workers (50/50) in 912ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /demo
+├ ○ /experiments/nineveh
+├ ○ /explore
+├ ○ /human-story
+├   /human-story/[entry]
+│ ├ ● /human-story/james
+│ ├ ● /human-story/romanus
+│ ├ ● /human-story/time-and-memory
+│ └ ● [+22 more paths]
+├ ○ /human-story/james/reading
+├   /human-story/paths/[path]
+│ ├ ● /human-story/paths/a-word-crosses-centuries
+│ ├ ● /human-story/paths/a-name-under-pressure
+│ └ ● /human-story/paths/a-life-in-another-life
+├ ○ /human-story/romanus/reading
+├ ○ /human-story/thomas
+├ ○ /human-story/thomas/reading
+├ ○ /human-story/thomas/sayings
+├   /human-story/worlds/[world]
+│ ├ ● /human-story/worlds/stories
+│ ├ ● /human-story/worlds/witnesses
+│ ├ ● /human-story/worlds/saints
+│ └ ● [+2 more paths]
+├ ○ /jonah
+├ ○ /nineveh
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+
+> next_temp@0.1.0 postbuild
+> node scripts/finalize-export.mjs && npm run validate:export && node scripts/export-inventory.mjs && node scripts/validate-maplibre-export.mjs && node --experimental-strip-types scripts/publication-gate.mjs --postbuild
+
+Excluded static route: /demo/
+Excluded static route: /experiments/nineveh/
+
+> next_temp@0.1.0 validate:export
+> node --experimental-strip-types scripts/validate-visitor-export.ts
+
+(node:22912) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/scripts/validate-visitor-export.ts is not specified and it doesn't parse as
+CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Visitor boundary: 280 HTML/RSC/JS/JSON and alternate text artifacts inspected; private editorial probes absent; all 48 WEB verses and provisional qualifications retained. Publication approval is still required.
+363 artifacts (44 index routes), 0 unresolved HTML dependencies, 0 explicit loopback-review references; sha256:1e7c4efd3db0b520e35d5058bf4bf79a41d45d8396bc97b1e95ebb3354f75535
+MapLibre 6.16.0: 1 worker artifact(s), 1 module(s); every required static import is present and worker bytes match the lockfile package.
+(node:2376) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Review artifact only; creator publication acceptance remains separate.
+
+===== seo-hosting-audit.log =====
+
+> next_temp@0.1.0 audit:seo
+> node --experimental-strip-types scripts/audit-seo.mjs
+
+node.exe : (node:18528) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of
+file:///C:/Dev/biblemap-seo-routing/src/domain/seo.ts is not specified and it doesn't parse as CommonJS.
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:18528) [M...se as CommonJS.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+200 / noindex canonical=https://biblemap-pink.vercel.app/ incoming=43
+404 /demo/ noindex canonical= incoming=0
+404 /experiments/nineveh/ noindex canonical= incoming=0
+200 /explore/ noindex canonical=https://biblemap-pink.vercel.app/explore/ incoming=35
+200 /human-story/ noindex canonical=https://biblemap-pink.vercel.app/ incoming=1
+200 /human-story/augustine/ noindex canonical=https://biblemap-pink.vercel.app/human-story/augustine/ incoming=12
+200 /human-story/emmaus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/emmaus/ incoming=8
+200 /human-story/exodus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/exodus/ incoming=7
+200 /human-story/francis/ noindex canonical=https://biblemap-pink.vercel.app/human-story/francis/ incoming=6
+200 /human-story/genesis/ noindex canonical=https://biblemap-pink.vercel.app/human-story/genesis/ incoming=9
+200 /human-story/genesis-in-paint/ noindex canonical=https://biblemap-pink.vercel.app/human-story/genesis-in-paint/ incoming=8
+200 /human-story/james/ noindex canonical=https://biblemap-pink.vercel.app/human-story/james/ incoming=12
+200 /human-story/james/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/james/reading/ incoming=2
+200 /human-story/jerome/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jerome/ incoming=9
+200 /human-story/jonah/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jonah/ incoming=12
+200 /human-story/jonah-in-marble/ noindex canonical=https://biblemap-pink.vercel.app/human-story/jonah-in-marble/ incoming=7
+200 /human-story/josephus-james/ noindex canonical=https://biblemap-pink.vercel.app/human-story/josephus-james/ incoming=8
+200 /human-story/mediterranean/ noindex canonical=https://biblemap-pink.vercel.app/human-story/mediterranean/ incoming=7
+200 /human-story/nineveh/ noindex canonical=https://biblemap-pink.vercel.app/human-story/nineveh/ incoming=6
+200 /human-story/paths/a-life-in-another-life/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-life-in-another-life/ incoming=3
+200 /human-story/paths/a-name-under-pressure/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-name-under-pressure/ incoming=3
+200 /human-story/paths/a-word-crosses-centuries/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paths/a-word-crosses-centuries/ incoming=3
+200 /human-story/paul/ noindex canonical=https://biblemap-pink.vercel.app/human-story/paul/ incoming=10
+200 /human-story/perpetua/ noindex canonical=https://biblemap-pink.vercel.app/human-story/perpetua/ incoming=12
+200 /human-story/pliny/ noindex canonical=https://biblemap-pink.vercel.app/human-story/pliny/ incoming=10
+200 /human-story/rashi-radak/ noindex canonical=https://biblemap-pink.vercel.app/human-story/rashi-radak/ incoming=7
+200 /human-story/romanus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/romanus/ incoming=6
+200 /human-story/romanus/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/romanus/reading/ incoming=2
+200 /human-story/sinaiticus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/sinaiticus/ incoming=6
+200 /human-story/singing-in-milan/ noindex canonical=https://biblemap-pink.vercel.app/human-story/singing-in-milan/ incoming=8
+200 /human-story/suetonius/ noindex canonical=https://biblemap-pink.vercel.app/human-story/suetonius/ incoming=5
+200 /human-story/tacitus/ noindex canonical=https://biblemap-pink.vercel.app/human-story/tacitus/ incoming=9
+200 /human-story/teresa/ noindex canonical=https://biblemap-pink.vercel.app/human-story/teresa/ incoming=7
+200 /human-story/testimonium/ noindex canonical=https://biblemap-pink.vercel.app/human-story/testimonium/ incoming=6
+200 /human-story/thomas/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/ incoming=5
+200 /human-story/thomas/reading/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/reading/ incoming=2
+200 /human-story/thomas/sayings/ noindex canonical=https://biblemap-pink.vercel.app/human-story/thomas/sayings/ incoming=5
+200 /human-story/time-and-memory/ noindex canonical=https://biblemap-pink.vercel.app/human-story/time-and-memory/ incoming=6
+200 /human-story/worlds/atlas/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/atlas/ incoming=33
+200 /human-story/worlds/saints/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/saints/ incoming=40
+200 /human-story/worlds/stories/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/stories/ incoming=33
+200 /human-story/worlds/voices/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/voices/ incoming=33
+200 /human-story/worlds/witnesses/ noindex canonical=https://biblemap-pink.vercel.app/human-story/worlds/witnesses/ incoming=33
+200 /jonah/ noindex canonical=https://biblemap-pink.vercel.app/jonah/ incoming=41
+200 /nineveh/ noindex canonical=https://biblemap-pink.vercel.app/nineveh/ incoming=33
+SEO: 45 classified routes; 0 sitemap URLs; 0 errors; 8 observations.
+
+===== seo-hosting-adversarial.log =====
+
+> next_temp@0.1.0 test:seo-gate
+> node scripts/test-seo-gate.mjs
+
+Rejected: canonical mismatch
+Rejected: robots mismatch
+Rejected: nonexistent/noncanonical internal destination
+Rejected: invalid XML
+Rejected: sitemap/indexability mismatch
+Rejected: invalid JSON-LD
+
+===== seo-hosting-lint.log =====
+
+> next_temp@0.1.0 lint
+> eslint
+
+
+C:\Dev\biblemap-seo-routing\src\components\DataLoader.tsx
+   38:7   warning  'POINTS_URL' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  662:10  warning  'haversineDistance' is defined but never used     @typescript-eslint/no-unused-vars
+  672:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 3 problems (0 errors, 3 warnings)
+
+
+===== seo-hosting-types.log =====
+
+
+===== seo-hosting-unit.log =====
+
+> next_temp@0.1.0 test
+> node --experimental-strip-types --test src/domain/*.test.ts
+
+(node:18376) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/atlas-routing.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tracking, unknown state and editorial anchors stay on the homepage (13.0636ms)
+✔ supported atlas query selectors survive tracking parameters (8.095ms)
+✔ manifest epoch links and their book filters remain compatible (0.7363ms)
+(node:15896) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/historical-context.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ historical context validation
+  ✔ accepts a sparse approved record (1.618ms)
+  ✔ requires uncertainty when confidence is disputed (2.5041ms)
+  ✔ requires uncertainty when confidence is traditional (0.3451ms)
+  ✔ rejects an unsourced record (0.2728ms)
+  ✔ rejects a draft from production rendering (0.2277ms)
+  ✔ rejects a missing narrative or empty scene list (0.2969ms)
+  ✔ rejects an oversized narrative and too many beats (0.2974ms)
+  ✔ labels claim kinds for the UI (0.2928ms)
+  ✔ labels beat kinds for the UI (0.3391ms)
+✔ historical context validation (8.6461ms)
+(node:1524) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ interior quotations resolve to an edition with a locator and reuse statement (1.4887ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (61.3155ms)
+(node:22044) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/human-story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Human Story drafts retain source locators, stable entities and working connection endpoints (5.11ms)
+✔ Human Story validation rejects unsourced claims and broken or duplicate identities (1.3208ms)
+✔ every authored path is grounded in actual, classified graph connections (0.9192ms)
+✔ each of the five worlds opens to actual readings (0.3551ms)
+(node:14140) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/james-visuals.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ James visual inventory matches the local responsive images and their recorded bytes (28.4993ms)
+✔ generated James environments retain provenance, rights evidence and historical limitations (1.8156ms)
+✔ each James environment has bounded mobile and desktop derivatives (0.5787ms)
+(node:11284) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/james.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ James quotations match the publisher snapshots, including verse-ending punctuation (192.2315ms)
+✔ James claims and comparison layers retain provenance, genre, limits and draft status (1.0197ms)
+(node:11712) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/media-publication.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a license claim allows local review but cannot authorize public export (5.2342ms)
+✔ rights-cleared visuals need no creative approval, but audio retains its review gate (0.5477ms)
+✔ restricted rights do not render or publish (0.5401ms)
+✔ unresolved rights may render in review and must not publish (0.2971ms)
+✔ missing source and attribution are visible as flags, not filled in (0.3095ms)
+(node:23188) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/network-diagnostics.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ only observed same-origin GET Flight fetch cancellations are classified (2.2558ms)
+(node:22336) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/nineveh.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Nineveh share links keep the passage and reject malformed or unknown discoveries (1.6195ms)
+✔ Nineveh local review refuses restricted, unverified, unattributed and unknown-license images (0.5997ms)
+(node:21668) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/perpetua.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every prison scene retains passage evidence, separate voices and review status (2.8737ms)
+✔ shareable prison views preserve stable scenes and safely reject unrelated fragments (0.9115ms)
+(node:23048) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/publication.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ creator acceptance binds actor, date, evidence, both digests, exact scope and limitations (4.2941ms)
+✔ every companion maturity state has distinct visitor behavior without scene approval bureaucracy (9.2715ms)
+✔ source selection excludes unclassified and private entries plus orphan edges and evidence before serialization (3.551ms)
+✔ byte inventory detects private data in all artifact types, encodings, binary media and compressed variants (82.0327ms)
+(node:19228) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/release-gate-inventory.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ triage accounts for every release error, including repeated scene IDs (18.3965ms)
+✔ artifact audit catches placeholders in markup, JSON, RSC, JS and alternate routes (0.7527ms)
+✔ inventory reports actual exported routes without granting draft publication (2.7903ms)
+✔ legacy diagnostic preserves the original 68-item policy for historical comparison (2.5686ms)
+✔ adversarial probe: a plausible fabricated reviewer is not authenticated by validateStory (4.0757ms)
+✔ adversarial probe: historical certainty is not semantically verified (1.6059ms)
+✔ source and translation rights are required; draft graph validation is not approval (6.4185ms)
+✔ rights-cleared visual media do not require an unrelated generic approval stamp (0.4774ms)
+(node:4548) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (1.5526ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (9.1361ms)
+(node:22864) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/root-routing.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ old Nineveh beats, discoveries and accessibility anchors retain their entrance (2.0155ms)
+✔ Human Story anchors, tracking and unknown fragments do not select a legacy experience (0.3696ms)
+(node:10036) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/seo.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ publication-aware indexing fails closed without changing creator decisions (2.7543ms)
+(node:6088) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/separation-reading.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ guided moments preserve the established Wallis passage boundaries exactly (3.2448ms)
+(node:23380) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ story document keeps the three approved artworks; open images stay outside it (8.7535ms)
+✔ visitor copy requires actual approval; source slots and drafts remain intact (0.4526ms)
+✔ technical integrity does not authorize publication or require excluded private slots (1.8202ms)
+✔ malformed links cannot select unintended scenes (0.5493ms)
+✔ broken content and transitions are rejected before rendering (15.4626ms)
+✔ claim evidence needs scope, uncertainty, and interpretive lens (1.9494ms)
+(node:4820) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/thomas-evidence.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas source encounters retain auditable sources and distinguish relationships (2.6629ms)
+(node:6576) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (16.5597ms)
+(node:12900) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/thomas.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Thomas preserves every verse of John 20:24–29 and excludes publisher footnotes (94.9471ms)
+✔ the additional saying and witness explorer keep Coptic text distinct from partial Greek survival (0.4455ms)
+✔ Thomas source distinctions, witness identities, rights and review boundary remain explicit (0.3359ms)
+(node:21564) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Dev/biblemap-seo-routing/src/domain/visitor-story.test.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Dev\biblemap-seo-routing\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ visitor projection preserves Scripture, provenance, companions and media while omitting author records (6.2958ms)
+✔ new private fields and written drafts fail closed at the allowlisted boundary (1.7221ms)
+✔ export verifier rejects leaks on every artifact surface, including alternate URLs (4.5635ms)
+✔ actual generated HTML, RSC, JS and JSON exclude private source data (334.2931ms)
+ℹ tests 66
+ℹ suites 1
+ℹ pass 66
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1227.2672

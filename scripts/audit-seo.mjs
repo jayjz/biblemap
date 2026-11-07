@@ -14,6 +14,8 @@ const sourceManifest = read('.next/server/app-paths-manifest.json');
 const prerender = read('.next/prerender-manifest.json');
 const errors = [], warnings = [], routes = [];
 const check = (condition, message) => { if (!condition) errors.push(message); };
+const hosting = read('vercel.json');
+check(hosting.framework === null && hosting.outputDirectory === 'out' && hosting.buildCommand === 'npm run build', 'hosting: Vercel must serve the exact postbuild-validated static export');
 const server = createExportServer();
 server.listen(0, '127.0.0.1');
 await once(server, 'listening');

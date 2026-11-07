@@ -170,7 +170,9 @@ All checks below were executed locally. Logs are retained in [verification.txt](
 
 The first local browser attempt lacked the Chromium revision required by the locked Playwright version. Installing that revision resolved the environment issue; the untouched Jonah baseline then passed twice. An initial adversarial SEO invocation overlapped a rebuild and encountered a missing `.next` manifest; the final build/audit/adversarial/browser sequence ran sequentially and passed. The old production-media assertion expected an excluded 404 HTML artifact to exist; it now requires the artifact to be absent, preserving a stronger exclusion check.
 
-Final preview and PR CI are checked after the fast-forward push; they are not inferred from local results.
+The first implementation preview (`a817d7d`, `https://biblemap-ezknhsh3g-elliotandersons-projects.vercel.app`) passed hosted metadata, sitemap, robots, internal-link, canonical, slash and unknown-route checks, but returned soft-404 HTTP 200 responses at `/demo/`, `/experiments/nineveh/` and `/_not-found/`. The [complete hosted failure report](../../artifacts/seo-routing/adapter-hosted-before.json) records these three errors. Vercel build logs confirm that postbuild pruning and export validation ran, yet the Next framework adapter still published those route outputs. Removing files from `out/` alone therefore did not bind the deployed bytes.
+
+The repository now explicitly configures Vercel with `framework: null`, `buildCommand: "npm run build"` and `outputDirectory: "out"`. This preserves the existing static-export architecture and makes hosting consume the exact postbuild-validated directory, instead of deriving routes from Next adapter artifacts. Production build/publication gates still run through npm lifecycle scripts. No project-level settings, domain, DNS, or alias were edited. The SEO gate rejects a regression of this hosting contract. The follow-up ordinary build, 45-route HTTP audit, all six adversarial gate cases, lint, TypeScript and all 66 unit/export tests passed locally. Application components are unchanged by this hosting correction. Final preview and PR CI are checked after the follow-up fast-forward push.
 
 ## Release blockers and limits
 
@@ -181,3 +183,5 @@ Creator publication decision and route/asset acceptance remain pending; all 43 c
 - [Next static export](https://nextjs.org/docs/app/guides/static-exports): prerendered HTML/RSC output and static-host responsibilities.
 - [Next sitemap convention](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap) and [robots convention](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots): metadata route shape; installed build verifies compatibility.
 - [Vercel preview indexing](https://vercel.com/docs/deployments/preview-deployments): deployment context; observed preview headers provide direct evidence for this project.
+
+Hosting configuration uses the official [Vercel framework/output directory overrides](https://vercel.com/docs/project-configuration/vercel-json): `null` selects the Other preset, and `outputDirectory` selects the static artifact directory. This is required by the directly observed preview/export mismatch above.
