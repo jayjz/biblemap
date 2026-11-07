@@ -9,4 +9,3 @@ C:\Users\jcoul\AppData\Local\Temp\biblemap-artifact-reproducibility-20261107\src
   672:16  warning  'fetchAndUnpackEvents' is defined but never used  @typescript-eslint/no-unused-vars
 
 ✖ 3 problems (0 errors, 3 warnings)
-

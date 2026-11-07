@@ -20,7 +20,7 @@ test at src\domain\artifact-reproducibility.test.ts:12:1
   AssertionError [ERR_ASSERTION]: public/media/approved/.gitkeep
   + actual - expected
   ... Skipped lines
-  
+
   + Buffer(22) [Uint8Array] [
   - Buffer(20) [Uint8Array] [
       102,
@@ -41,7 +41,7 @@ test at src\domain\artifact-reproducibility.test.ts:12:1
   +   13,
       10
     ]
-  
+
       at TestContext.<anonymous> (file:///C:/Users/jcoul/AppData/Local/Temp/biblemap-artifact-reproducibility-20261107/src/domain/artifact-reproducibility.test.ts:40:50)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1402:25)

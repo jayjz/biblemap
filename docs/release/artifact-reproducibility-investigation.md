@@ -107,6 +107,8 @@ The completed-source HTTP comparison has **120 verified identical** local/counte
 
 ## Verification and reproducible commands
 
+Retained console logs use LF and have formatting-only trailing whitespace removed. Raw artifact bodies and artifact checksums are unchanged.
+
 Every build capture removes both `.next/` and `out/`; dependency installation remains fixed during each repeated pair. The final capture helper records the exact Git commit, raw input file manifest, safe environment, Node/npm, lockfile hash, build exit, artifact manifest and complete output snapshot outside the repository. Its comparison fails on unequal commits, toolchains, recorded environment, raw input manifests, changing source identity, or artifact files.
 
 From a fresh diagnostic checkout with `npm ci` completed:
