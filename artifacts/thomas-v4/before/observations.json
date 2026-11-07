@@ -1,0 +1,30 @@
+[
+  {
+    "base": "https://biblemap-e1xuypkoa-elliotandersons-projects.vercel.app",
+    "width": 1440,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  },
+  {
+    "base": "https://biblemap-e1xuypkoa-elliotandersons-projects.vercel.app",
+    "width": 768,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  },
+  {
+    "base": "https://biblemap-e1xuypkoa-elliotandersons-projects.vercel.app",
+    "width": 390,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  },
+  {
+    "base": "https://biblemap-e1xuypkoa-elliotandersons-projects.vercel.app",
+    "width": 320,
+    "errors": [],
+    "readingOverflow": false,
+    "overflow": false
+  }
+]
