@@ -88,6 +88,8 @@ It checks the existing team/project and only creates a preview. It then records:
 
 1. Complete local static and package SHA-256 verification.
 2. Authenticated Vercel deployment ID, READY preview target and package metadata.
+   The current production target and all configured production-domain alias
+   bindings must point elsewhere; unauthorized promotion/aliasing fails closed.
 3. [Complete prebuilt upload file tree](https://vercel.com/docs/rest-api/deployments/list-deployment-files),
    matching every provider path and SHA1 identifier with local upload bytes. The
    observed API wraps paths in `src/` and omits lengths; lengths are checked when

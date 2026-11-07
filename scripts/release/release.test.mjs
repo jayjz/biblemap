@@ -26,6 +26,7 @@ function fixture() {
   const deployment = { id: 'dpl_fixture', projectId: policy.projectId, teamId: policy.teamId, target: null, readyState: 'READY', url: 'synthetic-fixture.vercel.app', meta: { canonicalArtifact: manifest.artifactDigest, canonicalManifest: objectDigest(manifest), canonicalOutput: manifest.outputDigest, canonicalSource: source, canonicalRun: '123/1' } };
   const results = [{ path: 'index.html', checksum: manifest.files[0].checksum }];
   const receipt = { schemaVersion: 1, status: 'verified', manifestDigest: objectDigest(manifest), deploymentId: deployment.id, deploymentUrl: deployment.url, artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, uploadIdentity: 'complete-prebuilt-file-tree-sha1', http: { status: 'verified', verifiedFiles: 1, results, resultsDigest: objectDigest(results) } };
+  receipt.productionIsolation = { status: 'verified', productionTargetId: 'dpl_existing', productionDomains: [{ domain: 'synthetic-production.invalid', deploymentId: 'dpl_existing' }] };
   const acceptance = { schemaVersion: 2, status: 'accepted', actor: 'SYNTHETIC-TEST-ONLY', decidedAt: '2026-11-07T00:00:00Z', evidence: 'in-memory unit fixture, no human approval', sourceCommit: source, sourceInputDigest: manifest.sourceInputDigest, artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, manifestDigest: objectDigest(manifest), scopeDigest: manifest.scopeDigest, previewDeploymentId: deployment.id, verificationDigest: objectDigest(receipt), build: manifest.build, routes: ['/'], acceptedLimitations: ['synthetic-fixture'] };
   return structuredClone({ manifest, proof, deployment, receipt, scope, acceptance, sourceInputDigest: manifest.sourceInputDigest });
 }
@@ -48,6 +49,8 @@ for (const [name, mutate] of [
   ['upload verification unavailable', f => { f.receipt.uploadIdentity = 'spot-check'; }],
   ['unapproved preview promotion', f => { f.operation = 'promote-preview'; }],
   ['production deployment substituted', f => { f.deployment.target = 'production'; }],
+  ['preview promoted after verification', f => { f.receipt.productionIsolation.productionTargetId = f.deployment.id; }],
+  ['preview assigned a production alias', f => { f.receipt.productionIsolation.productionDomains[0].deploymentId = f.deployment.id; }],
   ['different project substituted', f => { f.deployment.projectId = 'prj_other'; }],
 ]) test(`release authorization rejects: ${name}`, () => {
   const f = fixture(); mutate(f); assert.ok(authorizationErrors(f).length, name);

@@ -7,7 +7,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { digest } from '../export-inventory.mjs';
 import { fileManifest, jsonBytes, objectDigest, policy, readJSON, sha1, verifyManifest } from './artifact.mjs';
-import { verifyDeployment, verifyReproducibility } from './authorization.mjs';
+import { verifyDeployment, verifyPreviewIsolation, verifyReproducibility } from './authorization.mjs';
 import { candidateErrors } from '../publication-gate.mjs';
 
 export function flattenTree(tree, prefix = '') {
@@ -131,8 +131,25 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   verifyManifest(manifest, '.vercel/output/static', '.vercel/output');
   const tree = api(`/v6/deployments/${deployment.id}/files?teamId=${policy.teamId}`);
   const upload = verifyUpload('.vercel/output', tree);
+  const liveProject = api(`/v9/projects/${policy.projectId}?teamId=${policy.teamId}`);
+  const productionDomains = [];
+  let cursor;
+  do {
+    const page = api(`/v9/projects/${policy.projectId}/domains?teamId=${policy.teamId}&production=true&redirects=false&limit=100${cursor ? '&until=' + cursor : ''}`);
+    assert.ok(Array.isArray(page.domains));
+    for (const domain of page.domains) {
+      const alias = api(`/v4/aliases/${encodeURIComponent(domain.name)}?teamId=${policy.teamId}`);
+      productionDomains.push({ domain: domain.name, deploymentId: alias.deploymentId ?? alias.deployment?.id });
+    }
+    const next = page.pagination?.next;
+    if (next) assert.ok(Number.isSafeInteger(next) && next !== cursor, 'Invalid domain pagination');
+    cursor = next;
+  } while (cursor);
+  const productionIsolation = { status: 'verified', productionTargetId: liveProject.targets?.production?.id, productionDomains };
+  assert.match(productionIsolation.productionTargetId, /^dpl_[A-Za-z0-9]+$/);
+  verifyPreviewIsolation(deployment.id, productionIsolation);
   const http = await verifyHTTP(manifest, 'https://' + deployment.url);
-  const receipt = { schemaVersion: 1, status: 'verified', checkedAt: new Date().toISOString(), manifestDigest: objectDigest(manifest), artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, deploymentId: deployment.id, deploymentUrl: deployment.url, uploadIdentity: 'complete-prebuilt-file-tree-sha1', provenance, upload, http, trustBoundary: 'Vercel authenticated API upload identity and prebuilt semantics; SHA1 is provider upload identity, SHA256 protects local bytes. CDN internals and generated metadata are trusted, not fully remotely enumerated.' };
+  const receipt = { schemaVersion: 1, status: 'verified', checkedAt: new Date().toISOString(), manifestDigest: objectDigest(manifest), artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, deploymentId: deployment.id, deploymentUrl: deployment.url, uploadIdentity: 'complete-prebuilt-file-tree-sha1', provenance, upload, productionIsolation, http, trustBoundary: 'Vercel authenticated API upload identity and prebuilt semantics; SHA1 is provider upload identity, SHA256 protects local bytes. CDN internals and generated metadata are trusted, not fully remotely enumerated.' };
   const receiptPath = existsSync('release-candidate/verification.json') ? 'release-candidate/verification-recheck.json' : 'release-candidate/verification.json';
   writeFileSync(receiptPath, jsonBytes(receipt));
   console.log(JSON.stringify({ status: receipt.status, deploymentId: deployment.id, url: 'https://' + deployment.url, artifactDigest: manifest.artifactDigest, verifiedFiles: http.verifiedFiles, verificationDigest: objectDigest(receipt) }));

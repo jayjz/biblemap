@@ -23,6 +23,15 @@ export function verifyDeployment(manifest, deployment) {
   assert.equal(deployment.meta.canonicalSource, manifest.sourceCommit);
   assert.equal(deployment.meta.canonicalRun, `${manifest.build.runId}/${manifest.build.runAttempt}`);
 }
+export function verifyPreviewIsolation(deploymentId, isolation) {
+  assert.equal(isolation.status, 'verified');
+  assert.notEqual(isolation.productionTargetId, deploymentId, 'Preview was promoted to the production target');
+  assert.ok(isolation.productionDomains.length, 'Production domain bindings unavailable');
+  for (const binding of isolation.productionDomains) {
+    assert.match(binding.deploymentId, /^dpl_[A-Za-z0-9]+$/);
+    assert.notEqual(binding.deploymentId, deploymentId, 'Preview was assigned a production domain');
+  }
+}
 export function authorizationErrors({ manifest, proof, receipt, deployment, scope, acceptance, sourceInputDigest, operation = 'authorize-publication' }) {
   const errors = [];
   try {
@@ -33,6 +42,7 @@ export function authorizationErrors({ manifest, proof, receipt, deployment, scop
     assert.equal(receipt.status, 'verified');
     assert.equal(receipt.manifestDigest, objectDigest(manifest));
     assert.equal(receipt.deploymentId, deployment.id);
+    verifyPreviewIsolation(deployment.id, receipt.productionIsolation);
     assert.equal(receipt.deploymentUrl, deployment.url);
     assert.equal(receipt.artifactDigest, manifest.artifactDigest);
     assert.equal(receipt.outputDigest, manifest.outputDigest);
