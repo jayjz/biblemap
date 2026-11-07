@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { artifactDigest, fileManifest, git, jsonBytes, objectDigest, policy, readJSON, sourceManifest, verifyManifest } from './artifact.mjs';
 import { packExport } from './pack.mjs';
 import { candidateErrors } from '../publication-gate.mjs';
+import { digest } from '../export-inventory.mjs';
 
 assert.equal(process.platform, policy.platform, 'Canonical artifacts require Linux');
 assert.equal(process.arch, policy.architecture);
@@ -28,6 +29,13 @@ for (const path of ['.next', 'out', '.vercel/output', 'release-candidate']) {
 }
 mkdirSync('release-candidate/reports', { recursive: true });
 const sourceFiles = sourceManifest();
+const fonts = readJSON('src/app/fonts/provenance.json');
+assert.equal(fonts.license, 'OFL-1.1');
+for (const font of fonts.files) {
+  assert.match(font.path, /^[A-Za-z]+(?:-OFL\.txt|\.ttf)$/);
+  assert.equal(digest(readFileSync('src/app/fonts/' + font.path)), font.checksum, 'Pinned font/license bytes changed');
+  if (font.path.endsWith('.txt')) assert.equal(digest(readFileSync('public/fonts/' + font.path)), font.checksum, 'Exported font license changed');
+}
 const dependencyFiles = fileManifest('node_modules', { dependencyLinks: true });
 const environment = { ...policy.environment, SOURCE_DATE_EPOCH: git('show', '-s', '--format=%ct', 'HEAD') };
 // Only nonsecret, enumerated compiler inputs reach the build. No Vercel IDs,

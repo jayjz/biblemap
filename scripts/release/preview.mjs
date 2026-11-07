@@ -111,6 +111,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   const upload = verifyUpload('.vercel/output', tree);
   const http = await verifyHTTP(manifest, 'https://' + deployment.url);
   const receipt = { schemaVersion: 1, status: 'verified', checkedAt: new Date().toISOString(), manifestDigest: objectDigest(manifest), artifactDigest: manifest.artifactDigest, outputDigest: manifest.outputDigest, deploymentId: deployment.id, deploymentUrl: deployment.url, uploadIdentity: 'complete-prebuilt-file-tree-sha1-size', provenance, upload, http, trustBoundary: 'Vercel authenticated API upload identity and prebuilt semantics; SHA1 is provider upload identity, SHA256 protects local bytes. CDN internals and generated metadata are trusted, not fully remotely enumerated.' };
-  writeFileSync('release-candidate/verification.json', jsonBytes(receipt));
+  const receiptPath = existsSync('release-candidate/verification.json') ? 'release-candidate/verification-recheck.json' : 'release-candidate/verification.json';
+  writeFileSync(receiptPath, jsonBytes(receipt));
   console.log(JSON.stringify({ status: receipt.status, deploymentId: deployment.id, url: 'https://' + deployment.url, artifactDigest: manifest.artifactDigest, verifiedFiles: http.verifiedFiles, verificationDigest: objectDigest(receipt) }));
 }

@@ -48,9 +48,11 @@ export function verifyFiles(root, expected, expectedDigest) {
   assert.equal(artifactDigest(actual), expectedDigest);
   return actual;
 }
-export function git(...args) { return execFileSync('git', args, { encoding: 'utf8' }).trim(); }
+// Container checkout is owned by the host runner UID. Trust only this explicit
+// disposable checkout, never a wildcard/global ownership exception.
+export function git(...args) { return execFileSync('git', ['-c', `safe.directory=${process.cwd()}`, ...args], { encoding: 'utf8' }).trim(); }
 export function sourceManifest() {
-  const paths = execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean).filter(path => !detachedDecision(path)).sort();
+  const paths = execFileSync('git', ['-c', `safe.directory=${process.cwd()}`, 'ls-files', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean).filter(path => !detachedDecision(path)).sort();
   return paths.map(path => {
     assert.ok(lstatSync(path).isFile() && !lstatSync(path).isSymbolicLink(), `Nonregular input: ${path}`);
     const bytes = readFileSync(path);
