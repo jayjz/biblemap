@@ -8,7 +8,7 @@ test("the homepage leads directly into both complete lives and their sources", a
   const entrances = page.getByRole("region", { name: "Lives. Different voices." });
   await entrances.getByRole("link", { name: "Enter the encounter", exact: true }).click();
   await expect(page.locator("[data-prison-ready]")).toHaveAttribute("data-prison-ready", "true");
-  const scenes = page.getByRole("navigation", { name: "Scenes in The Prison" });
+  const scenes = page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" });
   for (const link of await scenes.getByRole("link").all()) {
     await link.click();
     await expect(link).toHaveAttribute("aria-current", "step");

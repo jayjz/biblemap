@@ -10,6 +10,7 @@ import {
 import type { MouseEvent, ReactNode } from "react";
 import { PRISON_SOURCE_FRAGMENTS, visitorPrisonView, type VisitorPrisonScene } from "@/domain/visitor-prison";
 import { PerpetuaMovement } from "./PerpetuaMovements";
+import { PERPETUA_CONTEXT_SOURCES } from "@/content/perpetua-encounter";
 import styles from "./prison.module.css";
 
 const getHash = () => window.location.hash;
@@ -91,6 +92,7 @@ function RelationshipScene({
               <summary>Inspect this passage</summary>
               <p>{scene.evidence}</p>
               <p className={styles.limit}>{scene.limit}</p>
+              {scene.contextSourceIds.map(id => <p key={id}><a href={PERPETUA_CONTEXT_SOURCES[id].url}>{PERPETUA_CONTEXT_SOURCES[id].title}</a><br />{PERPETUA_CONTEXT_SOURCES[id].limit}</p>)}
               <a href="https://sourcebooks.web.fordham.edu/source/perpetua.asp">
                 Read the complete source at Fordham
               </a>
@@ -120,13 +122,13 @@ function RelationshipScene({
                 href={`#perpetua-${next.id}`}
                 onClick={(event) => navigate(event, next.id)}
               >
-                Continue: {next.name}
+                Continue: {next.name}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.4" /></svg>
               </a>
             ) : (
               <a
                 className={styles.continue}
-                href="#perpetua-child"
-                onClick={(event) => navigate(event, "child")}
+                href="#perpetua-carthage"
+                onClick={(event) => navigate(event, "carthage")}
               >
                 Return to the beginning
               </a>
@@ -139,7 +141,7 @@ function RelationshipScene({
       <div className={styles.sceneLayout}>
         <div className={styles.sceneCopy}>
           <p className={styles.movementNumber}>{index + 1} / {scenes.length}<span>{scene.name}</span></p>
-          <p className={styles.position}>{scene.voiceLabel}</p>
+          <p className={styles.setting}>{scene.setting}</p>
           <h2
             className={styles.sceneTitle}
             id={`title-${scene.id}`}
@@ -147,8 +149,9 @@ function RelationshipScene({
           >
             {scene.title}
           </h2>
+          <p className={styles.position}>{scene.voiceLabel}</p>
           <PerpetuaMovement id={scene.id} endingNotes={scene.id === "handover" ? <>{supporting}{endingResearch}</> : undefined}>
-          <div className={styles.narrative} hidden={scene.id === "separation" && enhanced}>
+          <div className={styles.narrative}>
             {scene.text.map((text) => (
               <p key={text}>{text}</p>
             ))}
@@ -156,7 +159,7 @@ function RelationshipScene({
           </PerpetuaMovement>
         </div>
         {scene.id === "separation" && <div className={styles.separationLeaf} aria-label="The two passages in the transmitted account">{separationPassage}</div>}
-        {scene.id !== "handover" && supporting}
+        {scene.id !== "handover" && <><p className={styles.sceneBridge}>{scene.transition}</p>{supporting}</>}
       </div>
     </>
   );
@@ -186,8 +189,20 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage, endi
   );
   const view = visitorPrisonView(hash, scenes);
   const stage = useRef<HTMLDivElement>(null);
-  const enteredSeparation = useRef(false);
+  const chapterRail = useRef<HTMLElement>(null);
+  const enteredFragment = useRef<string | null>(null);
+  const lastReading = useRef(scenes[0].id);
+  const readingSource = PRISON_SOURCE_FRAGMENTS.some(fragment => fragment === hash);
   useEffect(() => {
+    // Continuing below the text should also keep the current chapter in view
+    // on narrow screens. Move only the rail, never the reader's page position.
+    const rail = chapterRail.current;
+    const current = rail?.querySelector<HTMLElement>("[aria-current]");
+    if (rail && current) {
+      const frame = rail.getBoundingClientRect();
+      const item = current.getBoundingClientRect();
+      rail.scrollTo({ left: rail.scrollLeft + item.left - frame.left - (frame.width - item.width) / 2, behavior: "instant" });
+    }
     const sourceFragment = PRISON_SOURCE_FRAGMENTS.find(fragment => fragment === hash);
     if (sourceFragment) {
       const target = stage.current?.querySelector<HTMLElement>(sourceFragment);
@@ -201,24 +216,23 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage, endi
       requestedFocus.current = false;
       return;
     }
-    const initialSeparation = view.enhanced && !view.all && view.scene.id === "separation" && !enteredSeparation.current;
-    if (!requestedFocus.current && !initialSeparation) return;
+    lastReading.current = view.all ? "all" : view.scene.id;
+    const initialFragment = view.enhanced && hash !== "" && enteredFragment.current !== hash;
+    if (!requestedFocus.current && !initialFragment) return;
     // Let history finish restoring the document before restoring scene focus.
     const frame = window.requestAnimationFrame(() => {
       const heading = stage.current?.querySelector<HTMLElement>(
           view.all ? "#all-scenes-title" : `#title-${view.scene.id}`,
         );
-      heading?.focus();
-      heading?.scrollIntoView({ block: "start", behavior: "instant" });
-      if (!view.all && view.scene.id === "separation") {
-        enteredSeparation.current = true;
-      }
+      heading?.focus({ preventScroll: true });
+      (view.all ? heading : heading?.closest("section"))?.scrollIntoView({ block: "start", behavior: "instant" });
+      enteredFragment.current = hash;
       requestedFocus.current = false;
     });
     return () => window.cancelAnimationFrame(frame);
   }, [hash, view.scene.id, view.all, view.enhanced]);
 
-  function navigate(event: MouseEvent<HTMLAnchorElement>, id: string) {
+  function navigate(event: MouseEvent<HTMLElement>, id: string) {
     if (
       event.metaKey ||
       event.ctrlKey ||
@@ -245,7 +259,7 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage, endi
   return (
     <div ref={stage} data-prison-ready={view.enhanced}>
       <div className={styles.sceneBar}>
-        <nav aria-label="Scenes in The Prison">
+        <nav ref={chapterRail} aria-label="Scenes in Perpetua and Felicity">
           {scenes.map((scene, index) => (
             <a
               key={scene.id}
@@ -260,13 +274,13 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage, endi
             </a>
           ))}
         </nav>
-        <a
+        {readingSource ? <button className={styles.sourceReturn} type="button" onClick={event => navigate(event, lastReading.current)}>Return to the story</button> : <a
           className={styles.readAll}
           href="#perpetua-all"
           onClick={(event) => navigate(event, "all")}
         >
-          Read all six scenes
-        </a>
+          Read the whole story
+        </a>}
       </div>
       <div
         id="perpetua-all"
@@ -277,7 +291,7 @@ export function PrisonStage({ scenes, separationArtwork, separationPassage, endi
           The complete encounter
         </h2>
         <p>
-          Six scenes from the transmitted Passion. The sequence is editorial;
+          Seven movements through the transmitted Passion. The sequence is editorial;
           source sections are identified throughout.
         </p>
       </div>

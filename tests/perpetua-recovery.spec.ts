@@ -17,9 +17,9 @@ test("vision reading keeps seeing, changed body and waking interpretation distin
 test("source links open the ending research without hiding it and restore scene history", async ({ page }) => {
   await page.goto("/human-story/perpetua/#perpetua-child");
   await page.locator('[data-scene="child"]').getByRole("link", { name: "Image & source", exact: true }).click();
-  await expect(page.locator('#source-cassatt-art')).toBeVisible();
+  await expect(page.locator('#source-prison-art')).toBeVisible();
   await expect(page.locator('#ending-research')).toHaveAttribute('open', '');
-  await expect(page.locator('#source-cassatt-art')).toHaveAttribute('open', '');
+  await expect(page.locator('#source-prison-art')).toHaveAttribute('open', '');
   await page.goBack();
   await expect(page.locator('[data-scene="child"]')).toBeVisible();
   await page.goto('/human-story/perpetua/#source-vision-art');
@@ -48,7 +48,7 @@ test("new artworks can fail while the vision and narrated childbirth remain read
   const vision = page.locator('[data-scene="vision"]');
   await expect(vision.getByRole('status')).toContainText('The image could not load');
   await expect(vision.locator('[data-vision-passage="expected"] blockquote')).toBeVisible();
-  await page.getByRole('navigation', { name: 'Scenes in The Prison' }).getByRole('link', { name: 'Felicity', exact: true }).click();
+  await page.getByRole('navigation', { name: 'Scenes in Perpetua and Felicity' }).getByRole('link', { name: 'Felicity', exact: true }).click();
   const felicity = page.locator('[data-scene="felicity"]');
   await expect(felicity.getByRole('status')).toBeVisible();
   await expect(felicity).toContainText('labour begins');

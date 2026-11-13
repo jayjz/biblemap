@@ -125,6 +125,7 @@ test("saints keep autobiographical voice, editorial framing and legend distinct"
   page,
 }) => {
   await page.goto("/human-story/perpetua/");
+  await page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" }).getByRole("link", { name: "The child", exact: true }).click();
   await page
     .locator('[data-scene="child"]')
     .getByText("Inspect this passage", { exact: true })
@@ -133,7 +134,7 @@ test("saints keep autobiographical voice, editorial framing and legend distinct"
     page.getByText(/We possess the transmitted composite work/),
   ).toBeVisible();
   await page
-    .getByRole("navigation", { name: "Scenes in The Prison" })
+    .getByRole("navigation", { name: "Scenes in Perpetua and Felicity" })
     .getByRole("link", { name: "Felicity", exact: true })
     .click();
   await expect(
@@ -141,7 +142,7 @@ test("saints keep autobiographical voice, editorial framing and legend distinct"
       /Felicity does not leave a corresponding first-person account/,
     ),
   ).toBeVisible();
-  await page.getByRole("navigation", { name: "Scenes in The Prison" }).getByRole("link", { name: "The ending", exact: true }).click();
+  await page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" }).getByRole("link", { name: "The ending", exact: true }).click();
   await page.locator("#ending-research > summary").click();
   await page
     .getByRole("link", { name: "Augustine: a life reread", exact: true })

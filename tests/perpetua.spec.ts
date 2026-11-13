@@ -21,8 +21,10 @@ test("the prison encounter exposes human stakes and the changing source voice", 
     "true",
   );
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "The Prison",
+    "Perpetua & Felicity",
   );
+  await expect(page.locator('[data-scene="carthage"]')).toContainText("preparing for Christian baptism");
+  await page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" }).getByRole("link", { name: "The child", exact: true }).click();
   const child = page.locator('[data-scene="child"]');
   await expect(child).toContainText("her nursing child");
   await child.getByText("People and the account’s limits", { exact: true }).click();
@@ -33,7 +35,7 @@ test("the prison encounter exposes human stakes and the changing source voice", 
   await expect(child.locator('[aria-live="polite"]')).toContainText(
     "mother and strengthening her brother",
   );
-  const scenes = page.getByRole("navigation", { name: "Scenes in The Prison" });
+  const scenes = page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" });
   await scenes
     .getByRole("link", { name: "The separation", exact: true })
     .click();
@@ -83,15 +85,16 @@ test("scene links, history, keyboard relationships and full reading retain contr
   await page.goto("/human-story/perpetua/#perpetua-separation");
   await expect(page.locator('[data-scene="separation"]')).toBeVisible();
   const next = page.getByRole("link", {
-    name: "Continue: The vision",
+    name: "Continue: Felicity",
     exact: true,
   });
   await next.focus();
   await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/#perpetua-vision$/);
+  await expect(page).toHaveURL(/#perpetua-felicity$/);
   await expect(
-    page.getByRole("heading", { name: "The night before the games." }),
+    page.getByRole("heading", { name: "She fears being left behind." }),
   ).toBeFocused();
+  await page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" }).getByRole("link", { name: "The vision", exact: true }).click();
   await page.locator('[data-scene="vision"]').getByText("People and the account’s limits", { exact: true }).click();
   const meaning = page.getByRole("button", {
     name: "What it means to her",
@@ -101,17 +104,20 @@ test("scene links, history, keyboard relationships and full reading retain contr
   await page.keyboard.press("Space");
   await expect(meaning).toHaveAttribute("aria-pressed", "true");
   await page.goBack();
+  await expect(page.locator('[data-scene="felicity"]')).toBeVisible();
+  await page.goBack();
   await expect(page.locator('[data-scene="separation"]')).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "She asks for her child." }),
   ).toBeFocused();
   await page.goForward();
+  await page.goForward();
   await expect(page.locator('[data-scene="vision"]')).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "The night before the games." }),
+    page.getByRole("heading", { name: "A vision before the games." }),
   ).toBeFocused();
   await page
-    .getByRole("link", { name: "Read all six scenes", exact: true })
+    .getByRole("link", { name: "Read the whole story", exact: true })
     .click();
   for (const scene of PRISON_SCENES)
     await expect(page.locator(`[data-scene="${scene.id}"]`)).toBeVisible();
@@ -124,7 +130,7 @@ test("scene links, history, keyboard relationships and full reading retain contr
     await expect(page.locator(`[data-scene="${scene}"]`)).toBeVisible();
   }
   await page.goto("/human-story/perpetua/#perpetua-missing");
-  await expect(page.locator('[data-scene="child"]')).toBeVisible();
+  await expect(page.locator('[data-scene="carthage"]')).toBeVisible();
 });
 
 test("every scene supports reduced motion, narrow layouts, enlarged text and accessible controls", async ({
@@ -182,7 +188,7 @@ test("without JavaScript all scenes, people, provenance and onward routes remain
   for (const scene of PRISON_SCENES)
     await expect(page.locator(`[data-scene="${scene.id}"]`)).toBeVisible();
   await page
-    .getByRole("navigation", { name: "Scenes in The Prison" })
+    .getByRole("navigation", { name: "Scenes in Perpetua and Felicity" })
     .getByRole("link", { name: "Felicity", exact: true })
     .click();
   await page.locator('[data-scene="felicity"]').getByText("People and the account’s limits", { exact: true }).click();
