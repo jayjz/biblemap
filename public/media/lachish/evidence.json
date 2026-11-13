@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 1,
+  "title": "Lachish: Before the Walls Fell",
+  "setting": "Judah, 701 BC",
+  "editorialState": "sourced draft for human review; no production publication authorized",
+  "checkedAt": "2026-11-12",
+  "sources": [
+    {
+      "id": "web-kings",
+      "title": "2 Kings 18–19 · World English Bible",
+      "institution": "eBible.org / World English Bible",
+      "url": "https://ebible.org/engwebp/2KI18.htm",
+      "locator": "18:7, 13–17; 19:1–7, 20–37; complete chapters retained locally",
+      "category": "Biblical account",
+      "family": "kings-isaiah-tradition",
+      "date": "Ancient biblical writing; publisher snapshot 12 November 2026",
+      "rights": "Public domain; WEB translation name retained",
+      "limits": "The narrative gives a theological account. Its regnal chronology and sequence must not be silently equated with the Assyrian annals. Kings and Isaiah contain closely related passages; they are not two independent eyewitnesses."
+    },
+    {
+      "id": "web-isaiah",
+      "title": "Isaiah 36–37 · World English Bible",
+      "institution": "eBible.org / World English Bible",
+      "url": "https://ebible.org/engwebp/ISA36.htm",
+      "locator": "36:1–3; 37:5–7, 21–38; complete chapters retained locally",
+      "category": "Biblical account",
+      "family": "kings-isaiah-tradition",
+      "date": "Ancient biblical writing; publisher snapshot 12 November 2026",
+      "rights": "Public domain",
+      "limits": "Closely related to 2 Kings. The story of divine deliverance is biblical testimony, not an archaeological observation."
+    },
+    {
+      "id": "web-chronicles",
+      "title": "2 Chronicles 32 · World English Bible",
+      "institution": "eBible.org / World English Bible",
+      "url": "https://ebible.org/engwebp/2CH32.htm",
+      "locator": "32:1–9, 20–23; complete chapter retained locally",
+      "category": "Biblical account",
+      "family": "chronicles-tradition",
+      "date": "Ancient biblical writing; publisher snapshot 12 November 2026",
+      "rights": "Public domain",
+      "limits": "A distinct literary presentation of the campaign, not a transcript from the siege. Its relationship to earlier biblical traditions prevents assuming fully independent corroboration."
+    },
+    {
+      "id": "bm-siege",
+      "title": "The assault on Lachish · BM 124906",
+      "institution": "British Museum",
+      "url": "https://www.britishmuseum.org/collection/object/W_1856-0909-14_2",
+      "locator": "Object description; production date; findspot: Southwest Palace, Nineveh, Room XXXVI, panel 7",
+      "category": "Ancient external account",
+      "family": "assyrian-royal-representation",
+      "date": "Gypsum relief carved 700–692 BC; represents the 701 BC campaign",
+      "rights": "Catalogue linked only; independently licensed photograph used",
+      "limits": "Royal narrative art selects and combines scenes. Ramps in a carving are not a measured engineering drawing or a frame-by-frame record."
+    },
+    {
+      "id": "bm-families",
+      "title": "Booty and Judean families · BM 124907",
+      "institution": "British Museum",
+      "url": "https://www.britishmuseum.org/collection/object/W_1856-0909-14_3",
+      "locator": "Description; Room XXXVI, panel 8",
+      "category": "Ancient external account",
+      "family": "assyrian-royal-representation",
+      "date": "700–692 BC",
+      "rights": "Catalogue linked only",
+      "limits": "Depicts families, goods and animals being taken into exile; does not identify individual lives or record their own words."
+    },
+    {
+      "id": "bm-prisoners",
+      "title": "Prisoners in a cultivated landscape · BM 124908",
+      "institution": "British Museum",
+      "url": "https://www.britishmuseum.org/collection/object/W_1856-0909-14_5",
+      "locator": "Description; production date; Southwest Palace, Room XXXVI, panel 9",
+      "category": "Ancient external account",
+      "family": "assyrian-royal-representation",
+      "date": "700–692 BC",
+      "rights": "Catalogue linked only; independently licensed photograph used",
+      "limits": "Trees and prisoners are part of the king's representation. The imagery does not provide access to an inhabitant's thoughts. Modern display is at the British Museum."
+    },
+    {
+      "id": "rinap-22",
+      "title": "Sennacherib 22 · critical edition of the annals",
+      "institution": "ORACC / Royal Inscriptions of the Neo-Assyrian Period (RINAP 3)",
+      "url": "https://oracc.museum.upenn.edu/rinap/rinap3/Q003496",
+      "locator": "ii 37–iii 49; especially iii 18–49 (Judah, Jerusalem, tribute)",
+      "category": "Ancient external account",
+      "family": "assyrian-royal-representation",
+      "date": "Royal inscription under Sennacherib; Taylor Prism exemplar dated 691 BC by BM",
+      "rights": "Edition linked; summaries in original wording, no full translation reproduced",
+      "limits": "Royal self-presentation. Forty-six cities and the deportation totals are the king's claims. The annals describe blockading Jerusalem, not capturing it; their silence does not explain why it survived."
+    },
+    {
+      "id": "rinap-17",
+      "title": "Sennacherib 17 · another annal edition",
+      "institution": "ORACC / RINAP 3",
+      "url": "https://oracc.museum.upenn.edu/rinap/rinap3/Q003491",
+      "locator": "Catalogue sources BM 102996, BM 103000, Rm 26, GMII 1502, IM 56578; third campaign",
+      "category": "Ancient external account",
+      "family": "assyrian-royal-representation",
+      "date": "Reign of Sennacherib (704–681 BC); broad catalogue date, not assigned an exact year here",
+      "rights": "Edition linked only",
+      "limits": "Another edition of the same royal textual tradition, not another independent witness. Catalogue's broad dating is retained."
+    },
+    {
+      "id": "taylor-prism",
+      "title": "Taylor Prism · BM 91032",
+      "institution": "British Museum",
+      "url": "https://www.britishmuseum.org/collection/object/W_1855-1003-1",
+      "locator": "Description, production date, acquisition notes",
+      "category": "Ancient external account",
+      "family": "assyrian-royal-representation",
+      "date": "Clay prism made 691 BC; includes the campaign of 701 BC; acquired 1855",
+      "rights": "Object record linked only; museum photograph not redistributed",
+      "limits": "A later surviving artifact recording earlier events. Said to have been found at Nebi Yunus; acquisition history is not a secure excavated context."
+    },
+    {
+      "id": "ramp-study",
+      "title": "Constructing the Assyrian siege ramp at Lachish",
+      "institution": "Yosef Garfinkel, Jon W. Carroll, Michael Pytlik and Madeleine Mumcuoglu; Oxford Journal of Archaeology 40(4), 417–439 (2021)",
+      "url": "https://cris.huji.ac.il/en/publications/constructing-the-assyrian-siege-ramp-at-lachish-texts-iconography/",
+      "locator": "Institutional abstract; DOI 10.1111/ojoa.12231",
+      "category": "Scholarly interpretation",
+      "family": "ramp-construction-model",
+      "date": "November 2021",
+      "rights": "Abstract consulted; no plans, photogrammetry or figures reproduced",
+      "limits": "The abstract confirms photogrammetric scenario analysis. Construction sequence, labor and duration estimates are hypotheses; full article and reusable survey geometry were not obtained. No model coordinates or dimensions are imported."
+    },
+    {
+      "id": "wall-study",
+      "title": "Archaeomagnetic Dating of the Outer Revetment Wall at Tel Lachish",
+      "institution": "Yoav Vaknin, Ron Shaar, Erez Ben-Yosef and Oded Lipschits; Tel Aviv 51(1), 73–94 (2024)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11090153/",
+      "locator": "Abstract; history of research; Figs 2–7; conclusions; DOI 10.1080/03344355.2024.2327801",
+      "category": "Archaeological observation",
+      "family": "excavation-and-archaeomagnetism",
+      "date": "11 May 2024; studies Level III destruction associated with 701 BC",
+      "rights": "CC BY-NC-ND 4.0; research only, figures not redistributed or adapted",
+      "limits": "Reports burnt mudbrick tower, excavated ramp, counter-ramp and weapons; argues for Iron Age wall use against a Middle Bronze Age proposal. Who set the fire remains uncertain. Association with 701 BC uses archaeological and textual correlation, not an independently exact calendar reading."
+    },
+    {
+      "id": "tel-park",
+      "title": "Tel Lachish National Park",
+      "institution": "Israel Nature and Parks Authority",
+      "url": "https://en.parks.org.il/reserve-park/tel-lachish-national-park/",
+      "locator": "History; siege ramp; Lachish Letters",
+      "category": "Scholarly interpretation",
+      "family": "site-interpretation",
+      "date": "Modern site interpretation; accessed 12 November 2026",
+      "rights": "Linked only; site plan and photographs not reproduced",
+      "limits": "A visitor summary covering multiple periods. Its 'eastern side' ramp wording differs from the southwest location in excavation scholarship; this experience follows the scholarly plan. The Lachish Letters concern the later Babylonian crisis and are excluded from 701 BC scenes."
+    },
+    {
+      "id": "posen-relief",
+      "title": "Conquest of Lachish Depicted on Relief of Sennacherib",
+      "institution": "Posen Library; Jeffrey H. Tigay and Adele Berlin, eds., volume 1 (2021)",
+      "url": "https://www.posenlibrary.com/entry/conquest-lachish-depicted-relief-sennacherib",
+      "locator": "Description and caption; credits trace drawings to Layard 1853, plates 20–23",
+      "category": "Scholarly interpretation",
+      "family": "assyrian-royal-representation",
+      "date": "Dates relief broadly 700–681 BC; BM's narrower 700–692 BC used for displayed panels",
+      "rights": "Research only; drawings not downloaded; inscription paraphrased",
+      "limits": "Modern editorial explanation derived from the same relief. Not independent confirmation of its depicted events."
+    }
+  ],
+  "claims": [
+    {
+      "id": "threshold",
+      "text": "A city of households stands in an empire’s path. Hezekiah, Judah’s king, has broken with Assyria. Sennacherib’s army is coming.",
+      "category": "Scholarly interpretation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "web-kings",
+        "tel-park",
+        "bm-families"
+      ],
+      "locator": "2 Kings 18:1–7, 13–17; park history; BM 124907 families",
+      "limits": "Dramatic present tense summarizes the campaign; no exact approach route is asserted."
+    },
+    {
+      "id": "city",
+      "text": "Lachish was a fortified city of Judah in the Shephelah, the low hill country below Jerusalem’s uplands. Hezekiah ruled Judah from Jerusalem. His kingdom lived in the shadow of Assyria, an empire that demanded submission from other rulers.",
+      "category": "Scholarly interpretation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "wall-study",
+        "web-kings",
+        "rinap-22"
+      ],
+      "locator": "Wall study introduction; 2 Kings 18:1–7; RINAP 22 iii 18–49"
+    },
+    {
+      "id": "people",
+      "text": "In the reliefs, families leave with possessions and animals. Vines, fig trees and olives surround the captives: a worked landscape, made part of the king’s victory. These details let us glimpse a lived-in world beyond the defenses. We do not have an ordinary inhabitant’s account of 701 BC among these sources. Before this was a victory scene, it was their city.",
+      "category": "Scholarly interpretation",
+      "state": "INFERRED",
+      "sourceIds": [
+        "bm-families",
+        "bm-prisoners"
+      ],
+      "locator": "BM 124907–8 descriptions",
+      "limits": "A worked landscape and a lived-in world are editorial readings of the depicted plants, families and possessions, not reconstructed daily routines. No named composite, interior monologue or fictional testimony is used."
+    },
+    {
+      "id": "rebellion",
+      "text": "In 2 Kings, Hezekiah rebels against the king of Assyria. Sennacherib’s account describes Hezekiah as a ruler who refused his authority. For Judah, this was a struggle over who could command its king. For Assyria, it was a challenge to imperial rule.",
+      "category": "Scholarly interpretation",
+      "state": "INFERRED",
+      "sourceIds": [
+        "web-kings",
+        "rinap-22"
+      ],
+      "locator": "2 Kings 18:7; RINAP 22 iii 18–23",
+      "limits": "Political explanation of the two accounts, not a claim about private motives."
+    },
+    {
+      "id": "campaign",
+      "text": "In 701 BC, Sennacherib campaigned in the west. His annals claim the capture of forty-six fortified Judean cities, alongside smaller settlements. At Lachish, imperial power met the city’s defenses. The surviving relief shows organized ranks, shields, ladders and siege engines.",
+      "category": "Ancient external account",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "taylor-prism",
+        "rinap-22",
+        "bm-siege"
+      ],
+      "locator": "BM 91032 description; RINAP 22 iii 18–27; BM 124906",
+      "limits": "Forty-six is an Assyrian royal claim, not a modern verified count. The figures are not a complete inventory of military organization."
+    },
+    {
+      "id": "walls",
+      "text": "A steep mound gave Lachish height above an attacker. A siege ramp changed that relationship: piled stone could bring engines toward the defenses. At the southwest corner of the mound, excavators uncovered a ramp outside the walls and a counter-ramp within them.",
+      "category": "Archaeological observation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "wall-study"
+      ],
+      "locator": "History of research; Figs 2–5",
+      "limits": "Schematic below shows relationships only. No surveyed coordinates, dimensions or exact engine placement are claimed."
+    },
+    {
+      "id": "material",
+      "text": "The excavation record includes arrowheads, an iron chain, iron scales and perforated stones near the assault area. Burnt mudbrick in a tower adds evidence of intense heat. The material remains and the carved attack can be compared, but neither supplies every missing moment of the siege.",
+      "category": "Archaeological observation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "wall-study"
+      ],
+      "locator": "History of research; results and conclusions; Fig. 7",
+      "limits": "The paper reports finds from earlier excavation publications; this is not a fresh inspection of the objects. Their precise functions and who started the fire remain open."
+    },
+    {
+      "id": "fall",
+      "text": "Lachish fell. The destruction of Level III is associated with Sennacherib’s campaign. In the palace reliefs, the attack gives way to captives, seized goods and punishment. Men, women and children are shown leaving with the things they can carry or lead away.",
+      "category": "Scholarly interpretation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "wall-study",
+        "bm-families",
+        "bm-prisoners",
+        "posen-relief"
+      ],
+      "locator": "Wall study history of research; BM descriptions; Posen sequence",
+      "limits": "Chronological attribution rests on correlation. Depicted people and violence are Assyrian representations, not individual biographies."
+    },
+    {
+      "id": "aftermath",
+      "text": "The carving turns displacement into proof of the king’s success. Yet it also preserves people whom his account counts among the spoils. Their names and their own words are absent from these records. To follow their image is to leave Lachish for the palace in Nineveh.",
+      "bridge": "For the people in the procession, the loss was a city. In Nineveh, it became a king’s victory.",
+      "category": "Scholarly interpretation",
+      "state": "INFERRED",
+      "sourceIds": [
+        "bm-families",
+        "bm-prisoners",
+        "rinap-22",
+        "posen-relief"
+      ],
+      "locator": "BM object descriptions and palace findspots; RINAP 22 iii 24–27; Posen sequence",
+      "limits": "An editorial reading of royal imagery, not recovered testimony or an attribution of private emotions."
+    },
+    {
+      "id": "palace",
+      "text": "The story on stone was made in Nineveh, in Assyria, rather than at Lachish. Gypsum panels lined Room XXXVI of Sennacherib’s Southwest Palace. The sequence moves from assault to captives and booty, then to the seated king receiving the results of conquest.",
+      "category": "Ancient external account",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "bm-siege",
+        "bm-families",
+        "bm-prisoners",
+        "posen-relief"
+      ],
+      "locator": "BM findspots; Posen description and Layard plates 20–23"
+    },
+    {
+      "id": "inscription",
+      "text": "The inscription names Sennacherib as king of Assyria and identifies the spoils passing before him as those of Lachish. It tells the palace visitor whose victory to see. This is an extraordinary record of the city, made to honor the man who took it.",
+      "category": "Ancient external account",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "posen-relief"
+      ],
+      "locator": "Caption translation in Posen entry",
+      "limits": "Original paraphrase, not an unattributed quotation or independent translation of cuneiform."
+    },
+    {
+      "id": "dates",
+      "text": "The campaign belongs to 701 BC. The displayed reliefs were carved in 700–692 BC. The Taylor Prism, another surviving royal record, was made in 691 BC. The event, the telling and the surviving object have different dates.",
+      "category": "Scholarly interpretation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "taylor-prism",
+        "bm-siege"
+      ],
+      "locator": "BM production dates and prism description"
+    },
+    {
+      "id": "jerusalem",
+      "text": "Lachish also leads us toward Jerusalem. In 2 Kings, Hezekiah sends tribute to Sennacherib at Lachish. Assyrian officers then come from Lachish to challenge Jerusalem. Isaiah enters the biblical account as a prophet who answers the threat with a promise that the city will be delivered.",
+      "category": "Biblical account",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "web-kings",
+        "web-isaiah"
+      ],
+      "locator": "2 Kings 18:14–17; 19:1–7, 20–34; Isaiah 36–37",
+      "limits": "This is the biblical narrative sequence, not an attempt to resolve all chronological questions."
+    },
+    {
+      "id": "survival",
+      "text": "Jerusalem was not captured in this campaign. Sennacherib presents Hezekiah as confined in his capital and sending tribute. Kings and Isaiah tell of deliverance through the LORD’s intervention; Chronicles likewise attributes rescue to God. The accounts preserve different explanations and emphases. The archaeology does not settle the cause of Jerusalem’s survival.",
+      "category": "Unresolved or disputed",
+      "state": "UNRESOLVED",
+      "sourceIds": [
+        "rinap-22",
+        "web-kings",
+        "web-isaiah",
+        "web-chronicles",
+        "tel-park"
+      ],
+      "locator": "RINAP 22 iii 27–49; 2 Kings 19:32–36; Isaiah 37:33–37; 2 Chronicles 32:20–22",
+      "limits": "The non-capture is supported; its explanation is unresolved across these evidence types. No disease, military or miraculous mechanism is presented as archaeologically proven."
+    },
+    {
+      "id": "tribute",
+      "text": "Both 2 Kings and the annals describe tribute from Hezekiah. Kings names thirty talents of gold and three hundred of silver; the annals name thirty of gold and eight hundred of silver. The silver totals differ. These are ancient amounts in the respective texts, not converted modern weights.",
+      "category": "Unresolved or disputed",
+      "state": "CONFLICTED",
+      "sourceIds": [
+        "web-kings",
+        "rinap-22"
+      ],
+      "locator": "2 Kings 18:14; RINAP 22 iii 37–49",
+      "limits": "No speculative reconciliation of amounts or chronology is imposed."
+    },
+    {
+      "id": "ending",
+      "text": "Lachish survives as a place we can revisit. Its captured people remain visible in a king’s palace art. Jerusalem’s crisis remains in Scripture and in the king’s annals. None is the whole story. Together, they bring a lost city closer—and leave room for the lives the records did not preserve.",
+      "category": "Scholarly interpretation",
+      "state": "INFERRED",
+      "sourceIds": [
+        "tel-park",
+        "bm-families",
+        "rinap-22",
+        "web-kings"
+      ],
+      "locator": "Site record; reliefs; biblical and Assyrian accounts",
+      "limits": "Closing editorial reflection, not a new historical or theological conclusion."
+    }
+  ],
+  "movements": [
+    {
+      "id": "before-the-siege",
+      "numeral": "I",
+      "label": "Before the siege",
+      "title": "Before it was a conquest, it was a city.",
+      "claims": [
+        "city",
+        "people"
+      ]
+    },
+    {
+      "id": "the-empire",
+      "numeral": "II",
+      "label": "The empire",
+      "title": "A king’s refusal. An empire’s reply.",
+      "claims": [
+        "rebellion",
+        "campaign"
+      ]
+    },
+    {
+      "id": "the-walls",
+      "numeral": "III",
+      "label": "The walls",
+      "title": "The hill was a defense. The ramp was an answer.",
+      "claims": [
+        "walls",
+        "material"
+      ]
+    },
+    {
+      "id": "the-fall",
+      "numeral": "IV",
+      "label": "The fall",
+      "title": "A city taken. A people led away.",
+      "claims": [
+        "fall",
+        "aftermath"
+      ]
+    },
+    {
+      "id": "the-kings-account",
+      "numeral": "V",
+      "label": "The king’s account",
+      "title": "The victory had another destination.",
+      "claims": [
+        "palace",
+        "inscription",
+        "dates"
+      ]
+    },
+    {
+      "id": "jerusalem",
+      "numeral": "VI",
+      "label": "Jerusalem",
+      "title": "Lachish fell. Jerusalem remained.",
+      "claims": [
+        "jerusalem",
+        "survival",
+        "tribute",
+        "ending"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "ramp",
+      "label": "The ramp",
+      "number": "01",
+      "x": 56,
+      "y": 72,
+      "artifact": "Follow the diagonal bands under the soldiers and engines. The sculptor shows raised approaches to the city.",
+      "landscape": "A stone ramp bridges the slope between an attacking army and the defenses. Its surviving remains are evidence; this simplified profile is an interpretation.",
+      "sources": [
+        "bm-siege",
+        "wall-study",
+        "ramp-study"
+      ]
+    },
+    {
+      "id": "engine",
+      "label": "The siege engine",
+      "number": "02",
+      "x": 30,
+      "y": 43,
+      "artifact": "Look for the large covered engine below the wall, with its projecting beam. The museum identifies water being poured to protect engines from fire.",
+      "landscape": "A covered engine brings a battering beam toward a wall. The shape follows the carving in outline only. Timber framing, moving parts and exact operation are not recovered here.",
+      "sources": [
+        "bm-siege",
+        "ramp-study"
+      ]
+    },
+    {
+      "id": "defense",
+      "label": "The defenses",
+      "number": "03",
+      "x": 22,
+      "y": 17,
+      "artifact": "The wall rises above the assault. Figures on it resist the attackers. The relief compresses slopes, walls and action into a single carved surface.",
+      "landscape": "The wall and the mound create height. Excavators also identified an internal counter-ramp. The date of parts of the outer fortification has been debated; the 2024 study argues for Iron Age use.",
+      "sources": [
+        "bm-siege",
+        "wall-study"
+      ]
+    }
+  ]
+}

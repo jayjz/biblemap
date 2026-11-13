@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "city",
+      "eventIds": [
+        "lachish-701"
+      ],
+      "journeyIds": [
+        "lachish-before-the-walls"
+      ],
+      "class": "interpretive-reconstruction",
+      "title": "Interpretive view of a Judean hilltop city",
+      "creator": "BibleMap / OpenAI image generation",
+      "creationDate": "2026-11-12",
+      "depictedPeriod": "Artistic evocation of Judah before the 701 BC siege",
+      "sourceInstitution": "BibleMap",
+      "sourceRecordUrl": "docs/lachish/design.md",
+      "originalAssetUrl": null,
+      "license": "BibleMap original AI-generated image",
+      "rightsStatement": "Original generated artwork; no third-party photograph used as input.",
+      "requiredAttribution": "BibleMap · AI-generated interpretive reconstruction",
+      "downloadedAt": "2026-11-12",
+      "checksum": "sha256:c3706eb5dd8e1a16f56ad11de1f5831b8a85269e06050a633fa980f24442237a",
+      "localPath": "public/media/lachish/city-1440.webp",
+      "altText": "Interpretive view of a Judean hilltop city",
+      "caption": "Interpretive view of a Judean hilltop city",
+      "historicalFit": "Artistic evocation, not an excavated plan or measured reconstruction.",
+      "editorialReason": "Establish a living place before its capture.",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex; file-level rights check only, not human historical approval",
+      "rightsEvidence": "docs/lachish/design.md",
+      "knownUncertainties": [
+        "Invented layout, buildings, wall proportions, vegetation and lighting; no measured geometry."
+      ],
+      "derivatives": [
+        {
+          "localPath": "public/media/lachish/city-720.webp",
+          "width": 720,
+          "height": 480,
+          "bytes": 41616,
+          "checksum": "sha256:91f1990673b6247abc632524e60990ef09ac36d2c78047467a1d154c65e107c6"
+        },
+        {
+          "localPath": "public/media/lachish/city-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 149422,
+          "checksum": "sha256:95e8393779e8480b5eeb4e6909933fc774aa5631154421a8db568878ae2ac103"
+        }
+      ],
+      "generator": "OpenAI built-in image_gen",
+      "model": "Not exposed by tool",
+      "generatedAt": "2026-11-12",
+      "prompt": "Standalone Judean hilltop city; limestone and mudbrick; tactile architectural maquette; dark olive background, warm evening light; no text; no medieval or fantasy details. Full prompt retained in docs/lachish/design.md.",
+      "historicalSources": [
+        "wall-study",
+        "tel-park"
+      ],
+      "referenceAssetIds": [],
+      "knownInaccuracies": [
+        "Hypothetical architecture and urban layout; no archaeological claim."
+      ]
+    },
+    {
+      "id": "siege",
+      "eventIds": [
+        "lachish-701"
+      ],
+      "journeyIds": [
+        "lachish-before-the-walls"
+      ],
+      "class": "historical-artifact",
+      "title": "Assault on Lachish, panel 7",
+      "creator": "Zunkir",
+      "creationDate": "2020-03-09",
+      "depictedPeriod": "701 BC campaign, carved 700–692 BC",
+      "sourceInstitution": "British Museum; independent photograph on Wikimedia Commons",
+      "sourceRecordUrl": "https://commons.wikimedia.org/wiki/File:Capture_of_Lachish_-_ramps_and_battle_engines.jpg",
+      "originalAssetUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Capture_of_Lachish_-_ramps_and_battle_engines.jpg",
+      "license": "CC BY-SA 4.0",
+      "rightsStatement": "File-level CC BY-SA 4.0 declaration by photographer verified 2026-11-12. Derivatives retain the same license.",
+      "requiredAttribution": "Zunkir / Wikimedia Commons · CC BY-SA 4.0 · resized and converted to WebP",
+      "downloadedAt": "2026-11-12",
+      "checksum": "sha256:ec25d9a028a4e552d3f539d409f43d8b1cdc6e93efccb0b8115b137164710685",
+      "localPath": "public/media/lachish/siege-1440.webp",
+      "altText": "Assault on Lachish, panel 7",
+      "caption": "Assault on Lachish, panel 7",
+      "historicalFit": "Ancient royal representation from Sennacherib’s Southwest Palace, Nineveh.",
+      "editorialReason": "Compare an ancient representation with material evidence and its royal setting.",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex; file-level rights check only, not human historical approval",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Capture_of_Lachish_-_ramps_and_battle_engines.jpg",
+      "knownUncertainties": [
+        "Royal imagery selects and compresses events; it is not documentary photography."
+      ],
+      "derivatives": [
+        {
+          "localPath": "public/media/lachish/siege-720.webp",
+          "width": 720,
+          "height": 616,
+          "bytes": 98764,
+          "checksum": "sha256:6403a7152881645c5bc0e9141459a6a6e63fde00bcf52f06d0bdbccdc6d4af70"
+        },
+        {
+          "localPath": "public/media/lachish/siege-1440.webp",
+          "width": 1440,
+          "height": 1231,
+          "bytes": 297890,
+          "checksum": "sha256:53b4e61e28db94e46e803255d55cea28f326fd49277694692115931f6657f609"
+        }
+      ]
+    },
+    {
+      "id": "prisoners",
+      "eventIds": [
+        "lachish-701"
+      ],
+      "journeyIds": [
+        "lachish-before-the-walls"
+      ],
+      "class": "historical-artifact",
+      "title": "Prisoners from Lachish, panels 9–10",
+      "creator": "Mike Peel (www.mikepeel.net)",
+      "creationDate": "2010-09-26",
+      "depictedPeriod": "701 BC campaign, carved 700–692 BC",
+      "sourceInstitution": "British Museum; independent photograph on Wikimedia Commons",
+      "sourceRecordUrl": "https://commons.wikimedia.org/wiki/File:Lachish_Relief,_British_Museum_6.jpg",
+      "originalAssetUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Lachish_Relief%2C_British_Museum_6.jpg",
+      "license": "CC BY-SA 4.0",
+      "rightsStatement": "File-level CC BY-SA 4.0 declaration by photographer verified 2026-11-12. Derivatives retain the same license.",
+      "requiredAttribution": "Mike Peel (www.mikepeel.net) / Wikimedia Commons · CC BY-SA 4.0 · resized and converted to WebP",
+      "downloadedAt": "2026-11-12",
+      "checksum": "sha256:5ede40865563d23371c9354b0148242df7df3de6b8625927ebd69ed58ac99d12",
+      "localPath": "public/media/lachish/prisoners-1440.webp",
+      "altText": "Prisoners from Lachish, panels 9–10",
+      "caption": "Prisoners from Lachish, panels 9–10",
+      "historicalFit": "Ancient royal representation from Sennacherib’s Southwest Palace, Nineveh.",
+      "editorialReason": "Keep the conquered inhabitants visible as human beings, rather than reducing them to military statistics.",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex; file-level rights check only, not human historical approval",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Lachish_Relief,_British_Museum_6.jpg",
+      "knownUncertainties": [
+        "Royal imagery selects and compresses events; it is not documentary photography."
+      ],
+      "derivatives": [
+        {
+          "localPath": "public/media/lachish/prisoners-720.webp",
+          "width": 720,
+          "height": 1080,
+          "bytes": 124064,
+          "checksum": "sha256:db13513c70f8ac3fc93d0a1f098c48d358dc7312a8a0f43061544282df3ac2fc"
+        },
+        {
+          "localPath": "public/media/lachish/prisoners-1440.webp",
+          "width": 1440,
+          "height": 2160,
+          "bytes": 388776,
+          "checksum": "sha256:82c5f86bf84c0999c01e99dfbdc9cdf5f6aebc60a3c78b5d5dc179783d44acb7"
+        }
+      ]
+    },
+    {
+      "id": "king",
+      "eventIds": [
+        "lachish-701"
+      ],
+      "journeyIds": [
+        "lachish-before-the-walls"
+      ],
+      "class": "historical-artifact",
+      "title": "Sennacherib receiving captives and booty, panels 11–13",
+      "creator": "Zunkir",
+      "creationDate": "2020-03-09",
+      "depictedPeriod": "701 BC campaign, carved 700–692 BC",
+      "sourceInstitution": "British Museum; independent photograph on Wikimedia Commons",
+      "sourceRecordUrl": "https://commons.wikimedia.org/wiki/File:Capture_of_Lachish_-_Sennacherib.jpg",
+      "originalAssetUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Capture_of_Lachish_-_Sennacherib.jpg",
+      "license": "CC BY-SA 4.0",
+      "rightsStatement": "File-level CC BY-SA 4.0 declaration by photographer verified 2026-11-12. Derivatives retain the same license.",
+      "requiredAttribution": "Zunkir / Wikimedia Commons · CC BY-SA 4.0 · resized and converted to WebP",
+      "downloadedAt": "2026-11-12",
+      "checksum": "sha256:b39f36f38ceba9941488071fbba05f986c58a0fc746ac41924747246ba6c790d",
+      "localPath": "public/media/lachish/king-1440.webp",
+      "altText": "Sennacherib receiving captives and booty, panels 11–13",
+      "caption": "Sennacherib receiving captives and booty, panels 11–13",
+      "historicalFit": "Ancient royal representation from Sennacherib’s Southwest Palace, Nineveh.",
+      "editorialReason": "Compare an ancient representation with material evidence and its royal setting.",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex; file-level rights check only, not human historical approval",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Capture_of_Lachish_-_Sennacherib.jpg",
+      "knownUncertainties": [
+        "Royal imagery selects and compresses events; it is not documentary photography."
+      ],
+      "derivatives": [
+        {
+          "localPath": "public/media/lachish/king-720.webp",
+          "width": 720,
+          "height": 480,
+          "bytes": 91378,
+          "checksum": "sha256:957ff3d5f64ed7f94d59ea6aaa9fce5bd2e01ca8ef8aa7888bb8020fdf320ec1"
+        },
+        {
+          "localPath": "public/media/lachish/king-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 297328,
+          "checksum": "sha256:10aed433ca9525567de13f97a4cdd3ae1434f84d1fde9fb88dd888b7b52b2412"
+        }
+      ]
+    },
+    {
+      "id": "ramp",
+      "eventIds": [
+        "lachish-701"
+      ],
+      "journeyIds": [
+        "lachish-before-the-walls"
+      ],
+      "class": "archaeological-evidence",
+      "title": "Excavated siege ramp at Tel Lachish",
+      "creator": "DaringDonna",
+      "creationDate": "2026-01-06",
+      "depictedPeriod": "Modern exposed archaeological site",
+      "sourceInstitution": "Wikimedia Commons / Tel Lachish",
+      "sourceRecordUrl": "https://commons.wikimedia.org/wiki/File:Tel_Lachish_siege_ramp.jpg",
+      "originalAssetUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Tel_Lachish_siege_ramp.jpg",
+      "license": "CC BY-SA 4.0",
+      "rightsStatement": "File-level CC BY-SA 4.0 declaration by photographer verified 2026-11-12. Derivatives retain the same license.",
+      "requiredAttribution": "DaringDonna / Wikimedia Commons · CC BY-SA 4.0 · resized and converted to WebP",
+      "downloadedAt": "2026-11-12",
+      "checksum": "sha256:39b28247e578811e94ce1cb3a0f6faa7f3a87612b4fd8a4938cd9b1feded4965",
+      "localPath": "public/media/lachish/ramp-1440.webp",
+      "altText": "Excavated siege ramp at Tel Lachish",
+      "caption": "Excavated siege ramp at Tel Lachish",
+      "historicalFit": "Modern view of the surviving siege installation.",
+      "editorialReason": "Compare an ancient representation with material evidence and its royal setting.",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex; file-level rights check only, not human historical approval",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Tel_Lachish_siege_ramp.jpg",
+      "knownUncertainties": [
+        "Modern excavation and conservation are visible; photograph is not an ancient surface."
+      ],
+      "derivatives": [
+        {
+          "localPath": "public/media/lachish/ramp-720.webp",
+          "width": 720,
+          "height": 480,
+          "bytes": 52782,
+          "checksum": "sha256:e9d4ce3137043990743247e5216c4346a559ea16ad37ecea9003e966ec0a9e28"
+        },
+        {
+          "localPath": "public/media/lachish/ramp-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 203556,
+          "checksum": "sha256:4cfd8757bcbf3cf9b3d62445a831680fc164f96544d4bdb9989ceb1ee8a4c236"
+        }
+      ]
+    }
+  ]
+}

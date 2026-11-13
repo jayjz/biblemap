@@ -10,4 +10,6 @@ src/content/scripture/web-rights.html -text
 src/content/scripture/web-jonah-*.json text eol=lf
 src/content/scripture/james-web-*.html -text
 src/content/scripture/james-quotes.json text eol=lf
+# Retained publisher bytes include their original blank-line spacing and CRLF.
+src/content/lachish/scripture/*.html -text whitespace=-blank-at-eol,cr-at-eol
 artifacts/jonah-image-review/SHA256SUMS text eol=lf
