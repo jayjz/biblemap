@@ -404,30 +404,57 @@
   grid-column:1/-1;
 }
 
-.lachish-human-thread {
+.lachish-within {
   align-self:center;
-  max-width:350px;
-  padding:35px 0 35px 40px;
-  border-left:1px solid var(--l-line);
+  min-width:0;
 }
 
-.lachish-human-thread>span {
-  font-family:Georgia,serif;
-  font-size:80px;
-  color:var(--l-gold);
-  line-height:.5;
-  display:block;
+.lachish-rooftops {
+  aspect-ratio:1.1;
+  overflow:hidden;
+  background:#24271e;
 }
 
-.lachish-human-thread>p:first-of-type {
-  font-family:var(--l-serif);
-  font-size:27px;
-  line-height:1.6;
-  color:#e4dbc6;
+.lachish-rooftops img {
+  width:100%;
+  height:100%!important;
+  object-fit:cover;
+  transform:scale(2.5);
+  transform-origin:67% 15%;
 }
 
-.lachish-human-thread>.lachish-caption {
-  margin-top:28px;
+.lachish-within figcaption {
+  border-top:1px solid var(--l-line);
+  padding-top:15px;
+  font-size:11px;
+  line-height:1.8;
+  color:var(--l-muted);
+}
+
+.lachish-household-record {
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:45px;
+  border-top:1px solid var(--l-line);
+  margin-top:65px;
+  padding-top:35px;
+}
+
+.lachish-household-record h3 {
+  font-size:26px;
+  color:#e4d4b2;
+  margin-bottom:18px;
+}
+
+.lachish-household-record p {
+  font-size:15px;
+  line-height:1.9;
+  color:#d3cebe;
+}
+
+.lachish-before-notes {
+  grid-column:1/-1;
 }
 
 .lachish-next {
@@ -624,11 +651,31 @@
   display:grid;
   align-items:center;
   overflow:hidden;
+  align-content:center;
 }
 
 .relief-artifact-view {
-  overflow:hidden;
   position:relative;
+}
+
+.relief-view-heading {
+  padding:15px 20px;
+  font-size:12px;
+  line-height:1.7;
+  color:#e4d4b2;
+  border-bottom:1px solid var(--l-line);
+}
+
+.relief-view-heading span {
+  display:block;
+  font-size:11px;
+  color:var(--l-muted);
+}
+
+.relief-image-window {
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4679/4000;
 }
 
 .relief-photo {
@@ -642,6 +689,27 @@
 
 .relief-photo>img {
   width:100%;
+}
+
+.relief-image-tools {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:12px 16px;
+  border-top:1px solid var(--l-line);
+}
+
+.relief-image-tools>span {
+  font-size:11px;
+  color:var(--l-muted);
+}
+
+.relief-artifact-view:has(.lachish-media-fallback) .relief-hotspot,
+.relief-artifact-view:has(.lachish-media-fallback) .relief-image-tools {
+  display:none;
 }
 
 .relief-hotspot {
@@ -667,9 +735,6 @@
 }
 
 .relief-zoom {
-  position:absolute;
-  right:16px;
-  bottom:16px;
   font-size:12px!important;
   background:#171916ed;
   border:1px solid #b5a789;
@@ -902,6 +967,30 @@
   object-position:center;
 }
 
+.lachish-captive-detail {
+  aspect-ratio:1/1.1;
+  overflow:hidden;
+  background:#b49b66;
+}
+
+.lachish-captive-detail img {
+  width:100%;
+  height:100%!important;
+  max-height:none;
+  object-fit:cover;
+  transform:scale(1.18);
+  transform-origin:50% 52%;
+}
+
+.lachish-whole-photograph {
+  margin-top:22px;
+}
+
+.lachish-whole-photograph img {
+  max-height:none;
+  object-fit:contain;
+}
+
 .lachish-captives figcaption {
   font-size:11px;
   line-height:1.8;
@@ -927,7 +1016,7 @@
   padding-left:27px;
 }
 
-.lachish-look>p:last-child {
+.lachish-look>p:nth-child(2) {
   font-family:var(--l-serif);
   font-size:23px;
   line-height:1.6;
@@ -1408,13 +1497,25 @@
   .lachish-before {
     display:block;
   }
-  .lachish-human-thread {
-    margin:48px 0 0 7%;
-    padding:25px 0 25px 27px;
-    max-width:none;
+  .lachish-within {
+    margin-top:35px!important;
   }
-  .lachish-human-thread>p:first-of-type {
-    font-size:24px;
+  .lachish-rooftops {
+    aspect-ratio:1.35;
+  }
+  .lachish-household-record {
+    grid-template-columns:1fr;
+    gap:28px;
+    margin-top:35px;
+    padding-top:28px;
+  }
+  .lachish-household-record h3 {
+    font-size:26px;
+    margin-bottom:12px;
+  }
+  .lachish-household-record>div+div {
+    border-top:1px solid var(--l-line);
+    padding-top:28px;
   }
   .lachish-next {
     margin-top:40px;
@@ -1527,9 +1628,7 @@
   .relief-zoom {
     font-size:10px!important;
     padding:8px 10px;
-    bottom:12px;
-    right:10px;
-    min-height:42px;
+    min-height:44px;
   }
   .lachish-landscape {
     min-height:0;
@@ -1577,7 +1676,7 @@
   .lachish-look {
     margin:0;
   }
-  .lachish-look>p:last-child {
+  .lachish-look>p:nth-child(2) {
     font-size:23px;
   }
   .lachish-fall-layout [data-claim=aftermath] {

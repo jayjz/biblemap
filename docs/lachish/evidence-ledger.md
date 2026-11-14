@@ -1,6 +1,6 @@
 # Lachish evidence ledger
 
-Research date: 12 November 2026. This is a sourced draft, not human editorial approval. The full machine-readable registry contains 13 sources, 16 claims, locators, evidence categories, provenance families and limitations: [evidence.json](../../public/media/lachish/evidence.json). Image creators, licenses, original records, derivative changes and SHA-256 hashes are in [manifest.json](../../public/media/lachish/manifest.json).
+Research dates: 12–14 November 2026. This is a sourced draft, not human editorial approval. The full machine-readable registry contains 14 sources, 19 claims, locators, evidence categories, provenance families and limitations: [evidence.json](../../public/media/lachish/evidence.json). Image creators, licenses, original records, derivative changes and SHA-256 hashes are in [manifest.json](../../public/media/lachish/manifest.json).
 
 | Claim | State | Direct evidence and limits |
 |---|---|---|
@@ -12,6 +12,9 @@ Research date: 12 November 2026. This is a sourced draft, not human editorial ap
 | Lower fortification chronology | UNRESOLVED across the scholarly debate | The 2024 archaeomagnetic study argues for Iron Age use against a Middle Bronze Age proposal. The interpretation is attributed, not declared uncontested. |
 | Who started the fire | UNRESOLVED | The 2024 study considers both defenders and attackers. No chosen reenactment. |
 | Families, goods and animals taken away | SUPPORTED as depicted | BM 124907–8 and licensed photos. No individual names, voices or interior experiences supplied. |
+| A six-room dwelling beside a street, renovated during its use | SUPPORTED as published | Garfinkel et al., *AJA* 125(3), 2021, p. 448, Level III, Area AA, Building 350. Not the plan of every household; the city illustration does not reconstruct this building. |
+| Four-handled royal storage jars in the dwelling | SUPPORTED as a find / INFERRED administrative function | Same report, p. 448, note 146: pottery on floors beneath burnt mudbrick; the authors connect these jars to collection and distribution. No particular food contents or inhabitants are identified. |
+| Vines, fig trees and olives around captives | SUPPORTED as depicted | BM 124908 catalogue description. Royal representation of a cultivated landscape, not botanical excavation evidence or proof of any depicted family’s land ownership. |
 | The king receiving spoils from Lachish | SUPPORTED as royal representation | Relief caption and sequence; Posen entry tracing Layard's plates. Inscription is paraphrased, not an invented translation. |
 | Campaign versus surviving artifact dates | SUPPORTED | Campaign 701 BC; BM relief production 700–692 BC; Taylor Prism BM 91032 production 691 BC. |
 | Jerusalem not captured in the campaign | SUPPORTED | Biblical accounts, annals' limited claim and institutional site summary. The reason for survival is not established by this comparison. |
@@ -32,3 +35,11 @@ Opened: all supplied starting URLs; exact BM siege, booty, prisoner and Taylor P
 Only photographer-licensed CC BY-SA 4.0 photographs are redistributed, with attribution, changes and the same derivative license. Museum-hosted images, Posen drawings and scholarly figures are linked rather than copied. The 2024 article's NC/ND terms and the 2021 study's incomplete access do not supply reusable geometry. No measured 3D asset was obtained or asserted to exist.
 
 Outstanding: independent human historical and theological review; reader observation to assess comprehension; physical low-powered-phone testing; any future expansion of survey-based geometry would need explicit acquisition and reuse evidence.
+
+## V2 material-culture check · 14 November 2026
+
+Opened the [Fourth Expedition preliminary excavation report](https://ajaonline.org/wp-content/uploads/2021/06/aja.125.3.hasel_.pdf), DOI 10.3764/aja.125.3.0419, and verified its printed p. 448 against the PDF text, not only a search excerpt. The Level III heading explicitly distinguishes Building 350 from the later Level II houses. The loom weights and tool-filled jar described on pp. 450–451 belong to that later phase; they are excluded. Earlier Bronze Age food and vessel finds elsewhere in the article are also excluded. No archaeological figures are copied or redrawn.
+
+David Ussishkin’s [1978 excavation report in *Expedition*](https://www.penn.museum/sites/expedition/lachish/) was consulted as context for jars sealed beneath Level III destruction debris. The shipped household claims use the more directly relevant 2021 report. These reports are part of the excavation research lineage and share historical dating correlations; they do not constitute independent inhabitants’ testimony.
+
+The cropped homes and enlarged captives reuse existing licensed/disclosed media through CSS. The homes remain artistic invention. The complete captive photograph is available through a native disclosure. Linking broken vessels with people carrying possessions is an explicitly labeled editorial juxtaposition; no household or person is identified across the two evidence streams. The ramp’s original height, engine mechanics, fire attribution, lower-wall chronology and Jerusalem’s deliverance remain unresolved as before.

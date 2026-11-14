@@ -97,3 +97,58 @@ test("Lachish: missing media keeps the narrative and evidence usable", async ({ 
   await page.getByRole("button", { name: "Spatial interpretation", exact: true }).click();
   await expect(page.getByRole("img", { name: "How a ramp changes a siege" }).first()).toBeVisible();
 });
+
+test("Lachish: narrow-screen details stay reachable and enlargement does not cover a hotspot", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto("/lachish/#the-walls");
+  const explorer = page.locator(".relief-explorer");
+  await expect(explorer).toHaveAttribute("data-enhanced", "true");
+  const zoom = explorer.getByRole("button", { name: "Enlarge selected detail" });
+  for (const name of ["ramp", "siege engine", "defenses"]) {
+    const hotspot = explorer.getByRole("button", { name: `Examine the ${name} in the relief` });
+    await hotspot.scrollIntoViewIfNeeded();
+    await hotspot.click();
+    await expect(hotspot).toHaveAttribute("aria-pressed", "true");
+    const overlaps = await hotspot.evaluate((element) => {
+      const other = document.querySelector(".relief-zoom");
+      if (!other) throw new Error("Enlargement control missing");
+      const a = element.getBoundingClientRect(), b = other.getBoundingClientRect();
+      return Math.min(a.right, b.right) > Math.max(a.left, b.left) && Math.min(a.bottom, b.bottom) > Math.max(a.top, b.top);
+    });
+    expect(overlaps).toBe(false);
+    await zoom.focus(); await page.keyboard.press("Enter");
+    await expect(explorer.locator(".relief-hotspot:visible")).toHaveCount(1);
+    expect(await hotspot.evaluate(element => ({ width: element.getBoundingClientRect().width, height: element.getBoundingClientRect().height }))).toEqual({ width: 44, height: 44 });
+    await expect(explorer.locator(".relief-photo img")).toHaveAttribute("sizes", "1440px");
+    const whole = explorer.getByRole("button", { name: "Show whole panel" });
+    await expect(whole).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(explorer.locator(".relief-hotspot:visible")).toHaveCount(3);
+  }
+  await explorer.getByRole("button", { name: "Open the spatial interpretation" }).click();
+  await explorer.getByRole("button", { name: "Compare the surviving ramp" }).click();
+  await expect(explorer.locator(".relief-observation h3")).toHaveText("The excavated ramp");
+  await expect(explorer.locator(".relief-view-heading")).toContainText("Excavated remains");
+  // Choosing the current view must not insert a duplicate browser-history entry.
+  await explorer.getByRole("button", { name: "The surviving site", exact: true }).click();
+  await page.goBack();
+  await expect(explorer).toHaveAttribute("data-evidence-view", "landscape");
+  await page.goForward();
+  await expect(explorer).toHaveAttribute("data-evidence-view", "site");
+});
+
+test("Lachish: household evidence leads into displacement and preserves the whole photograph", async ({ page }) => {
+  await page.goto("/lachish/#before-the-siege");
+  await expect(page.locator(".lachish-household-record")).toContainText("six-room dwelling");
+  await page.locator("#before-the-siege .claim-notes > summary").click();
+  await page.locator("#before-the-siege a[href='#source-fourth-expedition']").first().click();
+  await expect(page.locator("#source-fourth-expedition")).toHaveAttribute("open", "");
+  await expect(page.locator("#source-fourth-expedition")).toContainText("p. 448");
+  await page.goto("/lachish/#the-fall");
+  const photograph = page.locator(".lachish-whole-photograph");
+  await photograph.locator("summary").click();
+  await expect(photograph.getByRole("img")).toBeVisible();
+  await expect(photograph.getByRole("img")).toHaveJSProperty("complete", true);
+  await expect(page.locator(".lachish-look")).toContainText("cannot identify the same household");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

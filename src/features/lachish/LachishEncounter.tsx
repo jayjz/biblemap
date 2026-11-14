@@ -20,9 +20,15 @@ export function LachishEncounter() {
     <JourneyNavigation />
     <section className="lachish-movement lachish-before" id="before-the-siege" aria-labelledby="before-title">
       <div className="lachish-movement-index"><span>I</span><p>BEFORE THE SIEGE</p><span>Judah · 701 BC</span></div>
-      <div className="lachish-prose"><h2 id="before-title">{MOVEMENTS[0].title}</h2><ClaimText id="city"/><ClaimText id="people"/><ClaimNotes ids={MOVEMENTS[0].claims}/></div>
-      <div className="lachish-human-thread"><p>A household’s possessions.<br/>An animal led away.<br/>People, before they became spoils.</p><p className="lachish-caption">An editorial reflection on the families carved in <a href="#source-bm-families">panel 8</a>. Their own voices are not preserved in these sources.</p></div>
-      <a className="lachish-next" href="#the-empire">What brings an empire here? <span aria-hidden="true">↓</span></a>
+      <div className="lachish-prose"><h2 id="before-title">{MOVEMENTS[0].title}</h2><ClaimText id="city"/><ClaimText id="people"/></div>
+      <figure className="lachish-within"><div className="lachish-rooftops"><LachishMedia name="city" width={1536} height={1024} alt="A closer crop of the original city illustration brings its clustered houses into view. These buildings are imagined, not a reconstruction of an excavated home."/></div><figcaption>Look beyond the wall, toward the homes.<br/><a href="#asset-city">AI-generated artistic evocation</a> · hypothetical buildings and layout; not Building 350.</figcaption></figure>
+      <div className="lachish-household-record" aria-label="Traces of an inhabited city">
+        <div><h3>Rooms beside a street</h3><ClaimText id="dwelling"/></div>
+        <div><h3>Vessels kept inside</h3><ClaimText id="storage"/></div>
+        <div><h3>A worked landscape</h3><ClaimText id="cultivation"/></div>
+      </div>
+      <div className="lachish-before-notes"><ClaimNotes ids={MOVEMENTS[0].claims}/></div>
+      <a className="lachish-next" href="#the-empire">Beyond these homes, a king challenges an empire <span aria-hidden="true">↓</span></a>
     </section>
     <section className="lachish-movement lachish-empire" id="the-empire" aria-labelledby="empire-title">
       <div className="lachish-movement-index"><span>II</span><p>THE APPROACHING EMPIRE</p><span>The campaign reaches Judah</span></div>
@@ -35,11 +41,12 @@ export function LachishEncounter() {
       <div className="lachish-walls-intro"><h2 id="walls-title">{MOVEMENTS[2].title}</h2><div className="lachish-prose"><ClaimText id="walls"/><p>Start with a detail in the ancient carving. Then step out of the image to understand the terrain—and return to see what the artist chose to show.</p></div></div>
       <ReliefExplorer />
       <div className="lachish-beneath-relief"><div><h3>The things left in the ground</h3><ClaimText id="material"/></div><div><h3>Where certainty ends</h3><p>How quickly the ramp was built, exactly how the engines worked, and who started the fire are questions for interpretation. The surviving city is not a complete plan of its last day.</p><ClaimNotes ids={MOVEMENTS[2].claims}/></div></div>
-      <a className="lachish-next" href="#the-fall">Beyond the breach <span aria-hidden="true">↓</span></a>
+      <p className="lachish-transition-sentence" data-claim="walls">{CLAIMS.walls.bridge}</p>
+      <a className="lachish-next" href="#the-fall">Follow the people beyond the breach <span aria-hidden="true">↓</span></a>
     </section>
     <section className="lachish-movement lachish-fall" id="the-fall" aria-labelledby="fall-title">
       <div className="lachish-movement-index"><span>IV</span><p>THE FALL</p><span>From inhabitants to captives</span></div>
-      <div className="lachish-fall-layout"><figure className="lachish-captives"><LachishMedia name="prisoners" width={2592} height={3888} alt="Lachish captives carved in gypsum: people, a cart, animals and cultivated trees. The modern museum corner is visible. These are the conqueror’s depictions, not portraits with known names."/><figcaption>Prisoners from Lachish · Nineveh, Room XXXVI, panels 9–10 · British Museum, BM 124908–9. <a href="#asset-prisoners">Photograph: Mike Peel · CC BY-SA 4.0</a>.</figcaption></figure><div className="lachish-prose"><h2 id="fall-title">{MOVEMENTS[3].title}</h2><ClaimText id="fall"/><div className="lachish-look"><p className="lachish-small">STAY WITH THE PEOPLE</p><p>Follow the cart and the animals. Notice the figures carrying what they take away. The relief gives us gestures and possessions. It does not give us their names.</p></div><ClaimText id="aftermath"/><ClaimNotes ids={MOVEMENTS[3].claims}/></div></div>
+      <div className="lachish-fall-layout"><figure className="lachish-captives"><div className="lachish-captive-detail"><LachishMedia name="prisoners" width={2592} height={3888} sizes="(max-width: 760px) 160vw, 75vw" alt="Detail of the actual relief: a cart and animals at left, a line of captives at right, trees above them. These are the conqueror’s depictions, not portraits with known names."/></div><figcaption>People, a cart, animals. A detail enlarged from the photograph.<br/>Nineveh, Room XXXVI, panels 9–10 · British Museum, BM 124908–9. <a href="#asset-prisoners">Mike Peel · CC BY-SA 4.0</a>.</figcaption><details className="lachish-disclosure lachish-whole-photograph"><summary>See the complete museum photograph</summary><LachishMedia name="prisoners" width={2592} height={3888} alt="The complete photograph of the ancient panels in their modern museum corner, including the full cultivated landscape and processions."/></details></figure><div className="lachish-prose"><h2 id="fall-title">{MOVEMENTS[3].title}</h2><ClaimText id="fall"/><div className="lachish-look"><p className="lachish-small">STAY WITH THE PEOPLE</p><p>The cart. The animals. The things carried away.<br/>The relief preserves what moves out of the city. The broken vessels mark what remained behind.</p><p className="lachish-caption">An editorial comparison of <a href="#source-bm-prisoners">royal imagery</a> and <a href="#source-fourth-expedition">excavated rooms</a>; the two cannot identify the same household.</p></div><ClaimText id="aftermath"/><ClaimNotes ids={MOVEMENTS[3].claims}/></div></div>
       <p className="lachish-fall-coda" data-claim="aftermath">{CLAIMS.aftermath.bridge}</p>
     </section>
     <section className="lachish-movement lachish-palace" id="the-kings-account" aria-labelledby="palace-title">

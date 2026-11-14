@@ -3,8 +3,20 @@
   "title": "Lachish: Before the Walls Fell",
   "setting": "Judah, 701 BC",
   "editorialState": "sourced draft for human review; no production publication authorized",
-  "checkedAt": "2026-11-12",
+  "checkedAt": "2026-11-14",
   "sources": [
+    {
+      "id": "fourth-expedition",
+      "title": "The Canaanite and Judean Cities of Lachish · Fourth Expedition",
+      "institution": "Yosef Garfinkel, Michael G. Hasel, Martin G. Klingbeil et al.; American Journal of Archaeology 125(3), 419–459 (2021)",
+      "url": "https://ajaonline.org/wp-content/uploads/2021/06/aja.125.3.hasel_.pdf",
+      "locator": "p. 448: Level III, domestic buildings north of the palace, Area AA, Building 350; pp. 449–450 distinguish later Level II; DOI 10.3764/aja.125.3.0419",
+      "category": "Archaeological observation",
+      "family": "excavation-and-archaeomagnetism",
+      "date": "July 2021; excavations 2013–2017; Level III ends in the 701 BC campaign",
+      "rights": "Research and original summaries only; all report images are copyright the Fourth Expedition and are not reproduced",
+      "limits": "A preliminary excavation report, not an inhabitant’s testimony. Building 350 is a particular six-room dwelling, not the plan of every home. Storage-jar contents are not identified here. The loom weights and hidden tools in the following Level II section concern the later Babylonian destruction and are excluded. Dating correlates stratigraphy with historical records; this is not an independent calendar date."
+    },
     {
       "id": "web-kings",
       "title": "2 Kings 18–19 · World English Bible",
@@ -178,39 +190,73 @@
     },
     {
       "id": "city",
-      "text": "Lachish was a fortified city of Judah in the Shephelah, the low hill country below Jerusalem’s uplands. Hezekiah ruled Judah from Jerusalem. His kingdom lived in the shadow of Assyria, an empire that demanded submission from other rulers.",
+      "text": "Lachish was a fortified city of Judah in the Shephelah, the low hill country below Jerusalem’s uplands. Behind its defenses were streets, rooms and vessels used long before the army arrived.",
       "category": "Scholarly interpretation",
       "state": "SUPPORTED",
       "sourceIds": [
         "wall-study",
-        "web-kings",
-        "rinap-22"
+        "fourth-expedition"
       ],
-      "locator": "Wall study introduction; 2 Kings 18:1–7; RINAP 22 iii 18–49"
+      "locator": "Wall study introduction; Fourth Expedition, Level III, Area AA, Building 350",
+      "limits": "The excavated dwelling had two phases of renovation; no exact length of occupation is assigned."
     },
     {
       "id": "people",
-      "text": "In the reliefs, families leave with possessions and animals. Vines, fig trees and olives surround the captives: a worked landscape, made part of the king’s victory. These details let us glimpse a lived-in world beyond the defenses. We do not have an ordinary inhabitant’s account of 701 BC among these sources. Before this was a victory scene, it was their city.",
+      "text": "We do not have an ordinary inhabitant’s account of 701 BC among these sources. We have traces of the places people occupied—and, in their conqueror’s carving, families leaving with possessions and animals. Before this was a victory scene, it was their city.",
       "category": "Scholarly interpretation",
       "state": "INFERRED",
       "sourceIds": [
+        "fourth-expedition",
         "bm-families",
         "bm-prisoners"
       ],
-      "locator": "BM 124907–8 descriptions",
-      "limits": "A worked landscape and a lived-in world are editorial readings of the depicted plants, families and possessions, not reconstructed daily routines. No named composite, interior monologue or fictional testimony is used."
+      "locator": "Fourth Expedition, Level III, Area AA; BM 124907–8 descriptions",
+      "limits": "An editorial connection between domestic remains and depicted captives, not identification of a particular household in the relief. No named composite, interior monologue or fictional testimony is used."
+    },
+    {
+      "id": "dwelling",
+      "text": "North of the palace, excavators found a six-room dwelling beside a street. Its rooms had been renovated during its use. This was a place lived in and altered, before it became a destruction layer.",
+      "category": "Archaeological observation",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "fourth-expedition"
+      ],
+      "locator": "Fourth Expedition p. 448, Level III: domestic buildings north of the palace; Area AA, Building 350",
+      "limits": "One excavated dwelling, not a template for every house. The artistic city view does not reconstruct Building 350 or its occupants."
+    },
+    {
+      "id": "storage",
+      "text": "Pottery lay broken on the dwelling’s floors, including four-handled royal Judean storage jars. These vessels connect rooms in the city with the kingdom’s collection and distribution of supplies.",
+      "category": "Scholarly interpretation",
+      "state": "INFERRED",
+      "sourceIds": [
+        "fourth-expedition"
+      ],
+      "locator": "Fourth Expedition p. 448, Level III, Area AA, Building 350; discussion of lmlk storage jars and note 146",
+      "limits": "The report interprets these jars as serving tax collection and distribution. Their precise contents and the building’s household membership are not recovered here. Level II loom weights and the much earlier Bronze Age food remains are excluded."
+    },
+    {
+      "id": "cultivation",
+      "text": "Vines, fig trees and olives surround the captives in the relief. The sculptor includes a cultivated landscape in the scene of people being taken away.",
+      "category": "Ancient external account",
+      "state": "SUPPORTED",
+      "sourceIds": [
+        "bm-prisoners"
+      ],
+      "locator": "BM 124908, panel 9, object description",
+      "limits": "Plants depicted in royal art, not excavated crops, a field survey or a record of a particular family’s land."
     },
     {
       "id": "rebellion",
-      "text": "In 2 Kings, Hezekiah rebels against the king of Assyria. Sennacherib’s account describes Hezekiah as a ruler who refused his authority. For Judah, this was a struggle over who could command its king. For Assyria, it was a challenge to imperial rule.",
+      "text": "Hezekiah ruled Judah from Jerusalem. In 2 Kings, he rebels against the king of Assyria; Sennacherib’s annals describe him as refusing Assyrian authority. The decision was a king’s. The campaign would reach the cities of his kingdom.",
       "category": "Scholarly interpretation",
       "state": "INFERRED",
       "sourceIds": [
         "web-kings",
         "rinap-22"
       ],
-      "locator": "2 Kings 18:7; RINAP 22 iii 18–23",
-      "limits": "Political explanation of the two accounts, not a claim about private motives."
+      "locator": "2 Kings 18:1–7, 13; RINAP 22 iii 18–27",
+      "limits": "Political connection between the two accounts, not a claim about private motives or inhabitants’ views of the rebellion."
     },
     {
       "id": "campaign",
@@ -228,13 +274,16 @@
     {
       "id": "walls",
       "text": "A steep mound gave Lachish height above an attacker. A siege ramp changed that relationship: piled stone could bring engines toward the defenses. At the southwest corner of the mound, excavators uncovered a ramp outside the walls and a counter-ramp within them.",
+      "bridge": "The ramp brings the army to the defenses. The next scene in the carving takes us to the people behind them.",
       "category": "Archaeological observation",
       "state": "SUPPORTED",
       "sourceIds": [
-        "wall-study"
+        "wall-study",
+        "bm-siege",
+        "bm-families"
       ],
-      "locator": "History of research; Figs 2–5",
-      "limits": "Schematic below shows relationships only. No surveyed coordinates, dimensions or exact engine placement are claimed."
+      "locator": "History of research; Figs 2–5; BM panels 7–8",
+      "limits": "Schematic below shows relationships only. No surveyed coordinates, dimensions or exact engine placement are claimed. Bridge describes the relief sequence, not a recovered moment of the breach."
     },
     {
       "id": "material",
@@ -278,7 +327,7 @@
     },
     {
       "id": "palace",
-      "text": "The story on stone was made in Nineveh, in Assyria, rather than at Lachish. Gypsum panels lined Room XXXVI of Sennacherib’s Southwest Palace. The sequence moves from assault to captives and booty, then to the seated king receiving the results of conquest.",
+      "text": "Follow the procession to its destination in the carved story: the seated king. These gypsum panels lined Room XXXVI of Sennacherib’s Southwest Palace in Nineveh. The people and possessions leaving Lachish became a scene displayed in their conqueror’s capital.",
       "category": "Ancient external account",
       "state": "SUPPORTED",
       "sourceIds": [
@@ -287,7 +336,8 @@
         "bm-prisoners",
         "posen-relief"
       ],
-      "locator": "BM findspots; Posen description and Layard plates 20–23"
+      "locator": "BM findspots; Posen description and Layard plates 20–23",
+      "limits": "Describes the represented procession and palace display, not the captives’ actual travel route or ultimate destinations."
     },
     {
       "id": "inscription",
@@ -313,14 +363,15 @@
     },
     {
       "id": "jerusalem",
-      "text": "Lachish also leads us toward Jerusalem. In 2 Kings, Hezekiah sends tribute to Sennacherib at Lachish. Assyrian officers then come from Lachish to challenge Jerusalem. Isaiah enters the biblical account as a prophet who answers the threat with a promise that the city will be delivered.",
+      "text": "The palace celebrates Lachish’s capture. The biblical account follows the threat onward, to Hezekiah in Jerusalem. In 2 Kings, he sends tribute to Sennacherib at Lachish; Assyrian officers then come from Lachish to challenge Jerusalem. Isaiah answers the threat with a promise that the city will be delivered.",
       "category": "Biblical account",
       "state": "SUPPORTED",
       "sourceIds": [
+        "posen-relief",
         "web-kings",
         "web-isaiah"
       ],
-      "locator": "2 Kings 18:14–17; 19:1–7, 20–34; Isaiah 36–37",
+      "locator": "Relief caption; 2 Kings 18:14–17; 19:1–7, 20–34; Isaiah 36–37",
       "limits": "This is the biblical narrative sequence, not an attempt to resolve all chronological questions."
     },
     {
@@ -352,17 +403,17 @@
     },
     {
       "id": "ending",
-      "text": "Lachish survives as a place we can revisit. Its captured people remain visible in a king’s palace art. Jerusalem’s crisis remains in Scripture and in the king’s annals. None is the whole story. Together, they bring a lost city closer—and leave room for the lives the records did not preserve.",
+      "text": "Rooms and broken vessels remain at Lachish. The people taken away remain visible in a king’s carving. Scripture preserves Jerusalem’s crisis and deliverance; the annals preserve Sennacherib’s claim to submission. These records bring the city closer from different directions. The inhabitants’ own telling is still missing.",
       "category": "Scholarly interpretation",
       "state": "INFERRED",
       "sourceIds": [
-        "tel-park",
+        "fourth-expedition",
         "bm-families",
         "rinap-22",
         "web-kings"
       ],
-      "locator": "Site record; reliefs; biblical and Assyrian accounts",
-      "limits": "Closing editorial reflection, not a new historical or theological conclusion."
+      "locator": "Level III dwelling; reliefs; biblical and Assyrian accounts",
+      "limits": "Closing editorial reflection, not a claim that all inhabitants were deported or that no other ancient evidence exists."
     }
   ],
   "movements": [
@@ -373,7 +424,10 @@
       "title": "Before it was a conquest, it was a city.",
       "claims": [
         "city",
-        "people"
+        "people",
+        "dwelling",
+        "storage",
+        "cultivation"
       ]
     },
     {
@@ -438,6 +492,7 @@
       "x": 56,
       "y": 72,
       "artifact": "Follow the diagonal bands under the soldiers and engines. The sculptor shows raised approaches to the city.",
+      "site": "The stone approach survives against the slope. Modern excavation and conservation have changed its exposed surface; the photograph does not recover its original height or construction sequence.",
       "landscape": "A stone ramp bridges the slope between an attacking army and the defenses. Its surviving remains are evidence; this simplified profile is an interpretation.",
       "sources": [
         "bm-siege",
@@ -452,9 +507,11 @@
       "x": 30,
       "y": 43,
       "artifact": "Look for the large covered engine below the wall, with its projecting beam. The museum identifies water being poured to protect engines from fire.",
+      "site": "We have moved from a carved engine to the stone approach below the defenses. No engine survives in this photograph. Its timber structure and moving parts must be inferred from other evidence.",
       "landscape": "A covered engine brings a battering beam toward a wall. The shape follows the carving in outline only. Timber framing, moving parts and exact operation are not recovered here.",
       "sources": [
         "bm-siege",
+        "wall-study",
         "ramp-study"
       ]
     },
@@ -465,6 +522,7 @@
       "x": 22,
       "y": 17,
       "artifact": "The wall rises above the assault. Figures on it resist the attackers. The relief compresses slopes, walls and action into a single carved surface.",
+      "site": "The slope and exposed masonry put the assault back into a real landscape. A photograph alone cannot date each wall or restore the lost upper defenses. The wall study explains the excavation and disputed chronology.",
       "landscape": "The wall and the mound create height. Excavators also identified an internal counter-ramp. The date of parts of the outer fortification has been debated; the 2024 study argues for Iron Age use.",
       "sources": [
         "bm-siege",

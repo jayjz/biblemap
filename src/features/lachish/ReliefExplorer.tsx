@@ -28,6 +28,7 @@ export function ReliefExplorer() {
   }, []);
   function select(feature: FeatureId, view: EvidenceView) {
     setZoomed(false);
+    if (feature === state.feature && view === state.view) return;
     const url = new URL(window.location.href);
     url.searchParams.set("detail", feature); url.searchParams.set("evidence", view); url.hash = "the-walls";
     window.history.pushState(null, "", url);
@@ -38,18 +39,23 @@ export function ReliefExplorer() {
   }
   const feature = FEATURES.find(item => item.id === state.feature) ?? FEATURES[0];
   return <div className="relief-explorer" data-evidence-view={state.view} data-enhanced={enhanced}>
-    <div className="relief-toolbar" aria-label="Choose an evidence view">
+    <div className="relief-toolbar" role="group" aria-label="Choose an evidence view">
       <div className="relief-views">{VIEWS.map(view => <button key={view.id} type="button" aria-pressed={state.view === view.id} onClick={() => select(state.feature, view.id)} disabled={!enhanced}>{view.label}</button>)}</div>
       <span className="relief-object-id">{state.view === "artifact" ? "BM 124906 · Panel 7" : state.view === "site" ? "TEL LACHISH · MODERN PHOTOGRAPH" : "ORIGINAL SCHEMATIC · NOT MEASURED"}</span>
     </div>
     <div className="relief-workspace">
       <div className="relief-stage" ref={stage}>
+        <p className="relief-view-heading">{state.view === "artifact" ? "1 / 3 · Ancient carving" : state.view === "landscape" ? "2 / 3 · Modern interpretation" : "3 / 3 · Excavated remains"}<span>{state.view === "artifact" ? "Select a numbered detail" : state.view === "landscape" ? "Same detail, a spatial relationship" : "The ramp today; engines do not survive here"}</span></p>
         <div className="relief-artifact-view" hidden={state.view !== "artifact"}>
+          <div className="relief-image-window">
           <div className={`relief-photo ${zoomed ? "is-zoomed" : ""}`} style={{ transformOrigin: `${feature.x}% ${feature.y}%` }}>
-            <LachishMedia name="siege" width={4679} height={4000} alt="The actual gypsum relief: defenders above, covered engines and soldiers ascending diagonal ramps below. The panel has broken upper edges." />
-            {FEATURES.map(item => <button key={item.id} type="button" className="relief-hotspot" style={{ left: `${item.x}%`, top: `${item.y}%` }} aria-label={`Examine ${item.label.toLowerCase()} in the relief`} aria-pressed={state.feature === item.id} tabIndex={zoomed && state.feature !== item.id ? -1 : 0} onClick={() => select(item.id, "artifact")} disabled={!enhanced}>{item.number}</button>)}
+            <LachishMedia name="siege" width={4679} height={4000} sizes={zoomed ? "1440px" : "(max-width: 760px) 100vw, 65vw"} alt="The actual gypsum relief: defenders above, covered engines and soldiers ascending diagonal ramps below. The panel has broken upper edges." />
           </div>
+          {FEATURES.map(item => <button key={item.id} type="button" className="relief-hotspot" hidden={zoomed && state.feature !== item.id} style={{ left: `${item.x}%`, top: `${item.y}%` }} aria-label={`Examine ${item.label.toLowerCase()} in the relief`} aria-pressed={state.feature === item.id} onClick={() => select(item.id, "artifact")} disabled={!enhanced}>{item.number}</button>)}
+          </div>
+          <div className="relief-image-tools"><span>{feature.number} · {feature.label}{zoomed ? " · Enlarged" : " · Selected"}</span>
           <button className="relief-zoom" type="button" aria-pressed={zoomed} onClick={() => setZoomed(value => !value)} disabled={!enhanced}>{zoomed ? "Show whole panel −" : "Enlarge selected detail +"}</button>
+          </div>
         </div>
         <div hidden={state.view !== "landscape"}><SiegeLandscape feature={state.feature} /></div>
         <figure className="relief-site" hidden={state.view !== "site"}>
@@ -59,11 +65,11 @@ export function ReliefExplorer() {
       </div>
       <div className="relief-inspector">
         <p className="lachish-small">FOLLOW A DETAIL</p>
-        <div className="relief-features" aria-label="Select a detail">{FEATURES.map(item => <button key={item.id} type="button" aria-pressed={state.feature === item.id} onClick={() => select(item.id, state.view)} disabled={!enhanced}><span>{item.number}</span>{item.label}<span aria-hidden="true">↗</span></button>)}</div>
+        <div className="relief-features" role="group" aria-label="Select a detail">{FEATURES.map(item => <button key={item.id} type="button" aria-pressed={state.feature === item.id} onClick={() => select(item.id, state.view)} disabled={!enhanced}><span>{item.number}</span>{item.label}<span aria-hidden="true">↗</span></button>)}</div>
         <div className="relief-observation" aria-live="polite" aria-atomic="true">
           <p className="lachish-small">{state.view === "artifact" ? "WHAT THE CARVING SHOWS" : state.view === "site" ? "WHAT SURVIVES IN THE GROUND" : "WHAT THE DIAGRAM INTERPRETS"}</p>
-          <h3>{feature.label}</h3>
-          <p>{state.view === "artifact" ? feature.artifact : state.view === "landscape" ? feature.landscape : "The ramp is a material remnant of siege works. A modern photograph cannot by itself restore its original height, the engines above it, or every stage of its construction."}</p>
+          <h3>{state.view === "site" ? "The excavated ramp" : feature.label}</h3>
+          <p>{state.view === "artifact" ? feature.artifact : state.view === "landscape" ? feature.landscape : feature.site}</p>
         </div>
         <button className="lachish-action relief-next-view" type="button" disabled={!enhanced} onClick={() => select(state.feature, state.view === "artifact" ? "landscape" : state.view === "landscape" ? "site" : "artifact")}>{state.view === "artifact" ? "Open the spatial interpretation" : state.view === "landscape" ? "Compare the surviving ramp" : "Return to the original relief"}<span aria-hidden="true">→</span></button>
         <details className="lachish-disclosure"><summary>Evidence & reconstruction limits</summary><p>The relief is an ancient royal account. The diagram is an original interpretive aid. It uses no measured coordinates or archaeological mesh; wall height, engine mechanics, shape and spacing are hypothetical.</p><ul>{feature.sources.map(id => <li key={id}><a href={`#source-${id}`}>Inspect {id === "bm-siege" ? "the museum object" : id === "wall-study" ? "the excavation and wall study" : "the ramp construction study"}</a></li>)}</ul></details>

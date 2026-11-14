@@ -3,8 +3,20 @@
   "title": "Lachish: Before the Walls Fell",
   "setting": "Judah, 701 BC",
   "editorialState": "sourced draft for human review; no production publication authorized",
-  "checkedAt": "2026-11-12",
+  "checkedAt": "2026-11-14",
   "sources": [
+    {
+      "id": "fourth-expedition",
+      "title": "The Canaanite and Judean Cities of Lachish · Fourth Expedition",
+      "institution": "Yosef Garfinkel, Michael G. Hasel, Martin G. Klingbeil et al.; American Journal of Archaeology 125(3), 419–459 (2021)",
+      "url": "https://ajaonline.org/wp-content/uploads/2021/06/aja.125.3.hasel_.pdf",
+      "locator": "p. 448: Level III, domestic buildings north of the palace, Area AA, Building 350; pp. 449–450 distinguish later Level II; DOI 10.3764/aja.125.3.0419",
+      "category": "Archaeological observation",
+      "family": "excavation-and-archaeomagnetism",
+      "date": "July 2021; excavations 2013–2017; Level III ends in the 701 BC campaign",
+      "rights": "Research and original summaries only; all report images are copyright the Fourth Expedition and are not reproduced",
+      "limits": "A preliminary excavation report, not an inhabitant’s testimony. Building 350 is a particular six-room dwelling, not the plan of every home. Storage-jar contents are not identified here. The loom weights and hidden tools in the following Level II section concern the later Babylonian destruction and are excluded. Dating correlates stratigraphy with historical records; this is not an independent calendar date."
+    },
     {
       "id": "web-kings",
       "title": "2 Kings 18–19 · World English Bible",
