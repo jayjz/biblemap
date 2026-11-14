@@ -9,6 +9,7 @@ import { validateHumanGraph } from "../domain/human-story.ts";
 import { INTERIOR_SOURCES } from "./human-story-interiors.ts";
 import { ROMANUS_ENTRY, ROMANUS_SOURCES } from "./romanus.ts";
 import { JAMES_ENTRY, JAMES_SOURCES } from "./james.ts";
+import { PLINY_SOURCES } from "./pliny.ts";
 import {
   WITNESS_SOURCES,
   WITNESS_ENTITIES,
@@ -51,6 +52,7 @@ const scriptureSource = (
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...PLINY_SOURCES,
   ...JAMES_SOURCES,
   ...ROMANUS_SOURCES,
   ...INTERIOR_SOURCES,

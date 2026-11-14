@@ -195,8 +195,8 @@ export const WITNESS_ENTRIES: readonly HumanEntry[] = [
   },
   {
     id: "pliny",
-    title: "Pliny: a governor asks",
-    subtitle: "What should Rome do with Christians?",
+    title: "Pliny: the names he did not write",
+    subtitle: "Roman power, two enslaved women, and the people hidden inside an official record.",
     worlds: ["witnesses", "voices"],
     kind: "testimony",
     era: "Trajan's reign · Letters 10.96–97",
@@ -225,7 +225,7 @@ export const WITNESS_ENTRIES: readonly HumanEntry[] = [
     ],
     question:
       "Whose voice can you hear here, and whose reaches you only through an official?",
-    sourceIds: ["pliny-letters"],
+    sourceIds: ["pliny-letters", "pliny-encounter-melmoth", "pliny-latin", "pliny-encounter-comparison", "pliny-tertullian"],
     reading: {
       label: "Read Pliny & Trajan · Letters 10.96–97",
       href: "https://faculty.georgetown.edu/jod/texts/pliny.html",
