@@ -5,16 +5,16 @@ import { separationReadingText } from "../src/domain/separation-reading";
 
 const text = separationReadingText(INTERIOR_PASSAGES.childEarlier.text, INTERIOR_PASSAGES.childSeparation.text);
 
-test("the new entrance labels its artistic parallel and survives missing artwork", async ({ page }) => {
+test("the opening discloses its imagined city and survives missing artwork", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 760 });
-  await page.route("**/media/human-story/cassatt-kiss.webp", route => route.abort());
+  await page.route("**/media/human-story/perpetua-carthage.webp", route => route.abort());
   await page.goto("/human-story/perpetua/");
   const entrance = page.locator('[data-entry="perpetua"] > header');
   await expect(entrance.getByRole("status")).toContainText("The image could not load");
-  await expect(entrance).toContainText("An artistic parallel, not a portrayal of Perpetua");
+  await expect(entrance).toContainText("Not an archaeological reconstruction");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await entrance.getByRole("link", { name: "Enter the account" }).click();
-  await expect(page.locator("#title-child")).toBeFocused();
+  await entrance.getByRole("link", { name: "Begin in Carthage" }).click();
+  await expect(page.locator("#title-carthage")).toBeFocused();
 });
 
 test("the reader discovers presence, refusal and interpretation without a fictional reunion", async ({ page }) => {
@@ -23,7 +23,8 @@ test("the reader discovers presence, refusal and interpretation without a fictio
   const scene = page.locator('[data-scene="separation"]');
   const heading = scene.getByRole("heading", { name: "She asks for her child.", exact: true });
   await expect(heading).toBeFocused();
-  expect((await heading.boundingBox())?.y).toBeLessThan(40);
+  expect((await heading.boundingBox())?.y).toBeGreaterThan(90);
+  expect((await heading.boundingBox())?.y).toBeLessThan(400);
   const source = scene.locator("#separation-source-moment blockquote");
   await expect(source).toHaveText(text.presence);
   await expect(scene.getByText("He is allowed to stay with her.", { exact: true })).toBeVisible();
@@ -43,7 +44,10 @@ test("the reader discovers presence, refusal and interpretation without a fictio
   expect(apart).toBeGreaterThan(together + 40);
   const interpretation = scene.getByRole("button", { name: /^Read what she says next/ });
   await expect(scene.getByRole("figure", { name: "In the account: Perpetua and her child apart", exact: true })).toBeFocused();
-  expect((await scene.getByRole("figure", { name: "In the account: Perpetua and her child apart", exact: true }).boundingBox())?.y).toBeLessThan(40);
+  const figureBox = await scene.getByRole("figure", { name: "In the account: Perpetua and her child apart", exact: true }).boundingBox();
+  const railBox = await page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" }).boundingBox();
+  expect(figureBox && railBox && figureBox.y >= railBox.y + railBox.height).toBeTruthy();
+  expect(figureBox?.y).toBeLessThan(200);
   await page.keyboard.press("Tab");
   await expect(interpretation).toBeFocused();
   await page.keyboard.press("Space");

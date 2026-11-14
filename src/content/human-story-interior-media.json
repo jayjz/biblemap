@@ -232,5 +232,93 @@
     "checkedAt": "2026-11-04",
     "reviewStatus": "rights-verified",
     "reviewedBy": "Codex: provenance and reuse verification only; interpretive pairing pending human review"
+  },
+  {
+    "id": "perpetua-carthage",
+    "title": "Carthage, an imagined city",
+    "creator": "BibleMap / OpenAI image generation, directed by Codex",
+    "creationDate": "2026-11-12",
+    "depictedPeriod": "Modern imagined environment responding to a narrative traditionally placed in 203 CE",
+    "sourceInstitution": "BibleMap original generated artwork",
+    "sourceRecordUrl": "https://github.com/jayjz/biblemap/blob/feat/perpetua-narrative-immersion/docs/perpetua-narrative-immersion.md",
+    "originalAssetUrl": "/media/human-story/perpetua-carthage.webp",
+    "license": "Original generated artwork; project MIT license",
+    "licenseUrl": "https://github.com/jayjz/biblemap/blob/feat/perpetua-narrative-immersion/LICENSE",
+    "rightsStatement": "Original output of OpenAI built-in image generation; no third-party reference images supplied. No claim of exclusive copyright in generated output. Project distributes its own contribution under MIT.",
+    "requiredAttribution": "BibleMap, AI-generated interpretive artwork, 2026. Directed by Codex.",
+    "altText": "A painterly imagined Roman North African city by the sea at dusk. AI-generated interpretation; no exact ancient topography is asserted.",
+    "caption": "Carthage, an imagined city. AI-generated interpretive artwork, 2026. Not historical evidence.",
+    "historicalFit": "A painterly imagined Roman North African city by the sea at dusk. AI-generated interpretation; no exact ancient topography is asserted. Architecture, light, objects and layout are invented; no person, event, route or exact site is reconstructed.",
+    "editorialReason": "Orient the visitor to a living coastal city before confinement.",
+    "eventIds": [],
+    "journeyIds": [
+      "perpetua"
+    ],
+    "class": "artistic-depiction",
+    "downloadedAt": "2026-11-12",
+    "checkedAt": "2026-11-12",
+    "checksum": "9b0d2671365d96603d34e10473fa85733556b2d265e1bffd9393d8abc5649f7c",
+    "localPath": "/media/human-story/perpetua-carthage.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 150452,
+    "reviewStatus": "rights-verified",
+    "reviewedBy": "Codex; generated origin and lack of reference assets verified. Human historical/theological and editorial review outstanding.",
+    "generator": "OpenAI built-in image_gen",
+    "model": "Not exposed by tool",
+    "generatedAt": "2026-11-12",
+    "referenceAssetIds": [],
+    "historicalSources": [
+      "Passion §§2–3",
+      "UNESCO, Archaeological Site of Carthage, Outstanding Universal Value"
+    ],
+    "knownInaccuracies": [
+      "Invented architecture and composition; not a verified prison or ancient city plan."
+    ],
+    "prompt": "Create an original cinematic oil painting, a wide horizontal 3:2 composition for the opening of a historical reading encounter about Perpetua and Felicity in Roman North Africa. An IMAGINED Carthage around 200 CE, not an archaeological reconstruction. View from high on a quiet shaded terrace across a densely lived-in Mediterranean city toward the Gulf of Tunis. Small irregular pale limestone buildings, restrained Roman colonnades, terracotta roofs, distant harbor masts, olive and palm silhouettes; no medieval domes, no minarets, no modern objects, no Rome Colosseum. The sea and dusk sky occupy the upper two thirds, deep Prussian navy blue with a very fine peach-orange horizon on the right. Warm ochre walls and tiny warm windows occupy the lower third and right half. Left half substantially dark, with natural uninterrupted navy sky and shaded roof shapes that can sit behind legible cream website text. HUMAN scale, lived-in, painterly and materially rich, hand-brushed dusty pigments and grain, deep atmosphere, strikingly composed, restrained Mediterranean color, no glossy 3D or fantasy concept art. The city feels alive but the painting does not invent any named event or identify any precise building. NO TEXT, no symbols, no border, no UI. Original modern artistic interpretation, not antique artifact. Color anchors #132631 midnight navy, #304e62 sea, #b17b4c terracotta, #e8dfcf limestone."
+  },
+  {
+    "id": "perpetua-room",
+    "title": "Light beyond confinement",
+    "creator": "BibleMap / OpenAI image generation, directed by Codex",
+    "creationDate": "2026-11-12",
+    "depictedPeriod": "Modern imagined environment responding to a narrative traditionally placed in 203 CE",
+    "sourceInstitution": "BibleMap original generated artwork",
+    "sourceRecordUrl": "https://github.com/jayjz/biblemap/blob/feat/perpetua-narrative-immersion/docs/perpetua-narrative-immersion.md",
+    "originalAssetUrl": "/media/human-story/perpetua-room.webp",
+    "license": "Original generated artwork; project MIT license",
+    "licenseUrl": "https://github.com/jayjz/biblemap/blob/feat/perpetua-narrative-immersion/LICENSE",
+    "rightsStatement": "Original output of OpenAI built-in image generation; no third-party reference images supplied. No claim of exclusive copyright in generated output. Project distributes its own contribution under MIT.",
+    "requiredAttribution": "BibleMap, AI-generated interpretive artwork, 2026. Directed by Codex.",
+    "altText": "An imagined empty room, a small high window, an earthenware vessel and cloth. AI-generated artistic metaphor for confinement, not the documented prison.",
+    "caption": "Light beyond confinement. AI-generated interpretive artwork, 2026. Not historical evidence.",
+    "historicalFit": "An imagined empty room, a small high window, an earthenware vessel and cloth. AI-generated artistic metaphor for confinement, not the documented prison. Architecture, light, objects and layout are invented; no person, event, route or exact site is reconstructed.",
+    "editorialReason": "Carry a continuous atmosphere from prison care to separation without inventing likenesses.",
+    "eventIds": [],
+    "journeyIds": [
+      "perpetua"
+    ],
+    "class": "artistic-depiction",
+    "downloadedAt": "2026-11-12",
+    "checkedAt": "2026-11-12",
+    "checksum": "c3064ef366171f8a43cef2c9dfe2728a86327474eefbbc55173bfa750426dbbc",
+    "localPath": "/media/human-story/perpetua-room.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 96700,
+    "reviewStatus": "rights-verified",
+    "reviewedBy": "Codex; generated origin and lack of reference assets verified. Human historical/theological and editorial review outstanding.",
+    "generator": "OpenAI built-in image_gen",
+    "model": "Not exposed by tool",
+    "generatedAt": "2026-11-12",
+    "referenceAssetIds": [],
+    "historicalSources": [
+      "Passion §§2–3",
+      "UNESCO, Archaeological Site of Carthage, Outstanding Universal Value"
+    ],
+    "knownInaccuracies": [
+      "Invented architecture and composition; not a verified prison or ancient city plan."
+    ],
+    "prompt": "Create an original wide horizontal 3:2 oil painting for a continuous historical narrative encounter about Perpetua and Felicity. An imagined confined room in Roman North Africa, explicitly interpretive rather than a verified prison. No people, no named events. A single tiny high square opening near the upper right admits soft Mediterranean daylight into very dark blue-grey space. Rough indigo and charcoal plaster, warm weathered limestone edge of doorway in foreground left. Far in the right half, a low stone ledge has a small plain earthenware jug and loosely folded undyed cloth. A diagonal band of dusty light crosses the worn floor toward the viewer, whose viewpoint is intimate and at seated human height. Strong sense of outside light versus confinement. Keep leftmost 45 percent deep rich shadow with painterly detail subtle enough for white text to be overlaid. Beautiful brushwork, tactile dusty pigments, delicate muted gold light, shadow with real depth, controlled negative space. Quiet cinematic still, not a museum display, not a horror dungeon, no chains, bars, weapons, skulls, or torture props. Match an atmospheric painterly Carthage coastal city scene in midnight navy #132631, sea slate #304e62, limestone #e8dfcf, dull ochre #b17b4c. NO TEXT, no frame, no UI. Do not claim historical specificity. The empty room will be used as a modern visual metaphor for confinement and separation; no literal likenesses."
   }
 ]
