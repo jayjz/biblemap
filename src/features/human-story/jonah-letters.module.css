@@ -1,0 +1,105 @@
+.encounter {
+  --paper: #f5efe3;
+  --letter-ink: #242a2d;
+  --scripture-ink: #182e3b;
+  --rule: #857e73;
+  color: var(--letter-ink);
+  background: var(--paper);
+}
+.opening {
+  padding: 1.5rem clamp(1.25rem, 3.5vw, 4rem) 2rem;
+  border-top: 1px solid var(--rule);
+}
+.opening h1 {
+  font-size: clamp(2.6rem, 5.3vw, 5.4rem);
+  line-height: 1.16;
+  letter-spacing: -.045em;
+  text-wrap: pretty;
+}
+.opening .introduction {
+  font: 400 clamp(1.1rem, 1.65vw, 1.5rem)/1.55 Georgia, serif;
+  max-width: 80ch;
+  margin-top: 1rem;
+}
+.opening .setting {
+  font-size: .85rem;
+  margin-top: .65rem;
+}
+.begin { display: inline-flex; align-items: center; gap: 1rem; min-height: 44px; margin-top: .8rem; font-size: .85rem; font-weight: 600; }
+.exchange { display: grid; grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr); }
+.scripture { background: var(--scripture-ink); color: var(--paper); padding: 2.7rem clamp(1.5rem, 3.5vw, 4rem); }
+.scriptureInner { position: sticky; top: 2rem; }
+.scripture h2 { font-size: clamp(2rem, 3.3vw, 3.3rem); line-height: 1.25; letter-spacing: -.035em; }
+.scripture .verse { margin-top: 2.8rem; padding-left: 1.7rem; border-left: 1px solid #c2cbc8; }
+.verse blockquote { margin: 0; font: 400 clamp(1.25rem, 2.05vw, 1.95rem)/1.6 Georgia, serif; }
+.verse figcaption { margin-top: 1.6rem; font-size: .9rem; line-height: 1.7; }
+.verse figcaption span { display: block; color: #c8d6d9; font-size: .78rem; }
+.scripture .scriptureNote { max-width: 40ch; margin-top: 2rem; color: #c8d6d9; font-size: .85rem; line-height: 1.65; }
+.correspondence { min-width: 0; padding: 1.3rem clamp(1.5rem, 3.2vw, 3.5rem) 2rem; }
+.words { display: flex; flex-wrap: wrap; align-items: center; gap: .25em; font: 400 clamp(4rem, 8.8vw, 9rem)/1.2 var(--font-playfair), Georgia, serif; letter-spacing: -.06em; }
+.words span + span { padding-left: .3em; border-left: 1px solid var(--rule); }
+.wordNote { font-size: .75rem; line-height: 1.6; max-width: 48ch; }
+.letters { margin-top: 1.6rem; }
+.letter { border-top: 1px solid var(--rule); }
+.letter:last-child { border-bottom: 1px solid var(--rule); }
+.letter summary { display: flex; align-items: center; gap: .85rem; min-height: 64px; padding: .8rem .2rem; cursor: pointer; list-style: none; font: 400 clamp(1.1rem, 1.7vw, 1.5rem)/1.4 var(--font-playfair), Georgia, serif; }
+.letter summary::-webkit-details-marker { display: none; }
+.year { display: inline-block; margin-right: .75em; font: 400 .75rem/1.4 var(--font-geist-sans), Arial, sans-serif; letter-spacing: .02em; }
+.disclosureMark { position: relative; flex: 0 0 18px; height: 18px; }
+.disclosureMark::before, .disclosureMark::after { content: ""; position: absolute; inset: 8px 1px auto; height: 1.5px; background: currentColor; }
+.disclosureMark::after { transform: rotate(90deg); }
+.letter[open] .disclosureMark::after { display: none; }
+.letterBody { padding: .3rem .2rem 1.5rem 2.2rem; scroll-margin-top: 2rem; }
+.letterBody > p { font-size: .95rem; line-height: 1.7; max-width: 60ch; }
+.letterBody figure { margin-top: 1.4rem; }
+.letterBody blockquote { margin: 0; font: 400 clamp(1.1rem, 1.5vw, 1.35rem)/1.6 Georgia, serif; }
+.letterBody figcaption { font-size: .75rem; line-height: 1.7; margin-top: 1rem; }
+.letterBody .boundary { margin-top: 1rem; font: italic .95rem/1.6 Georgia, serif; }
+.sourceLink { display: inline-flex; align-items: center; min-height: 44px; font-size: .8rem; }
+.return { padding: 2rem 0 1.6rem; }
+.return h2 { font-size: clamp(1.8rem, 2.5vw, 2.6rem); letter-spacing: -.035em; line-height: 1.3; }
+.return p { max-width: 60ch; margin-top: .8rem; font-size: .95rem; line-height: 1.7; }
+.continue { display: inline-flex; align-items: center; gap: 1rem; min-height: 48px; margin-top: .5rem; font-weight: 600; text-decoration-thickness: 1px; }
+.provenance { border-block: 1px solid var(--rule); }
+.provenance > summary { padding: 1.1rem .2rem; min-height: 52px; cursor: pointer; font-size: 1rem; }
+.sourceBody { padding: .5rem 0 1.5rem; font-size: .88rem; }
+.sourceBody p + p { margin-top: 1rem; }
+.sourceBody a { display: inline-block; padding-block: .45rem; }
+.sourceRecord { padding: 1.5rem 0; margin-block: 1.5rem; border-block: 1px solid var(--rule); scroll-margin-top: 2rem; }
+.sourceRecord h3 { font-size: 1.4rem; }
+.sourceRecord p { margin-top: .8rem; }
+.onward { display: flex; flex-wrap: wrap; gap: .4rem 1.8rem; padding-top: 1.4rem; font-size: .8rem; }
+.onward a { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 900px) {
+  .exchange { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .scripture, .correspondence { padding-inline: 1.5rem; }
+  .words { font-size: clamp(3.2rem, 8.4vw, 6rem); }
+  .letterBody { padding-left: 0; }
+  .year { display: block; margin: 0 0 .2rem; }
+}
+@media (max-width: 650px) {
+  .exchange { grid-template-columns: minmax(0, 1fr); }
+  .opening { padding-block: 1.5rem; }
+  .opening h1 { max-width: 12ch; }
+  .opening .introduction { font-size: 1.15rem; }
+  .opening .setting { font-size: .75rem; }
+  .scripture { padding: 1.8rem 1.25rem; }
+  .scriptureInner { position: static; }
+  .scripture h2 { font-size: 1.8rem; }
+  .scripture h2 br { display: none; }
+  .scripture .verse { margin-top: 1.5rem; padding-left: 1rem; }
+  .verse blockquote { font-size: 1.18rem; line-height: 1.6; }
+  .scripture .scriptureNote { margin-top: 1.2rem; font-size: .78rem; }
+  .correspondence { padding: 1.5rem 1.25rem 2rem; }
+  .words { font-size: clamp(3rem, 17vw, 6.5rem); }
+  .letter summary { font-size: 1.2rem; }
+  .year { display: inline; margin-right: .7rem; }
+  .letterBody blockquote { font-size: 1.15rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .encounter :target { scroll-behavior: auto; }
+}
+@media print {
+  .exchange { display: block; }
+  .scriptureInner { position: static; }
+}

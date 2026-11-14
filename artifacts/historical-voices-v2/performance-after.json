@@ -1,0 +1,978 @@
+[
+  {
+    "width": 1440,
+    "run": 1,
+    "lab": {
+      "lcp": 124,
+      "cls": 0,
+      "longTasks": []
+    },
+    "resources": [
+      {
+        "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+        "bytes": 301024,
+        "encoded": 300724
+      },
+      {
+        "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+        "bytes": 169356,
+        "encoded": 169056
+      },
+      {
+        "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+        "bytes": 172248,
+        "encoded": 171948
+      },
+      {
+        "name": "/_next/static/css/320167931833068e.css",
+        "bytes": 35239,
+        "encoded": 34939
+      },
+      {
+        "name": "/_next/static/css/4e567df20d81a1fe.css",
+        "bytes": 82563,
+        "encoded": 82263
+      },
+      {
+        "name": "/_next/static/css/1f8ddb7d0225922f.css",
+        "bytes": 49089,
+        "encoded": 48789
+      },
+      {
+        "name": "/_next/static/chunks/webpack-90bbbeb97c46cbcc.js",
+        "bytes": 5730,
+        "encoded": 5430
+      },
+      {
+        "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+        "bytes": 829,
+        "encoded": 529
+      },
+      {
+        "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+        "bytes": 204027,
+        "encoded": 203727
+      },
+      {
+        "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+        "bytes": 243189,
+        "encoded": 242889
+      },
+      {
+        "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+        "bytes": 7974,
+        "encoded": 7674
+      },
+      {
+        "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+        "bytes": 14728,
+        "encoded": 14428
+      },
+      {
+        "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+        "bytes": 31846,
+        "encoded": 31546
+      },
+      {
+        "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fcde846ce1963e28.js",
+        "bytes": 48027,
+        "encoded": 47727
+      },
+      {
+        "name": "/favicon.ico",
+        "bytes": 26231,
+        "encoded": 25931
+      }
+    ],
+    "navigation": {
+      "name": "http://127.0.0.1:36355/human-story/jerome/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 115.09999999403954,
+      "navigationId": 5056,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.5999999940395355,
+      "domainLookupStart": 0.5999999940395355,
+      "domainLookupEnd": 0.5999999940395355,
+      "connectStart": 0.5999999940395355,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.5999999940395355,
+      "requestStart": 1.9000000059604645,
+      "responseStart": 8.900000005960464,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 8.900000005960464,
+      "responseEnd": 9.699999988079071,
+      "transferSize": 34539,
+      "encodedBodySize": 34239,
+      "decodedBodySize": 34239,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 35.099999994039536,
+      "domContentLoadedEventStart": 35.099999994039536,
+      "domContentLoadedEventEnd": 35.099999994039536,
+      "domComplete": 115.09999999403954,
+      "loadEventStart": 115.09999999403954,
+      "loadEventEnd": 115.09999999403954,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "high"
+      }
+    },
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 292
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.006973
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.052183
+      },
+      {
+        "name": "TaskDuration",
+        "value": 0.114825
+      },
+      {
+        "name": "JSHeapUsedSize",
+        "value": 3409568
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "run": 2,
+    "lab": {
+      "lcp": 152,
+      "cls": 0,
+      "longTasks": [
+        55
+      ]
+    },
+    "resources": [
+      {
+        "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+        "bytes": 301024,
+        "encoded": 300724
+      },
+      {
+        "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+        "bytes": 169356,
+        "encoded": 169056
+      },
+      {
+        "name": "/_next/static/css/320167931833068e.css",
+        "bytes": 35239,
+        "encoded": 34939
+      },
+      {
+        "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+        "bytes": 172248,
+        "encoded": 171948
+      },
+      {
+        "name": "/_next/static/css/4e567df20d81a1fe.css",
+        "bytes": 82563,
+        "encoded": 82263
+      },
+      {
+        "name": "/_next/static/css/1f8ddb7d0225922f.css",
+        "bytes": 49089,
+        "encoded": 48789
+      },
+      {
+        "name": "/_next/static/chunks/webpack-90bbbeb97c46cbcc.js",
+        "bytes": 5730,
+        "encoded": 5430
+      },
+      {
+        "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+        "bytes": 204027,
+        "encoded": 203727
+      },
+      {
+        "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+        "bytes": 829,
+        "encoded": 529
+      },
+      {
+        "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+        "bytes": 7974,
+        "encoded": 7674
+      },
+      {
+        "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+        "bytes": 14728,
+        "encoded": 14428
+      },
+      {
+        "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+        "bytes": 243189,
+        "encoded": 242889
+      },
+      {
+        "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+        "bytes": 31846,
+        "encoded": 31546
+      },
+      {
+        "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fcde846ce1963e28.js",
+        "bytes": 48027,
+        "encoded": 47727
+      },
+      {
+        "name": "/favicon.ico",
+        "bytes": 26231,
+        "encoded": 25931
+      }
+    ],
+    "navigation": {
+      "name": "http://127.0.0.1:36355/human-story/jerome/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 128.2999999821186,
+      "navigationId": 2279,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.5999999940395355,
+      "domainLookupStart": 0.5999999940395355,
+      "domainLookupEnd": 0.5999999940395355,
+      "connectStart": 0.5999999940395355,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.5999999940395355,
+      "requestStart": 1.5999999940395355,
+      "responseStart": 2.5,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 2.5,
+      "responseEnd": 3,
+      "transferSize": 34539,
+      "encodedBodySize": 34239,
+      "decodedBodySize": 34239,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 32.29999998211861,
+      "domContentLoadedEventStart": 32.39999997615814,
+      "domContentLoadedEventEnd": 33.29999998211861,
+      "domComplete": 128.09999999403954,
+      "loadEventStart": 128.2999999821186,
+      "loadEventEnd": 128.2999999821186,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "high"
+      }
+    },
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 292
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.006358
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.065775
+      },
+      {
+        "name": "TaskDuration",
+        "value": 0.136194
+      },
+      {
+        "name": "JSHeapUsedSize",
+        "value": 3420536
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "run": 3,
+    "lab": {
+      "lcp": 88,
+      "cls": 0,
+      "longTasks": [
+        61
+      ]
+    },
+    "resources": [
+      {
+        "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+        "bytes": 301024,
+        "encoded": 300724
+      },
+      {
+        "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+        "bytes": 169356,
+        "encoded": 169056
+      },
+      {
+        "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+        "bytes": 172248,
+        "encoded": 171948
+      },
+      {
+        "name": "/_next/static/css/320167931833068e.css",
+        "bytes": 35239,
+        "encoded": 34939
+      },
+      {
+        "name": "/_next/static/css/1f8ddb7d0225922f.css",
+        "bytes": 49089,
+        "encoded": 48789
+      },
+      {
+        "name": "/_next/static/css/4e567df20d81a1fe.css",
+        "bytes": 82563,
+        "encoded": 82263
+      },
+      {
+        "name": "/_next/static/chunks/webpack-90bbbeb97c46cbcc.js",
+        "bytes": 5730,
+        "encoded": 5430
+      },
+      {
+        "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+        "bytes": 204027,
+        "encoded": 203727
+      },
+      {
+        "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+        "bytes": 243189,
+        "encoded": 242889
+      },
+      {
+        "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+        "bytes": 829,
+        "encoded": 529
+      },
+      {
+        "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+        "bytes": 7974,
+        "encoded": 7674
+      },
+      {
+        "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+        "bytes": 14728,
+        "encoded": 14428
+      },
+      {
+        "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+        "bytes": 31846,
+        "encoded": 31546
+      },
+      {
+        "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fcde846ce1963e28.js",
+        "bytes": 48027,
+        "encoded": 47727
+      },
+      {
+        "name": "/favicon.ico",
+        "bytes": 26231,
+        "encoded": 25931
+      }
+    ],
+    "navigation": {
+      "name": "http://127.0.0.1:36355/human-story/jerome/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 131.90000000596046,
+      "navigationId": 9051,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.800000011920929,
+      "domainLookupStart": 0.800000011920929,
+      "domainLookupEnd": 0.800000011920929,
+      "connectStart": 0.800000011920929,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.800000011920929,
+      "requestStart": 2.2000000178813934,
+      "responseStart": 3.2000000178813934,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 3.2000000178813934,
+      "responseEnd": 3.7000000178813934,
+      "transferSize": 34539,
+      "encodedBodySize": 34239,
+      "decodedBodySize": 34239,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 34.900000005960464,
+      "domContentLoadedEventStart": 34.900000005960464,
+      "domContentLoadedEventEnd": 35,
+      "domComplete": 131.80000001192093,
+      "loadEventStart": 131.90000000596046,
+      "loadEventEnd": 131.90000000596046,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "low"
+      }
+    },
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 292
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.009492
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.06884
+      },
+      {
+        "name": "TaskDuration",
+        "value": 0.139035
+      },
+      {
+        "name": "JSHeapUsedSize",
+        "value": 3407812
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 1,
+    "lab": {
+      "lcp": 220,
+      "cls": 0,
+      "longTasks": [
+        207
+      ]
+    },
+    "resources": [
+      {
+        "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+        "bytes": 301024,
+        "encoded": 300724
+      },
+      {
+        "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+        "bytes": 169356,
+        "encoded": 169056
+      },
+      {
+        "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+        "bytes": 172248,
+        "encoded": 171948
+      },
+      {
+        "name": "/_next/static/css/320167931833068e.css",
+        "bytes": 35239,
+        "encoded": 34939
+      },
+      {
+        "name": "/_next/static/css/4e567df20d81a1fe.css",
+        "bytes": 82563,
+        "encoded": 82263
+      },
+      {
+        "name": "/_next/static/css/1f8ddb7d0225922f.css",
+        "bytes": 49089,
+        "encoded": 48789
+      },
+      {
+        "name": "/_next/static/chunks/webpack-90bbbeb97c46cbcc.js",
+        "bytes": 5730,
+        "encoded": 5430
+      },
+      {
+        "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+        "bytes": 204027,
+        "encoded": 203727
+      },
+      {
+        "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+        "bytes": 243189,
+        "encoded": 242889
+      },
+      {
+        "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+        "bytes": 829,
+        "encoded": 529
+      },
+      {
+        "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+        "bytes": 7974,
+        "encoded": 7674
+      },
+      {
+        "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+        "bytes": 14728,
+        "encoded": 14428
+      },
+      {
+        "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+        "bytes": 31846,
+        "encoded": 31546
+      },
+      {
+        "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fcde846ce1963e28.js",
+        "bytes": 48027,
+        "encoded": 47727
+      },
+      {
+        "name": "/favicon.ico",
+        "bytes": 26231,
+        "encoded": 25931
+      }
+    ],
+    "navigation": {
+      "name": "http://127.0.0.1:36355/human-story/jerome/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 433.2000000178814,
+      "navigationId": 649,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.6000000238418579,
+      "domainLookupStart": 0.6000000238418579,
+      "domainLookupEnd": 0.6000000238418579,
+      "connectStart": 0.6000000238418579,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.6000000238418579,
+      "requestStart": 1.5,
+      "responseStart": 4.700000017881393,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 4.700000017881393,
+      "responseEnd": 5.200000017881393,
+      "transferSize": 34539,
+      "encodedBodySize": 34239,
+      "decodedBodySize": 34239,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 139,
+      "domContentLoadedEventStart": 139,
+      "domContentLoadedEventEnd": 139.80000001192093,
+      "domComplete": 433.2000000178814,
+      "loadEventStart": 433.2000000178814,
+      "loadEventEnd": 433.2000000178814,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "low"
+      }
+    },
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 292
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.02631
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.250181
+      },
+      {
+        "name": "TaskDuration",
+        "value": 0.515013
+      },
+      {
+        "name": "JSHeapUsedSize",
+        "value": 3412408
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 2,
+    "lab": {
+      "lcp": 200,
+      "cls": 0,
+      "longTasks": [
+        234
+      ]
+    },
+    "resources": [
+      {
+        "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+        "bytes": 301024,
+        "encoded": 300724
+      },
+      {
+        "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+        "bytes": 169356,
+        "encoded": 169056
+      },
+      {
+        "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+        "bytes": 172248,
+        "encoded": 171948
+      },
+      {
+        "name": "/_next/static/css/320167931833068e.css",
+        "bytes": 35239,
+        "encoded": 34939
+      },
+      {
+        "name": "/_next/static/css/4e567df20d81a1fe.css",
+        "bytes": 82563,
+        "encoded": 82263
+      },
+      {
+        "name": "/_next/static/css/1f8ddb7d0225922f.css",
+        "bytes": 49089,
+        "encoded": 48789
+      },
+      {
+        "name": "/_next/static/chunks/webpack-90bbbeb97c46cbcc.js",
+        "bytes": 5730,
+        "encoded": 5430
+      },
+      {
+        "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+        "bytes": 204027,
+        "encoded": 203727
+      },
+      {
+        "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+        "bytes": 243189,
+        "encoded": 242889
+      },
+      {
+        "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+        "bytes": 829,
+        "encoded": 529
+      },
+      {
+        "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+        "bytes": 7974,
+        "encoded": 7674
+      },
+      {
+        "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+        "bytes": 14728,
+        "encoded": 14428
+      },
+      {
+        "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+        "bytes": 31846,
+        "encoded": 31546
+      },
+      {
+        "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fcde846ce1963e28.js",
+        "bytes": 48027,
+        "encoded": 47727
+      },
+      {
+        "name": "/favicon.ico",
+        "bytes": 26231,
+        "encoded": 25931
+      }
+    ],
+    "navigation": {
+      "name": "http://127.0.0.1:36355/human-story/jerome/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 446.39999997615814,
+      "navigationId": 1214,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 1,
+      "domainLookupStart": 1,
+      "domainLookupEnd": 1,
+      "connectStart": 1,
+      "secureConnectionStart": 0,
+      "connectEnd": 1,
+      "requestStart": 2.5999999940395355,
+      "responseStart": 5.0999999940395355,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 5.0999999940395355,
+      "responseEnd": 6.399999976158142,
+      "transferSize": 34539,
+      "encodedBodySize": 34239,
+      "decodedBodySize": 34239,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 129.69999998807907,
+      "domContentLoadedEventStart": 129.69999998807907,
+      "domContentLoadedEventEnd": 130.39999997615814,
+      "domComplete": 445.89999997615814,
+      "loadEventStart": 446.39999997615814,
+      "loadEventEnd": 446.39999997615814,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "low"
+      }
+    },
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 292
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.028801
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.288371
+      },
+      {
+        "name": "TaskDuration",
+        "value": 0.555433
+      },
+      {
+        "name": "JSHeapUsedSize",
+        "value": 3432656
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 3,
+    "lab": {
+      "lcp": 168,
+      "cls": 0,
+      "longTasks": [
+        215
+      ]
+    },
+    "resources": [
+      {
+        "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+        "bytes": 301024,
+        "encoded": 300724
+      },
+      {
+        "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+        "bytes": 169356,
+        "encoded": 169056
+      },
+      {
+        "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+        "bytes": 172248,
+        "encoded": 171948
+      },
+      {
+        "name": "/_next/static/css/320167931833068e.css",
+        "bytes": 35239,
+        "encoded": 34939
+      },
+      {
+        "name": "/_next/static/css/4e567df20d81a1fe.css",
+        "bytes": 82563,
+        "encoded": 82263
+      },
+      {
+        "name": "/_next/static/css/1f8ddb7d0225922f.css",
+        "bytes": 49089,
+        "encoded": 48789
+      },
+      {
+        "name": "/_next/static/chunks/webpack-90bbbeb97c46cbcc.js",
+        "bytes": 5730,
+        "encoded": 5430
+      },
+      {
+        "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+        "bytes": 204027,
+        "encoded": 203727
+      },
+      {
+        "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+        "bytes": 243189,
+        "encoded": 242889
+      },
+      {
+        "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+        "bytes": 829,
+        "encoded": 529
+      },
+      {
+        "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+        "bytes": 7974,
+        "encoded": 7674
+      },
+      {
+        "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+        "bytes": 14728,
+        "encoded": 14428
+      },
+      {
+        "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+        "bytes": 31846,
+        "encoded": 31546
+      },
+      {
+        "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-fcde846ce1963e28.js",
+        "bytes": 48027,
+        "encoded": 47727
+      },
+      {
+        "name": "/favicon.ico",
+        "bytes": 26231,
+        "encoded": 25931
+      }
+    ],
+    "navigation": {
+      "name": "http://127.0.0.1:36355/human-story/jerome/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 396.7000000178814,
+      "navigationId": 9417,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.5,
+      "domainLookupStart": 0.5,
+      "domainLookupEnd": 0.5,
+      "connectStart": 0.5,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.5,
+      "requestStart": 1.5,
+      "responseStart": 2.5999999940395355,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 2.5999999940395355,
+      "responseEnd": 3.300000011920929,
+      "transferSize": 34539,
+      "encodedBodySize": 34239,
+      "decodedBodySize": 34239,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 92.7000000178814,
+      "domContentLoadedEventStart": 92.80000001192093,
+      "domContentLoadedEventEnd": 92.90000000596046,
+      "domComplete": 396.59999999403954,
+      "loadEventStart": 396.7000000178814,
+      "loadEventEnd": 396.7000000178814,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "low"
+      }
+    },
+    "metrics": [
+      {
+        "name": "Nodes",
+        "value": 292
+      },
+      {
+        "name": "LayoutDuration",
+        "value": 0.024451
+      },
+      {
+        "name": "ScriptDuration",
+        "value": 0.251335
+      },
+      {
+        "name": "TaskDuration",
+        "value": 0.474511
+      },
+      {
+        "name": "JSHeapUsedSize",
+        "value": 3426360
+      }
+    ]
+  }
+]

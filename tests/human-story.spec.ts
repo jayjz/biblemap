@@ -225,9 +225,15 @@ test("authored threads cross worlds and retain historical limits", async ({
     .locator("#stop-jerome")
     .getByRole("link", { name: "Open the reading & sources" })
     .click();
-  await expect(
-    page.getByRole("heading", { name: "A translator explains his decision" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "One word. A congregation.",
+  );
+  const reply = page.locator('[data-letter="jerome-translation"]');
+  await reply.locator("summary").click();
+  await expect(reply.locator("blockquote")).toContainText(
+    "I therefore put down “ivy,”",
+  );
+  await expect(reply).toContainText("not a botanical verdict");
   await page.goto("/human-story/worlds/atlas/");
   await expect(
     page.getByRole("link", { name: "Orient to Carthage" }),
