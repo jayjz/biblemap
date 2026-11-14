@@ -6,6 +6,7 @@ import { ReadingRoom } from "@/features/human-story/ReadingRoom";
 import { PerpetuaEncounter } from "@/features/human-story/PerpetuaEncounter";
 import { RomanusEncounter } from "@/features/human-story/romanus/RomanusEncounter";
 import { JamesEncounter } from "@/features/human-story/james/JamesEncounter";
+import { JonahLettersEncounter } from "@/features/human-story/JonahLettersEncounter";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -32,5 +33,6 @@ export default async function HumanStoryReading({
   if (id === "perpetua") return <PerpetuaEncounter />;
   if (id === "romanus") return <RomanusEncounter />;
   if (id === "james") return <JamesEncounter />;
+  if (id === "jerome") return <JonahLettersEncounter />;
   return <ReadingRoom entry={entry} />;
 }

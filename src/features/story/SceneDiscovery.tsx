@@ -27,7 +27,7 @@ export function SceneDiscovery({ sceneId }: { sceneId: string }) {
     </div>
   </section>;
   if (sceneId === 'jonah-4-shade') return <section className="scene-discovery discovery-shade" aria-label="Discover Jonah in marble">
-    <div><p className="story-eyebrow">Looking across centuries / 280–290 CE</p><h3>The artist lets him rest.</h3><p>Look at the reclining body, the raised arm, the leaves overhead. This early Christian sculpture holds Jonah in the moment of shelter. The passage keeps moving: a worm, the heat, and another exchange with God.</p></div>
+    <div><p className="story-eyebrow">Looking across centuries / 280–290 CE</p><h3>The artist lets him rest.</h3><p>Look at the reclining body, the raised arm, the leaves overhead. This early Christian sculpture holds Jonah in the moment of shelter. The passage keeps moving: a worm, the heat, and another exchange with God.</p><p><Link href="/human-story/jerome/" prefetch={false}>When the plant’s name changed: Augustine and Jerome</Link></p></div>
     <details className="shade-looking"><summary>Stay with the sculpture <span aria-hidden="true">＋</span></summary><div><h4>What can a still image hold?</h4><p>The marble gives lasting form to shade that disappears in the story. Set its resting figure beside the anger in the passage. What changes when you look back at the sculpture?</p><p className="discovery-caption">A visual reading of this artwork, not a claim about its maker’s intention. The carved vine does not establish the plant’s species.</p><DiscoverySource id="sculpture" /></div></details>
   </section>;
   return null;

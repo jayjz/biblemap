@@ -4,9 +4,11 @@ import type {
   HumanEntry,
   HumanConnection,
 } from "../domain/human-story.ts";
+import { JONAH_LETTER_SOURCES } from "./jonah-letters.ts";
 
 const checkedAt = "2026-11-01";
 export const CULTURE_SOURCES: readonly HumanSource[] = [
+  ...JONAH_LETTER_SOURCES,
   {
     id: "bl-sinaiticus",
     title: "British Library · Codex Sinaiticus, Add MS 43725",
@@ -21,34 +23,6 @@ export const CULTURE_SOURCES: readonly HumanSource[] = [
       "Catalogue linked and briefly paraphrased; no manuscript photograph, facsimile or digitized text copied. Image rights not claimed.",
     limits:
       "A fourth-century textual witness, not an original Gospel autograph or eyewitness proof of its narrated events. The catalogue's proposed Eastern Mediterranean origin is uncertain; no precise place of production is asserted here.",
-  },
-  {
-    id: "augustine-jerome",
-    title: "Augustine to Jerome · Letter 71",
-    url: "https://www.newadvent.org/fathers/1102071.htm",
-    locator: "Chapter 3, §5 (Oea and Jonah); chapter 4, §6 (versions)",
-    edition:
-      "Letter 71 in Augustine's collection / 104 in Jerome's; dated 403 in this edition. J. G. Cunningham translation, NPNF I.1 (1887), revised by New Advent.",
-    kind: "interpretation",
-    checkedAt,
-    rights:
-      "Historical translation; modern New Advent presentation has its own copyright. Original paraphrase only.",
-    limits:
-      "Augustine reports an incident at Oea; he is not presenting an independently verified transcript. His remarks about Jewish residents are his polemical framing, not the editorial voice of BibleMap.",
-  },
-  {
-    id: "jerome-augustine",
-    title: "Jerome to Augustine · Letter 75",
-    url: "https://www.newadvent.org/fathers/1102075.htm",
-    locator: "Chapter 6, §21; chapter 7, §22 (the plant)",
-    edition:
-      "Letter 75 in Augustine's collection / 112 in Jerome's; dated 404 in this edition. J. G. Cunningham, NPNF I.1 (1887), revised by New Advent.",
-    kind: "interpretation",
-    checkedAt,
-    rights:
-      "Only original paraphrase and the individual translation alternatives gourd and ivy; no extended translated passage reproduced.",
-    limits:
-      "Jerome defends a translation decision. His botanical explanation and polemical characterizations are his assertions, not settled modern botany or a consensus about Jewish readers.",
   },
   {
     id: "rashi-jonah",
