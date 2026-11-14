@@ -345,6 +345,15 @@
       "limitations": [
         "candidate-editorial-review"
       ]
+    },
+    {
+      "route": "/lachish/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review",
+        "interpretive-nonmeasured-geometry"
+      ],
+      "indexing": "noindex"
     }
   ]
 }
