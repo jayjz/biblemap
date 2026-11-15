@@ -30,9 +30,10 @@ if (process.argv.includes('--production-export')) {
   }
   assert.ok(!exported.some(file => /nineveh-landscape|review-assets/.test(file)), 'Unreviewed landscape or review assets reached public export');
   const homepage = readFileSync('out/index.html', 'utf8');
-  assert.ok(homepage.includes('id="portal-title"'), 'Homepage must contain the Human Story entrance');
+  assert.match(homepage, /<h1 id="archive-title">The living archive\.<\/h1>/, 'Homepage must contain the Living Archive entrance');
+  assert.ok(homepage.includes('data-home-entry="pliny"') && homepage.includes('href="/human-story/pliny/"'), 'Homepage must retain the Pliny encounter entrance');
   const nineveh = readFileSync('out/nineveh/index.html', 'utf8');
   assert.ok(nineveh.includes('nineveh-heading') && nineveh.includes('data-published="true"'), 'Dedicated Nineveh route must preserve the published encounter');
   assert.ok(!existsSync('out/experiments/nineveh/index.html'), 'Ordinary export must omit the excluded experimental route, not serve a soft-404 HTML file');
 }
-console.log(`✓ Nineveh: ${manifest.assets.length} rights-verified images in static media; checksums and original/reproduction separation enforced${process.argv.includes('--production-export') ? '; Human Story homepage and Nineveh route active; experimental image excluded' : ''}`);
+console.log(`✓ Nineveh: ${manifest.assets.length} rights-verified images in static media; checksums and original/reproduction separation enforced${process.argv.includes('--production-export') ? '; Living Archive homepage and Nineveh route active; experimental image excluded' : ''}`);
