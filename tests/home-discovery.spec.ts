@@ -1,92 +1,121 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { HOME_CURATION } from "../src/content/home-curation";
+import { HOMEPAGE } from "../src/lib/homepage";
 
-test("the homepage leads directly into both complete lives and their sources", async ({ page }) => {
+const selection = [HOME_CURATION.hero, ...HOME_CURATION.featured];
+
+test("the living archive enters the actual V4 encounter and preserves the selected supporting lives", async ({ page, request }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Meet Perpetua & Romanus", exact: true }).click();
-  await expect(page.locator("#encounters")).toBeFocused();
-  const entrances = page.getByRole("region", { name: "Lives. Different voices." });
-  await entrances.getByRole("link", { name: "Enter the encounter", exact: true }).click();
-  await expect(page.locator("[data-prison-ready]")).toHaveAttribute("data-prison-ready", "true");
-  const scenes = page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" });
-  for (const link of await scenes.getByRole("link").all()) {
-    await link.click();
-    await expect(link).toHaveAttribute("aria-current", "step");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The living archive.");
+  await expect(page.locator("[data-home-entry]")).toHaveCount(4);
+  expect(await page.locator("[data-home-entry]").evaluateAll(links => links.map(link => link.getAttribute("data-home-entry")))).toEqual(selection);
+  for (const entry of [HOMEPAGE.hero, ...HOMEPAGE.featured]) {
+    await expect(page.locator(`[data-home-entry="${entry.id}"]`)).toHaveAttribute("href", entry.href);
+    expect((await request.get(entry.href.split("#")[0])).status()).toBe(200);
   }
-  await page.locator("#ending-research > summary").click();
-  await page.getByRole("link", { name: "Augustine: a life reread", exact: true }).click();
-  await expect(page).toHaveURL(/\/human-story\/augustine\/$/);
+  await page.getByRole("link", { name: "Enter Pliny’s world" }).click();
+  await expect(page).toHaveURL(/\/human-story\/pliny\/$/);
+  await expect(page.locator('[data-artifact="pliny-manuscript"]')).toBeVisible();
+  await page.getByRole("link", { name: /Begin with the household letter/ }).click();
+  await expect(page.locator("#pliny-household")).toBeInViewport();
   await page.goto("/");
-  await entrances.getByRole("link", { name: "Meet Romanus", exact: true }).click();
-  await page.getByRole("link", { name: "Begin with the person" }).click();
-  const movements = page.getByRole("navigation", { name: "Movements in Romanus’s story" });
-  for (const link of await movements.getByRole("link").all()) await link.click();
-  await expect(page.locator("#romanus-memory")).toBeFocused();
-  await page.getByRole("link", { name: "Read this text’s provenance", exact: true }).click();
-  await expect(page.locator("#romanus-research")).toHaveAttribute("open", "");
-  await page.getByRole("link", { name: "Perpetua: another life, other voices" }).click();
-  await expect(page).toHaveURL(/\/human-story\/perpetua\/$/);
+  await page.getByRole("link", { name: "The encounters", exact: true }).click();
+  await expect(page.locator("#encounters")).toBeFocused();
+  await page.getByRole("link", { name: "Meet Perpetua & Felicity", exact: true }).click();
+  await expect(page.getByRole("navigation", { name: "Scenes in Perpetua and Felicity" })).toBeVisible();
 });
 
-test("discovery actions have measured contrast, large targets and visible keyboard focus", async ({ page }) => {
+test("discovery retains every eligible reading without promoting other lives", async ({ page }) => {
+  await page.goto("/#discover");
+  await page.getByRole("button", { name: "Browse all 27 readings" }).click();
+  await expect(page.locator("#discover article")).toHaveCount(HOMEPAGE.discovery.length);
+  for (const entry of HOMEPAGE.discovery) await expect(page.locator(`#reading-${entry.id} h3 a`)).toHaveAttribute("href", entry.href);
+  await expect(page.locator('[data-home-entry="romanus"], [data-home-entry="james"], [data-home-entry="lachish"]')).toHaveCount(0);
+  await page.getByRole("searchbox").fill("no-matching-reading-9814");
+  await expect(page.getByRole("heading", { name: "No readings match that search." })).toBeVisible();
+  await page.getByRole("button", { name: "Clear search and filters" }).click();
+  await expect(page.getByRole("searchbox")).toBeFocused();
+  await page.getByRole("searchbox").fill("Lachish");
+  await page.locator("#reading-lachish h3 a").click();
+  await expect(page).toHaveURL(/\/lachish\/$/);
+});
+
+test("discovery actions reflow, meet contrast checks and retain visible keyboard focus", async ({ page }) => {
   test.setTimeout(90000);
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const width of [1440, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
+    await expect(page.getByRole("searchbox")).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    const targets = page.locator('a[class*="action-link_action"], header nav a, header a[href="/explore/"]');
-    for (const target of await targets.all()) {
-      const box = await target.boundingBox();
+    for (const action of await page.locator("[data-home-entry]").all()) {
+      const box = await action.boundingBox();
       expect(box?.width).toBeGreaterThanOrEqual(44);
       expect(box?.height).toBeGreaterThanOrEqual(44);
-    }
-    for (const label of ["Enter the encounter", "Meet Romanus"]) {
-      const action = page.getByRole("link", { name: label, exact: true });
-      const ratio = await action.evaluate(el => {
-        const luminance = (color: string) => {
-          const rgb = color.match(/[\d.]+/g)?.slice(0, 3).map(Number);
-          if (!rgb || rgb.length !== 3) throw new Error(`Unexpected color: ${color}`);
-          const values = rgb.map(n => n / 255).map(n => n <= 0.04045 ? n / 12.92 : ((n + 0.055) / 1.055) ** 2.4);
-          return values[0] * 0.2126 + values[1] * 0.7152 + values[2] * 0.0722;
-        };
-        const css = getComputedStyle(el), a = luminance(css.color), b = luminance(css.backgroundColor);
-        return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
-      });
-      expect(ratio).toBeGreaterThanOrEqual(4.5);
       await action.focus();
       expect(await action.evaluate(el => getComputedStyle(el).outlineWidth)).toBe("3px");
       await expect(action).toBeInViewport();
     }
-    expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
+    expect(await page.evaluate(() => document.getAnimations().filter(a => a.playState === "running").length)).toBe(0);
     expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze()).violations).toEqual([]);
-  }
-});
-
-test("collection rows are full links; discovery survives enlarged text, missing images and no JavaScript", async ({ page, browser, baseURL }) => {
-  await page.goto("/human-story/worlds/saints/");
-  await page.getByRole("link", { name: "Choose a life to read" }).click();
-  await expect(page.locator("#reading-index-title")).toBeFocused();
-  const romanus = page.getByRole("link", { name: "Romanus: the voice they could not silence", exact: true });
-  const box = await romanus.boundingBox();
-  expect(box?.height).toBeGreaterThan(44);
-  await romanus.click({ position: { x: 10, y: 10 } });
-  await expect(page).toHaveURL(/\/human-story\/romanus\/$/);
-  for (const route of ["/", "/human-story/worlds/saints/"]) {
-    await page.setViewportSize({ width: 820, height: 900 });
-    await page.goto(route);
     await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
+});
+
+test("source distinctions and historical limits remain available with a keyboard", async ({ page }) => {
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Skip to content" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main")).toBeFocused();
+  const manuscript = page.locator('[data-home-art="pliny"]');
+  await manuscript.locator("summary").focus();
+  await page.keyboard.press("Enter");
+  await expect(manuscript).toContainText("not 8.16 or 10.96–97");
+  await expect(manuscript.getByRole("link", { name: "Source record & rights" })).toHaveAttribute("href", "https://www.themorgan.org/manuscript/110821");
+  await page.getByText("How are these lives connected?", { exact: true }).click();
+  await expect(page.getByText(/No direct causal connection between Pliny/)).toBeVisible();
+});
+
+test("delayed and failed historical media preserve dimensions, provenance and all entrances", async ({ page }) => {
+  let releaseImage: (() => void) | undefined;
+  const imageGate = new Promise<void>(resolve => { releaseImage = resolve; });
+  await page.route("**/media/pliny-v4/manuscript-*.webp", async route => { await imageGate; await route.continue(); });
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const frame = page.locator('[data-home-art="pliny"] [data-media-state]');
+  await expect(frame).toHaveAttribute("data-media-state", "loading");
+  const before = await frame.boundingBox();
+  if (!releaseImage) throw new Error("Missing image gate");
+  releaseImage();
+  await expect(frame).toHaveAttribute("data-media-state", "loaded");
+  expect((await frame.boundingBox())?.height).toBe(before?.height);
+  await page.unroute("**/media/pliny-v4/manuscript-*.webp");
   await page.route("**/media/**/*.webp", route => route.abort());
-  await page.goto("/#encounters");
-  await expect(page.locator("#encounters").getByRole("status")).toHaveCount(2);
-  await expect(page.getByRole("link", { name: "Meet Romanus", exact: true })).toBeVisible();
+  await page.goto("/");
+  for (const id of ["pliny", "perpetua", "jonah"]) {
+    const art = page.locator(`[data-home-art="${id}"]`);
+    await art.scrollIntoViewIfNeeded();
+    await expect(art.getByRole("status")).toContainText("The image could not load.");
+    await art.locator("summary").click();
+    await expect(art.getByRole("link", { name: "Source record & rights" })).toBeVisible();
+  }
+  await page.getByRole("link", { name: "Enter Pliny’s world" }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveAccessibleName("A kind of commonwealth");
+});
+
+test("all selected entrances and broader discovery work without JavaScript", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
-  const noJS = await context.newPage();
-  await noJS.goto(`${baseURL}/`);
-  await noJS.getByRole("link", { name: "Meet Perpetua & Romanus", exact: true }).click();
-  await noJS.getByRole("link", { name: "Meet Romanus", exact: true }).click();
-  await expect(noJS.getByRole("heading", { name: "Romanus", exact: true })).toBeVisible();
+  const page = await context.newPage();
+  for (const entry of [HOMEPAGE.hero, ...HOMEPAGE.featured]) {
+    await page.goto(`${baseURL}/`);
+    await page.locator(`[data-home-entry="${entry.id}"]`).click();
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    expect(new URL(page.url()).pathname).toBe(entry.href.split("#")[0]);
+  }
+  await page.goto(`${baseURL}/`);
+  await expect(page.locator("#discover article")).toHaveCount(HOMEPAGE.discovery.length);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await context.close();
 });

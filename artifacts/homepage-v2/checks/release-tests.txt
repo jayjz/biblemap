@@ -1,0 +1,44 @@
+
+> next_temp@0.1.0 test:release
+> node --experimental-strip-types --test scripts/release/*.test.mjs
+
+(node:1474124) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/publication.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ synthetic exact artifact acceptance passes; pending and historical acceptance do not transfer (5.24042ms)
+✔ release authorization rejects: source SHA changes (0.343788ms)
+✔ release authorization rejects: artifact digest changes (0.315684ms)
+✔ release authorization rejects: manifest identity changes (0.312989ms)
+✔ release authorization rejects: source bytes change (0.390495ms)
+✔ release authorization rejects: scope changes (0.338608ms)
+✔ release authorization rejects: deployment identity differs (0.319071ms)
+✔ release authorization rejects: approval targets another candidate (0.390856ms)
+✔ release authorization rejects: rebuild after approval, even with identical bytes (0.322077ms)
+✔ release authorization rejects: rerun after approval (0.348186ms)
+✔ release authorization rejects: HTTP verification incomplete (0.337816ms)
+✔ release authorization rejects: HTTP evidence altered (0.305806ms)
+✔ release authorization rejects: upload verification unavailable (0.336584ms)
+✔ release authorization rejects: unapproved preview promotion (0.223902ms)
+✔ release authorization rejects: production deployment substituted (0.242987ms)
+✔ release authorization rejects: preview promoted after verification (0.224884ms)
+✔ release authorization rejects: preview assigned a production alias (0.253397ms)
+✔ release authorization rejects: different project substituted (0.22276ms)
+✔ Windows/Linux byte differences do not invalidate a verified canonical Linux candidate (0.319953ms)
+✔ every regular artifact is covered; hidden/add/remove/alter and incorrect/incomplete manifests fail closed (2.898289ms)
+✔ full prebuilt upload identity rejects missing, additional or replaced provider files (1.380039ms)
+✔ approval-only records do not change the raw build-input identity; source edits do (24.006172ms)
+✔ pinned CLI JSON result is parsed without following suggested production commands (3.527824ms)
+✔ Linux replicas must match full inputs, toolchain, output and configuration (0.558793ms)
+✔ production or release rebuilds are blocked while provisional review builds are allowed (0.203844ms)
+✔ candidate boundary rejects prohibited RSC routes and private payloads before upload (8.110235ms)
+✔ prebuilt routing preserves redirects, errors, Linux RSC paths and rejects unmapped configuration (0.606792ms)
+✔ actual bundled JSONP generator is reproducible across permuted initial chunks before hashing (160.233783ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 287.174877

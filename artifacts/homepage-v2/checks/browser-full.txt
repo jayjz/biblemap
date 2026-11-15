@@ -1,0 +1,295 @@
+
+> next_temp@0.1.0 test:e2e
+> playwright test --reporter=line
+
+
+Running 278 tests using 1 worker
+
+(node:1477830) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/278] [desktop] › tests/atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline
+[2/278] [desktop] › tests/atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson
+[3/278] [desktop] › tests/authorship.spec.ts:4:5 › visitor DOM omits slots and written drafts while author workspace retains them
+[4/278] [desktop] › tests/city-inside-name.spec.ts:4:5 › Nineveh encounter unfolds from Scripture to later context and back to verses
+[5/278] [desktop] › tests/city-inside-name.spec.ts:42:5 › the encounter reads without JavaScript or image loading
+[6/278] [desktop] › tests/city-inside-name.spec.ts:56:5 › reduced motion retains the same stages
+[7/278] [desktop] › tests/discovery.spec.ts:4:5 › sculpture study preserves the passage, traps focus, and returns on Escape
+[8/278] [desktop] › tests/discovery.spec.ts:31:5 › three discoveries preserve Scripture, disclose sources, and remain readable at 320px
+[9/278] [desktop] › tests/discovery.spec.ts:60:5 › passage opens Nineveh in the existing atlas and returns to the same passage
+[10/278] [desktop] › tests/discovery.spec.ts:93:5 › discovery artwork failure preserves passage and connections
+[11/278] [desktop] › tests/discovery.spec.ts:104:5 › Joppa link and missing basemap retain sourced places and return navigation
+[12/278] [desktop] › tests/explorer.spec.ts:3:5 › explorer baseline: data, filters, epochs, selection, journeys and fallback
+[13/278] [desktop] › tests/first-encounter.spec.ts:4:5 › Nineveh gateway leads to the first calling and curiosity before optional research
+[14/278] [desktop] › tests/first-encounter.spec.ts:53:5 › first encounter remains available without JavaScript
+[15/278] [desktop] › tests/home-discovery.spec.ts:8:5 › the living archive enters the actual V4 encounter and preserves the selected supporting lives
+[16/278] [desktop] › tests/home-discovery.spec.ts:29:5 › discovery retains every eligible reading without promoting other lives
+[17/278] [desktop] › tests/home-discovery.spec.ts:44:5 › discovery actions reflow, meet contrast checks and retain visible keyboard focus
+[18/278] [desktop] › tests/home-discovery.spec.ts:67:5 › source distinctions and historical limits remain available with a keyboard
+[19/278] [desktop] › tests/home-discovery.spec.ts:82:5 › delayed and failed historical media preserve dimensions, provenance and all entrances
+[20/278] [desktop] › tests/home-discovery.spec.ts:108:5 › all selected entrances and broader discovery work without JavaScript
+[21/278] [desktop] › tests/homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards
+[22/278] [desktop] › tests/homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions
+[23/278] [desktop] › tests/homepage-release.spec.ts:48:5 › five worlds and both principal lives remain reachable through the entrance
+[24/278] [desktop] › tests/homepage-release.spec.ts:68:5 › legacy Nineveh fragments preserve discoveries, focus, reload and Back/Forward
+[25/278] [desktop] › tests/homepage-release.spec.ts:88:5 › root content and Scripture navigation survive absent or failed JavaScript
+[26/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route / has no unexpected errors, broken images or overflow
+[27/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/ has no unexpected errors, broken images or overflow
+[28/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /nineveh/ has no unexpected errors, broken images or overflow
+[29/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /jonah/ has no unexpected errors, broken images or overflow
+[30/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /explore/ has no unexpected errors, broken images or overflow
+[31/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/perpetua/ has no unexpected errors, broken images or overflow
+[32/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/augustine/ has no unexpected errors, broken images or overflow
+[33/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/witnesses/ has no unexpected errors, broken images or overflow
+[34/278] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/saints/ has no unexpected errors, broken images or overflow
+[35/278] [desktop] › tests/homepage-release.spec.ts:126:5 › static export includes all published routes and server-rendered entrance metadata
+[36/278] [desktop] › tests/homepage.spec.ts:8:5 › Nineveh entrance retains real Scripture and a full-book entry
+[37/278] [desktop] › tests/homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending
+[38/278] [desktop] › tests/homepage.spec.ts:43:5 › published discoveries contain locally served images, rights and context
+[39/278] [desktop] › tests/homepage.spec.ts:69:5 › homepage remains readable at 320px and with reduced motion
+[40/278] [desktop] › tests/homepage.spec.ts:82:5 › homepage keyboard skip-link and reader entry remain accessible
+[41/278] [desktop] › tests/homepage.spec.ts:94:5 › no JavaScript still shows Nineveh Scripture and the whole-book exit
+[42/278] [desktop] › tests/homepage.spec.ts:105:5 › legacy root map links still load the atlas rather than hijacking the Nineveh hash
+[43/278] [desktop] › tests/homepage.spec.ts:111:5 › legacy skip fragment is treated as a homepage anchor
+[44/278] [desktop] › tests/human-story-interiors.spec.ts:4:5 › a reader can compare the governor and emperor in place with the keyboard
+[45/278] [desktop] › tests/human-story-interiors.spec.ts:27:5 › the separation holds two source moments together without changing scenes
+[46/278] [desktop] › tests/human-story-interiors.spec.ts:61:5 › new comparisons and image sources remain available without JavaScript
+[47/278] [desktop] › tests/human-story-interiors.spec.ts:94:5 › a failed new image preserves the source, caption and reading
+[48/278] [desktop] › tests/human-story-qa.spec.ts:6:5 › all static reading rooms and paths load with provenance, local links and no page errors
+[49/278] [desktop] › tests/human-story-qa.spec.ts:62:5 › five world destinations remain accessible and fit narrow and enlarged text layouts
+[50/278] [desktop] › tests/human-story-qa.spec.ts:95:5 › keyboard selection exposes its connections, keeps focus visible and returns to a real card
+[51/278] [desktop] › tests/human-story-qa.spec.ts:137:5 › no-JS exploration includes all readings, sources, artwork and authored paths
+[52/278] [desktop] › tests/human-story.spec.ts:4:5 › human story entrance has five worlds, Scripture access and an accessible reading order
+[53/278] [desktop] › tests/human-story.spec.ts:31:5 › human story remains readable without JavaScript and at 320px
+[54/278] [desktop] › tests/human-story.spec.ts:57:5 › Scripture rooms retain exact Jonah, disclose source limits and connect into the Atlas
+[55/278] [desktop] › tests/human-story.spec.ts:89:5 › witnesses distinguish disputed wording, James and scholarly transmission
+[56/278] [desktop] › tests/human-story.spec.ts:124:5 › saints keep autobiographical voice, editorial framing and legend distinct
+[57/278] [desktop] › tests/human-story.spec.ts:164:5 › connected exploration searches, recovers from an empty result and previews relationships
+[58/278] [desktop] › tests/human-story.spec.ts:211:5 › authored threads cross worlds and retain historical limits
+[59/278] [desktop] › tests/human-story.spec.ts:243:5 › rights-cleared media retains a useful fallback and attribution
+[60/278] [desktop] › tests/james.spec.ts:4:5 › James is discoverable and the five movements retain source distinctions
+[61/278] [desktop] › tests/james.spec.ts:48:5 › keyboard-only comparison returns focus and narrative position
+[62/278] [desktop] › tests/james.spec.ts:72:5 › tablet pointer comparison preserves the selected movement and scroll position
+[63/278] [desktop] › tests/james.spec.ts:90:5 › 320px no-JS reading preserves every movement and comparison
+[64/278] [desktop] › tests/james.spec.ts:107:5 › reduced motion, unavailable images and enlarged text preserve the reading
+[65/278] [desktop] › tests/james.spec.ts:123:5 › cinematic scenes retain distinct settings, political consequences and accessible evidence
+[66/278] [desktop] › tests/james.spec.ts:154:5 › responsive local art and no-JS scene controls
+[67/278] [desktop] › tests/jonah-letters.spec.ts:9:5 › a reader changes historical perspective beside unchanged Scripture using the keyboard
+[68/278] [desktop] › tests/jonah-letters.spec.ts:42:5 › native reading, source deep links and both letters work with JavaScript disabled
+[69/278] [desktop] › tests/jonah-letters.spec.ts:56:5 › the encounter reflows at 320px and 200% text, preserves motion choices and passes axe
+[70/278] [desktop] › tests/jonah-letters.spec.ts:73:5 › Jonah's shade offers the exchange and the return keeps the reader in Jonah 4
+[71/278] [desktop] › tests/jonah-mercy-turn.spec.ts:4:5 › Nineveh's repentance leads into Jonah's anger without pre-explaining it
+[72/278] [desktop] › tests/jonah.spec.ts:11:5 › complete reader-controlled book, history, malformed links, and keyboard focus
+[73/278] [desktop] › tests/jonah.spec.ts:72:5 › reflection stays in memory and clears on reload and exit
+[74/278] [desktop] › tests/jonah.spec.ts:110:5 › accessible reduced-motion reader with no WebGL or third-party requests
+[75/278] [desktop] › tests/jonah.spec.ts:141:5 › without JavaScript all 48 verses and anchor navigation remain readable
+[76/278] [desktop] › tests/lachish.spec.ts:4:5 › Lachish: enter the city, inspect a real relief and return from its spatial interpretation
+[77/278] [desktop] › tests/lachish.spec.ts:45:5 › Lachish: keyboard, reduced motion, source links and mobile layout
+[78/278] [desktop] › tests/lachish.spec.ts:77:5 › Lachish: no-JavaScript encounter preserves all movements, evidence and complete passages
+[79/278] [desktop] › tests/lachish.spec.ts:91:5 › Lachish: missing media keeps the narrative and evidence usable
+[80/278] [desktop] › tests/lachish.spec.ts:101:5 › Lachish: narrow-screen details stay reachable and enlargement does not cover a hotspot
+[81/278] [desktop] › tests/lachish.spec.ts:140:5 › Lachish: household evidence leads into displacement and preserves the whole photograph
+[82/278] [desktop] › tests/media.spec.ts:7:5 › static export excludes held reproductions and local review routes
+[83/278] [desktop] › tests/media.spec.ts:22:5 › media failure preserves fallback; audio requires action and pauses on scene exit
+[84/278] [desktop] › tests/media.spec.ts:49:5 › rejected playback remains recoverable without synthesis
+[85/278] [desktop] › tests/media.spec.ts:61:5 › restricted media makes no image request; approved fixture preserves composition and provenance after failure
+[86/278] [desktop] › tests/media.spec.ts:90:5 › normal Jonah route keeps approved art and labels open images as provisional
+[87/278] [desktop] › tests/media.spec.ts:147:5 › normal reader recovers from a missing approved artwork
+[88/278] [desktop] › tests/network-regression.spec.ts:4:5 › real aborted navigation and HTTP 503 still fail the strict network assertion
+[89/278] [desktop] › tests/perpetua-narrative.spec.ts:3:5 › ordinary continuation exposes setting, stakes, consequences and source boundaries
+[90/278] [desktop] › tests/perpetua-narrative.spec.ts:47:5 › source inspection offers a keyboard return to the exact reading
+[91/278] [desktop] › tests/perpetua-reading.spec.ts:8:5 › the opening discloses its imagined city and survives missing artwork
+[92/278] [desktop] › tests/perpetua-reading.spec.ts:20:5 › the reader discovers presence, refusal and interpretation without a fictional reunion
+[93/278] [desktop] › tests/perpetua-reading.spec.ts:77:5 › every source moment remains accessible at 320px with motion reduced
+[94/278] [desktop] › tests/perpetua-reading.spec.ts:90:5 › without scripts the complete source passages and reception details remain available
+[95/278] [desktop] › tests/perpetua-reading.spec.ts:106:5 › optional reception art can fail without changing the source reading
+[96/278] [desktop] › tests/perpetua-recovery.spec.ts:4:5 › vision reading keeps seeing, changed body and waking interpretation distinct
+[97/278] [desktop] › tests/perpetua-recovery.spec.ts:17:5 › source links open the ending research without hiding it and restore scene history
+[98/278] [desktop] › tests/perpetua-recovery.spec.ts:30:5 › the last reading frame is the unanswered question, after research and controls
+[99/278] [desktop] › tests/perpetua-recovery.spec.ts:44:5 › new artworks can fail while the vision and narrated childbirth remain readable
+[100/278] [desktop] › tests/perpetua-recovery.spec.ts:58:5 › the reported vision has all three passages when JavaScript is disabled
+[101/278] [desktop] › tests/perpetua.spec.ts:5:5 › the prison encounter exposes human stakes and the changing source voice
+[102/278] [desktop] › tests/perpetua.spec.ts:82:5 › scene links, history, keyboard relationships and full reading retain control
+[103/278] [desktop] › tests/perpetua.spec.ts:136:5 › every scene supports reduced motion, narrow layouts, enlarged text and accessible controls
+[104/278] [desktop] › tests/perpetua.spec.ts:178:5 › without JavaScript all scenes, people, provenance and onward routes remain available
+[105/278] [desktop] › tests/perpetua.spec.ts:216:5 › a failed script load retains the complete source-bounded reading
+[106/278] [desktop] › tests/pliny.spec.ts:7:5 › a sentence can be kept, brought into the later account, and put down without losing the reading
+[107/278] [desktop] › tests/pliny.spec.ts:45:5 › reduced motion, enlarged text, keyboard focus and narrow reading preserve the source relationship
+[108/278] [desktop] › tests/pliny.spec.ts:70:5 › the complete narrative, local letters and comparison work without JavaScript or artwork
+[109/278] [desktop] › tests/pliny.spec.ts:93:5 › legacy fragments, source disclosures and no-index review boundaries remain intact
+[110/278] [desktop] › tests/pliny.spec.ts:108:5 › V4 artifacts keep visible context, local responsive images and native provenance at phone and desktop widths
+[111/278] [desktop] › tests/romanus.spec.ts:4:5 › Romanus introduces the person and provides the complete source-separated journey
+[112/278] [desktop] › tests/romanus.spec.ts:50:5 › the story and its source comparison work without JavaScript at 320px
+[113/278] [desktop] › tests/romanus.spec.ts:69:5 › reduced motion and missing artwork preserve the narrative, controls and ending
+[114/278] [desktop] › tests/romanus.spec.ts:82:5 › the Saints collection gives Romanus a discoverable entrance
+[115/278] [desktop] › tests/routing.spec.ts:8:5 › tracking queries keep the Nineveh entrance and its section navigation
+[116/278] [desktop] › tests/routing.spec.ts:22:5 › tracking queries preserve discoveries, keyboard entry and unknown anchors
+[117/278] [desktop] › tests/routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths
+[118/278] [desktop] › tests/routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload
+[119/278] [desktop] › tests/thomas-homepage.spec.ts:5:5 › Thomas has distinct narrative and sayings entrances without an invented graph entry
+[120/278] [desktop] › tests/thomas-homepage.spec.ts:21:5 › Thomas is a featured searchable reading; existing stories and discovery still work
+[121/278] [desktop] › tests/thomas-homepage.spec.ts:42:5 › Thomas reflows at four widths, uses mobile artwork and retains accessible keyboard navigation
+[122/278] [desktop] › tests/thomas-homepage.spec.ts:87:5 › both Thomas entrances work without JavaScript or when scripts fail
+[123/278] [desktop] › tests/thomas-homepage.spec.ts:104:5 › delayed and missing invitation artwork preserves navigation and layout
+[124/278] [desktop] › tests/thomas-sources.spec.ts:5:5 › source encounters connect narrative, documents and later traditions without a bibliography gate
+[125/278] [desktop] › tests/thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text
+[126/278] [desktop] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 1440px
+[127/278] [desktop] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 768px
+[128/278] [desktop] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 390px
+[129/278] [desktop] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 320px
+[130/278] [desktop] › tests/thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway
+[131/278] [desktop] › tests/thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript
+[132/278] [desktop] › tests/thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination
+[133/278] [desktop] › tests/thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available
+[134/278] [desktop] › tests/thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px
+[135/278] [desktop] › tests/thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery
+[136/278] [desktop] › tests/thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery
+[137/278] [desktop] › tests/thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery
+[138/278] [desktop] › tests/thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery
+[139/278] [desktop] › tests/thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+(node:1486534) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[140/278] [mobile] › tests/atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from inline
+[141/278] [mobile] › tests/atlas-security.spec.ts:4:7 › Atlas preserves attribution and rejects adjacent executable attributes from tilejson
+[142/278] [mobile] › tests/authorship.spec.ts:4:5 › visitor DOM omits slots and written drafts while author workspace retains them
+[143/278] [mobile] › tests/city-inside-name.spec.ts:4:5 › Nineveh encounter unfolds from Scripture to later context and back to verses
+[144/278] [mobile] › tests/city-inside-name.spec.ts:42:5 › the encounter reads without JavaScript or image loading
+[145/278] [mobile] › tests/city-inside-name.spec.ts:56:5 › reduced motion retains the same stages
+[146/278] [mobile] › tests/discovery.spec.ts:4:5 › sculpture study preserves the passage, traps focus, and returns on Escape
+[147/278] [mobile] › tests/discovery.spec.ts:31:5 › three discoveries preserve Scripture, disclose sources, and remain readable at 320px
+[148/278] [mobile] › tests/discovery.spec.ts:60:5 › passage opens Nineveh in the existing atlas and returns to the same passage
+[149/278] [mobile] › tests/discovery.spec.ts:93:5 › discovery artwork failure preserves passage and connections
+[150/278] [mobile] › tests/discovery.spec.ts:104:5 › Joppa link and missing basemap retain sourced places and return navigation
+[151/278] [mobile] › tests/explorer.spec.ts:3:5 › explorer baseline: data, filters, epochs, selection, journeys and fallback
+[152/278] [mobile] › tests/first-encounter.spec.ts:4:5 › Nineveh gateway leads to the first calling and curiosity before optional research
+[153/278] [mobile] › tests/first-encounter.spec.ts:53:5 › first encounter remains available without JavaScript
+[154/278] [mobile] › tests/home-discovery.spec.ts:8:5 › the living archive enters the actual V4 encounter and preserves the selected supporting lives
+[155/278] [mobile] › tests/home-discovery.spec.ts:29:5 › discovery retains every eligible reading without promoting other lives
+[156/278] [mobile] › tests/home-discovery.spec.ts:44:5 › discovery actions reflow, meet contrast checks and retain visible keyboard focus
+[157/278] [mobile] › tests/home-discovery.spec.ts:67:5 › source distinctions and historical limits remain available with a keyboard
+[158/278] [mobile] › tests/home-discovery.spec.ts:82:5 › delayed and failed historical media preserve dimensions, provenance and all entrances
+[159/278] [mobile] › tests/home-discovery.spec.ts:108:5 › all selected entrances and broader discovery work without JavaScript
+[160/278] [mobile] › tests/homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards
+[161/278] [mobile] › tests/homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions
+[162/278] [mobile] › tests/homepage-release.spec.ts:48:5 › five worlds and both principal lives remain reachable through the entrance
+[163/278] [mobile] › tests/homepage-release.spec.ts:68:5 › legacy Nineveh fragments preserve discoveries, focus, reload and Back/Forward
+[164/278] [mobile] › tests/homepage-release.spec.ts:88:5 › root content and Scripture navigation survive absent or failed JavaScript
+[165/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route / has no unexpected errors, broken images or overflow
+[166/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/ has no unexpected errors, broken images or overflow
+[167/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /nineveh/ has no unexpected errors, broken images or overflow
+[168/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /jonah/ has no unexpected errors, broken images or overflow
+[169/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /explore/ has no unexpected errors, broken images or overflow
+[170/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/perpetua/ has no unexpected errors, broken images or overflow
+[171/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/augustine/ has no unexpected errors, broken images or overflow
+[172/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/witnesses/ has no unexpected errors, broken images or overflow
+[173/278] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/saints/ has no unexpected errors, broken images or overflow
+[174/278] [mobile] › tests/homepage-release.spec.ts:126:5 › static export includes all published routes and server-rendered entrance metadata
+[175/278] [mobile] › tests/homepage.spec.ts:8:5 › Nineveh entrance retains real Scripture and a full-book entry
+[176/278] [mobile] › tests/homepage.spec.ts:24:5 › Nineveh transition uses pinned verses, preserves history, and links to the ending
+[177/278] [mobile] › tests/homepage.spec.ts:43:5 › published discoveries contain locally served images, rights and context
+[178/278] [mobile] › tests/homepage.spec.ts:69:5 › homepage remains readable at 320px and with reduced motion
+[179/278] [mobile] › tests/homepage.spec.ts:82:5 › homepage keyboard skip-link and reader entry remain accessible
+[180/278] [mobile] › tests/homepage.spec.ts:94:5 › no JavaScript still shows Nineveh Scripture and the whole-book exit
+[181/278] [mobile] › tests/homepage.spec.ts:105:5 › legacy root map links still load the atlas rather than hijacking the Nineveh hash
+[182/278] [mobile] › tests/homepage.spec.ts:111:5 › legacy skip fragment is treated as a homepage anchor
+[183/278] [mobile] › tests/human-story-interiors.spec.ts:4:5 › a reader can compare the governor and emperor in place with the keyboard
+[184/278] [mobile] › tests/human-story-interiors.spec.ts:27:5 › the separation holds two source moments together without changing scenes
+[185/278] [mobile] › tests/human-story-interiors.spec.ts:61:5 › new comparisons and image sources remain available without JavaScript
+[186/278] [mobile] › tests/human-story-interiors.spec.ts:94:5 › a failed new image preserves the source, caption and reading
+[187/278] [mobile] › tests/human-story-qa.spec.ts:6:5 › all static reading rooms and paths load with provenance, local links and no page errors
+[188/278] [mobile] › tests/human-story-qa.spec.ts:62:5 › five world destinations remain accessible and fit narrow and enlarged text layouts
+[189/278] [mobile] › tests/human-story-qa.spec.ts:95:5 › keyboard selection exposes its connections, keeps focus visible and returns to a real card
+[190/278] [mobile] › tests/human-story-qa.spec.ts:137:5 › no-JS exploration includes all readings, sources, artwork and authored paths
+[191/278] [mobile] › tests/human-story.spec.ts:4:5 › human story entrance has five worlds, Scripture access and an accessible reading order
+[192/278] [mobile] › tests/human-story.spec.ts:31:5 › human story remains readable without JavaScript and at 320px
+[193/278] [mobile] › tests/human-story.spec.ts:57:5 › Scripture rooms retain exact Jonah, disclose source limits and connect into the Atlas
+[194/278] [mobile] › tests/human-story.spec.ts:89:5 › witnesses distinguish disputed wording, James and scholarly transmission
+[195/278] [mobile] › tests/human-story.spec.ts:124:5 › saints keep autobiographical voice, editorial framing and legend distinct
+[196/278] [mobile] › tests/human-story.spec.ts:164:5 › connected exploration searches, recovers from an empty result and previews relationships
+[197/278] [mobile] › tests/human-story.spec.ts:211:5 › authored threads cross worlds and retain historical limits
+[198/278] [mobile] › tests/human-story.spec.ts:243:5 › rights-cleared media retains a useful fallback and attribution
+[199/278] [mobile] › tests/james.spec.ts:4:5 › James is discoverable and the five movements retain source distinctions
+[200/278] [mobile] › tests/james.spec.ts:48:5 › keyboard-only comparison returns focus and narrative position
+[201/278] [mobile] › tests/james.spec.ts:72:5 › tablet pointer comparison preserves the selected movement and scroll position
+[202/278] [mobile] › tests/james.spec.ts:90:5 › 320px no-JS reading preserves every movement and comparison
+[203/278] [mobile] › tests/james.spec.ts:107:5 › reduced motion, unavailable images and enlarged text preserve the reading
+[204/278] [mobile] › tests/james.spec.ts:123:5 › cinematic scenes retain distinct settings, political consequences and accessible evidence
+[205/278] [mobile] › tests/james.spec.ts:154:5 › responsive local art and no-JS scene controls
+[206/278] [mobile] › tests/jonah-letters.spec.ts:9:5 › a reader changes historical perspective beside unchanged Scripture using the keyboard
+[207/278] [mobile] › tests/jonah-letters.spec.ts:42:5 › native reading, source deep links and both letters work with JavaScript disabled
+[208/278] [mobile] › tests/jonah-letters.spec.ts:56:5 › the encounter reflows at 320px and 200% text, preserves motion choices and passes axe
+[209/278] [mobile] › tests/jonah-letters.spec.ts:73:5 › Jonah's shade offers the exchange and the return keeps the reader in Jonah 4
+[210/278] [mobile] › tests/jonah-mercy-turn.spec.ts:4:5 › Nineveh's repentance leads into Jonah's anger without pre-explaining it
+[211/278] [mobile] › tests/jonah.spec.ts:11:5 › complete reader-controlled book, history, malformed links, and keyboard focus
+[212/278] [mobile] › tests/jonah.spec.ts:72:5 › reflection stays in memory and clears on reload and exit
+[213/278] [mobile] › tests/jonah.spec.ts:110:5 › accessible reduced-motion reader with no WebGL or third-party requests
+[214/278] [mobile] › tests/jonah.spec.ts:141:5 › without JavaScript all 48 verses and anchor navigation remain readable
+[215/278] [mobile] › tests/lachish.spec.ts:4:5 › Lachish: enter the city, inspect a real relief and return from its spatial interpretation
+[216/278] [mobile] › tests/lachish.spec.ts:45:5 › Lachish: keyboard, reduced motion, source links and mobile layout
+[217/278] [mobile] › tests/lachish.spec.ts:77:5 › Lachish: no-JavaScript encounter preserves all movements, evidence and complete passages
+[218/278] [mobile] › tests/lachish.spec.ts:91:5 › Lachish: missing media keeps the narrative and evidence usable
+[219/278] [mobile] › tests/lachish.spec.ts:101:5 › Lachish: narrow-screen details stay reachable and enlargement does not cover a hotspot
+[220/278] [mobile] › tests/lachish.spec.ts:140:5 › Lachish: household evidence leads into displacement and preserves the whole photograph
+[221/278] [mobile] › tests/media.spec.ts:7:5 › static export excludes held reproductions and local review routes
+[222/278] [mobile] › tests/media.spec.ts:22:5 › media failure preserves fallback; audio requires action and pauses on scene exit
+[223/278] [mobile] › tests/media.spec.ts:49:5 › rejected playback remains recoverable without synthesis
+[224/278] [mobile] › tests/media.spec.ts:61:5 › restricted media makes no image request; approved fixture preserves composition and provenance after failure
+[225/278] [mobile] › tests/media.spec.ts:90:5 › normal Jonah route keeps approved art and labels open images as provisional
+[226/278] [mobile] › tests/media.spec.ts:147:5 › normal reader recovers from a missing approved artwork
+[227/278] [mobile] › tests/network-regression.spec.ts:4:5 › real aborted navigation and HTTP 503 still fail the strict network assertion
+[228/278] [mobile] › tests/perpetua-narrative.spec.ts:3:5 › ordinary continuation exposes setting, stakes, consequences and source boundaries
+[229/278] [mobile] › tests/perpetua-narrative.spec.ts:47:5 › source inspection offers a keyboard return to the exact reading
+[230/278] [mobile] › tests/perpetua-reading.spec.ts:8:5 › the opening discloses its imagined city and survives missing artwork
+[231/278] [mobile] › tests/perpetua-reading.spec.ts:20:5 › the reader discovers presence, refusal and interpretation without a fictional reunion
+[232/278] [mobile] › tests/perpetua-reading.spec.ts:77:5 › every source moment remains accessible at 320px with motion reduced
+[233/278] [mobile] › tests/perpetua-reading.spec.ts:90:5 › without scripts the complete source passages and reception details remain available
+[234/278] [mobile] › tests/perpetua-reading.spec.ts:106:5 › optional reception art can fail without changing the source reading
+[235/278] [mobile] › tests/perpetua-recovery.spec.ts:4:5 › vision reading keeps seeing, changed body and waking interpretation distinct
+[236/278] [mobile] › tests/perpetua-recovery.spec.ts:17:5 › source links open the ending research without hiding it and restore scene history
+[237/278] [mobile] › tests/perpetua-recovery.spec.ts:30:5 › the last reading frame is the unanswered question, after research and controls
+[238/278] [mobile] › tests/perpetua-recovery.spec.ts:44:5 › new artworks can fail while the vision and narrated childbirth remain readable
+[239/278] [mobile] › tests/perpetua-recovery.spec.ts:58:5 › the reported vision has all three passages when JavaScript is disabled
+[240/278] [mobile] › tests/perpetua.spec.ts:5:5 › the prison encounter exposes human stakes and the changing source voice
+[241/278] [mobile] › tests/perpetua.spec.ts:82:5 › scene links, history, keyboard relationships and full reading retain control
+[242/278] [mobile] › tests/perpetua.spec.ts:136:5 › every scene supports reduced motion, narrow layouts, enlarged text and accessible controls
+[243/278] [mobile] › tests/perpetua.spec.ts:178:5 › without JavaScript all scenes, people, provenance and onward routes remain available
+[244/278] [mobile] › tests/perpetua.spec.ts:216:5 › a failed script load retains the complete source-bounded reading
+[245/278] [mobile] › tests/pliny.spec.ts:7:5 › a sentence can be kept, brought into the later account, and put down without losing the reading
+[246/278] [mobile] › tests/pliny.spec.ts:45:5 › reduced motion, enlarged text, keyboard focus and narrow reading preserve the source relationship
+[247/278] [mobile] › tests/pliny.spec.ts:70:5 › the complete narrative, local letters and comparison work without JavaScript or artwork
+[248/278] [mobile] › tests/pliny.spec.ts:93:5 › legacy fragments, source disclosures and no-index review boundaries remain intact
+[249/278] [mobile] › tests/pliny.spec.ts:108:5 › V4 artifacts keep visible context, local responsive images and native provenance at phone and desktop widths
+[250/278] [mobile] › tests/romanus.spec.ts:4:5 › Romanus introduces the person and provides the complete source-separated journey
+[251/278] [mobile] › tests/romanus.spec.ts:50:5 › the story and its source comparison work without JavaScript at 320px
+[252/278] [mobile] › tests/romanus.spec.ts:69:5 › reduced motion and missing artwork preserve the narrative, controls and ending
+[253/278] [mobile] › tests/romanus.spec.ts:82:5 › the Saints collection gives Romanus a discoverable entrance
+[254/278] [mobile] › tests/routing.spec.ts:8:5 › tracking queries keep the Nineveh entrance and its section navigation
+[255/278] [mobile] › tests/routing.spec.ts:22:5 › tracking queries preserve discoveries, keyboard entry and unknown anchors
+[256/278] [mobile] › tests/routing.spec.ts:39:5 › homepage, atlas and reader have explicit return paths
+[257/278] [mobile] › tests/routing.spec.ts:72:5 › legacy atlas links survive UTM parameters and reload
+[258/278] [mobile] › tests/thomas-homepage.spec.ts:5:5 › Thomas has distinct narrative and sayings entrances without an invented graph entry
+[259/278] [mobile] › tests/thomas-homepage.spec.ts:21:5 › Thomas is a featured searchable reading; existing stories and discovery still work
+[260/278] [mobile] › tests/thomas-homepage.spec.ts:42:5 › Thomas reflows at four widths, uses mobile artwork and retains accessible keyboard navigation
+[261/278] [mobile] › tests/thomas-homepage.spec.ts:87:5 › both Thomas entrances work without JavaScript or when scripts fail
+[262/278] [mobile] › tests/thomas-homepage.spec.ts:104:5 › delayed and missing invitation artwork preserves navigation and layout
+[263/278] [mobile] › tests/thomas-sources.spec.ts:5:5 › source encounters connect narrative, documents and later traditions without a bibliography gate
+[264/278] [mobile] › tests/thomas-sources.spec.ts:36:5 › source exploration works with no JavaScript, keyboard, reduced motion and enlarged text
+[265/278] [mobile] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 1440px
+[266/278] [mobile] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 768px
+[267/278] [mobile] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 390px
+[268/278] [mobile] › tests/thomas-sources.spec.ts:57:44 › source encounters reflow and retain all evidence with failed imagery at 320px
+[269/278] [mobile] › tests/thomas.spec.ts:5:5 › Thomas preserves the whole account, source boundaries, navigation and a separate doorway
+[270/278] [mobile] › tests/thomas.spec.ts:51:5 › native voice comparison and manuscript exploration preserve source text with keyboard and no JavaScript
+[271/278] [mobile] › tests/thomas.spec.ts:77:5 › keyboard-only entry, disclosures and deep links preserve a visible destination
+[272/278] [mobile] › tests/thomas.spec.ts:99:5 › image loading keeps the frame stable and the complete text available
+[273/278] [mobile] › tests/thomas.spec.ts:113:5 › no-JavaScript encounter, complete simple reading and saying comparison work at 320px
+[274/278] [mobile] › tests/thomas.spec.ts:133:45 › Thomas reflows at 1440px with enlarged text, reduced motion and unavailable imagery
+[275/278] [mobile] › tests/thomas.spec.ts:133:45 › Thomas reflows at 768px with enlarged text, reduced motion and unavailable imagery
+[276/278] [mobile] › tests/thomas.spec.ts:133:45 › Thomas reflows at 390px with enlarged text, reduced motion and unavailable imagery
+[277/278] [mobile] › tests/thomas.spec.ts:133:45 › Thomas reflows at 320px with enlarged text, reduced motion and unavailable imagery
+[278/278] [mobile] › tests/thomas.spec.ts:157:5 › V4 interval, complete ending and expanded physical evidence remain accessible
+  1 skipped
+  277 passed (6.9m)

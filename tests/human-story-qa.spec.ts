@@ -102,6 +102,7 @@ test("keyboard selection exposes its connections, keeps focus visible and return
   await search.fill("missing-reader-9381");
   await page.getByRole("button", { name: "Clear search and filters" }).click();
   await expect(search).toBeFocused();
+  await page.getByRole("button", { name: /Browse all/ }).click();
   const select = page.getByRole("button", {
     name: "Show connections for Augustine: a life reread",
   });
