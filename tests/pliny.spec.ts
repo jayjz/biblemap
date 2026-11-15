@@ -71,7 +71,7 @@ test("the complete narrative, local letters and comparison work without JavaScri
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
   try {
     const page = await context.newPage();
-    await page.route(/\/media\/pliny-v3\/.*\.webp/, route => route.abort());
+    await page.route(/\/media\/pliny-v[34]\/.*\.webp/, route => route.abort());
     await page.goto(baseURL + "/human-story/pliny/#pliny-comparison");
     await expect(page.locator("#pliny-comparison")).toBeVisible();
     await expect(page.locator('#pliny-comparison [data-passage="commands"] blockquote')).toHaveText(PLINY_V3_EXCERPTS.commands.text);
@@ -101,5 +101,44 @@ test("legacy fragments, source disclosures and no-index review boundaries remain
   if (await evidence.getAttribute("open") === null) await evidence.locator(":scope > summary").click();
   await expect(page.locator('[data-prose="reception"]')).toHaveText(PLINY_V3_PROSE.reception.text);
   await expect(page.getByText(/AI-authored historical and literary draft/)).toBeVisible();
-  await expect(page.getByRole("link", { name: "Artwork provenance and generation record" })).toHaveAttribute("href", "/media/pliny-v3/manifest.json");
+  await expect(page.getByRole("link", { name: "Visual sources, rights and provenance" })).toHaveAttribute("href", "/media/pliny-v4/manifest.json");
+});
+
+
+test("V4 artifacts keep visible context, local responsive images and native provenance at phone and desktop widths", async ({ page, baseURL }) => {
+  if (!baseURL) throw new Error("A base URL is required for the static encounter");
+  const origin = new URL(baseURL).origin;
+  const external: string[] = [];
+  page.on("request", request => { if (!request.url().startsWith(origin) && /^https?:/.test(request.url())) external.push(request.url()); });
+  await page.goto("/human-story/pliny/");
+  await expect(page.locator('[data-encounter="pliny"]')).toHaveAttribute("data-version", "4");
+  await expect(page.getByRole("navigation", { name: "Letters in this reading" })).toBeVisible();
+  for (const width of [1440, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const id of ["pliny-manuscript", "pliny-diploma", "pliny-trajan-coin"]) {
+      const artifact = page.locator('[data-artifact="' + id + '"]');
+      await artifact.scrollIntoViewIfNeeded();
+      await expect(artifact).toBeVisible();
+      await expect(artifact.locator("img")).toBeVisible();
+      await artifact.locator("img").evaluate(image => {
+        if (!(image instanceof HTMLImageElement)) throw new Error("Expected an artifact image");
+        return image.decode();
+      });
+      const source = await artifact.locator("img").evaluate(image => {
+        if (!(image instanceof HTMLImageElement)) throw new Error("Expected an artifact image");
+        return image.currentSrc;
+      });
+      expect(source).toContain(width < 700 ? (id === "pliny-manuscript" ? "600.webp" : "480.webp") : (id === "pliny-manuscript" ? "1200.webp" : "960.webp"));
+    }
+  }
+  const manuscript = page.locator('[data-artifact="pliny-manuscript"]');
+  await expect(manuscript).toContainText("not the passages quoted here");
+  await manuscript.getByText("Object, source & rights", { exact: true }).click();
+  await expect(manuscript.getByRole("link", { name: "Institutional record" })).toHaveAttribute("href", "https://www.themorgan.org/manuscript/110821");
+  await expect(manuscript.getByRole("link", { name: /1922 facsimile/ })).toBeVisible();
+  const imageLink = manuscript.getByRole("link", { name: /Enlarge/ });
+  const response = await page.request.get(await imageLink.getAttribute("href") ?? "");
+  expect(response.ok()).toBe(true);
+  expect(response.headers()["content-type"]).toContain("image/webp");
+  expect(external).toEqual([]);
 });

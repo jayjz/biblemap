@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "pliny-manuscript",
+      "class": "manuscript",
+      "title": "Pliny’s Letters · Morgan MS M.462, fol. 48r",
+      "creator": "Unknown late-antique scribe; photographic facsimile in E. A. Lowe and E. K. Rand, 1922",
+      "creationDate": "Manuscript ca. 490–499; facsimile published 1922; digitized 2012",
+      "depictedPeriod": "Late fifth century; a later witness to the letter collection",
+      "sourceInstitution": "The Morgan Library & Museum (manuscript); Carnegie Institution of Washington (1922 facsimile); Robarts Library, University of Toronto / Internet Archive (scan)",
+      "sourceRecordUrl": "https://www.themorgan.org/manuscript/110821",
+      "originalAssetUrl": "https://archive.org/download/sixthcenturyfrag00lowe/sixthcenturyfrag00lowe.pdf",
+      "license": "Public domain in the United States: 1922 US publication of an ancient manuscript facsimile",
+      "rightsStatement": "Plate I from Lowe and Rand, A sixth-century fragment of the letters of Pliny the Younger, Washington: Carnegie Institution, 1922; Internet Archive identifier sixthcenturyfrag00lowe, PDF page 81. Exact 1922 imprint checked against title page and archive metadata. This pre-1931 US publication is public domain in the US. A faithful scan of that plate is used, not the Morgan’s modern photography. No modern Morgan website imagery or commentary is copied.",
+      "requiredAttribution": "Morgan MS M.462, fol. 48r. Facsimile: Lowe & Rand, 1922, plate I. Scan: Robarts Library / Internet Archive. Public domain in the US.",
+      "altText": "1922 facsimile of a vellum leaf, with uncial Latin writing and the end of Book II and beginning of Book III of Pliny’s Letters.",
+      "caption": "A later witness to the collection",
+      "historicalFit": "Morgan dates this manuscript to ca. 490–499. The 1922 publication used an early-sixth-century dating, retained in its title. This leaf contains the end of Book II and start of Book III, not 8.16 or 10.96–97. It is not Pliny’s handwriting or an original government file.",
+      "editorialReason": "Makes the survival of Pliny’s words physically visible without inventing a letter or implying that the quoted passages appear on this leaf.",
+      "locator": "MS M.462 · fol. 48r · plate I",
+      "context": "Books II–III, not the passages quoted here. A 1922 facsimile of a manuscript dated ca. 490–499; not Pliny’s handwriting.",
+      "checksum": "sha256:1beedd6eabaa879f9ee528613d52d4b9ef6567cf9833c56c5d9f38a940bcbab7",
+      "files": [
+        {
+          "localPath": "/media/pliny-v4/manuscript-600.webp",
+          "width": 600,
+          "height": 833,
+          "bytes": 60312,
+          "checksum": "sha256:7925e6c0c7b257685b51b633b99a0aa57a2121aa122b2af8fc8865fd222db9d9"
+        },
+        {
+          "localPath": "/media/pliny-v4/manuscript-1200.webp",
+          "width": 1200,
+          "height": 1665,
+          "bytes": 153232,
+          "checksum": "sha256:7917259a6e1be50e4a86a89f18ec0fffc359feef1fc245e5826ce3cb25eee8e5"
+        }
+      ],
+      "localPath": "/media/pliny-v4/manuscript-600.webp",
+      "eventIds": [],
+      "journeyIds": [
+        "pliny"
+      ],
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex: exact source records, original publication and image-specific public-domain flags checked 2026-11-15; contextual captions remain a draft for human historical review",
+      "downloadedAt": "2026-11-15",
+      "originalDocumentChecksum": "sha256:da441a2ef2a5f7d1d49ac9e6a01d5192834b269c91a77a7639050b6efd034ade",
+      "derivation": "Full PDF page 81 / plate I rasterized at 1800px using pdftoppm, then resized to responsive WebP. No crop, recoloring or invented detail. The top-level checksum records the intermediate page raster; originalDocumentChecksum records the exact downloaded PDF."
+    },
+    {
+      "id": "pliny-diploma",
+      "class": "historical-artifact",
+      "title": "Bronze military diploma fragment",
+      "creator": "Roman maker, unknown",
+      "creationDate": "113/14 CE",
+      "depictedPeriod": "Reign of Trajan",
+      "sourceInstitution": "The Metropolitan Museum of Art",
+      "sourceRecordUrl": "https://www.metmuseum.org/art/collection/search/251396",
+      "originalAssetUrl": "https://images.metmuseum.org/CRDImages/gr/original/DP105609.jpg",
+      "license": "CC0 1.0 / The Met Open Access",
+      "rightsStatement": "Exact object 251396 API response isPublicDomain=true; primaryImage DP105609.jpg. The Met Open Access policy makes public-domain collection images available under CC0 for unrestricted reuse. Verified 2026-11-15.",
+      "requiredAttribution": "The Metropolitan Museum of Art, Rogers Fund, 1923, 23.160.52. Public domain / CC0.",
+      "altText": "A broken bronze military diploma, covered in incised Latin letters, photographed against a neutral ground.",
+      "caption": "Imperial authority, inscribed in bronze",
+      "historicalFit": "The Met identifies this as discharge papers issued by Trajan to sailors in the imperial fleet at Misenum, 113/14 CE. It is a different document from the letters and is not evidence about the Christian proceedings or their location.",
+      "editorialReason": "Places actual administrative writing from Trajan’s reign alongside the shift from private correspondence to provincial government.",
+      "locator": "23.160.52 · 113/14 CE",
+      "context": "Discharge papers issued by Trajan to sailors. A different document from the letters; material context for imperial administration.",
+      "checksum": "sha256:35e4d403293618456e3318fdff8dd4dc67644d4b49dce1c11da25f8622d6af1b",
+      "files": [
+        {
+          "localPath": "/media/pliny-v4/diploma-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 32044,
+          "checksum": "sha256:e5805df859befadb88bd2a6fd1339ba72fbcc7b74db523403952c336f80a5143"
+        },
+        {
+          "localPath": "/media/pliny-v4/diploma-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 120194,
+          "checksum": "sha256:a8a34c913e938ae2c73fe192888734406bd64204761ba07f32bbbc1d4c570df7"
+        }
+      ],
+      "localPath": "/media/pliny-v4/diploma-480.webp",
+      "eventIds": [],
+      "journeyIds": [
+        "pliny"
+      ],
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex: exact source records, original publication and image-specific public-domain flags checked 2026-11-15; contextual captions remain a draft for human historical review",
+      "downloadedAt": "2026-11-15"
+    },
+    {
+      "id": "pliny-trajan-coin",
+      "class": "historical-artifact",
+      "title": "Bronze sestertius of Trajan",
+      "creator": "Roman mint, Rome",
+      "creationDate": "103–111 CE",
+      "depictedPeriod": "Reign of Trajan",
+      "sourceInstitution": "The Metropolitan Museum of Art",
+      "sourceRecordUrl": "https://www.metmuseum.org/art/collection/search/248058",
+      "originalAssetUrl": "https://images.metmuseum.org/CRDImages/gr/original/DP-14287-072.jpg",
+      "license": "CC0 1.0 / The Met Open Access",
+      "rightsStatement": "Exact object 248058 API response isPublicDomain=true; primaryImage DP-14287-072.jpg. The Met Open Access policy makes public-domain collection images available under CC0 for unrestricted reuse. Verified 2026-11-15.",
+      "requiredAttribution": "The Metropolitan Museum of Art, Rogers Fund, 1908, 08.170.384. Public domain / CC0.",
+      "altText": "The obverse of a bronze sestertius: Trajan’s profile surrounded by an imperial inscription.",
+      "caption": "The emperor’s image",
+      "historicalFit": "A coin from Trajan’s reign, minted at Rome, 103–111 CE. This coin is not the image used in Pliny’s investigation. The letter does not identify the object used.",
+      "editorialReason": "Brings a surviving imperial portrait into the passage about worship before the emperor’s image, while keeping the contextual coin distinct from the unpreserved object in the account.",
+      "locator": "08.170.384 · 103–111 CE",
+      "context": "A coin from Trajan’s reign. This is not the image used in the proceedings; the letter does not identify that object.",
+      "checksum": "sha256:b7f8ecce23e8f93c90a7489f04d849ad30b8ee55ee69e6911a5368e8d3c89d69",
+      "files": [
+        {
+          "localPath": "/media/pliny-v4/coin-480.webp",
+          "width": 480,
+          "height": 405,
+          "bytes": 21420,
+          "checksum": "sha256:17e54351bfc0c9140a5b438133a24a343adcd2c39bacc482b9243e4d0bd3d828"
+        },
+        {
+          "localPath": "/media/pliny-v4/coin-960.webp",
+          "width": 960,
+          "height": 811,
+          "bytes": 88412,
+          "checksum": "sha256:874040e92aeb97b64007ddbf83c92d2b20149d6c3b73f36bad085318a3a03b9b"
+        }
+      ],
+      "localPath": "/media/pliny-v4/coin-480.webp",
+      "eventIds": [],
+      "journeyIds": [
+        "pliny"
+      ],
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex: exact source records, original publication and image-specific public-domain flags checked 2026-11-15; contextual captions remain a draft for human historical review",
+      "downloadedAt": "2026-11-15"
+    }
+  ]
+}

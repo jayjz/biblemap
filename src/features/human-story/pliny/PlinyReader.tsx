@@ -31,7 +31,7 @@ export function PlinyReader({ children, sentence }: { children: ReactNode; sente
     setKept(false);
     sourcesLink.current?.focus({ preventScroll: true });
   }
-  return <KeptSentence.Provider value={{ ready, kept, toggle: () => setKept(value => !value), release }}><div className={styles.encounter} data-encounter="pliny" data-version="3" data-enhanced={ready} data-kept={kept} data-motion="off">
+  return <KeptSentence.Provider value={{ ready, kept, toggle: () => setKept(value => !value), release }}><div className={styles.encounter} data-encounter="pliny" data-version="4" data-enhanced={ready} data-kept={kept} data-motion="off">
     <a href="#pliny-main" className={styles.skip}>Skip to the reading</a>
     <header className={styles.header}>
       <Link prefetch={false} href="/" className={styles.brand}>BibleMap</Link>
