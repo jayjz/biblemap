@@ -1,0 +1,312 @@
+[
+  {
+    "ref": "refs/remotes/origin/HEAD",
+    "commit": "23bf774dbd38b98dd8921d33149ed4485440c223",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/chore/biblemap-creative-skills",
+    "commit": "082b54f8c4f427a6b674f0a110448d371379efe1",
+    "commitsNotInSelectedTip": 9
+  },
+  {
+    "ref": "refs/remotes/origin/chore/jonah-release-readiness",
+    "commit": "40e5c9e578b07bbc5ef2faad090202392e8856e0",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/chore/main-ci-trigger",
+    "commit": "0a18755e5b2db7f797931c15a04f494f66469826",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/docs/biblemap-open-creative-media",
+    "commit": "ef0a10add8b68ba8a64561f0223560f5937a5e17",
+    "commitsNotInSelectedTip": 10
+  },
+  {
+    "ref": "refs/remotes/origin/docs/experience-principles",
+    "commit": "ac7e04d452f7682f1ea1f079621281c053ff52fb",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/docs/jonah-completion-blueprint",
+    "commit": "5d66da01c4cc070eb2d83c8880877631ef2d1031",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/docs/jonah-current-state-20261010",
+    "commit": "e441a0229e1e508dfe5e16a932048835d439eaa2",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/docs/jonah-human-voice",
+    "commit": "193d81e297080e91e23fbc4faa5fd17c7f177f26",
+    "commitsNotInSelectedTip": 4
+  },
+  {
+    "ref": "refs/remotes/origin/docs/release-readiness-audit",
+    "commit": "c63e0c6f11cc994835c92fa0d7ec7d729d347cc2",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/experiment/jonah-irreplaceable",
+    "commit": "ee28d210628b988f0ef0b6af67154804242ddef8",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/historical-voices-immersion",
+    "commit": "9398e47b0bef495d084aaf0e6b1ba931e7b39071",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/home-story-discovery",
+    "commit": "e92b476729303cf00cf71f409c9cc64841ddf447",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/homepage-living-archive",
+    "commit": "7475b0ae1ae7ae82e535a092b6bab7484aa995e6",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/human-story-consolidated",
+    "commit": "c7594fd3de4c2285293386c50e858e79ea917dee",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/human-story-portal",
+    "commit": "28bff7e3f19471e29bee8c1a0019e1c1f23ae37b",
+    "commitsNotInSelectedTip": 3
+  },
+  {
+    "ref": "refs/remotes/origin/feat/immersive-foundation",
+    "commit": "ea2365ac3ffcb315cb9cbefd7de98b47b3884c22",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/james-cinematic-human-experience",
+    "commit": "2c119d9e47e96a91f3b1d4607c36c397464a04e4",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/james-the-brother-who-remained",
+    "commit": "86b2c5d9eae789a2202c4a423a4318595ce51c84",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-411-human-city",
+    "commit": "dd9c7756472c89493a6e66441d1319f7621ba07b",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-city-inside-name-encounter",
+    "commit": "a54671b487706508df62cfe4d85d2a0accd43be4",
+    "commitsNotInSelectedTip": 11
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-context-encounter",
+    "commit": "ef0a10add8b68ba8a64561f0223560f5937a5e17",
+    "commitsNotInSelectedTip": 10
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-first-encounter",
+    "commit": "b69ebff5e1b963385fe8495e22c60e66a84e4e31",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-human-experience",
+    "commit": "2bbc697c4506018c2d03224350b725c498c79dba",
+    "commitsNotInSelectedTip": 4
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-human-story",
+    "commit": "056bde80dab83486eb3a7c0f03ddecdd1d5cbc43",
+    "commitsNotInSelectedTip": 11
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-mercy-anger-encounter",
+    "commit": "1a8633c1b6cb8fa4d1c17b9212c839f94ab29921",
+    "commitsNotInSelectedTip": 6
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-open-visual-curation",
+    "commit": "215a0d3d90fbdc5723c5781056ba238a4b6f994d",
+    "commitsNotInSelectedTip": 7
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-question-entry",
+    "commit": "0a0c147175685ada7609af2b4e0bbff414b47575",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-reader",
+    "commit": "bd0d948ecee642f6adfc89a9c380b95290ee1e3b",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-visual-assets",
+    "commit": "44416fec2ba9b742de1df92daabf2cf0b92dc74a",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/jonah-visual-completion",
+    "commit": "0de529b894deeb969a8edf8db10644268956ece7",
+    "commitsNotInSelectedTip": 2
+  },
+  {
+    "ref": "refs/remotes/origin/feat/lachish-before-the-walls",
+    "commit": "8353ddf20009fc3ae7ec224c035c221f243f71d0",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/nineveh-city-remains",
+    "commit": "5f88ce4dea603344421d5895c817e9a87b1c4d70",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/nineveh-cultural-depth",
+    "commit": "d56e01b308a1d9e536abd48ea05653186917b1bb",
+    "commitsNotInSelectedTip": 3
+  },
+  {
+    "ref": "refs/remotes/origin/feat/nineveh-definitive-home",
+    "commit": "9025c9c3541ca6d5c6641335a526de6d94d59604",
+    "commitsNotInSelectedTip": 19
+  },
+  {
+    "ref": "refs/remotes/origin/feat/nineveh-four-beat-experience",
+    "commit": "8f43ad68d62e9a163fc864d7efa5f739a81a1896",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/perpetua-narrative-immersion",
+    "commit": "0163f5d7de43e1a1477aa6c276bdbe09055b8cfc",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/pliny-human-encounter",
+    "commit": "064a17ac3e7511ccb42323e436b6442f661be2cd",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/pliny-v3-break-the-form",
+    "commit": "82d5bc4308114dcc1ba8dbff71be4a0e08d8551e",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/pliny-v4-documentary",
+    "commit": "ae4dc1c8f5b3d585ecaa75832cf0e735a150ada9",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/question-led-homepage",
+    "commit": "c151733ef8f1f2e7657dd0a50cfd303250df079b",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/reader-mercy-anger",
+    "commit": "2de3b7d7a6f0098cb01d7b0e56daa3fc8cc91207",
+    "commitsNotInSelectedTip": 2
+  },
+  {
+    "ref": "refs/remotes/origin/feat/recognition-curiosity-opening",
+    "commit": "193c3d97f54ae544c1aa38b12fcb2e962cf1f9b2",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/romanus-voice",
+    "commit": "946eec0eac3364292e1c22b4c50e077df0a7c24f",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/root-routing-explore-20261027",
+    "commit": "3b1bad8c8bba03f3d5c82ba053c4a54a4ff26347",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/feat/thomas-doubt-and-sayings",
+    "commit": "f2f7891ffe82ba56887df64ec65a6eb5ef688a39",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/thomas-homepage-integration",
+    "commit": "820d2639752c89ce8b15d441a71c13ab67c20928",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/thomas-v4-human-encounter",
+    "commit": "94d7d762a63d0f3cda879b1a366089a4b97d8cbc",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/feat/thomas-v4-source-immersion",
+    "commit": "3d0221a86b55338f8900c9bff0f87a61f0e4d627",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/fix/jonah-anger-editorial-copy",
+    "commit": "6a2d48f2c08cd1b3ccd87ecbae5c2d3b0ab37f06",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/fix/jonah-homepage-skip-link",
+    "commit": "5893424679e6da888f1a28234347f6acaf22b9fb",
+    "commitsNotInSelectedTip": 2
+  },
+  {
+    "ref": "refs/remotes/origin/fix/jonah-source-line-endings",
+    "commit": "26cbdc79ef750d17b56c3ce848dd81f5fcb1699a",
+    "commitsNotInSelectedTip": 2
+  },
+  {
+    "ref": "refs/remotes/origin/integration/jonah-complete-20261011",
+    "commit": "81f34d691895332e7b9d3517b296319d80272f51",
+    "commitsNotInSelectedTip": 7
+  },
+  {
+    "ref": "refs/remotes/origin/integration/jonah-consolidated-20261011",
+    "commit": "9e225c16b79894560c800dd8a306685630918eff",
+    "commitsNotInSelectedTip": 16
+  },
+  {
+    "ref": "refs/remotes/origin/integration/jonah-first-experience",
+    "commit": "faaaff5b4c178e81b931f8fc26c4868a9a62f8e2",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/integration/nineveh-open-world-20261025",
+    "commit": "3ef986d59951d29dc50b1b1c8702799200d1e714",
+    "commitsNotInSelectedTip": 19
+  },
+  {
+    "ref": "refs/remotes/origin/investigate/artifact-reproducibility-20261107",
+    "commit": "e40f05972a518e42a32bb9c1dca1ba90eca75723",
+    "commitsNotInSelectedTip": 4
+  },
+  {
+    "ref": "refs/remotes/origin/main",
+    "commit": "23bf774dbd38b98dd8921d33149ed4485440c223",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/release/canonical-linux-20261107",
+    "commit": "59de15c3ad0196bd3119dc8598a18daa75b7ee0a",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/release/creator-acceptance-20261106",
+    "commit": "c5ab3622c1ab583987174baf2396328fda7cf576",
+    "commitsNotInSelectedTip": 1
+  },
+  {
+    "ref": "refs/remotes/origin/release/human-story-readiness",
+    "commit": "d72ae172e693b5c5915fa9bb59fa9885080f4754",
+    "commitsNotInSelectedTip": 0
+  },
+  {
+    "ref": "refs/remotes/origin/research/jonah-source-archive",
+    "commit": "f9a026275840bf509400c5449db25f3bff95fe07",
+    "commitsNotInSelectedTip": 1
+  }
+]

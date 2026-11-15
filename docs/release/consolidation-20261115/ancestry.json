@@ -1,0 +1,1066 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-15T14:29:30.815094+00:00",
+  "repository": "jayjz/biblemap",
+  "base": {
+    "commit": "23bf774dbd38b98dd8921d33149ed4485440c223",
+    "tree": "f0aab45b2fc08451a53854b231c707978d2c0837"
+  },
+  "selectedTip": {
+    "commit": "7475b0ae1ae7ae82e535a092b6bab7484aa995e6",
+    "tree": "ee05c0558f699bd8078f4b70c2ec32b31649e1de"
+  },
+  "mergeBase": "23bf774dbd38b98dd8921d33149ed4485440c223",
+  "aheadBehind": "0\t6",
+  "fastForwardCompatible": true,
+  "commits": [
+    {
+      "commit": "064a17ac3e7511ccb42323e436b6442f661be2cd",
+      "tree": "1c1724011766e69262caeb350d23257c834aa9aa",
+      "parents": "23bf774dbd38b98dd8921d33149ed4485440c223",
+      "subject": "wip(pliny): preserve immersive encounter before final verification"
+    },
+    {
+      "commit": "82d5bc4308114dcc1ba8dbff71be4a0e08d8551e",
+      "tree": "b093bc04fc034052b08dedca55b3855e2a247aac",
+      "parents": "064a17ac3e7511ccb42323e436b6442f661be2cd",
+      "subject": "feat(pliny): carry a sentence between household and province"
+    },
+    {
+      "commit": "ae4dc1c8f5b3d585ecaa75832cf0e735a150ada9",
+      "tree": "5d802f853e49b8fc90c324e1b69ddc8f6445f15a",
+      "parents": "82d5bc4308114dcc1ba8dbff71be4a0e08d8551e",
+      "subject": "feat(pliny): give V4 a documentary visual identity"
+    },
+    {
+      "commit": "82563bc57e183ae367aca6714f8d00341335f0a2",
+      "tree": "a1f71c174578f0412613f2526f2ed68c7a2f4645",
+      "parents": "ae4dc1c8f5b3d585ecaa75832cf0e735a150ada9",
+      "subject": "feat(home): introduce the living archive with creator-led curation"
+    },
+    {
+      "commit": "fe72485afc41dc09d561eade97a37910d12077b2",
+      "tree": "8a087103e2cf6bd457694fb543dcccd83b7a84e1",
+      "parents": "82563bc57e183ae367aca6714f8d00341335f0a2",
+      "subject": "fix(home): verify the archive identity in the export gate"
+    },
+    {
+      "commit": "7475b0ae1ae7ae82e535a092b6bab7484aa995e6",
+      "tree": "ee05c0558f699bd8078f4b70c2ec32b31649e1de",
+      "parents": "fe72485afc41dc09d561eade97a37910d12077b2",
+      "subject": "fix(home): retain all authored reading paths in discovery"
+    }
+  ],
+  "commitCount": 6,
+  "changedFiles": [
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/browser-full.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/build.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/domain-tests.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/export-gate.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/homepage-final.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/lint.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/checks/release-tests.txt"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/a-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/a-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/b-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/b-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/c-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/c-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/concepts/results.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/final/1440-first.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/final/1440-full.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/final/390-first.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/final/390-full.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/seo.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/homepage-v2/visual-results.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/observations.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/opening-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/opening-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/performance.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/pliny-survives-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/pliny-survives-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/pliny-women-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/before/pliny-women-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/observations.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/opening-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/opening-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/pliny-communal-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/pliny-communal-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/pliny-reply-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/pliny-reply-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/pliny-women-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/draft/pliny-women-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/docked-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/docked-320.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/docked-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/docked-768.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/observations.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/opening-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/opening-320.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/opening-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/opening-768.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/performance.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-communal-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-communal-320.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-communal-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-communal-768.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-reply-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-reply-320.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-reply-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-reply-768.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-women-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-women-320.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-women-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/pliny-women-768.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/text-200-320.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/final/verification.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/generation.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/lab/index.html"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prepare-art.mjs"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/boundary-ending-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/boundary-ending-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/boundary-opening-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/boundary-opening-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/boundary-turn-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/boundary-turn-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/carry-ending-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/carry-ending-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/carry-opening-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/carry-opening-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/carry-turn-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/carry-turn-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/concept-boundary.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/concept-carry.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/concept-return.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/observations.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/return-ending-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/return-ending-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/return-opening-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/return-opening-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/return-turn-1440.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/prototypes/return-turn-390.jpg"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/review.mjs"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "artifacts/pliny-v3/write-reading.mjs"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/curation.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/design.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/inventory.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/inventory.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/prototypes/a.html"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/prototypes/b.html"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/prototypes/c.html"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/verification.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/homepage-v2/visual-sources.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-human-encounter.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v3/README.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v3/design-decision.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v3/evidence.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v3/narrative-draft.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v3/narrative-final.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v3/verification.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v4/README.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v4/design.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v4/source-records.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v4/verification.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/pliny-v4/visual-sources.md"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "docs/research/pliny-human-encounter.md"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "package.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v3/carried-ribbon-mobile.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v3/carried-ribbon.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v3/manifest.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/coin-480.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/coin-960.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/diploma-480.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/diploma-960.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/manifest.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/manuscript-1200.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "public/media/pliny-v4/manuscript-600.webp"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "scripts/homepage-concepts.mjs"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "scripts/homepage-inventory.mjs"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "scripts/validate-nineveh-depth.mjs"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/app/human-story/[entry]/page.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/home-catalog.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/home-curation.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/home-editorial.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/home-media.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/content/human-story-witnesses.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/content/human-story.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/pliny-record.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/pliny-v3-record.json"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/pliny-v3.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/content/pliny.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/content/visitor-human-story.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/domain/home-curation.test.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/domain/home-curation.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/domain/pliny-v3.test.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/domain/pliny-v4.test.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/domain/pliny.test.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/homepage/ArchiveArt.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/homepage/ArchiveHome.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/homepage/ArchiveImage.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/homepage/Invitation.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/homepage/archive.module.css"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/features/human-story/ConnectedExplorer.tsx"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/features/human-story/FeaturedEncounters.tsx"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "src/features/human-story/HumanStoryHome.tsx"
+      ]
+    },
+    {
+      "status": "D",
+      "paths": [
+        "src/features/human-story/ThomasInvitation.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/PlinyArtifact.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/PlinyEncounter.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/PlinyMotion.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/PlinyReader.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/PlinyV3Encounter.tsx"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/pliny-v3.module.css"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/features/human-story/pliny/pliny.module.css"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "src/lib/homepage.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/home-discovery.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/homepage-release.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/human-story-qa.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/human-story.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/jonah.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/perpetua.spec.ts"
+      ]
+    },
+    {
+      "status": "A",
+      "paths": [
+        "tests/pliny.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/routing.spec.ts"
+      ]
+    },
+    {
+      "status": "M",
+      "paths": [
+        "tests/thomas-homepage.spec.ts"
+      ]
+    }
+  ],
+  "diffSha256": "c4da78a36a61ed3b9e325ea04b323f9533e4f0dc1305a169d278e44118aef8ec",
+  "backupRefs": {
+    "refs/heads/backup/consolidation-20261115-main": "23bf774dbd38b98dd8921d33149ed4485440c223",
+    "refs/heads/backup/consolidation-20261115-homepage-v2": "7475b0ae1ae7ae82e535a092b6bab7484aa995e6"
+  },
+  "bundle": "/tmp/biblemap-consolidation-20261115.bundle",
+  "bundleSha256": "db4f39825093b5b8d6a07473a964b4fc6ad6fe6c08be21f00c44b427174edca6"
+}

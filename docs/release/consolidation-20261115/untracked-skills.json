@@ -1,0 +1,18 @@
+[
+  {
+    "path": ".agents/skills/camera-systems",
+    "symlink": "/home/strawman3/Dev/garden-of-earthly-delights/.agents/skills/camera-systems"
+  },
+  {
+    "path": ".agents/skills/game-ui-frontend",
+    "symlink": "/home/strawman3/Dev/garden-of-earthly-delights/.agents/skills/game-ui-frontend"
+  },
+  {
+    "path": ".agents/skills/performance-optimization",
+    "symlink": "/home/strawman3/Dev/garden-of-earthly-delights/.agents/skills/performance-optimization"
+  },
+  {
+    "path": ".agents/skills/shader-programming",
+    "symlink": "/home/strawman3/Dev/garden-of-earthly-delights/.agents/skills/shader-programming"
+  }
+]
