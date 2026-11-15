@@ -208,7 +208,7 @@ test("without JavaScript all scenes, people, provenance and onward routes remain
     .getByRole("link", { name: "Pliny writes to an emperor", exact: true })
     .click();
   await expect(page).toHaveURL(/\/human-story\/pliny\/$/);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("The names");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("commonwealth");
   await expect(page.getByText(/Pliny the Younger, Roman governor of Bithynia-Pontus/)).toBeVisible();
   await context.close();
 });

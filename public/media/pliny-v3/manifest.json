@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "pliny-carried-ribbon",
+      "eventIds": [],
+      "journeyIds": [
+        "pliny"
+      ],
+      "class": "artistic-depiction",
+      "title": "A carried sentence",
+      "creator": "OpenAI Image Gen, directed for BibleMap by Codex",
+      "creationDate": "2026-11-15",
+      "depictedPeriod": "None: modern symbolic composition",
+      "sourceInstitution": "BibleMap original generated artwork",
+      "sourceRecordUrl": "https://github.com/jayjz/biblemap/blob/feat/pliny-v3-break-the-form/artifacts/pliny-v3/generation.json",
+      "originalAssetUrl": "Built-in Image Gen output retained in the generation session; no third-party source image",
+      "license": "Original AI-assisted project artwork",
+      "rightsStatement": "Created for this project with the built-in Image Gen tool and no supplied or third-party reference assets. Project use of the generated output; no claim that the image is a historical artifact or a human-made ancient work.",
+      "requiredAttribution": "Original AI-assisted symbolic artwork for BibleMap, November 2026",
+      "downloadedAt": "2026-11-15",
+      "checksum": "sha256:9100ef8e45a94c5a66155307bcd86b70265f094910a5507e15b83f337c715b58",
+      "localPath": "/media/pliny-v3/carried-ribbon.webp",
+      "altText": "",
+      "caption": "Original AI-assisted symbolic ribbon, not a Roman object or reconstruction.",
+      "historicalFit": "No historical object is depicted. Folds, material, color and texture are contemporary artistic choices.",
+      "editorialReason": "The folded strip accompanies a quotation held between two separately attributed letters. It supplies no historical information.",
+      "reviewStatus": "rights-verified",
+      "reviewedBy": "Codex: generation provenance and absence of third-party inputs checked; historical/editorial narrative review pending",
+      "generator": "Built-in OpenAI Image Gen",
+      "generatedAt": "2026-11-15",
+      "prompt": "Use case: illustration-story. Asset type: original symbolic artwork for a literary website's carried quotation, NOT a historical artifact. Create one long cobalt-blue paper ribbon, folded and changing direction twice, isolated on a genuinely transparent background. A contemporary artist's-book / lithographic paper composition: tactile pigment grain, precise beautiful folds, no photoreal room. Horizontal 3:1 composition, entire object within the frame with transparent breathing room. Main color #183ac2, pale-blue light on one fold, deep-blue shadow on the underside. The ribbon should be narrow, sinuous but sharply folded, entering at lower-left and exiting upper-right. No text, no letters, no writing, no logos, no symbols, no faces, hands, people, objects, ancient ornament, fake manuscript, architecture, blood or damage. This is an abstract modern metaphor for carrying a sentence from one document into another, not a reconstruction of anything Roman. Crisp original art suitable for a small lightweight transparent WebP. Real alpha transparency, no checkerboard.",
+      "referenceAssetIds": [],
+      "historicalSources": [],
+      "knownInaccuracies": "No historical object is depicted. Folds, material, color and texture are contemporary artistic choices.",
+      "files": [
+        {
+          "localPath": "/media/pliny-v3/carried-ribbon.webp",
+          "width": 1536,
+          "bytes": 44966,
+          "checksum": "sha256:834b342a43f6e04cb499c034543198b51c9771c219c0e5e6249335e69d6eb553"
+        },
+        {
+          "localPath": "/media/pliny-v3/carried-ribbon-mobile.webp",
+          "width": 768,
+          "bytes": 14730,
+          "checksum": "sha256:3187bd022066b63a55a62fee6cd5807102ac646cb490eb7f3d68b5386ec65c7c"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "environment": "Local static export, Chrome, 390×844, reduced motion; three fresh browser contexts; lab observations, not field Web Vitals",
+  "samples": [
+    {
+      "navigation": [
+        {
+          "domContentLoaded": 25.900000005960464,
+          "load": 89.59999999403954,
+          "transferSize": 69817
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+          "bytes": 301024,
+          "duration": 9.599999994039536
+        },
+        {
+          "name": "/_next/static/css/320167931833068e.css",
+          "bytes": 35239,
+          "duration": 9.199999988079071
+        },
+        {
+          "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+          "bytes": 169356,
+          "duration": 13.199999988079071
+        },
+        {
+          "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+          "bytes": 172248,
+          "duration": 13.799999982118607
+        },
+        {
+          "name": "/_next/static/css/b02994990837df5d.css",
+          "bytes": 61364,
+          "duration": 10.900000005960464
+        },
+        {
+          "name": "/_next/static/css/48a90ec004e1a54e.css",
+          "bytes": 80815,
+          "duration": 11.099999994039536
+        },
+        {
+          "name": "/_next/static/chunks/webpack-6d6bcb1ea6789ceb.js",
+          "bytes": 5740,
+          "duration": 14.099999994039536
+        },
+        {
+          "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+          "bytes": 829,
+          "duration": 15.900000005960464
+        },
+        {
+          "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+          "bytes": 243189,
+          "duration": 18.400000005960464
+        },
+        {
+          "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+          "bytes": 204027,
+          "duration": 17.599999994039536
+        },
+        {
+          "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+          "bytes": 7974,
+          "duration": 17.100000023841858
+        },
+        {
+          "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+          "bytes": 14728,
+          "duration": 18.600000023841858
+        },
+        {
+          "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+          "bytes": 31846,
+          "duration": 18.900000005960464
+        },
+        {
+          "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-52b8fbb3644811ad.js",
+          "bytes": 54833,
+          "duration": 18.899999976158142
+        },
+        {
+          "name": "/favicon.ico",
+          "bytes": 26231,
+          "duration": 1.300000011920929
+        }
+      ],
+      "paints": [
+        {
+          "name": "first-paint",
+          "time": 96
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 96
+        }
+      ],
+      "metrics": [
+        {
+          "name": "LayoutDuration",
+          "value": 0.009134
+        },
+        {
+          "name": "RecalcStyleDuration",
+          "value": 0.007629
+        },
+        {
+          "name": "ScriptDuration",
+          "value": 0.047336
+        },
+        {
+          "name": "TaskDuration",
+          "value": 0.098376
+        },
+        {
+          "name": "JSHeapUsedSize",
+          "value": 3644800
+        }
+      ]
+    },
+    {
+      "navigation": [
+        {
+          "domContentLoaded": 27.69999998807907,
+          "load": 90.59999999403954,
+          "transferSize": 69817
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+          "bytes": 301024,
+          "duration": 16.200000017881393
+        },
+        {
+          "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+          "bytes": 169356,
+          "duration": 15.299999982118607
+        },
+        {
+          "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+          "bytes": 172248,
+          "duration": 15.699999988079071
+        },
+        {
+          "name": "/_next/static/css/320167931833068e.css",
+          "bytes": 35239,
+          "duration": 12.099999994039536
+        },
+        {
+          "name": "/_next/static/css/b02994990837df5d.css",
+          "bytes": 61364,
+          "duration": 12.600000023841858
+        },
+        {
+          "name": "/_next/static/css/48a90ec004e1a54e.css",
+          "bytes": 80815,
+          "duration": 13.100000023841858
+        },
+        {
+          "name": "/_next/static/chunks/webpack-6d6bcb1ea6789ceb.js",
+          "bytes": 5740,
+          "duration": 17
+        },
+        {
+          "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+          "bytes": 204027,
+          "duration": 18.19999998807907
+        },
+        {
+          "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+          "bytes": 243189,
+          "duration": 18.400000005960464
+        },
+        {
+          "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+          "bytes": 829,
+          "duration": 19.19999998807907
+        },
+        {
+          "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+          "bytes": 7974,
+          "duration": 20.5
+        },
+        {
+          "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+          "bytes": 14728,
+          "duration": 20.700000017881393
+        },
+        {
+          "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+          "bytes": 31846,
+          "duration": 20.80000001192093
+        },
+        {
+          "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-52b8fbb3644811ad.js",
+          "bytes": 54833,
+          "duration": 22.200000017881393
+        },
+        {
+          "name": "/favicon.ico",
+          "bytes": 26231,
+          "duration": 1.5
+        }
+      ],
+      "paints": [
+        {
+          "name": "first-paint",
+          "time": 108
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 108
+        }
+      ],
+      "metrics": [
+        {
+          "name": "LayoutDuration",
+          "value": 0.008941
+        },
+        {
+          "name": "RecalcStyleDuration",
+          "value": 0.008399
+        },
+        {
+          "name": "ScriptDuration",
+          "value": 0.04381
+        },
+        {
+          "name": "TaskDuration",
+          "value": 0.098343
+        },
+        {
+          "name": "JSHeapUsedSize",
+          "value": 3643232
+        }
+      ]
+    },
+    {
+      "navigation": [
+        {
+          "domContentLoaded": 25.299999982118607,
+          "load": 92.19999998807907,
+          "transferSize": 69817
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+          "bytes": 301024,
+          "duration": 8.900000005960464
+        },
+        {
+          "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+          "bytes": 169356,
+          "duration": 13.199999988079071
+        },
+        {
+          "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+          "bytes": 172248,
+          "duration": 13.399999976158142
+        },
+        {
+          "name": "/_next/static/css/320167931833068e.css",
+          "bytes": 35239,
+          "duration": 9.900000005960464
+        },
+        {
+          "name": "/_next/static/css/48a90ec004e1a54e.css",
+          "bytes": 80815,
+          "duration": 10.900000005960464
+        },
+        {
+          "name": "/_next/static/css/b02994990837df5d.css",
+          "bytes": 61364,
+          "duration": 10.900000005960464
+        },
+        {
+          "name": "/_next/static/chunks/webpack-6d6bcb1ea6789ceb.js",
+          "bytes": 5740,
+          "duration": 12.700000017881393
+        },
+        {
+          "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+          "bytes": 204027,
+          "duration": 16
+        },
+        {
+          "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+          "bytes": 243189,
+          "duration": 17.5
+        },
+        {
+          "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+          "bytes": 829,
+          "duration": 13.599999994039536
+        },
+        {
+          "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+          "bytes": 7974,
+          "duration": 17.099999994039536
+        },
+        {
+          "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+          "bytes": 31846,
+          "duration": 18
+        },
+        {
+          "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+          "bytes": 14728,
+          "duration": 17.599999994039536
+        },
+        {
+          "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-52b8fbb3644811ad.js",
+          "bytes": 54833,
+          "duration": 18.400000005960464
+        },
+        {
+          "name": "/favicon.ico",
+          "bytes": 26231,
+          "duration": 1.4000000059604645
+        }
+      ],
+      "paints": [
+        {
+          "name": "first-paint",
+          "time": 52
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 52
+        }
+      ],
+      "metrics": [
+        {
+          "name": "LayoutDuration",
+          "value": 0.0111
+        },
+        {
+          "name": "RecalcStyleDuration",
+          "value": 0.006649
+        },
+        {
+          "name": "ScriptDuration",
+          "value": 0.04913
+        },
+        {
+          "name": "TaskDuration",
+          "value": 0.100847
+        },
+        {
+          "name": "JSHeapUsedSize",
+          "value": 3621880
+        }
+      ]
+    }
+  ]
+}

@@ -1,86 +1,105 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import record from "../src/content/pliny-record.json";
+import original from "../src/content/pliny-record.json";
+import additional from "../src/content/pliny-v3-record.json";
+import { PLINY_V3_EXCERPTS, PLINY_V3_PROSE } from "../src/content/pliny-v3";
 
-test("the five movements lead to the women, the complete ruling and its limits", async ({ page }) => {
+test("a sentence can be kept, brought into the later account, and put down without losing the reading", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
-  page.on("requestfailed", request => errors.push(`${request.url()}: ${request.failure()?.errorText}`));
+  page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
+  page.on("requestfailed", request => errors.push(request.url()));
   await page.goto("/human-story/pliny/");
-  await expect(page).toHaveTitle(/The names he did not write/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The nameshe didnot write.");
-  await expect(page.locator('[data-movement]')).toHaveCount(5);
-  await page.getByRole("link", { name: "Open the record" }).click();
-  await expect(page).toHaveURL(/#pliny-procedure$/);
-  await page.getByRole("link", { name: "III. The two women", exact: true }).click();
-  await expect(page.locator("#pliny-women")).toBeFocused();
-  await expect(page.locator('#pliny-women [data-passage="women"]')).toContainText("putting two female slaves to the torture");
-  await page.locator("#pliny-women summary").focus();
+  await expect(page).toHaveTitle(/A kind of commonwealth/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveAccessibleName("A kind of commonwealth");
+  await expect(page.getByText(/Pliny the Younger, Roman governor of Bithynia-Pontus/)).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "The five movements" })).toHaveCount(0);
+  const keep = page.getByRole("button", { name: "Keep this sentence", exact: true });
+  await keep.focus();
   await page.keyboard.press("Enter");
-  await expect(page.getByText("ex duabus ancillis, quae ministrae dicebantur", { exact: true })).toBeVisible();
-  await page.getByRole("link", { name: "IV. The emperor replies", exact: true }).click();
-  await expect(page.locator('[data-passage="punishment"]')).toContainText("they must be punished");
-  await expect(page.locator('[data-passage="pardon"]')).toContainText("invoking our gods");
-  await expect(page.locator('[data-passage="anonymous"]')).toBeVisible();
-  // Fragment navigation must reveal source content inside its native details.
-  await page.locator('[data-passage="pursuit"] figcaption a').click();
+  await expect(page.getByRole("button", { name: "Sentence kept", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator('[data-encounter="pliny"]')).toHaveAttribute("data-kept", "true");
+  await page.locator("header").getByRole("link", { name: "First letter kept" }).click();
+  await expect(page).toHaveURL(/#pliny-comparison$/);
+  await expect(page.locator("#pliny-comparison")).toBeFocused();
+  await expect(page.locator('#pliny-comparison [data-passage="commands"] blockquote')).toHaveText(PLINY_V3_EXCERPTS.commands.text);
+  await expect(page.locator('[data-passage="women"] blockquote')).toHaveText(PLINY_V3_EXCERPTS.women.text);
+  await expect(page.locator('[data-passage="women"] blockquote')).toBeInViewport({ ratio: 1 });
+  await expect(page.locator('#pliny-comparison [data-passage="commands"] blockquote')).toBeInViewport({ ratio: 1 });
+  await expect(page.locator('aside[aria-label="Kept sentence from the letter to Paternus"]')).toBeHidden();
+  await page.locator("#pliny-comparison").getByRole("button", { name: "Put the sentence down" }).click();
+  await expect(page.locator('[data-encounter="pliny"]')).toHaveAttribute("data-kept", "false");
+  await expect(page.locator("header").getByRole("link", { name: "Sources", exact: true })).toBeFocused();
+  await page.locator('[data-passage="pardon"] figcaption a').click();
+  await expect(page.locator("#pliny-text-trajan > p")).toHaveText(original.letters.trajan);
   await expect(page.locator("details").filter({ has: page.locator("#pliny-text-trajan") })).toHaveAttribute("open", "");
-  await expect(page.locator("#pliny-text-trajan > p").first()).toHaveText(record.letters.trajan);
-  await page.getByRole("link", { name: "Sources", exact: true }).click();
-  await page.getByText("Sources, translations & interpretive limits", { exact: true }).click();
-  await expect(page.locator("#source-pliny-latin")).toContainText("does not explain these women’s duties");
+  await expect(page.locator('[data-prose="reply"]')).toHaveText(PLINY_V3_PROSE.reply.text);
+  await expect(page.locator('[data-prose="pardon"]')).toHaveText(PLINY_V3_PROSE.pardon.text);
+  await page.locator('[data-passage="commands"] figcaption a').first().click();
+  await expect(page.locator("#pliny-text-household > p").first()).toHaveText(additional.letters.household);
   expect(errors).toEqual([]);
   const audit = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
   expect(audit.violations).toEqual([]);
 });
 
-test("motion can be stopped and reduced motion always preserves the whole reading", async ({ page }) => {
-  await page.goto("/human-story/pliny/");
-  for (const width of [390, 320]) {
-    await page.setViewportSize({ width, height: 900 });
-    for (const selector of ['[data-passage="persisted"]', '[data-passage="punishment"]']) {
-      await page.locator(selector).evaluate(element => scrollTo(0, element.getBoundingClientRect().top + scrollY - innerHeight + 40));
-      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px during motion`).toBe(true);
-    }
-  }
-  await page.getByRole("button", { name: "Motion on", exact: true }).click();
-  await expect(page.locator('[data-encounter="pliny"]')).toHaveAttribute("data-motion", "off");
+test("reduced motion, enlarged text, keyboard focus and narrow reading preserve the source relationship", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(page.getByRole("button", { name: "Reduced motion", exact: true })).toBeDisabled();
-  await page.getByRole("link", { name: "III. The two women", exact: true }).click();
-  expect(await page.locator("#pliny-women").evaluate(element => element.getAnimations({ subtree: true }).length)).toBe(0);
-  for (const width of [768, 390, 320]) {
+  await page.goto("/human-story/pliny/");
+  await page.getByRole("button", { name: "Keep this sentence", exact: true }).click();
+  for (const width of [1440, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.locator("header").getByRole("link", { name: "First letter kept" }).click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), String(width)).toBe(true);
+    expect(await page.locator('[data-encounter="pliny"]').evaluate(element => element.getAnimations({ subtree: true }).length)).toBe(0);
+    await expect(page.locator("#pliny-comparison")).toBeFocused();
+    const target = await page.locator("#pliny-comparison").boundingBox();
+    const header = await page.locator("header").boundingBox();
+    expect(target && header && target.y >= header.y + header.height, "focus below persistent header").toBe(true);
   }
-  await page.setViewportSize({ width: 390, height: 900 });
   await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "200% text reflow").toBe(true);
+  await page.locator("header").getByRole("link", { name: "First letter kept" }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "200% text at 320px").toBe(true);
+  const bodySize = await page.locator('[data-prose="women"]').evaluate(element => parseFloat(getComputedStyle(element).fontSize));
+  expect(bodySize).toBeGreaterThanOrEqual(40);
   await page.keyboard.press("Tab");
-  await page.getByRole("link", { name: "III. The two women", exact: true }).click();
-  const target = await page.locator("#pliny-women").boundingBox();
-  const chrome = await page.getByRole("navigation", { name: "The five movements" }).boundingBox();
-  expect(target && chrome && target.y >= chrome.y + chrome.height, "destination remains below sticky controls").toBe(true);
+  await expect(page.locator(":focus")).toBeVisible();
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(page.locator('[data-encounter="pliny"]')).toHaveAttribute("data-motion", "off");
 });
 
-test("the complete encounter and evidence remain readable without JavaScript or media", async ({ browser, baseURL }) => {
+test("the complete narrative, local letters and comparison work without JavaScript or artwork", async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 900 } });
   try {
     const page = await context.newPage();
-    await page.route(/\.(webp|png|jpe?g|mp3|mp4)(\?|$)/, route => route.abort());
-    await page.goto(`${baseURL}/human-story/pliny/`);
-    await expect(page.locator('[data-encounter="pliny"]')).toHaveAttribute("data-motion", "off");
-    await page.getByRole("link", { name: "III. The two women", exact: true }).click();
-    await expect(page.getByRole("heading", { name: /Two women\.\s*Neither named\./ })).toBeVisible();
-    await page.locator("#pliny-women summary").click();
-    await expect(page.getByText("ex duabus ancillis, quae ministrae dicebantur", { exact: true })).toBeVisible();
-    await page.locator('#pliny-women [data-passage="women"] figcaption a').click();
-    await expect(page.locator("details").filter({ has: page.locator("#pliny-text-pliny") })).toHaveAttribute("open", "");
-    await expect(page.locator("#pliny-text-pliny > p").first()).toHaveText(record.letters.pliny);
-    await page.getByText("Read Trajan’s complete reply · 10.97", { exact: true }).click();
-    await expect(page.locator("#pliny-text-trajan > p").first()).toHaveText(record.letters.trajan);
+    await page.route(/\/media\/pliny-v3\/.*\.webp/, route => route.abort());
+    await page.goto(baseURL + "/human-story/pliny/#pliny-comparison");
+    await expect(page.locator("#pliny-comparison")).toBeVisible();
+    await expect(page.locator('#pliny-comparison [data-passage="commands"] blockquote')).toHaveText(PLINY_V3_EXCERPTS.commands.text);
+    for (const [id, paragraph] of Object.entries(PLINY_V3_PROSE).filter(([id]) => id !== "reception")) {
+      await expect(page.locator('[data-prose="' + id + '"]')).toHaveText(paragraph.text);
+    }
+    await expect(page.getByRole("button")).toHaveCount(0);
+    await page.locator('[data-passage="pardon"] figcaption a').click();
+    await expect(page.locator("#pliny-text-trajan > p")).toHaveText(original.letters.trajan);
+    await page.getByText("Pliny to Paternus · complete 8.16", { exact: true }).click();
+    await expect(page.locator("#pliny-text-household > p").first()).toHaveText(additional.letters.household);
+    await page.getByText("Pliny and Trajan · complete 10.33–34", { exact: true }).click();
+    await expect(page.locator("#pliny-text-fire > p")).toHaveText(additional.letters.fire);
+    await expect(page.locator("#pliny-text-association > p")).toHaveText(additional.letters.association);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await expect(page.getByRole("button", { name: /Motion/ })).toHaveCount(0);
   } finally { await context.close(); }
+});
+
+test("legacy fragments, source disclosures and no-index review boundaries remain intact", async ({ page }) => {
+  for (const id of ["procedure", "practice", "reply", "source-pliny-letters", "source-pliny-melmoth"]) {
+    await page.goto("/human-story/pliny/#" + id);
+    await expect(page.locator("#" + id)).toBeAttached();
+    expect(await page.locator("#" + id).evaluate(element => !element.closest("details") || element.closest("details")?.open)).toBe(true);
+  }
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  const evidence = page.locator("details").filter({ has: page.getByText("Sources, translation and interpretive limits", { exact: true }) });
+  if (await evidence.getAttribute("open") === null) await evidence.locator(":scope > summary").click();
+  await expect(page.locator('[data-prose="reception"]')).toHaveText(PLINY_V3_PROSE.reception.text);
+  await expect(page.getByText(/AI-authored historical and literary draft/)).toBeVisible();
+  await expect(page.getByRole("link", { name: "Artwork provenance and generation record" })).toHaveAttribute("href", "/media/pliny-v3/manifest.json");
 });

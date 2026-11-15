@@ -195,14 +195,14 @@ export const WITNESS_ENTRIES: readonly HumanEntry[] = [
   },
   {
     id: "pliny",
-    title: "Pliny: the names he did not write",
-    subtitle: "Roman power, two enslaved women, and the people hidden inside an official record.",
+    title: "Pliny: a kind of commonwealth",
+    subtitle: "A household letter, a proposed association, and people brought before a Roman governor.",
     worlds: ["witnesses", "voices"],
     kind: "testimony",
-    era: "Trajan's reign · Letters 10.96–97",
+    era: "Early second century · Pliny's letters",
     entityIds: ["person-pliny", "person-trajan"],
     introduction:
-      "Pliny writes because he is uncertain about procedure. Trajan replies. Between them, a community becomes visible through a Roman governor's questioning.",
+      "A letter to a friend describes deaths and requests within Pliny's household. Other letters concern associations and proceedings against Christians in the province he governs.",
     sections: [
       {
         id: "procedure",
@@ -225,7 +225,7 @@ export const WITNESS_ENTRIES: readonly HumanEntry[] = [
     ],
     question:
       "Whose voice can you hear here, and whose reaches you only through an official?",
-    sourceIds: ["pliny-letters", "pliny-encounter-melmoth", "pliny-latin", "pliny-encounter-comparison", "pliny-tertullian"],
+    sourceIds: ["pliny-letters", "pliny-encounter-melmoth", "pliny-latin", "pliny-encounter-comparison", "pliny-tertullian", "pliny-household", "pliny-firemen"],
     reading: {
       label: "Read Pliny & Trajan · Letters 10.96–97",
       href: "https://faculty.georgetown.edu/jod/texts/pliny.html",

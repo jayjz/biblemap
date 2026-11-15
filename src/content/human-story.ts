@@ -10,6 +10,7 @@ import { INTERIOR_SOURCES } from "./human-story-interiors.ts";
 import { ROMANUS_ENTRY, ROMANUS_SOURCES } from "./romanus.ts";
 import { JAMES_ENTRY, JAMES_SOURCES } from "./james.ts";
 import { PLINY_SOURCES } from "./pliny.ts";
+import { PLINY_V3_SOURCES } from "./pliny-v3.ts";
 import {
   WITNESS_SOURCES,
   WITNESS_ENTITIES,
@@ -52,6 +53,7 @@ const scriptureSource = (
 });
 
 export const HUMAN_SOURCES: readonly HumanSource[] = [
+  ...PLINY_V3_SOURCES,
   ...PLINY_SOURCES,
   ...JAMES_SOURCES,
   ...ROMANUS_SOURCES,
