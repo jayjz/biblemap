@@ -1,0 +1,60 @@
+
+> next_temp@0.1.0 test:e2e
+> playwright test tests/home-discovery.spec.ts tests/homepage-release.spec.ts --reporter=line
+
+
+Running 44 tests using 1 worker
+
+(node:1506289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/44] [desktop] › tests/home-discovery.spec.ts:8:5 › the living archive enters the actual V4 encounter and preserves the selected supporting lives
+[2/44] [desktop] › tests/home-discovery.spec.ts:29:5 › discovery retains every eligible reading without promoting other lives
+[3/44] [desktop] › tests/home-discovery.spec.ts:44:5 › discovery actions reflow, meet contrast checks and retain visible keyboard focus
+[4/44] [desktop] › tests/home-discovery.spec.ts:67:5 › source distinctions and historical limits remain available with a keyboard
+[5/44] [desktop] › tests/home-discovery.spec.ts:82:5 › legacy all-threads returns offer every eligible authored reading path
+[6/44] [desktop] › tests/home-discovery.spec.ts:98:5 › delayed and failed historical media preserve dimensions, provenance and all entrances
+[7/44] [desktop] › tests/home-discovery.spec.ts:124:5 › all selected entrances and broader discovery work without JavaScript
+[8/44] [desktop] › tests/homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards
+[9/44] [desktop] › tests/homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions
+[10/44] [desktop] › tests/homepage-release.spec.ts:48:5 › five worlds and both principal lives remain reachable through the entrance
+[11/44] [desktop] › tests/homepage-release.spec.ts:68:5 › legacy Nineveh fragments preserve discoveries, focus, reload and Back/Forward
+[12/44] [desktop] › tests/homepage-release.spec.ts:88:5 › root content and Scripture navigation survive absent or failed JavaScript
+[13/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route / has no unexpected errors, broken images or overflow
+[14/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/ has no unexpected errors, broken images or overflow
+[15/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /nineveh/ has no unexpected errors, broken images or overflow
+[16/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /jonah/ has no unexpected errors, broken images or overflow
+[17/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /explore/ has no unexpected errors, broken images or overflow
+[18/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/perpetua/ has no unexpected errors, broken images or overflow
+[19/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/augustine/ has no unexpected errors, broken images or overflow
+[20/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/witnesses/ has no unexpected errors, broken images or overflow
+[21/44] [desktop] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/saints/ has no unexpected errors, broken images or overflow
+[22/44] [desktop] › tests/homepage-release.spec.ts:126:5 › static export includes all published routes and server-rendered entrance metadata
+(node:1507623) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[23/44] [mobile] › tests/home-discovery.spec.ts:8:5 › the living archive enters the actual V4 encounter and preserves the selected supporting lives
+[24/44] [mobile] › tests/home-discovery.spec.ts:29:5 › discovery retains every eligible reading without promoting other lives
+[25/44] [mobile] › tests/home-discovery.spec.ts:44:5 › discovery actions reflow, meet contrast checks and retain visible keyboard focus
+[26/44] [mobile] › tests/home-discovery.spec.ts:67:5 › source distinctions and historical limits remain available with a keyboard
+[27/44] [mobile] › tests/home-discovery.spec.ts:82:5 › legacy all-threads returns offer every eligible authored reading path
+[28/44] [mobile] › tests/home-discovery.spec.ts:98:5 › delayed and failed historical media preserve dimensions, provenance and all entrances
+[29/44] [mobile] › tests/home-discovery.spec.ts:124:5 › all selected entrances and broader discovery work without JavaScript
+[30/44] [mobile] › tests/homepage-release.spec.ts:6:5 › both entrances render Human Story with canonical social metadata and publication safeguards
+[31/44] [mobile] › tests/homepage-release.spec.ts:20:5 › homepage and Nineveh support keyboard entry, motion preference and navigation in both directions
+[32/44] [mobile] › tests/homepage-release.spec.ts:48:5 › five worlds and both principal lives remain reachable through the entrance
+[33/44] [mobile] › tests/homepage-release.spec.ts:68:5 › legacy Nineveh fragments preserve discoveries, focus, reload and Back/Forward
+[34/44] [mobile] › tests/homepage-release.spec.ts:88:5 › root content and Scripture navigation survive absent or failed JavaScript
+[35/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route / has no unexpected errors, broken images or overflow
+[36/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/ has no unexpected errors, broken images or overflow
+[37/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /nineveh/ has no unexpected errors, broken images or overflow
+[38/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /jonah/ has no unexpected errors, broken images or overflow
+[39/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /explore/ has no unexpected errors, broken images or overflow
+[40/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/perpetua/ has no unexpected errors, broken images or overflow
+[41/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/augustine/ has no unexpected errors, broken images or overflow
+[42/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/witnesses/ has no unexpected errors, broken images or overflow
+[43/44] [mobile] › tests/homepage-release.spec.ts:103:7 › release route /human-story/worlds/saints/ has no unexpected errors, broken images or overflow
+[44/44] [mobile] › tests/homepage-release.spec.ts:126:5 › static export includes all published routes and server-rendered entrance metadata
+  44 passed (47.1s)

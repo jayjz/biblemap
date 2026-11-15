@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "baseline": "064a17ac3e7511ccb42323e436b6442f661be2cd",
+  "branch": "feat/pliny-v3-break-the-form",
+  "sourceContentDigest": "sha256:aa7eb39cf27884069b97e0f7c54f2ac58363a41937d168511fd3b222c52822fa",
+  "buildId": "candidate-aa7eb39cf27884069b97",
+  "export": {
+    "artifactDigest": "sha256:b236105ebdc7cf9b1f728e4f4fac7ce511aaa7bdb875d20357a8092f81824964",
+    "files": 378,
+    "routes": 45,
+    "missingDependencies": 0
+  },
+  "checks": {
+    "lockedInstall": "passed",
+    "typescript": "passed, including the final production build",
+    "lint": "passed; three pre-existing DataLoader warnings",
+    "domain": {
+      "passed": 81,
+      "failed": 0,
+      "skipped": 0
+    },
+    "releaseRegressions": {
+      "passed": 28,
+      "failed": 0
+    },
+    "browser": {
+      "passed": 269,
+      "failed": 0,
+      "skipped": 1,
+      "skipReason": "Existing mobile legacy-explorer baseline; Jonah tested on both sizes"
+    },
+    "seo": {
+      "routes": 46,
+      "errors": 0,
+      "observations": 8
+    },
+    "publication": "blocked as intended: canonical release-candidate/manifest.json is absent"
+  },
+  "visual": {
+    "viewports": [
+      {
+        "width": 1440,
+        "url": "http://127.0.0.1:38845/human-story/pliny/#pliny-comparison",
+        "title": "A kind of commonwealth · Pliny — BibleMap",
+        "overflow": false,
+        "errors": []
+      },
+      {
+        "width": 768,
+        "url": "http://127.0.0.1:38845/human-story/pliny/#pliny-comparison",
+        "title": "A kind of commonwealth · Pliny — BibleMap",
+        "overflow": false,
+        "errors": []
+      },
+      {
+        "width": 390,
+        "url": "http://127.0.0.1:38845/human-story/pliny/#pliny-comparison",
+        "title": "A kind of commonwealth · Pliny — BibleMap",
+        "overflow": false,
+        "errors": []
+      },
+      {
+        "width": 320,
+        "url": "http://127.0.0.1:38845/human-story/pliny/#pliny-comparison",
+        "title": "A kind of commonwealth · Pliny — BibleMap",
+        "overflow": false,
+        "errors": []
+      },
+      {
+        "width": 320,
+        "textSize": "200%",
+        "overflow": false,
+        "errors": []
+      }
+    ],
+    "conceptComparison": "Selected Image Gen carry study and actual 1440/390 built captures inspected together; intentional adaptations documented"
+  },
+  "performance": {
+    "environment": "Local static export, Chrome, 390×844, reduced motion; three fresh browser contexts; lab observations, not field Web Vitals",
+    "baseline": {
+      "samples": 3,
+      "firstContentfulPaintMs": 85.33333333333333,
+      "mainThreadTaskMs": 99.18866666666668,
+      "scriptMs": 46.75866666666667,
+      "initialTransferBytes": 1479260
+    },
+    "v3": {
+      "samples": 3,
+      "firstContentfulPaintMs": 106.66666666666667,
+      "mainThreadTaskMs": 125.01099999999998,
+      "scriptMs": 61.50599999999999,
+      "initialTransferBytes": 1491095
+    },
+    "qualification": "Local lab samples, not field Web Vitals, visitor comprehension or emotional evidence. No application animation or per-frame rendering loop."
+  },
+  "knownBuildIssue": "First compiler attempt failed with an internal undefined.length exception before export. One diagnostic rerun with an uncaughtExceptionMonitor passed without cache/configuration/source workarounds. Cause not established."
+}

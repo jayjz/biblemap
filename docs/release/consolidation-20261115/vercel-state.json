@@ -1,0 +1,39 @@
+{
+  "projectId": "prj_xKJkC8WBUusxhsDXO4jjcJ7zlc2m",
+  "teamId": "team_xtntWPJwjGlK9FNNQy9sGESp",
+  "publicDomain": "biblemap-pink.vercel.app",
+  "publicAlias": {
+    "deploymentId": "dpl_GmVqVqkGkUN6JbQmu1LX9Mo8QtUS",
+    "url": "biblemap-1qrevwnk3-elliotandersons-projects.vercel.app",
+    "gitSHA": "46a3136e61e989b58802e266401685ff423da3ea",
+    "target": null
+  },
+  "previousProduction": {
+    "deploymentId": "dpl_4hQwNWXRLa2WCdSaDcBbfjnd9WFq",
+    "url": "biblemap-gv2zljtjo-elliotandersons-projects.vercel.app",
+    "gitSHA": "e92b476729303cf00cf71f409c9cc64841ddf447",
+    "target": "production",
+    "isRollbackCandidate": true
+  },
+  "conflict": "get_alias currently points to dpl_GmVq while old production deployment's alias list still includes the public domain. Use get_alias and public HTTP as serving evidence; refresh project.targets before any traffic operation.",
+  "project": {
+    "nodeVersion": "24.x",
+    "protection": {
+      "password": false,
+      "sso": false,
+      "trustedIps": false
+    },
+    "environmentVariables": [],
+    "gitBinding": "repo metadata verified jayjz/biblemap; live productionBranch not exposed by connected project summary",
+    "liveFullConfiguration": "unavailable: pinned CLI lacks credentials",
+    "trackedConfig": {
+      "mainAutomaticDeployment": false,
+      "framework": null,
+      "buildCommand": "npm run build",
+      "outputDirectory": "out",
+      "installCommand": "npm ci"
+    }
+  },
+  "changesMade": [],
+  "observedDate": "2026-11-15"
+}

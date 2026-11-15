@@ -3,7 +3,7 @@ import scope from "../../docs/release/publication-scope.json" with { type: "json
 import { indexingPolicy, contentMaturity, selectVisitorGraph, type PublicationScope } from "../domain/publication.ts";
 
 // Keep the complete research graph in Git; visitor imports use this selection.
-const selectedScope: PublicationScope = {
+export const selectedScope: PublicationScope = {
   schemaVersion: 1,
   entries: Object.fromEntries(Object.entries(scope.entries).map(([id, maturity]) => [id, contentMaturity(maturity)])),
   routes: scope.routes.map(route => ({ ...route, maturity: contentMaturity(route.maturity), indexing: indexingPolicy(route.indexing) })),

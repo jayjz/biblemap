@@ -6,7 +6,7 @@ test("human story entrance has five worlds, Scripture access and an accessible r
 }) => {
   await page.goto("/human-story/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "The humanstory.",
+    "The living archive.",
   );
   await expect(
     page
@@ -14,7 +14,7 @@ test("human story entrance has five worlds, Scripture access and an accessible r
       .getByRole("link"),
   ).toHaveCount(5);
   await expect(
-    page.getByRole("link", { name: "Or begin with the book of Jonah" }),
+    page.getByRole("link", { name: "Read the book of Jonah" }),
   ).toHaveAttribute("href", "/jonah/#jonah-1-calling");
   await page.keyboard.press("Tab");
   await expect(
@@ -48,7 +48,7 @@ test("human story remains readable without JavaScript and at 320px", async ({
   await page.getByText("About this exploration", { exact: true }).click();
   await expect(page.getByText(/This no-index design study/)).toBeVisible();
   await page
-    .getByRole("link", { name: "Or begin with the book of Jonah" })
+    .getByRole("link", { name: "Read the book of Jonah" })
     .click();
   await expect(page.locator('[data-reference="1:1"]')).toBeVisible();
   await context.close();

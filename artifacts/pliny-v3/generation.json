@@ -1,0 +1,8 @@
+{
+  "generator": "Built-in OpenAI Image Gen",
+  "generatedAt": "2026-11-15",
+  "use": "Original symbolic ribbon for the carried-sentence composition",
+  "prompt": "Use case: illustration-story. Asset type: original symbolic artwork for a literary website's carried quotation, NOT a historical artifact. Create one long cobalt-blue paper ribbon, folded and changing direction twice, isolated on a genuinely transparent background. A contemporary artist's-book / lithographic paper composition: tactile pigment grain, precise beautiful folds, no photoreal room. Horizontal 3:1 composition, entire object within the frame with transparent breathing room. Main color #183ac2, pale-blue light on one fold, deep-blue shadow on the underside. The ribbon should be narrow, sinuous but sharply folded, entering at lower-left and exiting upper-right. No text, no letters, no writing, no logos, no symbols, no faces, hands, people, objects, ancient ornament, fake manuscript, architecture, blood or damage. This is an abstract modern metaphor for carrying a sentence from one document into another, not a reconstruction of anything Roman. Crisp original art suitable for a small lightweight transparent WebP. Real alpha transparency, no checkerboard.",
+  "referenceAssetIds": [],
+  "knownInaccuracies": "No historical object is depicted. Folds, material, color and texture are contemporary artistic choices."
+}

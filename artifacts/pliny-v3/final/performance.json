@@ -1,0 +1,374 @@
+{
+  "environment": "Local static export, Chrome, 390×844, reduced motion; three fresh browser contexts; lab observations, not field Web Vitals",
+  "samples": [
+    {
+      "navigation": [
+        {
+          "domContentLoaded": 27.599999994039536,
+          "load": 118.80000001192093,
+          "transferSize": 82848
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+          "bytes": 301024,
+          "duration": 14.599999994039536
+        },
+        {
+          "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+          "bytes": 169356,
+          "duration": 19.100000023841858
+        },
+        {
+          "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+          "bytes": 172248,
+          "duration": 20.30000001192093
+        },
+        {
+          "name": "/_next/static/css/320167931833068e.css",
+          "bytes": 35239,
+          "duration": 11.5
+        },
+        {
+          "name": "/_next/static/css/bce302030960d288.css",
+          "bytes": 86410,
+          "duration": 12.799999982118607
+        },
+        {
+          "name": "/_next/static/css/f13ec044cf2c885f.css",
+          "bytes": 42271,
+          "duration": 12.800000011920929
+        },
+        {
+          "name": "/_next/static/chunks/webpack-36a9ab6ea1e76505.js",
+          "bytes": 5740,
+          "duration": 21.099999994039536
+        },
+        {
+          "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+          "bytes": 204027,
+          "duration": 22.5
+        },
+        {
+          "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+          "bytes": 243189,
+          "duration": 22.80000001192093
+        },
+        {
+          "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+          "bytes": 829,
+          "duration": 20.5
+        },
+        {
+          "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+          "bytes": 7974,
+          "duration": 23.799999982118607
+        },
+        {
+          "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+          "bytes": 14728,
+          "duration": 25.299999982118607
+        },
+        {
+          "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+          "bytes": 31846,
+          "duration": 25.5
+        },
+        {
+          "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-5fb160ed73767fde.js",
+          "bytes": 52105,
+          "duration": 25.5
+        },
+        {
+          "name": "/media/pliny-v3/carried-ribbon-mobile.webp",
+          "bytes": 15030,
+          "duration": 2.300000011920929
+        },
+        {
+          "name": "/favicon.ico",
+          "bytes": 26231,
+          "duration": 2.100000023841858
+        }
+      ],
+      "paints": [
+        {
+          "name": "first-paint",
+          "time": 72
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 72
+        }
+      ],
+      "metrics": [
+        {
+          "name": "LayoutDuration",
+          "value": 0.014355
+        },
+        {
+          "name": "RecalcStyleDuration",
+          "value": 0.009191
+        },
+        {
+          "name": "ScriptDuration",
+          "value": 0.058828
+        },
+        {
+          "name": "TaskDuration",
+          "value": 0.128179
+        },
+        {
+          "name": "JSHeapUsedSize",
+          "value": 3605672
+        }
+      ]
+    },
+    {
+      "navigation": [
+        {
+          "domContentLoaded": 36,
+          "load": 125.7000000178814,
+          "transferSize": 82848
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+          "bytes": 301024,
+          "duration": 13.900000005960464
+        },
+        {
+          "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+          "bytes": 169356,
+          "duration": 15.800000011920929
+        },
+        {
+          "name": "/_next/static/css/320167931833068e.css",
+          "bytes": 35239,
+          "duration": 12.199999988079071
+        },
+        {
+          "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+          "bytes": 172248,
+          "duration": 16
+        },
+        {
+          "name": "/_next/static/css/bce302030960d288.css",
+          "bytes": 86410,
+          "duration": 13.900000005960464
+        },
+        {
+          "name": "/_next/static/css/f13ec044cf2c885f.css",
+          "bytes": 42271,
+          "duration": 13.699999988079071
+        },
+        {
+          "name": "/_next/static/chunks/webpack-36a9ab6ea1e76505.js",
+          "bytes": 5740,
+          "duration": 17.69999998807907
+        },
+        {
+          "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+          "bytes": 204027,
+          "duration": 20.80000001192093
+        },
+        {
+          "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+          "bytes": 829,
+          "duration": 18.19999998807907
+        },
+        {
+          "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+          "bytes": 243189,
+          "duration": 21
+        },
+        {
+          "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+          "bytes": 7974,
+          "duration": 19.799999982118607
+        },
+        {
+          "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+          "bytes": 14728,
+          "duration": 21
+        },
+        {
+          "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+          "bytes": 31846,
+          "duration": 23
+        },
+        {
+          "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-5fb160ed73767fde.js",
+          "bytes": 52105,
+          "duration": 23.30000001192093
+        },
+        {
+          "name": "/media/pliny-v3/carried-ribbon-mobile.webp",
+          "bytes": 15030,
+          "duration": 1.7999999821186066
+        },
+        {
+          "name": "/favicon.ico",
+          "bytes": 26231,
+          "duration": 2.5
+        }
+      ],
+      "paints": [
+        {
+          "name": "first-paint",
+          "time": 136
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 136
+        }
+      ],
+      "metrics": [
+        {
+          "name": "LayoutDuration",
+          "value": 0.010103
+        },
+        {
+          "name": "RecalcStyleDuration",
+          "value": 0.008896
+        },
+        {
+          "name": "ScriptDuration",
+          "value": 0.067979
+        },
+        {
+          "name": "TaskDuration",
+          "value": 0.132481
+        },
+        {
+          "name": "JSHeapUsedSize",
+          "value": 3621744
+        }
+      ]
+    },
+    {
+      "navigation": [
+        {
+          "domContentLoaded": 31.099999994039536,
+          "load": 110.90000000596046,
+          "transferSize": 82848
+        }
+      ],
+      "resources": [
+        {
+          "name": "/_next/static/media/40971a7c3a66cee8-s.p.ttf",
+          "bytes": 301024,
+          "duration": 12.700000017881393
+        },
+        {
+          "name": "/_next/static/media/754159f674ffe637-s.p.ttf",
+          "bytes": 169356,
+          "duration": 16.30000001192093
+        },
+        {
+          "name": "/_next/static/css/320167931833068e.css",
+          "bytes": 35239,
+          "duration": 13.200000017881393
+        },
+        {
+          "name": "/_next/static/media/a2ce63cce92ef08d-s.p.ttf",
+          "bytes": 172248,
+          "duration": 16.900000005960464
+        },
+        {
+          "name": "/_next/static/css/bce302030960d288.css",
+          "bytes": 86410,
+          "duration": 14
+        },
+        {
+          "name": "/_next/static/css/f13ec044cf2c885f.css",
+          "bytes": 42271,
+          "duration": 13.699999988079071
+        },
+        {
+          "name": "/_next/static/chunks/webpack-36a9ab6ea1e76505.js",
+          "bytes": 5740,
+          "duration": 15.799999982118607
+        },
+        {
+          "name": "/_next/static/chunks/4bd1b696-8cd12253b448cc13.js",
+          "bytes": 204027,
+          "duration": 19.399999976158142
+        },
+        {
+          "name": "/_next/static/chunks/3794-1030b64c98e94946.js",
+          "bytes": 243189,
+          "duration": 19.5
+        },
+        {
+          "name": "/_next/static/chunks/main-app-66e343a3aca9e3a7.js",
+          "bytes": 829,
+          "duration": 17.599999994039536
+        },
+        {
+          "name": "/_next/static/chunks/8500-63a4afbeacab3b52.js",
+          "bytes": 7974,
+          "duration": 19.69999998807907
+        },
+        {
+          "name": "/_next/static/chunks/8437-b674990ba6ab658f.js",
+          "bytes": 14728,
+          "duration": 20.400000005960464
+        },
+        {
+          "name": "/_next/static/chunks/7256-0d8b1f6f4932b794.js",
+          "bytes": 31846,
+          "duration": 20.900000005960464
+        },
+        {
+          "name": "/_next/static/chunks/app/human-story/%5Bentry%5D/page-5fb160ed73767fde.js",
+          "bytes": 52105,
+          "duration": 21.400000005960464
+        },
+        {
+          "name": "/media/pliny-v3/carried-ribbon-mobile.webp",
+          "bytes": 15030,
+          "duration": 1.800000011920929
+        },
+        {
+          "name": "/favicon.ico",
+          "bytes": 26231,
+          "duration": 2.0999999940395355
+        }
+      ],
+      "paints": [
+        {
+          "name": "first-paint",
+          "time": 112
+        },
+        {
+          "name": "first-contentful-paint",
+          "time": 112
+        }
+      ],
+      "metrics": [
+        {
+          "name": "LayoutDuration",
+          "value": 0.008914
+        },
+        {
+          "name": "RecalcStyleDuration",
+          "value": 0.007347
+        },
+        {
+          "name": "ScriptDuration",
+          "value": 0.057711
+        },
+        {
+          "name": "TaskDuration",
+          "value": 0.114373
+        },
+        {
+          "name": "JSHeapUsedSize",
+          "value": 3665264
+        }
+      ]
+    }
+  ]
+}

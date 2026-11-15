@@ -21,7 +21,7 @@ test("Thomas has distinct narrative and sayings entrances without an invented gr
 test("Thomas is a featured searchable reading; existing stories and discovery still work", async ({ page }) => {
   await page.goto("/");
   for (const id of ["jonah", "perpetua", "romanus", "james", "thomas"]) {
-    await expect(page.locator(`#discover #reading-${id} h3 a`)).toHaveAttribute("href", `/human-story/${id}/`);
+    await expect(page.locator(`#discover #reading-${id} h3 a`)).toHaveAttribute("href", id === "jonah" ? "/jonah/#jonah-1-calling" : `/human-story/${id}/`);
   }
   await expect(page.locator("#reading-thomas button")).toBeHidden();
   await page.getByRole("searchbox").fill("Thomas");
@@ -59,6 +59,8 @@ test("Thomas reflows at four widths, uses mobile artwork and retains accessible 
     }
     const primary = invitation.getByRole("link", { name: "Enter Thomas’s story", exact: true });
     await primary.focus();
+    await page.keyboard.press("Tab");
+    await expect(invitation.getByRole("link", { name: /sources for Thomas/ })).toBeFocused();
     await page.keyboard.press("Tab");
     await expect(invitation.getByText("About the AI-generated artwork", { exact: true })).toBeFocused();
     await page.keyboard.press("Enter");

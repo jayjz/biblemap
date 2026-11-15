@@ -1,0 +1,80 @@
+{
+  "sourceCommit": "7475b0ae1ae7ae82e535a092b6bab7484aa995e6",
+  "checks": [
+    {
+      "command": "Locked npm ci",
+      "exit": "0",
+      "result": "555 packages installed; unchanged lockfile"
+    },
+    {
+      "command": "npm run lint",
+      "exit": "0",
+      "result": "0 errors, 3 existing DataLoader warnings"
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "exit": "0",
+      "result": "Types pass"
+    },
+    {
+      "command": "Focused source/media/curation tests",
+      "exit": "0",
+      "result": "Pinned Pliny source/quotation/media checks and curation partitions pass"
+    },
+    {
+      "command": "npm run test:release (outside sandbox)",
+      "exit": "0",
+      "result": "28 passed"
+    },
+    {
+      "command": "npm run build (outside sandbox)",
+      "exit": "0",
+      "result": "385 artifacts, 45 index routes; no unresolved local dependencies or review-server references"
+    },
+    {
+      "command": "npm test",
+      "exit": "0",
+      "result": "85 passed, one export assertion deliberately skipped without opt-in"
+    },
+    {
+      "command": "BIBLEMAP_VERIFY_EXPORT=1 npm test",
+      "exit": "0",
+      "result": "86 passed, zero skips"
+    },
+    {
+      "command": "npm run test:export-boundary",
+      "exit": "0",
+      "result": "Injected private fields/unclassified entry absent from all 385 output files; fixtures restored"
+    },
+    {
+      "command": "node scripts/validate-nineveh-depth.mjs --production-export",
+      "exit": "0",
+      "result": "Archive entrance, Nineveh and excluded experiment/media verified"
+    },
+    {
+      "command": "npm run audit:seo with installed Chrome",
+      "exit": "0",
+      "result": "Zero errors; eight existing Jonah image-dimension observations"
+    },
+    {
+      "command": "CHROME_PATH=/usr/bin/google-chrome npm run test:seo-gate",
+      "exit": "0",
+      "result": "All six deliberate defects rejected; output restored"
+    },
+    {
+      "command": "Full desktop/mobile Playwright suite",
+      "exit": "143 outer harness",
+      "result": "Final runner summary: 279 passed, 1 existing mobile Atlas skip, zero failed, 7.2m; outer Python harness received SIGTERM after summary and did not capture npm exit. Exact integration CI must pass before merge."
+    },
+    {
+      "command": "npm audit --json",
+      "exit": "1",
+      "result": "21 affected-package findings: 8 high, 13 moderate, no critical; no dependency changes"
+    },
+    {
+      "command": "npm run validate:release",
+      "exit": "1",
+      "result": "Missing release-candidate/manifest.json; detached acceptance pending. Expected production blocker, not a technical pass"
+    }
+  ]
+}

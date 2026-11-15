@@ -7,6 +7,8 @@ import { PerpetuaEncounter } from "@/features/human-story/PerpetuaEncounter";
 import { RomanusEncounter } from "@/features/human-story/romanus/RomanusEncounter";
 import { JamesEncounter } from "@/features/human-story/james/JamesEncounter";
 import { JonahLettersEncounter } from "@/features/human-story/JonahLettersEncounter";
+import { PlinyV3Encounter } from "@/features/human-story/pliny/PlinyV3Encounter";
+import { PLINY_V3_DESCRIPTION, PLINY_V3_TITLE } from "@/content/pliny-v3";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -20,7 +22,7 @@ export async function generateMetadata({
   const { entry: id } = await params;
   const entry = HUMAN_GRAPH.entries.find((candidate) => candidate.id === id);
   if (!entry) notFound();
-  return routeMetadata(`/human-story/${id}/`, `${entry.title} — BibleMap`, entry.subtitle);
+  return routeMetadata(`/human-story/${id}/`, id === "pliny" ? `${PLINY_V3_TITLE} · Pliny — BibleMap` : `${entry.title} — BibleMap`, id === "pliny" ? PLINY_V3_DESCRIPTION : entry.subtitle);
 }
 export default async function HumanStoryReading({
   params,
@@ -34,5 +36,6 @@ export default async function HumanStoryReading({
   if (id === "romanus") return <RomanusEncounter />;
   if (id === "james") return <JamesEncounter />;
   if (id === "jerome") return <JonahLettersEncounter />;
+  if (id === "pliny") return <PlinyV3Encounter />;
   return <ReadingRoom entry={entry} />;
 }

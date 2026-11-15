@@ -1,0 +1,62 @@
+[
+  {
+    "concept": "carry",
+    "width": 1440,
+    "url": "http://127.0.0.1:36623/#carry",
+    "title": "Pliny V3 · mechanism studies",
+    "state": "carry kept",
+    "overflow": false,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ]
+  },
+  {
+    "concept": "boundary",
+    "width": 1440,
+    "url": "http://127.0.0.1:36623/#boundary",
+    "title": "Pliny V3 · mechanism studies",
+    "state": "boundary open",
+    "overflow": false,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ]
+  },
+  {
+    "concept": "return",
+    "width": 1440,
+    "url": "http://127.0.0.1:36623/#return",
+    "title": "Pliny V3 · mechanism studies",
+    "state": "return reread",
+    "overflow": false,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ]
+  },
+  {
+    "concept": "carry",
+    "width": 390,
+    "url": "http://127.0.0.1:36623/#carry",
+    "title": "Pliny V3 · mechanism studies",
+    "state": "carry kept",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "concept": "boundary",
+    "width": 390,
+    "url": "http://127.0.0.1:36623/#boundary",
+    "title": "Pliny V3 · mechanism studies",
+    "state": "boundary open",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "concept": "return",
+    "width": 390,
+    "url": "http://127.0.0.1:36623/#return",
+    "title": "Pliny V3 · mechanism studies",
+    "state": "return reread",
+    "overflow": false,
+    "errors": []
+  }
+]

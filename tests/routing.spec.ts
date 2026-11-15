@@ -57,7 +57,7 @@ test("homepage, atlas and reader have explicit return paths", async ({ page }, t
   await page.screenshot({ path: testInfo.outputPath("explore-navigation.png"), fullPage: true });
   expect((await new AxeBuilder({ page }).include(".atlas-navigation").analyze()).violations).toEqual([]);
   await page.getByRole("link", { name: "BibleMap home" }).click();
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The humanstory.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The living archive.");
   await page.goBack();
   await expect(page.getByRole("navigation", { name: "Atlas navigation" })).toBeVisible();
   await page.getByRole("link", { name: "Read Jonah", exact: true }).click();
@@ -84,5 +84,5 @@ test("legacy atlas links survive UTM parameters and reload", async ({ page }, te
   await expect(page.locator(".nineveh")).toHaveCount(0);
   await page.getByRole("link", { name: "BibleMap home" }).click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The humanstory.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The living archive.");
 });

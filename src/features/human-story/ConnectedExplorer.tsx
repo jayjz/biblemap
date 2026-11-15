@@ -19,6 +19,7 @@ export interface ExplorerEntry {
   worlds: readonly WorldId[];
   era: string;
   searchText: string;
+  href?: string;
 }
 const subscribe = () => () => {};
 const clientSnapshot = () => true;
@@ -137,7 +138,7 @@ export function ConnectedExplorer({
             onClick={() => setShowAll(!showAll)}
           >
             {showAll
-              ? "Show featured readings"
+              ? "Show fewer readings"
               : `Browse all ${entries.length} readings`}
           </button>
         )}
@@ -162,7 +163,7 @@ export function ConnectedExplorer({
                 {EVIDENCE_LABELS[entry.kind]}
               </p>
               <h3>
-                <Link prefetch={false} href={`/human-story/${entry.id}/`}>
+                <Link prefetch={false} href={entry.href ?? `/human-story/${entry.id}/`}>
                   {entry.title}
                 </Link>
               </h3>
@@ -217,7 +218,7 @@ export function ConnectedExplorer({
             Connected to {selected?.title}
           </h3>
           <div className={styles.previewRoot}>
-            <Link prefetch={false} href={`/human-story/${activeId}/`}>
+            <Link prefetch={false} href={selected?.href ?? `/human-story/${activeId}/`}>
               {selected?.subtitle}
             </Link>
           </div>
@@ -225,7 +226,7 @@ export function ConnectedExplorer({
             {related.slice(0, 3).map(({ connection, entry }) => (
               <li key={connection.id}>
                 <p>{CONNECTION_LABELS[connection.kind]}</p>
-                <Link prefetch={false} href={`/human-story/${entry.id}/`}>
+                <Link prefetch={false} href={entry.href ?? `/human-story/${entry.id}/`}>
                   {entry.title}
                 </Link>
                 <p>{connection.label}</p>

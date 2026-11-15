@@ -1,0 +1,926 @@
+{
+  "schemaVersion": 1,
+  "baseline": {
+    "main": "23bf774dbd38b98dd8921d33149ed4485440c223",
+    "plinyWip": "064a17ac3e7511ccb42323e436b6442f661be2cd",
+    "plinyV3": "82d5bc4308114dcc1ba8dbff71be4a0e08d8551e",
+    "plinyV4": "ae4dc1c8f5b3d585ecaa75832cf0e735a150ada9",
+    "chain": [
+      "main",
+      "feat/pliny-human-encounter",
+      "feat/pliny-v3-break-the-form (#56)",
+      "feat/pliny-v4-documentary (#57)",
+      "feat/homepage-living-archive"
+    ]
+  },
+  "curation": {
+    "hero": "pliny",
+    "featured": [
+      "perpetua",
+      "jonah",
+      "thomas"
+    ],
+    "discovery": "all-visitor-eligible"
+  },
+  "entries": [
+    {
+      "id": "james",
+      "route": "/human-story/james/",
+      "href": "/human-story/james/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "james",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "romanus",
+      "route": "/human-story/romanus/",
+      "href": "/human-story/romanus/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "romanus",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "time-and-memory",
+      "route": "/human-story/time-and-memory/",
+      "href": "/human-story/time-and-memory/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "time-and-memory",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "sinaiticus",
+      "route": "/human-story/sinaiticus/",
+      "href": "/human-story/sinaiticus/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "sinaiticus",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "jerome",
+      "route": "/human-story/jerome/",
+      "href": "/human-story/jerome/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "jerome",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "rashi-radak",
+      "route": "/human-story/rashi-radak/",
+      "href": "/human-story/rashi-radak/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "rashi-radak",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "singing-in-milan",
+      "route": "/human-story/singing-in-milan/",
+      "href": "/human-story/singing-in-milan/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "singing-in-milan",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "genesis-in-paint",
+      "route": "/human-story/genesis-in-paint/",
+      "href": "/human-story/genesis-in-paint/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "genesis-in-paint",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "mediterranean",
+      "route": "/human-story/mediterranean/",
+      "href": "/human-story/mediterranean/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "mediterranean",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "perpetua",
+      "route": "/human-story/perpetua/",
+      "href": "/human-story/perpetua/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "perpetua",
+      "maturity": "provisional",
+      "editorialRole": "featured",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "augustine",
+      "route": "/human-story/augustine/",
+      "href": "/human-story/augustine/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "augustine",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "teresa",
+      "route": "/human-story/teresa/",
+      "href": "/human-story/teresa/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "teresa",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "francis",
+      "route": "/human-story/francis/",
+      "href": "/human-story/francis/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "francis",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "tacitus",
+      "route": "/human-story/tacitus/",
+      "href": "/human-story/tacitus/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "tacitus",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "pliny",
+      "route": "/human-story/pliny/",
+      "href": "/human-story/pliny/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "pliny",
+      "maturity": "provisional",
+      "editorialRole": "hero",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": "Pliny WIP → #56 → #57"
+    },
+    {
+      "id": "josephus-james",
+      "route": "/human-story/josephus-james/",
+      "href": "/human-story/josephus-james/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "josephus-james",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "testimonium",
+      "route": "/human-story/testimonium/",
+      "href": "/human-story/testimonium/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "testimonium",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "suetonius",
+      "route": "/human-story/suetonius/",
+      "href": "/human-story/suetonius/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "suetonius",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "genesis",
+      "route": "/human-story/genesis/",
+      "href": "/human-story/genesis/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "genesis",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "exodus",
+      "route": "/human-story/exodus/",
+      "href": "/human-story/exodus/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "exodus",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review",
+        "exodus-unfinished"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "jonah",
+      "route": "/jonah/",
+      "href": "/jonah/#jonah-1-calling",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "jonah",
+      "maturity": "provisional",
+      "editorialRole": "featured",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "emmaus",
+      "route": "/human-story/emmaus/",
+      "href": "/human-story/emmaus/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "emmaus",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "paul",
+      "route": "/human-story/paul/",
+      "href": "/human-story/paul/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "paul",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "nineveh",
+      "route": "/human-story/nineveh/",
+      "href": "/human-story/nineveh/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "nineveh",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "jonah-in-marble",
+      "route": "/human-story/jonah-in-marble/",
+      "href": "/human-story/jonah-in-marble/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": "jonah-in-marble",
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "sourced-reading-room",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "thomas",
+      "route": "/human-story/thomas/",
+      "href": "/human-story/thomas/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": null,
+      "maturity": "provisional",
+      "editorialRole": "featured",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "unmergedDependency": null
+    },
+    {
+      "id": "lachish",
+      "route": "/lachish/",
+      "href": "/lachish/",
+      "routePresent": true,
+      "visitorEligible": true,
+      "scopeEntry": null,
+      "maturity": "provisional",
+      "editorialRole": "discovery",
+      "form": "developed-encounter",
+      "authoringReview": "draft",
+      "limitations": [
+        "candidate-editorial-review",
+        "interpretive-nonmeasured-geometry"
+      ],
+      "unmergedDependency": null
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/demo/",
+      "maturity": "internal-draft",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": false,
+      "routePresent": true
+    },
+    {
+      "route": "/experiments/nineveh/",
+      "maturity": "excluded-experimental",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": false,
+      "routePresent": true
+    },
+    {
+      "route": "/explore/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "noindex",
+      "canonicalRoute": "/",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/augustine/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/emmaus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/exodus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review",
+        "exodus-unfinished"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/francis/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/genesis/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/genesis-in-paint/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/james/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/james/reading/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/jerome/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/jonah/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/jonah-in-marble/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/josephus-james/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/mediterranean/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/nineveh/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/paths/a-life-in-another-life/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/paths/a-name-under-pressure/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/paths/a-word-crosses-centuries/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/paul/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/perpetua/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/pliny/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/rashi-radak/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/romanus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/romanus/reading/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/sinaiticus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/singing-in-milan/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/suetonius/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/tacitus/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/teresa/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/testimonium/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/thomas/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/thomas/reading/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/thomas/sayings/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/time-and-memory/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/worlds/atlas/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/worlds/saints/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/worlds/stories/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/worlds/voices/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/human-story/worlds/witnesses/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/jonah/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/nineveh/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review"
+      ],
+      "indexing": "inherited-candidate-noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    },
+    {
+      "route": "/lachish/",
+      "maturity": "provisional",
+      "limitations": [
+        "candidate-editorial-review",
+        "interpretive-nonmeasured-geometry"
+      ],
+      "indexing": "noindex",
+      "visitorEligible": true,
+      "routePresent": true
+    }
+  ]
+}

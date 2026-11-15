@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-15",
+  "reviewer": "Codex",
+  "scope": "Exact source records and visual reuse evidence, not human historical or publication approval",
+  "museum": [
+    {
+      "objectID": 248058,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/248058",
+      "accessionNumber": "08.170.384",
+      "title": "Bronze sestertius of Trajan",
+      "objectDate": "103–111 CE",
+      "isPublicDomain": true,
+      "primaryImage": "https://images.metmuseum.org/CRDImages/gr/original/DP-14287-072.jpg",
+      "creditLine": "Rogers Fund, 1908",
+      "medium": "Bronze"
+    },
+    {
+      "objectID": 251396,
+      "objectURL": "https://www.metmuseum.org/art/collection/search/251396",
+      "accessionNumber": "23.160.52",
+      "title": "Bronze military diploma fragment",
+      "objectDate": "113/14 CE",
+      "isPublicDomain": true,
+      "primaryImage": "https://images.metmuseum.org/CRDImages/gr/original/DP105609.jpg",
+      "creditLine": "Rogers Fund, 1923",
+      "medium": "Bronze"
+    }
+  ],
+  "facsimile": {
+    "recordUrl": "https://archive.org/details/sixthcenturyfrag00lowe",
+    "metadata": {
+      "title": "A sixth-century fragment of the letters of Pliny the Younger; a study of six leaves of an uncial manuscript preserved in the Pierpont Morgan library, New York",
+      "creator": [
+        "Lowe, E. A. (Elias Avery), 1879-1969",
+        "Rand, Edward Kennard, 1871-1945",
+        "Morgan, J. P. (John Pierpont), 1867-1943"
+      ],
+      "date": "1922",
+      "publisher": "Washington, Carnegie institution of Washington",
+      "contributor": "Robarts - University of Toronto",
+      "identifier": "sixthcenturyfrag00lowe",
+      "notes": "No copyright page found."
+    },
+    "pdfPage": 81,
+    "plate": "I",
+    "manuscriptRecordUrl": "https://www.themorgan.org/manuscript/110821",
+    "pdfChecksum": "sha256:da441a2ef2a5f7d1d49ac9e6a01d5192834b269c91a77a7639050b6efd034ade",
+    "rightsBasis": "1922 US publication of ancient manuscript photographic facsimile; public domain in US. Modern Morgan photographs not used."
+  }
+}

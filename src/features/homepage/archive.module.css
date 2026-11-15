@@ -1,0 +1,111 @@
+.archive {
+  --paper: #f3efe4; --ink: #242822; --red: #762e26; --rule: #b5b3a6;
+  --blue: #252c26; --mineral: #dedecf; --mist: #f3efe4;
+  min-height: 100vh; color: var(--ink); background: var(--paper);
+  font-family: var(--font-geist-sans), Arial, sans-serif; font-size: 1rem; line-height: 1.65;
+  overflow-wrap: break-word;
+}
+.archive * { box-sizing: border-box; }
+.archive :is(h1,h2,h3,p,figure) { margin: 0; }
+.archive :is(h1,h2,h3) { font-family: var(--font-playfair), Georgia, serif; font-weight: 400; line-height: 1.13; letter-spacing: -.04em; }
+.archive a { color: inherit; text-underline-offset: .25em; }
+.archive :focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+.archive :is(:target,:focus) { scroll-margin-block: 1.5rem; }
+.archive main:focus { outline: none; }
+.archive summary { cursor: pointer; padding-block: .65rem; min-height: 44px; font-size: .8rem; }
+.archive details > p { margin-block: .75rem; }
+.archive details a { overflow-wrap: anywhere; }
+.skip { position: absolute; top: -100px; left: 1rem; background: var(--paper); padding: .7rem 1rem; z-index: 20; }
+.skip:focus { top: 1rem; }
+.header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 2rem; padding: 1.1rem 4.5%; border-bottom: 1px solid var(--rule); }
+.wordmark { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem 1.5rem; font: 600 1.9rem var(--font-playfair),Georgia,serif; letter-spacing: -.05em; text-decoration: none; min-height: 44px; }
+.wordmark span { font: 400 .75rem var(--font-geist-sans),Arial,sans-serif; letter-spacing: 0; }
+.header nav { display: flex; flex-wrap: wrap; gap: 1.6rem; font-size: .8rem; }
+.header nav a { display: inline-flex; align-items: center; gap: 1rem; min-height: 44px; }
+.opening { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); grid-template-rows: auto 1fr; max-width: 1600px; margin-inline: auto; }
+.intro { padding: clamp(2rem,4vw,3.6rem) 7% 0; }
+.intro h1 { font-size: clamp(3.4rem,6.3vw,6.4rem); }
+.intro > p { font-size: 1.08rem; max-width: 35ch; margin-top: 1.4rem; }
+.opening > .art { grid-column: 2; grid-row: 1 / 3; background: #252c26; color: var(--paper); padding: 2.5rem 12% 1.4rem; display: flex; flex-direction: column; justify-content: center; }
+.opening > .art .imageFrame { width: min(100%,390px); margin-inline: auto; }
+.heroInvitation { padding: 2.6rem 7% 2.5rem; }
+.kind { display: flex; flex-wrap: wrap; gap: .25rem .7rem; text-transform: uppercase; font-size: .7rem; letter-spacing: .11em; line-height: 1.6; }
+.kind span { color: #5c6054; }
+.invitation h2 { font-size: clamp(2.1rem,3.6vw,3.8rem); margin-top: 1rem; }
+.invitation h3 { font-size: clamp(2rem,3.1vw,3.1rem); margin-top: 1rem; max-width: 20ch; }
+.invitationText { margin-top: 1.4rem !important; max-width: 49ch; font-size: .95rem; }
+.setting { font-size: .75rem; margin-block: 1.5rem !important; }
+.enter { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.7rem; min-height: 48px; padding: .85rem 1.2rem; background: var(--red); color: #fff !important; text-decoration: none; font-size: .85rem; font-weight: 500; max-width: 100%; }
+.enter svg { flex-shrink: 0; }
+.enter:hover { background: #55241e; text-decoration: underline; }
+.sourceLink { display: block; width: fit-content; font-size: .7rem; padding-block: .65rem; margin-top: .3rem; }
+.art { min-width: 0; }
+.art figcaption { font-size: .7rem; line-height: 1.65; padding-top: .8rem; }
+.artTitle { font-weight: 600; }
+.art figcaption > p + p { margin-top: .3rem; }
+.art details { margin-top: .15rem; }
+.imageFrame { position: relative; min-width: 0; }
+.imageFrame picture { display: block; width: 100%; height: 100%; }
+.imageFrame img { width: 100%; height: 100%; object-fit: contain; }
+.imageFallback { padding: 1rem; font-size: .8rem; }
+.thread { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); align-items: center; gap: 1rem 3rem; border-block: 1px solid var(--rule); padding: 1.4rem 5%; }
+.thread > p > a { display: inline-flex; align-items: center; gap: 1rem; min-height: 44px; font-family: var(--font-playfair),Georgia,serif; font-size: 1.5rem; letter-spacing: -.025em; }
+.thread details { font-size: .8rem; max-width: 58ch; }
+.thread details a { display: block; margin-block: .5rem; }
+.encounters { padding: 3.7rem 5% 0; max-width: 1600px; margin-inline: auto; }
+.sectionHeading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem 3rem; margin-bottom: 2.2rem; }
+.sectionHeading h2 { font-size: clamp(2rem,3.3vw,3.4rem); }
+.sectionHeading > p { font-size: .85rem; max-width: 44ch; }
+.featuredSpread { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.16fr); gap: 2.7rem 4%; }
+.perpetua { display: grid; grid-template-columns: minmax(0,1fr) minmax(110px,.6fr); gap: 1.5rem; align-items: start; border-right: 1px solid var(--rule); padding-right: 8%; }
+.perpetua .invitation { grid-column: 1/-1; grid-row: 2; }
+.perpetua .art { grid-column: 1/-1; grid-row: 1; display: grid; grid-template-columns: minmax(110px, .75fr) minmax(0,1fr); gap: 1.5rem; align-items: end; }
+.perpetua .art .imageFrame { max-width: 210px; }
+.perpetua .art figcaption { padding-bottom: .4rem; }
+.jonah { display: flex; flex-direction: column; }
+.jonah .art { order: -1; background: #282725; color: var(--paper); padding: 1.5rem 2rem 1rem; margin-bottom: 1.7rem; }
+.jonah .imageFrame { width: min(100%,340px); margin-inline: auto; }
+.thomas { grid-column: 1 / -1; background: #28221f; color: #f1e9da; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); margin-inline: -5.5556%; padding-inline: 5.5556%; }
+.thomas .invitation { padding: 3rem 2rem 1.5rem 0; }
+.thomas .kind span { color: #c8bba6; }
+.thomas .enter { background: #d6c1a3; color: #27231f !important; }
+.thomas .enter:hover { background: #e2d2bb; }
+.thomas .art { padding-top: 2.5rem; }
+.thomasImage { position: relative; aspect-ratio: 3/2; }
+.thomasImage > span { position: absolute; inset: 0; }
+.thomas .art figcaption { padding-bottom: 1rem; }
+.sayings { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid #706457; grid-column: 1/-1; font-size: .8rem; }
+.sayings strong { display: block; font: 400 1.3rem/1.6 var(--font-playfair),Georgia,serif; }
+.sayings a { display: inline-flex; align-items: center; min-height: 44px; }
+.discovery { padding: 4rem 5% 3rem; max-width: 1600px; margin-inline: auto; }
+.worlds { display: flex; flex-wrap: wrap; gap: .5rem 2rem; padding-bottom: 1.5rem; margin-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+.worlds a { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; }
+.discovery h3 { font-size: 1.6rem; }
+.discovery button { border-radius: 0; }
+.evidence { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 1rem 3rem; padding: 2.5rem 5%; border-top: 1px solid var(--rule); background: #e8e6da; }
+.evidence h2 { font-size: clamp(2rem,3vw,2.8rem); grid-row: 1/3; }
+.evidence > p { max-width: 65ch; font-size: .9rem; }
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; background: #252c26; color: #f3efe4; padding: 2rem 5%; }
+.footer p { font: 400 1.5rem/1.6 var(--font-playfair),Georgia,serif; }
+.footer span { display: block; font: 400 .75rem/1.6 var(--font-geist-sans),Arial,sans-serif; }
+.footer a { min-height: 44px; display: inline-flex; align-items: center; font-size: .8rem; }
+@media (max-width:1000px) {
+  .intro h1 { font-size: 4rem; }.opening { grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); }
+  .opening > .art { padding-inline: 8%; }.heroInvitation { padding-top: 2rem; }
+  .featuredSpread { gap: 2rem 4%; }.perpetua .art { display: block; }.perpetua .art .imageFrame { max-width: 170px; }
+  .thread { grid-template-columns: minmax(0,1fr); gap: 0; }.thomas .invitation { padding-top: 2rem; }
+}
+@media (max-width:700px) {
+  .header { padding: .8rem 1.3rem; gap: .1rem; }.wordmark { width: 100%; justify-content: space-between; font-size: 1.6rem; gap: 1rem; }.wordmark span { font-size: .65rem; }
+  .header nav { gap: 1.5rem; font-size: .75rem; }.opening { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,8.75rem),1fr)); padding: 1.8rem 1.3rem 0; gap: 1.6rem 1rem; }
+  .intro { padding: 0; }.intro h1 { font-size: clamp(2.5rem,10.8vw,3.7rem); max-width: 8ch; }.intro > p { font-size: .85rem; line-height: 1.65; margin-top: 1rem; }
+  .opening > .art { grid-row: auto; grid-column: auto; max-width: 180px; margin-inline: auto; background: transparent; color: var(--ink); padding: 0; align-self: center; }.opening > .art figcaption { font-size: .65rem; }.opening > .art .artTitle { display: none; }.opening > .art summary { font-size: .65rem; }.opening > .art details[open] { font-size: .7rem; }
+  .heroInvitation { grid-column: 1/-1; padding: 0 0 1.8rem; }.invitation h2 { font-size: 2.05rem; max-width: 18ch; }.invitation h3 { font-size: 2.2rem; }.invitationText { margin-top: 1.1rem !important; }.setting { margin-block: 1rem !important; }
+  .thread { padding: 1rem 1.3rem; }.thread > p > a { font-size: 1.25rem; }.thread > p > a svg { flex-shrink: 0; }.thread .kind { font-size: .6rem; }
+  .encounters { padding: 2.4rem 1.3rem 0; }.sectionHeading { margin-bottom: 1.8rem; gap: 1rem; }.sectionHeading > p { font-size: .8rem; }.featuredSpread { display: block; }
+  .perpetua { display: block; padding: 0 0 2.2rem; border: 0; }.perpetua .art { display: grid; grid-template-columns: minmax(105px,.6fr) minmax(0,1fr); gap: 1.3rem; align-items: end; margin-bottom: 1.4rem; }.perpetua .art .imageFrame { max-width: 150px; }
+  .jonah { padding-bottom: 2.3rem; }.jonah .art { padding: 1.2rem; margin-bottom: 1.4rem; }.thomas { display: flex; flex-direction: column; margin-inline: -1.3rem; padding-inline: 1.3rem; }.thomas .invitation { padding: 2.4rem 0 .8rem; }.thomas .art { padding-top: .5rem; }.sayings { padding-block: 1rem 1.6rem; }
+  .discovery { padding: 2.5rem 1.3rem; }.worlds { gap: .3rem 1.5rem; margin-bottom: 1.5rem; }
+  .evidence { display: block; padding: 2rem 1.3rem; }.evidence > p { margin-top: 1.2rem; }.evidence details { margin-top: .7rem; }.footer { padding: 1.5rem 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) { .archive *, .archive *::before, .archive *::after { scroll-behavior: auto; } }

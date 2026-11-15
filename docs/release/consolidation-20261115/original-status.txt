@@ -1,0 +1,8 @@
+## feat/homepage-living-archive...origin/feat/homepage-living-archive
+ M AGENTS.md
+ M artifacts/release-readiness/export-inventory.json
+ M next-env.d.ts
+?? .agents/skills/camera-systems
+?? .agents/skills/game-ui-frontend
+?? .agents/skills/performance-optimization
+?? .agents/skills/shader-programming
