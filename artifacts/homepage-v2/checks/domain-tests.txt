@@ -2,206 +2,206 @@
 > next_temp@0.1.0 test
 > node --experimental-strip-types --test src/domain/*.test.ts
 
-(node:1473848) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/artifact-reproducibility.test.ts is not specified and it doesn't parse as CommonJS.
+(node:1505120) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/artifact-reproducibility.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Git checkout preserves export text, Python inputs, binaries and pinned publisher bytes with autocrlf enabled (75.942335ms)
-✔ content identity includes the checkout policy (222.435691ms)
-(node:1473849) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/atlas-routing.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Git checkout preserves export text, Python inputs, binaries and pinned publisher bytes with autocrlf enabled (86.487696ms)
+✔ content identity includes the checkout policy (221.106627ms)
+(node:1505121) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/atlas-routing.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ tracking, unknown state and editorial anchors stay on the homepage (8.14515ms)
-✔ supported atlas query selectors survive tracking parameters (3.729154ms)
-✔ manifest epoch links and their book filters remain compatible (0.545036ms)
-(node:1473850) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/historical-context.test.ts is not specified and it doesn't parse as CommonJS.
+✔ tracking, unknown state and editorial anchors stay on the homepage (3.597095ms)
+✔ supported atlas query selectors survive tracking parameters (0.402517ms)
+✔ manifest epoch links and their book filters remain compatible (0.56343ms)
+(node:1505122) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/historical-context.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 ▶ historical context validation
-  ✔ accepts a sparse approved record (1.926809ms)
-  ✔ requires uncertainty when confidence is disputed (0.590402ms)
-  ✔ requires uncertainty when confidence is traditional (0.409601ms)
-  ✔ rejects an unsourced record (0.416124ms)
-  ✔ rejects a draft from production rendering (0.206498ms)
-  ✔ rejects a missing narrative or empty scene list (0.257595ms)
-  ✔ rejects an oversized narrative and too many beats (0.301218ms)
-  ✔ labels claim kinds for the UI (0.442444ms)
-  ✔ labels beat kinds for the UI (0.678137ms)
-✔ historical context validation (11.263353ms)
-(node:1473856) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/home-curation.test.ts is not specified and it doesn't parse as CommonJS.
+  ✔ accepts a sparse approved record (2.850231ms)
+  ✔ requires uncertainty when confidence is disputed (0.517212ms)
+  ✔ requires uncertainty when confidence is traditional (0.24431ms)
+  ✔ rejects an unsourced record (4.982842ms)
+  ✔ rejects a draft from production rendering (2.7646ms)
+  ✔ rejects a missing narrative or empty scene list (0.384783ms)
+  ✔ rejects an oversized narrative and too many beats (0.422124ms)
+  ✔ labels claim kinds for the UI (0.285637ms)
+  ✔ labels beat kinds for the UI (0.63301ms)
+✔ historical context validation (19.062022ms)
+(node:1505128) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/home-curation.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ creator curation is deterministic; all eligible readings remain discoverable (3.449166ms)
-✔ unknown, duplicate, ineligible and unavailable editorial selections fail explicitly (1.732423ms)
-✔ maturity and new registrations cannot silently promote an encounter (1.076488ms)
-✔ destinations are local and source-bound invitations do not invent graph evidence (0.840553ms)
-(node:1473858) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
+✔ creator curation is deterministic; all eligible readings remain discoverable (2.699287ms)
+✔ unknown, duplicate, ineligible and unavailable editorial selections fail explicitly (1.854017ms)
+✔ maturity and new registrations cannot silently promote an encounter (0.825773ms)
+✔ destinations are local and source-bound invitations do not invent graph evidence (0.73902ms)
+(node:1505129) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/human-story-interiors.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ interior quotations resolve to an edition with a locator and reuse statement (1.502349ms)
-✔ new interior media retain verified file identity, local paths and reuse evidence (4.190242ms)
-(node:1473868) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/human-story.test.ts is not specified and it doesn't parse as CommonJS.
+✔ interior quotations resolve to an edition with a locator and reuse statement (1.264207ms)
+✔ new interior media retain verified file identity, local paths and reuse evidence (13.417326ms)
+(node:1505145) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/human-story.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Human Story drafts retain source locators, stable entities and working connection endpoints (9.804305ms)
-✔ Human Story validation rejects unsourced claims and broken or duplicate identities (1.03036ms)
-✔ every authored path is grounded in actual, classified graph connections (1.596126ms)
-✔ each of the five worlds opens to actual readings (0.351121ms)
-(node:1473875) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/james-visuals.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Human Story drafts retain source locators, stable entities and working connection endpoints (4.305518ms)
+✔ Human Story validation rejects unsourced claims and broken or duplicate identities (0.923607ms)
+✔ every authored path is grounded in actual, classified graph connections (0.848637ms)
+✔ each of the five worlds opens to actual readings (0.20765ms)
+(node:1505151) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/james-visuals.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ James visual inventory matches the local responsive images and their recorded bytes (15.932506ms)
-✔ generated James environments retain provenance, rights evidence and historical limitations (1.585025ms)
-✔ each James environment has bounded mobile and desktop derivatives (0.544275ms)
-(node:1473880) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/james.test.ts is not specified and it doesn't parse as CommonJS.
+✔ James visual inventory matches the local responsive images and their recorded bytes (26.858104ms)
+✔ generated James environments retain provenance, rights evidence and historical limitations (2.738401ms)
+✔ each James environment has bounded mobile and desktop derivatives (0.511683ms)
+(node:1505153) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/james.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ James quotations match the publisher snapshots, including verse-ending punctuation (78.181953ms)
-✔ James claims and comparison layers retain provenance, genre, limits and draft status (0.704216ms)
-(node:1473886) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/jonah-letters.test.ts is not specified and it doesn't parse as CommonJS.
+✔ James quotations match the publisher snapshots, including verse-ending punctuation (93.216051ms)
+✔ James claims and comparison layers retain provenance, genre, limits and draft status (2.714235ms)
+(node:1505159) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/jonah-letters.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ each displayed letter excerpt is verbatim in the frozen, scan-checked historical context (2.80904ms)
-✔ reception retains its evidence class, edition, rights, limitations and draft review boundary (0.739202ms)
-(node:1473892) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/lachish.test.ts is not specified and it doesn't parse as CommonJS.
+✔ each displayed letter excerpt is verbatim in the frozen, scan-checked historical context (3.590343ms)
+✔ reception retains its evidence class, edition, rights, limitations and draft review boundary (1.732979ms)
+(node:1505174) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/lachish.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Lachish claims retain evidence classification, limitations and existing sources (1.840166ms)
-✔ Lachish offline pins preserve five complete WEB chapters and reproducible public evidence (167.591311ms)
-✔ Lachish visual derivatives retain verified rights, hashes and a bounded download size (5.62277ms)
-✔ Lachish evidence URLs restore meaningful selections and reject unsupported values (0.709256ms)
-(node:1473899) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/media-publication.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Lachish claims retain evidence classification, limitations and existing sources (2.189117ms)
+✔ Lachish offline pins preserve five complete WEB chapters and reproducible public evidence (199.310633ms)
+✔ Lachish visual derivatives retain verified rights, hashes and a bounded download size (23.546266ms)
+✔ Lachish evidence URLs restore meaningful selections and reject unsupported values (0.646816ms)
+(node:1505175) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/media-publication.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ a license claim allows local review but cannot authorize public export (3.320323ms)
-✔ rights-cleared visuals need no creative approval, but audio retains its review gate (2.71316ms)
-✔ restricted rights do not render or publish (4.788157ms)
-✔ unresolved rights may render in review and must not publish (0.310665ms)
-✔ missing source and attribution are visible as flags, not filled in (0.263346ms)
-(node:1473934) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/network-diagnostics.test.ts is not specified and it doesn't parse as CommonJS.
+✔ a license claim allows local review but cannot authorize public export (7.755517ms)
+✔ rights-cleared visuals need no creative approval, but audio retains its review gate (8.815179ms)
+✔ restricted rights do not render or publish (0.845861ms)
+✔ unresolved rights may render in review and must not publish (0.263906ms)
+✔ missing source and attribution are visible as flags, not filled in (1.069742ms)
+(node:1505197) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/network-diagnostics.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ only observed same-origin GET Flight fetch cancellations are classified (1.799048ms)
-(node:1473939) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/nineveh.test.ts is not specified and it doesn't parse as CommonJS.
+✔ only observed same-origin GET Flight fetch cancellations are classified (1.918228ms)
+(node:1505215) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/nineveh.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Nineveh share links keep the passage and reject malformed or unknown discoveries (1.320688ms)
-✔ Nineveh local review refuses restricted, unverified, unattributed and unknown-license images (0.63197ms)
-(node:1473957) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/perpetua.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Nineveh share links keep the passage and reject malformed or unknown discoveries (1.642409ms)
+✔ Nineveh local review refuses restricted, unverified, unattributed and unknown-license images (0.779115ms)
+(node:1505236) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/perpetua.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ every prison scene retains passage evidence, separate voices and review status (8.01273ms)
-✔ shareable prison views preserve stable scenes and safely reject unrelated fragments (0.649083ms)
-(node:1473959) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/pliny-v3.test.ts is not specified and it doesn't parse as CommonJS.
+✔ every prison scene retains passage evidence, separate voices and review status (2.707873ms)
+✔ shareable prison views preserve stable scenes and safely reject unrelated fragments (0.679799ms)
+(node:1505245) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/pliny-v3.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ the new historical packet is fixed and every selected quotation is exact (2.387847ms)
-✔ every editorial paragraph has source coverage and remains a draft (0.538554ms)
-✔ the complete ruling and its conditions remain recoverable after the shorter ending (0.317117ms)
-✔ the original symbolic art has verified local files, bounded size and no historical pretense (0.974335ms)
-(node:1473972) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/pliny-v4.test.ts is not specified and it doesn't parse as CommonJS.
+✔ the new historical packet is fixed and every selected quotation is exact (4.350833ms)
+✔ every editorial paragraph has source coverage and remains a draft (1.173547ms)
+✔ the complete ruling and its conditions remain recoverable after the shorter ending (0.530669ms)
+✔ the original symbolic art has verified local files, bounded size and no historical pretense (0.702802ms)
+(node:1505246) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/pliny-v4.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Pliny V4 visual sources retain exact provenance, rights evidence, historical limits and bounded local derivatives (3.821497ms)
-(node:1473988) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/pliny.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Pliny V4 visual sources retain exact provenance, rights evidence, historical limits and bounded local derivatives (17.23198ms)
+(node:1505253) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/pliny.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ every Pliny quotation matches its pinned letter and retains a precise locator (2.504577ms)
-✔ all authored bridges have traceable source/locator coverage without claiming approval (1.373777ms)
-✔ the selected ruling keeps punishment, pardon and rejection of anonymous accusations together (0.331224ms)
-(node:1473989) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/publication.test.ts is not specified and it doesn't parse as CommonJS.
+✔ every Pliny quotation matches its pinned letter and retains a precise locator (2.778366ms)
+✔ all authored bridges have traceable source/locator coverage without claiming approval (1.590802ms)
+✔ the selected ruling keeps punishment, pardon and rejection of anonymous accusations together (0.279927ms)
+(node:1505259) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/publication.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ creator acceptance binds actor, date, evidence, both digests, exact scope and limitations (12.236635ms)
-✔ every companion maturity state has distinct visitor behavior without scene approval bureaucracy (9.513136ms)
-✔ source selection excludes unclassified and private entries plus orphan edges and evidence before serialization (6.457231ms)
-✔ byte inventory detects private data in all artifact types, encodings, binary media and compressed variants (10.839975ms)
-(node:1473990) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/release-gate-inventory.test.ts is not specified and it doesn't parse as CommonJS.
+✔ creator acceptance binds actor, date, evidence, both digests, exact scope and limitations (5.628847ms)
+✔ every companion maturity state has distinct visitor behavior without scene approval bureaucracy (10.775847ms)
+✔ source selection excludes unclassified and private entries plus orphan edges and evidence before serialization (5.826138ms)
+✔ byte inventory detects private data in all artifact types, encodings, binary media and compressed variants (20.054499ms)
+(node:1505278) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/release-gate-inventory.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ triage accounts for every release error, including repeated scene IDs (9.056727ms)
-✔ artifact audit catches placeholders in markup, JSON, RSC, JS and alternate routes (0.393682ms)
-✔ inventory reports actual exported routes without granting draft publication (4.495656ms)
-✔ legacy diagnostic preserves the original 68-item policy for historical comparison (1.475148ms)
-✔ adversarial probe: a plausible fabricated reviewer is not authenticated by validateStory (2.097199ms)
-✔ adversarial probe: historical certainty is not semantically verified (0.78564ms)
-✔ source and translation rights are required; draft graph validation is not approval (1.734597ms)
-✔ rights-cleared visual media do not require an unrelated generic approval stamp (0.212851ms)
-(node:1474002) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
+✔ triage accounts for every release error, including repeated scene IDs (12.498346ms)
+✔ artifact audit catches placeholders in markup, JSON, RSC, JS and alternate routes (0.566506ms)
+✔ inventory reports actual exported routes without granting draft publication (3.036611ms)
+✔ legacy diagnostic preserves the original 68-item policy for historical comparison (1.253277ms)
+✔ adversarial probe: a plausible fabricated reviewer is not authenticated by validateStory (1.204295ms)
+✔ adversarial probe: historical certainty is not semantically verified (0.908038ms)
+✔ source and translation rights are required; draft graph validation is not approval (1.82901ms)
+✔ rights-cleared visual media do not require an unrelated generic approval stamp (0.268815ms)
+(node:1505279) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/romanus.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (2.194724ms)
-✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (5.195996ms)
-(node:1474026) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/root-routing.test.ts is not specified and it doesn't parse as CommonJS.
+✔ every Romanus claim and expanded leaf keeps an identifiable source and locator (1.08434ms)
+✔ Romanus artwork retains verified rights, institutional provenance and exact local bytes (3.864589ms)
+(node:1505288) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/root-routing.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ old Nineveh beats, discoveries and accessibility anchors retain their entrance (1.594833ms)
-✔ Human Story anchors, tracking and unknown fragments do not select a legacy experience (0.298683ms)
-(node:1474029) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/seo.test.ts is not specified and it doesn't parse as CommonJS.
+✔ old Nineveh beats, discoveries and accessibility anchors retain their entrance (2.32837ms)
+✔ Human Story anchors, tracking and unknown fragments do not select a legacy experience (0.566866ms)
+(node:1505306) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/seo.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ publication-aware indexing fails closed without changing creator decisions (1.961685ms)
-(node:1474039) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/separation-reading.test.ts is not specified and it doesn't parse as CommonJS.
+✔ publication-aware indexing fails closed without changing creator decisions (2.131119ms)
+(node:1505307) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/separation-reading.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ guided moments preserve the established Wallis passage boundaries exactly (1.128485ms)
-(node:1474045) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/story.test.ts is not specified and it doesn't parse as CommonJS.
+✔ guided moments preserve the established Wallis passage boundaries exactly (1.758958ms)
+(node:1505318) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/story.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ story document keeps the three approved artworks; open images stay outside it (3.753178ms)
-✔ visitor copy requires actual approval; source slots and drafts remain intact (0.245533ms)
-✔ technical integrity does not authorize publication or require excluded private slots (0.8075ms)
-✔ malformed links cannot select unintended scenes (0.247596ms)
-✔ broken content and transitions are rejected before rendering (6.698045ms)
-✔ claim evidence needs scope, uncertainty, and interpretive lens (1.311129ms)
-(node:1474047) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/thomas-evidence.test.ts is not specified and it doesn't parse as CommonJS.
+✔ story document keeps the three approved artworks; open images stay outside it (8.274473ms)
+✔ visitor copy requires actual approval; source slots and drafts remain intact (0.438354ms)
+✔ technical integrity does not authorize publication or require excluded private slots (2.044726ms)
+✔ malformed links cannot select unintended scenes (0.497516ms)
+✔ broken content and transitions are rejected before rendering (21.400861ms)
+✔ claim evidence needs scope, uncertainty, and interpretive lens (4.256155ms)
+(node:1505319) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/thomas-evidence.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Thomas source encounters retain auditable sources and distinguish relationships (1.294188ms)
-(node:1474061) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Thomas source encounters retain auditable sources and distinguish relationships (1.373012ms)
+(node:1505333) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/thomas-media.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (10.533107ms)
-(node:1474068) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/thomas.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Thomas generated art has exact local bytes, bounded derivatives and disclosed limits (11.230232ms)
+(node:1505340) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/thomas.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ Thomas preserves every verse of John 20:24–29 and excludes publisher footnotes (57.492869ms)
-✔ the additional saying and witness explorer keep Coptic text distinct from partial Greek survival (0.28138ms)
-✔ Thomas source distinctions, witness identities, rights and review boundary remain explicit (0.298523ms)
-(node:1474076) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/visitor-story.test.ts is not specified and it doesn't parse as CommonJS.
+✔ Thomas preserves every verse of John 20:24–29 and excludes publisher footnotes (64.359187ms)
+✔ the additional saying and witness explorer keep Coptic text distinct from partial Greek survival (0.245191ms)
+✔ Thomas source distinctions, witness identities, rights and review boundary remain explicit (0.337384ms)
+(node:1505347) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/strawman3/Dev/biblemap/src/domain/visitor-story.test.ts is not specified and it doesn't parse as CommonJS.
 Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
 To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ visitor projection preserves Scripture, provenance, companions and media while omitting author records (2.599886ms)
-✔ new private fields and written drafts fail closed at the allowlisted boundary (0.901087ms)
-✔ export verifier rejects leaks on every artifact surface, including alternate URLs (4.023969ms)
-﹣ actual generated HTML, RSC, JS and JSON exclude private source data (0.093016ms) # SKIP
+✔ visitor projection preserves Scripture, provenance, companions and media while omitting author records (2.704878ms)
+✔ new private fields and written drafts fail closed at the allowlisted boundary (0.923847ms)
+✔ export verifier rejects leaks on every artifact surface, including alternate URLs (4.39678ms)
+﹣ actual generated HTML, RSC, JS and JSON exclude private source data (0.097773ms) # SKIP
 ℹ tests 86
 ℹ suites 1
 ℹ pass 85
@@ -209,4 +209,4 @@ To eliminate this warning, add "type": "module" to /home/strawman3/Dev/biblemap/
 ℹ cancelled 0
 ℹ skipped 1
 ℹ todo 0
-ℹ duration_ms 896.969835
+ℹ duration_ms 998.832684

@@ -4,6 +4,8 @@ import { HOME_CATALOG } from "../content/home-catalog.ts";
 import { HOME_CURATION } from "../content/home-curation.ts";
 import { VISITOR_HUMAN_GRAPH, selectedScope } from "../content/visitor-human-story.ts";
 import { selectHomepage } from "../domain/home-curation.ts";
+import { HUMAN_PATHS } from "../content/human-story-paths.ts";
+import { visitorMaturity } from "../domain/publication.ts";
 
 /** Read actual route modules before rendering, including static-param eligibility. */
 export function homepageAvailableRoutes() {
@@ -15,3 +17,9 @@ export function homepageAvailableRoutes() {
 }
 
 export const HOMEPAGE = selectHomepage(HOME_CURATION, HOME_CATALOG, selectedScope, homepageAvailableRoutes());
+
+/** Authored reading orders are discovery aids, not additional featured stories. */
+export const HOMEPAGE_PATHS = HUMAN_PATHS.filter(path => selectedScope.routes.some(route =>
+  route.route === `/human-story/paths/${path.id}/` && visitorMaturity(route.maturity),
+));
+if (HOMEPAGE_PATHS.length && !existsSync(resolve("src/app/human-story/paths/[path]/page.tsx"))) throw new Error("Unavailable homepage reading paths");

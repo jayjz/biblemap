@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HOMEPAGE } from "@/lib/homepage";
+import { HOMEPAGE, HOMEPAGE_PATHS } from "@/lib/homepage";
 import { HOME_INTRO } from "@/content/home-editorial";
 import { VISITOR_HUMAN_GRAPH } from "@/content/visitor-human-story";
 import { WORLDS } from "@/features/human-story/worlds";
@@ -35,7 +35,10 @@ export function ArchiveHome() {
       </section>
       <div className={styles.thread} id="paths">
         <p><span className={styles.kind}>An editorial connection</span><Link prefetch={false} href="/human-story/paths/a-name-under-pressure/">{comparison.label}<Arrow /></Link></p>
-        <details><summary>How are these lives connected?</summary><p>{comparison.note}</p>{comparisonSources.map(source => <a key={source.id} href={source.url}>{source.title} · {source.locator}</a>)}</details>
+        <div>
+          <details><summary>How are these lives connected?</summary><p>{comparison.note}</p>{comparisonSources.map(source => <a key={source.id} href={source.url}>{source.title} · {source.locator}</a>)}</details>
+          {HOMEPAGE_PATHS.length > 0 && <details><summary>All reading paths</summary><ul>{HOMEPAGE_PATHS.map(path => <li key={path.id}><Link prefetch={false} href={`/human-story/paths/${path.id}/`}>{path.title}</Link></li>)}</ul></details>}
+        </div>
       </div>
       <FeaturedEncounters />
       <section className={styles.discovery} id="discover" aria-labelledby="readings-title" tabIndex={-1}>

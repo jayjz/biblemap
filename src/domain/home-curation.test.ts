@@ -9,7 +9,7 @@ import { HOME_INVITATIONS } from "../content/home-editorial.ts";
 import { PLINY_V3_SOURCES } from "../content/pliny-v3.ts";
 import { PLINY_SOURCES } from "../content/pliny.ts";
 import { THOMAS_SOURCES } from "../content/thomas.ts";
-import { HOMEPAGE, homepageAvailableRoutes } from "../lib/homepage.ts";
+import { HOMEPAGE, HOMEPAGE_PATHS, homepageAvailableRoutes } from "../lib/homepage.ts";
 
 const available = homepageAvailableRoutes();
 const select = (curation = HOME_CURATION, scope = selectedScope, routes = available) => selectHomepage(curation, HOME_CATALOG, scope, routes);
@@ -23,6 +23,7 @@ test("creator curation is deterministic; all eligible readings remain discoverab
   assert.equal(new Set(HOMEPAGE.discovery.map(e => e.id)).size, HOMEPAGE.discovery.length);
   for (const entry of VISITOR_HUMAN_GRAPH.entries) assert.ok(HOMEPAGE.discovery.some(e => e.id === entry.id));
   assert.deepEqual(select(), select());
+  assert.deepEqual(HOMEPAGE_PATHS.map(path => path.id), ["a-word-crosses-centuries", "a-name-under-pressure", "a-life-in-another-life"]);
 });
 
 test("unknown, duplicate, ineligible and unavailable editorial selections fail explicitly", () => {

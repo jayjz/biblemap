@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { HOME_CURATION } from "../src/content/home-curation";
-import { HOMEPAGE } from "../src/lib/homepage";
+import { HOMEPAGE, HOMEPAGE_PATHS } from "../src/lib/homepage";
 
 const selection = [HOME_CURATION.hero, ...HOME_CURATION.featured];
 
@@ -77,6 +77,22 @@ test("source distinctions and historical limits remain available with a keyboard
   await expect(manuscript.getByRole("link", { name: "Source record & rights" })).toHaveAttribute("href", "https://www.themorgan.org/manuscript/110821");
   await page.getByText("How are these lives connected?", { exact: true }).click();
   await expect(page.getByText(/No direct causal connection between Pliny/)).toBeVisible();
+});
+
+test("legacy all-threads returns offer every eligible authored reading path", async ({ page, request }) => {
+  await page.goto("/#paths");
+  await page.getByText("All reading paths", { exact: true }).click();
+  for (const path of HOMEPAGE_PATHS) {
+    const link = page.locator("#paths").getByRole("link", { name: path.title, exact: true });
+    await expect(link).toBeVisible();
+    expect((await request.get(`/human-story/paths/${path.id}/`)).status()).toBe(200);
+  }
+  await page.locator("#paths").getByRole("link", { name: "A word crosses centuries", exact: true }).click();
+  await page.getByRole("link", { name: "All threads", exact: true }).click();
+  await expect(page).toHaveURL(/\/#paths$/);
+  await page.getByText("All reading paths", { exact: true }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#paths").getByRole("link", { name: "A life in another life", exact: true })).toBeVisible();
 });
 
 test("delayed and failed historical media preserve dimensions, provenance and all entrances", async ({ page }) => {
